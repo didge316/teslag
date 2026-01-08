@@ -4,3 +4,37 @@
 /wplink4.php    https://d061e8q2v47zfya8scml6ucs3p.hop.clickbank.net/?tid=wplink4
 /wplink-con.php    https://d061e8q2v47zfya8scml6ucs3p.hop.clickbank.net/?tid=wplinkcon
 /wplink-con2.php    https://d061e8q2v47zfya8scml6ucs3p.hop.clickbank.net/?tid=wplinkcon2
+
+# Home
+/                                /index.html                    301
+
+# Magnetic Generator Pages
+/homemade-magnetic-generator    /whole-house.html             301
+/how-to-build-a-magnetic-generator /build-a-magnetic-generator.html 301
+/energize-your-home-with-a-diy-magnetic-generator /diy-magnetic-generator.html 301
+/generate-electricity-using-magnets /electricity-using-magnets.html 301
+/free-electricity-from-magnets   /free-energy-from-magnets.html 301
+/free-energy-magnet-motor        /magnet-motor.html            301
+/how-to-make-free-electricity-at-home /How-to-Make-Free-Electricity-at-Home.html 301
+/how-much-noise                  /How-Much-Noise-Does-a-Free-Energy-Device-Make.html 301
+/you-will-never-see-a-magnetic-generator-for-sale /can-I-buy.html 301
+
+# Perpetual Motion Pages
+/perpetual-motion-machines       /perpetual-motion-generator.html 301
+/how-to-build-a-perpetual-motion-generator /build-a-perpetual-motion-generator.html 301
+
+# Solar and Free Energy Pages
+/solar-power                     /solar.html                   301
+/tesla-generator-scam            /magnetic-generator-scam.html 301
+/unleashing-the-power-of-free-energy /unleashing-the-power-of-free-energy.html 301
+/unleashing-the-magnet-magic-is-free-energy-possible /unleashing-the-magnet-magic-is-free-energy-possible.html 301
+
+# Tesla and Magnet Facts
+/tesla_wp/nikola-tesla-inventor-extraordinaire /nikola_tesla_inventor_extraordinaire.html 301
+/interesting-facts-about-magnets /7-interesting-facts-about-magnets.html 301
+
+# Magnetic Electricity / Energy
+/the-magnetic-dynamo-generator-explained /magnetic-dynamo-generator.html 301
+/can-we-use-magnets-to-generate-electricity-a-magnetic-marvel /can-we-use-magnets-to-generate-electricity-a-magnetic-marvel.html 301
+/is-magnetic-energy-renewable-or-nonrenewable /is-magnetic-energy-renewable-or-nonrenewable.html 301
+/renewable-energy-using-magnets-a-magnetic-revolution /renewable-energy-using-magnets-a-magnetic-revolution.html 301
