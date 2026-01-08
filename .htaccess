@@ -1,0 +1,37 @@
+# Enable Rewrite Engine
+RewriteEngine On
+RewriteBase /
+
+# Home
+RewriteRule ^$ /index.html [R=301,L]
+
+# Magnetic Generator Pages
+RewriteRule ^homemade-magnetic-generator/?$ /whole-house.html [R=301,L]
+RewriteRule ^how-to-build-a-magnetic-generator/?$ /build-a-magnetic-generator.html [R=301,L]
+RewriteRule ^energize-your-home-with-a-diy-magnetic-generator/?$ /diy-magnetic-generator.html [R=301,L]
+RewriteRule ^generate-electricity-using-magnets/?$ /electricity-using-magnets.html [R=301,L]
+RewriteRule ^free-electricity-from-magnets/?$ /free-electricity-from-magnets.html [R=301,L]
+RewriteRule ^free-energy-magnet-motor/?$ /magnet-motor.html [R=301,L]
+RewriteRule ^how-to-make-free-electricity-at-home/?$ /How-to-Make-Free-Electricity-at-Home.html [R=301,L]
+RewriteRule ^how-much-noise/?$ /How-Much-Noise-Does-a-Free-Energy-Device-Make.html [R=301,L]
+RewriteRule ^you-will-never-see-a-magnetic-generator-for-sale/?$ /can-I-buy.html [R=301,L]
+
+# Perpetual Motion Pages
+RewriteRule ^perpetual-motion-machines/?$ /perpetual-motion-generator.html [R=301,L]
+RewriteRule ^how-to-build-a-perpetual-motion-generator/?$ /build-a-perpetual-motion-generator.html [R=301,L]
+
+# Solar and Free Energy Pages
+RewriteRule ^solar-power/?$ /solar.html [R=301,L]
+RewriteRule ^tesla-generator-scam/?$ /magnetic-generator-scam.html [R=301,L]
+RewriteRule ^unleashing-the-power-of-free-energy/?$ /unleashing-the-power-of-free-energy.html [R=301,L]
+RewriteRule ^unleashing-the-magnet-magic-is-free-energy-possible/?$ /unleashing-the-magnet-magic-is-free-energy-possible.html [R=301,L]
+
+# Tesla and Magnet Facts
+RewriteRule ^tesla_wp/nikola-tesla-inventor-extraordinaire/?$ /nikola_tesla_inventor_extraordinaire.html [R=301,L]
+RewriteRule ^interesting-facts-about-magnets/?$ /7-interesting-facts-about-magnets.html [R=301,L]
+
+# Magnetic Electricity / Energy
+RewriteRule ^the-magnetic-dynamo-generator-explained/?$ /magnetic-dynamo-generator.html [R=301,L]
+RewriteRule ^can-we-use-magnets-to-generate-electricity-a-magnetic-marvel/?$ /can-we-use-magnets-to-generate-electricity-a-magnetic-marvel.html [R=301,L]
+RewriteRule ^is-magnetic-energy-renewable-or-nonrenewable/?$ /is-magnetic-energy-renewable-or-nonrenewable.html [R=301,L]
+RewriteRule ^renewable-energy-using-magnets-a-magnetic-revolution/?$ /renewable-energy-using-magnets-a-magnetic-revolution.html [R=301,L]
