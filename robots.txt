@@ -1,13 +1,7 @@
 # robots.txt for teslamagneticgenerator.com
-# Allow all search engines to crawl the site except restricted folders
 
 User-agent: *
-Disallow: /wp-admin/
-Disallow: /wp-includes/
-Disallow: /cgi-bin/
-Disallow: /tmp/
-Disallow: /private/
-Allow: /wp-admin/admin-ajax.php
+Disallow:
 
 # Sitemap location
 Sitemap: https://teslamagneticgenerator.com/sitemap.xml
