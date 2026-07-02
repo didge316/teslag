@@ -1,0 +1,43 @@
+# Tesla Magnetic Generator
+
+> A DIY resource for building magnetic generators and going off-grid, based on Nikola Tesla's designs. Written by Jake Mercer, a DIY enthusiast and off-grid homeowner in rural Colorado.
+
+## About
+
+Jake Mercer is a DIY enthusiast who has built four magnetic generators and gone fully off-grid. This site covers the practical experience of building and running magnetic generators, comparisons with solar power, and honest answers to common questions about "free energy" devices.
+
+## Main Pages
+
+- [Home](https://teslamagneticgenerator.com/): Overview of Tesla magnetic generators and what they can do
+- [Build a Magnetic Generator](https://teslamagneticgenerator.com/build-a-magnetic-generator.html): Step-by-step guide to building your first magnetic generator
+- [Power Your Whole Home](https://teslamagneticgenerator.com/whole-house.html): Can a magnetic generator power an entire house?
+- [DIY Magnetic Generator](https://teslamagneticgenerator.com/diy-magnetic-generator.html): Energize your home with a DIY magnetic generator
+- [Perpetual Motion Generator](https://teslamagneticgenerator.com/perpetual-motion-generator.html): The truth about perpetual motion machines
+- [Build a Perpetual Motion Generator](https://teslamagneticgenerator.com/build-a-perpetual-motion-generator.html): How to build one and save thousands
+- [Free Energy Magnet Motor](https://teslamagneticgenerator.com/magnet-motor.html): How the free energy magnet motor works
+- [Generate Electricity Using Magnets](https://teslamagneticgenerator.com/electricity-using-magnets.html): How magnets generate electricity
+- [Free Electricity From Magnets](https://teslamagneticgenerator.com/free-electricity-from-magnets.html): Generating free electricity using magnetic fields
+- [How to Make Free Electricity at Home](https://teslamagneticgenerator.com/How-to-Make-Free-Electricity-at-Home.html): Practical home electricity generation
+- [Magnetic Generator Scam?](https://teslamagneticgenerator.com/magnetic-generator-scam.html): Separating fact from fiction
+- [You'll Never See One For Sale](https://teslamagneticgenerator.com/can-I-buy.html): Why magnetic generators aren't commercially available
+- [Solar vs Magnetic Energy](https://teslamagneticgenerator.com/solar.html): Comparing solar power and magnetic generators
+- [Nikola Tesla - Inventor Extraordinaire](https://teslamagneticgenerator.com/nikola-tesla-inventor-extraordinaire.html): Tesla's life and hidden inventions
+- [7 Interesting Facts About Magnets](https://teslamagneticgenerator.com/7-interesting-facts-about-magnets.html): Magnet science and applications
+- [The Magnetic Dynamo Generator](https://teslamagneticgenerator.com/magnetic-dynamo-generator.html): How magnetic dynamo generators work
+- [How Much Noise Do They Make?](https://teslamagneticgenerator.com/How-Much-Noise-Does-a-Free-Energy-Device-Make.html): Noise levels for magnetic generators
+- [Is Magnetic Energy Renewable?](https://teslamagneticgenerator.com/is-magnetic-energy-renewable-or-nonrenewable.html): Classifying magnetic energy
+- [Can Magnets Generate Electricity?](https://teslamagneticgenerator.com/can-we-use-magnets-to-generate-electricity-a-magnetic-marvel.html): The science behind magnetic electricity generation
+- [Renewable Energy Using Magnets](https://teslamagneticgenerator.com/renewable-energy-using-magnets-a-magnetic-revolution.html): Magnets and the renewable energy revolution
+- [Unleashing Free Energy](https://teslamagneticgenerator.com/unleashing-the-power-of-free-energy.html): The potential of free energy devices
+- [Is Free Energy Possible?](https://teslamagneticgenerator.com/unleashing-the-magnet-magic-is-free-energy-possible.html): Honest assessment of free energy claims
+- [About Jake Mercer](https://teslamagneticgenerator.com/about.html): Who writes this site and why
+
+## Key Topics
+
+- DIY magnetic generator construction
+- Tesla generator blueprints and plans
+- Off-grid electricity generation
+- Perpetual motion generators
+- Magnetic energy vs solar power
+- Free energy devices
+- Nikola Tesla's suppressed inventions
