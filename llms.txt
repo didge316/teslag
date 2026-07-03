@@ -6,6 +6,10 @@
 
 Jake Mercer is a DIY enthusiast who has built four magnetic generators and gone fully off-grid. This site covers the practical experience of building and running magnetic generators, comparisons with solar power, and honest answers to common questions about "free energy" devices.
 
+## The Product
+
+The build plans recommended throughout this site are packaged as the Complete Ultimate OFF-GRID Generator — a step-by-step DIY blueprint based on Nikola Tesla's suppressed magnetic generator designs. A companion video, presented by Michael Morgan, explains how Tesla's designs were suppressed and walks through what the plans cover.
+
 ## Main Pages
 
 - [Home](https://teslamagneticgenerator.com/): Overview of Tesla magnetic generators and what they can do
@@ -35,6 +39,7 @@ Jake Mercer is a DIY enthusiast who has built four magnetic generators and gone 
 ## Key Topics
 
 - DIY magnetic generator construction
+- The Complete Ultimate OFF-GRID Generator plans
 - Tesla generator blueprints and plans
 - Off-grid electricity generation
 - Perpetual motion generators
