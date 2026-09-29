@@ -1,0 +1,77 @@
+{
+  "keyword": "how much electricity does a magnetic generator produce",
+  "folder": "how-much-electricity-does-a-magnetic-generator-produce",
+  "source_count": 10,
+  "sources": [
+    {
+      "url": "https://www.greef-energy.com/blog/magnetic-generator-and-how-it-works/",
+      "title": "What is a Magnetic Generator and How Does It Work?",
+      "snippet": "Comprehensive explanation of how magnetic generators produce electricity. Covers principles of electromagnetism, components, design, and real-world output capabilities.",
+      "domain": "greef-energy.com",
+      "relevance_score": 0.95
+    },
+    {
+      "url": "https://home.howstuffworks.com/home-improvement/construction/how-to-build-magnetic-generator.htm",
+      "title": "How to Build a Magnetic Generator | HowStuffWorks",
+      "snippet": "Homemade magnetic generators can be less efficient and produce less power compared to conventional power sources, often serving as supplemental rather than primary power.",
+      "domain": "howstuffworks.com",
+      "relevance_score": 0.92
+    },
+    {
+      "url": "https://www.planetswater.co.uk/solutions/permanent-magnetic-power-generators/",
+      "title": "Permanent Magnetic Power Generators",
+      "snippet": "Silent perpetual magnetic generator models range from 2kW to 1.5mW, offering flexibility for various applications. Real output numbers for different PMG sizes.",
+      "domain": "planetswater.co.uk",
+      "relevance_score": 0.90
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=rwlgu8_d1Fs",
+      "title": "Top 10 Free electricity energy 3400000KW 220v magnetic generator with light bulb at home",
+      "snippet": "Demonstrates a magnetic generator producing claimed 3400000KW at 220V. Tests output with light bulbs and measures actual electricity production.",
+      "domain": "youtube.com",
+      "relevance_score": 0.87
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=GpA312H9yjU",
+      "title": "Get 220 volt 6000 watts Electricity From Magnetic Gear And Copper Coil",
+      "snippet": "Produces 220V and 6000 watts from magnetic gear and copper coil. Real-world demonstration of magnetic generator electricity output.",
+      "domain": "youtube.com",
+      "relevance_score": 0.85
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=MjvoTatxK4Y",
+      "title": "This $40 Magnetic Mill Makes FREE Electricity 24/7 Forever. Why Is the Energy Industry Silent?",
+      "snippet": "The magnetic mill is not perpetual motion and does not violate thermodynamics. It simply produces continuous electricity through magnetic principles.",
+      "domain": "youtube.com",
+      "relevance_score": 0.82
+    },
+    {
+      "url": "https://www.hsmagnets.com/blog/magnetic-energy/",
+      "title": "Magnetic Energy - Magnets By HSMAG",
+      "snippet": "Magnetic energy can make electrical power without the need for any kind of external fuel source. The electromagnetic field created by magnets is explored.",
+      "domain": "hsmagnets.com",
+      "relevance_score": 0.80
+    },
+    {
+      "url": "https://www.researchgate.net/publication/339285020_DESIGN_AND_FABRICATION_OF_MAGNETIC_GENERATOR_USING_NEODYMIUM_MAGNETS",
+      "title": "Design and Fabrication of Magnetic Generator Using Neodymium Magnets",
+      "snippet": "A neodymium magnet-based generator can produce up to 5 volts. Research on practical output capabilities for small-scale magnetic generators.",
+      "domain": "researchgate.net",
+      "relevance_score": 0.78
+    },
+    {
+      "url": "https://www.eia.gov/energyexplained/electricity/magnets-and-electricity.php",
+      "title": "Magnets and electricity - U.S. Energy Information Administration",
+      "snippet": "Electrons spinning around an atom's center create a tiny magnetic field. How magnets relate to electricity generation in power plants and generators.",
+      "domain": "eia.gov",
+      "relevance_score": 0.75
+    },
+    {
+      "url": "https://hyprowira.com/en/blog/magnet-generator",
+      "title": "Explanation of Magnet Generators and Their Functions",
+      "snippet": "A magnetic generator is produced from a permanent magnet that is not a coil. It generates magnetic flux energy and converts mechanical energy into electrical energy.",
+      "domain": "hyprowira.com",
+      "relevance_score": 0.72
+    }
+  ]
+}

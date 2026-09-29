@@ -1,0 +1,77 @@
+{
+  "keyword": "Tesla magnetic generator cost savings per month",
+  "folder": "tesla-magnetic-generator-cost-savings-per-month",
+  "source_count": 10,
+  "sources": [
+    {
+      "url": "https://medium.com/@vyshnavpanangatt123/how-i-built-a-tesla-inspired-home-energy-system-and-what-i-learned-along-the-way-cf6dc46b684d",
+      "title": "How I Built a Tesla-Inspired Home Energy System (And What I Learned)",
+      "snippet": "My electricity bill dropped from around $140–190/month to $75–90/month. That's about a 50% reduction. Not the 80% some people claim, but still significant monthly savings.",
+      "domain": "medium.com",
+      "relevance_score": 0.96
+    },
+    {
+      "url": "https://energy-revolution-system-reviews.alboompro.com/post/energy-revolution-system-reviews-my",
+      "title": "My Results After Testing This DIY Power Generator!",
+      "snippet": "Over a full month, the system saved me approximately $31 on my electricity bill. Ran calculations based on actual results from a three-bedroom home.",
+      "domain": "alboompro.com",
+      "relevance_score": 0.94
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=43IDHLgkdxc",
+      "title": "The $30 Magnet That Powers Any Home for Free Forever — And Ends Every Electric Bill",
+      "snippet": "Savings from a device that costs less than two hundred dollars in materials. A properly built magnetic generator provides ongoing monthly bill reduction.",
+      "domain": "youtube.com",
+      "relevance_score": 0.90
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=MjvoTatxK4Y",
+      "title": "This $40 Magnetic Mill Makes FREE Electricity 24/7 Forever. Why Is the Energy Industry Silent?",
+      "snippet": "This $40 magnetic mill makes free electricity 24/7. Total maintenance costs under four hundred dollars over nearly seventy years. Massive long-term savings.",
+      "domain": "youtube.com",
+      "relevance_score": 0.88
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=9BjT8jn2apE",
+      "title": "Stop Paying Bills: DIY Homemade Magnetic Generator Free Power Under $100",
+      "snippet": "A homemade magnetic generator can be a backup power source, an off grid power solution, and a way to lower your monthly utility costs significantly.",
+      "domain": "youtube.com",
+      "relevance_score": 0.85
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=mg8BI33GxLo",
+      "title": "Free Electricity Anywhere: DIY Magnetic Generator Under $50 Slashes Bills",
+      "snippet": "Step-by-step guide to building a low-cost magnetic power generator under $50 that slashes electricity bills. DIY approach with hardware store materials.",
+      "domain": "youtube.com",
+      "relevance_score": 0.83
+    },
+    {
+      "url": "https://www.scribd.com/doc/57350400/Magnetic-Electricity-Generator",
+      "title": "Magnetic Generator Construction Guide",
+      "snippet": "The generator can power an entire household and eliminate electricity bills, saving over $20,000 over 20 years. Building a magnetic generator costs around $200.",
+      "domain": "scribd.com",
+      "relevance_score": 0.82
+    },
+    {
+      "url": "https://www.planetswater.co.uk/solutions/permanent-magnetic-power-generators/",
+      "title": "Permanent Magnetic Power Generators",
+      "snippet": "There is no need for fuel or extensive maintenance, making PMGs a cost-effective energy generation option in the long run. Silent perpetual operation.",
+      "domain": "planetswater.co.uk",
+      "relevance_score": 0.78
+    },
+    {
+      "url": "https://www.stanfordmagnets.com/10-reasons-permanent-magnet-generators-are-more-efficient.html",
+      "title": "10 Reasons Permanent Magnet Generators Are More Efficient",
+      "snippet": "By eliminating excitation coils, PMGs show a 30- to 40-percent reduction in total copper-related heating and energy waste. Direct-drive efficiency of 94-98%.",
+      "domain": "stanfordmagnets.com",
+      "relevance_score": 0.75
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=POG_0SKOIeI",
+      "title": "This $40 MAGNETIC MILL Makes FREE Electricity 24/7. No Fuel NEEDED!!",
+      "snippet": "Save $1278/yr with this free off-grid magnetic mill. The Passive House Files offers a free guide to calculating your potential monthly savings.",
+      "domain": "youtube.com",
+      "relevance_score": 0.72
+    }
+  ]
+}

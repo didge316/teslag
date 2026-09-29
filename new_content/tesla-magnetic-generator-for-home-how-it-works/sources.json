@@ -1,0 +1,77 @@
+{
+  "keyword": "Tesla magnetic generator for home how it works",
+  "folder": "tesla-magnetic-generator-for-home-how-it-works",
+  "source_count": 10,
+  "sources": [
+    {
+      "url": "https://medium.com/@vyshnavpanangatt123/how-i-built-a-tesla-inspired-home-energy-system-and-what-i-learned-along-the-way-cf6dc46b684d",
+      "title": "How I Built a Tesla-Inspired Home Energy System (And What I Learned)",
+      "snippet": "The coils are flat (like pancakes) rather than cylindrical, which changes how the magnetic fields interact. Step-by-step breakdown of building a Tesla-inspired home energy system.",
+      "domain": "medium.com",
+      "relevance_score": 0.96
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ogbAAKoKc7U",
+      "title": "Nikola Tesla's Hidden Invention Just Got Rebuilt – And It Works!",
+      "snippet": "Explores the Liberty Engine 2.0 — an off-grid, self-running generator inspired by Tesla's lost dreams. Shows how it works for home power.",
+      "domain": "youtube.com",
+      "relevance_score": 0.93
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=43IDHLgkdxc",
+      "title": "The $30 Magnet That Powers Any Home for Free Forever — And Ends Every Electric Bill",
+      "snippet": "The truth is more practical than the hype. A properly built magnetic generator does not produce infinite free energy but powers homes effectively.",
+      "domain": "youtube.com",
+      "relevance_score": 0.90
+    },
+    {
+      "url": "https://www.instructables.com/Tesla-Free-Energy-Air-Circuit-Design-and-Testing/",
+      "title": "Tesla Free Energy Air Circuit Design and Testing",
+      "snippet": "Build Tesla's free energy air circuit. Accumulates energy in batteries or capacitor banks for useful home power. Step-by-step design and testing guide.",
+      "domain": "instructables.com",
+      "relevance_score": 0.87
+    },
+    {
+      "url": "https://www.planetswater.co.uk/solutions/permanent-magnetic-power-generators/",
+      "title": "Permanent Magnetic Power Generators",
+      "snippet": "Magnetic Power Generators (PMGs) operate on the principles of magnetic attraction and repulsion to create a perpetual motion system for continuous electricity generation.",
+      "domain": "planetswater.co.uk",
+      "relevance_score": 0.85
+    },
+    {
+      "url": "https://netzeroguide.com/tesla-generator-plans/",
+      "title": "Tesla Generator Plans - Net Zero Guide",
+      "snippet": "The Tesla Generator is a simple machine which converts magnetic energy, first into kinetic energy, which is then turned into electrical current. Detailed plans included.",
+      "domain": "netzeroguide.com",
+      "relevance_score": 0.82
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=NmkA-vI3--I",
+      "title": "Nikola Tesla's 130-Year-Old Generator (Why It Still Works)",
+      "snippet": "Explore the engineering genius behind Nikola Tesla's AC generator and how it revolutionized the modern world. Detailed technical explanation.",
+      "domain": "youtube.com",
+      "relevance_score": 0.80
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=KARZruGyoXM",
+      "title": "How to Generate Electricity Using Magnets | Simple Generator Build",
+      "snippet": "DIY electricity generator experiment. Learn how to generate electricity using magnets and build a simple generator for home use.",
+      "domain": "youtube.com",
+      "relevance_score": 0.78
+    },
+    {
+      "url": "https://www.advancedtomfoolery.com/nikolatesla/generator.htm",
+      "title": "Nikola Tesla's Fuelless Generator - AdvancedTomFoolery",
+      "snippet": "Both a generator and a motor disk are mounted in the magnetic enclosure. As the disks gain speed, current is produced which reinforces the magnets.",
+      "domain": "advancedtomfoolery.com",
+      "relevance_score": 0.75
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=smEtzp_wXUA",
+      "title": "Tesla's 1901 Atmospheric Generator — I Left It Running for a Week, Here's the Honest Output",
+      "snippet": "Tesla's 1901 atmospheric generator tested for a full week. Honest output measurements for DIY home power plant building.",
+      "domain": "youtube.com",
+      "relevance_score": 0.72
+    }
+  ]
+}

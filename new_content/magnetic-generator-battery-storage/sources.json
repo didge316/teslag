@@ -1,0 +1,77 @@
+{
+  "keyword": "magnetic generator battery storage",
+  "folder": "magnetic-generator-battery-storage",
+  "source_count": 10,
+  "sources": [
+    {
+      "url": "https://www.linkedin.com/pulse/permanent-magnet-shaft-generators-battery-energy-storage-firdauzi--xgtfc",
+      "title": "Permanent Magnet Shaft Generators and Battery Energy Storage",
+      "snippet": "At the heart of the hybrid concept is a permanent magnet generator directly coupled to the output shaft. Battery storage integration for continuous power.",
+      "domain": "linkedin.com",
+      "relevance_score": 0.94
+    },
+    {
+      "url": "https://hub.stellantis.com/article/the-science-backed-blueprint-for-generating-electricity-with-magnets-at-home",
+      "title": "The Science-Backed Blueprint for Generating Electricity with Magnets at Home",
+      "snippet": "Use a deep-cycle battery (like a 12V lead-acid or lithium-ion) to store DC power. For AC output, pair your generator with an inverter.",
+      "domain": "stellantis.com",
+      "relevance_score": 0.92
+    },
+    {
+      "url": "https://www.planetswater.co.uk/solutions/permanent-magnetic-power-generators/",
+      "title": "Permanent Magnetic Power Generators",
+      "snippet": "Combining PMGs with solar power creates a robust system. Battery storage integration for continuous power generation.",
+      "domain": "planetswater.co.uk",
+      "relevance_score": 0.90
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=43IDHLgkdxc",
+      "title": "The $30 Magnet That Powers Any Home for Free Forever — And Ends Every Electric Bill",
+      "snippet": "A properly built magnetic generator paired with battery storage provides reliable power. Accumulate energy in batteries or capacitor banks.",
+      "domain": "youtube.com",
+      "relevance_score": 0.87
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=ogbAAKoKc7U",
+      "title": "Nikola Tesla's Hidden Invention Just Got Rebuilt – And It Works!",
+      "snippet": "The Liberty Engine 2.0 with battery storage integration. Off-grid self-running generator paired with energy storage.",
+      "domain": "youtube.com",
+      "relevance_score": 0.85
+    },
+    {
+      "url": "https://www.eia.gov/energyexplained/electricity/energy-storage-for-electricity-generation.php",
+      "title": "Energy storage for electricity generation - U.S. Energy Information Administration",
+      "snippet": "Energy storage systems use electricity to charge batteries, flywheels, supercapacitors, and superconducting magnetic energy storage.",
+      "domain": "eia.gov",
+      "relevance_score": 0.82
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=9BjT8jn2apE",
+      "title": "Stop Paying Bills: DIY Homemade Magnetic Generator Free Power Under $100",
+      "snippet": "A homemade magnetic generator paired with battery storage for off-grid power. Lower monthly utility costs with DIY energy storage.",
+      "domain": "youtube.com",
+      "relevance_score": 0.80
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=14kMaEr-tdI",
+      "title": "Build a $40 DIY Magnetic Generator for FREE Off-Grid Electricity 24/7",
+      "snippet": "Build a DIY magnetic generator with battery storage for continuous off-grid electricity. Step-by-step guide.",
+      "domain": "youtube.com",
+      "relevance_score": 0.78
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=xx6A5P7E8OE",
+      "title": "Ultimate Off-Grid Power, Top 5 Permanent Magnet Generators Reviewed",
+      "snippet": "Top 5 permanent magnet generators reviewed with battery storage integration. Complete off-grid power solutions.",
+      "domain": "youtube.com",
+      "relevance_score": 0.75
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=MjvoTatxK4Y",
+      "title": "This $40 Magnetic Mill Makes FREE Electricity 24/7 Forever. Why Is the Energy Industry Silent?",
+      "snippet": "A $40 magnetic mill with battery storage for continuous electricity. No fuel, no engine noise.",
+      "domain": "youtube.com",
+      "relevance_score": 0.72
+    }
+  ]
+}

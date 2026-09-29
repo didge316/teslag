@@ -1,0 +1,77 @@
+{
+  "keyword": "magnetic generator for emergency backup",
+  "folder": "magnetic-generator-for-emergency-backup",
+  "source_count": 10,
+  "sources": [
+    {
+      "url": "https://www.stanfordmagnets.com/permanent-magnet-generator-an-overview.html",
+      "title": "Permanent Magnet Generator: An Overview",
+      "snippet": "Compact and efficient PMGs are useful in portable generators, providing a reliable power source for outdoor activities, construction sites, and emergency backup.",
+      "domain": "stanfordmagnets.com",
+      "relevance_score": 0.93
+    },
+    {
+      "url": "https://www.stanfordmagnets.com/common-uses-of-permanent-magnet-generators.html",
+      "title": "Common Uses of Permanent Magnet Generators (PMGs)",
+      "snippet": "PMGs are used in portable power generators, often found in off-grid applications such as emergency backup power, remote areas, and outdoor activities.",
+      "domain": "stanfordmagnets.com",
+      "relevance_score": 0.91
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=bksGr5KCqLQ",
+      "title": "Top 5 Best Powerful Permanent Magnet Generators in 2026",
+      "snippet": "Top 5 permanent magnet generators for 2026 covering backup power solutions, DIY energy applications, and portable power needs.",
+      "domain": "youtube.com",
+      "relevance_score": 0.88
+    },
+    {
+      "url": "https://www.jackery.com/blogs/buying-advice/best-small-backup-generators",
+      "title": "Ultimate Guide to the Best Small Backup Generators",
+      "snippet": "Home backup systems, camping solar generators, RV solar generators, and off-grid generators. Portable power for emergencies and outdoor adventures.",
+      "domain": "jackery.com",
+      "relevance_score": 0.85
+    },
+    {
+      "url": "https://woodstockpower.com/blog/electric-generator-how-it-works/",
+      "title": "Electric Generator: How it Works to Provide Backup Power",
+      "snippet": "Since internal fuel powers generators, they do not depend on a local grid, making them reliable, convenient, and safe in emergencies.",
+      "domain": "woodstockpower.com",
+      "relevance_score": 0.83
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=F_dUSfKIdGs",
+      "title": "Best Permanent Magnet Generators 2026 | Off-Grid Energy Solutions",
+      "snippet": "For power backup, choosing the right permanent magnet generator can make a big difference. Off-grid energy solutions for homes and emergencies.",
+      "domain": "youtube.com",
+      "relevance_score": 0.80
+    },
+    {
+      "url": "https://erayakpower.com/blogs/boundless-energy/diy-generator-projects-building-your-own-simple-generator",
+      "title": "DIY Generator Project: Build a Simple Magnet & Coil Generator",
+      "snippet": "Build your own simple generator with magnets and coils. Is a homemade generator safe for emergency backup? Complete guide with answers.",
+      "domain": "erayakpower.com",
+      "relevance_score": 0.78
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=4uG3FcnYha8",
+      "title": "Best Small Power Stations of 2025 — Ultimate Power for Emergency's",
+      "snippet": "After testing multiple portable power stations, ranked by output and reliability for emergency backup, off-grid trips, and everyday on-the-go charging.",
+      "domain": "youtube.com",
+      "relevance_score": 0.75
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=43IDHLgkdxc",
+      "title": "The $30 Magnet That Powers Any Home for Free Forever — And Ends Every Electric Bill",
+      "snippet": "A properly built magnetic generator provides meaningful savings and serves as an excellent emergency backup power source for homes.",
+      "domain": "youtube.com",
+      "relevance_score": 0.73
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=9BjT8jn2apE",
+      "title": "Stop Paying Bills: DIY Homemade Magnetic Generator Free Power Under $100",
+      "snippet": "A homemade magnetic generator can be a backup power source, an off grid power solution, and a way to lower your monthly utility costs.",
+      "domain": "youtube.com",
+      "relevance_score": 0.70
+    }
+  ]
+}
