@@ -22,7 +22,9 @@
       "title": "Top 5 Best Powerful Permanent Magnet Generators in 2026",
       "snippet": "Top 5 permanent magnet generators for 2026 covering backup power solutions, DIY energy applications, and portable power needs.",
       "domain": "youtube.com",
-      "relevance_score": 0.88
+      "relevance_score": 0.88,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.jackery.com/blogs/buying-advice/best-small-backup-generators",
@@ -43,7 +45,9 @@
       "title": "Best Permanent Magnet Generators 2026 | Off-Grid Energy Solutions",
       "snippet": "For power backup, choosing the right permanent magnet generator can make a big difference. Off-grid energy solutions for homes and emergencies.",
       "domain": "youtube.com",
-      "relevance_score": 0.80
+      "relevance_score": 0.8,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://erayakpower.com/blogs/boundless-energy/diy-generator-projects-building-your-own-simple-generator",
@@ -57,21 +61,27 @@
       "title": "Best Small Power Stations of 2025 — Ultimate Power for Emergency's",
       "snippet": "After testing multiple portable power stations, ranked by output and reliability for emergency backup, off-grid trips, and everyday on-the-go charging.",
       "domain": "youtube.com",
-      "relevance_score": 0.75
+      "relevance_score": 0.75,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.youtube.com/watch?v=43IDHLgkdxc",
       "title": "The $30 Magnet That Powers Any Home for Free Forever — And Ends Every Electric Bill",
       "snippet": "A properly built magnetic generator provides meaningful savings and serves as an excellent emergency backup power source for homes.",
       "domain": "youtube.com",
-      "relevance_score": 0.73
+      "relevance_score": 0.73,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.youtube.com/watch?v=9BjT8jn2apE",
       "title": "Stop Paying Bills: DIY Homemade Magnetic Generator Free Power Under $100",
       "snippet": "A homemade magnetic generator can be a backup power source, an off grid power solution, and a way to lower your monthly utility costs.",
       "domain": "youtube.com",
-      "relevance_score": 0.70
+      "relevance_score": 0.7,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     }
   ]
 }

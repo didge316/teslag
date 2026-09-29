@@ -1186,7 +1186,8 @@
           "text": "قناتي."
         }
       ],
-      "hasTranscript": true
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     }
   ]
 }

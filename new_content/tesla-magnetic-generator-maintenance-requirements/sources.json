@@ -22,7 +22,9 @@
       "title": "This $40 Magnetic Mill Makes FREE Electricity 24/7 Forever. Why Is the Energy Industry Silent?",
       "snippet": "Total maintenance costs under four hundred dollars over nearly seventy years of continuous operation. Extremely low maintenance requirements.",
       "domain": "youtube.com",
-      "relevance_score": 0.90
+      "relevance_score": 0.9,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.stanfordmagnets.com/permanent-magnet-generator-an-overview.html",
@@ -36,42 +38,52 @@
       "title": "The $30 Magnet That Powers Any Home for Free Forever — And Ends Every Electric Bill",
       "snippet": "A properly built magnetic generator requires minimal maintenance. No fuel, no oil changes, no spark plugs — just magnets and coils.",
       "domain": "youtube.com",
-      "relevance_score": 0.85
+      "relevance_score": 0.85,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.youtube.com/watch?v=ogbAAKoKc7U",
       "title": "Nikola Tesla's Hidden Invention Just Got Rebuilt – And It Works!",
       "snippet": "The Liberty Engine 2.0 is tested for maintenance requirements. Self-running design means minimal ongoing upkeep.",
       "domain": "youtube.com",
-      "relevance_score": 0.82
+      "relevance_score": 0.82,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.stanfordmagnets.com/common-uses-of-permanent-magnet-generators.html",
       "title": "Common Uses of Permanent Magnet Generators (PMGs)",
       "snippet": "PMGs are used in off-grid applications where maintenance access is limited. Their reliability makes them ideal for remote installations.",
       "domain": "stanfordmagnets.com",
-      "relevance_score": 0.80
+      "relevance_score": 0.8
     },
     {
       "url": "https://www.youtube.com/watch?v=9BjT8jn2apE",
       "title": "Stop Paying Bills: DIY Homemade Magnetic Generator Free Power Under $100",
       "snippet": "A homemade magnetic generator offers low maintenance costs. No engine means no oil changes, filter replacements, or fuel system maintenance.",
       "domain": "youtube.com",
-      "relevance_score": 0.78
+      "relevance_score": 0.78,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.youtube.com/watch?v=14kMaEr-tdI",
       "title": "Build a $40 DIY Magnetic Generator for FREE Off-Grid Electricity 24/7",
       "snippet": "Step-by-step breakdown of building a low-maintenance magnetic generator. Minimal ongoing costs for continuous power generation.",
       "domain": "youtube.com",
-      "relevance_score": 0.75
+      "relevance_score": 0.75,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.youtube.com/watch?v=xx6A5P7E8OE",
       "title": "Ultimate Off-Grid Power, Top 5 Permanent Magnet Generators Reviewed",
       "snippet": "Top 5 permanent magnet generators reviewed for maintenance requirements. Comparison of long-term upkeep costs across different models.",
       "domain": "youtube.com",
-      "relevance_score": 0.72
+      "relevance_score": 0.72,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     }
   ]
 }

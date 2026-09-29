@@ -22,14 +22,18 @@
       "title": "3 Methods of using Tesla's bifilar coil and differences between a monofilar and bifilar coil",
       "snippet": "Shows the difference between Nikola Tesla's bifilar and monofilar coil. Explains Tesla's original patent description of the coil for electromagnets.",
       "domain": "youtube.com",
-      "relevance_score": 0.92
+      "relevance_score": 0.92,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.youtube.com/watch?v=5B58pEh8F3E",
       "title": "Magnetic and Dielectric fields of the Bifilar Coil Visualized",
       "snippet": "Nikola Tesla's patent 512340 describes his bifilar coil. Its fields are rather unique, as the coil also behaves as a capacitor. Visualized magnetic and dielectric fields.",
       "domain": "youtube.com",
-      "relevance_score": 0.90
+      "relevance_score": 0.9,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://teslauniverse.com/nikola-tesla/articles/teslas-alternative-geometry-coil",
@@ -43,7 +47,9 @@
       "title": "Wireless Electricity GEGENE Generator Tesla Bifilar Coil Patent N° 512340",
       "snippet": "High-efficiency electrical generator using the power of Nikola Tesla's Bifilar Pancake Coil (Patent N° 512340). Demonstrates wireless electricity generation.",
       "domain": "youtube.com",
-      "relevance_score": 0.85
+      "relevance_score": 0.85,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.scribd.com/document/78882094/Tesla-Sekrety",
@@ -57,7 +63,7 @@
       "title": "Bifilar coil - Wikipedia",
       "snippet": "A bifilar coil is an electromagnetic coil that contains two closely spaced, parallel windings. In electrical engineering, the word bifilar describes wire configurations used in Tesla's designs.",
       "domain": "wikipedia.org",
-      "relevance_score": 0.80
+      "relevance_score": 0.8
     },
     {
       "url": "https://community.thermaltake.com/index.php?/topic/743423-~energy-revolution-system-review-blueprints-claims-reality-is-this-diy-power-system-worth-trying/",

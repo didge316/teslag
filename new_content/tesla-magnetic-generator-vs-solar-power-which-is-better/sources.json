@@ -8,7 +8,9 @@
       "title": "The $30 Magnet That Powers Any Home for Free Forever — And Ends Every Electric Bill",
       "snippet": "The truth is more practical than the hype suggests. A properly built magnetic generator does not produce infinite free energy but offers meaningful savings compared to solar.",
       "domain": "youtube.com",
-      "relevance_score": 0.93
+      "relevance_score": 0.93,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://medium.com/@vyshnavpanangatt123/how-i-built-a-tesla-inspired-home-energy-system-and-what-i-learned-along-the-way-cf6dc46b684d",
@@ -22,14 +24,16 @@
       "title": "Permanent Magnetic Power Generators",
       "snippet": "Combining PMGs with solar power creates a robust and resilient energy generation system that can operate in various weather conditions. Both technologies complement each other.",
       "domain": "planetswater.co.uk",
-      "relevance_score": 0.90
+      "relevance_score": 0.9
     },
     {
       "url": "https://www.youtube.com/watch?v=sbdU7AkH6QM",
       "title": "Reviewing Free Energy Generators. A Response to My Video 'Nikola Tesla's Greatest Invention'",
       "snippet": "Reviews various free energy generators and compares them to solar. Suggests adding solar panels to the roof for a hybrid approach since magnet generators alone have limitations.",
       "domain": "youtube.com",
-      "relevance_score": 0.87
+      "relevance_score": 0.87,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.stanfordmagnets.com/off-grid-solutions-powering-homes-beyond-the-grid.html",
@@ -43,35 +47,43 @@
       "title": "Nikola Tesla's Hidden Invention Just Got Rebuilt – And It Works!",
       "snippet": "Explores the Liberty Engine 2.0, an off-grid self-running generator. Questions whether it can replace solar panels for continuous home power generation.",
       "domain": "youtube.com",
-      "relevance_score": 0.83
+      "relevance_score": 0.83,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.instructables.com/Tesla-Free-Energy-Air-Circuit-Design-and-Testing/",
       "title": "Tesla Free Energy Air Circuit Design and Testing",
       "snippet": "Building Tesla's free energy air circuit. Accumulates energy in batteries or capacitor banks for useful power. Tests whether it can compete with solar installations.",
       "domain": "instructables.com",
-      "relevance_score": 0.80
+      "relevance_score": 0.8
     },
     {
       "url": "https://www.youtube.com/watch?v=lyTogCVjQNs",
       "title": "TOP 5 BEST permanent magnet free energy generator IN 2026",
       "snippet": "Top permanent magnet free energy generators for 2026, comparing cost, efficiency, and output against solar panel alternatives for home power.",
       "domain": "youtube.com",
-      "relevance_score": 0.78
+      "relevance_score": 0.78,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.youtube.com/watch?v=POG_0SKOIeI",
       "title": "This $40 MAGNETIC MILL Makes FREE Electricity 24/7. No Fuel NEEDED!!",
       "snippet": "Stop paying utility monopolies — save $1278/yr with this free off-grid magnetic mill. Compare the costs and benefits vs traditional solar panel installations.",
       "domain": "youtube.com",
-      "relevance_score": 0.75
+      "relevance_score": 0.75,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.youtube.com/watch?v=guzxYLEn3nU",
       "title": "No Fuel, No Bills: The Generator of the Future",
       "snippet": "Using only magnetic force, it produces clean continuous electricity — no fuel, no emissions, no monthly bills. Compared to solar which needs panels and batteries.",
       "domain": "youtube.com",
-      "relevance_score": 0.72
+      "relevance_score": 0.72,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     }
   ]
 }

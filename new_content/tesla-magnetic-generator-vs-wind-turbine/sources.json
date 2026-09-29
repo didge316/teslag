@@ -8,21 +8,25 @@
       "title": "The $30 Magnet That Powers Any Home for Free Forever — And Ends Every Electric Bill",
       "snippet": "A properly built magnetic generator compared to wind turbines. Both produce renewable energy but with different advantages and limitations.",
       "domain": "youtube.com",
-      "relevance_score": 0.92
+      "relevance_score": 0.92,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.planetswater.co.uk/solutions/permanent-magnetic-power-generators/",
       "title": "Permanent Magnetic Power Generators",
       "snippet": "Combining PMGs with solar power creates a robust system. PMGs vs wind turbines: comparing efficiency, noise, and maintenance.",
       "domain": "planetswater.co.uk",
-      "relevance_score": 0.90
+      "relevance_score": 0.9
     },
     {
       "url": "https://www.youtube.com/watch?v=ogbAAKoKc7U",
       "title": "Nikola Tesla's Hidden Invention Just Got Rebuilt – And It Works!",
       "snippet": "The Liberty Engine 2.0 — an off-grid self-running generator. Compared to wind turbines for continuous home power generation.",
       "domain": "youtube.com",
-      "relevance_score": 0.87
+      "relevance_score": 0.87,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.stanfordmagnets.com/off-grid-solutions-powering-homes-beyond-the-grid.html",
@@ -36,14 +40,18 @@
       "title": "Stop Paying Bills: DIY Homemade Magnetic Generator Free Power Under $100",
       "snippet": "A DIY magnetic generator vs wind turbine. Compare costs, output, and practicality for home power generation.",
       "domain": "youtube.com",
-      "relevance_score": 0.82
+      "relevance_score": 0.82,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.youtube.com/watch?v=xx6A5P7E8OE",
       "title": "Ultimate Off-Grid Power, Top 5 Permanent Magnet Generators Reviewed",
       "snippet": "Top 5 permanent magnet generators reviewed. Compared to wind turbines for ultimate off-grid power applications.",
       "domain": "youtube.com",
-      "relevance_score": 0.80
+      "relevance_score": 0.8,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.hurricanewindpower.com/permanent-magnet-alternator-generator",
@@ -57,21 +65,27 @@
       "title": "This $40 Magnetic Mill Makes FREE Electricity 24/7 Forever. Why Is the Energy Industry Silent?",
       "snippet": "A $40 magnetic mill that operates silently 24/7. Compared to wind turbines for continuous off-grid power.",
       "domain": "youtube.com",
-      "relevance_score": 0.75
+      "relevance_score": 0.75,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.youtube.com/watch?v=14kMaEr-tdI",
       "title": "Build a $40 DIY Magnetic Generator for FREE Off-Grid Electricity 24/7",
       "snippet": "Build a DIY magnetic generator vs wind turbine. Compare costs, output, and practicality for off-grid electricity.",
       "domain": "youtube.com",
-      "relevance_score": 0.72
+      "relevance_score": 0.72,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.youtube.com/watch?v=POG_0SKOIeI",
       "title": "This $40 MAGNETIC MILL Makes FREE Electricity 24/7. No Fuel NEEDED!!",
       "snippet": "Save $1278/yr with this free off-grid magnetic mill. Compared to wind turbine alternatives for home power.",
       "domain": "youtube.com",
-      "relevance_score": 0.70
+      "relevance_score": 0.7,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     }
   ]
 }

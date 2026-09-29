@@ -9154,7 +9154,8 @@
           "text": "[Music]"
         }
       ],
-      "hasTranscript": true
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.facebook.com/ranacraft.onnet/videos/awesome-free-perpetual-magnetic-generator-idea-i-created/1885973628750815/",
@@ -9170,7 +9171,7 @@
       "domain": "youtube.com",
       "relevance_score": 0.8,
       "hasTranscript": false,
-      "transcriptError": "Error fetching transcript: Transcripts are disabled for the video with ID \"g_xkn1WLl_M\". This may be due to the video owner disabling captions or the video not supporting transcripts."
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.facebook.com/diybalconygarden/videos/build-a-powerful-magnetic-free-energy-generator-permanent-magnet-motor-diy/1354480142426688/",
@@ -10027,7 +10028,8 @@
           "text": "video."
         }
       ],
-      "hasTranscript": true
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.youtube.com/watch?v=ktPRmoFTZS0",
@@ -10125,7 +10127,8 @@
           "text": "[Music]"
         }
       ],
-      "hasTranscript": true
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.youtube.com/watch?v=KY54mH-NkhA",
@@ -11043,7 +11046,8 @@
           "text": "video."
         }
       ],
-      "hasTranscript": true
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.amazon.com/Generator-Generation-High-Pressure-Experimental-Equipment/dp/B0GRFJP496",

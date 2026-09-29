@@ -91,7 +91,8 @@
           "text": "you"
         }
       ],
-      "hasTranscript": true
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.youtube.com/watch?v=pRxFFrnm1_k",
@@ -577,7 +578,8 @@
           "text": "الفيديو القادم."
         }
       ],
-      "hasTranscript": true
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.youtube.com/watch?v=9gxba0Sy6WY",
@@ -586,7 +588,7 @@
       "domain": "youtube.com",
       "relevance_score": 0.8,
       "hasTranscript": false,
-      "transcriptError": "Error fetching transcript: Transcripts are disabled for the video with ID \"9gxba0Sy6WY\". This may be due to the video owner disabling captions or the video not supporting transcripts."
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.tiktok.com/discover/tesla-with-a-generator",
@@ -2230,7 +2232,8 @@
           "text": "I appreciate all your support, and thanks"
         }
       ],
-      "hasTranscript": true
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.instagram.com/popular/tesla-generator/?hl=en",

@@ -22,7 +22,7 @@
       "title": "Magnetic Generator Construction Guide",
       "snippet": "Building a magnetic generator costs around $200 in materials and can be constructed following freely available online guides. Complete construction guide included.",
       "domain": "scribd.com",
-      "relevance_score": 0.90
+      "relevance_score": 0.9
     },
     {
       "url": "https://bucketeer-54c224c2-e505-4a32-a387-75720cbeb257.s3.amazonaws.com/page/energyrevolutionsystem/video/energy-revolution-system-top-customer-reviews-rxx2lq.html",
@@ -36,21 +36,27 @@
       "title": "Nikola Tesla's Hidden Invention Just Got Rebuilt – And It Works!",
       "snippet": "Liberty Engine 2.0 off-grid self-running generator. See what materials are needed to rebuild Tesla's hidden invention and test its power output.",
       "domain": "youtube.com",
-      "relevance_score": 0.85
+      "relevance_score": 0.85,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.youtube.com/watch?v=14kMaEr-tdI",
       "title": "Build a $40 DIY Magnetic Generator for FREE Off-Grid Electricity 24/7",
       "snippet": "Step-by-step breakdown on how to build a $40 DIY magnetic generator. Learn which materials to buy and why utility companies keep this tech out of mainstream.",
       "domain": "youtube.com",
-      "relevance_score": 0.83
+      "relevance_score": 0.83,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.youtube.com/watch?v=9BjT8jn2apE",
       "title": "Stop Paying Bills: DIY Homemade Magnetic Generator Free Power Under $100",
       "snippet": "Build a homemade magnetic generator for under $100. Complete materials list and step-by-step guide for off-grid power and lowering utility costs.",
       "domain": "youtube.com",
-      "relevance_score": 0.80
+      "relevance_score": 0.8,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.scribd.com/document/486769994/free-electricity-generator-a-free-electricity-generator",
@@ -64,14 +70,18 @@
       "title": "Free Electricity Anywhere: DIY Magnetic Generator Under $50 Slashes Bills",
       "snippet": "Step-by-step digital guide showing how to construct a low cost magnetic power generator at home using simple hardware store materials for under $50.",
       "domain": "youtube.com",
-      "relevance_score": 0.75
+      "relevance_score": 0.75,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     },
     {
       "url": "https://www.youtube.com/watch?v=43IDHLgkdxc",
       "title": "The $30 Magnet That Powers Any Home for Free Forever — And Ends Every Electric Bill",
       "snippet": "A properly built magnetic generator costs less than $200 in materials. The first law of thermodynamics still applies but savings are real.",
       "domain": "youtube.com",
-      "relevance_score": 0.72
+      "relevance_score": 0.72,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
     }
   ]
 }
