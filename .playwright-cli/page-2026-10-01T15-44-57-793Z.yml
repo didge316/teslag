@@ -1,0 +1,178 @@
+- generic [ref=f1e4]:
+  - navigation [ref=f1e5]:
+    - generic [ref=f1e6]:
+      - generic [ref=f1e7]:
+        - link "Unsplash Home" [ref=f1e8] [cursor=pointer]:
+          - /url: /
+          - img "Unsplash Home" [ref=f1e9]
+        - link "Photos" [ref=f1e11] [cursor=pointer]:
+          - /url: /
+        - link "Illustrations" [ref=f1e14] [cursor=pointer]:
+          - /url: /illustrations
+      - generic [ref=f1e17]:
+        - button "Explore" [ref=f1e18] [cursor=pointer]
+        - button "Collections" [ref=f1e21] [cursor=pointer]
+        - button "Download History" [ref=f1e24] [cursor=pointer]
+      - button "Bookmarks" [ref=f1e28] [cursor=pointer]
+    - generic [ref=f1e31]:
+      - link "Log in / Sign up" [ref=f1e32] [cursor=pointer]:
+        - /url: /login?referrer=%2Fs%2Fphotos%2Fmiddle-aged-man-portrait
+      - button "Language" [ref=f1e35] [cursor=pointer]
+      - button "Menu" [ref=f1e38] [cursor=pointer]
+  - generic [ref=f1e41]:
+    - generic [ref=f1e42]:
+      - navigation [ref=f1e43]:
+        - search "Find visuals sitewide" [ref=f1e45]:
+          - button "Search Unsplash" [ref=f1e46] [cursor=pointer]
+          - combobox [ref=f1e49]:
+            - searchbox "Search Unsplash" [ref=f1e50]: middle aged man portrait
+            - listbox
+          - button "Clear" [ref=f1e51] [cursor=pointer]
+          - button "Visual search" [ref=f1e56] [cursor=pointer]
+        - generic [ref=f1e59]:
+          - link "Get Unsplash+" [ref=f1e60] [cursor=pointer]:
+            - /url: /plus
+          - link "Log in" [ref=f1e61] [cursor=pointer]:
+            - /url: /login?referrer=%2Fs%2Fphotos%2Fmiddle-aged-man-portrait
+        - button "Submit an image" [ref=f1e63] [cursor=pointer]
+      - generic [ref=f1e64]:
+        - generic [ref=f1e70]:
+          - list [ref=f1e71]:
+            - listitem [ref=f1e72]:
+              - link "Photos 1.8k":
+                - /url: /s/photos/middle-aged-man-portrait
+                - text: Photos
+                - generic: 1.8k
+            - listitem [ref=f1e73]:
+              - link "Illustrations 5" [ref=f1e74] [cursor=pointer]:
+                - /url: /s/illustrations/middle-aged-man-portrait
+                - text: Illustrations
+                - generic [ref=f1e77]: "5"
+            - listitem [ref=f1e78]:
+              - button "More" [ref=f1e79] [cursor=pointer]
+          - generic [ref=f1e82]:
+            - button "License" [ref=f1e83] [cursor=pointer]
+            - button "Orientation" [ref=f1e89] [cursor=pointer]
+            - button "Sort by Relevance" [ref=f1e95] [cursor=pointer]
+        - generic [ref=f1e101]:
+          - heading "Middle aged man portrait" [level=1] [ref=f1e103]
+          - generic [ref=f1e107]:
+            - link "middle aged man" [ref=f1e109] [cursor=pointer]:
+              - /url: /s/photos/middle-aged-man
+            - link "man" [ref=f1e111] [cursor=pointer]:
+              - /url: /s/photos/man
+            - link "portrait" [ref=f1e113] [cursor=pointer]:
+              - /url: /s/photos/portrait
+            - link "grey hair" [ref=f1e115] [cursor=pointer]:
+              - /url: /s/photos/grey-hair
+            - link "beard" [ref=f1e117] [cursor=pointer]:
+              - /url: /s/photos/beard
+            - link "headshot" [ref=f1e119] [cursor=pointer]:
+              - /url: /s/photos/headshot
+            - link "mature man" [ref=f1e121] [cursor=pointer]:
+              - /url: /s/photos/mature-man
+            - link "maturity" [ref=f1e123] [cursor=pointer]:
+              - /url: /s/photos/maturity
+            - link "middle aged" [ref=f1e125] [cursor=pointer]:
+              - /url: /s/photos/middle-aged
+            - link "face" [ref=f1e127] [cursor=pointer]:
+              - /url: /s/photos/face
+            - link "person" [ref=f1e129] [cursor=pointer]:
+              - /url: /s/photos/person
+            - link "aging gracefully" [ref=f1e131] [cursor=pointer]:
+              - /url: /s/photos/aging-gracefully
+        - generic [ref=f1e133]:
+          - generic [ref=f1e137]:
+            - generic [ref=f1e138]:
+              - figure [ref=f1e139]:
+                - link [ref=f1e142]:
+                  - /url: /photos/a-man-with-a-beard-and-a-white-shirt-d1pXcQ-4fAU
+                  - img "a man with a beard and a white shirt" [ref=f1e143]
+              - generic [ref=f1e144]:
+                - heading "Sponsored images" [level=4] [ref=f1e145]
+                - generic [ref=f1e154]: ––– – –– –– – –– –––– ––– ––––
+              - figure [ref=f1e155]:
+                - link [ref=f1e158]:
+                  - /url: /photos/a-smiling-man-with-a-grey-beard-wearing-necklaces-_E3pDFPfBBk
+                  - img "A smiling man with a grey beard wearing necklaces" [ref=f1e159]
+              - figure [ref=f1e160]:
+                - link [ref=f1e163]:
+                  - /url: /photos/casual-grey-haired-mature-handsome-man-portrait-over-dark-blue-wall-background-_4A6H3r9DBw
+                  - img "Casual Grey-haired Mature handsome man portrait over dark blue wall background" [ref=f1e164]
+              - figure [ref=f1e165]:
+                - link [ref=f1e168]:
+                  - /url: /photos/elderly-asian-man-in-plaid-shirt-against-gray-background-EnvYpRPH9Rg
+                  - img "Elderly asian man in plaid shirt against gray background" [ref=f1e169]
+              - figure [ref=f1e170]:
+                - link [ref=f1e173]:
+                  - /url: /photos/a-man-in-a-tank-top-is-looking-at-the-camera-1KHKQ7bC7ec
+                  - img "a man in a tank top is looking at the camera" [ref=f1e174]
+              - figure [ref=f1e175]:
+                - link [ref=f1e178]:
+                  - /url: /photos/casual-grey-haired-mature-handsome-man-portrait-over-dark-blue-wall-background-Ifp9CcAbotU
+                  - img "Casual Grey-haired Mature handsome man portrait over dark blue wall background" [ref=f1e179]
+              - figure [ref=f1e180]:
+                - link [ref=f1e183]:
+                  - /url: /photos/an-older-asian-man-wearing-a-plaid-shirt-pWPFsDXgt04
+                  - img "An older asian man wearing a plaid shirt" [ref=f1e184]
+            - generic [ref=f1e185]:
+              - figure [ref=f1e186]:
+                - link [ref=f1e189]:
+                  - /url: /photos/low-light-photography-of-man-wearing-blue-collared-shirt-yyvx_eYqtKY
+                  - img "low-light photography of man wearing blue collared shirt" [ref=f1e190]
+              - figure [ref=f1e191]:
+                - link [ref=f1e194]:
+                  - /url: /photos/a-smiling-man-with-arms-crossed-on-gray-background-vhj1DvszLZU
+                  - img "A smiling man with arms crossed on gray background" [ref=f1e195]
+              - figure [ref=f1e196]:
+                - link [ref=f1e199]:
+                  - /url: /photos/a-bald-man-standing-in-front-of-a-body-of-water-cTTxdAmCVC4
+                  - img "a bald man standing in front of a body of water" [ref=f1e200]
+              - figure [ref=f1e201]:
+                - link [ref=f1e204]:
+                  - /url: /photos/black-and-white-portrait-of-an-older-man-with-mustache-zMgWMCCraXM
+                  - img "Black and white portrait of an older man with mustache" [ref=f1e205]
+              - figure [ref=f1e206]:
+                - link [ref=f1e209]:
+                  - /url: /photos/man-with-beard-and-ponytail-against-dark-background-CaKzWFlTtVw
+                  - img "Man with beard and ponytail against dark background" [ref=f1e210]
+              - figure [ref=f1e211]:
+                - link [ref=f1e214]:
+                  - /url: /photos/man-with-mustache-smiles-in-black-and-white-outdoor-setting-qB7kYNvXXw4
+                  - img "Man with mustache smiles in black and white outdoor setting" [ref=f1e215]
+              - figure [ref=f1e216]:
+                - link [ref=f1e219]:
+                  - /url: /photos/man-with-a-cap-and-sunglasses-on-his-face-beard-q2Syh07LWKY
+                  - img "Man with a cap and sunglasses on his face beard" [ref=f1e220]
+              - figure [ref=f1e221]:
+                - link [ref=f1e224]:
+                  - /url: /photos/a-man-with-a-beard-looking-thoughtfully-at-the-camera-YiWstYmy8dA
+                  - img "A man with a beard looking thoughtfully at the camera" [ref=f1e225]
+            - generic [ref=f1e226]:
+              - figure [ref=f1e227]:
+                - link [ref=f1e230]:
+                  - /url: /photos/an-older-man-with-a-checkered-scarf-and-blue-shirt-tbfz5wkEwW0
+                  - img "An older man with a checkered scarf and blue shirt" [ref=f1e231]
+              - figure [ref=f1e232]:
+                - link [ref=f1e235]:
+                  - /url: /photos/a-smiling-man-wearing-a-puffer-vest-outdoors-LE9Y6zXxHDw
+                  - img "A smiling man wearing a puffer vest outdoors" [ref=f1e236]
+              - figure [ref=f1e237]:
+                - link [ref=f1e240]:
+                  - /url: /photos/a-black-and-white-photo-of-a-man-in-a-crowd-U2lG0BENWQI
+                  - img "a black and white photo of a man in a crowd" [ref=f1e241]
+              - figure [ref=f1e242]:
+                - link [ref=f1e245]:
+                  - /url: /photos/a-man-with-curly-hair-sits-with-his-hands-clasped-89t3OW7fErY
+                  - img "A man with curly hair sits with his hands clasped" [ref=f1e246]
+              - figure [ref=f1e247]:
+                - link [ref=f1e250]:
+                  - /url: /photos/man-with-sunglasses-smiles-outdoors-bMfk8zHXuW4
+                  - img "Man with sunglasses smiles outdoors" [ref=f1e251]
+          - button "Load more" [ref=f1e256] [cursor=pointer]
+          - generic [ref=f1e257]:
+            - link [ref=f1e258] [cursor=pointer]:
+              - /url: /
+            - paragraph [ref=f1e261]: Make something awesome
+    - generic:
+      - region "Notifications"
