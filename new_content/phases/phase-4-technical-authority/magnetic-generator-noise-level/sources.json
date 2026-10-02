@@ -1,0 +1,89 @@
+{
+  "keyword": "magnetic generator noise level",
+  "folder": "magnetic-generator-noise-level",
+  "source_count": 10,
+  "sources": [
+    {
+      "url": "https://www.planetswater.co.uk/solutions/permanent-magnetic-power-generators/",
+      "title": "Permanent Magnetic Power Generators",
+      "snippet": "Silent perpetual magnetic generator models range from 2kW to 1.5mW. PMGs are known for their quiet operation compared to fuel-powered generators.",
+      "domain": "planetswater.co.uk",
+      "relevance_score": 0.92
+    },
+    {
+      "url": "https://www.stanfordmagnets.com/10-reasons-permanent-magnet-generators-are-more-efficient.html",
+      "title": "10 Reasons Permanent Magnet Generators Are More Efficient",
+      "snippet": "PMGs provide high efficiency with minimal noise. Direct-drive designs eliminate gear noise, making them among the quietest generators available.",
+      "domain": "stanfordmagnets.com",
+      "relevance_score": 0.9
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=MjvoTatxK4Y",
+      "title": "This $40 Magnetic Mill Makes FREE Electricity 24/7 Forever. Why Is the Energy Industry Silent?",
+      "snippet": "A magnetic mill that operates silently 24/7. Total maintenance costs under four hundred dollars over nearly seventy years. No fuel, no engine noise.",
+      "domain": "youtube.com",
+      "relevance_score": 0.87,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
+    },
+    {
+      "url": "https://www.rv.com/gear-accessories/wander-off-grid-and-stay-there-longer-with-the-cummins-onan-qg-i-df-family-of-rv-generators/",
+      "title": "Wander Off-Grid with a Cummins Onan QG i DF Generator",
+      "snippet": "New RV generators use permanent magnetic alternator technology and vibration-isolating mounts. Quiet, clean, and efficient for off-grid camping.",
+      "domain": "rv.com",
+      "relevance_score": 0.85
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=xx6A5P7E8OE",
+      "title": "Ultimate Off-Grid Power, Top 5 Permanent Magnet Generators Reviewed",
+      "snippet": "Top 5 permanent magnet generators reviewed for off-grid power. Noise levels compared across different models and power outputs.",
+      "domain": "youtube.com",
+      "relevance_score": 0.82,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
+    },
+    {
+      "url": "https://www.hurricanewindpower.com/permanent-magnet-alternator-generator",
+      "title": "Hurricane Permanent Magnet Alternator",
+      "snippet": "Hurricane permanent magnet alternators are designed for quiet operation in wind power and DIY solar applications. Large selection for renewable energy projects.",
+      "domain": "hurricanewindpower.com",
+      "relevance_score": 0.8
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=43IDHLgkdxc",
+      "title": "The $30 Magnet That Powers Any Home for Free Forever — And Ends Every Electric Bill",
+      "snippet": "A properly built magnetic generator operates silently. No moving parts that create significant noise in the basic design.",
+      "domain": "youtube.com",
+      "relevance_score": 0.78,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=9BjT8jn2apE",
+      "title": "Stop Paying Bills: DIY Homemade Magnetic Generator Free Power Under $100",
+      "snippet": "A homemade magnetic generator operates quietly. No engine, no exhaust — just magnetic fields producing electricity silently.",
+      "domain": "youtube.com",
+      "relevance_score": 0.75,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=4uG3FcnYha8",
+      "title": "Best Small Power Stations of 2025 — Ultimate Power for Emergency's",
+      "snippet": "Portable power stations and magnetic generators compared for noise levels. Silent operation is key for home and outdoor use.",
+      "domain": "youtube.com",
+      "relevance_score": 0.72,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=14kMaEr-tdI",
+      "title": "Build a $40 DIY Magnetic Generator for FREE Off-Grid Electricity 24/7",
+      "snippet": "Learn why utility companies and strict zoning laws keep this incredible tech out of mainstream. Silent operation is a major advantage.",
+      "domain": "youtube.com",
+      "relevance_score": 0.7,
+      "hasTranscript": false,
+      "transcriptError": "No transcript available"
+    }
+  ]
+}

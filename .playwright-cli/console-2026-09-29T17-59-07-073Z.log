@@ -1,0 +1,2 @@
+[    2376ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://api.gofile.io/accounts/website:0
+[    2378ms] [WARNING] [accounts] dropping account eb4e2d1f-bed0-41fc-9b13-c5872698588d: token rejected by the API @ https://gofile.io/js/accounts/accountService.js:87

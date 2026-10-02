@@ -1,0 +1,34 @@
+[    2810ms] [ERROR] Failed to load resource: net::ERR_BLOCKED_BY_CLIENT @ https://brittlesturdyunlovable.com/lv/esnk/2035294/code.js:0
+[ 1690766ms] [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://cdn.search.brave.com/serp/v3/_app/immutable/assets/inter-cyrillic-wght-normal.DqGufNeO.woff2 @ https://search.brave.com/search?q=Cookery+Expressions&source=desktop:0
+[ 1692265ms] [ERROR] Failed to load resource: the server responded with a status of 429 () @ https://imgs.search.brave.com/_1Lc1BcV6swaPvPXC17eO2H8jfSPqFLtuT6X53N5mlM/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9taXJv/Lm1lZGl1bS5jb20v/MSpKYUtHZGZlYlhL/SV9vb2RVTHhjUFlB/LmpwZWc:0
+[ 1702685ms] [ERROR] Failed to load resource: the server responded with a status of 403 () @ https://imgs.search.brave.com/O71dgP0lO4vKmNFzO98D7ZtbgKSUmEwDANHmkGsuEL4/rs:fit:200:200:1:0/g:ce/aHR0cHM6Ly9zY29u/dGVudC1kZnc1LTMu/eHguZmJjZG4ubmV0/L3YvdDM5LjMwODA4/LTEvMjQxODA3ODQ2/XzQ4MDAwNDU0OTAw/MTAwMjlfNTY0NzAz/MTQ3NzY2NDEwMDYw/MF9uLmpwZz9zdHA9/ZHN0LWpwZ190dDYm/YW1wO2NzdHA9bXg3/MTl4NzE5JmFtcDtj/dHA9czcxOXg3MTkm/YW1wO19uY19jYXQ9/MTA4JmFtcDtjY2I9/MS03JmFtcDtfbmNf/c2lkPTNhYjM0NSZh/bXA7X25jX29oYz1i/YlZUeG5yVXB4Y1E3/a052d0hWeFU0YiZh/bXA7X25jX29jPUFk/azlmM3FFdWUtYnZR/c3BIMmlvWlpLak5J/M3dGX3hzSTdYQkhX/ZExVR0FsV3pkcHJi/bVJkaVZrUnR3cE11/N2F2MWsmYW1wO19u/Y196dD0yNCZhbXA7/X25jX2h0PXNjb250/ZW50LWRmdzUtMy54/eCZhbXA7X25jX2dp/ZD0ybWNKdWE4UHh6/NE8zR2g0VnJhb0xR/JmFtcDtvaD0wMF9B/ZlQtMUl3QWFSMEdK/cmJSQTU3dG0yZXJv/N3dUSmw0Rm5Ib0pV/a1FXaVBrZ0t3JmFt/cDtvZT02ODhERDVB/MQ:0
+[ 1719047ms] [LOG] JQMIGRATE: Migrate is installed, version 3.4.1 @ https://cookeryexpressions.co.in/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1:1
+[ 1719075ms] [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://cookeryexpressions.co.in/wp-content/uploads/elementor/google-fonts/fonts/josefinsans-qw3azqnved7rkgkxtqiqx5eudxx4.woff2 @ https://cookeryexpressions.co.in/:1993
+[ 1719076ms] [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://cookeryexpressions.co.in/wp-content/uploads/elementor/google-fonts/fonts/berkshireswash-ptrrti-cavzogqcvnnjdl5m5xmn_qs4z.woff2 @ https://cookeryexpressions.co.in/:1993
+[ 1719076ms] [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://cookeryexpressions.co.in/wp-content/uploads/elementor/google-fonts/fonts/josefinsans-qw3ezqnved7rkgkxtqiqx5eucex6xhg.woff2 @ https://cookeryexpressions.co.in/:1993
+[ 1719370ms] [ERROR] Failed to load resource: net::ERR_BLOCKED_BY_CLIENT @ https://connect.facebook.net/en_US/fbevents.js:0
+[ 1719381ms] [ERROR] Failed to load resource: net::ERR_BLOCKED_BY_CLIENT @ https://cdn.mouseflow.com/projects/97f735cb-c9ac-403e-942c-d60fedbe6a08.js:0
+[ 1720672ms] ReferenceError: GetChatApp is not defined
+    at HTMLDocument.<anonymous> (https://cookeryexpressions.co.in/:2126:19)
+[ 1723072ms] [WARNING] [BCM.native][global] Failed to parse incoming message: SyntaxError: Unexpected token 'r', "recaptcha-setup" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:2:211565 @ chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:1
+[ 1724903ms] [WARNING] [BCM.native][global] Failed to parse incoming message: SyntaxError: Unexpected token 'r', "recaptcha-setup" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:2:211565 @ chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:1
+[ 1724922ms] [ERROR] requestStorageAccess: Permission denied. @ https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LdLr7EZAAAAAPmE_LOmWTYMZnWIzCZiggMbyBoZ&co=aHR0cHM6Ly9jb29rZXJ5ZXhwcmVzc2lvbnMuY28uaW46NDQz&hl=en&v=kemdRjWFxNjgsGdhRslyEPwU&size=invisible&anchor-ms=20000&execute-ms=30000&cb=fg527764n842:258
+[ 1724922ms] [WARNING] [BCM.native][global] Failed to parse incoming message: SyntaxError: Unexpected token 'r', "recaptcha-setup" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:2:211565 @ chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:1
+[ 2343821ms] [LOG] JQMIGRATE: Migrate is installed, version 3.4.1 @ https://cookeryexpressions.co.in/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1:1
+[ 2343874ms] [ERROR] Failed to load resource: net::ERR_BLOCKED_BY_CLIENT @ https://connect.facebook.net/en_US/fbevents.js:0
+[ 2343874ms] [ERROR] Failed to load resource: net::ERR_BLOCKED_BY_CLIENT @ https://cdn.mouseflow.com/projects/97f735cb-c9ac-403e-942c-d60fedbe6a08.js:0
+[ 2344708ms] ReferenceError: GetChatApp is not defined
+    at HTMLDocument.<anonymous> (https://cookeryexpressions.co.in/gluten-free-recipes/:1304:19)
+[ 2345519ms] [WARNING] [BCM.native][global] Failed to parse incoming message: SyntaxError: Unexpected token 'r', "recaptcha-setup" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:2:211565 @ chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:1
+[ 2346191ms] [WARNING] [BCM.native][global] Failed to parse incoming message: SyntaxError: Unexpected token 'r', "recaptcha-setup" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:2:211565 @ chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:1
+[ 2346192ms] [ERROR] requestStorageAccess: Permission denied. @ https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LdLr7EZAAAAAPmE_LOmWTYMZnWIzCZiggMbyBoZ&co=aHR0cHM6Ly9jb29rZXJ5ZXhwcmVzc2lvbnMuY28uaW46NDQz&hl=en&v=kemdRjWFxNjgsGdhRslyEPwU&size=invisible&anchor-ms=20000&execute-ms=30000&cb=dj6mt3f4c45p:0

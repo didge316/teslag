@@ -1,0 +1,56 @@
+- generic [ref=f4e1]:
+  - link "Skip to content" [ref=f4e2] [cursor=pointer]:
+    - /url: "#page"
+  - generic [ref=f4e4]:
+    - complementary [ref=f4e5]:
+      - generic [ref=f4e6]:
+        - link "Gofile home" [ref=f4e8] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f4e9]: Gofile
+        - generic [ref=f4e10]:
+          - button "Active account Guest 2131496395 Guest account" [ref=f4e12]:
+            - generic "Active account" [ref=f4e14]
+            - generic [ref=f4e15]:
+              - generic [ref=f4e16]: Guest 2131496395
+              - generic [ref=f4e17]: Guest account
+          - button "Add account" [ref=f4e22]
+        - navigation "Main" [ref=f4e26]:
+          - link "Home" [ref=f4e27] [cursor=pointer]:
+            - /url: /
+          - link "File Manager" [ref=f4e32] [cursor=pointer]:
+            - /url: /myfiles
+          - link "Premium" [ref=f4e36] [cursor=pointer]:
+            - /url: /premium
+          - link "API" [ref=f4e40] [cursor=pointer]:
+            - /url: /api
+          - link "FAQ" [ref=f4e45] [cursor=pointer]:
+            - /url: /faq
+          - link "Contact" [ref=f4e50] [cursor=pointer]:
+            - /url: /contact
+        - link "Gofile on X" [ref=f4e56] [cursor=pointer]:
+          - /url: https://x.com/Gofile_io
+          - generic [ref=f4e59]: "@gofile_io"
+    - generic [ref=f4e64]:
+      - banner [ref=f4e65]:
+        - generic [ref=f4e66]:
+          - button "Toggle sidebar" [expanded] [ref=f4e67]
+          - generic [ref=f4e69]: Home
+      - main [ref=f4e70]:
+        - status "Loading" [ref=f4e72]
+      - contentinfo [ref=f4e73]:
+        - generic [ref=f4e74]:
+          - navigation "Footer" [ref=f4e75]:
+            - link "Home" [ref=f4e76] [cursor=pointer]:
+              - /url: /
+            - link "Terms of Service" [ref=f4e77] [cursor=pointer]:
+              - /url: /terms
+            - link "Privacy Policy" [ref=f4e78] [cursor=pointer]:
+              - /url: /privacy
+            - link "Abuse Policy" [ref=f4e79] [cursor=pointer]:
+              - /url: /abusepolicy
+            - link "Contact" [ref=f4e80] [cursor=pointer]:
+              - /url: /contact
+          - paragraph [ref=f4e81]:
+            - generic [ref=f4e82]: WOJTEK SAS © 2026
+            - generic [ref=f4e83]: ·
+            - generic [ref=f4e84]: Made with by Gofile Team

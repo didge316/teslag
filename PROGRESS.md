@@ -25,15 +25,23 @@ All researched, written, deployed to website (untracked for now).
 | — | tesla-magnetic-generator-for-truck | Tesla magnetic generator for truck | ✅ |
 | — | tesla-magnetic-generator-for-patio | Tesla magnetic generator for patio | ✅ |
 
-## Remaining: 30 Articles to Write
+## Remaining: 29 Articles to Write
 
-### Phase 2 — Authority Building (10 left)
+### Phase 2 — Authority Building (9 left)
 Write in this order:
 
 | # | Folder | Keyword | Priority |
 |---|--------|---------|----------|
-| 11 | tesla-magnetic-generator-bifilar-pancake-coil-explained | Tesla magnetic generator bifilar pancake coil explained | High |
-| 12 | how-much-electricity-does-a-magnetic-generator-produce | how much electricity does a magnetic generator produce | High |
+| 11 | tesla-magnetic-generator-bifilar-pancake-coil-explained | Tesla magnetic generator bifilar pancake coil explained | High | ✅ |
+| 12 | how-much-electricity-does-a-magnetic-generator-produce | how much electricity does a magnetic generator produce | High | ✅ |
+| 13 | tesla-magnetic-generator-for-home-how-it-works | Tesla magnetic generator for home how it works | High | ✅ |
+| 14 | free-energy-magnetic-generator-real-or-fake | free energy magnetic generator real or fake | High | ✅ |
+| 15 | magnetic-generator-noise-level | magnetic generator noise level | Medium | ✅ |
+| 16 | tesla-magnetic-generator-maintenance-requirements | Tesla magnetic generator maintenance requirements | Medium | ✅ |
+| 17 | magnetic-generator-for-small-home | magnetic generator for small home | Medium | ✅ |
+| 18 | tesla-magnetic-generator-for-workshop | Tesla magnetic generator for workshop | Medium | ✅ |
+| 19 | magnetic-generator-lifespan | magnetic generator lifespan | Medium | ✅ |
+| 20 | tesla-magnetic-generator-vs-wind-turbine | Tesla magnetic generator vs wind turbine | Medium | ✅ |
 | 13 | tesla-magnetic-generator-for-home-how-it-works | Tesla magnetic generator for home how it works | High |
 | 14 | free-energy-magnetic-generator-real-or-fake | free energy magnetic generator real or fake | High |
 | 15 | magnetic-generator-noise-level | magnetic generator noise level | Medium |
@@ -46,28 +54,28 @@ Write in this order:
 ### Phase 3 — Niche Use Cases (20 left)
 Write in this order:
 
-| # | Folder | Keyword |
-|---|--------|---------|
-| 21 | magnetic-generator-for-boat | magnetic generator for boat |
-| 22 | tesla-magnetic-generator-for-shed | Tesla magnetic generator for shed |
-| 23 | magnetic-generator-battery-storage | magnetic generator battery storage |
-| 24 | tesla-magnetic-generator-inverter-setup | Tesla magnetic generator inverter setup |
-| 25 | magnetic-generator-wiring-diagram | magnetic generator wiring diagram |
-| 26 | tesla-magnetic-generator-for-chicken-coop | Tesla magnetic generator for chicken coop |
-| 27 | magnetic-generator-for-greenhouse | magnetic generator for greenhouse |
-| 28 | tesla-magnetic-generator-for-garage | Tesla magnetic generator for garage |
-| 29 | magnetic-generator-for-fence | magnetic generator for fence |
-| 30 | tesla-magnetic-generator-for-water-pump | Tesla magnetic generator for water pump |
-| 31 | magnetic-generator-for-well-pump | magnetic generator for well pump |
-| 32 | tesla-magnetic-generator-for-fridge | Tesla magnetic generator for fridge |
-| 33 | magnetic-generator-for-lights | magnetic generator for lights |
-| 34 | tesla-magnetic-generator-for-phone-charging | Tesla magnetic generator for phone charging |
-| 35 | magnetic-generator-for-van-life | magnetic generator for van life |
-| 36 | tesla-magnetic-generator-for-tiny-house | Tesla magnetic generator for tiny house |
-| 37 | magnetic-generator-for-camper | magnetic generator for camper |
-| 38 | tesla-magnetic-generator-for-shed-workshop | Tesla magnetic generator for shed workshop |
-| 39 | magnetic-generator-for-homestead | magnetic generator for homestead |
-| 40 | tesla-magnetic-generator-for-preppers | Tesla magnetic generator for preppers |
+| # | Folder | Keyword | Status |
+|---|--------|---------|--------|
+| 21 | magnetic-generator-for-boat | magnetic generator for boat | ✅ |
+| 22 | tesla-magnetic-generator-for-shed | Tesla magnetic generator for shed | ✅ |
+| 23 | magnetic-generator-battery-storage | magnetic generator battery storage | ✅ |
+| 24 | tesla-magnetic-generator-inverter-setup | Tesla magnetic generator inverter setup | ✅ |
+| 25 | magnetic-generator-wiring-diagram | magnetic generator wiring diagram | ✅ |
+| 26 | tesla-magnetic-generator-for-chicken-coop | Tesla magnetic generator for chicken coop | ✅ |
+| 27 | magnetic-generator-for-greenhouse | magnetic generator for greenhouse | ✅ |
+| 28 | tesla-magnetic-generator-for-garage | Tesla magnetic generator for garage | ✅ |
+| 29 | magnetic-generator-for-fence | magnetic generator for fence | ✅ |
+| 30 | tesla-magnetic-generator-for-water-pump | Tesla magnetic generator for water pump | ✅ |
+| 31 | magnetic-generator-for-well-pump | magnetic generator for well pump | ✅ |
+| 32 | tesla-magnetic-generator-for-fridge | Tesla magnetic generator for fridge | ✅ |
+| 33 | magnetic-generator-for-lights | magnetic generator for lights | ✅ |
+| 34 | tesla-magnetic-generator-for-phone-charging | Tesla magnetic generator for phone charging | ✅ |
+| 35 | magnetic-generator-for-van-life | magnetic generator for van life | ✅ |
+| 36 | tesla-magnetic-generator-for-tiny-house | Tesla magnetic generator for tiny house | ✅ |
+| 37 | magnetic-generator-for-camper | magnetic generator for camper | ✅ |
+| 38 | tesla-magnetic-generator-for-shed-workshop | Tesla magnetic generator for shed workshop | ✅ |
+| 39 | magnetic-generator-for-homestead | magnetic generator for homestead | ✅ |
+| 40 | tesla-magnetic-generator-for-preppers | Tesla magnetic generator for preppers | ✅ |
 
 ## What's Ready
 

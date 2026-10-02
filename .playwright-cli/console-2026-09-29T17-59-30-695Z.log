@@ -1,0 +1,3 @@
+[    5012ms] TypeError: aclib.runPop is not a function
+    at <anonymous>:1:7
+    at lib.onload (https://gofile.io/js/core/ads.js:84:23)

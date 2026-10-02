@@ -1,0 +1,92 @@
+- generic [ref=f8e1]:
+  - link "Skip to content" [ref=f8e2] [cursor=pointer]:
+    - /url: "#page"
+  - generic [ref=f8e4]:
+    - complementary [ref=f8e5]:
+      - generic [ref=f8e6]:
+        - link "Gofile home" [ref=f8e8] [cursor=pointer]:
+          - /url: /
+          - generic [ref=f8e9]: Gofile
+        - generic [ref=f8e10]:
+          - button "Active account Guest 2131496395 Guest account" [ref=f8e87]:
+            - generic "Active account" [ref=f8e89]
+            - generic [ref=f8e90]:
+              - generic [ref=f8e91]: Guest 2131496395
+              - generic [ref=f8e92]: Guest account
+          - button "Add account" [ref=f8e22]
+        - navigation "Main" [ref=f8e26]:
+          - link "Home" [ref=f8e27] [cursor=pointer]:
+            - /url: /
+          - link "File Manager" [ref=f8e32] [cursor=pointer]:
+            - /url: /myfiles
+          - link "Premium" [ref=f8e36] [cursor=pointer]:
+            - /url: /premium
+          - link "API" [ref=f8e40] [cursor=pointer]:
+            - /url: /api
+          - link "FAQ" [ref=f8e45] [cursor=pointer]:
+            - /url: /faq
+          - link "Contact" [ref=f8e50] [cursor=pointer]:
+            - /url: /contact
+        - link "Gofile on X" [ref=f8e56] [cursor=pointer]:
+          - /url: https://x.com/Gofile_io
+          - generic [ref=f8e59]: "@gofile_io"
+    - generic [ref=f8e64]:
+      - banner [ref=f8e65]:
+        - generic [ref=f8e66]:
+          - button "Toggle sidebar" [expanded] [ref=f8e67]
+          - generic [ref=f8e69]: l3FcjXkK
+      - generic [ref=f8e120]:
+        - text: To disable ads,
+        - link "upgrade" [ref=f8e121] [cursor=pointer]:
+          - /url: /premium
+        - text: your account to Premium
+      - main [ref=f8e70]:
+        - generic [ref=f8e123]:
+          - generic [ref=f8e126]:
+            - generic [ref=f8e130]:
+              - heading "l3FcjXkK" [level=1] [ref=f8e131]
+              - paragraph [ref=f8e132]:
+                - generic [ref=f8e133]: 29 Sept 2026, 17:13
+                - generic [ref=f8e136]: 1 item
+              - generic [ref=f8e141]: public
+            - button "Import this folder to my files" [ref=f8e147]:
+              - generic [ref=f8e151]: Import
+            - button "Folder actions" [ref=f8e152]
+          - generic [ref=f8e159]:
+            - button "Select all items" [ref=f8e160]
+            - button "Search in this folder" [ref=f8e164]
+            - button "Filter items" [ref=f8e168]
+            - button "Sort items" [ref=f8e170]
+            - button "Display options" [ref=f8e174]
+            - button "Refresh" [ref=f8e178]
+          - list "Folder contents" [ref=f8e185]:
+            - generic [ref=f8e186]:
+              - button "Select Nivalis.Nights-SteamRIP.com.rar" [ref=f8e187]
+              - button "Nivalis.Nights-SteamRIP.com.rar 29 Sept 2026, 17:13 17.4 GB" [ref=f8e189] [cursor=pointer]:
+                - generic [ref=f8e196]:
+                  - paragraph [ref=f8e197]: Nivalis.Nights-SteamRIP.com.rar
+                  - paragraph [ref=f8e198]:
+                    - generic [ref=f8e199]: 29 Sept 2026, 17:13
+                    - generic [ref=f8e202]: 17.4 GB
+              - generic [ref=f8e203]:
+                - button "Download" [active] [ref=f8e204]
+                - button "Actions for Nivalis.Nights-SteamRIP.com.rar" [ref=f8e208]
+          - button "Report abuse" [ref=f8e214]
+      - contentinfo [ref=f8e73]:
+        - generic [ref=f8e74]:
+          - navigation "Footer" [ref=f8e75]:
+            - link "Home" [ref=f8e76] [cursor=pointer]:
+              - /url: /
+            - link "Terms of Service" [ref=f8e77] [cursor=pointer]:
+              - /url: /terms
+            - link "Privacy Policy" [ref=f8e78] [cursor=pointer]:
+              - /url: /privacy
+            - link "Abuse Policy" [ref=f8e79] [cursor=pointer]:
+              - /url: /abusepolicy
+            - link "Contact" [ref=f8e80] [cursor=pointer]:
+              - /url: /contact
+          - paragraph [ref=f8e81]:
+            - generic [ref=f8e82]: WOJTEK SAS © 2026
+            - generic [ref=f8e83]: ·
+            - generic [ref=f8e84]: Made with by Gofile Team
+  - button [aria-hidden]

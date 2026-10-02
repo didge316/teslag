@@ -1,0 +1,92 @@
+- generic [ref=e1]:
+  - link "Skip to content" [ref=e2] [cursor=pointer]:
+    - /url: "#page"
+  - generic [ref=e4]:
+    - complementary [ref=e5]:
+      - generic [ref=e6]:
+        - link "Gofile home" [ref=e8] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e9]: Gofile
+        - generic [ref=e10]:
+          - button "Active account Guest 2131496395 Guest account" [ref=e12]:
+            - generic "Active account" [ref=e14]
+            - generic [ref=e15]:
+              - generic [ref=e16]: Guest 2131496395
+              - generic [ref=e17]: Guest account
+          - button "Add account" [ref=e22]
+        - navigation "Main" [ref=e26]:
+          - link "Home" [ref=e27] [cursor=pointer]:
+            - /url: /
+          - link "File Manager" [ref=e32] [cursor=pointer]:
+            - /url: /myfiles
+          - link "Premium" [ref=e36] [cursor=pointer]:
+            - /url: /premium
+          - link "API" [ref=e40] [cursor=pointer]:
+            - /url: /api
+          - link "FAQ" [ref=e45] [cursor=pointer]:
+            - /url: /faq
+          - link "Contact" [ref=e50] [cursor=pointer]:
+            - /url: /contact
+        - link "Gofile on X" [ref=e56] [cursor=pointer]:
+          - /url: https://x.com/Gofile_io
+          - generic [ref=e59]: "@gofile_io"
+    - generic [ref=e64]:
+      - banner [ref=e65]:
+        - generic [ref=e66]:
+          - button "Toggle sidebar" [expanded] [ref=e67]
+          - generic [ref=e69]: l3FcjXkK
+      - generic [ref=e71]:
+        - text: To disable ads,
+        - link "upgrade" [ref=e72] [cursor=pointer]:
+          - /url: /premium
+        - text: your account to Premium
+      - main [ref=e73]:
+        - generic [ref=e75]:
+          - generic [ref=e78]:
+            - generic [ref=e82]:
+              - heading "l3FcjXkK" [level=1] [ref=e83]
+              - paragraph [ref=e84]:
+                - generic [ref=e85]: 29 Sept 2026, 17:13
+                - generic [ref=e88]: 1 item
+              - generic [ref=e93]: public
+            - button "Import this folder to my files" [ref=e99]:
+              - generic [ref=e103]: Import
+            - button "Folder actions" [ref=e104]
+          - generic [ref=e111]:
+            - button "Select all items" [ref=e112]
+            - button "Search in this folder" [ref=e116]
+            - button "Filter items" [ref=e120]
+            - button "Sort items" [ref=e122]
+            - button "Display options" [ref=e126]
+            - button "Refresh" [ref=e130]
+          - list "Folder contents" [ref=e137]:
+            - generic [ref=e138]:
+              - button "Select Nivalis.Nights-SteamRIP.com.rar" [ref=e139]
+              - button "Nivalis.Nights-SteamRIP.com.rar 29 Sept 2026, 17:13 17.4 GB" [ref=e141] [cursor=pointer]:
+                - generic [ref=e148]:
+                  - paragraph [ref=e149]: Nivalis.Nights-SteamRIP.com.rar
+                  - paragraph [ref=e150]:
+                    - generic [ref=e151]: 29 Sept 2026, 17:13
+                    - generic [ref=e154]: 17.4 GB
+              - generic [ref=e155]:
+                - button "Download" [active] [ref=e156]
+                - button "Actions for Nivalis.Nights-SteamRIP.com.rar" [ref=e160]
+          - button "Report abuse" [ref=e166]
+      - contentinfo [ref=e169]:
+        - generic [ref=e170]:
+          - navigation "Footer" [ref=e171]:
+            - link "Home" [ref=e172] [cursor=pointer]:
+              - /url: /
+            - link "Terms of Service" [ref=e173] [cursor=pointer]:
+              - /url: /terms
+            - link "Privacy Policy" [ref=e174] [cursor=pointer]:
+              - /url: /privacy
+            - link "Abuse Policy" [ref=e175] [cursor=pointer]:
+              - /url: /abusepolicy
+            - link "Contact" [ref=e176] [cursor=pointer]:
+              - /url: /contact
+          - paragraph [ref=e177]:
+            - generic [ref=e178]: WOJTEK SAS © 2026
+            - generic [ref=e179]: ·
+            - generic [ref=e180]: Made with by Gofile Team
+  - button [aria-hidden]

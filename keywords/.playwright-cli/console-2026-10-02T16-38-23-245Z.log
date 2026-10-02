@@ -1,0 +1,54 @@
+[  -18116ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://www.clarity.ms/tag/3j9kftupjm:0
+[  -17945ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://cdn.jsdelivr.net/npm/flot@4.2.6/lib/jquery.flot.min.js:0
+[  -17089ms] [WARNING] <meta name="apple-mobile-web-app-capable" content="yes"> is deprecated. Please include <meta name="mobile-web-app-capable" content="yes"> @ https://www.bing.com/webmasters/searchperf?siteUrl=http%3A%2F%2Fteslamagneticgenerator.com%2F&activeTab=pages:0
+[  -17088ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus2-0.in.applicationinsights.azure.com//v2/track:0
+[  -17086ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus-0.in.applicationinsights.azure.com//v2/track:0
+[  -17085ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus2-2.in.applicationinsights.azure.com//v2/track:0
+[  -17085ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus2-2.in.applicationinsights.azure.com//v2/track:0
+[  -17085ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus2-0.in.applicationinsights.azure.com//v2/track:0
+[  -17085ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus-0.in.applicationinsights.azure.com//v2/track:0
+[  -17083ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus2-0.in.applicationinsights.azure.com//v2/track:0
+[  -17083ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus-0.in.applicationinsights.azure.com//v2/track:0
+[  -17055ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus2-0.in.applicationinsights.azure.com//v2/track:0
+[  -17054ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus-0.in.applicationinsights.azure.com//v2/track:0
+[  -16622ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus2-0.in.applicationinsights.azure.com//v2/track:0
+[  -16597ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus-0.in.applicationinsights.azure.com//v2/track:0
+[  -16432ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus2-0.in.applicationinsights.azure.com//v2/track:0
+[  -16432ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus-0.in.applicationinsights.azure.com//v2/track:0
+[  -16336ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus2-0.in.applicationinsights.azure.com//v2/track:0
+[  -16319ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus-0.in.applicationinsights.azure.com//v2/track:0
+[  -16297ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus2-0.in.applicationinsights.azure.com//v2/track:0
+[  -16284ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus-0.in.applicationinsights.azure.com//v2/track:0
+[  -16200ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus2-0.in.applicationinsights.azure.com//v2/track:0
+[  -16162ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus-0.in.applicationinsights.azure.com//v2/track:0
+[  -17462ms] [WARNING] jQuery Flot not loaded properly @ https://www.bing.com/webmasters/searchperf?siteUrl=http%3A%2F%2Fteslamagneticgenerator.com%2F&activeTab=pages:96
+[  -15703ms] [WARNING] Some icons were re-registered. Applications should only call registerIcons for any given icon once. Redefining what an icon is may have unintended consequences. Duplicates include: 
+GlobalNavButton, ChevronDown, ChevronUp, Edit, Add, Cancel, More, Settings, Mail, Filter (+ 3607 more) @ https://www.bing.com/webmasters/dist/bundle.min.js?v=x2kEu9N3UASokDH3dPJQ9mdMoPWzlzrXKlqLd8ujysg:1
+[   27082ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus2-0.in.applicationinsights.azure.com//v2/track:0
+[   27110ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus-0.in.applicationinsights.azure.com//v2/track:0
+[   28583ms] [WARNING] Some icons were re-registered. Applications should only call registerIcons for any given icon once. Redefining what an icon is may have unintended consequences. Duplicates include: 
+Copilot, Copilot, Copilot @ https://www.bing.com/webmasters/dist/bundle.min.js?v=x2kEu9N3UASokDH3dPJQ9mdMoPWzlzrXKlqLd8ujysg:1
+[  123533ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus2-0.in.applicationinsights.azure.com//v2/track:0
+[  123533ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus-0.in.applicationinsights.azure.com//v2/track:0
+[  125072ms] [WARNING] Some icons were re-registered. Applications should only call registerIcons for any given icon once. Redefining what an icon is may have unintended consequences. Duplicates include: 
+Copilot, Copilot @ https://www.bing.com/webmasters/dist/bundle.min.js?v=x2kEu9N3UASokDH3dPJQ9mdMoPWzlzrXKlqLd8ujysg:1
+[  148056ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus2-0.in.applicationinsights.azure.com//v2/track:0
+[  148078ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus-0.in.applicationinsights.azure.com//v2/track:0
+[  149645ms] [WARNING] Some icons were re-registered. Applications should only call registerIcons for any given icon once. Redefining what an icon is may have unintended consequences. Duplicates include: 
+Copilot, Copilot @ https://www.bing.com/webmasters/dist/bundle.min.js?v=x2kEu9N3UASokDH3dPJQ9mdMoPWzlzrXKlqLd8ujysg:1
+[  166437ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus2-0.in.applicationinsights.azure.com//v2/track:0
+[  166461ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus-0.in.applicationinsights.azure.com//v2/track:0
+[  168125ms] [WARNING] Some icons were re-registered. Applications should only call registerIcons for any given icon once. Redefining what an icon is may have unintended consequences. Duplicates include: 
+Copilot, Copilot @ https://www.bing.com/webmasters/dist/bundle.min.js?v=x2kEu9N3UASokDH3dPJQ9mdMoPWzlzrXKlqLd8ujysg:1
+[  184920ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus2-0.in.applicationinsights.azure.com//v2/track:0
+[  184920ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus-0.in.applicationinsights.azure.com//v2/track:0
+[  186606ms] [WARNING] Some icons were re-registered. Applications should only call registerIcons for any given icon once. Redefining what an icon is may have unintended consequences. Duplicates include: 
+Copilot, Copilot @ https://www.bing.com/webmasters/dist/bundle.min.js?v=x2kEu9N3UASokDH3dPJQ9mdMoPWzlzrXKlqLd8ujysg:1
+[  203915ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus2-0.in.applicationinsights.azure.com//v2/track:0
+[  203933ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus-0.in.applicationinsights.azure.com//v2/track:0
+[  205488ms] [WARNING] Some icons were re-registered. Applications should only call registerIcons for any given icon once. Redefining what an icon is may have unintended consequences. Duplicates include: 
+Copilot, Copilot @ https://www.bing.com/webmasters/dist/bundle.min.js?v=x2kEu9N3UASokDH3dPJQ9mdMoPWzlzrXKlqLd8ujysg:1
+[  220307ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus2-0.in.applicationinsights.azure.com//v2/track:0
+[  220331ms] [ERROR] Failed to load resource: net::ERR_FAILED @ https://westus-0.in.applicationinsights.azure.com//v2/track:0
+[  221886ms] [WARNING] Some icons were re-registered. Applications should only call registerIcons for any given icon once. Redefining what an icon is may have unintended consequences. Duplicates include: 
+Copilot, Copilot, Copilot @ https://www.bing.com/webmasters/dist/bundle.min.js?v=x2kEu9N3UASokDH3dPJQ9mdMoPWzlzrXKlqLd8ujysg:1

@@ -1,0 +1,2 @@
+[     222ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://gofile.io/web/endpoint/download:0
+[     225ms] Unexpected token '<', "<!DOCTYPE "... is not valid JSON

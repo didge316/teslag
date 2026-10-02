@@ -1,0 +1,637 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - link "Skip to main content" [ref=e6] [cursor=pointer]:
+        - /url: "#content"
+      - button "Show Bing tools" [ref=e7] [cursor=pointer]:
+        - generic [aria-hidden] [ref=e8]: 
+      - img "white bwt logo microsoft bing webmaster" [ref=e10]
+    - generic [ref=e53]:
+      - button "Copilot" [ref=e54] [cursor=pointer]
+      - button "Notifications" [ref=e58] [cursor=pointer]:
+        - generic [aria-hidden] [ref=e60]: 
+      - button "Help" [ref=e61] [cursor=pointer]:
+        - generic [aria-hidden] [ref=e63]: 
+      - button "Feedback" [ref=e64] [cursor=pointer]:
+        - generic [aria-hidden] [ref=e66]: 
+      - button "Settings" [ref=e67] [cursor=pointer]:
+        - generic [aria-hidden] [ref=e69]: 
+      - button "Profile" [ref=e70] [cursor=pointer]
+  - generic [ref=e76]:
+    - generic [ref=e78]:
+      - button "Select website" [ref=e80] [cursor=pointer]:
+        - generic [ref=e81]:
+          - generic [ref=e82]:
+            - generic [aria-hidden] [ref=e83]: 
+            - generic [ref=e84]: teslamagneticgenerator.com/
+          - generic [aria-hidden] [ref=e86]: 
+      - navigation "Main menu" [ref=e87]:
+        - tree [ref=e88]:
+          - treeitem "Home" [ref=e90] [cursor=pointer]:
+            - generic [aria-hidden] [ref=e1209]: 
+            - text: Home
+          - treeitem "Search Performance" [ref=e93] [cursor=pointer]:
+            - generic [aria-hidden] [ref=e1210]: 
+            - text: Search Performance
+          - treeitem "AI Performance BETA" [ref=e96] [cursor=pointer]:
+            - generic [aria-hidden] [ref=e1211]: 
+            - text: AI Performance
+            - generic [ref=e98]: BETA
+          - treeitem "URL Inspection" [ref=e100] [cursor=pointer]:
+            - generic [aria-hidden] [ref=e1212]: 
+            - text: URL Inspection
+          - treeitem "Site Explorer" [ref=e103] [cursor=pointer]:
+            - generic [aria-hidden] [ref=e1213]: 
+            - text: Site Explorer
+          - treeitem "Sitemaps" [ref=e106] [cursor=pointer]:
+            - generic [aria-hidden] [ref=e1214]: 
+            - text: Sitemaps
+          - treeitem "IndexNow" [ref=e109] [cursor=pointer]
+          - treeitem "Backlinks" [ref=e115] [cursor=pointer]:
+            - generic [aria-hidden] [ref=e1219]: 
+            - text: Backlinks
+          - treeitem "Keyword Research" [ref=e118] [cursor=pointer]:
+            - generic [aria-hidden] [ref=e1220]: 
+            - text: Keyword Research
+          - treeitem "Recommendations" [ref=e121] [cursor=pointer]:
+            - generic [aria-hidden] [ref=e1221]: 
+            - text: Recommendations
+          - treeitem "Site Scan" [ref=e124] [cursor=pointer]:
+            - generic [aria-hidden] [ref=e1222]: 
+            - text: Site Scan
+          - treeitem "Configuration" [ref=e128] [cursor=pointer]:
+            - generic [ref=e130]:
+              - text: Configuration
+              - generic [aria-hidden] [ref=e131]: 
+          - treeitem "Tools & Enhancements" [ref=e134] [cursor=pointer]:
+            - generic [ref=e136]:
+              - text: Tools & Enhancements
+              - generic [aria-hidden] [ref=e137]: 
+          - treeitem "Security & Privacy" [ref=e140] [cursor=pointer]:
+            - generic [ref=e142]:
+              - text: Security & Privacy
+              - generic [aria-hidden] [ref=e143]: 
+          - treeitem "User management" [ref=e145] [cursor=pointer]:
+            - generic [aria-hidden] [ref=e1223]: 
+            - text: User management
+          - treeitem "Microsoft Clarity" [ref=e148] [cursor=pointer]:
+            - generic [aria-hidden] [ref=e1224]: 
+            - text: Microsoft Clarity
+    - main [ref=e150]:
+      - heading "Search Performance" [level=2] [ref=e153]
+      - generic [ref=e154]:
+        - generic [ref=e155]:
+          - generic [ref=e156]:
+            - generic [ref=e159]:
+              - tablist [ref=e160]:
+                - tab "7 D" [ref=e161] [cursor=pointer]
+                - tab "30 D" [ref=e165] [cursor=pointer]
+                - tab "3 M" [selected] [ref=e169] [cursor=pointer]
+                - tab "6 M" [ref=e173] [cursor=pointer]
+                - tab "12 M" [ref=e177] [cursor=pointer]
+                - tab "18 M" [ref=e181] [cursor=pointer]
+                - tab "24 M" [ref=e185] [cursor=pointer]
+                - tab "Custom" [ref=e189] [cursor=pointer]
+                - tab "Compare" [ref=e193] [cursor=pointer]
+              - tabpanel "3 M"
+            - combobox "Filter by" [ref=e198]:
+              - generic [ref=e199] [cursor=pointer]: All
+              - generic [aria-hidden] [ref=e201] [cursor=pointer]: 
+          - button "Download" [ref=e203] [cursor=pointer]:
+            - generic [ref=e205]:
+              - generic [ref=e206]: Download
+              - generic [aria-hidden] [ref=e207]: 
+        - generic [ref=e208]:
+          - generic [ref=e209]:
+            - checkbox "Total Clicks" [checked] [ref=e210] [cursor=pointer]:
+              - generic [ref=e216]:
+                - generic [ref=e217]: Total Clicks
+                - button "Total Clicks info" [ref=e218]: 
+              - generic [ref=e219]: "19"
+            - checkbox "Total Impressions" [checked] [ref=e222] [cursor=pointer]:
+              - generic [ref=e228]:
+                - generic [ref=e229]: Total Impressions
+                - button "Total Impressions info" [ref=e230]: 
+              - generic [ref=e231]: "503"
+            - checkbox "Avg. CTR" [ref=e234] [cursor=pointer]:
+              - generic [ref=e240]:
+                - generic [ref=e241]: Avg. CTR
+                - button "Avg. CTR info" [ref=e242]: 
+              - generic [ref=e243]: 3.78%
+          - generic [ref=e246]:
+            - generic [ref=e247]:
+              - generic [ref=e248]: Clicks
+              - generic [ref=e249]: Impressions
+            - group "Line chart showing Clicks,Impressions from July 02, 2026 to October 01, 2026. Clicks:19,Impressions:503. Toggle checkboxes to show the selected options in chart" [ref=e251]:
+              - img "Line chart showing Clicks,Impressions from July 02, 2026 to October 01, 2026. Clicks:19,Impressions:503. Toggle checkboxes to show the selected options in chart" [ref=e252]:
+                - img "Line chart showing Clicks,Impressions from July 02, 2026 to October 01, 2026. Clicks:19,Impressions:503. Toggle checkboxes to show the selected options in chart" [ref=e253]
+              - table [ref=e255]:
+                - rowgroup [ref=e256]:
+                  - row [ref=e257]:
+                    - columnheader "Date" [ref=e258]
+                    - columnheader "July 02, 2026" [ref=e259]
+                    - columnheader "July 03, 2026" [ref=e260]
+                    - columnheader "July 04, 2026" [ref=e261]
+                    - columnheader "July 05, 2026" [ref=e262]
+                    - columnheader "July 06, 2026" [ref=e263]
+                    - columnheader "July 07, 2026" [ref=e264]
+                    - columnheader "July 08, 2026" [ref=e265]
+                    - columnheader "July 09, 2026" [ref=e266]
+                    - columnheader "July 10, 2026" [ref=e267]
+                    - columnheader "July 11, 2026" [ref=e268]
+                    - columnheader "July 12, 2026" [ref=e269]
+                    - columnheader "July 13, 2026" [ref=e270]
+                    - columnheader "July 14, 2026" [ref=e271]
+                    - columnheader "July 15, 2026" [ref=e272]
+                    - columnheader "July 16, 2026" [ref=e273]
+                    - columnheader "July 17, 2026" [ref=e274]
+                    - columnheader "July 18, 2026" [ref=e275]
+                    - columnheader "July 19, 2026" [ref=e276]
+                    - columnheader "July 20, 2026" [ref=e277]
+                    - columnheader "July 21, 2026" [ref=e278]
+                    - columnheader "July 22, 2026" [ref=e279]
+                    - columnheader "July 23, 2026" [ref=e280]
+                    - columnheader "July 24, 2026" [ref=e281]
+                    - columnheader "July 25, 2026" [ref=e282]
+                    - columnheader "July 26, 2026" [ref=e283]
+                    - columnheader "July 27, 2026" [ref=e284]
+                    - columnheader "July 28, 2026" [ref=e285]
+                    - columnheader "July 29, 2026" [ref=e286]
+                    - columnheader "July 30, 2026" [ref=e287]
+                    - columnheader "July 31, 2026" [ref=e288]
+                    - columnheader "August 01, 2026" [ref=e289]
+                    - columnheader "August 02, 2026" [ref=e290]
+                    - columnheader "August 03, 2026" [ref=e291]
+                    - columnheader "August 04, 2026" [ref=e292]
+                    - columnheader "August 05, 2026" [ref=e293]
+                    - columnheader "August 06, 2026" [ref=e294]
+                    - columnheader "August 07, 2026" [ref=e295]
+                    - columnheader "August 08, 2026" [ref=e296]
+                    - columnheader "August 09, 2026" [ref=e297]
+                    - columnheader "August 10, 2026" [ref=e298]
+                    - columnheader "August 11, 2026" [ref=e299]
+                    - columnheader "August 12, 2026" [ref=e300]
+                    - columnheader "August 13, 2026" [ref=e301]
+                    - columnheader "August 14, 2026" [ref=e302]
+                    - columnheader "August 15, 2026" [ref=e303]
+                    - columnheader "August 16, 2026" [ref=e304]
+                    - columnheader "August 17, 2026" [ref=e305]
+                    - columnheader "August 18, 2026" [ref=e306]
+                    - columnheader "August 19, 2026" [ref=e307]
+                    - columnheader "August 20, 2026" [ref=e308]
+                    - columnheader "August 21, 2026" [ref=e309]
+                    - columnheader "August 22, 2026" [ref=e310]
+                    - columnheader "August 23, 2026" [ref=e311]
+                    - columnheader "August 24, 2026" [ref=e312]
+                    - columnheader "August 25, 2026" [ref=e313]
+                    - columnheader "August 26, 2026" [ref=e314]
+                    - columnheader "August 27, 2026" [ref=e315]
+                    - columnheader "August 28, 2026" [ref=e316]
+                    - columnheader "August 29, 2026" [ref=e317]
+                    - columnheader "August 30, 2026" [ref=e318]
+                    - columnheader "August 31, 2026" [ref=e319]
+                    - columnheader "September 01, 2026" [ref=e320]
+                    - columnheader "September 02, 2026" [ref=e321]
+                    - columnheader "September 03, 2026" [ref=e322]
+                    - columnheader "September 04, 2026" [ref=e323]
+                    - columnheader "September 05, 2026" [ref=e324]
+                    - columnheader "September 06, 2026" [ref=e325]
+                    - columnheader "September 07, 2026" [ref=e326]
+                    - columnheader "September 08, 2026" [ref=e327]
+                    - columnheader "September 09, 2026" [ref=e328]
+                    - columnheader "September 10, 2026" [ref=e329]
+                    - columnheader "September 11, 2026" [ref=e330]
+                    - columnheader "September 12, 2026" [ref=e331]
+                    - columnheader "September 13, 2026" [ref=e332]
+                    - columnheader "September 14, 2026" [ref=e333]
+                    - columnheader "September 15, 2026" [ref=e334]
+                    - columnheader "September 16, 2026" [ref=e335]
+                    - columnheader "September 17, 2026" [ref=e336]
+                    - columnheader "September 18, 2026" [ref=e337]
+                    - columnheader "September 19, 2026" [ref=e338]
+                    - columnheader "September 20, 2026" [ref=e339]
+                    - columnheader "September 21, 2026" [ref=e340]
+                    - columnheader "September 22, 2026" [ref=e341]
+                    - columnheader "September 23, 2026" [ref=e342]
+                    - columnheader "September 24, 2026" [ref=e343]
+                    - columnheader "September 25, 2026" [ref=e344]
+                    - columnheader "September 26, 2026" [ref=e345]
+                    - columnheader "September 27, 2026" [ref=e346]
+                    - columnheader "September 28, 2026" [ref=e347]
+                    - columnheader "September 29, 2026" [ref=e348]
+                - rowgroup [ref=e349]:
+                  - row [ref=e350]:
+                    - cell "Total Clicks" [ref=e351]
+                    - cell "0" [ref=e352]
+                    - cell "0" [ref=e353]
+                    - cell "0" [ref=e354]
+                    - cell "0" [ref=e355]
+                    - cell "0" [ref=e356]
+                    - cell "0" [ref=e357]
+                    - cell "0" [ref=e358]
+                    - cell "0" [ref=e359]
+                    - cell "0" [ref=e360]
+                    - cell "1" [ref=e361]
+                    - cell "0" [ref=e362]
+                    - cell "0" [ref=e363]
+                    - cell "0" [ref=e364]
+                    - cell "0" [ref=e365]
+                    - cell "1" [ref=e366]
+                    - cell "0" [ref=e367]
+                    - cell "0" [ref=e368]
+                    - cell "0" [ref=e369]
+                    - cell "0" [ref=e370]
+                    - cell "0" [ref=e371]
+                    - cell "0" [ref=e372]
+                    - cell "0" [ref=e373]
+                    - cell "0" [ref=e374]
+                    - cell "0" [ref=e375]
+                    - cell "0" [ref=e376]
+                    - cell "0" [ref=e377]
+                    - cell "0" [ref=e378]
+                    - cell "0" [ref=e379]
+                    - cell "0" [ref=e380]
+                    - cell "0" [ref=e381]
+                    - cell "0" [ref=e382]
+                    - cell "0" [ref=e383]
+                    - cell "0" [ref=e384]
+                    - cell "0" [ref=e385]
+                    - cell "1" [ref=e386]
+                    - cell "0" [ref=e387]
+                    - cell "1" [ref=e388]
+                    - cell "1" [ref=e389]
+                    - cell "0" [ref=e390]
+                    - cell "0" [ref=e391]
+                    - cell "0" [ref=e392]
+                    - cell "0" [ref=e393]
+                    - cell "1" [ref=e394]
+                    - cell "1" [ref=e395]
+                    - cell "0" [ref=e396]
+                    - cell "0" [ref=e397]
+                    - cell "0" [ref=e398]
+                    - cell "0" [ref=e399]
+                    - cell "1" [ref=e400]
+                    - cell "0" [ref=e401]
+                    - cell "0" [ref=e402]
+                    - cell "0" [ref=e403]
+                    - cell "0" [ref=e404]
+                    - cell "1" [ref=e405]
+                    - cell "0" [ref=e406]
+                    - cell "0" [ref=e407]
+                    - cell "0" [ref=e408]
+                    - cell "0" [ref=e409]
+                    - cell "2" [ref=e410]
+                    - cell "0" [ref=e411]
+                    - cell "0" [ref=e412]
+                    - cell "1" [ref=e413]
+                    - cell "0" [ref=e414]
+                    - cell "0" [ref=e415]
+                    - cell "0" [ref=e416]
+                    - cell "0" [ref=e417]
+                    - cell "0" [ref=e418]
+                    - cell "0" [ref=e419]
+                    - cell "0" [ref=e420]
+                    - cell "0" [ref=e421]
+                    - cell "0" [ref=e422]
+                    - cell "0" [ref=e423]
+                    - cell "0" [ref=e424]
+                    - cell "0" [ref=e425]
+                    - cell "1" [ref=e426]
+                    - cell "0" [ref=e427]
+                    - cell "0" [ref=e428]
+                    - cell "1" [ref=e429]
+                    - cell "0" [ref=e430]
+                    - cell "1" [ref=e431]
+                    - cell "1" [ref=e432]
+                    - cell "0" [ref=e433]
+                    - cell "2" [ref=e434]
+                    - cell "0" [ref=e435]
+                    - cell "0" [ref=e436]
+                    - cell "0" [ref=e437]
+                    - cell "0" [ref=e438]
+                    - cell "0" [ref=e439]
+                    - cell "1" [ref=e440]
+                    - cell "0" [ref=e441]
+                  - row [ref=e442]:
+                    - cell "Total Impressions" [ref=e443]
+                    - cell "6" [ref=e444]
+                    - cell "2" [ref=e445]
+                    - cell "10" [ref=e446]
+                    - cell "1" [ref=e447]
+                    - cell "5" [ref=e448]
+                    - cell "4" [ref=e449]
+                    - cell "2" [ref=e450]
+                    - cell "1" [ref=e451]
+                    - cell "2" [ref=e452]
+                    - cell "7" [ref=e453]
+                    - cell "2" [ref=e454]
+                    - cell "5" [ref=e455]
+                    - cell "3" [ref=e456]
+                    - cell "7" [ref=e457]
+                    - cell "2" [ref=e458]
+                    - cell "0" [ref=e459]
+                    - cell "0" [ref=e460]
+                    - cell "2" [ref=e461]
+                    - cell "3" [ref=e462]
+                    - cell "0" [ref=e463]
+                    - cell "6" [ref=e464]
+                    - cell "3" [ref=e465]
+                    - cell "4" [ref=e466]
+                    - cell "2" [ref=e467]
+                    - cell "5" [ref=e468]
+                    - cell "4" [ref=e469]
+                    - cell "3" [ref=e470]
+                    - cell "1" [ref=e471]
+                    - cell "2" [ref=e472]
+                    - cell "4" [ref=e473]
+                    - cell "1" [ref=e474]
+                    - cell "2" [ref=e475]
+                    - cell "6" [ref=e476]
+                    - cell "2" [ref=e477]
+                    - cell "2" [ref=e478]
+                    - cell "2" [ref=e479]
+                    - cell "1" [ref=e480]
+                    - cell "2" [ref=e481]
+                    - cell "2" [ref=e482]
+                    - cell "3" [ref=e483]
+                    - cell "7" [ref=e484]
+                    - cell "4" [ref=e485]
+                    - cell "8" [ref=e486]
+                    - cell "19" [ref=e487]
+                    - cell "1" [ref=e488]
+                    - cell "5" [ref=e489]
+                    - cell "4" [ref=e490]
+                    - cell "6" [ref=e491]
+                    - cell "8" [ref=e492]
+                    - cell "6" [ref=e493]
+                    - cell "1" [ref=e494]
+                    - cell "3" [ref=e495]
+                    - cell "6" [ref=e496]
+                    - cell "9" [ref=e497]
+                    - cell "9" [ref=e498]
+                    - cell "4" [ref=e499]
+                    - cell "8" [ref=e500]
+                    - cell "5" [ref=e501]
+                    - cell "8" [ref=e502]
+                    - cell "6" [ref=e503]
+                    - cell "9" [ref=e504]
+                    - cell "5" [ref=e505]
+                    - cell "6" [ref=e506]
+                    - cell "7" [ref=e507]
+                    - cell "5" [ref=e508]
+                    - cell "1" [ref=e509]
+                    - cell "6" [ref=e510]
+                    - cell "9" [ref=e511]
+                    - cell "6" [ref=e512]
+                    - cell "8" [ref=e513]
+                    - cell "20" [ref=e514]
+                    - cell "9" [ref=e515]
+                    - cell "8" [ref=e516]
+                    - cell "7" [ref=e517]
+                    - cell "9" [ref=e518]
+                    - cell "16" [ref=e519]
+                    - cell "7" [ref=e520]
+                    - cell "13" [ref=e521]
+                    - cell "6" [ref=e522]
+                    - cell "3" [ref=e523]
+                    - cell "4" [ref=e524]
+                    - cell "23" [ref=e525]
+                    - cell "8" [ref=e526]
+                    - cell "13" [ref=e527]
+                    - cell "9" [ref=e528]
+                    - cell "5" [ref=e529]
+                    - cell "7" [ref=e530]
+                    - cell "7" [ref=e531]
+                    - cell "9" [ref=e532]
+                    - cell "10" [ref=e533]
+            - generic [ref=e534]:
+              - generic [ref=e535]: Clicks
+              - generic [ref=e540]: Impressions
+        - generic [ref=e546]:
+          - generic [aria-hidden] [ref=e547]: 
+          - paragraph [ref=e548]: Keywords and Pages data is only available for Web traffic and not applicable to Chat and other verticals.
+          - link "learnmore" [ref=e550] [cursor=pointer]:
+            - /url: /webmasters/help/c680da36
+            - generic [ref=e551]: Learn more
+        - heading "List By" [level=3] [ref=e554]
+        - generic [ref=e837]:
+          - generic [ref=e840]:
+            - tablist "List By" [ref=e841]:
+              - tab "Keywords" [selected] [ref=e842] [cursor=pointer]
+              - tab "Pages" [ref=e846] [cursor=pointer]
+              - tab "Device" [ref=e850] [cursor=pointer]
+              - tab "Country" [ref=e854] [cursor=pointer]
+            - tabpanel "Keywords"
+          - button "Download all" [ref=e859] [cursor=pointer]:
+            - generic [ref=e861]:
+              - generic [ref=e862]: Download all
+              - generic [aria-hidden] [ref=e863]: 
+        - generic [ref=e864]:
+          - grid "Search Keyword Report" [ref=e869]:
+            - row [ref=e870]:
+              - columnheader [ref=e871] [cursor=pointer]:
+                - button "Keyword, sortable" [ref=e873]:
+                  - generic [ref=e874]: Keyword
+              - columnheader [ref=e875] [cursor=pointer]:
+                - button "Impressions, sortable, sorted descending order" [ref=e877]:
+                  - generic [ref=e878]: Impressions
+                  - generic [aria-hidden] [ref=e879]: 
+              - columnheader [ref=e880] [cursor=pointer]:
+                - button "Clicks, sortable" [ref=e882]:
+                  - generic [ref=e883]: Clicks
+              - columnheader [ref=e884] [cursor=pointer]:
+                - button "CTR, sortable" [ref=e886]:
+                  - generic [ref=e887]: CTR
+              - columnheader [ref=e888] [cursor=pointer]:
+                - button "Avg. Position, sortable" [ref=e890]:
+                  - generic [ref=e891]: Avg. Position
+            - generic [ref=e892]:
+              - row [ref=e1225]:
+                - generic [ref=e1226] [cursor=pointer]:
+                  - rowheader "diy perpetual motion" [ref=e1227]
+                  - rowheader "2" [ref=e1229]
+                  - rowheader "0" [ref=e1231]
+                  - rowheader "0.00%" [ref=e1233]
+                  - rowheader "3.00" [ref=e1235]
+              - row [ref=e1237]:
+                - generic [ref=e1238] [cursor=pointer]:
+                  - rowheader "nikola tesla magnet free power" [ref=e1239]
+                  - rowheader "2" [ref=e1241]
+                  - rowheader "0" [ref=e1243]
+                  - rowheader "0.00%" [ref=e1245]
+                  - rowheader "8.00" [ref=e1247]
+              - row [ref=e1249]:
+                - generic [ref=e1250] [cursor=pointer]:
+                  - rowheader "perpetual motion machine easy diy" [ref=e1251]
+                  - rowheader "2" [ref=e1253]
+                  - rowheader "0" [ref=e1255]
+                  - rowheader "0.00%" [ref=e1257]
+                  - rowheader "5.50" [ref=e1259]
+              - row [ref=e1261]:
+                - generic [ref=e1262] [cursor=pointer]:
+                  - rowheader "how to build perpetual motion generator" [ref=e1263]
+                  - rowheader "2" [ref=e1265]
+                  - rowheader "1" [ref=e1267]
+                  - rowheader "50.00%" [ref=e1269]
+                  - rowheader "4.00" [ref=e1271]
+              - row [ref=e1273]:
+                - generic [ref=e1274] [cursor=pointer]:
+                  - rowheader "build a electromagnetic power generator using tesla's" [ref=e1275]
+                  - rowheader "2" [ref=e1277]
+                  - rowheader "0" [ref=e1279]
+                  - rowheader "0.00%" [ref=e1281]
+                  - rowheader "3.50" [ref=e1283]
+              - row [ref=e1285]:
+                - generic [ref=e1286] [cursor=pointer]:
+                  - rowheader "arts to build a perpetual motion generator" [ref=e1287]
+                  - rowheader "2" [ref=e1289]
+                  - rowheader "0" [ref=e1291]
+                  - rowheader "0.00%" [ref=e1293]
+                  - rowheader "3.50" [ref=e1295]
+              - row [ref=e1297]:
+                - generic [ref=e1298] [cursor=pointer]:
+                  - rowheader "perpetual motion diy" [ref=e1299]
+                  - rowheader "2" [ref=e1301]
+                  - rowheader "0" [ref=e1303]
+                  - rowheader "0.00%" [ref=e1305]
+                  - rowheader "4.50" [ref=e1307]
+              - row [ref=e1309]:
+                - generic [ref=e1310] [cursor=pointer]:
+                  - rowheader "how to build a perpetual motion magnetic electricity generator" [ref=e1311]
+                  - rowheader "2" [ref=e1313]
+                  - rowheader "0" [ref=e1315]
+                  - rowheader "0.00%" [ref=e1317]
+                  - rowheader "4.00" [ref=e1319]
+              - row [ref=e1321]:
+                - generic [ref=e1322] [cursor=pointer]:
+                  - rowheader "battery magnet propetual motion diy" [ref=e1323]
+                  - rowheader "2" [ref=e1325]
+                  - rowheader "0" [ref=e1327]
+                  - rowheader "0.00%" [ref=e1329]
+                  - rowheader "5.50" [ref=e1331]
+              - row [ref=e1333]:
+                - generic [ref=e1334] [cursor=pointer]:
+                  - rowheader "tesla permanent-magnet generator" [ref=e1335]
+                  - rowheader "2" [ref=e1337]
+                  - rowheader "0" [ref=e1339]
+                  - rowheader "0.00%" [ref=e1341]
+                  - rowheader "18.00" [ref=e1343]
+              - row [ref=e1345]:
+                - generic [ref=e1346] [cursor=pointer]:
+                  - rowheader "tesla magnetic generator to power home" [ref=e1347]
+                  - rowheader "2" [ref=e1349]
+                  - rowheader "0" [ref=e1351]
+                  - rowheader "0.00%" [ref=e1353]
+                  - rowheader "2.50" [ref=e1355]
+              - row [ref=e1357]:
+                - generic [ref=e1358] [cursor=pointer]:
+                  - rowheader "perpetual motion generator plans" [ref=e1359]
+                  - rowheader "2" [ref=e1361]
+                  - rowheader "0" [ref=e1363]
+                  - rowheader "0.00%" [ref=e1365]
+                  - rowheader "3.50" [ref=e1367]
+              - row [ref=e1369]:
+                - generic [ref=e1370] [cursor=pointer]:
+                  - rowheader "how to build tesla's magnet" [ref=e1371]
+                  - rowheader "2" [ref=e1373]
+                  - rowheader "0" [ref=e1375]
+                  - rowheader "0.00%" [ref=e1377]
+                  - rowheader "4.00" [ref=e1379]
+              - row [ref=e1381]:
+                - generic [ref=e1382] [cursor=pointer]:
+                  - rowheader "tessla mangentic generator" [ref=e1383]
+                  - rowheader "2" [ref=e1385]
+                  - rowheader "0" [ref=e1387]
+                  - rowheader "0.00%" [ref=e1389]
+                  - rowheader "2.50" [ref=e1391]
+              - row [ref=e1393]:
+                - generic [ref=e1394] [cursor=pointer]:
+                  - rowheader "telsla's magnet generator" [ref=e1395]
+                  - rowheader "2" [ref=e1397]
+                  - rowheader "0" [ref=e1399]
+                  - rowheader "0.00%" [ref=e1401]
+                  - rowheader "2.50" [ref=e1403]
+              - row [ref=e1405]:
+                - generic [ref=e1406] [cursor=pointer]:
+                  - rowheader "teslas magnet generator" [ref=e1407]
+                  - rowheader "2" [ref=e1409]
+                  - rowheader "0" [ref=e1411]
+                  - rowheader "0.00%" [ref=e1413]
+                  - rowheader "3.00" [ref=e1415]
+              - row [ref=e1417]:
+                - generic [ref=e1418] [cursor=pointer]:
+                  - rowheader "free tesla generator" [ref=e1419]
+                  - rowheader "2" [ref=e1421]
+                  - rowheader "0" [ref=e1423]
+                  - rowheader "0.00%" [ref=e1425]
+                  - rowheader "5.00" [ref=e1427]
+              - row [ref=e1429]:
+                - generic [ref=e1430] [cursor=pointer]:
+                  - rowheader "plans to make a tesla toy magnetic field generator" [ref=e1431]
+                  - rowheader "2" [ref=e1433]
+                  - rowheader "0" [ref=e1435]
+                  - rowheader "0.00%" [ref=e1437]
+                  - rowheader "4.50" [ref=e1439]
+              - row [ref=e1441]:
+                - generic [ref=e1442] [cursor=pointer]:
+                  - rowheader "whole home magnet generator" [ref=e1443]
+                  - rowheader "1" [ref=e1445]
+                  - rowheader "0" [ref=e1447]
+                  - rowheader "0.00%" [ref=e1449]
+                  - rowheader "9.00" [ref=e1451]
+              - row [ref=e1453]:
+                - generic [ref=e1454] [cursor=pointer]:
+                  - rowheader "off grid magnetic generators to power an entire home" [ref=e1455]
+                  - rowheader "1" [ref=e1457]
+                  - rowheader "0" [ref=e1459]
+                  - rowheader "0.00%" [ref=e1461]
+                  - rowheader "6.00" [ref=e1463]
+              - row [ref=e1465]:
+                - generic [ref=e1466] [cursor=pointer]:
+                  - rowheader "facts about magnets" [ref=e1467]
+                  - rowheader "1" [ref=e1469]
+                  - rowheader "0" [ref=e1471]
+                  - rowheader "0.00%" [ref=e1473]
+                  - rowheader "294.00" [ref=e1475]
+              - row [ref=e1477]:
+                - generic [ref=e1478] [cursor=pointer]:
+                  - rowheader "magnetic generator big enough to run a house" [ref=e1479]
+                  - rowheader "1" [ref=e1481]
+                  - rowheader "0" [ref=e1483]
+                  - rowheader "0.00%" [ref=e1485]
+                  - rowheader "6.00" [ref=e1487]
+              - row [ref=e1489]:
+                - generic [ref=e1490] [cursor=pointer]:
+                  - rowheader "build your own tesla generator" [ref=e1491]
+                  - rowheader "1" [ref=e1493]
+                  - rowheader "0" [ref=e1495]
+                  - rowheader "0.00%" [ref=e1497]
+                  - rowheader "10.00" [ref=e1499]
+              - row [ref=e1501]:
+                - generic [ref=e1502] [cursor=pointer]:
+                  - rowheader "teslas magnet generator download" [ref=e1503]
+                  - rowheader "1" [ref=e1505]
+                  - rowheader "1" [ref=e1507]
+                  - rowheader "100.00%" [ref=e1509]
+                  - rowheader "4.00" [ref=e1511]
+              - row [ref=e1513]:
+                - generic [ref=e1514] [cursor=pointer]:
+                  - rowheader "how to make magnetic perpetual energy" [ref=e1515]
+                  - rowheader "1" [ref=e1517]
+                  - rowheader "0" [ref=e1519]
+                  - rowheader "0.00%" [ref=e1521]
+                  - rowheader "5.00" [ref=e1523]
+          - navigation [ref=e1525]:
+            - generic [ref=e1526]:
+              - generic [ref=e1527]: Rows per page
+              - combobox "Rows per page" [ref=e1530]:
+                - generic [ref=e1531] [cursor=pointer]: "25"
+                - generic [ref=e1532] [cursor=pointer]:
+                  - generic [aria-hidden]: 
+              - generic [ref=e1533]:
+                - generic [ref=e1534]: 26 — 50
+                - text: of 133
+              - button "Go to previous Page" [ref=e1535] [cursor=pointer]:
+                - generic [aria-hidden] [ref=e1537]: 
+              - button "Go to next Page" [ref=e1538] [cursor=pointer]:
+                - generic [aria-hidden] [ref=e1540]: 

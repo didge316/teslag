@@ -1,0 +1,41 @@
+[      45ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:8188/api/userdata/user.css:0
+[      45ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:8188/user.css:0
+[     921ms] [WARNING] [ComfyUI] The legacy queue/history menu is deprecated. Core functionality in this menu may break at any time. Issues and feature requests related to the legacy menu will not be addressed. To switch to the new menu: Settings → search "Use new menu" → change from "Disabled" to "Top". @ http://127.0.0.1:8188/assets/settingStore-DDHzGrHr.js:179
+[     922ms] [WARNING] [ComfyUI] The legacy queue/history menu is deprecated. Core functionality in this menu may break at any time. Issues and feature requests related to the legacy menu will not be addressed. To switch to the new menu: Settings → search "Use new menu" → change from "Disabled" to "Top". @ http://127.0.0.1:8188/assets/settingStore-DDHzGrHr.js:179
+[    1131ms] [ERROR] ComfyApp graph accessed before initialization @ http://127.0.0.1:8188/assets/settingStore-DDHzGrHr.js:195
+[    1177ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:8188/api/userdata?dir=subgraphs&recurse=true&split=false&full_info=true:0
+[    1792ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:8188/extensions/core/clipspace.js:0
+[    1798ms] [WARNING] Extension pysssss.SnapToGrid is disabled. @ http://127.0.0.1:8188/assets/extensionStore-BQDxWOi2.js:0
+[    1811ms] [ERROR] [vite:preloadError] {url: http://127.0.0.1:8188/extensions/ComfyUI-Impact-Pack/impact-sam-editor.js, fileType: js, chunkName: impact-sam-editor, message: Failed to fetch dynamically imported module: http:…tensions/ComfyUI-Impact-Pack/impact-sam-editor.js} @ http://127.0.0.1:8188/assets/main-xCuCK3ZS.js:1
+[    1812ms] [WARNING] Extension pysssss.FaviconStatus is disabled. @ http://127.0.0.1:8188/assets/extensionStore-BQDxWOi2.js:0
+[    1820ms] [WARNING] [ComfyUI Deprecated] Importing from "scripts/ui.js" is deprecated and will be removed in v1.34. @ http://127.0.0.1:8188/scripts/ui.js:1
+[    1831ms] [WARNING] [ComfyUI Notice] "extensions/core/widgetInputs.js" is an internal module, not part of the public API. Future updates may break this import. @ http://127.0.0.1:8188/extensions/core/widgetInputs.js:1
+[    1831ms] [WARNING] [ComfyUI Notice] "scripts/utils.js" is an internal module, not part of the public API. Future updates may break this import. @ http://127.0.0.1:8188/scripts/utils.js:1
+[    1831ms] [WARNING] [ComfyUI Notice] "scripts/widgets.js" is an internal module, not part of the public API. Future updates may break this import. @ http://127.0.0.1:8188/scripts/widgets.js:1
+[    1832ms] [WARNING] [ComfyUI Notice] "scripts/pnginfo.js" is an internal module, not part of the public API. Future updates may break this import. @ http://127.0.0.1:8188/scripts/pnginfo.js:1
+[    1833ms] [WARNING] [ComfyUI Deprecated] Importing from "extensions/core/groupNode.js" is deprecated and will be removed in v1.34. @ http://127.0.0.1:8188/extensions/core/groupNode.js:1
+[    1865ms] [WARNING] [MaskEditor] ComfyApp.open_maskeditor is deprecated. Plugins should migrate to using the command system or direct node context menu integration. @ http://127.0.0.1:8188/assets/core-C8yW9NC5.js:2
+[    2407ms] [LOG] Registering IntegerSettingsAdvanced mutual exclusion behavior @ http://127.0.0.1:8188/extensions/controlaltai-nodes/js/integer_settings_advanced.js:8
+[    2541ms] [WARNING] Use of defaultInput on required input custom_nodes.comfyui-impact-pack:ImpactSchedulerAdapter:scheduler is deprecated. Please drop the defaultInput option. @ http://127.0.0.1:8188/assets/settingStore-DDHzGrHr.js:179
+[    2662ms] [WARNING] Use of defaultInput on required input custom_nodes.comfyui-impact-pack:ImpactSchedulerAdapter:scheduler is deprecated. Please drop the defaultInput option. @ http://127.0.0.1:8188/assets/settingStore-DDHzGrHr.js:179
+[    2685ms] [WARNING] %c[DEPRECATED]%c Monkey-patching getCanvasMenuOptions is deprecated. (Extension: "pysssss.GraphArrange")
+Please use the new context menu API instead.
+
+See: https://docs.comfy.org/custom-nodes/js/context-menu-migration color: orange; font-weight: bold color: inherit @ http://127.0.0.1:8188/assets/settingStore-DDHzGrHr.js:43
+[    2686ms] [WARNING] %c[DEPRECATED]%c Monkey-patching getCanvasMenuOptions is deprecated. (Extension: "pysssss.NodeFinder")
+Please use the new context menu API instead.
+
+See: https://docs.comfy.org/custom-nodes/js/context-menu-migration color: orange; font-weight: bold color: inherit @ http://127.0.0.1:8188/assets/settingStore-DDHzGrHr.js:43
+[    2695ms] [WARNING] %c[DEPRECATED]%c Monkey-patching getCanvasMenuOptions is deprecated. (Extension: "rgthree.QueueNode")
+Please use the new context menu API instead.
+
+See: https://docs.comfy.org/custom-nodes/js/context-menu-migration color: orange; font-weight: bold color: inherit @ http://127.0.0.1:8188/assets/settingStore-DDHzGrHr.js:43
+[    2715ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:8188/api/pysssss/autocomplete:0
+[    2721ms] [WARNING] [ComfyUI Deprecated] Importing from "scripts/ui/components/button.js" is deprecated and will be removed in v1.34. @ http://127.0.0.1:8188/scripts/ui/components/button.js:1
+[    2727ms] [WARNING] [ComfyUI Deprecated] Importing from "scripts/ui/components/buttonGroup.js" is deprecated and will be removed in v1.34. @ http://127.0.0.1:8188/scripts/ui/components/buttonGroup.js:1
+[    2981ms] [LOG] Empty components: policy ignored @ http://127.0.0.1:8188/extensions/ComfyUI-Manager/components-manager.js:769
+[    3001ms] [WARNING] widget.inputEl is deprecated. Use widget.element instead. undefined @ http://127.0.0.1:8188/assets/settingStore-DDHzGrHr.js:1
+[    3175ms] [WARNING] input.link is deprecated. Read connectivity via node.isInputConnected(slot) / node.getInputLink(slot); mutate via node.connect() / node.disconnectInput(). undefined @ http://127.0.0.1:8188/assets/settingStore-DDHzGrHr.js:1
+[    3191ms] [WARNING] output.links is deprecated. Read connectivity via node.isOutputConnected(slot) / node.getOutputNodes(slot); mutate via node.connect() / node.disconnectOutput(). undefined @ http://127.0.0.1:8188/assets/settingStore-DDHzGrHr.js:1
+[ 2890155ms] [INFO] Autofocus processing was blocked because a document already has a focused element. @ http://127.0.0.1:8188/:0
+[ 2963771ms] [LOG] [KJNodes] Cross-graph Set/Get: frontend native support detected, skipping patch @ http://127.0.0.1:8188/extensions/comfyui-kjnodes/js/setgetnodes.js:1585

@@ -1,0 +1,102 @@
+[      83ms] [LOG] JQMIGRATE: Migrate is installed, version 3.4.1 @ https://cookeryexpressions.co.in/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1:1
+[     264ms] [ERROR] Failed to load resource: net::ERR_BLOCKED_BY_CLIENT @ https://connect.facebook.net/en_US/fbevents.js:0
+[     264ms] [ERROR] Failed to load resource: net::ERR_BLOCKED_BY_CLIENT @ https://cdn.mouseflow.com/projects/97f735cb-c9ac-403e-942c-d60fedbe6a08.js:0
+[     277ms] ReferenceError: GetChatApp is not defined
+    at HTMLDocument.<anonymous> (https://cookeryexpressions.co.in/gluten-free-chicken-stew/:583:19)
+[     314ms] [WARNING] [BCM.native][global] Failed to parse incoming message: SyntaxError: Unexpected token 'r', "recaptcha-setup" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:2:211565 @ chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:1
+[     324ms] [WARNING] [BCM.native][global] Failed to parse incoming message: SyntaxError: Unexpected token 'r', "recaptcha-setup" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:2:211565 @ chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:1
+[     737ms] [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2 @ https://www.gstatic.com/recaptcha/releases/kemdRjWFxNjgsGdhRslyEPwU/recaptcha__en.js:709
+[     737ms] [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2 @ https://www.gstatic.com/recaptcha/releases/kemdRjWFxNjgsGdhRslyEPwU/recaptcha__en.js:709
+[     755ms] [ERROR] requestStorageAccess: Permission denied. @ https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfAjXAnAAAAAHmLuTUwt5UOUoPjZMDHWYSUnENq&co=aHR0cHM6Ly9jb29rZXJ5ZXhwcmVzc2lvbnMuY28uaW46NDQz&hl=en&v=kemdRjWFxNjgsGdhRslyEPwU&size=normal&anchor-ms=20000&execute-ms=30000&cb=tb2wltry7rli:0
+[     833ms] [ERROR] requestStorageAccess: Permission denied. @ https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LdLr7EZAAAAAPmE_LOmWTYMZnWIzCZiggMbyBoZ&co=aHR0cHM6Ly9jb29rZXJ5ZXhwcmVzc2lvbnMuY28uaW46NDQz&hl=en&v=kemdRjWFxNjgsGdhRslyEPwU&size=invisible&anchor-ms=20000&execute-ms=30000&cb=23nn0mjikcot:0
+[     980ms] [WARNING] [BCM.native][global] Failed to parse incoming message: SyntaxError: Unexpected token 'r', "recaptcha-setup" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:2:211565 @ chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:1
+[     981ms] [WARNING] [BCM.native][global] Failed to parse incoming message: SyntaxError: Unexpected token 'r', "recaptcha-setup" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:2:211565 @ chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:1
+[     737ms] [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2 @ https://www.gstatic.com/recaptcha/releases/kemdRjWFxNjgsGdhRslyEPwU/recaptcha__en.js:709
+[     755ms] [ERROR] requestStorageAccess: Permission denied. @ https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfAjXAnAAAAAHmLuTUwt5UOUoPjZMDHWYSUnENq&co=aHR0cHM6Ly9jb29rZXJ5ZXhwcmVzc2lvbnMuY28uaW46NDQz&hl=en&v=kemdRjWFxNjgsGdhRslyEPwU&size=normal&anchor-ms=20000&execute-ms=30000&cb=tb2wltry7rli:0
+[     833ms] [ERROR] requestStorageAccess: Permission denied. @ https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LdLr7EZAAAAAPmE_LOmWTYMZnWIzCZiggMbyBoZ&co=aHR0cHM6Ly9jb29rZXJ5ZXhwcmVzc2lvbnMuY28uaW46NDQz&hl=en&v=kemdRjWFxNjgsGdhRslyEPwU&size=invisible&anchor-ms=20000&execute-ms=30000&cb=23nn0mjikcot:0
+[    1778ms] TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at HTMLIFrameElement.<anonymous> (chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/web-client-content-script.js:2:1445024)
+[    1782ms] [WARNING] [BCM.native][global] Failed to parse incoming message: SyntaxError: Unexpected token 'r', "recaptcha-setup" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:2:211565 @ chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:1
+[   26981ms] [LOG] JQMIGRATE: Migrate is installed, version 3.4.1 @ https://cookeryexpressions.co.in/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1:1
+[   27010ms] [ERROR] Failed to load resource: net::ERR_BLOCKED_BY_CLIENT @ https://connect.facebook.net/en_US/fbevents.js:0
+[   27010ms] [ERROR] Failed to load resource: net::ERR_BLOCKED_BY_CLIENT @ https://cdn.mouseflow.com/projects/97f735cb-c9ac-403e-942c-d60fedbe6a08.js:0
+[   27147ms] ReferenceError: GetChatApp is not defined
+    at HTMLDocument.<anonymous> (https://cookeryexpressions.co.in/about/:608:19)
+[   27365ms] [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2 @ https://www.gstatic.com/recaptcha/releases/kemdRjWFxNjgsGdhRslyEPwU/recaptcha__en.js:709
+[   27365ms] [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2 @ https://www.gstatic.com/recaptcha/releases/kemdRjWFxNjgsGdhRslyEPwU/recaptcha__en.js:709
+[   27382ms] [ERROR] requestStorageAccess: Permission denied. @ https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfAjXAnAAAAAHmLuTUwt5UOUoPjZMDHWYSUnENq&co=aHR0cHM6Ly9jb29rZXJ5ZXhwcmVzc2lvbnMuY28uaW46NDQz&hl=en&v=kemdRjWFxNjgsGdhRslyEPwU&size=normal&anchor-ms=20000&execute-ms=30000&cb=2yzjfv0s8c4:0
+[   27574ms] [WARNING] [BCM.native][global] Failed to parse incoming message: SyntaxError: Unexpected token 'r', "recaptcha-setup" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:2:211565 @ chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:1
+[   27680ms] [WARNING] [BCM.native][global] Failed to parse incoming message: SyntaxError: Unexpected token 'r', "recaptcha-setup" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:2:211565 @ chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:1
+[   27693ms] TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at HTMLIFrameElement.<anonymous> (chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/web-client-content-script.js:2:1445024)
+[   27698ms] [ERROR] requestStorageAccess: Permission denied. @ https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LdLr7EZAAAAAPmE_LOmWTYMZnWIzCZiggMbyBoZ&co=aHR0cHM6Ly9jb29rZXJ5ZXhwcmVzc2lvbnMuY28uaW46NDQz&hl=en&v=kemdRjWFxNjgsGdhRslyEPwU&size=invisible&anchor-ms=20000&execute-ms=30000&cb=6wwoz8j8dryk:0
+[   28237ms] [ERROR] Framing 'https://www.google.com/' violates the following report-only Content Security Policy directive: "frame-ancestors 'self'". The violation has been logged, but no further action has been taken.
+ @ :0
+[   27365ms] [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://fonts.gstatic.com/s/roboto/v48/KFO7CnqEu92Fr1ME7kSn66aGLdTylUAMa3yUBA.woff2 @ https://www.gstatic.com/recaptcha/releases/kemdRjWFxNjgsGdhRslyEPwU/recaptcha__en.js:709
+[   27382ms] [ERROR] requestStorageAccess: Permission denied. @ https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfAjXAnAAAAAHmLuTUwt5UOUoPjZMDHWYSUnENq&co=aHR0cHM6Ly9jb29rZXJ5ZXhwcmVzc2lvbnMuY28uaW46NDQz&hl=en&v=kemdRjWFxNjgsGdhRslyEPwU&size=normal&anchor-ms=20000&execute-ms=30000&cb=2yzjfv0s8c4:0
+[   27698ms] [ERROR] requestStorageAccess: Permission denied. @ https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LdLr7EZAAAAAPmE_LOmWTYMZnWIzCZiggMbyBoZ&co=aHR0cHM6Ly9jb29rZXJ5ZXhwcmVzc2lvbnMuY28uaW46NDQz&hl=en&v=kemdRjWFxNjgsGdhRslyEPwU&size=invisible&anchor-ms=20000&execute-ms=30000&cb=6wwoz8j8dryk:0
+[   28282ms] [WARNING] [BCM.native][global] Failed to parse incoming message: SyntaxError: Unexpected token 'r', "recaptcha-setup" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:2:211565 @ chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:1
+[   44354ms] [LOG] JQMIGRATE: Migrate is installed, version 3.4.1 @ https://cookeryexpressions.co.in/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1:1
+[   44369ms] [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://cookeryexpressions.co.in/wp-content/uploads/elementor/google-fonts/fonts/josefinsans-qw3azqnved7rkgkxtqiqx5eudxx4.woff2 @ https://cookeryexpressions.co.in/my-book/:949
+[   44397ms] [ERROR] Failed to load resource: net::ERR_BLOCKED_BY_CLIENT @ https://connect.facebook.net/en_US/fbevents.js:0
+[   44398ms] ReferenceError: GetChatApp is not defined
+    at HTMLDocument.<anonymous> (https://cookeryexpressions.co.in/my-book/:954:19)
+[   44401ms] [ERROR] Failed to load resource: net::ERR_BLOCKED_BY_CLIENT @ https://cdn.mouseflow.com/projects/97f735cb-c9ac-403e-942c-d60fedbe6a08.js:0
+[   44418ms] [WARNING] [BCM.native][global] Failed to parse incoming message: SyntaxError: Unexpected token 'r', "recaptcha-setup" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:2:211565 @ chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:1
+[   44619ms] [ERROR] requestStorageAccess: Permission denied. @ https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LdLr7EZAAAAAPmE_LOmWTYMZnWIzCZiggMbyBoZ&co=aHR0cHM6Ly9jb29rZXJ5ZXhwcmVzc2lvbnMuY28uaW46NDQz&hl=en&v=kemdRjWFxNjgsGdhRslyEPwU&size=invisible&anchor-ms=20000&execute-ms=30000&cb=467j05gqribq:0
+[   44816ms] [WARNING] [BCM.native][global] Failed to parse incoming message: SyntaxError: Unexpected token 'r', "recaptcha-setup" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:2:211565 @ chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:1
+[   45126ms] TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at HTMLIFrameElement.<anonymous> (chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/web-client-content-script.js:2:1445024)
+[   48413ms] [LOG] JQMIGRATE: Migrate is installed, version 3.4.1 @ https://cookeryexpressions.co.in/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1:1
+[   48436ms] [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://cookeryexpressions.co.in/wp-content/uploads/elementor/google-fonts/fonts/berkshireswash-ptrrti-cavzogqcvnnjdl5m5xmn_qs4z.woff2 @ https://cookeryexpressions.co.in/:1993
+[   48436ms] [INFO] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://cookeryexpressions.co.in/wp-content/uploads/elementor/google-fonts/fonts/josefinsans-qw3ezqnved7rkgkxtqiqx5eucex6xhg.woff2 @ https://cookeryexpressions.co.in/:1993
+[   48501ms] [ERROR] Failed to load resource: net::ERR_BLOCKED_BY_CLIENT @ https://connect.facebook.net/en_US/fbevents.js:0
+[   48503ms] [ERROR] Failed to load resource: net::ERR_BLOCKED_BY_CLIENT @ https://cdn.mouseflow.com/projects/97f735cb-c9ac-403e-942c-d60fedbe6a08.js:0
+[   48508ms] [WARNING] [BCM.native][global] Failed to parse incoming message: SyntaxError: Unexpected token 'r', "recaptcha-setup" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:2:211565 @ chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:1
+[   48563ms] ReferenceError: GetChatApp is not defined
+    at HTMLDocument.<anonymous> (https://cookeryexpressions.co.in/:2126:19)
+[   48761ms] [WARNING] [BCM.native][global] Failed to parse incoming message: SyntaxError: Unexpected token 'r', "recaptcha-setup" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:2:211565 @ chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:1
+[   48764ms] [ERROR] requestStorageAccess: Permission denied. @ https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LdLr7EZAAAAAPmE_LOmWTYMZnWIzCZiggMbyBoZ&co=aHR0cHM6Ly9jb29rZXJ5ZXhwcmVzc2lvbnMuY28uaW46NDQz&hl=en&v=kemdRjWFxNjgsGdhRslyEPwU&size=invisible&anchor-ms=20000&execute-ms=30000&cb=w4ygqkwv662h:0
+[   48764ms] [ERROR] requestStorageAccess: Permission denied. @ https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LdLr7EZAAAAAPmE_LOmWTYMZnWIzCZiggMbyBoZ&co=aHR0cHM6Ly9jb29rZXJ5ZXhwcmVzc2lvbnMuY28uaW46NDQz&hl=en&v=kemdRjWFxNjgsGdhRslyEPwU&size=invisible&anchor-ms=20000&execute-ms=30000&cb=w4ygqkwv662h:0
+[   93554ms] [ERROR] Failed to load resource: net::ERR_BLOCKED_BY_CLIENT @ https://maps.googleapis.com/maps/api/mapsjs/gen_204?csp_test=true:0
+[   93591ms] TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at HTMLIFrameElement.<anonymous> (chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/web-client-content-script.js:2:1445024)
+[   96033ms] TypeError: Cannot read properties of null (reading 'classList')
+    at astraToggleClass (https://cookeryexpressions.co.in/wp-content/themes/astra/assets/js/minified/style.min.js?ver=4.13.0:1:152)
+    at HTMLInputElement.<anonymous> (https://cookeryexpressions.co.in/wp-content/themes/astra/assets/js/minified/style.min.js?ver=4.13.0:1:8904)
+    at https://cookeryexpressions.co.in/wp-content/themes/astra/assets/js/minified/style.min.js?ver=4.13.0:1:7077
+[  100357ms] [LOG] JQMIGRATE: Migrate is installed, version 3.4.1 @ https://cookeryexpressions.co.in/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1:1
+[  100384ms] [ERROR] Failed to load resource: net::ERR_BLOCKED_BY_CLIENT @ https://connect.facebook.net/en_US/fbevents.js:0
+[  100384ms] [ERROR] Failed to load resource: net::ERR_BLOCKED_BY_CLIENT @ https://cdn.mouseflow.com/projects/97f735cb-c9ac-403e-942c-d60fedbe6a08.js:0
+[  100511ms] ReferenceError: GetChatApp is not defined
+    at HTMLDocument.<anonymous> (https://cookeryexpressions.co.in/?s=thai:502:19)
+[  100734ms] [ERROR] requestStorageAccess: Permission denied. @ https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LdLr7EZAAAAAPmE_LOmWTYMZnWIzCZiggMbyBoZ&co=aHR0cHM6Ly9jb29rZXJ5ZXhwcmVzc2lvbnMuY28uaW46NDQz&hl=en&v=kemdRjWFxNjgsGdhRslyEPwU&size=invisible&anchor-ms=20000&execute-ms=30000&cb=gtupcjwnbo94:0
+[  100957ms] [WARNING] [BCM.native][global] Failed to parse incoming message: SyntaxError: Unexpected token 'r', "recaptcha-setup" is not valid JSON
+    at JSON.parse (<anonymous>)
+    at chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:2:211565 @ chrome-extension://ckklhkaabbmdjkahiaaplikpdddkenic/static/js/IMInjectedProvider.js:1
+[  101216ms] TypeError: Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+    at HTMLIFrameElement.<anonymous> (chrome-extension://hdokiejnpimakedhajhdlcegeplioahd/web-client-content-script.js:2:1445024)

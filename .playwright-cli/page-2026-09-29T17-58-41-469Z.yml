@@ -1,0 +1,355 @@
+- generic [ref=e1]:
+  - generic [ref=e4]:
+    - banner [ref=e5]:
+      - navigation "Primary Navigation" [ref=e7]:
+        - generic [ref=e9]:
+          - link [ref=e12] [cursor=pointer]:
+            - /url: /
+            - img "SteamRIP" [ref=e14]
+          - text:  
+          - generic [ref=e15]:
+            - list [ref=e18]:
+              - listitem [ref=e19]:
+                - link "Home" [ref=e20] [cursor=pointer]:
+                  - /url: /
+                  - generic [aria-hidden] [ref=e21]: 
+                  - text: Home
+              - listitem [ref=e22]:
+                - link " Categories" [ref=e23] [cursor=pointer]:
+                  - /url: "#"
+                  - text: 
+                  - generic [aria-hidden] [ref=e24]: 
+                  - text: Categories
+              - listitem [ref=e25]:
+                - link "Top Games" [ref=e26] [cursor=pointer]:
+                  - /url: /top-games/
+                  - generic [aria-hidden] [ref=e27]: 
+                  - text: Top Games
+              - listitem [ref=e28]:
+                - link "Recent Updates" [ref=e29] [cursor=pointer]:
+                  - /url: /updated-games/
+                  - generic [aria-hidden] [ref=e30]: 
+                  - text: Recent Updates
+              - listitem [ref=e31]:
+                - link " Games List" [ref=e32] [cursor=pointer]:
+                  - /url: "#"
+                  - text: 
+                  - generic [aria-hidden] [ref=e33]: 
+                  - text: Games List
+              - listitem [ref=e34]:
+                - link " FAQ" [ref=e35] [cursor=pointer]:
+                  - /url: "#"
+                  - text: 
+                  - generic [aria-hidden] [ref=e36]: 
+                  - text: FAQ
+              - listitem [ref=e37]:
+                - link "Discord" [ref=e38] [cursor=pointer]:
+                  - /url: //discord.gg/NBVFJsmy9y
+                  - generic [aria-hidden] [ref=e39]: 
+                  - text: Discord
+            - list [ref=e40]:
+              - listitem [ref=e41]:
+                - link "Random Article" [ref=e42] [cursor=pointer]:
+                  - /url: "?random-post=1"
+                  - generic [aria-hidden] [ref=e43]: 
+              - listitem [ref=e45]:
+                - link "Switch skin" [ref=e46] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [aria-hidden] [ref=e47]: 
+              - listitem [ref=e49]:
+                - link "Search for" [ref=e50] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [aria-hidden] [ref=e51]: 
+    - banner [ref=e55]:
+      - navigation [ref=e56]:
+        - link "Home" [ref=e57] [cursor=pointer]:
+          - /url: /
+          - generic [aria-hidden] [ref=e58]: 
+          - text: Home
+        - emphasis [ref=e59]: »
+        - link "Adventure" [ref=e60] [cursor=pointer]:
+          - /url: /category/adventure/
+        - emphasis [ref=e61]: »
+        - text: Nivalis Nights Free Download
+      - generic [ref=e62]:
+        - generic [ref=e63]:
+          - link "Adventure" [ref=e64] [cursor=pointer]:
+            - /url: /category/adventure/
+          - link "Open World" [ref=e65] [cursor=pointer]:
+            - /url: /category/open-world/
+          - link "Role-playing Game" [ref=e66] [cursor=pointer]:
+            - /url: /category/rpg/
+          - link "Simulation" [ref=e67] [cursor=pointer]:
+            - /url: /category/simulation/
+        - heading "Nivalis Nights Free Download" [level=1] [ref=e68]
+        - generic [ref=e69]:
+          - generic [ref=e70]:
+            - link " CR" [ref=e74] [cursor=pointer]:
+              - /url: /author/steamripcr/
+            - generic [ref=e75]: • 28 seconds ago
+            - generic [ref=e77]:
+              - generic [aria-hidden] [ref=e78]: 
+              - text: 2,713
+          - generic [ref=e79]: Updated
+    - figure [ref=e88]
+    - generic [ref=e90]:
+      - main [ref=e91]:
+        - article [ref=e92]:
+          - generic [ref=e93]:
+            - heading "Nivalis Nights Direct Download" [level=2] [ref=e94]
+            - generic [ref=e95]:
+              - paragraph [ref=e96]: Welcome to the cyberpunk city of Nivalis, where neon dreams become your reality!
+              - paragraph [ref=e97]: In a district pushed to the brink by CorpSec crackdowns and a mysterious serial killer, your ambition is your best weapon. Start humble with a noodle stand, then climb your way up to own the city’s top restaurants and premier nightclubs.
+              - paragraph [ref=e98]: "In this slice-of-life simulation, every day is a choice: will you spend it growing your business or forging bonds with the city’s strange inhabitants? From managing bustling ramen bars to navigating complex relationships, your influence grows with every decision. Whether you’re legally growing your own ingredients or illegally sabotaging your rivals under the cover of curfew, this city is yours to conquer."
+              - paragraph [ref=e99]: When the pressure gets too high, retreat to the docks to explore the city by boat, customize your home to perfection, or master a high-stakes cyberpunk chess tournament. With a realistic weather system and a vibrant cast of characters to meet, “Nivalis Nights” offers a unique simulation where your path is entirely up to you.
+              - paragraph [ref=e100]: "Features:"
+              - paragraph [ref=e101]: • Choose how you spend each day in this cyberpunk slice of life.
+              - paragraph [ref=e102]: • Manage businesses like restaurants, ramen bars or night clubs.
+              - paragraph [ref=e103]: • Buy or grow your own ingredients.
+              - paragraph [ref=e104]: • Explore the city with your own boat and go fishing.
+              - paragraph [ref=e105]: • Decorate your home(s) or customize others for friends.
+              - paragraph [ref=e106]: • Discover the stories of the people you meet in the city and manage your relationships with them.
+              - paragraph [ref=e107]: • Challenge NPC’s for mini games and take part in a chess tournament.
+              - paragraph [ref=e108]: • Avoid security systems during curfew and commit sabotage to your competitors. But beware! What happens to them, can happen to you as well.
+              - paragraph [ref=e109]:
+                - link [ref=e110] [cursor=pointer]:
+                  - /url: /raw-egg-peeling-free-download/
+                  - strong [ref=e111]: Raw Egg Peeling
+            - separator [ref=e112]
+            - heading "SCREENSHOTS" [level=4] [ref=e113]
+            - paragraph [ref=e114]:
+              - link [ref=e115] [cursor=pointer]:
+                - /url: //shared.fastly.steamstatic.com/store_item_assets/steam/apps/1488490/ss_c430c518f07111978f55651794ff33cd4d407fcc.1920x1080.jpg
+                - img "Nivalis Nights-steamrip" [ref=e116]
+              - link [ref=e117] [cursor=pointer]:
+                - /url: //shared.fastly.steamstatic.com/store_item_assets/steam/apps/1488490/ss_45f7980606c2b6f2eb093a1702e72e3fb4e4b980.1920x1080.jpg
+                - img "Nivalis Nights-screenshots-steamrip" [ref=e118]
+            - separator [ref=e119]
+            - heading "SYSTEM REQUIREMENTS" [level=4] [ref=e120]
+            - list [ref=e122]:
+              - listitem [ref=e123]:  Requires a 64-bit processor and operating system
+              - listitem [ref=e124]:
+                - text: 
+                - strong [ref=e125]: "OS:"
+                - text: Windows 10 64-bit
+              - listitem [ref=e126]:
+                - text: 
+                - strong [ref=e127]: "Processor:"
+                - text: Intel Core i5-11600K / AMD Ryzen 5 3600
+              - listitem [ref=e128]:
+                - text: 
+                - strong [ref=e129]: "Memory:"
+                - text: 16 GB RAM
+              - listitem [ref=e130]:
+                - text: 
+                - strong [ref=e131]: "Graphics:"
+                - text: NVIDIA GeForce GTX 1660 SUPER or RTX 3050 / AMD Radeon RX 6600 / Intel Arc A750 (6 GB VRAM)
+              - listitem [ref=e132]:
+                - text: 
+                - strong [ref=e133]: "DirectX:"
+                - text: Version 11
+              - listitem [ref=e134]:
+                - text: 
+                - strong [ref=e135]: "Storage:"
+                - text: 42 GB available space
+              - listitem [ref=e136]:
+                - text: 
+                - strong [ref=e137]: "Additional Notes:"
+                - text: "1080p at 30 FPS with the “very low” Graphics Quality preset. Native resolution, no upscaling utilised. SSD required. Laptop equivalent: RTX 4050 Laptop with 6 GB VRAM. Mobile GPUs perform below their desktop equivalents."
+            - separator [ref=e138]
+            - heading "GAME INFO" [level=4] [ref=e139]
+            - list [ref=e141]:
+              - listitem [ref=e142]:
+                - text: 
+                - strong [ref=e143]: "Genre:"
+                - text: Adventure, RPG, Simulation
+              - listitem [ref=e144]:
+                - text: 
+                - strong [ref=e145]: "Developer:"
+                - text: ION LANDS
+              - listitem [ref=e146]:
+                - text: 
+                - strong [ref=e147]: "Platform:"
+                - text: PC
+              - listitem [ref=e148]:
+                - text: 
+                - strong [ref=e149]: "Game Size:"
+                - text: 16.2 GB
+              - listitem [ref=e150]:
+                - text: 
+                - strong [ref=e151]: "Released By:"
+                - text: RUNE
+              - listitem [ref=e152]:
+                - text: 
+                - strong [ref=e153]: Version
+                - text: ": Build 25603526"
+              - listitem [ref=e154]:
+                - text: 
+                - strong [ref=e155]: Pre-Installed Game
+            - paragraph [ref=e156]:
+              - strong [ref=e158]: GOFILE
+              - link "DOWNLOAD HERE" [ref=e159] [cursor=pointer]:
+                - /url: //gofile.io/d/l3FcjXkK
+            - paragraph [ref=e160]:
+              - strong [ref=e161]: BZZHR
+              - link "DOWNLOAD HERE" [ref=e162] [cursor=pointer]:
+                - /url: //bzzhr.to/zt6h5dnxxrsd
+            - paragraph [ref=e163]:
+              - strong [ref=e165]: Fileditch
+              - link "DOWNLOAD HERE" [ref=e166] [cursor=pointer]:
+                - /url: //fileditchfiles.st/balpha23/e053ffe3a586c44aed5e/Nivalis.Nights-SteamRIP.com.rar
+          - text:   
+        - generic [ref=e167]:
+          - generic [ref=e168]:
+            - heading "Related Games" [level=3] [ref=e170]
+            - generic [ref=e171]:
+              - generic [ref=e172]:
+                - link "Zompiercer Free Download" [ref=e173] [cursor=pointer]:
+                  - /url: /zompiercer-free-download/
+                  - img "Zompiercer Free Download" [ref=e174]
+                - heading [level=3] [ref=e175]:
+                  - link "Zompiercer Free Download" [ref=e176] [cursor=pointer]:
+                    - /url: /zompiercer-free-download/
+                - generic [ref=e177]:  2 weeks ago
+              - generic [ref=e179]:
+                - link "Shark Pinball Free Download" [ref=e180] [cursor=pointer]:
+                  - /url: /shark-pinball-free-download-h1/
+                  - img "Shark Pinball Free Download" [ref=e181]
+                - heading [level=3] [ref=e182]:
+                  - link "Shark Pinball Free Download" [ref=e183] [cursor=pointer]:
+                    - /url: /shark-pinball-free-download-h1/
+                - generic [ref=e184]:  June 19, 2023
+              - generic [ref=e186]:
+                - link "Yu-Gi-Oh! EARLY DAYS COLLECTION Free Download (Build 18573736 + Online)" [ref=e187] [cursor=pointer]:
+                  - /url: /yu-gi-oh-early-days-collection-free-download/
+                  - img "Yu-Gi-Oh! EARLY DAYS COLLECTION Free Download (Build 18573736 + Online)" [ref=e188]
+                - heading [level=3] [ref=e189]:
+                  - link "Yu-Gi-Oh! EARLY DAYS COLLECTION Free Download (Build 18573736 + Online)" [ref=e190] [cursor=pointer]:
+                    - /url: /yu-gi-oh-early-days-collection-free-download/
+                - generic [ref=e191]:  July 13, 2026
+              - text: 
+          - text: 0 comments
+          - generic:
+            - generic:
+              - iframe
+      - complementary "Primary Sidebar" [ref=e193]:
+        - generic [ref=e195]:
+          - generic [ref=e196]: Popular Games
+          - list [ref=e200]:
+            - listitem [ref=e201]:
+              - link "Assassin’s Creed Mirage Free Download (v1.1.1)" [ref=e203] [cursor=pointer]:
+                - /url: /assassins-creed-mirage-free-download/
+                - img "Assassin’s Creed Mirage Free Download (v1.1.1)" [ref=e204]
+              - generic [ref=e205]:
+                - link "Assassin’s Creed Mirage Free Download (v1.1.1)" [ref=e206] [cursor=pointer]:
+                  - /url: /assassins-creed-mirage-free-download/
+                - generic [ref=e207]:  1 week ago
+            - listitem [ref=e209]:
+              - link "TCG Card Shop Simulator Free Download (v1.0)" [ref=e211] [cursor=pointer]:
+                - /url: /tcg-card-shop-simulator-free-download/
+                - img "TCG Card Shop Simulator Free Download (v1.0)" [ref=e212]
+              - generic [ref=e213]:
+                - link "TCG Card Shop Simulator Free Download (v1.0)" [ref=e214] [cursor=pointer]:
+                  - /url: /tcg-card-shop-simulator-free-download/
+                - generic [ref=e215]:  2 weeks ago
+            - listitem [ref=e217]:
+              - link "R.I.P. – Reincarnation Insurance Program Free Download (v1.0)" [ref=e219] [cursor=pointer]:
+                - /url: /rip-reincarnation-insurance-program/
+                - img "R.I.P. – Reincarnation Insurance Program Free Download (v1.0)" [ref=e220]
+              - generic [ref=e221]:
+                - link "R.I.P. – Reincarnation Insurance Program Free Download (v1.0)" [ref=e222] [cursor=pointer]:
+                  - /url: /rip-reincarnation-insurance-program/
+                - generic [ref=e223]:  2 weeks ago
+            - listitem [ref=e225]:
+              - 'link "I Know a Guy: Shady Life Simulator Free Download (v1.0)" [ref=e227] [cursor=pointer]':
+                - /url: /i-know-a-guy-shady-life-simulator-free-download/
+                - 'img "I Know a Guy: Shady Life Simulator Free Download (v1.0)" [ref=e228]'
+              - generic [ref=e229]:
+                - 'link "I Know a Guy: Shady Life Simulator Free Download (v1.0)" [ref=e230] [cursor=pointer]':
+                  - /url: /i-know-a-guy-shady-life-simulator-free-download/
+                - generic [ref=e231]:  3 days ago
+            - listitem [ref=e233]:
+              - 'link "SILENT HILL: Townfall Free Download" [ref=e235] [cursor=pointer]':
+                - /url: /silent-hill-townfall-free-download/
+                - 'img "SILENT HILL: Townfall Free Download" [ref=e236]'
+              - generic [ref=e237]:
+                - 'link "SILENT HILL: Townfall Free Download" [ref=e238] [cursor=pointer]':
+                  - /url: /silent-hill-townfall-free-download/
+                - generic [ref=e239]:  7 days ago
+            - listitem [ref=e241]:
+              - link "CONTROL Resonant Free Download" [ref=e243] [cursor=pointer]:
+                - /url: /control-resonant-free-download/
+                - img "CONTROL Resonant Free Download" [ref=e244]
+              - generic [ref=e245]:
+                - link "CONTROL Resonant Free Download" [ref=e246] [cursor=pointer]:
+                  - /url: /control-resonant-free-download/
+                - generic [ref=e247]:  5 days ago
+            - listitem [ref=e249]:
+              - 'link "Guns and Nuns: Storming Hell Free Download" [ref=e251] [cursor=pointer]':
+                - /url: /guns-and-nuns-storming-hell-free-download/
+                - 'img "Guns and Nuns: Storming Hell Free Download" [ref=e252]'
+              - generic [ref=e253]:
+                - 'link "Guns and Nuns: Storming Hell Free Download" [ref=e254] [cursor=pointer]':
+                  - /url: /guns-and-nuns-storming-hell-free-download/
+                - generic [ref=e255]:  2 weeks ago
+            - listitem [ref=e257]:
+              - link "BLACKWOOD Free Download" [ref=e259] [cursor=pointer]:
+                - /url: /blackwood-free-download/
+                - img "BLACKWOOD Free Download" [ref=e260]
+              - generic [ref=e261]:
+                - link "BLACKWOOD Free Download" [ref=e262] [cursor=pointer]:
+                  - /url: /blackwood-free-download/
+                - generic [ref=e263]:  2 weeks ago
+            - listitem [ref=e265]:
+              - link "Perfect Heist 2 Free Download (Build 25256009 + Co-op)" [ref=e267] [cursor=pointer]:
+                - /url: /perfect-heist-2-free-download/
+                - img "Perfect Heist 2 Free Download (Build 25256009 + Co-op)" [ref=e268]
+              - generic [ref=e269]:
+                - link "Perfect Heist 2 Free Download (Build 25256009 + Co-op)" [ref=e270] [cursor=pointer]:
+                  - /url: /perfect-heist-2-free-download/
+                - generic [ref=e271]:  2 weeks ago
+            - listitem [ref=e273]:
+              - link "Slow Roads Free Download" [ref=e275] [cursor=pointer]:
+                - /url: /slow-roads-free-download/
+                - img "Slow Roads Free Download" [ref=e276]
+              - generic [ref=e277]:
+                - link "Slow Roads Free Download" [ref=e278] [cursor=pointer]:
+                  - /url: /slow-roads-free-download/
+                - generic [ref=e279]:  3 days ago
+    - contentinfo [ref=e281]:
+      - generic [ref=e285]:
+        - generic [ref=e287]:
+          - generic [ref=e288]: "Our Goal:"
+          - paragraph [ref=e291]: No Doubt everyone loves free games of any platform. SteamRIP is the arena for free games, it allows you to download all your favorite games completely free. All Games are Pre-Installed, which means you don’t need to install the games. Our games are compressed and no content has been removed, which decreases the game size. We reorganized the download method and we will strive for being the legit platform for free Pre-Installed games without any cost. Our site name does not represent the RIP released games.
+        - generic [ref=e293]:
+          - generic [ref=e294]: Official Site
+          - paragraph [ref=e297]: "Only trust the official site: steamrip.com and avoid the fake copycats. Always check URL for verification."
+      - generic [ref=e302]:
+        - generic [ref=e303]: © Copyright 2026 All Rights Reserved
+        - generic [ref=e304]:
+          - link "About" [ref=e305] [cursor=pointer]:
+            - /url: /about/
+          - text: "|"
+          - link "Request Games" [ref=e306] [cursor=pointer]:
+            - /url: /request-games/
+          - text: "|"
+          - link "Privacy Policy" [ref=e307] [cursor=pointer]:
+            - /url: /privacy-policy/
+          - text: "|"
+          - link "Terms & Conditions" [ref=e308] [cursor=pointer]:
+            - /url: /terms-and-conditions/
+          - text: "|"
+          - link "Contact Us" [ref=e309] [cursor=pointer]:
+            - /url: /contact-us/
+        - list [ref=e310]:
+          - listitem [ref=e311]:
+            - link "Reddit" [ref=e312] [cursor=pointer]:
+              - /url: //www.reddit.com/r/SteamRip/
+          - listitem [ref=e314]:
+            - link "Discord" [ref=e315] [cursor=pointer]:
+              - /url: //discord.gg/WkyjpA3Ua9
+    - link " Back to top button" [ref=e317] [cursor=pointer]:
+      - /url: "#go-to-tie-body"
+      - generic [ref=e318]: 
+      - generic [ref=e319]: Back to top button
+  - text:    
