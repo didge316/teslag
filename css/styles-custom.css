@@ -146,3 +146,35 @@
     background: #0b5ed7;
     color: #fff;
 }
+
+/* EmailOctopus email capture — compact sidebar form */
+/* Layout only: colours and fonts come from the form's own dashboard design. */
+.eo-form,
+.eo-form * {
+    max-width: 100% !important;
+    box-sizing: border-box;
+}
+.eo-form .emailoctopus-form-wrapper {
+    margin-top: 0 !important;
+}
+.eo-form .emailoctopus-form-row {
+    margin-bottom: 0.5rem !important;
+}
+.eo-form input[type="submit"] {
+    width: 100%;
+    padding: 0.4rem 0.75rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+}
+.eo-form iframe {
+    width: 100% !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+/* Keep the EmailOctopus form's own font (Bootstrap's .btn/.form-control would
+   otherwise win and the sidebar would not match the dashboard design). */
+.eo-form input,
+.eo-form input[type="submit"] {
+    font-family: "Noto sans", sans-serif !important;
+}
