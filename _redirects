@@ -31,6 +31,9 @@
 # Solar and Free Energy Pages
 /solar-power                     /solar.html                   301
 /tesla-generator-scam            /magnetic-generator-scam.html 301
+# Old WordPress post "Free Energy Generator: Real or Fake?" - no such page in this
+# repo, so the slug used to fall through to the homepage (soft 404).
+/free-energy-generator-real-or-fake /magnetic-generator-scam.html 301
 
 # Tesla and Magnet Facts
 /tesla_wp/nikola-tesla-inventor-extraordinaire /nikola-tesla-inventor-extraordinaire.html 301
