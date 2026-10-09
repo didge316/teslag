@@ -4,6 +4,14 @@
 > Start at `SERIES-PLAN-1894.md` §0.1 — it is self-contained and supersedes the
 > keyword-farm workflow below for new content. Figures are already extracted and
 > committed in `website/assets/tesla1894/`.
+>
+> **Session 1 ran on 2026-10-09 without a vision model.** Results and blockers are
+> logged in `SERIES-PLAN-1894.md` §0.2. Short version: the five tools
+> (`contact_sheet`, `grep_quote`, `make_article`, `qa_page`, `shot_qa`) are built and
+> tested; hub + article 03 are drafted in `new_content/1894-series/` and article 03
+> passes 23/24 numeric gates. **Nothing was deployed.** The figure QC pass
+> (`manifest_qc.csv`) and every visual QA step still need a vision-capable model —
+> that is the first thing to fix before the next session.
 
 ## Project Location
 - Work repo: `/home/matt/projects/other/tesla-generator/`

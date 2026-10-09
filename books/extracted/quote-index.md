@@ -151,11 +151,11 @@ Scan: archive.org item `inventionsresear00martiala`. Public domain.
 
 > "The paper was written the night previous to the meeting, in pencil, very
 > hastily, and under the pressure just mentioned."
-> — Martin on Tesla's AIEE paper of May 1888. **p. 27** (file 45)
+> — Martin on Tesla's AIEE paper of May 1888. **p. 9** (file 27)
 
 > "Mr. Tesla was overworked and ill, and manifested the greatest reluctance to an
 > exhibition of his motors, but his objections were at last overcome."
-> — **p. 27** (file 45)
+> — **p. 9** (file 27)
 
 ## J. Efficiency, 1888 → 1893 (the boring chart that sells the real story)
 

@@ -1,0 +1,86 @@
+[
+  {
+    "slug": "tesla-1894.html",
+    "no": "hub",
+    "draft": "new_content/1894-series/00-hub/article.md",
+    "rendered_preview": "new_content/1894-series/00-hub/tesla-1894.html",
+    "deployed": false,
+    "date": "2026-10-12",
+    "words_draft": 1188,
+    "tid": "1894_hub",
+    "figures": [
+      {
+        "src": "/assets/tesla1894/scan-title-page.webp",
+        "verified": false
+      },
+      {
+        "src": "/assets/tesla1894/p496-fig1.webp",
+        "verified": false
+      }
+    ],
+    "quotes_pages": [
+      9,
+      429,
+      484,
+      486,
+      496
+    ],
+    "internal_links": [
+      "electrical-experimenter.html",
+      "magnetic-generator-plans-review.html",
+      "rotating-magnetic-field-1888.html",
+      "tesla-1894-word-search.html",
+      "tesla-cold-flame.html",
+      "tesla-earthquake-machine.html",
+      "tesla-free-energy-what-he-said.html",
+      "tesla-glowing-tubes-vacuum.html",
+      "tesla-high-frequency-alternator.html",
+      "tesla-high-frequency-massage.html",
+      "tesla-lit-lamps-without-wires.html",
+      "tesla-one-wire-power.html",
+      "tesla-weird-inventions-1894.html",
+      "tesla-wireless-power-1893.html",
+      "tesla-worlds-fair-1893.html"
+    ],
+    "numeric_gates": "23/24 (reciprocal-links gate open until 09/11 exist)",
+    "blocked_on": "vision: figure QC (manifest_qc.csv) + visual QA (shot_qa review)"
+  },
+  {
+    "slug": "tesla-earthquake-machine.html",
+    "no": 3,
+    "draft": "new_content/1894-series/03-tesla-earthquake-machine/article.md",
+    "rendered_preview": "new_content/1894-series/03-tesla-earthquake-machine/tesla-earthquake-machine.html",
+    "deployed": false,
+    "date": "2026-10-14",
+    "words_draft": 1619,
+    "tid": "1894_03",
+    "figures": [
+      {
+        "src": "/assets/tesla1894/scan-p486.webp",
+        "verified": false
+      },
+      {
+        "src": "/assets/tesla1894/p509-fig1-fig313.webp",
+        "verified": false
+      },
+      {
+        "src": "/assets/tesla1894/patents/us514169-fig1.webp",
+        "verified": false
+      }
+    ],
+    "quotes_pages": [
+      486,
+      487,
+      488,
+      491
+    ],
+    "internal_links": [
+      "magnet-motor.html",
+      "perpetual-motion-generator.html",
+      "tesla-high-frequency-alternator.html",
+      "tesla-worlds-fair-1893.html"
+    ],
+    "numeric_gates": "23/24 (reciprocal-links gate open until 09/11 exist)",
+    "blocked_on": "vision: figure QC (manifest_qc.csv) + visual QA (shot_qa review)"
+  }
+]

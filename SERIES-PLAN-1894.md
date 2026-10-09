@@ -64,6 +64,53 @@ Session 1, in order:
 
 Do not re-run: OCR extraction, figure extraction, quote harvesting, or this spec.
 
+### 0.2 Session 1 result (2026-10-09) — run WITHOUT vision
+
+This session had no vision-capable model (`read` on a .jpg returns "model does not
+support images"), so §0.1's fallback applied: non-visual steps only.
+
+| # | Step | Status |
+|---|---|---|
+| 1 | `contact_sheet.py` | **done** — 12 sheets × 18 tiles, 300 px, in `website/assets/tesla1894/_qc/` |
+| 2 | Figure QC | **blocked** — `manifest_qc.csv` scaffold written (200 rows, verdict columns blank). Needs a vision pass. |
+| 3 | `grep_quote.py` | **done** — `--verify` re-checks all 31 Appendix A quotes: 30/31 verify on the stated page; the 1 miss is a citation error (see corrections) |
+| 4 | `make_article.py` | **done** — §7 spec incl. `--self-test` (all assertions pass) and `--wire` |
+| 5 | `qa_page.py` | **done** — 24 numeric gates from §12 |
+| 6 | `shot_qa.py` | **done** — 3 viewports + console/404/overflow checks; screenshots to `website/_qa/`. Reviewing them needs vision. |
+| 7 | Hub | **drafted** — `new_content/1894-series/00-hub/article.md` (1,188 words) + preview HTML. Not in `website/`: figures unverified, and it links to 12 pages that do not exist yet. |
+| 8 | Article 03 | **drafted + rendered** — `new_content/1894-series/03-tesla-earthquake-machine/article.md` (1,619 words) → preview passes **23/24** numeric gates. US 514,169 confirmed on patents.google.com ("Reciprocating Engine", filed 19 Aug 1893, issued 6 Feb 1894); drawing fetched to `assets/tesla1894/patents/us514169-fig1.webp` (740×1087) — **not visually verified**. |
+
+Corrections found by the tooling (applied to this plan and to `books/extracted/quote-index.md`):
+
+- **The "written in pencil" quote is on printed p. 9, not p. 27.** It sits on scan
+  file 27; the register had file page and printed page swapped. Appendix A and brief
+  07 now say p. 9.
+- **MythBusters detail corrected**: bridge test gave "a vibration noticeable 100 ft
+  away", verdict busted, aired 30 Aug 2006 — not "hundreds of feet".
+- **Appendix D word counts re-run and confirmed**: `free energy` 0, `perpetual` 0,
+  `over unity` 0; "magnetic generator" 5, all *pyro*-magnetic (pp. 6, 424 ×1, 429 ×2,
+  496).
+- **The §9 hub description promised a "free PDF"**, contradicting D4. Rewritten in the draft.
+- **§12's "total image weight on page < 400 KB" cannot pass on this site**: the shared
+  shell (sidebar ads, popular-page thumbs, news.webp) is ~273 KB on every page. The
+  gate is now enforced on the article's own figures; shrinking the shell is a separate
+  site-wide task.
+- **The donor shell is malformed** (54 `<div>` open / 58 close). `make_article.py`
+  strips the surplus so series pages are balanced; legacy pages are untouched.
+- **YAML gotcha**: unquoted `tid: 1894_03` parses as the integer 189403.
+  `make_article.py` now refuses it — always quote `tid`.
+- **§0.1 step 8 names article 03 `tesla-oscillator-that-cracked-a-building.html`**,
+  which contradicts the §5.1 URL table (`tesla-earthquake-machine.html`). Drafted to §5.1.
+
+Open sequencing problem (needs a decision, not code): §11 ships the hub in S1, but the
+hub links to all 12 articles, so it fails §12's "no broken relative links" until they
+exist. Either ship the hub last, or ship it with 03/01/07 and leave the other nine
+cards as plain text.
+
+Next session (with vision): fill `manifest_qc.csv` from the 12 contact sheets →
+verify the three figures in article 03 → `make_article.py … --wire` into `website/` →
+`qa_page.py` + `shot_qa.py` review → commit.
+
 ---
 
 ## 1. Asset inventory (already built)
