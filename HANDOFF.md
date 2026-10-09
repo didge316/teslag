@@ -1,5 +1,10 @@
 # Tesla Generator Content Research — Handoff Notes
 
+> **Current work stream (from 2026-10-09): the 1894 book series.**
+> Start at `SERIES-PLAN-1894.md` §0.1 — it is self-contained and supersedes the
+> keyword-farm workflow below for new content. Figures are already extracted and
+> committed in `website/assets/tesla1894/`.
+
 ## Project Location
 - Work repo: `/home/matt/projects/other/tesla-generator/`
 - Website deploy repo: `/home/matt/projects/other/tesla-generator/website/`

@@ -33,6 +33,37 @@ Non-negotiables:
 4. No new unverified claims about what a generator can do. This series earns
    trust; the money pages spend it.
 
+### 0.1 Session bootstrap (a fresh session starts here)
+
+State as at 2026-10-09: this plan is committed (`cbb7e97`, parent repo); the 200
+figure crops + `manifest.csv` are committed in `website/` (`d0122bc`, **not
+pushed** — pushing deploys). Everything in §1 exists; nothing there needs
+rebuilding.
+
+Prerequisite for the figure QC pass and the visual QA step: a **vision-capable
+model**. Without it, run only the non-visual steps (tooling, hub text, drafts).
+
+Read in this order: §0 → §6 figures → §7 `make_article.py` → §8 runbook → §12 QA
+gates → `books/extracted/quote-index.md`.
+
+Session 1, in order:
+
+1. `books/tools/contact_sheet.py` → 6 sheets (12 sheets × 18 tiles, 300 px) in
+   `website/assets/tesla1894/_qc/`.
+2. Figure QC: view each sheet, write `website/assets/tesla1894/manifest_qc.csv`
+   (`file,verdict,subject,quality,notes`). Target ≥120 usable.
+3. `books/tools/grep_quote.py` — quote verification helper.
+4. `books/tools/make_article.py` — §7 spec; test against
+   `website/nikola-tesla-inventor-extraordinaire.html` as the donor.
+5. `books/tools/qa_page.py` — §12 gates.
+6. `books/tools/shot_qa.py` — Playwright screenshots + console check.
+7. Hub `website/tesla-1894.html` — §9 brief 00.
+8. Article 03 `website/tesla-oscillator-that-cracked-a-building.html` end-to-end
+   via §8, including the patent-drawing supplement (US 514,169 — confirm the
+   number on patents.google.com before use).
+
+Do not re-run: OCR extraction, figure extraction, quote harvesting, or this spec.
+
 ---
 
 ## 1. Asset inventory (already built)
