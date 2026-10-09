@@ -1,1 +1,15 @@
 .env
+
+# large source scans and working copies (kept local only)
+books/pdf-pages/
+books/pdf-pages-tesla-1894/
+books/*.pdf
+books/*.pdf.bak
+books/book*.jpg
+books/book.png
+keywords/.playwright-cli/
+.playwright-cli/
+website/_qa/
+website/assets/tesla1894/_qc/
+__pycache__/
+*.pyc
