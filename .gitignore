@@ -1,2 +1,5 @@
 _qa/
 assets/tesla1894/_qc/
+
+# raw patent downloads from patents.google.com (keep the derived .webp only)
+assets/tesla1894/patents/*.png
