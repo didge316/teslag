@@ -1,36 +1,6 @@
 {
   "lines": [
     {
-      "at": "2026-10-10T11:31:45.931Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && grep -n \"yaml\\|fron…"
-    },
-    {
-      "at": "2026-10-10T11:31:53.938Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && python3 books/tools…"
-    },
-    {
-      "at": "2026-10-10T11:32:28.145Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && python3 - <<'PY' im…"
-    },
-    {
-      "at": "2026-10-10T11:32:41.882Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && python3 - <<'PY' p=…"
-    },
-    {
-      "at": "2026-10-10T11:32:41.929Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "edit /home/matt/projects/other/tesla-generator/books/tools/make_article.…"
-    },
-    {
       "at": "2026-10-10T11:33:01.728Z",
       "level": "work",
       "worker": "W5",
@@ -2399,6 +2369,36 @@
       "level": "work",
       "worker": "W1",
       "text": "bash cd /home/matt/projects/other/tesla-generator; cat books/tmp/.gitign…"
+    },
+    {
+      "at": "2026-10-10T15:34:45.322Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator && git add new_content…"
+    },
+    {
+      "at": "2026-10-10T15:34:58.479Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator/website && git status …"
+    },
+    {
+      "at": "2026-10-10T15:35:05.079Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator/books/harness; python3…"
+    },
+    {
+      "at": "2026-10-10T15:35:32.311Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "infinity_plan"
+    },
+    {
+      "at": "2026-10-10T15:35:44.988Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "infinity_validate feature-003/t4"
     }
   ]
 }

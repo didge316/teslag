@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "baseRevision": 16,
+  "baseRevision": 17,
   "goals": [
     {
       "id": "goal-001",
@@ -198,7 +198,7 @@
     {
       "id": "feature-003",
       "name": "Article 01 - tesla-lit-lamps-without-wires.html",
-      "passes": false,
+      "passes": true,
       "tasks": [
         {
           "id": "t1",
@@ -252,7 +252,7 @@
           "id": "t4",
           "key": "feature-003/t4",
           "description": "Article 01 visual QA, wiring, commit",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-003/t3"
           ],

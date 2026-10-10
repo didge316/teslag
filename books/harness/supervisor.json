@@ -4,12 +4,12 @@
   "owner": {
     "pid": 14537,
     "sessionId": "61e2a15e-f0d9-4b09-8d81-1dec9cfc423d",
-    "at": "2026-10-10T15:34:45.282Z",
+    "at": "2026-10-10T15:35:53.107Z",
     "workerPid": 16923
   },
   "status": "running",
   "startedAt": "2026-10-10T15:21:16.445Z",
-  "updatedAt": "2026-10-10T15:34:45.282Z",
+  "updatedAt": "2026-10-10T15:35:53.107Z",
   "baseModel": "strata/strata",
   "handoff": "goal",
   "unit": {
@@ -34,12 +34,12 @@
     "servedModel": "strata/strata",
     "thinking": "",
     "state": "working",
-    "doing": "bash cd /home/matt/projects/other/tesla-generator; cat books/tmp/.gitign…",
+    "doing": "infinity_validate feature-003/t4",
     "startedAt": "2026-10-10T15:21:16.552Z",
     "turns": 2,
     "tokens": {
-      "inputTokens": 1564,
-      "outputTokens": 456
+      "inputTokens": 71,
+      "outputTokens": 204
     },
     "contextRatio": 0.3039957682291667,
     "sessionId": "01a12667-74fd-7583-ae20-9747eec15406",
