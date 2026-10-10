@@ -17,17 +17,17 @@ figures:
     alt: "Scan of printed page 486 of the 1894 first edition, the opening of Chapter XLIII reporting Tesla's lecture on his mechanical and electrical oscillators"
     width: 740
     height: 1286
-    caption: "The page the account comes from: Chapter XLIII of Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), p. 486 — public domain."
+    caption: "The page the account comes from: Chapter XLIII of Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), p. 486. Public domain."
   - src: /assets/tesla1894/p509-fig1-fig313.webp
-    alt: "1894 engraving, Fig. 313, of Tesla's mechanical oscillator: a piston on a shaft inside a cylinder, surrounded by a magnetic frame with energising coils"
+    alt: "1894 engraving, Fig. 313: the oscillator in section, showing a horizontal shaft through a central cylinder and piston, two laminated pole cores with their coils above and below, all inside a rectangular magnetic frame marked M M"
     width: 740
     height: 619
-    caption: "Engraving from Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), Fig. 313, p. 491 — public domain. SUBJECT NOT YET VISUALLY VERIFIED (§6.2)."
+    caption: "Engraving from Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), Fig. 313, p. 491. Public domain. The book text beside it names the parts shown: 'a magnetic frame M M ... provided with energizing coils'."
   - src: /assets/tesla1894/patents/us514169-fig1.webp
-    alt: "Patent drawing of Nikola Tesla's reciprocating engine, US patent 514,169, showing the cylinder, piston and magnetic frame in section"
+    alt: "US patent 514,169, 'Reciprocating Engine', Nikola Tesla: the sheet drawing in section, showing a horizontal cylinder block with ports, a vertical rod and piston, an electromagnet at its lower end, and a ratchet and gear train above"
     width: 740
-    height: 1087
-    caption: "US patent 514,169 (1894), Nikola Tesla — public domain. NOT YET VISUALLY VERIFIED (§6.3)."
+    height: 1183
+    caption: "Sheet drawing from US patent 514,169, 'Reciprocating Engine', Nikola Tesla, patented 6 February 1894. Public domain. The number and date are legible on the sheet."
 cta:
   text: "Resonance is a real engineering effect, and it is the honest part of the Tesla story. If you want a build you can actually finish, the plans we recommend come with a parts list and a frank answer about output."
   href_suffix: "1894_03"
@@ -36,7 +36,7 @@ faq:
   - q: "Did Nikola Tesla really build an earthquake machine?"
     a: "He built a small steam- or air-driven mechanical oscillator and demonstrated it at the 1893 World's Fair in Chicago. It is described in an 1894 book, page 486, and patented as US patent 514,169 in February 1894. It was not called an earthquake machine at the time."
   - q: "Did Tesla's oscillator cause an earthquake in New York?"
-    a: "That story comes from Tesla himself, told in 1935 when he was 79, and it was first printed in John J. O'Neill's biography Prodigal Genius in 1944. Nothing in the 1893–94 published record mentions it. MythBusters built one in 2006 and declared the earthquake claim busted."
+    a: "That story comes from Tesla himself, told in 1935 when he was 79, and it was first printed in John J. O'Neill's biography Prodigal Genius in 1944. Nothing in the published record of 1893 and 1894 mentions it. MythBusters built one in 2006 and declared the earthquake claim busted."
   - q: "How powerful was Tesla's oscillator?"
     a: "The 1893 report describes a weight of about 20 pounds vibrated at about 80 cycles per second with a stroke of roughly three-eighths of an inch, and says the same weight had been vibrated at much shorter strokes many hundred times."
   - q: "Why don't we use oscillating generators today?"
@@ -44,11 +44,11 @@ faq:
 sources:
   - text: "US patent 514,169, \"Reciprocating Engine\", Nikola Tesla, filed 19 Aug 1893, issued 6 Feb 1894"
     url: "https://patents.google.com/patent/US514169A/en"
-  - text: "MythBusters episode 60, \"Earthquake Machine\", aired 30 Aug 2006 — results transcript"
+  - text: "MythBusters episode 60, \"Earthquake Machine\", aired 30 Aug 2006, results transcript"
     url: "https://mythresults.com/episode60"
-  - text: "Wikipedia, \"Tesla's oscillator\" — summary of the oscillator's supersession by steam turbines (secondary source, checked 2026-10-09)"
+  - text: "Wikipedia, \"Tesla's oscillator\", summary of the oscillator's supersession by steam turbines (secondary source, checked 2026-10-09)"
     url: "https://en.wikipedia.org/wiki/Tesla%27s_oscillator"
-  - text: "W. Bernard Carlson, Tesla: Inventor of the Electrical Age (Princeton University Press, 2013) — background on the oscillator and the 1893 Electrical Congress"
+  - text: "W. Bernard Carlson, Tesla: Inventor of the Electrical Age (Princeton University Press, 2013), background on the oscillator and the 1893 Electrical Congress"
 ---
 
 **Standfirst.** Nikola Tesla demonstrated a small oscillating engine at the 1893 World's
@@ -57,7 +57,7 @@ detail, patent drawings exist, and the numbers in the report are specific: a twe
 weight thrown back and forth about eighty times a second. What the 1893 record does not
 contain is the earthquake. That story arrives fifty years later.
 
-![The page the account comes from](/assets/tesla1894/scan-p486.webp "The page the account comes from: Chapter XLIII of Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), p. 486 — public domain.")
+![Scan of printed page 486 of the 1894 first edition: the head of Chapter XLIII, 'The Tesla Mechanical and Electrical Oscillators', reporting Tesla's 25 August 1893 lecture at the World's Fair](/assets/tesla1894/scan-p486.webp "The page the account comes from: Chapter XLIII of Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), p. 486. Public domain.")
 
 ## A Friday evening in Chicago, August 1893
 
@@ -65,7 +65,7 @@ The account we rely on is in Chapter XLIII of the 1894 volume, and it is a repor
 lecture, not a memoir. It opens with the date and the room: on the evening of Friday,
 25 August 1893, Tesla spoke "before the members of the Electrical Congress, in the hall
 adjoining the Agricultural Building, at the World's Fair, Chicago" (1894, p. 486). He was
-introduced by Dr. Elisha Gray — the man who had fought Edison over the telephone patent —
+introduced by Dr. Elisha Gray, the man who had fought Edison over the telephone patent,
 and he had an air compressor on the platform, driven by an electric motor, because the
 machine ran on compressed air (1894, p. 486).
 
@@ -77,17 +77,17 @@ load"; and second, to produce currents of constant period "with mechanism which 
 reliable and positive in its action without resorting to spark gaps and breaks"
 (1894, p. 486).
 
-That is a measurement problem. In 1893, if you wanted high-frequency alternating current
-in a laboratory, you usually got it from a machine interrupted by a spark gap or a
+That is a measurement problem. In 1893, if you wanted alternating current of high
+frequency in a laboratory, you usually got it from a machine interrupted by a spark gap or a
 mechanical breaker, which made the frequency wander and the waveform ugly. Tesla was
 offering a prime mover whose period you could trust.
 
 ## What the machine actually was
 
-![Fig. 313](/assets/tesla1894/p509-fig1-fig313.webp "Engraving from Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), Fig. 313, p. 491 — public domain.")
+![1894 engraving, Fig. 313: the oscillator in section, showing a horizontal shaft through a central cylinder and piston, two laminated pole cores with their coils above and below, all inside a rectangular magnetic frame marked M M](/assets/tesla1894/p509-fig1-fig313.webp "Engraving from Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), Fig. 313, p. 491. Public domain. The text beside it names what is drawn: 'a magnetic frame M M ... provided with energizing coils'.")
 
 It is a piston in a cylinder, driven by steam or air, that reverses itself without a
-crank — "made to reciprocate automatically by proper dispositions of parts, similar to a
+crank, "made to reciprocate automatically by proper dispositions of parts, similar to a
 reciprocating tool" (1894, p. 486). Instead of a flywheel, it carries a mass. Instead of
 a mechanical valve gear timing the reversals, the timing comes from the natural
 oscillation of the mass against a cushion of compressed air trapped in the cylinder ends.
@@ -102,7 +102,7 @@ one exhibit.
 
 The elegance is in the spring. The report says that in the arrangement Tesla showed, "no
 matter what the rigidity of the spring and no matter what the weight of the moving
-parts… the vibrations of the spring are always isochronous with the applied pressure"
+parts... the vibrations of the spring are always isochronous with the applied pressure"
 (1894, p. 487). Change the steam pressure and you change the stroke, not the rate. The
 report compares the behaviour to a musical instrument: the system "acts exactly like a
 string tightly stretched between two points, and with fixed nodes, so that slight changes
@@ -114,13 +114,13 @@ These are the figures the 1893 report gives, and they are the reason the machine
 writing about rather than shrugging at:
 
 - a weight of "approximately 20 pounds at the rate of about 80 per second", with a stroke
-  the printed page sets as a fraction the OCR mangles into "f- inch" — about three-eighths
-  of an inch (1894, p. 487);
+  the printed page sets as a fraction the OCR mangles into "f- inch", meaning about
+  three-eighths of an inch (1894, p. 487);
 - the same weight vibrated "many hundred times" per second when the stroke was shortened,
   which the report says had already been done in other experiments (1894, p. 487);
 - starting it took "a powerful blow", but could be arranged so that "only a minute effort
-  is required to start" — or simply slamming the pressure on (1894, p. 487);
-- a temperature-compensating trick: the dash-pot chambers were opened to the outside air
+  is required to start", or by slamming the pressure on (1894, p. 487);
+- a trick to compensate for temperature: the dash-pot chambers were opened to the outside air
   so the trapped air kept the same mean density as the atmosphere, giving "a spring of
   constant rigidity" (1894, p. 487);
 - and a clock. Tesla showed a small motor driven by these currents at constant speed
@@ -128,7 +128,7 @@ writing about rather than shrugging at:
   attached to one of the oscillators, and would keep absolutely correct time"
   (1894, p. 488).
 
-Eighty hertz from a piston-and-air-spring in 1893, with a clock hanging off it as a
+Eighty hertz from a piston and an air spring in 1893, with a clock hanging off it as a
 demonstration of timing stability. The point of the demonstration was regularity, not
 violence.
 
@@ -140,26 +140,26 @@ condenser and self-induction so the electrical system and the mechanical system 
 period and "electrical and mechanical resonance is obtained, and maintained absolutely
 unvaried" (1894, p. 488).
 
-Read that against the rest of the book and the ambition is clear. Tesla's high-frequency
-work needed current at a steady, high frequency — the same volume describes an experimental
-machine at "about 15,000 alternations per second" and a later one with 480 polar
+Read that against the rest of the book and the ambition is clear. Tesla's work with high
+frequency current needed a steady supply. The same volume describes an experimental machine
+at "about 15,000 alternations per second" and a later one with 480 polar
 projections running at 30,000 (1894, pp. 376, 381; we take that machine apart in
 [Tesla's 30,000 alternations per second](tesla-high-frequency-alternator.html)). A
 reciprocating machine locked to its own resonance was one route to that.
 
 It did not survive. The oscillator was superseded by rotary alternators driven by steam
 turbines, which by the early 1900s had displaced reciprocating engines as the prime
-movers of central power stations — a fact about engineering history, not about Tesla's
-ability, and one that any honest account of this machine has to include
+movers of central power stations. That is a fact about engineering history, not about
+Tesla's ability, and any honest account of this machine has to include it
 ([Wikipedia, "Tesla's oscillator"](https://en.wikipedia.org/wiki/Tesla%27s_oscillator);
 Carlson, 2013).
 
-![US patent 514,169](/assets/tesla1894/patents/us514169-fig1.webp "US patent 514,169 (1894), Nikola Tesla — public domain.")
+![US patent 514,169, 'Reciprocating Engine', Nikola Tesla: the sheet drawing in section, showing a horizontal cylinder block with ports, a vertical rod and piston, an electromagnet at its lower end, and a ratchet and gear train above](/assets/tesla1894/patents/us514169-fig1.webp "Sheet drawing from US patent 514,169, 'Reciprocating Engine', Nikola Tesla, patented 6 February 1894. Public domain. The number and the date are legible on the sheet.")
 
 The machine is not hypothetical. Tesla patented it: **US patent 514,169, "Reciprocating
 Engine"**, filed 19 August 1893 and granted 6 February 1894
 ([patent record](https://patents.google.com/patent/US514169A/en)). The book's own
-illustration of the device — Fig. 313, p. 491 — is the only engraving the chapter
+illustration of the device, Fig. 313 on p. 491, is the only engraving the chapter
 carries, and it shows the magnetic frame and coils that made the piston a generator as
 well as an oscillator: "The apparatus here illustrated was intended for demonstration
 purposes, air being used as most convenient for this purpose" (1894, p. 491).
@@ -168,14 +168,15 @@ purposes, air being used as most convenient for this purpose" (1894, p. 491).
 
 Here is the timeline, because most retellings collapse it.
 
-- **1893–94.** The Chicago demonstration, the book's report, the patent. No earthquake.
+- **1893 and 1894.** The Chicago demonstration, the book's report, the patent. No mention
+  of an earthquake.
 - **1935.** Tesla, aged 79, tells an interviewer about a small oscillator run at his
   Houston Street laboratory, and about the building shaking.
 - **1944.** The story is first printed, in John J. O'Neill's *Prodigal Genius*
-  (pp. 162–164).
+  (pages 162 to 164).
 
-There is no 1898 newspaper record of the incident, and nothing in the 1893–94 literature
-that resembles it. That does not make Tesla a liar — it makes this an anecdote with a
+There is no 1898 newspaper record of the incident, and nothing in the literature of those
+years that resembles it. That does not make Tesla a liar. It makes this an anecdote with a
 fifty-year gap between the event and the publication, which is exactly the kind of thing
 we should label rather than repeat.
 
@@ -189,25 +190,25 @@ the 1894 book.
 The claim has been tested. In *MythBusters* episode 60 (aired 30 August 2006), the team
 built versions of the oscillator and attached one to a large truss bridge. It matched the
 bridge's frequency and produced "a vibration noticeable 100 ft away", but was "not strong
-enough to be considered an earthquake", and the myth was declared
-**busted** ([mythresults.com/episode60](https://mythresults.com/episode60)).
+enough to be considered an earthquake", and the myth was declared busted
+([mythresults.com/episode60](https://mythresults.com/episode60)).
 
-So the accurate version is small and better: a hand-sized machine that could be felt a
-hundred feet away, and that could shake its own frame apart.
+So the accurate version is smaller than the legend and more interesting: a hand-sized
+machine that could be felt a hundred feet away, and that could shake its own frame apart.
 
 ## Resonance is real; over-unity is not
 
 Resonance is why a small machine can be felt across a bridge. It is not a source of
 energy. A resonant system stores and returns energy, so the amplitude you get is a
-question of damping and of how much you put in — which is why a constant-period
-oscillator is a beautiful *timing* device and not a free-power device.
+question of damping and of how much you put in. That is why a constant-period oscillator
+is a beautiful *timing* device and not a free-power device.
 
 That distinction is the whole reason this site links history to hardware. If you have
 been promised a machine that runs itself, read
 [the truth about perpetual motion](perpetual-motion-generator.html) and
-[the magnet motor claim](magnet-motor.html) — and if you want the 1893 context for the
-demonstration, [Tesla at the World's Fair](tesla-worlds-fair-1893.html) covers the same
-year from the other end.
+[the magnet motor claim](magnet-motor.html). For the 1893 setting of the demonstration,
+[Tesla at the World's Fair](tesla-worlds-fair-1893.html) covers the same year from the
+other end.
 
 {{FAQ}}
 

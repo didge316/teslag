@@ -32,6 +32,11 @@ Non-negotiables:
    `width`/`height`/`alt`/`loading="lazy"`.
 4. No new unverified claims about what a generator can do. This series earns
    trust; the money pages spend it.
+5. **No em dashes or en dashes in series prose**, in figure alt text or captions, or in
+   generated furniture. Use commas, colons, brackets or a new sentence. Date and page
+   ranges are written out ("1893 and 1894", "pages 162 to 164"). Straight quotes only, no
+   curly quotes or unicode ellipses. (Owner rule, 2026-10-10; the site already dropped em
+   dashes from its own pages.)
 
 ### 0.1 Session bootstrap (a fresh session starts here)
 
@@ -110,6 +115,83 @@ cards as plain text.
 Next session (with vision): fill `manifest_qc.csv` from the 12 contact sheets →
 verify the three figures in article 03 → `make_article.py … --wire` into `website/` →
 `qa_page.py` + `shot_qa.py` review → commit.
+
+### 0.3 Session 2 result (2026-10-09) — WITH vision
+
+| # | Step | Status |
+|---|---|---|
+| 1 | Figure QC | **done** — `manifest_qc.csv` filled, 200/200 rows. 195 `keep` / 3 `keep-tight` / 2 `drop`; quality A 126 · B 42 · C 32. **198 usable, 168 of them A/B** (§6.2 target ≥120 met). `caption_ok`: 107 yes / **75 no** / 18 n/a — the 75 are OCR *figure numbers*, not images (`FIG. 811.` p.484, `Fig.13`→132 p.207, `FIG. 107.` p.307, whole pages tagged one number, e.g. four diagrams on p.444 all called Fig.263). Repair recipes are in `notes`: the dark plates are genuine dark-ground prints → `magick -negate -auto-level`, **not** `-level` (verified on p244/p233). Gaps re-confirmed, not artifacts: **pp.486–495 = 1 usable figure, pp.394–395 = 0** → §6.3 patent supplement still required for 03 and 05. p.478 full-page plate flagged for 200 ppi re-export per §6.2(4). |
+| 2 | Article 03 figures | **all three verified.** `scan-p486.webp` — Ch. XLIII head + printed “486”; the six p.486 quotes in the draft match the page image word for word. `p509-fig1-fig313.webp` — matches the book text beside it, confirmed by `grep_quote`: “a magnetic frame M M … provided with energizing coils”. `patents/us514169-fig1.webp` — **“No. 514,169. Patented Feb. 6, 1894” is legible on the sheet**, so the number is now verified visually, not only on patents.google.com. Re-cropped from `us514169-drawings-page-1.png` (black band at the foot, rule at the right edge): 740×1087 → **740×1183**. |
+| 3 | `make_article.py --wire` | **done** — `website/tesla-earthquake-machine.html` (38 KB), sitemap.xml + llms.txt wired. Its articles.html card anchor (`class="list-unstyled`) does not exist on this site → card added by hand, and the §5.1 redirect `/tesla-earthquake-machine → /tesla-earthquake-machine.html 301` added to `_redirects`. |
+| 4 | `qa_page.py` | **24/24** (was 23/24). |
+| 5 | `shot_qa.py` | **all measurable gates pass** at 375/768/1280. |
+| 6 | Screenshot review | **partial** — Fig. 313 at desktop: sharp, caption legible ✓. Remaining viewports + mobile fold not yet eyeballed. |
+
+**Trap found (why the flags mattered):** the `NOT YET VISUALLY VERIFIED` flags existed only in the front-matter `figures:` captions. `make_article.py` takes alt/caption from the **body** `![alt](src "caption")` line — front matter supplies only width/height (and fallbacks). So the rendered page never carried the flag and shipped thin alt (`alt="Fig. 313"`, `alt="US patent 514,169"`). Fixed in both places; alt now describes the apparatus as actually seen (§6.6).
+
+**Tool fixes** (`books/tools/shot_qa.py`): (a) ignore the shell’s own site-root status probe — `js/scripts.js` fetches `https://teslamagneticgenerator.com/` 2 s after load, fails off-network, and fails on the donor page too; (b) scroll the page and force lazy images eager before the full-page shot — without it the patent figure screens as a **blank box**; (c) new gate: article figures that never decode; (d) wait for the shell’s `v1-timeline` before measuring — the overflow gate was a coin toss depending on timing.
+
+**Real bug found:** `.v1-timeline` renders 14 day cells (`DOWNTIME_DAYS` 12 + yesterday + today) in one unwrapped row and overruns a 375 px viewport by 23 px — **on the live/donor pages too**, so no series page can pass §6.5 on mobile until it is fixed. Applied `flex-wrap: wrap` in `website/css/styles-custom.css`. ⚠️ Site-wide CSS touching legacy pages — owner to keep or revert.
+
+**Open decisions (not code):**
+1. Article 03 links to two pages that do not exist: `tesla-worlds-fair-1893.html` (09) and `tesla-high-frequency-alternator.html` (11). §12 forbids broken relative links; `qa_page.py` does not check them. Same class as the hub-sequencing problem in §0.2. Either write 09/11 first, or ship those two as plain text.
+2. CTA is not in the mobile first screen (`alert-info` at 14,121 px) — reported as a note, inherited from the shell.
+3. §12’s page-image-weight gate still un-passable while the shell is ~280 KB (unchanged from §0.2).
+
+**HOLD (owner, 2026-10-09): nothing is to be published until the owner has reviewed
+it.** Do not `git push` in `website/` — pushing deploys. Committing locally is fine;
+the deploy commit waits for explicit sign-off. Review surface for article 03: the page
+itself, its three figures, and the `css/styles-custom.css` mobile-overflow fix.
+
+**Nothing committed.** `website/` on `main`, dirty: `manifest_qc.csv`, `patents/us514169-fig1.webp`, the new page, `sitemap.xml`, `llms.txt`, `_redirects`, `articles.html`, `css/styles-custom.css`. Pushing deploys. (`js/email-capture-widget.html` was already untracked before this session.)
+
+### 0.4 Session 3 result (2026-10-10) — with vision: voice rule, and articles 09 + 11
+
+**Voice rule added (owner): no dashes in series prose.** Every em dash and en dash removed
+from the hub and article 03 drafts (25 + 25, plus 4 en dashes in 03), curly quotes and
+ellipses normalised to ASCII, bold lead-ins in the hub turned into real `###` headings,
+bold spam cut. `make_article.py` generated strings were the other source of em dashes on
+rendered pages: the kicker, the affiliate disclosure and the book-citation line are now
+dash-free. `tesla-earthquake-machine.html` re-rendered, still **24/24**.
+
+Still open, not ours to fix silently: **3 em dashes remain on every series page, in the nav
+dropdown**, because they are the titles of three live pages
+(`magnetic-generator-for-beginners-step-by-step`, `...-for-rv-complete-off-grid-guide`,
+`tesla-magnetic-generator-vs-solar-power-which-is-better`). Cleaning them means editing
+those pages' `<title>` and H1 too. Owner call.
+
+| # | Step | Status |
+|---|---|---|
+| 1 | Article 09 `tesla-worlds-fair-1893.html` | **produced** — 1,675 words, quotes re-grepped to pp. 477-485, 3 figures verified, **23/23** gates (no FAQ on this brief), wired: sitemap, llms.txt, `_redirects`, `articles.html` card by hand |
+| 2 | Article 11 `tesla-high-frequency-alternator.html` | **produced** — 1,739 words, quotes to pp. 151, 374-377, 381, 391, FAQ 4 items, **24/24** gates, wired the same way |
+| 3 | §0.3 open decision 1 | **resolved** — 03's two dead out-links (09, 11) now exist. Only one dead link left in the series: 09 → 07 |
+| 4 | Backlink pass (§5.2, week 6) | **started early** — `magnetic-dynamo-generator.html` gained a "Sources and further reading" H2 linking to 11, which is what lets 11 pass the reciprocal-links gate |
+| 5 | `shot_qa.py` on 09 / 11 | **not run** — first task of the next session |
+
+**Figure corrections found by reading the printed pages (the OCR captions were wrong):**
+
+| Extractor file | What it actually is | Replacement |
+|---|---|---|
+| `p393-fig1-fig203.webp` | **Fig. 199**, side elevation, printed p. 375 | `p375-fig199.webp` (400 ppi) |
+| `p397-fig1-fig207.webp` | **Fig. 206**, second-plan machine in section, printed p. 379 | `p379-fig206.webp` (400 ppi) |
+| `p394-fig1-fig200.webp` | part of the block captioned "FIGS. 200, 201, 202 and 203" | `p376-figs200-203.webp`, whole block with its printed caption |
+| `p496-fig1.webp` | Fig. 297, full-page plate, **stored upside down at 960×1707** | `plate-p478-fig297.webp` (1400×638, landscape, verified) |
+| `p498-fig1-fig298.webp` | Fig. 298, too dark to read | `p480-fig298.webp` (autocontrast, legible) |
+| `p500-fig*-fig302.webp` | four strips from p. 482, mis-numbered by OCR | `p482-figs300-308.webp`, nine armatures with printed numbers legible |
+
+`manifest_qc.csv` now has 203 rows (the six new exports recorded with their verdicts).
+Rule reinforced for §6.6: **read the figure number off the printed page in the scan, never
+from the caption the extractor put in the filename.**
+
+**State of the series:** 03, 09, 11 produced and passing numeric gates; hub drafted but
+still not rendered (it links to nine pages that do not exist: 01, 02, 04, 05, 06, 07, 08,
+10, 12). Next session, in order: `shot_qa.py` on 09 and 11, then 07 (it unblocks 09's last
+dead link and is the page 09 and 11 both point at), then 01, then the hub.
+
+**Committed locally in both repos at the end of this session; not pushed.** Rule D6 now
+makes that the standing practice: commit every session, push only on the owner's explicit
+sign-off. Review surface for 09 and 11: the two pages, their six figures, and the new
+"Sources and further reading" H2 added to `magnetic-dynamo-generator.html`.
 
 ---
 
@@ -476,7 +558,9 @@ links, no `http://` links, no `localhost`.
    title ≤ 60, description ≤ 155, one H1, images complete, ≥ 4 internal links,
    JSON-LD parses, HTML < 200 KB, images < 400 KB total, no broken relative links.
 7. **Visual QA:** `shot_qa.py <slug>` → review 3 screenshots + every figure crop.
-8. **Commit** (site repo): page + assets + sitemap/redirects/nav/llms.txt.
+8. **Commit** (site repo): page + assets + sitemap/redirects/nav/llms.txt. Commit locally,
+   **never push** (D6): pushing deploys, and the deploy commit waits for the owner's
+   sign-off.
 9. **Log** in `new_content/1894-series/index.json`: slug, date, word count,
    figures used, quotes with pages, internal links, `tid`.
 
@@ -1038,6 +1122,9 @@ a rewrite session instead.
 - ≥ 3 page-cited quotes matching regex `\(1894, p\. \d+\)`
 - Sources block present; archive.org item string present
 - JSON-LD parses; `Article.citation` present; `FAQPage` valid when used
+- **no em/en dashes, curly quotes or ellipses in the article body** (voice rule, §0.5).
+  The shared shell is not checked; three legacy page titles in the nav still carry em
+  dashes and are an owner decision.
 - **no comments block and no `css/comments.css` link** on series pages
 - no book-PDF link anywhere in the series
 - HTML < 200 KB; total image weight on page < 400 KB; no `http://` links
@@ -1091,6 +1178,16 @@ a rewrite session instead.
 ---
 
 ## 15. Decision log
+
+### Decided (2026-10-10)
+
+**D6 — Commit every session, never push.** Standing rule, not a one-off hold. At the end of
+each production session: commit the site repo (page, figures, sitemap, `_redirects`,
+`llms.txt`, `articles.html`, any shell CSS) and the work repo (drafts, `index.json`, tools,
+this plan), then stop. `git push` in `website/` deploys, so it happens only on the owner's
+explicit sign-off, and it is always a separate, named action. Rationale: three sessions of
+work sat uncommitted on 2026-10-10, which is one crash away from being lost, while a push
+would have put unreviewed pages in front of the public.
 
 ### Decided (2026-10-09)
 

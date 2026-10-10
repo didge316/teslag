@@ -45,10 +45,10 @@ BOOK_CITE_HTML = ("<em>The Inventions, Researches and Writings of Nikola Tesla</
                   "(entered 1893). Scan: archive.org item "
                   "<a href=\"https://archive.org/details/inventionsresear00martiala\" "
                   "target=\"_blank\" rel=\"noopener noreferrer nofollow\">"
-                  "inventionsresear00martiala</a> — public domain.")
-KICKER = ("The 1894 File · No. {no} of 12 — every quote below is cited from the "
+                  "inventionsresear00martiala</a>. Public domain.")
+KICKER = ("The 1894 File · No. {no} of 12. Every quote below is cited from the "
           "first edition, page numbers included.")
-DISCLOSURE = ("We earn a commission if you buy through that link — it does not "
+DISCLOSURE = ("We earn a commission if you buy through that link. It does not "
               "change what the 1894 book says.")
 
 TOOLS = Path(__file__).resolve().parent

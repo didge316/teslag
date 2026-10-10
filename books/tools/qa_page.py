@@ -136,6 +136,12 @@ def check(path: Path):
          f"{len(html.encode()) // 1024} KB")
     gate('href="http://' not in html, "no http:// links")
 
+    # voice rule (§0 non-negotiable 5): no typographic dashes or curly quotes in the
+    # article body. The shared shell (nav, sidebar, footer) is not checked.
+    bad_chars = sorted({c for c in art_html if c in "\u2014\u2013\u2018\u2019\u201c\u201d\u2026"})
+    gate(not bad_chars, "no em/en dashes, curly quotes or ellipses in article body",
+         "found: " + " ".join(f"{c}(U+{ord(c):04X})" for c in bad_chars))
+
     aff = re.findall(r'<a[^>]*hop\.clickbank\.net[^>]*>', html)
     tid = re.findall(r"[?&]tid=(1894_(?:\d{2}|hub))", html)
     gate(bool(aff) and bool(tid), "affiliate link carries tid=1894_NN",

@@ -10,9 +10,9 @@ Writes website/_qa/<slug>-{mobile,tablet,desktop}.png (full page) and
 <slug>-mobile-fold.png (first screen, for the CTA-above-the-fold check).
 
 The screenshots are for a *viewer*. What this script can decide on its own:
-console errors, 404s, horizontal overflow, images without intrinsic size,
-figures wider than their column, a missing nav dropdown, and a CTA that is not
-in the mobile first screen. Hard gate before deploy.
+console errors, 404s, horizontal overflow, images without intrinsic size, figures
+that never decode, figures wider than their column, a missing nav dropdown, and a
+CTA that is not in the mobile first screen. Hard gate before deploy.
 """
 
 import argparse
@@ -27,6 +27,10 @@ from playwright.sync_api import sync_playwright
 WEB = Path(__file__).resolve().parents[2] / "website"
 QA = WEB / "_qa"
 VIEWPORTS = {"mobile": (375, 812), "tablet": (768, 1024), "desktop": (1280, 900)}
+# The donor shell's own "is the site live?" probe: js/scripts.js fetches the
+# site root 2 s after load to flip the v1 status badge. Off-network it always
+# fails, and it fails on the donor page too, so it is reported, never failed.
+SHELL_PROBE = "https://teslamagneticgenerator.com/"
 
 
 class Quiet(http.server.SimpleHTTPRequestHandler):
@@ -61,11 +65,55 @@ def serve(port, slug):
     return httpd, port
 
 
+def preload_lazy(page):
+    """Scroll the whole page so loading="lazy" figures actually decode.
+
+    A full-page screenshot does not scroll, and Chromium will not fetch a lazy
+    image several thousand px below the viewport — the shot then shows a blank
+    figure box and the visual review is worthless (§6.5 step 3).
+    """
+    page.evaluate("""async () => {
+      const step = Math.round(window.innerHeight * 0.8);
+      for (let y = 0; y < document.body.scrollHeight; y += step) {
+        window.scrollTo(0, y);
+        await new Promise(r => setTimeout(r, 120));
+      }
+      window.scrollTo(0, document.body.scrollHeight);
+      await new Promise(r => setTimeout(r, 300));
+      window.scrollTo(0, 0);
+      // Chromium will still skip a lazy image that was never near the viewport
+      // during a fast scroll; make them all eligible so the shot is complete.
+      document.querySelectorAll('img[loading="lazy"]').forEach(i => { i.loading = 'eager'; });
+    }""")
+    try:
+        page.wait_for_function(
+            "() => [...document.images].filter(i => i.offsetParent)"
+            ".every(i => i.complete)", timeout=15000)
+    except Exception:
+        stuck = page.evaluate(
+            "() => [...document.images].filter(i => i.offsetParent && !i.complete)"
+            ".map(i => i.getAttribute('src'))")
+        print(f"  note    images still undecoded after preload: {stuck[:5]}")
+
+
 def shoot(page, base, slug, vp_name, width, height, outdir):
     problems = []
     page.set_viewport_size({"width": width, "height": height})
     page.goto(f"{base}/{slug}.html", wait_until="networkidle")
     page.wait_for_timeout(400)
+    preload_lazy(page)
+    # The shell's live-status widget builds its day timeline ~2 s after load
+    # (js/scripts.js). That is what changes the layout, so measure after it —
+    # otherwise the overflow gate is a coin toss (§6.5 step 4).
+    if page.query_selector("#v1-section"):
+        try:
+            page.wait_for_function(
+                "() => document.querySelector('.v1-timeline .v1-day')",
+                timeout=6000)
+        except Exception:
+            pass
+        page.wait_for_timeout(300)
+    page.wait_for_timeout(200)
 
     shot = outdir / f"{slug}-{vp_name}.png"
     page.screenshot(path=str(shot), full_page=True)
@@ -84,6 +132,9 @@ def shoot(page, base, slug, vp_name, width, height, outdir):
       const noDims = [...document.querySelectorAll('article img')]
         .filter(i => !i.getAttribute('width') || !i.getAttribute('height'))
         .map(i => i.getAttribute('src'));
+      const notLoaded = [...document.querySelectorAll('article img')]
+        .filter(i => !i.complete || !i.naturalWidth)
+        .map(i => i.getAttribute('src'));
       const cta = document.querySelector('.alert-info');
       const ctaTop = cta ? Math.round(cta.getBoundingClientRect().top) : null;
       const scarce = document.querySelector('.scarcity-widget');
@@ -91,7 +142,7 @@ def shoot(page, base, slug, vp_name, width, height, outdir):
       const anyAff = document.querySelectorAll('a[href*="hop.clickbank.net"]').length;
       return {
         scrollW: doc.scrollWidth, clientW: doc.clientWidth,
-        overflow: over, noDims: noDims,
+        overflow: over, noDims: noDims, notLoaded: notLoaded,
         nav: !!document.querySelector('.navbar .dropdown-menu'),
         navItems: document.querySelectorAll('.navbar .dropdown-item').length,
         h1: document.querySelectorAll('h1').length,
@@ -107,6 +158,8 @@ def shoot(page, base, slug, vp_name, width, height, outdir):
         problems.append(f"element wider than its column: {metrics['overflow'][:3]}")
     if metrics["noDims"]:
         problems.append(f"img without width/height (layout shift): {metrics['noDims'][:3]}")
+    if metrics["notLoaded"]:
+        problems.append(f"figure did not decode: {metrics['notLoaded'][:3]}")
     if not metrics["nav"]:
         problems.append("nav dropdown missing")
     if metrics["h1"] != 1:
@@ -144,7 +197,7 @@ def main():
 
     httpd, port = serve(args.serve_port, args.slug)
     base = f"http://127.0.0.1:{port}"
-    console, requests, problems = [], [], []
+    console, requests, probes, problems = [], [], [], []
     try:
         with sync_playwright() as p:
             browser = p.chromium.launch()
@@ -152,8 +205,12 @@ def main():
             page.on("console", lambda m: console.append(f"{m.type}: {m.text}")
                     if m.type in ("error", "warning") else None)
             page.on("pageerror", lambda e: console.append(f"pageerror: {e}"))
-            page.on("requestfailed", lambda r: requests.append(
-                f"{r.method} {r.url} -> {r.failure}"))
+            def on_failed(r):
+                entry = f"{r.method} {r.url} -> {r.failure}"
+                (probes if r.url.rstrip("/") == SHELL_PROBE.rstrip("/")
+                 else requests).append(entry)
+
+            page.on("requestfailed", on_failed)
             page.on("response", lambda r: requests.append(
                 f"{r.status} {r.url}") if r.status >= 400 else None)
 
@@ -176,6 +233,9 @@ def main():
         print("  ", r)
     if not requests:
         print("   none")
+    if probes:
+        print("   (ignored: shell status probe to the site root — js/scripts.js, "
+              "also fires on the donor page)")
 
     hard = [x for x in requests if "404" in x or "->" in x]
     if problems or hard:

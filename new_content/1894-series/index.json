@@ -11,11 +11,13 @@
     "figures": [
       {
         "src": "/assets/tesla1894/scan-title-page.webp",
-        "verified": false
+        "verified": false,
+        "note": "title page, front matter scan file 9; used as hub card image"
       },
       {
-        "src": "/assets/tesla1894/p496-fig1.webp",
-        "verified": false
+        "src": "/assets/tesla1894/plate-p478-fig297.webp",
+        "verified": true,
+        "note": "Fig. 297 re-exported at 400 ppi from scan file 496, rotated to landscape; 'Electrical Engineer' credit legible; replaces p496-fig1.webp (wrong orientation)"
       }
     ],
     "quotes_pages": [
@@ -43,7 +45,8 @@
       "tesla-worlds-fair-1893.html"
     ],
     "numeric_gates": "23/24 (reciprocal-links gate open until 09/11 exist)",
-    "blocked_on": "vision: figure QC (manifest_qc.csv) + visual QA (shot_qa review)"
+    "blocked_on": "vision: figure QC (manifest_qc.csv) + visual QA (shot_qa review)",
+    "publish_hold": "owner review (2026-10-09); also blocked on 01,02,04,05,06,07,08,10,12 not existing yet"
   },
   {
     "slug": "tesla-earthquake-machine.html",
@@ -57,15 +60,18 @@
     "figures": [
       {
         "src": "/assets/tesla1894/scan-p486.webp",
-        "verified": false
+        "verified": true,
+        "note": "Ch. XLIII head + printed 486 visible; the six p.486 quotes match the page image"
       },
       {
         "src": "/assets/tesla1894/p509-fig1-fig313.webp",
-        "verified": false
+        "verified": true,
+        "note": "Fig.313 verified against the book text on p.491 ('a magnetic frame M M ... provided with energizing coils')"
       },
       {
         "src": "/assets/tesla1894/patents/us514169-fig1.webp",
-        "verified": false
+        "verified": true,
+        "note": "re-cropped from us514169-drawings-page-1.png; now 740x1183; 'No. 514,169. Patented Feb. 6, 1894' legible on the sheet"
       }
     ],
     "quotes_pages": [
@@ -80,7 +86,129 @@
       "tesla-high-frequency-alternator.html",
       "tesla-worlds-fair-1893.html"
     ],
-    "numeric_gates": "23/24 (reciprocal-links gate open until 09/11 exist)",
-    "blocked_on": "vision: figure QC (manifest_qc.csv) + visual QA (shot_qa review)"
+    "numeric_gates": "24/24 (qa_page.py)",
+    "blocked_on": "resolved 2026-10-10: 09 and 11 now exist, both out-links resolve",
+    "rendered_site": "website/tesla-earthquake-machine.html",
+    "visual_gates": "shot_qa.py measurable gates pass at 375/768/1280; screenshot review partial (Fig.313 desktop confirmed sharp + caption legible)",
+    "wired": [
+      "sitemap.xml",
+      "llms.txt",
+      "_redirects (/tesla-earthquake-machine 301)",
+      "articles.html card (added by hand)"
+    ],
+    "committed": false,
+    "publish_hold": "owner review required before any push to website/ (pushing deploys) - set 2026-10-09",
+    "voice": "de-dashed + humanized 2026-10-10: 0 em/en dashes, straight quotes; make_article.py kicker/disclosure/citation strings also de-dashed"
+  },
+  {
+    "slug": "tesla-worlds-fair-1893.html",
+    "no": 9,
+    "draft": "new_content/1894-series/09-tesla-worlds-fair-1893/article.md",
+    "rendered_site": "website/tesla-worlds-fair-1893.html",
+    "deployed": false,
+    "date": "2026-10-16",
+    "words_draft": 1675,
+    "tid": "1894_09",
+    "figures": [
+      {
+        "src": "/assets/tesla1894/plate-p478-fig297.webp",
+        "verified": true,
+        "note": "Fig. 297, full-page plate facing p.478; matches p.477 text 'shows a view of part of the exhibits containing the motor apparatus'"
+      },
+      {
+        "src": "/assets/tesla1894/p480-fig298.webp",
+        "verified": true,
+        "note": "re-cropped from scan file 498 at 400 ppi and brightened; matches p.481 'magnetic frame of laminated iron with four polar projections...'"
+      },
+      {
+        "src": "/assets/tesla1894/p482-figs300-308.webp",
+        "verified": true,
+        "note": "nine armatures with printed captions Fig.300-308 legible; bypasses the OCR mis-numbering in p500-fig*-fig302.webp"
+      }
+    ],
+    "quotes_pages": [
+      477,
+      479,
+      480,
+      481,
+      482,
+      483,
+      484,
+      485
+    ],
+    "internal_links": [
+      "rotating-magnetic-field-1888.html",
+      "tesla-high-frequency-alternator.html",
+      "tesla-earthquake-machine.html",
+      "build-a-magnetic-generator.html",
+      "magnetic-generator-plans-review.html"
+    ],
+    "numeric_gates": "23/23 (qa_page.py; no FAQ on this brief)",
+    "visual_gates": "figures verified against the printed pages; shot_qa.py not yet run",
+    "wired": [
+      "sitemap.xml",
+      "llms.txt",
+      "_redirects (/tesla-worlds-fair-1893 301)",
+      "articles.html card (added by hand)"
+    ],
+    "committed": false,
+    "publish_hold": "owner review required before any push to website/ (pushing deploys)",
+    "blocked_on": "one out-link (rotating-magnetic-field-1888.html, article 07) is still unwritten"
+  },
+  {
+    "slug": "tesla-high-frequency-alternator.html",
+    "no": 11,
+    "draft": "new_content/1894-series/11-tesla-high-frequency-alternator/article.md",
+    "rendered_site": "website/tesla-high-frequency-alternator.html",
+    "deployed": false,
+    "date": "2026-10-17",
+    "words_draft": 1739,
+    "tid": "1894_11",
+    "figures": [
+      {
+        "src": "/assets/tesla1894/p375-fig199.webp",
+        "verified": true,
+        "note": "re-cropped from scan file 393 at 400 ppi. The extractor's OCR caption called this Fig.203; the printed page says FIG. 199 (side elevation)"
+      },
+      {
+        "src": "/assets/tesla1894/p376-figs200-203.webp",
+        "verified": true,
+        "note": "the whole block printed p.376, book caption 'FIGS. 200, 201, 202 and 203' included in the crop"
+      },
+      {
+        "src": "/assets/tesla1894/p379-fig206.webp",
+        "verified": true,
+        "note": "re-cropped from scan file 397; OCR caption said Fig.207, printed page says FIG. 206; pairs with the 480-pole / 30,000 alternations text on p.381"
+      }
+    ],
+    "quotes_pages": [
+      151,
+      374,
+      375,
+      376,
+      377,
+      381,
+      391
+    ],
+    "internal_links": [
+      "tesla-earthquake-machine.html",
+      "tesla-worlds-fair-1893.html",
+      "magnetic-generator-plans-review.html",
+      "magnetic-dynamo-generator.html"
+    ],
+    "numeric_gates": "24/24 (qa_page.py, incl. FAQPage)",
+    "visual_gates": "figures verified against the printed pages; shot_qa.py not yet run",
+    "wired": [
+      "sitemap.xml",
+      "llms.txt",
+      "_redirects (/tesla-high-frequency-alternator 301)",
+      "articles.html card (added by hand)"
+    ],
+    "backlinks_added": [
+      "magnetic-dynamo-generator.html: new 'Sources and further reading' H2 linking here (week-6 backlink pass, started early)"
+    ],
+    "committed": false,
+    "publish_hold": "owner review required before any push to website/ (pushing deploys)",
+    "blocked_on": "nothing; all out-links resolve"
   }
 ]

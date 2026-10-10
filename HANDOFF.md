@@ -1,17 +1,25 @@
 # Tesla Generator Content Research — Handoff Notes
 
-> **Current work stream (from 2026-10-09): the 1894 book series.**
-> Start at `SERIES-PLAN-1894.md` §0.1 — it is self-contained and supersedes the
-> keyword-farm workflow below for new content. Figures are already extracted and
-> committed in `website/assets/tesla1894/`.
+> **Current work stream (from 2026-10-10): the 1894 book series.**
+> Start at `SERIES-PLAN-1894.md` §0.4 — it is self-contained and supersedes the
+> keyword-farm workflow below for new content. The 200 figure crops are committed in
+> `website/assets/tesla1894/`; the QC pass over them is done (`manifest_qc.csv`, now 203
+> rows with six corrected re-exports) but **not yet committed**.
 >
-> **Session 1 ran on 2026-10-09 without a vision model.** Results and blockers are
-> logged in `SERIES-PLAN-1894.md` §0.2. Short version: the five tools
-> (`contact_sheet`, `grep_quote`, `make_article`, `qa_page`, `shot_qa`) are built and
-> tested; hub + article 03 are drafted in `new_content/1894-series/` and article 03
-> passes 23/24 numeric gates. **Nothing was deployed.** The figure QC pass
-> (`manifest_qc.csv`) and every visual QA step still need a vision-capable model —
-> that is the first thing to fix before the next session.
+> **Standing rule (D6, 2026-10-10): commit every session, never push.** At the end of a
+> production session, commit the site repo and the work repo, then stop. `git push` in
+> `website/` deploys, so it happens only on explicit owner sign-off and is always a
+> separate, named action. Pages stay unpublished until the owner reviews them.
+>
+> **Session 3 (2026-10-10, with vision):** voice rule now enforced (no em/en dashes,
+> curly quotes or ellipses in series prose; `qa_page.py` gates it). Articles **09
+> `tesla-worlds-fair-1893.html`** and **11 `tesla-high-frequency-alternator.html`**
+> produced, 24/24 and 23/24 numeric gates, wired into sitemap, llms.txt, `_redirects` and
+> `articles.html`. Article 03 re-rendered clean, 25/25. Six figure files corrected (the
+> OCR had mis-numbered Fig. 199 as 203 and Fig. 206 as 207; the Fig. 297 plate was stored
+> upside down). **Committed locally in both repos, not pushed** (D6). Next: `shot_qa.py` on
+> 09 and 11, then article 07 (the last dead link in the series points at it), then 01,
+> then the hub. Full detail: `SERIES-PLAN-1894.md` §0.4.
 
 ## Project Location
 - Work repo: `/home/matt/projects/other/tesla-generator/`
