@@ -208,7 +208,9 @@ been promised a machine that runs itself, read
 [the truth about perpetual motion](perpetual-motion-generator.html) and
 [the magnet motor claim](magnet-motor.html). For the 1893 setting of the demonstration,
 [Tesla at the World's Fair](tesla-worlds-fair-1893.html) covers the same year from the
-other end.
+other end, and [the paper Tesla scribbled in pencil](rotating-magnetic-field-1888.html)
+gives the 1888 machine that really does turn alternating current into torque, with the
+efficiency figures attached.
 
 {{FAQ}}
 

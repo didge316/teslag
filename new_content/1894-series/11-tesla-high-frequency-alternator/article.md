@@ -190,8 +190,11 @@ this page was checked against the page it came from.
 
 The honest read of Chapter XXIX is that frequency was expensive: more poles, thinner wire,
 tighter clearances, careful winding, and a machine that hums and heats if you get it wrong.
-Nothing in it supports a claim that a home-built magnet machine can skip that work. If you
-want the practical version of this subject, read [what a magnetic generator actually
+Nothing in it supports a claim that a home-built magnet machine can skip that work. These
+are alternators; the motors that made the same polyphase system useful, and the measured
+efficiency record that goes with them, are in
+[the paper Tesla scribbled in pencil](rotating-magnetic-field-1888.html). If you want the
+practical version of this subject, read [what a magnetic generator actually
 costs](magnetic-generator-plans-review.html) and [how a dynamo generator is put
 together](magnetic-dynamo-generator.html).
 

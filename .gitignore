@@ -17,3 +17,6 @@ __pycache__/
 # 1894 series: keep drafts source-only; rendered previews are regenerable
 new_content/1894-series/_selftest/
 new_content/1894-series/*/*.html
+
+# scan renders and probe crops made by fig_crop.py / shot tools
+books/tmp/

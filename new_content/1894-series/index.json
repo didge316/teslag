@@ -210,5 +210,72 @@
     "committed": false,
     "publish_hold": "owner review required before any push to website/ (pushing deploys)",
     "blocked_on": "nothing; all out-links resolve"
+  },
+  {
+    "slug": "rotating-magnetic-field-1888.html",
+    "no": 7,
+    "draft": "new_content/1894-series/07-rotating-magnetic-field-1888/article.md",
+    "rendered_site": "website/rotating-magnetic-field-1888.html",
+    "deployed": false,
+    "date": "2026-10-18",
+    "words_draft": 2349,
+    "tid": "1894_07",
+    "figures": [
+      {
+        "src": "/assets/tesla1894/p012-figs3-3a.webp",
+        "verified": true,
+        "note": "Figs. 3 and 3a, printed p. 12 (scan file 30): drum armature between pole pieces at left, flat ring development at right with poles on the S / N' axis. Cropped with fig_crop.py at 400 ppi; the printed 'FIG. 3.' and 'FIG. 3a.' captions are inside the crop. One step in the book's Figs. 1 to 8a sequence."
+      },
+      {
+        "src": "/assets/tesla1894/p016-fig9.webp",
+        "verified": true,
+        "note": "Fig. 9, printed p. 16 (scan file 34): laminated ring with internal pole projections, slotted disc on a shaft, four contact rings, generator field magnet at right. Matches the p.17 text 'Such a motor is shown in Fig. 9'. Printed 'FIG. 9.' caption inside the crop."
+      },
+      {
+        "src": "/assets/tesla1894/p020-fig14.webp",
+        "verified": true,
+        "note": "Fig. 14, printed p. 20 (scan file 38): ring wound with coils, subdivided cylindrical core inside carrying two coils at right angles, four terminals below. Checked against books/tmp/scan-p038-150ppi.png, which shows printed page number 20 and the FIG. 14 caption in place."
+      }
+    ],
+    "quotes_pages": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      20,
+      21,
+      22,
+      23,
+      24,
+      479
+    ],
+    "internal_links": [
+      "magnetic-dynamo-generator.html",
+      "magnetic-generator-plans-review.html",
+      "tesla-magnetic-generator-worth-it.html",
+      "tesla-high-frequency-alternator.html",
+      "tesla-worlds-fair-1893.html"
+    ],
+    "numeric_gates": "26/26 (qa_page.py, incl. FAQPage, no-dashes, no-comments, dead-link)",
+    "visual_gates": "shot_qa.py passes at 375/768/1280 (console clean, no 404s, no overflow, nav intact, figures decode and fit the column); figures + captions + head reviewed via shot_crops.py desktop crops and the mobile first screen",
+    "wired": [
+      "sitemap.xml",
+      "llms.txt",
+      "_redirects (/tesla-rotating-magnetic-field 301)",
+      "articles.html card (added by hand)"
+    ],
+    "committed": false,
+    "publish_hold": "owner review required before any push to website/ (pushing deploys)",
+    "blocked_on": "nothing; all out-links resolve",
+    "backlinks_added": [
+      "03 and 11 now link here (\u00a75.2)",
+      "magnetic-dynamo-generator.html: second series link in the existing Sources H2"
+    ]
   }
 ]

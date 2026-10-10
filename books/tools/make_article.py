@@ -414,7 +414,7 @@ def wire_updates(fm, slug):
         p = WEB / "_redirects"
         lines = p.read_text().splitlines()
         if not any(l.split()[0] == pretty for l in lines if l.strip()):
-            lines.append(f"{pretty}    /{slug}")
+            lines.append(f"{pretty}    /{slug} 301")
             p.write_text("\n".join(lines) + "\n")
             changed.append("_redirects")
         else:
