@@ -33,3 +33,23 @@ Working pattern, as used at plan revs 13-20: do the work -> `infinity_plan` with
 and the full key list, target row `status: "complete"` -> `infinity_validate` scoped with the
 full task key -> stop. Lesson: if a gate keeps failing on a count, read the check that produces
 the count before doing the work again.
+
+## 2026-10-11 — feature-004/t4: `--wire` writes a truncated llms.txt line, so wire by hand
+
+`make_article.py wire_updates()` builds the llms.txt entry as
+`(standfirst or description)[:150]`, which cuts mid-sentence. Article 01's entry shipped that
+way ("...the tests he ran to") and nobody noticed, because nothing reads llms.txt back and no
+gate checks it. Lesson: a wiring helper that silently truncates is worse than doing the four
+edits by hand; the entry was written out in full for 02 and 01's line was completed. If `--wire`
+is used again, check the llms.txt line it writes.
+
+Two visual-QA limits worth recording so they are not mistaken for passes:
+`shot_crops.py`'s `nav-dropdown` crop is the page region *under* a closed dropdown (the shot was
+taken before the menu was opened), so the dropdown is only covered by `shot_qa.py`'s
+`nav=True / navitems=31` measurement, never by that crop. And the in-body affiliate alert sits
+below the mobile first screen on every series page (16,747 px on 02) because the donor shell puts
+it after the article body, and the sidebar stacks below the column on mobile, so §12's "CTA
+visible on mobile first screen" is not met on any series page. `shot_qa.py` prints the position
+and deliberately does not fail on it; closing that gap is a shell change, not a per-article one,
+and belongs to the owner. The mobile fold was still reviewed (title, standfirst, first H2 render
+cleanly at 375 px).
