@@ -3,6 +3,7 @@
 
     python3 books/tools/qa_page.py website/tesla-earthquake-machine.html
     python3 books/tools/qa_page.py --all-series      # every page in index.json
+    python3 books/tools/qa_page.py --self-test       # fixture test for the gates
 
 Checks the machine can check. The visual half of §12 (figure subjects, caption
 truth, three screenshots, OG legibility) is a separate gate and needs eyes.
@@ -40,6 +41,28 @@ def inbound_map():
     return INBOUND
 
 
+DEAD_LINK_GATE = "no dead relative links (\u00a712)"
+
+
+def dead_links(html):
+    """Relative hrefs on this page that do not resolve to a file in website/.
+
+    Skips anything with a scheme (http:, mailto:), a bare anchor, and
+    root-absolute paths (the deploy root is not this checkout's job). A fragment
+    or query is stripped before the lookup. Returns sorted offending hrefs.
+    """
+    dead = set()
+    for href in re.findall(r'href="([^"]+)"', html):
+        target = href.split("#")[0].split("?")[0]
+        if not target or href.startswith(("#", "/")):
+            continue
+        if re.match(r"^[A-Za-z][A-Za-z0-9+.-]*:", href):
+            continue
+        if not (WEB / target).exists():
+            dead.add(href)
+    return sorted(dead)
+
+
 def check(path: Path):
     html = path.read_text(encoding="utf-8", errors="ignore")
     low = html.lower()
@@ -68,6 +91,11 @@ def check(path: Path):
     recip = sorted(p for p in out if slug in ib.get(p, set()))
     gate(len(recip) >= 3, ">= 3 links to pages that link back (§5.2)",
          f"reciprocal: {recip}")
+
+    # §12 "no broken relative links", machine-checked: a link to an article that
+    # is not written yet fails the page instead of being remembered by a human.
+    dead = dead_links(html)
+    gate(not dead, DEAD_LINK_GATE, f"{len(dead)} dead: {dead[:6]}")
 
     imgs = re.findall(r"<img\b[^>]*>", html)
     bad = []
@@ -98,7 +126,7 @@ def check(path: Path):
          f"article {article_bytes // 1024} KB")
     if total_img_bytes >= 400 * 1024:
         print(f"  [note] whole-page image weight {total_img_bytes // 1024} KB "
-              f"(shell {total_img_bytes - article_bytes} KB) — §12's page budget "
+              f"(shell {(total_img_bytes - article_bytes) // 1024} KB) — §12's page budget "
               f"cannot pass while the shell is this heavy; site-wide task, not a "
               f"series defect")
 
@@ -163,13 +191,60 @@ def check(path: Path):
     return res
 
 
+def self_test():
+    """Fixture test for the dead-link gate: a live href passes, a dead one fails
+    and is named. Fixtures live in a temp dir; website/ is never touched."""
+    import shutil
+    import tempfile
+
+    global WEB
+    real_web, tmp = WEB, Path(tempfile.mkdtemp(prefix="qa-selftest-"))
+    try:
+        (tmp / "target.html").write_text("<html><body>ok</body></html>")
+        (tmp / "live.html").write_text(
+            '<a href="target.html">live</a> <a href="target.html#x">anchor</a> '
+            '<a href="https://example.com/gone.html">external</a> '
+            '<a href="#top">jump</a> <a href="/root-absent.html">root</a>')
+        (tmp / "broken.html").write_text(
+            '<a href="target.html">live</a> '
+            '<a href="rotating-magnetic-field-1888.html">not written yet</a>')
+        results = []
+        for name, want_ok, want_named in (("live", True, ""),
+                                          ("broken", False,
+                                           "rotating-magnetic-field-1888.html")):
+            WEB = tmp
+            gates = [g for g in check(tmp / f"{name}.html") if g[1] == DEAD_LINK_GATE]
+            if len(gates) != 1:
+                results.append(f"{name}: gate not in the default set")
+                continue
+            ok, _, detail = gates[0]
+            if ok != want_ok:
+                results.append(f"{name}: expected pass={want_ok}, got pass={ok} "
+                               f"({detail})")
+            elif want_named and want_named not in detail:
+                results.append(f"{name}: offending href not printed ({detail})")
+        return results
+    finally:
+        WEB = real_web
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("page", nargs="?")
     ap.add_argument("--all-series", action="store_true")
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--self-test", action="store_true",
+                    help="run the fixture test for the dead-link gate and exit")
     args = ap.parse_args()
+
+    if args.self_test:
+        fails = self_test()
+        for f in fails:
+            print(f"FAIL {f}")
+        print("self-test: dead-link gate " + ("FAIL" if fails else "PASS"))
+        return 1 if fails else 0
 
     targets = []
     if args.all_series:
