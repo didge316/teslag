@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "baseRevision": 2,
+  "baseRevision": 8,
   "goals": [
     {
       "id": "goal-001",
@@ -14,54 +14,99 @@
       "name": "DEFINE",
       "tasks": [
         {
-          "id": "define/d1",
+          "id": "d1",
+          "key": "phase-define/d1",
           "description": "Interview scope and write bounded PRD + acceptance criteria",
-          "status": "pending",
-          "phase": "define",
-          "difficulty": "moderate",
+          "status": "complete",
+          "dependsOn": [],
           "subtasks": [
             {
+              "id": "tasks-0--st0",
               "title": "scope interview",
-              "status": "pending"
+              "status": "complete"
             },
             {
+              "id": "tasks-0--st1",
               "title": "PRD draft",
-              "status": "pending"
+              "status": "complete"
             },
             {
+              "id": "tasks-0--st2",
               "title": "acceptance criteria per feature",
-              "status": "pending"
+              "status": "complete"
             }
           ],
-          "dependsOn": []
+          "difficulty": "moderate",
+          "phase": "define"
         },
         {
-          "id": "define/d2",
+          "id": "d2",
+          "key": "phase-define/d2",
           "description": "Record sprint contract and branch (not main)",
-          "status": "pending",
-          "phase": "define",
-          "difficulty": "easy",
+          "status": "complete",
+          "dependsOn": [],
           "subtasks": [
             {
+              "id": "tasks-1--st0",
               "title": "sprint contract",
-              "status": "pending"
+              "status": "complete"
             },
             {
+              "id": "tasks-1--st1",
               "title": "feature branch",
-              "status": "pending"
+              "status": "complete"
             }
           ],
-          "dependsOn": []
+          "difficulty": "easy",
+          "phase": "define"
         }
       ],
       "phase": "define",
-      "passes": false
+      "passes": true,
+      "criteria": [
+        "books/specs/prd.md bounds the run: goal, verified state-at-DEFINE, in/out of scope, per-article definition of done, whole-run success criteria, O1/O2/O3, written self-grill",
+        "PRD state claims re-verified: 03/09/11 rendered, hub drafted only, one dead link (09 -> rotating-magnetic-field-1888.html), 5 tools, manifest_qc 203 rows / 198 keep",
+        "feature-001..feature-012 each carry 3-6 criteria naming the tool or file that proves them; none restate SERIES-PLAN-1894.md prose",
+        "harness/docs record the series vocabulary and the define decisions: hub last, O1/O2/O3, branch work repo not deploy repo",
+        "harness/sprint-contract.md records In, Out, done-test, standing rules (page = scan-18, quotes re-grepped, figure numbers off the scan, no dashes, commit not push)"
+      ]
     },
     {
       "id": "feature-001",
       "name": "qa_page.py enforces the no-dead-links rule",
       "passes": false,
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "t1",
+          "key": "feature-001/t1",
+          "description": "qa_page.py: fail any page with a dead relative href",
+          "status": "pending",
+          "dependsOn": [],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "new gate in books/tools/qa_page.py prints the offending href and fails the page",
+            "run on the 3 existing pages: exactly one dead link (09 -> rotating-magnetic-field-1888.html), no false positives"
+          ]
+        },
+        {
+          "id": "t2",
+          "key": "feature-001/t2",
+          "description": "Dead-link check in the default gate set, exercised by --all-series",
+          "status": "pending",
+          "dependsOn": [
+            "feature-001/t1"
+          ],
+          "subtasks": [],
+          "difficulty": "easy",
+          "phase": "build",
+          "criteria": [
+            "--all-series runs the check over every page in new_content/1894-series/index.json",
+            "books/tools/qa_page.py committed in the work repo"
+          ]
+        }
+      ],
       "description": "The plan flags twice that §12's 'no broken relative links' is not machine-checked. Close that gap before more pages exist.",
       "criteria": [
         "books/tools/qa_page.py fails any series page containing a relative href that does not resolve to a file in website/, and prints the offending href",
@@ -73,7 +118,73 @@
       "id": "feature-002",
       "name": "Article 07 - rotating-magnetic-field-1888.html",
       "passes": false,
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "t1",
+          "key": "feature-002/t1",
+          "description": "Article 07 draft: §9 brief, quotes re-grepped and page-pinned",
+          "status": "pending",
+          "dependsOn": [
+            "feature-001/t2"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "new_content/1894-series/07-rotating-magnetic-field-1888/article.md per §9 brief 07, §7 front matter, tid \"1894_07\"",
+            "every quote verbatim in books/extracted/tesla-1894-plain.txt, scan file = printed page + 18, cited (1894, p. N)"
+          ]
+        },
+        {
+          "id": "t2",
+          "key": "feature-002/t2",
+          "description": "Article 07 figures: viewed against the printed page, verified",
+          "status": "pending",
+          "dependsOn": [
+            "feature-002/t1"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "2-3 figures chosen after viewing the scan page; figure numbers read off the print, not the filename",
+            "index.json figures[] carry verified:true with printed page and subject"
+          ]
+        },
+        {
+          "id": "t3",
+          "key": "feature-002/t3",
+          "description": "Article 07 render + numeric gates",
+          "status": "pending",
+          "dependsOn": [
+            "feature-002/t2"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "make_article.py --wire renders website/rotating-magnetic-field-1888.html",
+            "python3 books/tools/qa_page.py on it exits 0"
+          ]
+        },
+        {
+          "id": "t4",
+          "key": "feature-002/t4",
+          "description": "Article 07 visual QA, wiring, commit",
+          "status": "pending",
+          "dependsOn": [
+            "feature-002/t3"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "shot_qa.py passes at 375/768/1280 and the screenshots are reviewed with vision",
+            "wired: sitemap.xml, llms.txt, _redirects /tesla-rotating-magnetic-field, articles.html card",
+            "qa_page.py --all-series now reports zero dead relative links; both repos committed, no push"
+          ]
+        }
+      ],
       "description": "First of the remaining set: it unblocks 09's last dead out-link and is the page 03, 09 and 11 all point at.",
       "criteria": [
         "new_content/1894-series/07-rotating-magnetic-field-1888/article.md exists with §7 front matter (tid quoted \"1894_07\") and follows §9 brief 07",
@@ -88,7 +199,72 @@
       "id": "feature-003",
       "name": "Article 01 - tesla-lit-lamps-without-wires.html",
       "passes": false,
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "t1",
+          "key": "feature-003/t1",
+          "description": "Article 01 draft: lamps in hand 1891, quotes from p. 200 on",
+          "status": "pending",
+          "dependsOn": [
+            "feature-002/t4"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "new_content/1894-series/01-tesla-lit-lamps-without-wires/article.md per §9 brief 01",
+            "quotes re-grepped and pinned to printed pages; out-links only to pages that exist"
+          ]
+        },
+        {
+          "id": "t2",
+          "key": "feature-003/t2",
+          "description": "Article 01 figures verified against the printed pages",
+          "status": "pending",
+          "dependsOn": [
+            "feature-003/t1"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "2-3 figures viewed against the scan before use, alt describes the apparatus",
+            "index.json figures[] verified:true with printed page and subject"
+          ]
+        },
+        {
+          "id": "t3",
+          "key": "feature-003/t3",
+          "description": "Article 01 render + numeric gates",
+          "status": "pending",
+          "dependsOn": [
+            "feature-003/t2"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "renders website/tesla-lit-lamps-without-wires.html via make_article.py --wire",
+            "qa_page.py exits 0 including no-dashes, no-comments, no-PDF rules"
+          ]
+        },
+        {
+          "id": "t4",
+          "key": "feature-003/t4",
+          "description": "Article 01 visual QA, wiring, commit",
+          "status": "pending",
+          "dependsOn": [
+            "feature-003/t3"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "shot_qa.py passes at 375/768/1280, screenshots reviewed with vision",
+            "wired (sitemap, llms.txt, _redirects, card); index.json updated; both repos committed, no push"
+          ]
+        }
+      ],
       "description": "Second in the §0.4 order; the lamps-in-hand 1891 proof, cited from p. 200 onward.",
       "criteria": [
         "new_content/1894-series/01-tesla-lit-lamps-without-wires/article.md exists per §9 brief 01 and the page renders into website/ via make_article.py --wire",
@@ -103,7 +279,136 @@
       "id": "feature-004",
       "name": "Articles 02 + 04 - one-wire power and wireless power 1893",
       "passes": false,
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "t1",
+          "key": "feature-004/t1",
+          "description": "Article 02 draft: one-wire power, quotes page-pinned",
+          "status": "pending",
+          "dependsOn": [
+            "feature-003/t4"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "new_content/1894-series/02-tesla-one-wire-power/article.md per §9 brief 02",
+            "out-links per §5.2 to existing pages only (diy-magnetic-generator, magnetic-marvel, 11)"
+          ]
+        },
+        {
+          "id": "t2",
+          "key": "feature-004/t2",
+          "description": "Article 02 figures verified against the printed pages",
+          "status": "pending",
+          "dependsOn": [
+            "feature-004/t1"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "figures viewed against the scan; never chosen on the extractor filename",
+            "index.json figures[] verified:true"
+          ]
+        },
+        {
+          "id": "t3",
+          "key": "feature-004/t3",
+          "description": "Article 02 render + numeric gates",
+          "status": "pending",
+          "dependsOn": [
+            "feature-004/t2"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "renders website/tesla-one-wire-power.html",
+            "qa_page.py exits 0"
+          ]
+        },
+        {
+          "id": "t4",
+          "key": "feature-004/t4",
+          "description": "Article 02 visual QA, wiring, commit",
+          "status": "pending",
+          "dependsOn": [
+            "feature-004/t3"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "shot_qa.py passes at 3 widths, screenshots reviewed",
+            "wired (sitemap, llms.txt, _redirects, card); committed, no push"
+          ]
+        },
+        {
+          "id": "t5",
+          "key": "feature-004/t5",
+          "description": "Article 04 draft: wireless power 1893, quotes page-pinned",
+          "status": "pending",
+          "dependsOn": [
+            "feature-004/t4"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "new_content/1894-series/04-tesla-wireless-power-1893/article.md per §9 brief 04",
+            "links to 02 and 11 exist so the reciprocal gate can pass on both"
+          ]
+        },
+        {
+          "id": "t6",
+          "key": "feature-004/t6",
+          "description": "Article 04 figures verified against the printed pages",
+          "status": "pending",
+          "dependsOn": [
+            "feature-004/t5"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "figures viewed against the scan before use",
+            "index.json figures[] verified:true"
+          ]
+        },
+        {
+          "id": "t7",
+          "key": "feature-004/t7",
+          "description": "Article 04 render + numeric gates",
+          "status": "pending",
+          "dependsOn": [
+            "feature-004/t6"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "renders website/tesla-wireless-power-1893.html",
+            "qa_page.py exits 0 on 04 and still exits 0 on 02"
+          ]
+        },
+        {
+          "id": "t8",
+          "key": "feature-004/t8",
+          "description": "Article 04 visual QA, wiring, commit",
+          "status": "pending",
+          "dependsOn": [
+            "feature-004/t7"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "shot_qa.py passes at 3 widths for 04, screenshots reviewed",
+            "wired (sitemap, llms.txt, _redirects, card); committed, no push"
+          ]
+        }
+      ],
       "description": "The pair that cross-link each other and both point at 11; §5.2 requires each to be linked from the other and the hub.",
       "criteria": [
         "new_content/1894-series/02-tesla-one-wire-power/article.md and 04-tesla-wireless-power-1893/article.md exist per their §9 briefs and render into website/",
@@ -118,7 +423,137 @@
       "id": "feature-005",
       "name": "Articles 05 + 06 - high-frequency massage and cold flame",
       "passes": false,
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "t1",
+          "key": "feature-005/t1",
+          "description": "Article 05 draft: high-frequency massage, quotes page-pinned",
+          "status": "pending",
+          "dependsOn": [
+            "feature-004/t8"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "new_content/1894-series/05-tesla-high-frequency-massage/article.md per §9 brief 05",
+            "no product claims beyond what a live page already makes (§4.1)"
+          ]
+        },
+        {
+          "id": "t2",
+          "key": "feature-005/t2",
+          "description": "Article 05 figures: §6.3 patent supplement, number confirmed",
+          "status": "pending",
+          "dependsOn": [
+            "feature-005/t1"
+          ],
+          "subtasks": [],
+          "difficulty": "difficult",
+          "phase": "build",
+          "criteria": [
+            "chapter has no book illustration and pp. 394-395 yield no usable crop, so a patent drawing is used",
+            ">=1 patent drawing in website/assets/tesla1894/patents/, number confirmed on patents.google.com, credited per §4.2",
+            "never more than one patent plate per two 1894 engravings on the page"
+          ]
+        },
+        {
+          "id": "t3",
+          "key": "feature-005/t3",
+          "description": "Article 05 render + numeric gates",
+          "status": "pending",
+          "dependsOn": [
+            "feature-005/t2"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "renders website/tesla-high-frequency-massage.html",
+            "qa_page.py exits 0"
+          ]
+        },
+        {
+          "id": "t4",
+          "key": "feature-005/t4",
+          "description": "Article 05 visual QA, wiring, commit",
+          "status": "pending",
+          "dependsOn": [
+            "feature-005/t3"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "shot_qa.py passes at 3 widths, screenshots reviewed",
+            "wired (sitemap, llms.txt, _redirects, card); committed, no push"
+          ]
+        },
+        {
+          "id": "t5",
+          "key": "feature-005/t5",
+          "description": "Article 06 draft: cold flame, quotes page-pinned",
+          "status": "pending",
+          "dependsOn": [
+            "feature-005/t4"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "new_content/1894-series/06-tesla-cold-flame/article.md per §9 brief 06",
+            "quotes re-grepped and cited to printed pages"
+          ]
+        },
+        {
+          "id": "t6",
+          "key": "feature-005/t6",
+          "description": "Article 06 figures verified against the printed pages",
+          "status": "pending",
+          "dependsOn": [
+            "feature-005/t5"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "figures viewed against the scan before use",
+            "index.json figures[] verified:true"
+          ]
+        },
+        {
+          "id": "t7",
+          "key": "feature-005/t7",
+          "description": "Article 06 render + numeric gates",
+          "status": "pending",
+          "dependsOn": [
+            "feature-005/t6"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "renders website/tesla-cold-flame.html",
+            "qa_page.py exits 0"
+          ]
+        },
+        {
+          "id": "t8",
+          "key": "feature-005/t8",
+          "description": "Article 06 visual QA, wiring, commit",
+          "status": "pending",
+          "dependsOn": [
+            "feature-005/t7"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "shot_qa.py passes at 3 widths, screenshots reviewed",
+            "wired (sitemap, llms.txt, _redirects, card); committed, no push"
+          ]
+        }
+      ],
       "description": "05's chapter has no book illustration and pp. 394-395 yield zero usable crops, so the §6.3 patent supplement is required.",
       "criteria": [
         "new_content/1894-series/05-tesla-high-frequency-massage/article.md and 06-tesla-cold-flame/article.md exist per their §9 briefs and render into website/",
@@ -133,7 +568,136 @@
       "id": "feature-006",
       "name": "Articles 08 + 12 - weird inventions listicle and glowing tubes",
       "passes": false,
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "t1",
+          "key": "feature-006/t1",
+          "description": "Article 08 draft: nine weird-invention entries, each page-cited",
+          "status": "pending",
+          "dependsOn": [
+            "feature-005/t8"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "new_content/1894-series/08-tesla-weird-inventions-1894/article.md per §9 brief 08",
+            "nine entries of roughly 130 words, each carrying a page-cited 1894 detail"
+          ]
+        },
+        {
+          "id": "t2",
+          "key": "feature-006/t2",
+          "description": "Article 08 figures verified against the printed pages",
+          "status": "pending",
+          "dependsOn": [
+            "feature-006/t1"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "figures viewed against the scan before use",
+            "index.json figures[] verified:true"
+          ]
+        },
+        {
+          "id": "t3",
+          "key": "feature-006/t3",
+          "description": "Article 08 render + numeric gates",
+          "status": "pending",
+          "dependsOn": [
+            "feature-006/t2"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "renders website/tesla-weird-inventions-1894.html",
+            "qa_page.py exits 0"
+          ]
+        },
+        {
+          "id": "t4",
+          "key": "feature-006/t4",
+          "description": "Article 08 visual QA, wiring, commit",
+          "status": "pending",
+          "dependsOn": [
+            "feature-006/t3"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "shot_qa.py passes at 3 widths, screenshots reviewed",
+            "wired (sitemap, llms.txt, _redirects /tesla-weird-inventions, card); committed, no push"
+          ]
+        },
+        {
+          "id": "t5",
+          "key": "feature-006/t5",
+          "description": "Article 12 draft: glowing tubes, quotes page-pinned",
+          "status": "pending",
+          "dependsOn": [
+            "feature-007/t4"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "new_content/1894-series/12-tesla-glowing-tubes-vacuum/article.md per §9 brief 12",
+            "quotes re-grepped and cited to printed pages"
+          ]
+        },
+        {
+          "id": "t6",
+          "key": "feature-006/t6",
+          "description": "Article 12 figures verified against the printed pages",
+          "status": "pending",
+          "dependsOn": [
+            "feature-006/t5"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "figures viewed against the scan before use",
+            "index.json figures[] verified:true"
+          ]
+        },
+        {
+          "id": "t7",
+          "key": "feature-006/t7",
+          "description": "Article 12 render + numeric gates",
+          "status": "pending",
+          "dependsOn": [
+            "feature-006/t6"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "renders website/tesla-glowing-tubes-vacuum.html",
+            "qa_page.py exits 0"
+          ]
+        },
+        {
+          "id": "t8",
+          "key": "feature-006/t8",
+          "description": "Article 12 visual QA, wiring, commit",
+          "status": "pending",
+          "dependsOn": [
+            "feature-006/t7"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "shot_qa.py passes at 3 widths, screenshots reviewed",
+            "wired (sitemap, llms.txt, _redirects /tesla-glowing-tubes-before-tubes, card); committed, no push"
+          ]
+        }
+      ],
       "description": "08 is nine ~130-word entries; 12 closes the tube and lamp thread and links back to 01 and 06.",
       "criteria": [
         "new_content/1894-series/08-tesla-weird-inventions-1894/article.md and 12-tesla-glowing-tubes-vacuum/article.md exist per their §9 briefs and render into website/",
@@ -148,7 +712,72 @@
       "id": "feature-007",
       "name": "Article 10 - tesla-free-energy-what-he-said.html (O2 = B)",
       "passes": false,
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "t1",
+          "key": "feature-007/t1",
+          "description": "Article 10 draft: free-energy myth check, softer title (O2 = B)",
+          "status": "pending",
+          "dependsOn": [
+            "feature-006/t4"
+          ],
+          "subtasks": [],
+          "difficulty": "difficult",
+          "phase": "build",
+          "criteria": [
+            "new_content/1894-series/10-tesla-free-energy-what-he-said/article.md per §9 brief 10 with the softer title",
+            "evidence limited to Appendix D counts (free energy 0, perpetual 0, over unity 0, magnetic generator 5)"
+          ]
+        },
+        {
+          "id": "t2",
+          "key": "feature-007/t2",
+          "description": "Article 10 figures verified; no claim beyond live pages",
+          "status": "pending",
+          "dependsOn": [
+            "feature-007/t1"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "figures viewed against the scan before use",
+            "no sentence claims anything about the product not already on a live page (§4.1)"
+          ]
+        },
+        {
+          "id": "t3",
+          "key": "feature-007/t3",
+          "description": "Article 10 render + numeric gates",
+          "status": "pending",
+          "dependsOn": [
+            "feature-007/t2"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "renders website/tesla-free-energy-what-he-said.html",
+            "qa_page.py exits 0; links to 05 and 08 resolve"
+          ]
+        },
+        {
+          "id": "t4",
+          "key": "feature-007/t4",
+          "description": "Article 10 visual QA, wiring, commit",
+          "status": "pending",
+          "dependsOn": [
+            "feature-007/t3"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "shot_qa.py passes at 3 widths, screenshots reviewed",
+            "wired (sitemap, llms.txt, _redirects, card); committed, no push; publish order after 03/01/07 noted in index.json"
+          ]
+        }
+      ],
       "description": "Kept as a flagship with a softer title, published after 03/01/07 so the reader meets three neutral history pieces first.",
       "criteria": [
         "drafted per §9 brief 10 with the softer title; evidence limited to Appendix D's verified counts (free energy 0, perpetual 0, over unity 0, magnetic generator 5, all pyro-)",
@@ -163,7 +792,104 @@
       "id": "feature-008",
       "name": "Linkable assets - plates, word search, Part I text, GitHub repo",
       "passes": false,
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "t1",
+          "key": "feature-008/t1",
+          "description": "Linkable asset: tesla-1894-plates.html gallery",
+          "status": "pending",
+          "dependsOn": [
+            "feature-006/t8"
+          ],
+          "subtasks": [],
+          "difficulty": "difficult",
+          "phase": "build",
+          "criteria": [
+            "website/tesla-1894-plates.html with >=60 A/B-quality engravings selected from manifest_qc.csv",
+            "each plate captioned from the printed page, not the extractor filename"
+          ]
+        },
+        {
+          "id": "t2",
+          "key": "feature-008/t2",
+          "description": "Linkable asset: tesla-1894-word-search.html",
+          "status": "pending",
+          "dependsOn": [
+            "feature-008/t1"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "website/tesla-1894-word-search.html reports Appendix D term counts as re-run by the tooling",
+            "the counting method and the page-offset rule are stated on the page"
+          ]
+        },
+        {
+          "id": "t3",
+          "key": "feature-008/t3",
+          "description": "Linkable asset: Part I text with printed-page markers",
+          "status": "pending",
+          "dependsOn": [
+            "feature-008/t2"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "Part I text published with printed-page markers, derived from books/extracted/tesla-1894-plain.txt",
+            "page passes qa_page.py dead-link and image gates"
+          ]
+        },
+        {
+          "id": "t4",
+          "key": "feature-008/t4",
+          "description": "Public tesla1894 repo: README with edition, item id, offset rule",
+          "status": "pending",
+          "dependsOn": [
+            "feature-008/t3"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "repo prepared with README naming the edition, the archive.org item and the page-offset rule",
+            "URL recorded in new_content/1894-series/index.json; publishing needs owner credentials, recorded not assumed"
+          ]
+        },
+        {
+          "id": "t5",
+          "key": "feature-008/t5",
+          "description": "Wire the three on-site assets and keep the dead-link check clean",
+          "status": "pending",
+          "dependsOn": [
+            "feature-008/t4"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "all three assets in sitemap.xml and llms.txt",
+            "qa_page.py dead-link check reports zero dead links across the series"
+          ]
+        },
+        {
+          "id": "t6",
+          "key": "feature-008/t6",
+          "description": "Draft 20 outreach emails, none sent",
+          "status": "pending",
+          "dependsOn": [
+            "feature-006/t8"
+          ],
+          "subtasks": [],
+          "difficulty": "easy",
+          "phase": "build",
+          "criteria": [
+            "20 offer-first emails under new_content/outreach/, no affiliate links",
+            "none sent; sending is recorded as the owner's action"
+          ]
+        }
+      ],
       "description": "§16.3: the only link strategy worth having. The hub links to two of these, so they must exist before the hub ships.",
       "criteria": [
         "website/tesla-1894-plates.html exists: a gallery of >=60 A/B-quality engravings selected from manifest_qc.csv, each captioned from the printed page",
@@ -178,7 +904,41 @@
       "id": "feature-009",
       "name": "Backlink pass on the 8 existing pages (§5.2)",
       "passes": false,
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "t1",
+          "key": "feature-009/t1",
+          "description": "Backlink pass: Sources H2 on the 8 named legacy pages",
+          "status": "pending",
+          "dependsOn": [
+            "feature-006/t8"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "a Sources and further reading H2 with 1-2 series links on each of the 8 pages named in §5.2",
+            "each legacy edit is a separate named commit in website/ so it can be reverted alone",
+            "no em dash, en dash, curly quote or ellipsis added; nothing else on those pages changes"
+          ]
+        },
+        {
+          "id": "t2",
+          "key": "feature-009/t2",
+          "description": "Close the §5.2 out-link map on all 13 series pages",
+          "status": "pending",
+          "dependsOn": [
+            "feature-009/t1"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "every deferred §5.2 out-link now points at an existing page; zero dead relative links",
+            "qa_page.py reciprocal in-links gate passes on all 13 series pages"
+          ]
+        }
+      ],
       "description": "Every series page needs >=3 in-links from pages it also links to; the existing-site half of that is what makes the gate pass.",
       "criteria": [
         "a 'Sources and further reading' H2 with 1-2 series links is added to each of the 8 pages named in §5.2",
@@ -192,7 +952,56 @@
       "id": "feature-010",
       "name": "OG images for all 13 series pages",
       "passes": false,
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "t1",
+          "key": "feature-010/t1",
+          "description": "OG generator: reproducible script in books/tools/",
+          "status": "pending",
+          "dependsOn": [
+            "feature-012/t2"
+          ],
+          "subtasks": [],
+          "difficulty": "difficult",
+          "phase": "build",
+          "criteria": [
+            "a script in books/tools/ regenerates any series OG webp from its source crop and title",
+            "source crop is a 1894 scan or a verified patent drawing, credit recorded"
+          ]
+        },
+        {
+          "id": "t2",
+          "key": "feature-010/t2",
+          "description": "Generate OGs for all 13 pages and set their meta",
+          "status": "pending",
+          "dependsOn": [
+            "feature-010/t1"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "website/assets/og/ holds one webp per article and the hub, named after the page slug",
+            "every page's og:image and twitter:image point at its own file; no meta references a missing file"
+          ]
+        },
+        {
+          "id": "t3",
+          "key": "feature-010/t3",
+          "description": "View every OG at 300 px; record credits",
+          "status": "pending",
+          "dependsOn": [
+            "feature-010/t2"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "each OG viewed at 300 px wide with the title legible at that size",
+            "credit recorded in the generator or index.json"
+          ]
+        }
+      ],
       "description": "§6.4: one OG per page, legible at 300 px, built from the series' own scans.",
       "criteria": [
         "website/assets/og/ holds an OG webp for each of the 12 articles and the hub, named after the page slug",
@@ -206,7 +1015,57 @@
       "id": "feature-011",
       "name": "Visual QA pass over every produced series page",
       "passes": false,
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "t1",
+          "key": "feature-011/t1",
+          "description": "shot_qa.py on the outstanding pages 09 and 11",
+          "status": "pending",
+          "dependsOn": [
+            "feature-001/t2"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "python3 books/tools/shot_qa.py tesla-worlds-fair-1893 and tesla-high-frequency-alternator pass at 375/768/1280",
+            "screenshots reviewed with vision; notes recorded in index.json visual_gates"
+          ]
+        },
+        {
+          "id": "t2",
+          "key": "feature-011/t2",
+          "description": "Visual QA pass over all 13 series pages",
+          "status": "pending",
+          "dependsOn": [
+            "feature-012/t2",
+            "feature-010/t2"
+          ],
+          "subtasks": [],
+          "difficulty": "difficult",
+          "phase": "build",
+          "criteria": [
+            "shot_qa.py clean at 375/768/1280 for all 13: no console errors, 404s, overflow, undecoded figures",
+            "screenshots reviewed with vision; per-page notes in index.json visual_gates"
+          ]
+        },
+        {
+          "id": "t3",
+          "key": "feature-011/t3",
+          "description": "Fix or record every visual defect found",
+          "status": "pending",
+          "dependsOn": [
+            "feature-011/t2"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "no figure outside the column, no cut-off caption, nav dropdown intact at all three widths",
+            "each real defect fixed in the series page or recorded as an owner decision naming file and line"
+          ]
+        }
+      ],
       "description": "shot_qa.py has never been run on 09 or 11 and 03's screenshot review was partial. Every page gets the full three-viewport pass with vision.",
       "criteria": [
         "python3 books/tools/shot_qa.py runs clean for all 13 series pages at 375, 768 and 1280: no console errors, no 404s, no horizontal overflow, every figure decodes",
@@ -220,7 +1079,59 @@
       "id": "feature-012",
       "name": "Hub - tesla-1894.html rendered and wired last",
       "passes": false,
-      "tasks": [],
+      "tasks": [
+        {
+          "id": "t1",
+          "key": "feature-012/t1",
+          "description": "Hub draft updated to the final series state",
+          "status": "pending",
+          "dependsOn": [
+            "feature-008/t5",
+            "feature-009/t2"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "new_content/1894-series/00-hub/article.md indexes all 12 real cards plus plates and word-search",
+            "how-we-cite box states printed page = scan minus 18, the OCR-correction policy and the word-search method"
+          ]
+        },
+        {
+          "id": "t2",
+          "key": "feature-012/t2",
+          "description": "Hub rendered and wired (no PDF, no Book/Offer schema)",
+          "status": "pending",
+          "dependsOn": [
+            "feature-012/t1"
+          ],
+          "subtasks": [],
+          "difficulty": "difficult",
+          "phase": "build",
+          "criteria": [
+            "make_article.py --wire renders website/tesla-1894.html; qa_page.py exits 0 with zero dead links",
+            "ItemList JSON-LD lists the 12 articles and parses; archive.org item present",
+            "wired: sitemap, llms.txt, _redirects /1894, nav Pages, articles.html, footer"
+          ]
+        },
+        {
+          "id": "t3",
+          "key": "feature-012/t3",
+          "description": "Series close-out: all 13 pages pass, index.json, commits",
+          "status": "pending",
+          "dependsOn": [
+            "feature-011/t3",
+            "feature-010/t3"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "phase": "build",
+          "criteria": [
+            "python3 books/tools/qa_page.py --all-series exits 0 for 13 pages",
+            "index.json shows 13 entries with committed:true deployed:false; both repos clean, nothing pushed"
+          ]
+        }
+      ],
       "description": "The hub links to all 12 articles and two Tier 6 assets, so it can only ship once they exist. It is the series completion marker.",
       "criteria": [
         "the hub draft is updated to the final series state and rendered to website/tesla-1894.html by make_article.py --wire, with no PDF, no download button, no Book/Offer schema",
@@ -230,6 +1141,67 @@
         "wired: sitemap.xml, llms.txt, _redirects /1894 301, nav Pages, articles.html and footer; shot_qa.py passes and screenshots reviewed",
         "qa_page.py --all-series exits 0 for all 13 pages; index.json shows 13 entries committed:true deployed:false; both repos clean, nothing pushed"
       ]
+    },
+    {
+      "id": "phase-plan",
+      "name": "PLAN",
+      "tasks": [
+        {
+          "id": "p1",
+          "key": "phase-plan/p1",
+          "description": "Break each feature into ordered, dependency-aware tasks",
+          "status": "complete",
+          "dependsOn": [
+            "phase-define/d1",
+            "phase-define/d2"
+          ],
+          "subtasks": [
+            {
+              "id": "tasks-2--st0",
+              "title": "task breakdown per feature",
+              "status": "complete"
+            },
+            {
+              "id": "tasks-2--st1",
+              "title": "dependsOn edges in §0.4 order",
+              "status": "complete"
+            }
+          ],
+          "difficulty": "moderate",
+          "phase": "plan"
+        },
+        {
+          "id": "p2",
+          "key": "phase-plan/p2",
+          "description": "Commit plan (feature-list) and validate",
+          "status": "in_progress",
+          "dependsOn": [
+            "phase-plan/p1"
+          ],
+          "subtasks": [
+            {
+              "id": "tasks-3--st0",
+              "title": "commit feature-list",
+              "status": "in_progress"
+            },
+            {
+              "id": "tasks-3--st1",
+              "title": "validate plan phase",
+              "status": "pending"
+            }
+          ],
+          "difficulty": "easy",
+          "phase": "plan"
+        }
+      ],
+      "phase": "plan",
+      "criteria": [
+        "feature-001..feature-012 are each broken into ordered tasks naming the file produced and the command that proves it",
+        "dependsOn edges respect the 07-01-02-04-05-06-08-10-12-hub order and hub-last; no task depends on a later one",
+        "feature-001 (qa_page.py dead-link check) precedes every article feature, so no-broken-links is machine-checked from the first article",
+        "the committed plan validates with infinity_validate; no feature is left task-less"
+      ],
+      "passes": false
     }
   ]
 }

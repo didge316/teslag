@@ -2,7 +2,7 @@
   "armed": true,
   "runId": "08af6719-0515-42b9-8fdc-83519a093598",
   "startedAt": "2026-10-10T09:26:56.020Z",
-  "sessions": 2,
+  "sessions": 3,
   "stoppedAt": null,
   "stopReason": null,
   "baseModel": {
