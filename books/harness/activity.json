@@ -1,330 +1,6 @@
 {
   "lines": [
     {
-      "at": "2026-10-10T11:33:01.728Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "edit /home/matt/projects/other/tesla-generator/website/articles.html"
-    },
-    {
-      "at": "2026-10-10T11:33:09.523Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && timeout 300 python3…"
-    },
-    {
-      "at": "2026-10-10T11:33:36.425Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator/website/_qa && ls -la …"
-    },
-    {
-      "at": "2026-10-10T11:33:56.050Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && grep -n \"figure\\|re…"
-    },
-    {
-      "at": "2026-10-10T11:34:04.843Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "read /home/matt/projects/other/tesla-generator/books/tools/shot_qa.py"
-    },
-    {
-      "at": "2026-10-10T11:35:02.631Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "write /home/matt/projects/other/tesla-generator/books/tools/shot_crops.py"
-    },
-    {
-      "at": "2026-10-10T11:35:13.788Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && timeout 180 python3…"
-    },
-    {
-      "at": "2026-10-10T11:35:36.753Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "edit /home/matt/projects/other/tesla-generator/books/tools/shot_crops.py"
-    },
-    {
-      "at": "2026-10-10T11:35:56.247Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "edit /home/matt/projects/other/tesla-generator/books/tools/shot_crops.py"
-    },
-    {
-      "at": "2026-10-10T11:36:04.651Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && timeout 180 python3…"
-    },
-    {
-      "at": "2026-10-10T11:36:15.768Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "read /home/matt/projects/other/tesla-generator/website/_qa/rotating-magn…"
-    },
-    {
-      "at": "2026-10-10T11:36:15.843Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "read /home/matt/projects/other/tesla-generator/website/_qa/rotating-magn…"
-    },
-    {
-      "at": "2026-10-10T11:36:23.995Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "read /home/matt/projects/other/tesla-generator/website/_qa/rotating-magn…"
-    },
-    {
-      "at": "2026-10-10T11:36:24.049Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "read /home/matt/projects/other/tesla-generator/website/_qa/rotating-magn…"
-    },
-    {
-      "at": "2026-10-10T11:36:51.017Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && python3 - <<'PY' im…"
-    },
-    {
-      "at": "2026-10-10T11:37:04.639Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && python3 - <<'PY' im…"
-    },
-    {
-      "at": "2026-10-10T11:37:33.525Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator/website && git add mag…"
-    },
-    {
-      "at": "2026-10-10T11:37:46.629Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator/website && git add -A …"
-    },
-    {
-      "at": "2026-10-10T11:37:58.404Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator/website && git show --…"
-    },
-    {
-      "at": "2026-10-10T11:38:05.926Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && grep -rn \"email-cap…"
-    },
-    {
-      "at": "2026-10-10T11:38:17.222Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator/website && git rm --ca…"
-    },
-    {
-      "at": "2026-10-10T11:38:26.204Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && cat .gitignore 2>/d…"
-    },
-    {
-      "at": "2026-10-10T11:38:52.716Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && printf '\\n# scan re…"
-    },
-    {
-      "at": "2026-10-10T11:39:12.877Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/.pi/agent/npm/node_modules/infinity-harness/dist/src/…"
-    },
-    {
-      "at": "2026-10-10T11:39:18.164Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/.pi/agent/npm/node_modules/infinity-harness/dist/src …"
-    },
-    {
-      "at": "2026-10-10T11:39:25.577Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/.pi/agent/npm/node_modules/infinity-harness/dist/src …"
-    },
-    {
-      "at": "2026-10-10T11:39:40.522Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator/books && python3 -c \" …"
-    },
-    {
-      "at": "2026-10-10T11:40:15.464Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "infinity_plan"
-    },
-    {
-      "at": "2026-10-10T11:40:27.127Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && sed -n '604,745p' S…"
-    },
-    {
-      "at": "2026-10-10T11:40:39.981Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator/books/tools && python3…"
-    },
-    {
-      "at": "2026-10-10T11:40:49.768Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator/books/tools && python3…"
-    },
-    {
-      "at": "2026-10-10T11:41:06.335Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator/website/assets/tesla18…"
-    },
-    {
-      "at": "2026-10-10T11:41:27.108Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "read /home/matt/projects/other/tesla-generator/website/assets/tesla1894/…"
-    },
-    {
-      "at": "2026-10-10T11:41:27.190Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "read /home/matt/projects/other/tesla-generator/website/assets/tesla1894/…"
-    },
-    {
-      "at": "2026-10-10T11:41:39.842Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && sed -n '30,120p' bo…"
-    },
-    {
-      "at": "2026-10-10T11:41:52.040Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && python3 books/tools…"
-    },
-    {
-      "at": "2026-10-10T11:41:59.411Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "read /home/matt/projects/other/tesla-generator/books/tmp/scan-p203-150pp…"
-    },
-    {
-      "at": "2026-10-10T11:42:11.957Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && python3 -c \" from P…"
-    },
-    {
-      "at": "2026-10-10T11:42:24.110Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && python3 books/tools…"
-    },
-    {
-      "at": "2026-10-10T11:42:31.825Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "read /home/matt/projects/other/tesla-generator/books/tmp/probe-fig124.we…"
-    },
-    {
-      "at": "2026-10-10T11:42:51.862Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && python3 - <<'PY' fr…"
-    },
-    {
-      "at": "2026-10-10T11:42:59.334Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && python3 - <<'PY' fr…"
-    },
-    {
-      "at": "2026-10-10T11:43:08.387Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && python3 - <<'PY' fr…"
-    },
-    {
-      "at": "2026-10-10T11:43:15.290Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && python3 books/tools…"
-    },
-    {
-      "at": "2026-10-10T11:43:19.711Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "read /home/matt/projects/other/tesla-generator/books/tmp/probe-fig124.we…"
-    },
-    {
-      "at": "2026-10-10T11:43:34.814Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && python3 books/tools…"
-    },
-    {
-      "at": "2026-10-10T11:43:43.840Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "read /home/matt/projects/other/tesla-generator/books/tmp/scan-p197-150pp…"
-    },
-    {
-      "at": "2026-10-10T11:44:13.575Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && python3 books/tools…"
-    },
-    {
-      "at": "2026-10-10T11:44:19.901Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "read /home/matt/projects/other/tesla-generator/books/tmp/scan-p202-150pp…"
-    },
-    {
-      "at": "2026-10-10T11:44:35.650Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && python3 - <<'PY' fr…"
-    },
-    {
-      "at": "2026-10-10T11:44:47.275Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && python3 - <<'PY' fr…"
-    },
-    {
-      "at": "2026-10-10T11:44:57.404Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && python3 books/tools…"
-    },
-    {
-      "at": "2026-10-10T11:45:04.123Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "read /home/matt/projects/other/tesla-generator/books/tmp/probe-figs122-1…"
-    },
-    {
-      "at": "2026-10-10T11:45:26.579Z",
-      "level": "work",
-      "worker": "W5",
-      "text": "bash cd /home/matt/projects/other/tesla-generator && python3 - <<'PY' fr…"
-    },
-    {
       "at": "2026-10-10T11:45:49.005Z",
       "level": "work",
       "worker": "W5",
@@ -2399,6 +2075,330 @@
       "level": "work",
       "worker": "W1",
       "text": "infinity_validate feature-003/t4"
+    },
+    {
+      "at": "2026-10-10T15:35:53.152Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator && git add books/harne…"
+    },
+    {
+      "at": "2026-10-10T15:36:13.150Z",
+      "level": "info",
+      "worker": "W1",
+      "text": "feature-003/t4 is done and its scoped gate passes; feature-003 (Article 01) is now complete end to end. **What I changed:** `shot_qa.py tesla-lit-lamps-without…"
+    },
+    {
+      "at": "2026-10-10T15:38:54.296Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; grep -n \"Article 02\\|…"
+    },
+    {
+      "at": "2026-10-10T15:38:54.361Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; sed -n 1,60p books/to…"
+    },
+    {
+      "at": "2026-10-10T15:39:03.766Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; sed -n 620,700p SERIE…"
+    },
+    {
+      "at": "2026-10-10T15:39:03.841Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; find . -name \"quotes.…"
+    },
+    {
+      "at": "2026-10-10T15:39:18.110Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; awk '/^## 3\\./,/^## 4…"
+    },
+    {
+      "at": "2026-10-10T15:39:25.648Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; grep -n \"Appendix A\" …"
+    },
+    {
+      "at": "2026-10-10T15:39:40.421Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; ls books/extracted/ |…"
+    },
+    {
+      "at": "2026-10-10T15:39:44.842Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; wc -l books/extracted…"
+    },
+    {
+      "at": "2026-10-10T15:39:55.338Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; sed -n 1,40p books/to…"
+    },
+    {
+      "at": "2026-10-10T15:40:01.351Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; python3 books/tools/p…"
+    },
+    {
+      "at": "2026-10-10T15:40:08.792Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; python3 books/tools/p…"
+    },
+    {
+      "at": "2026-10-10T15:40:19.453Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; python3 books/tools/p…"
+    },
+    {
+      "at": "2026-10-10T15:40:19.496Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; python3 books/tools/p…"
+    },
+    {
+      "at": "2026-10-10T15:40:57.050Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; python3 books/tools/g…"
+    },
+    {
+      "at": "2026-10-10T15:41:02.514Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; python3 books/tools/g…"
+    },
+    {
+      "at": "2026-10-10T15:41:51.767Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; cat > /tmp/q.txt <<'E…"
+    },
+    {
+      "at": "2026-10-10T15:42:33.602Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; cat > /tmp/q2.txt <<'…"
+    },
+    {
+      "at": "2026-10-10T15:42:58.255Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator/website/assets/tesla18…"
+    },
+    {
+      "at": "2026-10-10T15:43:26.447Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; grep -n \"^def \\|^ def…"
+    },
+    {
+      "at": "2026-10-10T15:43:33.835Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; sed -n 173,235p books…"
+    },
+    {
+      "at": "2026-10-10T15:46:06.139Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "write /home/matt/projects/other/tesla-generator/books/tmp/gen_quotes_02.py"
+    },
+    {
+      "at": "2026-10-10T15:46:26.409Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; awk '/^### 5.2/,/^###…"
+    },
+    {
+      "at": "2026-10-10T15:47:23.375Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "edit /home/matt/projects/other/tesla-generator/books/tmp/gen_quotes_02.py"
+    },
+    {
+      "at": "2026-10-10T15:47:29.735Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "edit /home/matt/projects/other/tesla-generator/books/tmp/gen_quotes_02.py"
+    },
+    {
+      "at": "2026-10-10T15:47:37.159Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; python3 books/tmp/gen…"
+    },
+    {
+      "at": "2026-10-10T15:47:43.191Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; sed -n 94,132p books/…"
+    },
+    {
+      "at": "2026-10-10T15:47:53.275Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "edit /home/matt/projects/other/tesla-generator/books/tmp/gen_quotes_02.py"
+    },
+    {
+      "at": "2026-10-10T15:47:58.800Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; python3 books/tmp/gen…"
+    },
+    {
+      "at": "2026-10-10T15:48:43.143Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "edit /home/matt/projects/other/tesla-generator/books/tmp/gen_quotes_02.py"
+    },
+    {
+      "at": "2026-10-10T15:48:47.965Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "read /home/matt/projects/other/tesla-generator/books/tmp/gen_quotes_02.py"
+    },
+    {
+      "at": "2026-10-10T15:49:12.749Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "edit /home/matt/projects/other/tesla-generator/books/tmp/gen_quotes_02.py"
+    },
+    {
+      "at": "2026-10-10T15:49:17.149Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "read /home/matt/projects/other/tesla-generator/books/tmp/gen_quotes_02.py"
+    },
+    {
+      "at": "2026-10-10T15:49:37.102Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "edit /home/matt/projects/other/tesla-generator/books/tmp/gen_quotes_02.py"
+    },
+    {
+      "at": "2026-10-10T15:49:42.250Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; python3 books/tmp/gen…"
+    },
+    {
+      "at": "2026-10-10T15:49:50.937Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "read /home/matt/projects/other/tesla-generator/new_content/1894-series/0…"
+    },
+    {
+      "at": "2026-10-10T15:50:13.015Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "edit /home/matt/projects/other/tesla-generator/books/tmp/gen_quotes_02.py"
+    },
+    {
+      "at": "2026-10-10T15:50:18.265Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; python3 books/tmp/gen…"
+    },
+    {
+      "at": "2026-10-10T15:51:13.561Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "edit /home/matt/projects/other/tesla-generator/books/tmp/gen_quotes_02.py"
+    },
+    {
+      "at": "2026-10-10T15:51:21.124Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; python3 books/tmp/gen…"
+    },
+    {
+      "at": "2026-10-10T15:51:29.293Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; grep -A1 \"raw OCR\" ne…"
+    },
+    {
+      "at": "2026-10-10T15:52:14.055Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "edit /home/matt/projects/other/tesla-generator/books/tmp/gen_quotes_02.py"
+    },
+    {
+      "at": "2026-10-10T15:52:22.389Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; grep -n \"no wire\" boo…"
+    },
+    {
+      "at": "2026-10-10T15:52:30.881Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "read /home/matt/projects/other/tesla-generator/books/tmp/gen_quotes_02.py"
+    },
+    {
+      "at": "2026-10-10T15:52:37.418Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "edit /home/matt/projects/other/tesla-generator/books/tmp/gen_quotes_02.py"
+    },
+    {
+      "at": "2026-10-10T15:52:45.090Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "edit /home/matt/projects/other/tesla-generator/books/tmp/gen_quotes_02.py"
+    },
+    {
+      "at": "2026-10-10T15:52:54.647Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; python3 books/tmp/gen…"
+    },
+    {
+      "at": "2026-10-10T15:53:11.862Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; python3 books/tools/g…"
+    },
+    {
+      "at": "2026-10-10T15:53:24.782Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "edit /home/matt/projects/other/tesla-generator/books/tmp/gen_quotes_02.py"
+    },
+    {
+      "at": "2026-10-10T15:53:55.130Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; mkdir -p new_content/…"
+    },
+    {
+      "at": "2026-10-10T15:54:03.458Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "bash cd /home/matt/projects/other/tesla-generator; python3 books/tools/c…"
+    },
+    {
+      "at": "2026-10-10T15:54:55.848Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "infinity_plan"
+    },
+    {
+      "at": "2026-10-10T15:55:03.721Z",
+      "level": "work",
+      "worker": "W1",
+      "text": "infinity_validate feature-004/t0"
     }
   ]
 }

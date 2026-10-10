@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "baseRevision": 17,
+  "baseRevision": 18,
   "goals": [
     {
       "id": "goal-001",
@@ -284,7 +284,7 @@
           "id": "t0",
           "key": "feature-004/t0",
           "description": "Article 02 quote-pin: grep every intended quote, pin to printed page, write quotes.md",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-003/t4"
           ],
