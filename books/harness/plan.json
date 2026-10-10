@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "baseRevision": 8,
+  "baseRevision": 16,
   "goals": [
     {
       "id": "goal-001",
@@ -74,13 +74,13 @@
     {
       "id": "feature-001",
       "name": "qa_page.py enforces the no-dead-links rule",
-      "passes": false,
+      "passes": true,
       "tasks": [
         {
           "id": "t1",
           "key": "feature-001/t1",
           "description": "qa_page.py: fail any page with a dead relative href",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [],
           "subtasks": [],
           "difficulty": "moderate",
@@ -94,7 +94,7 @@
           "id": "t2",
           "key": "feature-001/t2",
           "description": "Dead-link check in the default gate set, exercised by --all-series",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-001/t1"
           ],
@@ -117,13 +117,13 @@
     {
       "id": "feature-002",
       "name": "Article 07 - rotating-magnetic-field-1888.html",
-      "passes": false,
+      "passes": true,
       "tasks": [
         {
           "id": "t1",
           "key": "feature-002/t1",
           "description": "Article 07 draft: §9 brief, quotes re-grepped and page-pinned",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-001/t2"
           ],
@@ -139,7 +139,7 @@
           "id": "t2",
           "key": "feature-002/t2",
           "description": "Article 07 figures: viewed against the printed page, verified",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-002/t1"
           ],
@@ -155,7 +155,7 @@
           "id": "t3",
           "key": "feature-002/t3",
           "description": "Article 07 render + numeric gates",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-002/t2"
           ],
@@ -171,7 +171,7 @@
           "id": "t4",
           "key": "feature-002/t4",
           "description": "Article 07 visual QA, wiring, commit",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-002/t3"
           ],
@@ -204,7 +204,7 @@
           "id": "t1",
           "key": "feature-003/t1",
           "description": "Article 01 draft: lamps in hand 1891, quotes from p. 200 on",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-002/t4"
           ],
@@ -220,7 +220,7 @@
           "id": "t2",
           "key": "feature-003/t2",
           "description": "Article 01 figures verified against the printed pages",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-003/t1"
           ],
@@ -236,7 +236,7 @@
           "id": "t3",
           "key": "feature-003/t3",
           "description": "Article 01 render + numeric gates",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-003/t2"
           ],
@@ -281,12 +281,28 @@
       "passes": false,
       "tasks": [
         {
-          "id": "t1",
-          "key": "feature-004/t1",
-          "description": "Article 02 draft: one-wire power, quotes page-pinned",
+          "id": "t0",
+          "key": "feature-004/t0",
+          "description": "Article 02 quote-pin: grep every intended quote, pin to printed page, write quotes.md",
           "status": "pending",
           "dependsOn": [
             "feature-003/t4"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "criteria": [
+            "quotes.md written in Article 02's new_content/1894-series/ directory",
+            "every quote verbatim from the 1894 text with its printed page number recorded",
+            "no quote carried forward that cannot be re-grepped"
+          ]
+        },
+        {
+          "id": "t1",
+          "key": "feature-004/t1",
+          "description": "Article 02 draft: one-wire power, written from quotes.md",
+          "status": "pending",
+          "dependsOn": [
+            "feature-004/t0"
           ],
           "subtasks": [],
           "difficulty": "moderate",
@@ -345,12 +361,28 @@
           ]
         },
         {
-          "id": "t5",
-          "key": "feature-004/t5",
-          "description": "Article 04 draft: wireless power 1893, quotes page-pinned",
+          "id": "t9",
+          "key": "feature-004/t9",
+          "description": "Article 04 quote-pin: grep every intended quote, pin to printed page, write quotes.md",
           "status": "pending",
           "dependsOn": [
             "feature-004/t4"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "criteria": [
+            "quotes.md written in Article 04's new_content/1894-series/ directory",
+            "every quote verbatim from the 1894 text with its printed page number recorded",
+            "no quote carried forward that cannot be re-grepped"
+          ]
+        },
+        {
+          "id": "t5",
+          "key": "feature-004/t5",
+          "description": "Article 04 draft: wireless power 1893, written from quotes.md",
+          "status": "pending",
+          "dependsOn": [
+            "feature-004/t9"
           ],
           "subtasks": [],
           "difficulty": "moderate",
@@ -425,12 +457,28 @@
       "passes": false,
       "tasks": [
         {
-          "id": "t1",
-          "key": "feature-005/t1",
-          "description": "Article 05 draft: high-frequency massage, quotes page-pinned",
+          "id": "t0",
+          "key": "feature-005/t0",
+          "description": "Article 05 quote-pin: grep every intended quote, pin to printed page, write quotes.md",
           "status": "pending",
           "dependsOn": [
             "feature-004/t8"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "criteria": [
+            "quotes.md written in Article 05's new_content/1894-series/ directory",
+            "every quote verbatim from the 1894 text with its printed page number recorded",
+            "no quote carried forward that cannot be re-grepped"
+          ]
+        },
+        {
+          "id": "t1",
+          "key": "feature-005/t1",
+          "description": "Article 05 draft: high-frequency massage, written from quotes.md",
+          "status": "pending",
+          "dependsOn": [
+            "feature-005/t0"
           ],
           "subtasks": [],
           "difficulty": "moderate",
@@ -490,12 +538,28 @@
           ]
         },
         {
-          "id": "t5",
-          "key": "feature-005/t5",
-          "description": "Article 06 draft: cold flame, quotes page-pinned",
+          "id": "t9",
+          "key": "feature-005/t9",
+          "description": "Article 06 quote-pin: grep every intended quote, pin to printed page, write quotes.md",
           "status": "pending",
           "dependsOn": [
             "feature-005/t4"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "criteria": [
+            "quotes.md written in Article 06's new_content/1894-series/ directory",
+            "every quote verbatim from the 1894 text with its printed page number recorded",
+            "no quote carried forward that cannot be re-grepped"
+          ]
+        },
+        {
+          "id": "t5",
+          "key": "feature-005/t5",
+          "description": "Article 06 draft: cold flame, written from quotes.md",
+          "status": "pending",
+          "dependsOn": [
+            "feature-005/t9"
           ],
           "subtasks": [],
           "difficulty": "moderate",
@@ -570,12 +634,28 @@
       "passes": false,
       "tasks": [
         {
-          "id": "t1",
-          "key": "feature-006/t1",
-          "description": "Article 08 draft: nine weird-invention entries, each page-cited",
+          "id": "t0",
+          "key": "feature-006/t0",
+          "description": "Article 08 quote-pin: nine entries, each quote grepped and page-cited, write quotes.md",
           "status": "pending",
           "dependsOn": [
             "feature-005/t8"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "criteria": [
+            "quotes.md written in Article 08's new_content/1894-series/ directory",
+            "all nine entries have their quotes verbatim with printed page numbers",
+            "no entry carried forward that cannot be re-grepped"
+          ]
+        },
+        {
+          "id": "t1",
+          "key": "feature-006/t1",
+          "description": "Article 08 draft: nine weird-invention entries, written from quotes.md",
+          "status": "pending",
+          "dependsOn": [
+            "feature-006/t0"
           ],
           "subtasks": [],
           "difficulty": "moderate",
@@ -634,12 +714,28 @@
           ]
         },
         {
-          "id": "t5",
-          "key": "feature-006/t5",
-          "description": "Article 12 draft: glowing tubes, quotes page-pinned",
+          "id": "t9",
+          "key": "feature-006/t9",
+          "description": "Article 12 quote-pin: grep every intended quote, pin to printed page, write quotes.md",
           "status": "pending",
           "dependsOn": [
             "feature-007/t4"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "criteria": [
+            "quotes.md written in Article 12's new_content/1894-series/ directory",
+            "every quote verbatim from the 1894 text with its printed page number recorded",
+            "no quote carried forward that cannot be re-grepped"
+          ]
+        },
+        {
+          "id": "t5",
+          "key": "feature-006/t5",
+          "description": "Article 12 draft: glowing tubes, written from quotes.md",
+          "status": "pending",
+          "dependsOn": [
+            "feature-006/t9"
           ],
           "subtasks": [],
           "difficulty": "moderate",
@@ -714,12 +810,28 @@
       "passes": false,
       "tasks": [
         {
-          "id": "t1",
-          "key": "feature-007/t1",
-          "description": "Article 10 draft: free-energy myth check, softer title (O2 = B)",
+          "id": "t0",
+          "key": "feature-007/t0",
+          "description": "Article 10 quote-pin: grep every intended quote, pin to printed page, write quotes.md",
           "status": "pending",
           "dependsOn": [
             "feature-006/t4"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "criteria": [
+            "quotes.md written in Article 10's new_content/1894-series/ directory",
+            "every quote verbatim from the 1894 text with its printed page number recorded",
+            "no claim carried forward that the live pages cannot support"
+          ]
+        },
+        {
+          "id": "t1",
+          "key": "feature-007/t1",
+          "description": "Article 10 draft: free-energy myth check, softer title (O2 = B), written from quotes.md",
+          "status": "pending",
+          "dependsOn": [
+            "feature-007/t0"
           ],
           "subtasks": [],
           "difficulty": "difficult",
@@ -1149,7 +1261,7 @@
         {
           "id": "p1",
           "key": "phase-plan/p1",
-          "description": "Break each feature into ordered, dependency-aware tasks",
+          "description": "Break each features into ordered, dependency-aware tasks",
           "status": "complete",
           "dependsOn": [
             "phase-define/d1",
@@ -1174,7 +1286,7 @@
           "id": "p2",
           "key": "phase-plan/p2",
           "description": "Commit plan (feature-list) and validate",
-          "status": "in_progress",
+          "status": "complete",
           "dependsOn": [
             "phase-plan/p1"
           ],
@@ -1182,12 +1294,12 @@
             {
               "id": "tasks-3--st0",
               "title": "commit feature-list",
-              "status": "in_progress"
+              "status": "complete"
             },
             {
               "id": "tasks-3--st1",
               "title": "validate plan phase",
-              "status": "pending"
+              "status": "complete"
             }
           ],
           "difficulty": "easy",
@@ -1201,7 +1313,7 @@
         "feature-001 (qa_page.py dead-link check) precedes every article feature, so no-broken-links is machine-checked from the first article",
         "the committed plan validates with infinity_validate; no feature is left task-less"
       ],
-      "passes": false
+      "passes": true
     }
   ]
 }

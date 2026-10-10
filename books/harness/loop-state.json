@@ -1,11 +1,11 @@
 {
-  "runId": "08af6719-0515-42b9-8fdc-83519a093598",
-  "startedAt": "2026-10-10T09:26:56.037Z",
+  "runId": "61e2a15e-f0d9-4b09-8d81-1dec9cfc423d",
+  "startedAt": "2026-10-10T15:21:16.467Z",
   "iterations": 2,
-  "lastFingerprint": null,
+  "lastFingerprint": "a2b39c9e88e58504",
   "noProgressStreak": 0,
-  "lastPhase": "plan",
-  "lastDecision": "advanced",
+  "lastPhase": "build",
+  "lastDecision": "continue",
   "stoppedAt": null,
   "stopReason": null,
   "escalation": {
@@ -15,6 +15,14 @@
     "fingerprints": [],
     "tried": []
   },
-  "perLevelEscalation": {},
+  "perLevelEscalation": {
+    "task": {
+      "consultedCount": 0,
+      "masterUsed": false,
+      "lastUnstuckAt": null,
+      "fingerprints": [],
+      "tried": []
+    }
+  },
   "escalations": []
 }

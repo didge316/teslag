@@ -1,14 +1,11 @@
 {
   "armed": true,
-  "runId": "08af6719-0515-42b9-8fdc-83519a093598",
-  "startedAt": "2026-10-10T09:26:56.020Z",
-  "sessions": 3,
+  "runId": "61e2a15e-f0d9-4b09-8d81-1dec9cfc423d",
+  "startedAt": "2026-10-10T15:18:08.337Z",
+  "sessions": 2,
   "stoppedAt": null,
   "stopReason": null,
-  "baseModel": {
-    "provider": "strata",
-    "id": "strata"
-  },
+  "baseModel": null,
   "tiers": {},
   "budget": {
     "byTier": {},

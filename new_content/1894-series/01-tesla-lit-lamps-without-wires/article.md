@@ -10,25 +10,25 @@ series_no: 1
 primary_query: tesla light bulb in hand
 tid: "1894_01"
 og_image: assets/og/tesla-lit-lamps-without-wires.webp
-card_image: assets/tesla1894/p203-fig1-fig124.webp
-card_alt: "1894 line drawing, Fig. 124: an induction coil connected to a vacuum lamp with an outside coating, the coating wired to a large insulated plate"
+card_image: assets/tesla1894/p185-fig124.webp
+card_alt: "1894 photograph, Fig. 124: an induction coil connected to a vacuum lamp with a dark outside coating, the coating wired to a square insulated metal plate"
 standfirst: "Tesla lit lamps by holding them, in New York in 1891 and in London in 1892, and the 1894 book prints both lectures. It also prints the tests he ran to decide what was happening, and those are better than the legend."
 figures:
-  - src: /assets/tesla1894/p197-fig1-fig117.webp
-    alt: "1894 photographs, Figs. 116 and 117: two pear-shaped vacuum lamps standing on brass bases, the nearer one opened to show a refractory block mounted on leads inside the glass"
-    width: 860
-    height: 660
-    caption: "NOT YET VISUALLY VERIFIED (figure task t2). Figs. 116 and 117, printed p. 179. The book introduces them as lamps 'with the refractory bodies in the form of filaments, Fig. 116, or blocks, Fig. 117', and says they 'have been constructed and operated by me' (1894, p. 179). Public domain."
-  - src: /assets/tesla1894/p203-fig1-fig124.webp
-    alt: "1894 line drawing, Fig. 124: an induction coil with a gap at left, its outer terminal leading to a vacuum lamp hung inside a large flat plate, and a return line to the coil"
-    width: 894
-    height: 312
-    caption: "NOT YET VISUALLY VERIFIED (figure task t2). Fig. 124, printed p. 185: the plan of connection for a lamp worked from one terminal. The text two pages earlier says 'The brilliancy of the lamp may, in this case, be regulated within wide limits by varying the size of the insulated metal plate to which the coating is connected' (1894, p. 183). Public domain."
-  - src: /assets/tesla1894/p210-fig1-fig126.webp
-    alt: "1894 line drawing, Fig. 126: a high-tension coil charging a condenser across a spark gap, the discharge circuit running through a bank of four incandescent lamps and a tube, with one side of the circuit earthed"
-    width: 805
-    height: 240
-    caption: "NOT YET VISUALLY VERIFIED (figure task t2). Fig. 126, printed p. 192. The book describes it as 'a plan of connections ... for converting currents of high, into currents of low, tension by means of the disruptive discharge of a condenser', used 'for operating a few incandescent lamps required in the laboratory' (1894, p. 193). Public domain."
+  - src: /assets/tesla1894/p179-figs116-117.webp
+    alt: "1894 photographs of two exhausted glass lamps, printed p. 179: at left Fig. 116, a pear shaped globe with a refractory filament body inside, at right Fig. 117, a larger globe opened to show a refractory block clamped between two leads"
+    width: 1120
+    height: 882
+    caption: "Figs. 116 and 117, printed p. 179, with the book's own captions inside the crop. The text beside them describes lamps 'with the refractory bodies in the form of filaments, Fig. 116, or blocks, Fig. 117', and says they 'have been constructed and operated by me' (1894, p. 179). Public domain."
+  - src: /assets/tesla1894/p185-fig124.webp
+    alt: "1894 photograph, Fig. 124, printed p. 185: a sheet wound induction coil on two posts at left with a hand near one terminal, an exhausted lamp at centre surrounded by a dark outside coating, and a square insulated metal plate wired to that coating at right"
+    width: 1326
+    height: 449
+    caption: "Fig. 124, printed p. 185, with the printed caption inside the crop. The book calls this the plan of connection for a lamp worked from one terminal, and says 'The brilliancy of the lamp may, in this case, be regulated within wide limits by varying the size of the insulated metal plate to which the coating is connected' (1894, p. 183). Public domain."
+  - src: /assets/tesla1894/p192-fig126.webp
+    alt: "1894 diagram, Fig. 126, printed p. 192: an induction coil at left driving a condenser across a spark gap, the discharge circuit running to five incandescent lamps connected in parallel between two conductors"
+    width: 1056
+    height: 357
+    caption: "Fig. 126, printed p. 192, with the printed caption inside the crop. The book describes it as 'a plan of connections ... for converting currents of high, into currents of low, tension by means of the disruptive discharge of a condenser', used 'for operating a few incandescent lamps required in the laboratory' (1894, p. 193). Public domain."
 cta:
   text: "A lamp that lights from one terminal is a lesson in high-voltage engineering, not in free power. If you are looking at a home generator instead, the plans we recommend come with a parts list and a straight answer about output."
   href_suffix: "1894_01"
@@ -53,7 +53,7 @@ sources:
 London in 1892, and the 1894 book prints both lectures. It also prints the tests he
 ran to decide what was actually happening. Those tests are better than the legend.
 
-![1894 photographs, Figs. 116 and 117: two pear-shaped vacuum lamps standing on brass bases, the nearer one opened to show a refractory block mounted on leads inside the glass](/assets/tesla1894/p197-fig1-fig117.webp "NOT YET VISUALLY VERIFIED (figure task t2). Figs. 116 and 117, printed p. 179. The book introduces them as lamps 'with the refractory bodies in the form of filaments, Fig. 116, or blocks, Fig. 117', and says they 'have been constructed and operated by me' (1894, p. 179). Public domain.")
+![1894 photographs of two exhausted glass lamps, printed p. 179: at left Fig. 116, a pear shaped globe with a refractory filament body inside, at right Fig. 117, a larger globe opened to show a refractory block clamped between two leads](/assets/tesla1894/p179-figs116-117.webp "Figs. 116 and 117, printed p. 179, with the book's own captions inside the crop. The text beside them describes lamps 'with the refractory bodies in the form of filaments, Fig. 116, or blocks, Fig. 117', and says they 'have been constructed and operated by me' (1894, p. 179). Public domain.")
 
 ## The demonstration he gave twice
 
@@ -109,9 +109,9 @@ potential required is approximately 9,000 volts" (1894, p. 183). Nine thousand v
 twenty thousand alternations a second, and no second wire. That is not mysticism. It is
 a transformer working outside the range where low-frequency wiring feels intuitive.
 
-![1894 line drawing, Fig. 124: an induction coil with a gap at left, its outer terminal leading to a vacuum lamp hung inside a large flat plate, and a return line to the coil](/assets/tesla1894/p203-fig1-fig124.webp "NOT YET VISUALLY VERIFIED (figure task t2). Fig. 124, printed p. 185: the plan of connection for a lamp worked from one terminal. The text two pages earlier says 'The brilliancy of the lamp may, in this case, be regulated within wide limits by varying the size of the insulated metal plate to which the coating is connected' (1894, p. 183). Public domain.")
+![1894 photograph, Fig. 124, printed p. 185: a sheet wound induction coil on two posts at left with a hand near one terminal, an exhausted lamp at centre surrounded by a dark outside coating, and a square insulated metal plate wired to that coating at right](/assets/tesla1894/p185-fig124.webp "Fig. 124, printed p. 185, with the printed caption inside the crop. The book calls this the plan of connection for a lamp worked from one terminal, and says 'The brilliancy of the lamp may, in this case, be regulated within wide limits by varying the size of the insulated metal plate to which the coating is connected' (1894, p. 183). Public domain.")
 
-Fig. 124 is the wiring for exactly that lamp, and the book says the brightness is set by
+Fig. 124 is the plan of connection for exactly that lamp, and the book says the brightness is set by
 the size of the plate he hangs it in: "The brilliancy of the lamp may, in this case, be
 regulated within wide limits by varying the size of the insulated metal plate to which
 the coating is connected." (1894, p. 183) A dimmer made out of a sheet of metal.
@@ -206,14 +206,14 @@ laboratory." (1894, p. 193)
 
 What survived is the trick of using the surroundings as part of the circuit. High-voltage
 tube supplies still light a tube that is only partly connected, and touch sensors work
-because a person adds capacitance to a node. The mechanism is the one drawn in Fig. 124:
+because a person adds capacitance to a node. The mechanism is the one shown in Fig. 124:
 a high alternating potential on one terminal, and something large enough on the other to
 give that energy off into space.
 
 The book carries the practical half of it too: generate the high tension, then step it
 down before anyone touches it.
 
-![1894 line drawing, Fig. 126: a high-tension coil charging a condenser across a spark gap, the discharge circuit running through a bank of four incandescent lamps and a tube, with one side of the circuit earthed](/assets/tesla1894/p210-fig1-fig126.webp "NOT YET VISUALLY VERIFIED (figure task t2). Fig. 126, printed p. 192. The book describes it as 'a plan of connections ... for converting currents of high, into currents of low, tension by means of the disruptive discharge of a condenser', used 'for operating a few incandescent lamps required in the laboratory' (1894, p. 193). Public domain.")
+![1894 diagram, Fig. 126, printed p. 192: an induction coil at left driving a condenser across a spark gap, the discharge circuit running to five incandescent lamps connected in parallel between two conductors](/assets/tesla1894/p192-fig126.webp "Fig. 126, printed p. 192, with the printed caption inside the crop. The book describes it as 'a plan of connections ... for converting currents of high, into currents of low, tension by means of the disruptive discharge of a condenser', used 'for operating a few incandescent lamps required in the laboratory' (1894, p. 193). Public domain.")
 
 Fig. 126 shows "a plan of connections ... for converting
 currents of high, into currents of low, tension by means of the disruptive discharge of a

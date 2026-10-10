@@ -166,13 +166,14 @@
     }
   },
   "maxRetries": 10,
-  "retryCount": 0,
-  "taskRetryCount": 0,
+  "retryCount": 10,
+  "taskRetryCount": 9,
   "featureRetryCount": 0,
-  "phaseRetryCount": 0,
+  "phaseRetryCount": 10,
   "retryPerLevel": {
     "subtask": 0,
-    "phase": 1
+    "phase": 10,
+    "task": 9
   },
   "pipelineIteration": 2,
   "gateHistory": [
@@ -218,6 +219,122 @@
       "timestamp": "2026-10-10T10:06:55.450Z",
       "feature": "phase-plan",
       "task": "p1"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-10T10:11:31.647Z",
+      "feature": "phase-plan",
+      "task": "p2"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-10T10:15:40.950Z",
+      "feature": "feature-001",
+      "task": "t1"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-10T10:16:43.213Z",
+      "feature": "feature-001",
+      "task": "t1"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-10T10:17:45.365Z",
+      "feature": "feature-001",
+      "task": "t2"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-10T10:18:46.094Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-10T10:48:48.217Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-10T11:18:50.213Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-10T11:48:52.712Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-10T12:18:54.754Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-10T12:48:57.231Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-10T12:49:15.864Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-10T12:50:55.457Z",
+      "feature": "feature-003",
+      "task": "feature-003/t1"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-10T13:18:04.072Z",
+      "feature": "feature-003",
+      "task": "feature-003/t1"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-10T13:18:46.046Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-10T13:19:00.042Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-10T13:31:54.176Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-10T15:21:16.497Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-10T15:24:40.129Z",
+      "feature": "feature-003",
+      "task": "feature-003/t3"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-10T15:27:11.773Z",
+      "feature": "feature-003",
+      "task": "feature-003/t3"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-10T15:27:35.481Z"
     }
   ]
 }

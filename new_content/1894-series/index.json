@@ -274,8 +274,89 @@
     "publish_hold": "owner review required before any push to website/ (pushing deploys)",
     "blocked_on": "nothing; all out-links resolve",
     "backlinks_added": [
-      "03 and 11 now link here (\u00a75.2)",
+      "03 and 11 now link here (§5.2)",
       "magnetic-dynamo-generator.html: second series link in the existing Sources H2"
     ]
+  },
+  {
+    "slug": "tesla-lit-lamps-without-wires.html",
+    "no": 1,
+    "draft": "new_content/1894-series/01-tesla-lit-lamps-without-wires/article.md",
+    "deployed": false,
+    "date": "2026-10-19",
+    "tid": "1894_01",
+    "figures": [
+      {
+        "src": "/assets/tesla1894/p179-figs116-117.webp",
+        "verified": true,
+        "printed_page": 179,
+        "scan_file": 197,
+        "book_figs": [
+          116,
+          117
+        ],
+        "subject": "Two photographs of exhausted glass lamps with their printed captions: Fig. 116 (refractory filament body) and Fig. 117 (refractory block clamped between two leads)",
+        "note": "Viewed against books/tmp/scan-p197-150ppi.png on 2026-10-10: printed page number 179 and both FIG. captions in place; the p.179 text 'with the refractory bodies in the form of filaments, Fig. 116, or blocks, Fig. 117' matches the two objects. Re-cropped at 400 ppi (1120x882) with captions inside and body text excluded; supersedes p197-fig1-fig117.webp."
+      },
+      {
+        "src": "/assets/tesla1894/p185-fig124.webp",
+        "verified": true,
+        "printed_page": 185,
+        "scan_file": 203,
+        "book_figs": [
+          124
+        ],
+        "subject": "Photograph of the one-terminal lamp: sheet-wound induction coil at left with a hand near a terminal, exhausted lamp at centre inside a dark outside condenser coating, square insulated metal plate at right",
+        "note": "Viewed against books/tmp/scan-p203-150ppi.png on 2026-10-10: printed page 185, printed 'FIG. 124.' caption in the crop. The p.183 text 'Fig. 124 shows the plan of connection ... varying the size of the insulated metal plate' matches the plate at right. Re-cropped at 400 ppi (1326x449); supersedes p203-fig1-fig124.webp. Alt corrected: it is a photograph, not a line drawing, and the plate is separate from the lamp."
+      },
+      {
+        "src": "/assets/tesla1894/p192-fig126.webp",
+        "verified": true,
+        "printed_page": 192,
+        "scan_file": 210,
+        "book_figs": [
+          126
+        ],
+        "subject": "Diagram of a high-to-low tension conversion: induction coil driving a condenser across a spark gap, discharge circuit feeding five incandescent lamps in parallel on an earthed line",
+        "note": "Viewed against books/tmp/scan-p210-150ppi.png on 2026-10-10: printed page 192, printed 'FIG. 126.' caption in the crop. Counted five lamps in the drawing, not four as the extractor-era alt said. p.193 text 'In Fig. 126 a plan of connections is shown for converting currents of high, into currents of low, tension by means of the disruptive discharge of a condenser'. Re-cropped at 400 ppi (1056x357); supersedes p210-fig1-fig126.webp."
+      }
+    ],
+    "quotes_pages": [
+      125,
+      145,
+      179,
+      182,
+      183,
+      184,
+      185,
+      186,
+      187,
+      192,
+      193,
+      198,
+      199,
+      200,
+      288,
+      289
+    ],
+    "internal_links": [
+      "tesla-high-frequency-alternator.html",
+      "tesla-worlds-fair-1893.html",
+      "magnetic-dynamo-generator.html",
+      "electricity-using-magnets.html"
+    ],
+    "figures_note": "all three figures verified against the printed pages 2026-10-10 (task feature-003/t2)",
+    "rendered_site": "website/tesla-lit-lamps-without-wires.html",
+    "numeric_gates": "26/26 (qa_page.py, incl. FAQPage, no-dashes, no-comments, no-PDF, dead-link)",
+    "visual_gates": "shot_qa.py passes at 375/768/1280 (console clean, no 404s, no overflow, nav=True 31 items, all 3 figures decode and fit the column); reviewed with vision via shot_crops.py desktop + mobile crops 2026-10-10: Figs. 116/117 (printed p.179), Fig. 124 (p.185) and Fig. 126 (p.192) match their alt and captions, printed FIG. captions inside each crop, captions legible at both widths, Sources block and CTA + disclosure render on mobile",
+    "wired": [
+      "sitemap.xml",
+      "llms.txt",
+      "_redirects (/tesla-lit-lamps-without-wires 301)",
+      "articles.html card (added by hand: the list-unstyled anchor make_article.py looks for is not on this page)"
+    ],
+    "backlinks_added": "none yet: 04, 06 and 12 do not exist, so the >=3 reciprocal gate passes on the three legacy pages that already link into the series",
+    "blocked_on": "nothing numeric; 06 and 12 out-links per 5.2 are added when those articles exist",
+    "committed": true
   }
 ]
