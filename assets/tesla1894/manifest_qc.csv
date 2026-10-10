@@ -1,201 +1,204 @@
 file,verdict,subject,quality,aspect_ok,caption_ok,notes
-p029-fig1-fig1.webp,,,,,,
-p029-fig2-fig1.webp,,,,,,
-p030-fig1-fig4.webp,,,,,,
-p030-fig2-fig4.webp,,,,,,
-p031-fig1-fig6.webp,,,,,,
-p031-fig2-fig6.webp,,,,,,
-p032-fig1-fig9.webp,,,,,,
-p033-fig1-fig8.webp,,,,,,
-p034-fig1-fig9.webp,,,,,,
-p036-fig1-fig13.webp,,,,,,
-p037-fig1-fig13.webp,,,,,,
-p038-fig1-fig14.webp,,,,,,
-p039-fig1-fig18.webp,,,,,,
-p045-fig1-fig24.webp,,,,,,
-p046-fig1-fig23.webp,,,,,,
-p050-fig1-fig25.webp,,,,,,
-p052-fig1-fig27.webp,,,,,,
-p055-fig1-fig31.webp,,,,,,
-p056-fig1-fig30.webp,,,,,,
-p060-fig1-fig33.webp,,,,,,
-p065-fig1-fig36.webp,,,,,,
-p066-fig1-fig37.webp,,,,,,
-p070-fig1-fig38.webp,,,,,,
-p070-fig2-fig38.webp,,,,,,
-p070-fig3-fig38.webp,,,,,,
-p075-fig1.webp,,,,,,
-p077-fig1.webp,,,,,,
-p077-fig2.webp,,,,,,
-p077-fig3.webp,,,,,,
-p078-fig1-fig45.webp,,,,,,
-p078-fig2-fig45.webp,,,,,,
-p078-fig3-fig45.webp,,,,,,
-p079-fig1-fig48.webp,,,,,,
-p081-fig1-fig49.webp,,,,,,
-p081-fig2-fig49.webp,,,,,,
-p082-fig1-fig51.webp,,,,,,
-p083-fig1-fig52.webp,,,,,,
-p087-fig1-fig56.webp,,,,,,
-p090-fig1-fig58.webp,,,,,,
-p092-fig1-fig60.webp,,,,,,
-p095-fig1-fig62.webp,,,,,,
-p098-fig1-fig65.webp,,,,,,
-p099-fig1-fig67.webp,,,,,,
-p102-fig1-fig68.webp,,,,,,
-p104-fig1-fig71.webp,,,,,,
-p107-fig1-fig72.webp,,,,,,
-p108-fig1-fig74.webp,,,,,,
-p114-fig1-fig77.webp,,,,,,
-p115-fig1-fig80.webp,,,,,,
-p116-fig1-fig82.webp,,,,,,
-p117-fig1.webp,,,,,,
-p117-fig2.webp,,,,,,
-p117-fig3.webp,,,,,,
-p117-fig4.webp,,,,,,
-p117-fig5.webp,,,,,,
-p120-fig1-fig90.webp,,,,,,
-p120-fig2-fig90.webp,,,,,,
-p125-fig1-fig91.webp,,,,,,
-p128-fig1-fig94.webp,,,,,,
-p128-fig2-fig94.webp,,,,,,
-p132-fig1-fig96.webp,,,,,,
-p133-fig1-fig90.webp,,,,,,
-p171-fig1-fig97.webp,,,,,,
-p172-fig1-fig99.webp,,,,,,
-p173-fig1-fig99.webp,,,,,,
-p173-fig2-fig99.webp,,,,,,
-p174-fig1-fig100.webp,,,,,,
-p176-fig1-fig102.webp,,,,,,
-p177-fig1-fig104.webp,,,,,,
-p180-fig1-fig10.webp,,,,,,
-p181-fig1-fig106.webp,,,,,,
-p183-fig1-fig109.webp,,,,,,
-p186-fig1.webp,,,,,,
-p187-fig1-fig112.webp,,,,,,
-p188-fig1-fig112.webp,,,,,,
-p195-fig1-fig114.webp,,,,,,
-p197-fig1-fig117.webp,,,,,,
-p198-fig1-fig118.webp,,,,,,
-p199-fig1-fig119.webp,,,,,,
-p200-fig1-fig121.webp,,,,,,
-p202-fig1-fig122.webp,,,,,,
-p203-fig1-fig124.webp,,,,,,
-p206-fig1-fig125.webp,,,,,,
-p206-fig2-fig125.webp,,,,,,
-p210-fig1-fig126.webp,,,,,,
-p211-fig1-fig127.webp,,,,,,
-p212-fig1-fig12.webp,,,,,,
-p213-fig1-fig129.webp,,,,,,
-p225-fig1-fig13.webp,,,,,,
-p227-fig1-fig133.webp,,,,,,
-p228-fig1-fig135.webp,,,,,,
-p229-fig1-fig136.webp,,,,,,
-p229-fig2-fig136.webp,,,,,,
-p232-fig1-fig137.webp,,,,,,
-p233-fig1-fig138.webp,,,,,,
-p234-fig1-fig139.webp,,,,,,
-p237-fig1-fig140.webp,,,,,,
-p244-fig1-fig141.webp,,,,,,
-p245-fig1-fig141.webp,,,,,,
-p246-fig1-fig144.webp,,,,,,
-p252-fig1.webp,,,,,,
-p261-fig1-fig147.webp,,,,,,
-p263-fig1-fig149.webp,,,,,,
-p265-fig1-fig151.webp,,,,,,
-p281-fig1-fig153.webp,,,,,,
-p283-fig1-fig155.webp,,,,,,
-p284-fig1-fig156.webp,,,,,,
-p288-fig1-fig147.webp,,,,,,
-p294-fig1-fig159.webp,,,,,,
-p301-fig1-fig160.webp,,,,,,
-p302-fig1-fig161.webp,,,,,,
-p306-fig1-fig163.webp,,,,,,
-p321-fig1.webp,,,,,,
-p324-fig1.webp,,,,,,
-p325-fig1-fig107.webp,,,,,,
-p331-fig1-fig168.webp,,,,,,
-p337-fig1-fig169.webp,,,,,,
-p339-fig1-fig170.webp,,,,,,
-p341-fig1-fig171.webp,,,,,,
-p343-fig1-fig178.webp,,,,,,
-p346-fig1-fig175.webp,,,,,,
-p347-fig1-fig176.webp,,,,,,
-p348-fig1-fig177.webp,,,,,,
-p349-fig1-fig179.webp,,,,,,
-p350-fig1-fig179.webp,,,,,,
-p357-fig1-fig183.webp,,,,,,
-p362-fig1-fig184.webp,,,,,,
-p369-fig1-fig186.webp,,,,,,
-p376-fig1-fig189.webp,,,,,,
-p379-fig1-fig193.webp,,,,,,
-p388-fig1-fig196.webp,,,,,,
-p390-fig1-fig198.webp,,,,,,
-p390-fig2-fig198.webp,,,,,,
-p393-fig1-fig203.webp,,,,,,
-p394-fig1-fig200.webp,,,,,,
-p396-fig1-fig205.webp,,,,,,
-p397-fig1-fig207.webp,,,,,,
-p410-fig1-fig208.webp,,,,,,
-p411-fig1-fig208.webp,,,,,,
-p415-fig1-fig210.webp,,,,,,
-p416-fig1-fig212.webp,,,,,,
-p416-fig2-fig212.webp,,,,,,
-p417-fig1-fig214.webp,,,,,,
-p418-fig1-fig215.webp,,,,,,
-p418-fig2-fig215.webp,,,,,,
-p420-fig1-fig216.webp,,,,,,
-p421-fig1-fig218.webp,,,,,,
-p428-fig1-fig220.webp,,,,,,
-p429-fig1-fig221.webp,,,,,,
-p430-fig1-fig222.webp,,,,,,
-p431-fig1-fig223.webp,,,,,,
-p432-fig1-fig225.webp,,,,,,
-p433-fig1-fig225.webp,,,,,,
-p434-fig1.webp,,,,,,
-p439-fig1-fig229.webp,,,,,,
-p440-fig1-fig230.webp,,,,,,
-p443-fig1-fig281.webp,,,,,,
-p444-fig1-fig235.webp,,,,,,
-p445-fig1-fig287.webp,,,,,,
-p448-fig1-fig243.webp,,,,,,
-p451-fig1-fig244.webp,,,,,,
-p452-fig1-fig247.webp,,,,,,
-p453-fig1-fig248.webp,,,,,,
-p454-fig1-fig251.webp,,,,,,
-p457-fig1-fig253.webp,,,,,,
-p458-fig1-fig257.webp,,,,,,
-p459-fig1-fig255.webp,,,,,,
-p460-fig1-fig259.webp,,,,,,
-p460-fig2-fig258.webp,,,,,,
-p462-fig1-fig262.webp,,,,,,
-p462-fig2-fig263.webp,,,,,,
-p462-fig3-fig263.webp,,,,,,
-p462-fig4-fig263.webp,,,,,,
-p463-fig1-fig264.webp,,,,,,
-p464-fig1-fig266.webp,,,,,,
-p467-fig1-fig270.webp,,,,,,
-p467-fig2-fig270.webp,,,,,,
-p467-fig3-fig270.webp,,,,,,
-p470-fig1-fig271.webp,,,,,,
-p471-fig1.webp,,,,,,
-p472-fig1.webp,,,,,,
-p473-fig1-fig277.webp,,,,,,
-p473-fig2-fig277.webp,,,,,,
-p475-fig1-fig281.webp,,,,,,
-p475-fig2-fig281.webp,,,,,,
-p478-fig1-fig283.webp,,,,,,
-p478-fig2-fig283.webp,,,,,,
-p480-fig1.webp,,,,,,
-p484-fig1-fig290.webp,,,,,,
-p490-fig1-fig293.webp,,,,,,
-p491-fig1-fig295.webp,,,,,,
-p496-fig1.webp,,,,,,
-p498-fig1-fig298.webp,,,,,,
-p499-fig1-fig297.webp,,,,,,
-p500-fig1-fig302.webp,,,,,,
-p500-fig2-fig302.webp,,,,,,
-p500-fig3-fig302.webp,,,,,,
-p500-fig4-fig302.webp,,,,,,
-p502-fig1-fig811.webp,,,,,,
-p509-fig1-fig313.webp,,,,,,
+p029-fig1-fig1.webp,keep,"Two diagrams side by side: an armature drum with coils C between two field-magnet pole pieces, and a circular development diagram of four coil segments C/C1 on an N-S axis",A,yes,yes,Clean line art; pair of the same machine at two angular positions
+p029-fig2-fig1.webp,keep,Same two-diagram pair with the armature turned about 45 degrees; coil segments shown skewed in the circular diagram,A,yes,yes,Second state of Fig.1; usable as a sequence with p029-fig1
+p030-fig1-fig4.webp,keep,"Armature drum between pole pieces plus circular coil-segment diagram, armature advanced three-eighths of a turn",A,yes,yes,Clean
+p030-fig2-fig4.webp,keep,Same Fig.4 pair at a further rotation,A,yes,yes,Clean
+p031-fig1-fig6.webp,keep,"Armature-drum and circular coil diagrams, another angular position",A,yes,yes,Clean; OCR caption 'FIG. Q. FIG. 6a.' is a mis-read of Fig.6
+p031-fig2-fig6.webp,keep,"Same Fig.6 pair, wider crop including both diagrams",A,yes,no,OCR caption mis-reads Fig.6 as 'FIG. Q'
+p032-fig1-fig9.webp,keep,"Armature-drum and circular coil diagrams, another angular position",A,yes,yes,Clean
+p033-fig1-fig8.webp,keep,"Armature-drum and circular coil diagrams, another angular position",A,yes,yes,Clean
+p034-fig1-fig9.webp,keep,"Detailed cross-section of a dynamotor/dynamo: ring armature in a field frame, commutator, brush holders and shaft bearing",A,yes,yes,Best of the early dynamo group; good standalone illustration
+p036-fig1-fig13.webp,keep-tight,"Two faint vector/phase diagrams: a circle with a resultant arrow, and a shaded circle with crossed component arrows",B,yes,no,"Thin faint lines, left diagram touches crop edge; low illustrative value - use only for a resultant-force passage. Re-crop tighter, level 15/85"
+p037-fig1-fig13.webp,keep,"Large field-magnet assembly: circular yoke with four radial bracing arms, terminal posts, and two rectangular pole pieces below",A,yes,yes,"Strong, high-resolution plate for the polyphase field chapter"
+p038-fig1-fig14.webp,keep,"Annular ring armature inside a field frame in cross-section, with shaft and bearing",A,yes,yes,"Clean, compact"
+p039-fig1-fig18.webp,keep,"Three small polyphase motor diagrams in a row, each a stator ring with rotor and supply arrows",B,yes,yes,"Three sub-figures in one band; small but sharp - usable as a strip, not as a single hero figure"
+p045-fig1-fig24.webp,keep,Polyphase generator and motor linked through transformers to three lamp/meter sets - full wiring diagram,A,yes,yes,"Large, clean, good for a transmission diagram"
+p046-fig1-fig23.webp,keep,Alternator with transformer and three meter/lamp branches in a wiring diagram,A,yes,yes,"Clean, tall format"
+p050-fig1-fig25.webp,keep,Disc-type alternator with radial conductors feeding a switchboard and a second machine,A,yes,yes,Clean
+p052-fig1-fig27.webp,keep,Segmented ring armature with switch/commutator blocks and connecting leads,A,yes,yes,Clean
+p055-fig1-fig31.webp,keep,"Two polyphase machines coupled by line leads, one with a segmented ring",A,yes,yes,Clean
+p056-fig1-fig30.webp,keep,Two segmented-ring machines (a generator and a motor) coupled through a small transformer/switch block,A,yes,yes,Clean; matches the Figs.30-31 generator-and-motor text
+p060-fig1-fig33.webp,keep,"Wiring diagram: battery at top, small alternator at left, large segmented-ring machine at bottom, with meters",A,yes,yes,"Clean, tall format"
+p065-fig1-fig36.webp,keep,"Three apparatus blocks in a row: induction coil, switch panel, and a small machine with leads",B,yes,yes,Small lettering; usable at full column width only
+p066-fig1-fig37.webp,keep,"Tesla generator cross-section with two independent field coils, a ring machine at right and a rectangular apparatus below",A,yes,yes,Clean
+p070-fig1-fig38.webp,keep,"Small alternator at left, ring machine centre, and a vibrating interrupter with two induction coils at right",A,yes,no,"One of three DIFFERENT diagrams on p.52, all tagged Fig.38 by the extractor - do not trust the figure number"
+p070-fig2-fig38.webp,keep,"Largest of the p.52 set: segmented-ring machine with a vibrating interrupter and two induction coils, full wiring",A,yes,no,Best of the three p.52 crops; figure number unreliable
+p070-fig3-fig38.webp,keep,"Small armature between magnet poles connected to a ring machine, with two grounded electrodes P and P1",A,yes,no,Third distinct p.52 diagram; slight ink clipped at bottom edge
+p075-fig1.webp,keep,"High-frequency apparatus: two large electromagnet coils flanking a circular dial instrument, with a vertical evacuated tube and hand-driven wheel above",A,yes,n/a,No OCR caption; identify by page (printed p.57) before use
+p077-fig1.webp,keep,"Circuit diagram: two parallel coil branches with a meter between Line terminals, generator block below",A,yes,n/a,Printed p.59; no caption in OCR
+p077-fig2.webp,keep,Circuit diagram with three coil branches and two meters between Line terminals,A,yes,n/a,Printed p.59
+p077-fig3.webp,keep,"Circuit diagram, two coil branches with meters and a generator block",A,yes,n/a,Printed p.59
+p078-fig1-fig45.webp,keep,Circuit diagram: two parallel branches with resistances S/R and coils A/B feeding a coil pair C/D between Line terminals,A,yes,yes,Short wide band; fine as a full-width figure
+p078-fig2-fig45.webp,keep,"Circuit diagram with three coil branches (A/G/D) and two meters, common resistance S/R",A,yes,yes,"Distinct diagram, not a fragment"
+p078-fig3-fig45.webp,keep,"Circuit diagram, two parallel coil branches into a coil pair, Line terminals",B,yes,yes,Right-hand Line label close to crop edge; re-crop with --pad 4 if used
+p079-fig1-fig48.webp,keep,Large machine on a base: circular segmented ring with windings and terminal posts,A,yes,yes,Good general illustration of a Tesla alternating-current machine
+p081-fig1-fig49.webp,keep,"Motor field coils A/B with regulating resistances R/S, a second coil circuit and a generator block below",A,yes,yes,Clean
+p081-fig2-fig49.webp,keep,"Multi-branch circuit diagram with coils A/B, resistances and a switch E between Line terminals",A,yes,no,"Second distinct diagram on p.63, both tagged Fig.49"
+p082-fig1-fig51.webp,keep,Ring with eight segment coils at left and a six-pointed star-shaped rotor/armature at right,A,yes,yes,Clean
+p083-fig1-fig52.webp,keep,Circuit diagram with coil pairs at left connected to a six-pointed star rotor at right,A,yes,yes,Matches the Fig.52 motor text
+p087-fig1-fig56.webp,keep,Two views: a small mechanism in section at left and a large star-pole rotor face on a base at right,A,yes,no,"OCR caption covers Figs.56 AND 57 - this crop is one of that pair, figure number uncertain"
+p090-fig1-fig58.webp,keep,Two end views of a segmented-ring machine with leads and brushes,A,yes,no,Caption spans Figs.58-59; number uncertain
+p092-fig1-fig60.webp,keep,"Segmented-ring machine on a base at left, small cross-section of a bearing/collector at right",A,yes,no,Caption spans Figs.60-61
+p095-fig1-fig62.webp,keep,"Three views of a shaded-pole machine: side view, front elevation and section",A,yes,no,Caption spans Figs.62-64
+p098-fig1-fig65.webp,keep,"Circular dial diagram with radial segments, and a horseshoe laminated core with two coils",A,yes,no,Caption spans Fig.65 onward
+p099-fig1-fig67.webp,keep,Machine on a base: ring frame with four coil groups and a shaded disc armature,A,yes,yes,"Clean, good standalone figure"
+p102-fig1-fig68.webp,keep,Two views of a segmented-ring machine with terminal strips below,A,yes,no,Caption spans Figs.68-69
+p104-fig1-fig71.webp,keep,"Ring machine with segment coils at left, and a four-block collector/commutator section on a shaft at right",A,yes,yes,Clean
+p107-fig1-fig72.webp,keep,Long horizontal iron core Y on rollers with a belt and a coil at the right end,B,yes,yes,Thin band; only useful for the Fig.72 core passage
+p108-fig1-fig74.webp,keep,Vertical machine in section: drum armature on a shaft between two bearing/brush blocks,A,yes,yes,"Clean, tall"
+p114-fig1-fig77.webp,keep,"Part-sectional view of two large stacked-coil machines coupled on one shaft, on a base",A,yes,yes,Fine engraving; Fig.77 is described as part-sectional view of the two motors - matches
+p115-fig1-fig80.webp,keep,"Two segmented-ring machines side by side on bases, with connecting leads",A,yes,yes,Matches Fig.80 synchronous-motor text
+p116-fig1-fig82.webp,keep,Two disc armatures with segment blocks connected by leads,B,yes,yes,Small; matches Fig.82 text
+p117-fig1.webp,keep,"Circuit diagram: line in, a switch/valve device M, and a coil G with a branch",A,yes,n/a,Printed p.99; no OCR caption - identify by page
+p117-fig2.webp,keep,Circuit diagram with two coil boxes G/G1 and switches between line terminals,A,yes,n/a,Printed p.99
+p117-fig3.webp,keep,Circuit diagram with two coil boxes and switches,A,yes,n/a,Printed p.99
+p117-fig4.webp,keep,Circuit diagram with two coil boxes in series between line terminals,A,yes,n/a,Printed p.99
+p117-fig5.webp,keep,Circuit diagram with two coil boxes and switches between line terminals,A,yes,n/a,"Printed p.99, fifth diagram on the page; no OCR caption"
+p120-fig1-fig90.webp,keep,"Segmented-ring machine with a battery connected above, plus a small disc and a cylindrical coil assembly below",A,yes,yes,"Book label 'FIG. 90.' sits inside the crop - acceptable, but crop tighter if the label is unwanted"
+p120-fig2-fig90.webp,keep-tight,Simple circle with terminals E/E1 and a rectangular element F at the centre,B,yes,no,Second crop on p.102 also tagged Fig.90; low illustrative value on its own
+p125-fig1-fig91.webp,keep,"Large machine on a base: ring frame with segment coils and shaded poles, small instrument mounted above",A,yes,yes,Strong figure for the alternating-current chapter
+p128-fig1-fig94.webp,keep,"Toroidal coil: a ring wound throughout with wire, two leads and a tapped connection",A,yes,yes,Clean; good 'Tesla coil / ring winding' illustration
+p128-fig2-fig94.webp,keep-tight,Long thin laminated bar/coil form with end plates,C,yes,no,Second band on p.110 tagged Fig.94; fragment-like - use only beside p128-fig1 or drop
+p132-fig1-fig96.webp,keep,Two long mesh-screened rectangles with taps and leads - a modified transformer form,A,yes,yes,Matches the Fig.96 transformer text
+p133-fig1-fig90.webp,keep,Three stacked mesh-screened coil rectangles connected to a small machine at right,A,yes,no,OCR caption cites Fig.90 but this is the p.115 multi-coil arrangement - figure number wrong
+p171-fig1-fig97.webp,keep,"Photograph of a large disc machine on an X-frame stand, bolted to a plank base",B,yes,yes,"Halftone plate, slightly dark; run magick -level 15%,85% -sharpen 0x1 before use"
+p172-fig1-fig99.webp,keep,Photograph of a smaller disc machine on an X-frame stand,B,yes,yes,Same treatment as p171; good period photograph
+p173-fig1-fig99.webp,keep,Photograph detail: rim of the disc with a row of terminal posts and a diagonal brace,B,yes,no,Crop of the p.155 plate; caption text is from p.154
+p173-fig2-fig99.webp,keep,"Photograph detail: bed-plate, bearing block and belt wheel on a plank",B,yes,no,Crop of the p.155 plate
+p174-fig1-fig100.webp,keep,Two dark photographs of a cylindrical coil apparatus with a bright discharge band between terminals,B,yes,no,"Very dark halftone; -level 10%,70% needed; discharge visible, subject matches Fig.100 text"
+p176-fig1-fig102.webp,keep,Two dark photographs of a discharge apparatus with bright spark spray,B,yes,no,Dark halftone; usable only after levels correction
+p177-fig1-fig104.webp,keep,"Two dark photographs, one showing a cross-shaped core between electrodes",B,yes,yes,Dark halftone; matches Fig.104 spheres/plates text
+p180-fig1-fig10.webp,keep,Two dark photographs of a cylindrical discharge apparatus,C,yes,no,"OCR figure number 'Fig.10' is a mis-read; dark plate, correct before use"
+p181-fig1-fig106.webp,keep,Two dark photographs of a discharge apparatus on a stand,B,yes,no,Dark halftone; frequency discussion illustration
+p183-fig1-fig109.webp,keep,Two dark photographs of a cylindrical coil apparatus,B,yes,no,Caption spans Figs.109-110; dark halftone
+p186-fig1.webp,keep,"Photograph: a primary coil with a pear-shaped vacuum lamp glowing above it, torn plate edge",B,yes,n/a,"Printed p.168; dark halftone, correct with -level before use. Excellent 'wireless lighting' image"
+p187-fig1-fig112.webp,keep,Photograph: coil on a stand with a lead running to a small plate electrode,B,yes,no,OCR 'FIG. 112*' is a mis-read; dark plate
+p188-fig1-fig112.webp,keep,Photograph: a large coil introduced from above into a circuit,B,yes,yes,Matches the Fig.112b text; dark plate
+p195-fig1-fig114.webp,keep,"Photograph of a coil with a small lamp at left, plus a line drawing of an incandescent lamp at right",B,yes,no,Caption spans Figs.114-115; mixed photo + line art in one band
+p197-fig1-fig117.webp,keep,"Two photographs of pear-shaped vacuum lamps, one showing the internal electrode structure",B,yes,yes,Best of the vacuum-lamp plates; dark but subject clear
+p198-fig1-fig118.webp,keep,Photograph of a single large pear-shaped vacuum bulb with a dark interior,B,yes,yes,Clean single subject; good hero image for the glowing-tubes article
+p199-fig1-fig119.webp,keep,"Photograph of a coil with two attached lamps, plus a line drawing of an incandescent lamp",B,yes,yes,Matches the 'lamps attached' passage
+p200-fig1-fig121.webp,keep,"Photograph of a tall vacuum lamp mounted on a cylindrical base, with a line drawing beside it",B,yes,no,Caption reads Figs.121a/121b - two sub-figures in one crop
+p202-fig1-fig122.webp,keep,"Photograph of a large vacuum bulb with internal electrodes, plus a line drawing of a lamp",B,yes,no,Caption spans Figs.122-123
+p203-fig1-fig124.webp,keep,Line drawing: a coil connected to a vacuum lamp and a plate electrode,A,yes,yes,Clean line art - preferable to the photo plates for the same point
+p206-fig1-fig125.webp,keep,Photograph: a luminous tube mounted on a bracket against a dark background,C,yes,yes,"Very dark, low contrast; -level 10%,70% or replace with p206-fig2"
+p206-fig2-fig125.webp,keep,"Photograph with a coil at top and a tube on a shelf, book label FIG.125 in the corner",B,yes,yes,Better exposed than p206-fig1; use this one
+p210-fig1-fig126.webp,keep,Line drawing: a coil driving a tube and four incandescent lamps in parallel,A,yes,yes,Clean; good 'many lamps from one coil' diagram
+p211-fig1-fig127.webp,keep,Line drawing: a coil connected to a tube and a receiving coil,A,yes,yes,Clean
+p212-fig1-fig12.webp,keep,Photograph: vertical discharge tube with two luminous drops above a coil,C,yes,no,OCR figure number 'Fig.12' is a mis-read (p.194 sequence); dark plate
+p213-fig1-fig129.webp,drop,"A bright oval luminous field on a dark plate, bisected by a line",C,yes,no,p.195 bombardment illustration: no readable structure even after -negate/-level - unusable at web size
+p225-fig1-fig13.webp,keep,"Perspective cutaway engraving of a wooden case containing coils, condensers and discharge tubes",A,yes,no,OCR 'Fig.13' is a mis-read of Fig.132; excellent line art
+p227-fig1-fig133.webp,keep,White-on-dark plate of a symmetrical diagram: two coil groups and a central vessel with M/N leads,C,yes,yes,"Reversed (negative) plate; invert and level before use, else drop"
+p228-fig1-fig135.webp,keep,"Dark plate: wiring diagram with a dynamo-electric machine, meters and break apparatus, lettering barely legible",C,yes,no,"OCR '13H' is a mis-read of 136. Dark plate: magick -negate -auto-level, then re-shoot at 200 ppi if used"
+p229-fig1-fig136.webp,keep,Dark plate: apparatus in elevation with two vertical break units on a base,C,yes,yes,Dark plate - negate + auto-level before use
+p229-fig2-fig136.webp,keep,Dark plate: three spiral flat coils mounted in a case with terminals R/R1,C,yes,no,Second band on p.211 also tagged Fig.136; dark plate
+p232-fig1-fig137.webp,keep,"Dark plate: a fan/impeller on a shaft raised from a wooden box, wire attached",C,yes,yes,Matches the Fig.137 wire-and-fan experiment; dark plate - negate
+p233-fig1-fig138.webp,keep,"Dark plate: a box with two electrodes under signs lettered 'William' and 'Hampton', an arc wire above",C,yes,yes,Striking image for the wireless-signalling passage; dark plate - negate + auto-level
+p234-fig1-fig139.webp,keep,Dark plate: a large ring/toroid coil above a wooden box on stands,C,yes,yes,Dark plate - negate
+p237-fig1-fig140.webp,keep,Dark plate: a box with two bent glass tubes rising from it,C,yes,yes,Dark plate - negate
+p244-fig1-fig141.webp,keep,"Two vacuum-lamp sections drawn white on a dark ground, side by side",C,yes,no,Two book figures in one band (Fig.141 and the next) - split at the whitespace gutter; dark plate - negate
+p245-fig1-fig141.webp,keep,Single vacuum-lamp section with an internal tube and a lower pool of mercury,C,yes,no,p.227 belongs to Figs.141-142; dark plate - negate
+p246-fig1-fig144.webp,keep,"Two lamp diagrams, one with radial rays from the top of the tube",C,yes,no,"Caption spans Figs.144-145 - two figures in one band, split at gutter; dark plate - negate"
+p252-fig1.webp,keep,"Dark plate: a make-and-break apparatus on a stand with a coil, labelled 'INSTANTANEOUS MAKE' / 'FLAT SUPPRESSED'",C,yes,n/a,Printed p.234; no OCR caption. Text is legible after -negate -auto-level
+p261-fig1-fig147.webp,keep,Two vacuum-lamp sections with internal electrodes,C,yes,no,"Caption spans Figs.147-148 - two figures in one band, split at gutter; dark plate - negate"
+p263-fig1-fig149.webp,keep,Two vacuum-lamp sections with graduated tubes,C,yes,no,Caption spans Figs.149-150 - split at gutter; dark plate - negate
+p265-fig1-fig151.webp,keep,A lamp section beside a fan-shaped radiant discharge above a cylindrical base,C,yes,no,Caption spans Figs.151-152; the radiant-discharge half is the useful part - split at gutter; dark plate - negate
+p281-fig1-fig153.webp,keep,Two large bulb sections with internal elements,C,yes,no,Caption spans Figs.153-154 - split at gutter; dark plate - negate
+p283-fig1-fig155.webp,keep,A bulb with a vertical multi-element assembly and horizontal wings,C,yes,yes,Dark plate - negate
+p284-fig1-fig156.webp,keep,A tall vertical graduated tube with horizontal wings and a base,C,yes,yes,Dark plate - negate
+p288-fig1-fig147.webp,keep,"Two vacuum-lamp sections with internal electrodes, printed on a light ground",B,yes,no,"p.270 crop tagged Fig.147 - wrong figure number; this one is already light, no negate needed"
+p294-fig1-fig159.webp,keep,Dark plate: U-tube apparatus with a bulb reservoir and a small vertical tube,C,yes,yes,Dark plate - negate + auto-level; matches the Fig.159 apparatus text
+p301-fig1-fig160.webp,keep,Dark plate: a lamp with a fan-shaped spray of discharge from an internal point,C,yes,yes,Dark plate - negate; good 'glow discharge' image
+p302-fig1-fig161.webp,keep,Dark plate: a spiral coil in a tube beside a lamp section,C,yes,no,Caption spans Figs.161-162 - two figures in one band; dark plate - negate
+p306-fig1-fig163.webp,keep,Dark plate: two long vertical graduated tubes side by side,C,yes,no,Caption spans Figs.163-164 - split at gutter; dark plate - negate
+p321-fig1.webp,keep,"Tall multi-stage wiring diagram: several switch panels, condensers and spark gaps fed from a small coil",A,yes,n/a,Printed p.303; very tall (1017x1468) - usable but needs a tall column slot
+p324-fig1.webp,keep,"Cross-section of a machine with two hand-cranks, a central shaft and magnet poles S/S'",A,yes,n/a,Printed p.306; clean line art
+p325-fig1-fig107.webp,keep,Vertical machine section with two crank/link mechanisms in a frame,A,yes,no,OCR 'FIG. 107.' on printed p.307 is a mis-read - do not cite that figure number
+p331-fig1-fig168.webp,keep,"Two views of a small device, plan and section (labelled 168a/168b in the book)",A,yes,yes,Two sub-figures in one band; fine as a pair
+p337-fig1-fig169.webp,keep,"Photograph: a bright spray of discharge from a point, with a sphere on a stand at right",B,yes,yes,"Dark plate; the spray is the subject - keep the sphere, it shows the induction effect"
+p339-fig1-fig170.webp,keep,Two cylindrical coils with spark streams between them,A,yes,yes,Clean line art for the high-frequency discharge passage
+p341-fig1-fig171.webp,keep,"A lamp glowing inside a serrated dark halo, with a small pendulum/electroscope diagram beside it",B,yes,no,Caption spans Figs.171-172a/172b - three figures in one band; the halo image is the strong part
+p343-fig1-fig178.webp,keep,"A discharge tube above a beaker with a brush, beside a lamp section",A,yes,no,Caption spans Figs.178/174 - figure numbers unreliable
+p346-fig1-fig175.webp,keep,Two vertical plates with a coil and a break device between them,A,yes,yes,Clean
+p347-fig1-fig176.webp,keep,"A plate, a glowing coil and a second plate in circuit",A,yes,yes,Clean
+p348-fig1-fig177.webp,keep,A glowing lamp with a radiant halo above a multi-tap coil,A,yes,yes,Clean line art with a printed glow - good for the cold-light article
+p349-fig1-fig179.webp,keep,"Two illustrations of a lamp glowing brightly above a coil, with a dark lamp for contrast",A,yes,yes,Excellent for 'light without wires'; the dark/bright contrast is the point
+p350-fig1-fig179.webp,keep,"Two illustrations of a lamp glowing above a coil, one with a screen at right",A,yes,no,Both tagged Fig.179; p.332 is a later state of the same experiment
+p357-fig1-fig183.webp,keep,Six lamp-glow illustrations in three columns showing different brightness states,A,yes,no,OCR 'Fig.1835' is a mis-read of Fig.183; strong comparative figure - crop to one or two panels if used
+p362-fig1-fig184.webp,keep,Circuit: a small alternator feeding two coil stages with a jar and a plate electrode,A,yes,yes,Clean line art
+p369-fig1-fig186.webp,keep,Five illustrations of lamps glowing above coils in three states,A,yes,yes,Book labels 186a/b/c inside the crop; strong comparative figure
+p376-fig1-fig189.webp,keep,A long spiral rod discharge and a hand holding a glowing vacuum tube,B,yes,no,OCR 'FIG. l»0' is a mis-read; the hand-held lamp image is excellent for the cold-light article
+p379-fig1-fig193.webp,keep,"A hand holding a rod over an electroscope, and a cylindrical apparatus with leads",B,yes,no,Caption spans Figs.193-194 - two figures in one band
+p388-fig1-fig196.webp,keep,"A glowing rectangular frame with a radiant halo, and a thin lens-shaped element",B,yes,no,Caption spans Figs.196-197 - split at gutter
+p390-fig1-fig198.webp,keep,A radial star-burst glow and a rectangular frame with radial glows at the corners,B,yes,yes,Matches the Fig.198 'viewed from a distance' description of a glowing motor winding - good for the rotating-field article
+p390-fig2-fig198.webp,keep,"A dark plate with a cross of bright bars, and a ring of bright dashes",C,yes,no,"Second band on p.372; abstract glow pattern - low priority, needs -negate"
+p393-fig1-fig203.webp,keep,Large spoked wheel armature with a zigzag winding in the rim grooves,A,yes,yes,Clean; good large illustration for the high-frequency alternator chapter
+p394-fig1-fig200.webp,keep,"Vertical machine section with a shaft, plus detail views of the contacts and a segmented ring",A,yes,no,Figure number likely wrong for p.376; visually clean
+p396-fig1-fig205.webp,keep,Plan view of a machine: two square coil groups on a frame with a shaft and a flywheel,A,yes,yes,Clean
+p397-fig1-fig207.webp,keep,"Section through a machine: hatched pole pieces, shaft, and terminal posts",A,yes,yes,"Clean, high detail"
+p410-fig1-fig208.webp,keep,Circular phase diagram: a ring with six marked points and radial/diagonal connecting lines,A,yes,yes,Clean geometric diagram - good for polyphase explanation
+p411-fig1-fig208.webp,keep,Disc with a six-pointed star pattern of slots and two leads,A,yes,no,"p.393 tagged Fig.208 (that is the p.392 ring) - number wrong, image clean"
+p415-fig1-fig210.webp,keep,Vacuum lamp with an internal cylindrical element on a stem,A,yes,yes,Clean line art
+p416-fig1-fig212.webp,keep,Circuit: a coil P/S with a condenser and a primary inside a lamp,B,yes,yes,Thin band; usable full-width only
+p416-fig2-fig212.webp,keep,Dark plate: a helical coil at an angle,C,yes,no,Second band on p.398; dark plate - negate; low illustrative value
+p417-fig1-fig214.webp,keep,A beaker with two electrodes connected to plates R/R1 through a source,A,yes,yes,Clean; good for the conduction-through-liquids passage
+p418-fig1-fig215.webp,keep,Dark plate: an elliptical apparatus with an inner ring,C,yes,yes,"Dark plate - negate; subject ambiguous, verify against p.400 text before use"
+p418-fig2-fig215.webp,keep,"A spiral coil wound round a cylinder with a vacuum lamp suspended inside, leads P and P1",A,yes,yes,Clean; good 'lamp inside a coil' illustration
+p420-fig1-fig216.webp,keep,A rectangular frame coil and a spiral coil with a funnel-shaped tube,A,yes,no,OCR 'FIG. 2V' is a mis-read; two book figures in one band
+p421-fig1-fig218.webp,keep,"A glass flask containing a spiral coil with multiple leads, beside a small two-bulb device",A,yes,yes,Clean
+p428-fig1-fig220.webp,keep,Circuit diagram: two lamps in opposite arms of a loop with a battery and switches,A,yes,yes,Clean
+p429-fig1-fig221.webp,keep,Two machine sections with meters in a circuit,A,yes,yes,Clean
+p430-fig1-fig222.webp,keep,Four machine units arranged around a central disc - a diagrammatic polyphase arrangement,A,yes,yes,Clean; good for the rotating-field explanation
+p431-fig1-fig223.webp,keep,Four field coils with two armatures in a circuit,A,yes,yes,Clean
+p432-fig1-fig225.webp,keep,"Circuit with four magnet units and two armatures, labelled as a distinct type of connection",A,yes,yes,Clean
+p433-fig1-fig225.webp,keep,Circuit with two elongated laminated cores and a central armature,A,yes,no,"p.415 tagged Fig.225 (that is the p.414 figure) - number wrong, image clean"
+p434-fig1.webp,keep,Two framed machine sections connected to a battery,A,yes,n/a,Printed p.416; no OCR caption - cite by page
+p439-fig1-fig229.webp,keep,A long spiral-wound tube with tapped terminals down one side and a galvanometer,A,yes,yes,Clean; good coherer/retcoherer illustration
+p440-fig1-fig230.webp,keep,A long tube with two coil ends and a row of tapped contacts,A,yes,yes,"Clean, wide"
+p443-fig1-fig281.webp,keep,Three views of a frame machine with a permanent magnet and a coil,A,yes,yes,Figure number 281 is genuine for p.425
+p444-fig1-fig235.webp,keep,"Three views of a frame machine with a helix and armature, plus a small motor at centre",A,yes,yes,Clean
+p445-fig1-fig287.webp,keep,Three views of a U-shaped device with a hinged armature,A,yes,no,"Caption spans Figs.287 and 238 - figure order garbled, image clean"
+p448-fig1-fig243.webp,keep,A long solenoid with a sliding armature rod and a detail block at right,A,yes,yes,Clean
+p451-fig1-fig244.webp,keep,Two discs with belts and linkages - a mechanical arrangement,A,yes,no,Caption spans Figs.244-245 - two figures in one band
+p452-fig1-fig247.webp,keep,"A machine section with a commutator, beside a circular diagram of four quadrant segments",A,yes,yes,Clean
+p453-fig1-fig248.webp,keep,"A segmented commutator disc in quadrant shading, with two small detail blocks",A,yes,yes,Clean
+p454-fig1-fig251.webp,keep,"A machine with three vertical cylinder units, beside a circular detail of two contacts",A,yes,no,Caption spans Figs.251-252 - two figures in one band
+p457-fig1-fig253.webp,keep,"A coil above a rotating disc with contact points, feeding a row of lamps",A,yes,yes,Clean
+p458-fig1-fig257.webp,keep,The same arrangement with the brush holder detail,A,yes,no,p.440 tagged Fig.257 but the caption text is mid-sentence - verify the number against the page before citing
+p459-fig1-fig255.webp,keep,Coil-and-disc interrupter with a row of lamps,A,yes,yes,Clean
+p460-fig1-fig259.webp,keep,Two views of a mechanical brush/linkage mechanism with a battery,A,yes,yes,Clean
+p460-fig2-fig258.webp,keep,A disc with a band and a rod - a small schematic detail,C,yes,yes,Small fragment (419x235); use only as an inset or drop
+p462-fig1-fig262.webp,keep,"A coil, a rotating disc interrupter and a row of tapped lamps",A,yes,no,Caption spans Figs.262-263
+p462-fig2-fig263.webp,keep,"A coil, disc interrupter and lamp row with a resistance R in the circuit",A,yes,yes,Clean
+p462-fig3-fig263.webp,keep,Two coil branches feeding a disc interrupter and a lamp row,A,yes,no,p.444 has four separate diagrams; this is not Fig.263 - number unreliable
+p462-fig4-fig263.webp,keep,Two complete interrupter units side by side with lamp rows,A,yes,no,Fourth diagram on p.444; figure number unreliable
+p463-fig1-fig264.webp,keep,Two views of a mechanical linkage with a battery at left,A,yes,no,OCR 'Fro. 265' shows the caption spans two figures
+p464-fig1-fig266.webp,keep,Two views of a vertical machine with a star-shaped rotor and a base,A,yes,yes,"Clean, tall"
+p467-fig1-fig270.webp,keep,Machine frame with two large curved pole pieces and a central armature on a plank base,A,yes,yes,Clean; good hero image for the high-frequency alternator article
+p467-fig2-fig270.webp,keep,Machine frame with four rectangular pole blocks and a disc armature,A,yes,no,"p.449 has three views all tagged Fig.270 - pick one, caption by page"
+p467-fig3-fig270.webp,keep,Front view of a machine frame with a central screw and bearing,A,yes,no,Third view on p.449; number unreliable
+p470-fig1-fig271.webp,keep,A machine with a row of pointed contacts along a shaft and a flywheel,A,yes,yes,Clean
+p471-fig1.webp,keep,Two views of an open machine frame with a square yoke,A,yes,n/a,Printed p.453; no OCR caption - cite by page
+p472-fig1.webp,keep,An open frame with two dashed coil loops on a base - a schematic of a magnetic circuit,A,yes,n/a,Printed p.454; no OCR caption - cite by page
+p473-fig1-fig277.webp,keep,A segmented ring diagram beside a machine section with a piston-like element,A,yes,yes,Clean
+p473-fig2-fig277.webp,keep,"Large radial diagram: dozens of small coils arranged in a ring, each wired to a common centre",A,yes,no,"Second figure on p.455 also tagged Fig.277 - number uncertain; visually striking, good for a hero image"
+p475-fig1-fig281.webp,keep,Two views of a machine with a circular phase diagram,A,yes,no,Caption spans Figs.281 and 280 (order reversed in OCR)
+p475-fig2-fig281.webp,keep,Detail views of contacts and a framed machine with a vertical rod,A,yes,no,Same p.457 pair; number uncertain
+p478-fig1-fig283.webp,keep,Two views of a machine with two large coil blocks and a vertical shaft,A,yes,yes,"Clean, large"
+p478-fig2-fig283.webp,keep,"A circular diagram with a central element, beside a vertical laminated bar",B,yes,no,Second figure on p.460; number uncertain
+p480-fig1.webp,keep,Two pairs of opposed magnets with coils and a vertical rod between them,A,yes,n/a,Printed p.462; no OCR caption - cite by page
+p484-fig1-fig290.webp,keep,"Side view, partly in section, of a machine with two flywheels on a base",A,yes,yes,Matches the Fig.290 description; clean
+p490-fig1-fig293.webp,keep,"A magnet assembly with a disc and a threaded rod, plus a plan view",A,yes,no,Caption spans Figs.293-294
+p491-fig1-fig295.webp,keep,Two ring diagrams with spirals and a radial conductor,A,yes,yes,Clean; matches the spiral-disc text
+p496-fig1.webp,keep,FULL-PAGE PLATE: photograph of a long row of high-frequency machinery in the laboratory,B,yes,n/a,"Printed p.478, <300 chars of text - per 6.2(4) re-export at 200 ppi as tesla1894-plate-p478.webp; this crop is only 960x1707. Best historical photograph in the set"
+p498-fig1-fig298.webp,keep,"Photograph of a large machine on a plank base, dark",B,yes,yes,"Halftone; -level 15%,85% -sharpen 0x1"
+p499-fig1-fig297.webp,keep,Photograph of a machine on a base with terminal posts,B,yes,no,"p.481 caption cites Fig.297 (the table) - number uncertain; halftone, correct levels"
+p500-fig1-fig302.webp,keep,Three cylindrical armatures in a row on a common shaft,B,yes,yes,"Thin strip (806x139); four such strips on p.482 - use one, not all"
+p500-fig2-fig302.webp,keep,Three cylindrical armatures in a row on a shaft,B,yes,no,"Second of four strips on p.482, all tagged Fig.302"
+p500-fig3-fig302.webp,keep,Three cylindrical armatures in a row on a shaft,B,yes,no,Third of four strips on p.482
+p500-fig4-fig302.webp,keep,Cylindrical armatures in a row on a shaft,B,yes,no,Fourth of four strips on p.482
+p502-fig1-fig811.webp,drop,"Dark, low-detail photograph of laboratory machinery - a row of coils and a workbench",C,yes,no,"Printed p.484, OCR 'FIG. 811.' is the known caption mis-read. Blurry even after -level; nothing legible at web size - do not use"
+p509-fig1-fig313.webp,keep,"Engraving of Tesla's mechanical oscillator: a piston on a shaft in a cylinder, inside a magnetic frame with energising coils",A,yes,yes,"Fig.313, printed p.491 - the ONLY engraving in the oscillator chapter; used in article 03"
+plate-p478-fig297.webp,keep,"Fig. 297 re-exported at 400 ppi from scan file 496 and rotated to landscape: long table of motors, rings and coils at the World's Fair exhibit, railing in front, 'Electrical Engineer' credit lower right",A,yes,yes,"Verified visually 2026-10-10. Replaces p496-fig1.webp (960x1707, wrong orientation). Used in hub + article 09."
+p480-fig298.webp,keep,"Fig. 298 re-cropped from scan file 498 at 400 ppi and brightened: laminated-iron ring field with an armature on cross bolts, on a plank base",A,yes,yes,Verified visually 2026-10-10. Matches p.481 text: 'magnetic frame of laminated iron with four polar projections between which an armature is supported on brass bolts'. Fixes the dark p498-fig1-fig298.webp.
+p482-figs300-308.webp,keep,"Nine armature engravings with their printed captions, Fig. 300 to Fig. 308, from scan file 500 (printed p.482)",A,yes,yes,"Verified visually 2026-10-10. Printed figure numbers are legible, so the OCR mis-numbering in p500-fig*-fig302.webp is bypassed."

@@ -99,6 +99,9 @@
     gap: 10px;
     margin-bottom: 20px;
     padding: 0 4px;
+    /* The status widget renders 14 day cells (DOWNTIME_DAYS 12 + yesterday +
+       today) in one unwrapped row, which overruns a 375 px viewport by ~23 px. */
+    flex-wrap: wrap;
 }
 .v1-day {
     display: flex;
