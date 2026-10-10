@@ -1,0 +1,235 @@
+{
+  "version": "2.0",
+  "baseRevision": 2,
+  "goals": [
+    {
+      "id": "goal-001",
+      "title": "Finish SERIES-PLAN-1894.md: produce the 9 remaining 1894-series articles plus the hub to the §12 gates, QA and wire every page, commit both repos, push nothing."
+    }
+  ],
+  "sprints": [],
+  "features": [
+    {
+      "id": "phase-define",
+      "name": "DEFINE",
+      "tasks": [
+        {
+          "id": "define/d1",
+          "description": "Interview scope and write bounded PRD + acceptance criteria",
+          "status": "pending",
+          "phase": "define",
+          "difficulty": "moderate",
+          "subtasks": [
+            {
+              "title": "scope interview",
+              "status": "pending"
+            },
+            {
+              "title": "PRD draft",
+              "status": "pending"
+            },
+            {
+              "title": "acceptance criteria per feature",
+              "status": "pending"
+            }
+          ],
+          "dependsOn": []
+        },
+        {
+          "id": "define/d2",
+          "description": "Record sprint contract and branch (not main)",
+          "status": "pending",
+          "phase": "define",
+          "difficulty": "easy",
+          "subtasks": [
+            {
+              "title": "sprint contract",
+              "status": "pending"
+            },
+            {
+              "title": "feature branch",
+              "status": "pending"
+            }
+          ],
+          "dependsOn": []
+        }
+      ],
+      "phase": "define",
+      "passes": false
+    },
+    {
+      "id": "feature-001",
+      "name": "qa_page.py enforces the no-dead-links rule",
+      "passes": false,
+      "tasks": [],
+      "description": "The plan flags twice that §12's 'no broken relative links' is not machine-checked. Close that gap before more pages exist.",
+      "criteria": [
+        "books/tools/qa_page.py fails any series page containing a relative href that does not resolve to a file in website/, and prints the offending href",
+        "run against the three pages that exist today it reports exactly one dead link (09 -> rotating-magnetic-field-1888.html) and no false positives",
+        "the check is in the default gate set, so qa_page.py --all-series exercises it over every page in new_content/1894-series/index.json"
+      ]
+    },
+    {
+      "id": "feature-002",
+      "name": "Article 07 - rotating-magnetic-field-1888.html",
+      "passes": false,
+      "tasks": [],
+      "description": "First of the remaining set: it unblocks 09's last dead out-link and is the page 03, 09 and 11 all point at.",
+      "criteria": [
+        "new_content/1894-series/07-rotating-magnetic-field-1888/article.md exists with §7 front matter (tid quoted \"1894_07\") and follows §9 brief 07",
+        "website/rotating-magnetic-field-1888.html is rendered by make_article.py --wire and python3 books/tools/qa_page.py on it exits 0",
+        "every quote is found verbatim in books/extracted/tesla-1894-plain.txt under scan file = printed page + 18, and is cited (1894, p. N)",
+        "2-3 figures viewed against the printed page before use: alt describes the apparatus, width/height set, loading=lazy",
+        "qa_page.py --all-series then reports zero dead relative links across the series",
+        "wired: sitemap.xml, llms.txt, _redirects /tesla-rotating-magnetic-field 301, articles.html card; index.json updated; both repos committed, no push"
+      ]
+    },
+    {
+      "id": "feature-003",
+      "name": "Article 01 - tesla-lit-lamps-without-wires.html",
+      "passes": false,
+      "tasks": [],
+      "description": "Second in the §0.4 order; the lamps-in-hand 1891 proof, cited from p. 200 onward.",
+      "criteria": [
+        "new_content/1894-series/01-tesla-lit-lamps-without-wires/article.md exists per §9 brief 01 and the page renders into website/ via make_article.py --wire",
+        "python3 books/tools/qa_page.py website/tesla-lit-lamps-without-wires.html exits 0, including the no-dashes, no-comments and no-PDF rules",
+        "every quote is re-grepped from the OCR and pinned to a printed page; figures verified visually against the scan",
+        "links per §5.2: out to magnetic-dynamo-generator, electricity-using-magnets, 06, 12; >=3 reciprocal in-links once 04/06/12 exist",
+        "shot_qa.py gates pass at 375/768/1280 and the three screenshots were reviewed with vision",
+        "wired (sitemap, llms.txt, _redirects /tesla-lit-lamps-without-wires, articles.html card); index.json updated; committed both repos, no push"
+      ]
+    },
+    {
+      "id": "feature-004",
+      "name": "Articles 02 + 04 - one-wire power and wireless power 1893",
+      "passes": false,
+      "tasks": [],
+      "description": "The pair that cross-link each other and both point at 11; §5.2 requires each to be linked from the other and the hub.",
+      "criteria": [
+        "new_content/1894-series/02-tesla-one-wire-power/article.md and 04-tesla-wireless-power-1893/article.md exist per their §9 briefs and render into website/",
+        "qa_page.py exits 0 for website/tesla-one-wire-power.html and website/tesla-wireless-power-1893.html",
+        "all quotes re-grepped and cited to printed pages; every figure verified visually, never on the strength of its extractor filename",
+        "the §5.2 reciprocal links exist (02 <-> 04, both -> 11, 04 -> 01/10), so the >=3 reciprocal in-links gate passes on both",
+        "shot_qa.py gates pass at 375/768/1280 for both and the screenshots were reviewed",
+        "both wired (sitemap, llms.txt, _redirects pretty slugs, articles.html cards); index.json updated; committed, no push"
+      ]
+    },
+    {
+      "id": "feature-005",
+      "name": "Articles 05 + 06 - high-frequency massage and cold flame",
+      "passes": false,
+      "tasks": [],
+      "description": "05's chapter has no book illustration and pp. 394-395 yield zero usable crops, so the §6.3 patent supplement is required.",
+      "criteria": [
+        "new_content/1894-series/05-tesla-high-frequency-massage/article.md and 06-tesla-cold-flame/article.md exist per their §9 briefs and render into website/",
+        "05 carries >=1 patent drawing stored in website/assets/tesla1894/patents/, credited 'US patent NNN,NNN (year), Nikola Tesla.', number confirmed on patents.google.com",
+        "never more than one patent plate per two 1894 engravings on a page; qa_page.py exits 0 for both pages",
+        "every figure visually verified against the printed page or patent sheet, with descriptive alt, width/height, loading=lazy",
+        "shot_qa.py gates pass at 375/768/1280 for both and the screenshots were reviewed",
+        "both wired (sitemap, llms.txt, _redirects, articles.html cards); index.json updated; committed, no push"
+      ]
+    },
+    {
+      "id": "feature-006",
+      "name": "Articles 08 + 12 - weird inventions listicle and glowing tubes",
+      "passes": false,
+      "tasks": [],
+      "description": "08 is nine ~130-word entries; 12 closes the tube and lamp thread and links back to 01 and 06.",
+      "criteria": [
+        "new_content/1894-series/08-tesla-weird-inventions-1894/article.md and 12-tesla-glowing-tubes-vacuum/article.md exist per their §9 briefs and render into website/",
+        "article 08 holds nine entries of roughly 130 words each, every one carrying a page-cited 1894 detail",
+        "qa_page.py exits 0 for website/tesla-weird-inventions-1894.html and website/tesla-glowing-tubes-vacuum.html",
+        "quotes re-grepped and pinned; figures visually verified with descriptive alt and dimensions",
+        "shot_qa.py gates pass at 375/768/1280 for both and the screenshots were reviewed",
+        "both wired (sitemap, llms.txt, _redirects incl. /tesla-glowing-tubes-before-tubes, cards); index.json updated; committed, no push"
+      ]
+    },
+    {
+      "id": "feature-007",
+      "name": "Article 10 - tesla-free-energy-what-he-said.html (O2 = B)",
+      "passes": false,
+      "tasks": [],
+      "description": "Kept as a flagship with a softer title, published after 03/01/07 so the reader meets three neutral history pieces first.",
+      "criteria": [
+        "drafted per §9 brief 10 with the softer title; evidence limited to Appendix D's verified counts (free energy 0, perpetual 0, over unity 0, magnetic generator 5, all pyro-)",
+        "website/tesla-free-energy-what-he-said.html renders via make_article.py --wire and qa_page.py exits 0",
+        "no sentence claims anything about what the product can do that is not already on a live page (§4.1 guardrail)",
+        "it links to tesla-1894-word-search.html and to 05 and 08 per §5.2, and those links resolve",
+        "shot_qa.py gates pass at 375/768/1280 and the screenshots were reviewed",
+        "wired (sitemap, llms.txt, _redirects, articles.html card); index.json updated; committed, no push"
+      ]
+    },
+    {
+      "id": "feature-008",
+      "name": "Linkable assets - plates, word search, Part I text, GitHub repo",
+      "passes": false,
+      "tasks": [],
+      "description": "§16.3: the only link strategy worth having. The hub links to two of these, so they must exist before the hub ships.",
+      "criteria": [
+        "website/tesla-1894-plates.html exists: a gallery of >=60 A/B-quality engravings selected from manifest_qc.csv, each captioned from the printed page",
+        "website/tesla-1894-word-search.html exists and reports the Appendix D term counts as re-run by the tooling, with the method stated",
+        "Part I text with printed-page markers is published (tesla-1894-part1-text or the GitHub repo), derived from the OCR file",
+        "a public tesla1894 repo exists with a README naming the edition, the archive.org item and the page-offset rule; URL recorded in index.json",
+        "all three on-site assets are wired into sitemap.xml and llms.txt and pass qa_page.py's dead-link check",
+        "20 outreach emails drafted under new_content/outreach/ with no affiliate links; none sent (sending is the owner's action)"
+      ]
+    },
+    {
+      "id": "feature-009",
+      "name": "Backlink pass on the 8 existing pages (§5.2)",
+      "passes": false,
+      "tasks": [],
+      "description": "Every series page needs >=3 in-links from pages it also links to; the existing-site half of that is what makes the gate pass.",
+      "criteria": [
+        "a 'Sources and further reading' H2 with 1-2 series links is added to each of the 8 pages named in §5.2",
+        "qa_page.py's reciprocal in-links gate passes on all 13 series pages",
+        "the legacy edits add no em dash, en dash, curly quote or ellipsis and change nothing else on those pages",
+        "each legacy-page edit is a separate named commit in website/ so the owner can review or revert it alone",
+        "the 8 edited pages still render: shot_qa.py reports no new console errors, 404s or overflow on any of them"
+      ]
+    },
+    {
+      "id": "feature-010",
+      "name": "OG images for all 13 series pages",
+      "passes": false,
+      "tasks": [],
+      "description": "§6.4: one OG per page, legible at 300 px, built from the series' own scans.",
+      "criteria": [
+        "website/assets/og/ holds an OG webp for each of the 12 articles and the hub, named after the page slug",
+        "every page's og:image and twitter:image meta points at its own OG file, and no meta references a file that does not exist",
+        "each OG was viewed at 300 px wide and its title is readable at that size",
+        "every OG is built from a 1894 scan or a verified patent drawing, credit recorded in the generator or index.json",
+        "generation is reproducible: a script or documented command in books/tools/ regenerates any OG from its source crop"
+      ]
+    },
+    {
+      "id": "feature-011",
+      "name": "Visual QA pass over every produced series page",
+      "passes": false,
+      "tasks": [],
+      "description": "shot_qa.py has never been run on 09 or 11 and 03's screenshot review was partial. Every page gets the full three-viewport pass with vision.",
+      "criteria": [
+        "python3 books/tools/shot_qa.py runs clean for all 13 series pages at 375, 768 and 1280: no console errors, no 404s, no horizontal overflow, every figure decodes",
+        "screenshots for all 13 pages were reviewed with vision and the notes recorded per page in index.json visual_gates",
+        "no figure renders outside the content column, no caption is cut off or illegible, the nav dropdown is intact at all three widths",
+        "the mobile first screen shows the article opening; CTA placement is reported as a note, not silently fixed in the shared shell",
+        "any real defect is fixed in the series page or recorded as an owner decision naming file and line; nothing is papered over"
+      ]
+    },
+    {
+      "id": "feature-012",
+      "name": "Hub - tesla-1894.html rendered and wired last",
+      "passes": false,
+      "tasks": [],
+      "description": "The hub links to all 12 articles and two Tier 6 assets, so it can only ship once they exist. It is the series completion marker.",
+      "criteria": [
+        "the hub draft is updated to the final series state and rendered to website/tesla-1894.html by make_article.py --wire, with no PDF, no download button, no Book/Offer schema",
+        "qa_page.py exits 0 on the hub and the dead-link check reports zero dead links, including all 12 article cards and links to plates and word-search",
+        "the 'how we cite' box states printed page = scan file minus 18, the OCR-correction policy and the word-search method",
+        "ItemList schema lists the 12 articles and parses as JSON-LD; archive.org item inventionsresear00martiala is present",
+        "wired: sitemap.xml, llms.txt, _redirects /1894 301, nav Pages, articles.html and footer; shot_qa.py passes and screenshots reviewed",
+        "qa_page.py --all-series exits 0 for all 13 pages; index.json shows 13 entries committed:true deployed:false; both repos clean, nothing pushed"
+      ]
+    }
+  ]
+}

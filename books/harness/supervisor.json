@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "runId": "08af6719-0515-42b9-8fdc-83519a093598",
+  "owner": {
+    "pid": 281343,
+    "sessionId": "08af6719-0515-42b9-8fdc-83519a093598",
+    "at": "2026-10-10T09:48:13.178Z",
+    "workerPid": 283593
+  },
+  "status": "running",
+  "startedAt": "2026-10-10T09:26:56.021Z",
+  "updatedAt": "2026-10-10T09:48:13.178Z",
+  "baseModel": "strata/strata",
+  "handoff": "goal",
+  "unit": {
+    "level": "goal",
+    "key": "goal:*",
+    "label": "the goal",
+    "phase": "define",
+    "difficulty": "moderate",
+    "model": "strata/strata",
+    "thinking": "",
+    "taskKey": "phase-define/define/d1",
+    "featureId": "phase-define",
+    "scope": "You own this goal. Keep going until every feature under it is done."
+  },
+  "worker": {
+    "name": "W1",
+    "unitKey": "goal:*",
+    "unitLabel": "the goal",
+    "level": "goal",
+    "difficulty": "moderate",
+    "model": "strata/strata",
+    "servedModel": "strata/strata",
+    "thinking": "",
+    "state": "working",
+    "doing": "write /home/matt/projects/other/tesla-generator/books/harness/docs/ARCHIT…",
+    "startedAt": "2026-10-10T09:26:56.064Z",
+    "turns": 1,
+    "tokens": {
+      "inputTokens": 38,
+      "outputTokens": 278
+    },
+    "contextRatio": null,
+    "sessionId": "01a12523-0c1f-725b-8fc7-0af85c2b5e92",
+    "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/08af6719-0515-42b9-8fdc-83519a093598/goal--/session-1"
+  },
+  "history": [],
+  "sessions": 1,
+  "lastDecision": "continue",
+  "stopReason": null
+}

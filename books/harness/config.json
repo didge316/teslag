@@ -1,0 +1,185 @@
+{
+  "version": "2.0",
+  "stack": null,
+  "mode": "autopilot",
+  "pilot": "autopilot",
+  "tiers": {},
+  "limits": {
+    "unitWallClockMs": 1800000,
+    "maxRecycles": 2,
+    "maxReworkPerUnit": 2,
+    "maxReplansPerPhase": 3,
+    "tokenCap": null,
+    "costCap": null
+  },
+  "currentPhase": "define",
+  "currentRole": "planner",
+  "currentFeature": null,
+  "currentTask": null,
+  "paused": false,
+  "features": {
+    "remaining": 0,
+    "passing": 0,
+    "total": 0
+  },
+  "gates": {
+    "enabled": true,
+    "checks": [
+      "all"
+    ],
+    "coverage": {
+      "enabled": false,
+      "threshold": 80
+    },
+    "cleanState": {
+      "enabled": false,
+      "stalePatterns": [],
+      "startupCmd": null
+    },
+    "antiPlaceholder": {
+      "enabled": true,
+      "patterns": []
+    }
+  },
+  "commands": {
+    "lint": null,
+    "test": null,
+    "coverage": null,
+    "build": null
+  },
+  "git": {
+    "autoCommit": false,
+    "autoTag": false,
+    "branch": null,
+    "clean": true,
+    "hasUpstream": false,
+    "lastCommitMessage": null
+  },
+  "phases": {
+    "enabled": [
+      "define",
+      "plan",
+      "build",
+      "verify",
+      "review",
+      "ship"
+    ]
+  },
+  "roles": {
+    "strict": false
+  },
+  "researchDepth": "deep",
+  "session": {
+    "handoff": "goal",
+    "contextThreshold": 0.6,
+    "carryNotes": true
+  },
+  "execution": {
+    "engine": "background",
+    "parallelAt": "off",
+    "maxWorkers": 1,
+    "isolation": "worktree"
+  },
+  "approvals": {
+    "research": false,
+    "define": false,
+    "plan": false
+  },
+  "phaseModes": {
+    "define": "autopilot",
+    "plan": "autopilot",
+    "build": "autopilot",
+    "verify": "autopilot",
+    "review": "autopilot",
+    "ship": "autopilot"
+  },
+  "workflow": {
+    "id": "autopilot",
+    "name": "autopilot"
+  },
+  "display": {
+    "preset": "everything",
+    "levels": {
+      "goal": true,
+      "sprint": true,
+      "feature": true,
+      "task": true,
+      "subtask": "all"
+    },
+    "counts": true,
+    "dependencies": true,
+    "rail": true,
+    "progress": true,
+    "alerts": true,
+    "criteria": true,
+    "taskWindow": 14
+  },
+  "intake": {
+    "completed": true,
+    "brief": "follow SERIES-PLAN-1894.md finish each task and mark done, then clear the session and on to the next task until completion",
+    "at": "2026-10-10T09:26:56.001Z"
+  },
+  "awaitingApproval": null,
+  "loop": {
+    "maxIterations": 2000,
+    "maxWallClockMs": 86400000,
+    "noProgressLimit": 3
+  },
+  "retry": {
+    "tasks": {
+      "enabled": true,
+      "maxRetries": null
+    },
+    "features": {
+      "enabled": false,
+      "maxRetries": 2
+    },
+    "phases": {
+      "enabled": false,
+      "maxRetries": 2
+    },
+    "levels": {
+      "goal": {
+        "enabled": false,
+        "maxRetries": 2
+      },
+      "phase": {
+        "enabled": false,
+        "maxRetries": 2
+      },
+      "sprint": {
+        "enabled": false,
+        "maxRetries": 2
+      },
+      "feature": {
+        "enabled": false,
+        "maxRetries": 2
+      },
+      "task": {
+        "enabled": true,
+        "maxRetries": null
+      },
+      "subtask": {
+        "enabled": false,
+        "maxRetries": 3
+      }
+    }
+  },
+  "maxRetries": 10,
+  "retryCount": 1,
+  "taskRetryCount": 0,
+  "featureRetryCount": 0,
+  "phaseRetryCount": 1,
+  "retryPerLevel": {
+    "subtask": 1,
+    "phase": 1
+  },
+  "pipelineIteration": 0,
+  "gateHistory": [
+    {
+      "phase": "define",
+      "result": "fail",
+      "timestamp": "2026-10-10T09:26:56.039Z"
+    }
+  ]
+}

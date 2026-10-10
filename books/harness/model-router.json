@@ -1,0 +1,17 @@
+{
+  "enabled": false,
+  "byDifficulty": {
+    "easy": "",
+    "moderate": "",
+    "difficult": ""
+  },
+  "thinkingByDifficulty": {
+    "easy": "",
+    "moderate": "",
+    "difficult": ""
+  },
+  "master": "",
+  "thinkingMaster": "",
+  "default": "",
+  "thinkingDefault": ""
+}

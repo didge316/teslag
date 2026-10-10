@@ -1,0 +1,28 @@
+{
+  "runId": "08af6719-0515-42b9-8fdc-83519a093598",
+  "startedAt": "2026-10-10T09:26:56.037Z",
+  "iterations": 1,
+  "lastFingerprint": "3202234259f91259",
+  "noProgressStreak": 0,
+  "lastPhase": "define",
+  "lastDecision": "continue",
+  "stoppedAt": null,
+  "stopReason": null,
+  "escalation": {
+    "consultedCount": 0,
+    "masterUsed": false,
+    "lastUnstuckAt": null,
+    "fingerprints": [],
+    "tried": []
+  },
+  "perLevelEscalation": {
+    "subtask": {
+      "consultedCount": 0,
+      "masterUsed": false,
+      "lastUnstuckAt": null,
+      "fingerprints": [],
+      "tried": []
+    }
+  },
+  "escalations": []
+}
