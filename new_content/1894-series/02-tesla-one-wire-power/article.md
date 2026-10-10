@@ -215,8 +215,9 @@ the room and, often, the earth. Tesla's own words for it are "equivalent to a re
 
 ## What this means for a home wiring project
 
-None of this transfers to a house at 50 or 60 Hz. The capacitance that carries a return at tens
-of thousands of alternations a second is far too small to carry an ampere at sixty.
+None of this transfers to a house at 50 or 60 Hz. Every experiment above is set down in the book
+as requiring high potential and high frequency, and the return it relies on is the capacitance of
+a plate or a body, which passes a negligible current at power frequencies.
 
 That is why a generator, an inverter and a load are connected the ordinary way, with a neutral
 and a protective conductor. [How a home generator system is actually wired](diy-magnetic-generator.html)

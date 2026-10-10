@@ -1,49 +1,49 @@
 {
   "version": 1,
-  "runId": "61e2a15e-f0d9-4b09-8d81-1dec9cfc423d",
+  "runId": "9312c409-01ae-4046-9803-0f2facc531cd",
   "owner": {
     "pid": 14537,
-    "sessionId": "61e2a15e-f0d9-4b09-8d81-1dec9cfc423d",
-    "at": "2026-10-10T15:55:24.817Z",
-    "workerPid": 16923
+    "sessionId": "9312c409-01ae-4046-9803-0f2facc531cd",
+    "at": "2026-10-10T21:55:29.932Z",
+    "workerPid": 1094102
   },
   "status": "running",
-  "startedAt": "2026-10-10T15:21:16.445Z",
-  "updatedAt": "2026-10-10T15:55:24.817Z",
+  "startedAt": "2026-10-10T20:40:27.337Z",
+  "updatedAt": "2026-10-10T21:55:29.932Z",
   "baseModel": "strata/strata",
-  "handoff": "goal",
+  "handoff": "task",
   "unit": {
-    "level": "goal",
-    "key": "goal:goal-001",
-    "label": "goal-001 · Finish SERIES-PLAN-1894.md: produce the 9 r…",
+    "level": "task",
+    "key": "task:feature-004/t1",
+    "label": "feature-004/t1 · Article 02 draft: one-wire power, written f…",
     "phase": "build",
-    "difficulty": "difficult",
+    "difficulty": "moderate",
     "model": "strata/strata",
     "thinking": "",
-    "taskKey": "feature-004/t0",
+    "taskKey": "feature-004/t1",
     "featureId": "feature-004",
-    "scope": "You own this goal. Keep going until every feature under it is done."
+    "scope": "You own this one task. Finish it, then stop — the harness starts the next one."
   },
   "worker": {
-    "name": "W1",
-    "unitKey": "goal:goal-001",
-    "unitLabel": "goal-001 · Finish SERIES-PLAN-1894.md: produce the 9 r…",
-    "level": "goal",
-    "difficulty": "difficult",
+    "name": "W3",
+    "unitKey": "task:feature-004/t1",
+    "unitLabel": "feature-004/t1 · Article 02 draft: one-wire power, written f…",
+    "level": "task",
+    "difficulty": "moderate",
     "model": "strata/strata",
     "servedModel": "strata/strata",
     "thinking": "",
     "state": "working",
-    "doing": "infinity_validate feature-004/t0",
-    "startedAt": "2026-10-10T15:21:16.552Z",
-    "turns": 3,
+    "doing": "infinity_validate feature-004/t1",
+    "startedAt": "2026-10-10T21:40:31.604Z",
+    "turns": 1,
     "tokens": {
       "inputTokens": 71,
-      "outputTokens": 560
+      "outputTokens": 861
     },
-    "contextRatio": 0.47005208333333326,
-    "sessionId": "01a12667-74fd-7583-ae20-9747eec15406",
-    "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/61e2a15e-f0d9-4b09-8d81-1dec9cfc423d/goal-goal-001/session-1"
+    "contextRatio": null,
+    "sessionId": "01a127c2-abf8-7565-8ef3-9b8e0dd4bf29",
+    "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/9312c409-01ae-4046-9803-0f2facc531cd/task-feature-004-t1/session-3"
   },
   "history": [
     {
@@ -234,9 +234,72 @@
       "contextRatio": null,
       "sessionId": "01a125f7-83c9-767d-88a2-db105c5aca5d",
       "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/08af6719-0515-42b9-8fdc-83519a093598/goal-goal-001/session-9"
+    },
+    {
+      "name": "W1",
+      "unitKey": "goal:goal-001",
+      "unitLabel": "goal-001 · Finish SERIES-PLAN-1894.md: produce the 9 r…",
+      "level": "goal",
+      "difficulty": "difficult",
+      "model": "strata/strata",
+      "servedModel": "strata/strata",
+      "thinking": "",
+      "state": "closed",
+      "doing": "run finished",
+      "startedAt": "2026-10-10T15:21:16.552Z",
+      "turns": 3,
+      "tokens": {
+        "inputTokens": 100,
+        "outputTokens": 538
+      },
+      "contextRatio": 0.7388102213541665,
+      "sessionId": "01a12667-74fd-7583-ae20-9747eec15406",
+      "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/61e2a15e-f0d9-4b09-8d81-1dec9cfc423d/goal-goal-001/session-1"
+    },
+    {
+      "name": "W1",
+      "unitKey": "task:feature-004/t1",
+      "unitLabel": "feature-004/t1 · Article 02 draft: one-wire power, written f…",
+      "level": "task",
+      "difficulty": "moderate",
+      "model": "strata/strata",
+      "servedModel": "strata/strata",
+      "thinking": "",
+      "state": "closed",
+      "doing": "turn timed out",
+      "startedAt": "2026-10-10T20:40:27.412Z",
+      "turns": 1,
+      "tokens": {
+        "inputTokens": 863,
+        "outputTokens": 3320
+      },
+      "contextRatio": 0.5463358561197916,
+      "sessionId": "01a1278b-ad20-7452-81b5-8aece8cc2cab",
+      "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/9312c409-01ae-4046-9803-0f2facc531cd/task-feature-004-t1/session-1"
+    },
+    {
+      "name": "W2",
+      "unitKey": "task:feature-004/t1",
+      "unitLabel": "feature-004/t1 · Article 02 draft: one-wire power, written f…",
+      "level": "task",
+      "difficulty": "moderate",
+      "model": "strata/strata",
+      "servedModel": "strata/strata",
+      "thinking": "",
+      "state": "closed",
+      "doing": "turn timed out",
+      "startedAt": "2026-10-10T21:10:29.535Z",
+      "turns": 1,
+      "tokens": {
+        "inputTokens": 677,
+        "outputTokens": 1197
+      },
+      "contextRatio": 0.671269734700521,
+      "sessionId": "01a127a7-2ca4-76d2-95f8-119a484027aa",
+      "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/9312c409-01ae-4046-9803-0f2facc531cd/task-feature-004-t1/session-2"
     }
   ],
-  "sessions": 10,
+  "sessions": 13,
   "lastDecision": "continue",
   "stopReason": null
 }
