@@ -10,34 +10,60 @@ series_no: 2
 primary_query: one wire circuit
 tid: "1894_02"
 og_image: assets/og/tesla-one-wire-power.webp
-card_image: assets/tesla1894/p252-fig1.webp
-card_alt: "1894 photograph, Fig. 146: a single coil on a long iron core between two stands, a copper disc on a pillar at one end, a lead to a transformer above, and a square plate suspended at the other side"
+card_image: assets/tesla1894/p234-fig146.webp
+card_alt: "1894 photograph, Fig. 146, printed p. 234: a coil on a long iron core between two stands, a disc on a pillar at one end, a transformer in a case above, and a square plate suspended at the other side"
 standfirst: "Tesla told the Institution of Electrical Engineers in 1892 that high-frequency currents let him work with one wire only, and the 1894 book prints the apparatus: a motor, a cell and a lamp, each on a single connection. It also prints his reason, and the reason is an engineering one."
 figures:
-  # Fig. 146 is the plate the text points to: 'Here, then, is a motor (diagrammatically
-  # illustrated in Fig. 146)' (printed p. 233); the plate itself sits on printed p. 234.
-  # The extractor file carries no figure number (p252-fig1.webp); the number was read off the
-  # printed page per §6.6. The printed caption 'FIG. 146' sits in the text column, not in this
-  # crop, and the plate is dark: t2 should test a negate/auto-level pass and re-check dims.
-  - src: /assets/tesla1894/p252-fig1.webp
-    alt: "1894 photograph, Fig. 146, printed p. 234: a single coil wound on a long iron core carried on two stands, a copper disc on a small pillar at the left end of the core, a lead from the coil up to a transformer at upper left, and a square metal plate suspended at the right"
-    width: 725
-    height: 627
-    caption: "NOT YET VISUALLY VERIFIED (figure task t2). Fig. 146, printed p. 234: the motor described on pp. 233 to 235, photographed with the book's own labels for the transformer, the rotating disc, the iron core and the suspended plate. The plate is the insulated body the text says is wanted to produce rotation (1894, p. 234). Public domain."
-  # Brief 02 lists fig144 / fig151 / fig153; all three are lamp sections (see quotes.md notes).
-  # Figs. 144 and 145 are the pair whose text describes a bulb excited from one terminal, so
-  # they carry the lighting passage. The crop holds both figures in one band; t2 may split it
-  # at the whitespace gutter. Third figure candidate for t2: single-conductor transmission
-  # patent, US 454,622 / 464,666 per §6.3, number not yet verified on patents.google.com.
-  - src: /assets/tesla1894/p246-fig1-fig144.webp
-    alt: "1894 photographs, Figs. 144 and 145, printed p. 228: two sections of an exhausted bulb hanging from a single lead, each showing a brush of luminous rays spreading through the globe from the terminal"
-    width: 942
-    height: 629
-    caption: "NOT YET VISUALLY VERIFIED (figure task t2). Figs. 144 and 145, printed p. 228: the same class of exhausted bulb at two stages of being worked, the luminous brush changing shape as the current is passed. The text beside them says such a bulb is excited by grasping the globe with the hand (1894, p. 228). Public domain."
+  # VERIFIED 2026-10-10 (task feature-004/t2) against books/tmp/scan-p252-150ppi.png and the
+  # 400 ppi render of scan file 252. Printed page number 234 in the page corner; printed caption
+  # 'FIG. 146.' inside the crop; the book's own plate labels TRANSFORMER, ROTATING DISC, IRON
+  # CORE and PLATE SUSPENDED are legible in the crop. The text the plate belongs to is on
+  # printed p. 233: 'Here, then, is a motor (diagrammatically illustrated in Fig. 146)'.
+  # Re-cropped at 400 ppi with the caption inside; supersedes the extractor crop p252-fig1.webp,
+  # which carries no figure number in its name and cut the baseboard and caption off.
+  # A negate/autocontrast pass was tested and dropped: the plate is a photograph on a dark
+  # ground, so negating inverts the subject, and autocontrast moved nothing measurable.
+  # Label check 2026-10-10: the four label regions were cropped from books/tmp/scan-p252-400ppi.png
+  # at 400 ppi and upscaled (books/tmp/probe-lbl-*.png). 'ROTATING DISC', 'PLATE SUSPENDED' and
+  # 'IRON CORE' are legible in the halftone; the label under the case at upper left is degraded to
+  # a blob consistent with 'TRANSFORMER' but does not read letter by letter. The alt therefore says
+  # the plate carries labels identifying the parts, not that all four words are readable.
+  - src: /assets/tesla1894/p234-fig146.webp
+    alt: "1894 photograph on a dark ground, Fig. 146, printed p. 234: on a baseboard a coil wound on a long horizontal iron core carried on two stands, a disc on a pillar in front of the left end of the core, a transformer in a case at upper left, and a square metal plate suspended at the right with a curved lead running down toward the coil. Printed labels on the plate identify the transformer, the rotating disc, the iron core and the suspended plate"
+    width: 843
+    height: 890
+    caption: "Fig. 146, printed p. 234, with the printed caption inside the crop: the motor described on pp. 233 to 235, photographed with the book's own labels for the transformer, the rotating disc, the iron core and the suspended plate. The plate is the insulated body the text says is wanted to produce rotation (1894, p. 234). Public domain."
+  # VERIFIED 2026-10-10 against books/tmp/scan-p246-150ppi.png and the 400 ppi render of scan
+  # file 246: printed page 228, both printed captions 'FIG. 144.' and 'FIG. 145.' inside the
+  # crop. They are photographs of whole exhausted lamps, globe above the screw base, not the
+  # 'sections' the draft alt claimed. The text they belong to is on printed p. 227: 'Figs. 143,
+  # 144 and 145 indicate different forms, or stages, of the brush', in a bulb with no leading-in
+  # wire. Kept as one crop: the two plates are one band on the printed page and the passage
+  # reads across both. Brief 02's fig151 / fig153 are lamp figures from a later chapter and do
+  # not show a one-wire circuit, so they are not used here.
+  - src: /assets/tesla1894/p228-figs144-145.webp
+    alt: "Two 1894 photographs on dark grounds, Figs. 144 and 145, printed p. 228, each of an exhausted lamp globe above its screw base: at left Fig. 144, fine luminous rays radiating across the whole globe from a point at its centre; at right Fig. 145, the same lamp with the rays gathered into a fan at one side of the globe"
+    width: 1240
+    height: 870
+    caption: "Figs. 144 and 145, printed p. 228, with both printed captions inside the crop: two stages of the brush in an exhausted bulb that has no leading-in wire. The book says the bulb 'appears as in Fig. 144' and passes to the form of Fig. 145 as the current is passed, and that to excite it 'it is usually sufficient to grasp the globe L with the hand' (1894, p. 228). Public domain."
+  # VERIFIED 2026-10-10 against books/tmp/scan-p353-150ppi.png and the 400 ppi render of scan
+  # file 353, a full-page plate printed sideways: rotated to landscape, then cropped to the four
+  # plans of Fig. 180 with the printed caption 'FIG. 180.' inside. Printed page 335. The plate
+  # belongs to the text on printed pp. 333 to 334: 'clearly I can also drive a motor by the aid
+  # of only one wire' (p. 333), then the description of plans I. to IV. (p. 334). That is chapter
+  # XXVIII, the chapter after the one-wire lecture, because chapter XXVII ends at printed p. 293;
+  # the one-line motor plans are not drawn in XXVII at all, so this is 6.6 sourcing order 2, a
+  # neighbouring chapter, not the patent supplement of 6.3. The extractor produced no crop for
+  # this plate, so it was cut by hand at 400 ppi from the rotated render.
+  - src: /assets/tesla1894/p335-fig180.webp
+    alt: "1894 line drawings, Fig. 180, printed p. 335: four diagrammatic plans of connection, lettered IV, III, II and I from left to right, each hanging from one line L drawn across the top of the plate. Plan II shows a primary over a tall iron core with a coil at the lower end and a disc on a rod marked with a turning arrow; plan I ends in a square insulated plate joined to the primary by a dashed lead"
+    width: 1950
+    height: 585
+    caption: "Fig. 180, printed p. 335, with the printed caption inside the crop: four plans for working motors from a single line L led from a high tension transformer terminal. The text introducing them is on printed p. 333, and plan II is described on p. 334 as a primary connected to the line with a secondary carrying the coil that energizes the iron core and 'set the metal disc d in rotation' (1894, p. 334). Public domain."
 cta:
   text: "A one-wire circuit is a lesson in high-voltage engineering, not a way past the return conductor. If you are wiring a home generator instead, the plans we recommend come with a parts list and a straight answer about output."
   href_suffix: "1894_02"
-pages_used: [184, 228, 232, 233, 234, 235, 236, 267]
+pages_used: [184, 228, 232, 233, 234, 235, 236, 267, 333, 334, 335]
 faq:
   - q: "Does electricity need a return path?"
     a: "Always: a current needs a circuit, not necessarily two wires. At 50 or 60 Hz the second side of that circuit is a conductor, which is why house wiring has a neutral. At high frequency and high potential the second side can be the capacitance of a plate, a person, or the room. Tesla states it in the 1891 lecture: 'In all cases the insulated body serves to give off the energy into the surrounding space, and is equivalent to a return wire' (1894, p. 184). The return is there; it is simply not copper."
@@ -50,7 +76,8 @@ faq:
 sources:
   - text: "Chapter XXVII, 'Experiments of Alternate Currents of High Potential and High Frequency', a lecture delivered before the Institution of Electrical Engineers, London, February 1892. The one-wire passages are printed pp. 232 to 237 of the 1894 edition; the passage on loss in transmission and the case for one conductor is printed p. 267"
   - text: "Chapter XXVI, 'Experiments with Alternate Currents of Very High Frequency and Their Application to Methods of Artificial Illumination', a lecture delivered before the American Institute of Electrical Engineers at Columbia College, N. Y., May 20, 1891. The sentence on the insulated body as a return path is printed p. 184"
-  - text: "The chapter's account of an exhausted bulb worked from one terminal, with Figs. 144 and 145, printed p. 228"
+  - text: "The same chapter's account of the luminous brush formed at a single terminal in high vacuum, with the photographs of it in Figs. 144 and 145, printed pp. 226 to 228"
+  - text: "Chapter XXVIII, 'On Light and Other High Frequency Phenomena', a lecture delivered before the Franklin Institute, Philadelphia, in February 1893 and before the National Electric Light Association at St. Louis in March 1893; the passage on driving a motor from one line is printed pp. 333 and 334, and the plate of four plans of connection, Fig. 180, is printed p. 335"
   - text: "Every quote here was re-grepped from the text layer of our scan and pinned to its printed page before drafting; the register is new_content/1894-series/02-tesla-one-wire-power/quotes.md, re-runnable with books/tools/grep_quote.py"
 ---
 
@@ -116,7 +143,7 @@ What he will assert is the result: "a coil wound upon an iron core and traversed
 alternating current creates a moving field of force, capable of setting an armature in
 rotation." (1894, p. 233)
 
-![1894 photograph, Fig. 146, printed p. 234: a single coil wound on a long iron core carried on two stands, a copper disc on a small pillar at the left end of the core, a lead from the coil up to a transformer at upper left, and a square metal plate suspended at the right](/assets/tesla1894/p252-fig1.webp "NOT YET VISUALLY VERIFIED (figure task t2). Fig. 146, printed p. 234: the motor described on pp. 233 to 235, photographed with the book's own labels for the transformer, the rotating disc, the iron core and the suspended plate. The plate is the insulated body the text says is wanted to produce rotation (1894, p. 234). Public domain.")
+![1894 photograph on a dark ground, Fig. 146, printed p. 234: on a baseboard a coil wound on a long horizontal iron core carried on two stands, a disc on a pillar in front of the left end of the core, a transformer in a case at upper left, and a square metal plate suspended at the right with a curved lead running down toward the coil. Printed labels on the plate identify the transformer, the rotating disc, the iron core and the suspended plate](/assets/tesla1894/p234-fig146.webp "Fig. 146, printed p. 234, with the printed caption inside the crop: the motor described on pp. 233 to 235, photographed with the book's own labels for the transformer, the rotating disc, the iron core and the suspended plate. The plate is the insulated body the text says is wanted to produce rotation (1894, p. 234). Public domain.")
 
 Then the reason he chose this motor, which is the point of the passage. "this motor rotates
 with one single connection between it and the generator", one terminal of the motor to one
@@ -187,7 +214,7 @@ production of light." (1894, p. 236) A finished lamp would need very little ener
 wires were used at all we ought to be able to supply that energy without a return wire."
 (1894, p. 236)
 
-![1894 photographs, Figs. 144 and 145, printed p. 228: two sections of an exhausted bulb hanging from a single lead, each showing a brush of luminous rays spreading through the globe from the terminal](/assets/tesla1894/p246-fig1-fig144.webp "NOT YET VISUALLY VERIFIED (figure task t2). Figs. 144 and 145, printed p. 228: the same class of exhausted bulb at two stages of being worked, the luminous brush changing shape as the current is passed. The text beside them says such a bulb is excited by grasping the globe with the hand (1894, p. 228). Public domain.")
+![Two 1894 photographs on dark grounds, Figs. 144 and 145, printed p. 228, each of an exhausted lamp globe above its screw base: at left Fig. 144, fine luminous rays radiating across the whole globe from a point at its centre; at right Fig. 145, the same lamp with the rays gathered into a fan at one side of the globe](/assets/tesla1894/p228-figs144-145.webp "Figs. 144 and 145, printed p. 228, with both printed captions inside the crop: two stages of the brush in an exhausted bulb that has no leading-in wire. The book says the bulb 'appears as in Fig. 144' and passes to the form of Fig. 145 as the current is passed, and that to excite it 'it is usually sufficient to grasp the globe L with the hand' (1894, p. 228). Public domain.")
 
 ## What the internet gets wrong
 
@@ -227,6 +254,25 @@ What the 1894 chapters do change is how the rule should be worded. The rule is n
 needs two wires". It is that current needs a circuit, and the impedance of the second side of
 that circuit is a design variable. At power frequencies the only good answer is a second
 conductor; at high frequencies the room becomes a usable one.
+
+Tesla drew the engineering version of that sentence himself, in the chapter that follows the
+one-wire lecture, and the book prints the plate for it. His argument is a chain of things he has
+already demonstrated: "Since I
+can pass a current through an insulated wire merely by connecting one of its ends to the source
+of electrical energy, since I can induce by it another current, magnetize an iron core, and, in
+short, perform all operations as though a return circuit were used, clearly I can also drive a
+motor by the aid of only one wire." (1894, p. 333) Fig. 180 is the plate of that: one line L
+across the top, a primary coil hanging from it, a secondary wound to carry the motor circuits,
+and the motor at the end of it. He gives the working range with the same care he gives
+everything else: "the frequencies should not be too high, not more than four or five thousand,
+though the rotation is produced even with ten thousand per second, or more." (1894, p. 334)
+
+![1894 line drawings, Fig. 180, printed p. 335: four diagrammatic plans of connection, lettered IV, III, II and I from left to right, each hanging from one line L drawn across the top of the plate. Plan II shows a primary over a tall iron core with a coil at the lower end and a disc on a rod marked with a turning arrow; plan I ends in a square insulated plate joined to the primary by a dashed lead](/assets/tesla1894/p335-fig180.webp "Fig. 180, printed p. 335, with the printed caption inside the crop: four plans for working motors from a single line L led from a high tension transformer terminal. The text introducing them is on printed p. 333, and plan II is described on p. 334 as a primary connected to the line with a secondary carrying the coil that energizes the iron core and 'set the metal disc d in rotation' (1894, p. 334). Public domain.")
+
+That is the honest edge of the one-wire idea. It is a high-frequency arrangement with a
+transformer terminal at one end and a plate, or the capacitance of the line and the room, doing
+the work of the second conductor. It is not a 60 Hz arrangement, and Tesla never claimed it was
+one.
 
 For the machine that made these effects available, see
 [Tesla's high-frequency alternators](tesla-high-frequency-alternator.html), with the pole counts

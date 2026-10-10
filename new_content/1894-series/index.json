@@ -358,5 +358,74 @@
     "backlinks_added": "none yet: 04, 06 and 12 do not exist, so the >=3 reciprocal gate passes on the three legacy pages that already link into the series",
     "blocked_on": "nothing numeric; 06 and 12 out-links per 5.2 are added when those articles exist",
     "committed": true
+  },
+  {
+    "slug": "tesla-one-wire-power.html",
+    "no": 2,
+    "draft": "new_content/1894-series/02-tesla-one-wire-power/article.md",
+    "deployed": false,
+    "date": "2026-10-20",
+    "tid": "1894_02",
+    "figures": [
+      {
+        "src": "/assets/tesla1894/p234-fig146.webp",
+        "verified": true,
+        "printed_page": 234,
+        "scan_file": 252,
+        "book_figs": [
+          146
+        ],
+        "subject": "Photograph on a dark ground: a coil wound on a long horizontal iron core carried on two stands, a disc on a pillar in front of the left end of the core, a transformer in a case at upper left, a square metal plate suspended at the right with a curved lead running down toward the coil",
+        "note": "Viewed against books/tmp/scan-p252-150ppi.png and the 400 ppi render of scan file 252 on 2026-10-10, and re-viewed the same day for this task: printed page 234 in the page corner, printed caption 'FIG. 146.' inside the crop, and the book's own plate labels present. Label check: the four label regions were cropped from books/tmp/scan-p252-400ppi.png and upscaled (books/tmp/probe-lbl-transformer.png, -rotating-disc, -plate-suspended, -iron-core2); 'ROTATING DISC', 'PLATE SUSPENDED' and 'IRON CORE' are legible in the halftone, the label under the case at upper left is degraded to a blob consistent with 'TRANSFORMER' but does not read letter by letter, so the alt says the plate carries labels identifying the parts rather than quoting four readable words. The number was read off the printed page: the extractor file p252-fig1.webp carries none, and its crop cut the baseboard and the caption off. Re-cropped at 400 ppi (843x890) with the caption inside; supersedes p252-fig1.webp. The text this plate belongs to is on printed p. 233: 'Here, then, is a motor (diagrammatically illustrated in Fig. 146)'. A negate/autocontrast pass was tested and dropped: the plate is a photograph on a dark ground, so negating inverts the subject and autocontrast moved nothing measurable."
+      },
+      {
+        "src": "/assets/tesla1894/p228-figs144-145.webp",
+        "verified": true,
+        "printed_page": 228,
+        "scan_file": 246,
+        "book_figs": [
+          144,
+          145
+        ],
+        "subject": "Two photographs on dark grounds of exhausted lamp globes above their screw bases: Fig. 144 with fine luminous rays radiating across the whole globe from a point at its centre, Fig. 145 with the same lamp and the rays gathered into a fan at one side",
+        "note": "Viewed against books/tmp/scan-p246-150ppi.png and the 400 ppi render of scan file 246 on 2026-10-10: printed page 228, both printed captions 'FIG. 144.' and 'FIG. 145.' inside the crop. Matches the text on printed p. 227 ('Figs. 143, 144 and 145 indicate different forms, or stages, of the brush') and p. 228 ('the bulb appears as in Fig. 144 ... gradually pass to that indicated in Fig. 145'). Alt corrected from the draft: these are whole lamps photographed on dark grounds, not 'sections' of a bulb. Kept as one crop because the two plates are one band on the printed page and the passage reads across both. Re-cropped at 400 ppi (1240x870); supersedes p246-fig1-fig144.webp. Brief 02's other two figure names were checked against the scan and are not used: fig151 (printed 247) and fig153 (printed 263) are lamp figures from a later chapter and show no one-wire circuit."
+      },
+      {
+        "src": "/assets/tesla1894/p335-fig180.webp",
+        "verified": true,
+        "printed_page": 335,
+        "scan_file": 353,
+        "book_figs": [
+          180
+        ],
+        "subject": "Four line diagrams, Fig. 180 I. to IV., each hanging from one line L drawn across the top of the plate: primaries and secondaries, a condenser C, motors M1 to M4, and in plan II an iron core with coil c and a disc d marked with a turning arrow; plan I ends in a square insulated plate joined by a dashed lead",
+        "note": "Added in t2 as the third figure. The plate is printed sideways on scan file 353 (printed p. 335) and the extractor produced no crop for it at all: rendered, rotated to landscape, and cropped at 400 ppi (1950x585) with the printed caption 'FIG. 180.' inside, then viewed against books/tmp/scan-p353-150ppi.png. The four plans match the descriptions on printed p. 334 (plan II: primary to the line L, secondary carrying coil c around the iron core, disc d in rotation; plan I: primary p with its free end to an insulated plate) and the sentence on p. 333 'clearly I can also drive a motor by the aid of only one wire'. Chapter XXVIII, not XXVII: the one-wire lecture chapter ends at printed p. 293 and the one-line motor plans are not drawn in it, so this is 6.6 sourcing order 2, a neighbouring chapter, chosen over the 6.3 patent supplement (US 454,622 / 464,666, number unverified on patents.google.com)."
+      }
+    ],
+    "quotes_pages": [
+      184,
+      228,
+      232,
+      233,
+      234,
+      235,
+      236,
+      267,
+      333,
+      334
+    ],
+    "internal_links": [
+      "diy-magnetic-generator.html",
+      "can-we-use-magnets-to-generate-electricity-a-magnetic-marvel.html",
+      "tesla-high-frequency-alternator.html",
+      "tesla-lit-lamps-without-wires.html"
+    ],
+    "figures_note": "all three figures verified against the printed pages 2026-10-10 (task feature-004/t2), each crop opened side by side with the page render it came from: scan file 252 = printed p.234 (Fig.146), scan file 246 = printed p.228 (Figs.144-145), scan file 353 = printed p.335 (Fig.180, plate printed sideways, rotated to landscape). Every figure number read off the printed page or the printed caption inside the crop, none taken from an extractor filename; the two crops the draft used are superseded by re-crops that carry the printed captions; the three crops are recorded in website/assets/tesla1894/manifest_qc.csv rows 208-210 with verdicts keep (B, B, A).",
+    "quotes_note": "check_quotes.py: 0 problems, 30 quotes verbatim and page-cited, including the two added for the Fig. 180 passage (pp. 333, 334)",
+    "rendered_site": "website/tesla-one-wire-power.html",
+    "numeric_gates": "26/26 (qa_page.py, incl. FAQPage, no-dashes, no-comments, no-PDF, dead-link); --all-series 6/7, the 7th is the unwritten hub",
+    "render_note": "make_article.py from the nikola-tesla-inventor-extraordinaire.html shell, tid 1894_02: 44,323 bytes, 1 h1 / 9 h2 / 4 h3, 3 figures in <figure class=\"mb-4 pt-5\">, 35 internal links, article figure weight 275 KB (gate < 400 KB). No --wire yet: sitemap, llms.txt, _redirects and the articles.html card are feature-004/t4.",
+    "blocked_on": "t4 (shot_qa at 3 widths, wiring, commit) not run; the hub out-link and the 02 <-> 04 pair are added when those pages exist",
+    "committed": false
   }
 ]
