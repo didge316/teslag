@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "baseRevision": 19,
+  "baseRevision": 21,
   "goals": [
     {
       "id": "goal-001",
@@ -316,7 +316,7 @@
           "id": "t2",
           "key": "feature-004/t2",
           "description": "Article 02 figures verified against the printed pages",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-004/t1"
           ],
@@ -332,7 +332,7 @@
           "id": "t3",
           "key": "feature-004/t3",
           "description": "Article 02 render + numeric gates",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-004/t2"
           ],
