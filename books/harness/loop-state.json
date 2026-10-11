@@ -1,8 +1,8 @@
 {
   "runId": "9312c409-01ae-4046-9803-0f2facc531cd",
   "startedAt": "2026-10-10T20:40:27.353Z",
-  "iterations": 8,
-  "lastFingerprint": "c9d1f7b49a53bb20",
+  "iterations": 15,
+  "lastFingerprint": "69105b178f2c9ef4",
   "noProgressStreak": 0,
   "lastPhase": "build",
   "lastDecision": "continue",
@@ -11,25 +11,35 @@
   "escalation": {
     "consultedCount": 0,
     "masterUsed": false,
-    "lastUnstuckAt": "2026-10-10T23:15:15.222Z",
+    "lastUnstuckAt": "2026-10-11T02:15:10.868Z",
     "fingerprints": [
       "06837ba0d7ad437d",
       "f98b7e4ba487ba64",
-      "f98b7e4ba487ba64"
+      "f98b7e4ba487ba64",
+      "69105b178f2c9ef4",
+      "69105b178f2c9ef4"
     ],
-    "tried": []
+    "tried": [
+      "retry",
+      "reframe"
+    ]
   },
   "perLevelEscalation": {
     "task": {
       "consultedCount": 0,
       "masterUsed": false,
-      "lastUnstuckAt": "2026-10-10T23:15:15.222Z",
+      "lastUnstuckAt": "2026-10-11T02:15:10.868Z",
       "fingerprints": [
         "06837ba0d7ad437d",
         "f98b7e4ba487ba64",
-        "f98b7e4ba487ba64"
+        "f98b7e4ba487ba64",
+        "69105b178f2c9ef4",
+        "69105b178f2c9ef4"
       ],
-      "tried": []
+      "tried": [
+        "retry",
+        "reframe"
+      ]
     }
   },
   "escalations": [
@@ -49,6 +59,20 @@
     },
     {
       "at": "2026-10-10T23:15:15.222Z",
+      "strategy": "reframe",
+      "level": "task",
+      "reason": "reframe eligible",
+      "applied": null
+    },
+    {
+      "at": "2026-10-11T01:45:08.630Z",
+      "strategy": "retry",
+      "level": "task",
+      "reason": "retry eligible",
+      "applied": null
+    },
+    {
+      "at": "2026-10-11T02:15:10.868Z",
       "strategy": "reframe",
       "level": "task",
       "reason": "reframe eligible",

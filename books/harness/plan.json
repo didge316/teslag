@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "baseRevision": 21,
+  "baseRevision": 24,
   "goals": [
     {
       "id": "goal-001",
@@ -348,7 +348,7 @@
           "id": "t4",
           "key": "feature-004/t4",
           "description": "Article 02 visual QA, wiring, commit",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-004/t3"
           ],
@@ -364,7 +364,7 @@
           "id": "t9",
           "key": "feature-004/t9",
           "description": "Article 04 quote-pin: grep every intended quote, pin to printed page, write quotes.md",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-004/t4"
           ],
@@ -380,7 +380,7 @@
           "id": "t5",
           "key": "feature-004/t5",
           "description": "Article 04 draft: wireless power 1893, written from quotes.md",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-004/t9"
           ],

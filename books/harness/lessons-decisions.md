@@ -53,3 +53,31 @@ visible on mobile first screen" is not met on any series page. `shot_qa.py` prin
 and deliberately does not fail on it; closing that gap is a shell change, not a per-article one,
 and belongs to the owner. The mobile fold was still reviewed (title, standfirst, first H2 render
 cleanly at 375 px).
+
+## 2026-10-11 — feature-004/t5: the unscoped BUILD gate cannot be made to pass mid-build
+
+The same check failed five times in a row with the same text, `tasks-complete: 46 task(s)
+still open`, while the article it was being blamed for was already written and verified. Read
+the check instead of doing the work again: `tasks-complete` counts every open row in the plan,
+so at 20/66 it reports 46 open no matter what any one task ships. It is a phase gate, not a
+task gate. The task gate is scoped: `infinity_validate feature="feature-004"
+task="feature-004/t5"` (full key, never a bare `t5` — `findTask` returns the first match).
+`gateHistory` in config.json shows the pattern plainly: every row with a feature/task pair
+passes, every bare row is the loop's own whole-plan check and is expected to fail until the
+last task closes.
+
+The trap is the same one written up at feature-004/t2 and repeated here: nothing in the loop
+writes `task.status`; only `infinity_plan` does. A finished draft with an unwritten row reads
+to the loop as no progress. Working pattern, unchanged and still the only one that works:
+do the work -> `infinity_plan` with `baseRevision` and all 66 keys, status on the one row
+being closed -> scoped `infinity_validate` -> commit -> stop.
+
+Two things noticed while verifying the 04 draft, recorded rather than fixed:
+`check_quotes.py` reports 0 problems on it (41 page-cited quotes, all verbatim), but the draft
+is 2,899 words against §9 brief 04's 1,600. Nothing in §12, `qa_page.py` or the evaluator
+rubric measures length, and every shipped sibling runs over its brief (01 +32%, 02 +38%,
+07 +19%, 09 0%, 11 +10%), so 04 is an outlier inside a habit, not a gate failure. Trimming
+1,300 words of sourced, page-pinned prose at draft stage, unasked, is a bigger risk than
+leaving the number on the record: the review phase should decide with the count in hand.
+Also still open for t7/t8: §5.2 requires 04 to be linked from 10, and 10 is not written yet,
+so the `>= 3 links to pages that link back` gate on 04 depends on 10 existing and linking back.

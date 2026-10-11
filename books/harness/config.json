@@ -166,14 +166,14 @@
     }
   },
   "maxRetries": 50,
-  "retryCount": 8,
-  "taskRetryCount": 8,
+  "retryCount": 15,
+  "taskRetryCount": 15,
   "featureRetryCount": 0,
-  "phaseRetryCount": 8,
+  "phaseRetryCount": 15,
   "retryPerLevel": {
     "subtask": 0,
-    "phase": 8,
-    "task": 8
+    "phase": 15,
+    "task": 15
   },
   "pipelineIteration": 2,
   "gateHistory": [
@@ -436,6 +436,69 @@
       "timestamp": "2026-10-10T23:33:16.547Z",
       "feature": "feature-004",
       "task": "feature-004/t3"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-10T23:33:59.532Z"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-10T23:47:04.612Z",
+      "feature": "feature-004",
+      "task": "feature-004/t4"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-10T23:47:33.849Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T00:17:35.951Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T00:47:37.966Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T01:12:18.718Z",
+      "feature": "feature-004",
+      "task": "feature-004/t9"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-11T01:14:31.374Z",
+      "feature": "feature-004",
+      "task": "feature-004/t9"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T01:15:06.546Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T01:45:08.634Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T02:15:10.873Z"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-11T02:28:06.413Z",
+      "feature": "feature-004",
+      "task": "feature-004/t5"
     }
   ]
 }
