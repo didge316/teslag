@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "baseRevision": 29,
+  "baseRevision": 31,
   "goals": [
     {
       "id": "goal-001",
@@ -492,7 +492,7 @@
           "id": "t2",
           "key": "feature-005/t2",
           "description": "Article 05 figures: §6.3 patent supplement, number confirmed",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-005/t1"
           ],
@@ -509,7 +509,7 @@
           "id": "t3",
           "key": "feature-005/t3",
           "description": "Article 05 render + numeric gates",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-005/t2"
           ],
