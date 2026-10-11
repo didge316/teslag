@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "baseRevision": 28,
+  "baseRevision": 29,
   "goals": [
     {
       "id": "goal-001",
@@ -476,7 +476,7 @@
           "id": "t1",
           "key": "feature-005/t1",
           "description": "Article 05 draft: high-frequency massage, written from quotes.md",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-005/t0"
           ],

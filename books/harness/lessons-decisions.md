@@ -126,3 +126,43 @@ still in the truncated `--wire` form, ending mid-word ("the man w", "It al", "gi
 01, 02 and 04 are written out in full. Nothing reads llms.txt back and no gate checks it, so the
 only way these get fixed is someone noticing. Not fixed here because those are not this task's
 pages; the fix is three sentences of standfirst, whenever someone is in there.
+
+## 2026-10-11 — feature-005/t1: re-run the draft's own evidence lines, they are claims too
+
+The 05 draft was already on disk when this task was retried. `check_quotes.py` reports 27/27
+fragments verbatim and page-cited, so the quotes were never the problem. What was wrong were the
+*counts the draft asserts about the volume* — the same class of claim Appendix D exists to pin down,
+and nothing re-checks them mechanically:
+
+- The draft said the word 'massage' is "printed three times". Re-running the whole-word search over
+  `books/extracted/tesla-1894-plain.txt` gives 4: chapter heading (printed p. 394), table of
+  contents (front matter), and **two** index entries (printed pp. 494 and 495 — the index lists the
+  paper twice). Fixed in the body and in the sources entry. The "not used once in the running text"
+  half was right, so the sentence's point survived; only the number was wrong.
+- The other counts in the draft check out as written: 'cure' 0, 'curing' 0, 'cured' 1 (p. 69,
+  polyphase armatures), 'disease' 1 (p. 395), 'violet ray' 0, 'electric bath' 0, 'electrotherapy' 0,
+  'diathermy' 0, 'physiotherapy' 0, 'violet' 2 (pp. 163, 218, both colour of a discharge). The index
+  really does file 162 and 394 under one heading, Physiological Effects (printed p. 495), and the
+  Ch. XXX footnote verifies verbatim on p. 392 while the Ch. XXXI footnote is garbled in this scan
+  ("Tlie EUctrical Engineer of Deo. 23d, 1891"), which is why the date is paraphrased not quoted.
+- The two modern medical sources were fetched, not trusted: Cureus 16:4 e57427 (Amani et al., 2024)
+  does say the FDA "recognizes diathermy as a therapeutic method that produces profound heating under
+  the skin, muscles, and joints", and RMHP 16 (2023) 1171-1185 (Almalty et al.) does say use of SWD
+  fell in some countries "due to the lack of empirical evidence". Both §4.1 modern claims stand.
+- One sentence described our own live page wrongly: it called
+  `How-Much-Noise-Does-a-Free-Energy-Device-Make.html` "a quantity that can be measured with a phone
+  at three metres". That page contains no measurement method and no phone; it gives decibel figures
+  and a comparison. Rewritten to describe what the target page actually does. Lesson: when a bridge
+  sentence characterises another page on the site, read that page — a wrong description of our own
+  content is a trust defect the numeric gates cannot see.
+
+Deferred, on the record rather than in the file: §5.2 requires 05 to link out to 10
+(`tesla-free-energy-what-he-said.html`). Article 10 is feature-007, which runs after this feature, so
+the file does not exist in `website/` and linking now would fail qa_page.py's dead-link gate at t3.
+The deferral is written as a comment above `cta:` in the draft; feature-009/t2 is the task whose
+criteria name it ("every deferred §5.2 out-link now points at an existing page"). Body out-links as
+drafted: 4 (01, 11, scam, noise), inside §5.2's 4-6 band.
+
+Length, recorded not fixed: 2,672 body words against §9 brief 05's 1,300. Same situation as 04 at
+t5 — every shipped sibling runs over, nothing in §12 or qa_page.py measures length, and the review
+phase should decide with the counts in hand.

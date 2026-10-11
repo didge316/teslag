@@ -4,90 +4,48 @@
   "owner": {
     "pid": 14537,
     "sessionId": "9312c409-01ae-4046-9803-0f2facc531cd",
-    "at": "2026-10-11T04:31:23.394Z",
-    "workerPid": 2433121
+    "at": "2026-10-11T05:23:43.652Z",
+    "workerPid": 2560090
   },
   "status": "running",
   "startedAt": "2026-10-10T20:40:27.337Z",
-  "updatedAt": "2026-10-11T04:31:23.394Z",
+  "updatedAt": "2026-10-11T05:23:43.652Z",
   "baseModel": "strata/strata",
   "handoff": "task",
   "unit": {
     "level": "task",
-    "key": "task:feature-005/t0",
-    "label": "feature-005/t0 · Article 05 quote-pin: grep every intended q…",
+    "key": "task:feature-005/t1",
+    "label": "feature-005/t1 · Article 05 draft: high-frequency massage, w…",
     "phase": "build",
     "difficulty": "moderate",
     "model": "strata/strata",
     "thinking": "",
-    "taskKey": "feature-005/t0",
+    "taskKey": "feature-005/t1",
     "featureId": "feature-005",
     "scope": "You own this one task. Finish it, then stop — the harness starts the next one."
   },
   "worker": {
-    "name": "W20",
-    "unitKey": "task:feature-005/t0",
-    "unitLabel": "feature-005/t0 · Article 05 quote-pin: grep every intended q…",
+    "name": "W22",
+    "unitKey": "task:feature-005/t1",
+    "unitLabel": "feature-005/t1 · Article 05 draft: high-frequency massage, w…",
     "level": "task",
     "difficulty": "moderate",
     "model": "strata/strata",
     "servedModel": "strata/strata",
     "thinking": "",
     "state": "working",
-    "doing": "bash cd /home/matt/projects/other/tesla-generator && git status --short …",
-    "startedAt": "2026-10-11T04:24:14.414Z",
+    "doing": "bash cd /home/matt/projects/other/tesla-generator && git show --stat --o…",
+    "startedAt": "2026-10-11T05:02:02.167Z",
     "turns": 1,
     "tokens": {
-      "inputTokens": 266,
-      "outputTokens": 912
+      "inputTokens": 498,
+      "outputTokens": 297
     },
     "contextRatio": null,
-    "sessionId": "01a12934-484e-71db-a06c-88e1e2fa4fba",
-    "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/9312c409-01ae-4046-9803-0f2facc531cd/task-feature-005-t0/session-20"
+    "sessionId": "01a12956-e2b7-73e5-a5b9-cf38d608a742",
+    "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/9312c409-01ae-4046-9803-0f2facc531cd/task-feature-005-t1/session-22"
   },
   "history": [
-    {
-      "name": "W1",
-      "unitKey": "goal:goal-001",
-      "unitLabel": "goal-001 · Finish SERIES-PLAN-1894.md: produce the 9 r…",
-      "level": "goal",
-      "difficulty": "difficult",
-      "model": "strata/strata",
-      "servedModel": "strata/strata",
-      "thinking": "",
-      "state": "closed",
-      "doing": "run finished",
-      "startedAt": "2026-10-10T15:21:16.552Z",
-      "turns": 3,
-      "tokens": {
-        "inputTokens": 100,
-        "outputTokens": 538
-      },
-      "contextRatio": 0.7388102213541665,
-      "sessionId": "01a12667-74fd-7583-ae20-9747eec15406",
-      "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/61e2a15e-f0d9-4b09-8d81-1dec9cfc423d/goal-goal-001/session-1"
-    },
-    {
-      "name": "W1",
-      "unitKey": "task:feature-004/t1",
-      "unitLabel": "feature-004/t1 · Article 02 draft: one-wire power, written f…",
-      "level": "task",
-      "difficulty": "moderate",
-      "model": "strata/strata",
-      "servedModel": "strata/strata",
-      "thinking": "",
-      "state": "closed",
-      "doing": "turn timed out",
-      "startedAt": "2026-10-10T20:40:27.412Z",
-      "turns": 1,
-      "tokens": {
-        "inputTokens": 863,
-        "outputTokens": 3320
-      },
-      "contextRatio": 0.5463358561197916,
-      "sessionId": "01a1278b-ad20-7452-81b5-8aece8cc2cab",
-      "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/9312c409-01ae-4046-9803-0f2facc531cd/task-feature-004-t1/session-1"
-    },
     {
       "name": "W2",
       "unitKey": "task:feature-004/t1",
@@ -465,9 +423,51 @@
       "contextRatio": 0.6626485188802085,
       "sessionId": "01a12918-c8f0-7512-b5b3-c25d12abc3ae",
       "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/9312c409-01ae-4046-9803-0f2facc531cd/task-feature-005-t0/session-19"
+    },
+    {
+      "name": "W20",
+      "unitKey": "task:feature-005/t0",
+      "unitLabel": "feature-005/t0 · Article 05 quote-pin: grep every intended q…",
+      "level": "task",
+      "difficulty": "moderate",
+      "model": "strata/strata",
+      "servedModel": "strata/strata",
+      "thinking": "",
+      "state": "closed",
+      "doing": "handoff — feature-005/t0 · Article 05 quote-pin: grep every intended q… → feature-005/t1 · Article 05 draft: high-frequency massage, w…",
+      "startedAt": "2026-10-11T04:24:14.414Z",
+      "turns": 1,
+      "tokens": {
+        "inputTokens": 191,
+        "outputTokens": 917
+      },
+      "contextRatio": 0.3594970703125,
+      "sessionId": "01a12934-484e-71db-a06c-88e1e2fa4fba",
+      "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/9312c409-01ae-4046-9803-0f2facc531cd/task-feature-005-t0/session-20"
+    },
+    {
+      "name": "W21",
+      "unitKey": "task:feature-005/t1",
+      "unitLabel": "feature-005/t1 · Article 05 draft: high-frequency massage, w…",
+      "level": "task",
+      "difficulty": "moderate",
+      "model": "strata/strata",
+      "servedModel": "strata/strata",
+      "thinking": "",
+      "state": "closed",
+      "doing": "turn timed out",
+      "startedAt": "2026-10-11T04:32:00.146Z",
+      "turns": 1,
+      "tokens": {
+        "inputTokens": 478,
+        "outputTokens": 1424
+      },
+      "contextRatio": 0.6903279622395835,
+      "sessionId": "01a1293b-63a3-73f7-92fe-838484be8594",
+      "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/9312c409-01ae-4046-9803-0f2facc531cd/task-feature-005-t1/session-21"
     }
   ],
-  "sessions": 30,
+  "sessions": 32,
   "lastDecision": "continue",
   "stopReason": null
 }
