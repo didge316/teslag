@@ -166,3 +166,47 @@ drafted: 4 (01, 11, scam, noise), inside §5.2's 4-6 band.
 Length, recorded not fixed: 2,672 body words against §9 brief 05's 1,300. Same situation as 04 at
 t5 — every shipped sibling runs over, nothing in §12 or qa_page.py measures length, and the review
 phase should decide with the counts in hand.
+
+## 2026-10-11 — feature-005/t4: `--wire` cannot write an articles.html card at all, and a patent sheet is not legible at 375 px either
+
+shot_qa.py passes on 05 at 375/768/1280 (console clean, no 404s, no horizontal overflow, nav=True
+31 items, all three figures decode, carry width/height and stay in the column) and the
+shot_crops.py desktop + mobile crops were reviewed by eye: Fig. 208 (printed p. 392) and Fig. 209
+(printed p. 393) each show the parts their alt and caption name, with the printed `FIG. 208.` /
+`FIG. 209.` inside the crop; the US 568,176 sheet carries its own header line, so the number and
+the date are legible in the figure itself, which is what §6.3's "number confirmed" needs on the
+page and not only in the sources list. Nothing to fix on the page.
+
+Two things worth recording:
+
+`make_article.py --wire` can never add the articles.html card. `wire_updates()` looks for
+`class="list-unstyled"` in articles.html and inserts a 40×40-thumbnail `<li>` there; articles.html
+has no `list-unstyled` block (it is a `col-md-6` card grid), so `_card_anchor()` returns None and
+the function reports "articles.html: no card anchor found — add by hand". That is why 02, 04 and 05
+were each wired by hand, and it is the correct outcome, not a workaround — but it means the
+"wire with the tool" instinct is wrong for the card specifically, and the card is the one wiring
+edit a human has to see. Also: the front-matter `card_image` / `card_alt` fields are used only by
+that dead `_article_card()` path, so no series card on the live site has a thumbnail. Left alone:
+making the tool write the grid card is a tool change with its own QA, not a per-article fix.
+
+The feature-004/t8 finding about page-scan figures generalises to patent sheets. At 1280 the
+US 568,176 drawing is readable; at 375 the header line and number still read, but the part labels
+inside Fig. 1 (A, B, C, H, K, L, L') are marginal, and the same is true of the labels inside
+Fig. 208 and Fig. 209. The HTML captions hold at both widths and name the parts in words, so the
+claim never lives only inside the drawing. Rule for the remaining articles: any figure whose point
+is a labelled part must have that part named in the caption text, and the figure must be sized
+against the 375 px column.
+
+Card QA is now a script, still in books/tmp/ (gitignored) as card_shot_04.py was:
+`python3 books/tmp/card_shot.py <slug>` shoots the card and its grid row at 1280/375 and fails on
+clipping, unequal grid columns or page overflow. On 05's card: 498×335 in a 546 px column at 1280,
+279×474 in a 327 px column at 375, no clipping, columns equal, no overflow. This is the second
+time it has been run, so by the feature-004/t8 rule it goes into books/tools/ on the next use —
+not moved here, because a tool in tools/ is a tool the gate may come to depend on and that is the
+owner's call.
+
+Also checked rather than assumed: sitemap.xml still parses (43 `<url>` entries, no duplicates,
+05's lastmod 2026-10-22 matches the front matter), the llms.txt entry is the full standfirst and
+not the 150-character form, and qa_page.py still exits 0 on 05 after the wiring (26/26). The
+mobile CTA position is unchanged in kind: alert-info at 21,150 px, scarcity at 25,329 px — still
+below the first screen on every series page, still a shell issue, still reported not failed.
