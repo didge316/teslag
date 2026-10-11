@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "baseRevision": 26,
+  "baseRevision": 27,
   "goals": [
     {
       "id": "goal-001",
@@ -278,7 +278,7 @@
     {
       "id": "feature-004",
       "name": "Articles 02 + 04 - one-wire power and wireless power 1893",
-      "passes": false,
+      "passes": true,
       "tasks": [
         {
           "id": "t0",
@@ -428,7 +428,7 @@
           "id": "t8",
           "key": "feature-004/t8",
           "description": "Article 04 visual QA, wiring, commit",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-004/t7"
           ],
