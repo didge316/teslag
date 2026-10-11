@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "baseRevision": 24,
+  "baseRevision": 26,
   "goals": [
     {
       "id": "goal-001",
@@ -396,7 +396,7 @@
           "id": "t6",
           "key": "feature-004/t6",
           "description": "Article 04 figures verified against the printed pages",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-004/t5"
           ],
@@ -412,7 +412,7 @@
           "id": "t7",
           "key": "feature-004/t7",
           "description": "Article 04 render + numeric gates",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-004/t6"
           ],
@@ -1269,12 +1269,12 @@
           ],
           "subtasks": [
             {
-              "id": "tasks-2--st0",
+              "id": "tasks-64--st0",
               "title": "task breakdown per feature",
               "status": "complete"
             },
             {
-              "id": "tasks-2--st1",
+              "id": "tasks-64--st1",
               "title": "dependsOn edges in §0.4 order",
               "status": "complete"
             }
@@ -1292,12 +1292,12 @@
           ],
           "subtasks": [
             {
-              "id": "tasks-3--st0",
+              "id": "tasks-65--st0",
               "title": "commit feature-list",
               "status": "complete"
             },
             {
-              "id": "tasks-3--st1",
+              "id": "tasks-65--st1",
               "title": "validate plan phase",
               "status": "complete"
             }

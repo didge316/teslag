@@ -503,8 +503,12 @@
       "tesla-one-wire-power.html",
       "whole-house.html"
     ],
-    "blocked_on": "feature-004/t7 (render website/tesla-wireless-power-1893.html + qa_page.py) and feature-004/t8 (shot_qa at 3 widths, sitemap/llms.txt/_redirects/card wiring). The rendered_preview in this entry predates the t6 figure swap and is stale; t7 regenerates it.",
+    "rendered_site": "website/tesla-wireless-power-1893.html",
+    "numeric_gates": "26/26 (qa_page.py, incl. FAQPage, no-dashes, no-comments, no-PDF, dead-link); article 02 re-run 26/26; --all-series 7/8, the 8th is the unwritten hub",
+    "render_note": "make_article.py from the nikola-tesla-inventor-extraordinaire.html shell, tid 1894_04: 50,379 bytes, 1 h1 / 9 h2 / 4 h3, 3 figures in <figure class=\"mb-4 pt-5\">, 36 internal links, article figure weight 372 KB (gate < 400 KB; the 230 KB p.346 page crop is what puts this page near the limit). Whole-page image weight 646 KB, of which 273 KB is the shared shell, so the note qa_page prints about the page budget applies here as it does on every series page. Rendered without --wire: sitemap.xml, llms.txt, _redirects and the articles.html card are t8, and wire_updates() truncates the llms.txt line (see the feature-004/t4 lesson). The rendered_preview in the draft directory is regenerated from the same article.md and is byte-identical to the site page; it is gitignored.",
+    "backlinks_added": "none yet: 10 and the hub do not exist, so 04 has no inbound links. The qa_page reciprocal gate is vacuous as written (it tests whether each out-link target is linked by this page), which is why it reads ok; the real §5.2 in-links for 04 (02, 10, hub) are still open and are added when those pages exist.",
+    "blocked_on": "nothing numeric; feature-004/t8 (shot_qa at 3 widths, sitemap/llms.txt/_redirects/card wiring). The §5.2 in-links from 10 and the hub are open until those pages exist (feature-008, feature-012).",
     "committed": true,
-    "committed_note": "Work repo: article.md (figures verified, body switched to the verified crops, third figure placed) + this entry. Site repo: the three crops and manifest_qc.csv rows 211-213. No page rendered yet, so nothing wired; no push."
+    "committed_note": "Work repo: this entry plus the plan row. Site repo: website/tesla-wireless-power-1893.html (the three crops and manifest_qc.csv rows 211-213 were committed at t6). Nothing wired; no push."
   }
 ]

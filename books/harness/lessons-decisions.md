@@ -81,3 +81,19 @@ rubric measures length, and every shipped sibling runs over its brief (01 +32%, 
 leaving the number on the record: the review phase should decide with the count in hand.
 Also still open for t7/t8: §5.2 requires 04 to be linked from 10, and 10 is not written yet,
 so the `>= 3 links to pages that link back` gate on 04 depends on 10 existing and linking back.
+
+## 2026-10-11 — feature-004/t7: two things the numeric gates cannot see, recorded while rendering 04
+
+`qa_page.py`'s `>= 3 links to pages that link back (§5.2)` gate is vacuous as written:
+`inbound_map()` maps target -> files that link to it, so `slug in ib[p]` asks "does this page
+link to p", which is true for every out-link by construction. On 04 it prints ok while 04 has
+zero inbound links. The real §5.2 in-links (02, 10, hub) are still open and are closed by
+feature-009/t2, which is the task that names them; the gate is left alone here because changing
+it would fail pages that already passed and that is a decision for the owner, not a drive-by fix.
+Lesson: read the check before trusting an ok, the same lesson as the `tasks-complete` count.
+
+Second: every series page's `og:image` points at `assets/og/<slug>.webp` and that directory does
+not exist in the site repo, on all seven shipped pages (legacy pages use real `assets/*.webp`).
+Nothing in `qa_page.py` or `make_article.py` looks at the og file, and §12's "OG legibility" is a
+vision gate over a file that was never made. feature-010 already owns this (OG images for all 13
+pages), so it is left to that feature rather than fixed as a per-article side fix.
