@@ -274,7 +274,7 @@
     "publish_hold": "owner review required before any push to website/ (pushing deploys)",
     "blocked_on": "nothing; all out-links resolve",
     "backlinks_added": [
-      "03 and 11 now link here (§5.2)",
+      "03 and 11 now link here (\u00a75.2)",
       "magnetic-dynamo-generator.html: second series link in the existing Sources H2"
     ]
   },
@@ -426,10 +426,85 @@
     "numeric_gates": "26/26 (qa_page.py, incl. FAQPage, no-dashes, no-comments, no-PDF, dead-link); --all-series 6/7, the 7th is the unwritten hub",
     "render_note": "make_article.py from the nikola-tesla-inventor-extraordinaire.html shell, tid 1894_02: 44,323 bytes, 1 h1 / 9 h2 / 4 h3, 3 figures in <figure class=\"mb-4 pt-5\">, 35 internal links, article figure weight 275 KB (gate < 400 KB). Wired by hand in t4, not with --wire; see the wired note.",
     "visual_gates": "shot_qa.py passes at 375/768/1280 (console clean, no 404s, no horizontal overflow, nav=True 31 items, all 3 figures decode, fit the column and carry width/height). Reviewed with vision through shot_crops.py desktop + mobile crops 2026-10-11: Fig. 146 (printed p. 234), Figs. 144 and 145 (p. 228) and Fig. 180 (p. 335) each show what their alt and caption say, the printed FIG. captions are inside all three crops, no page-edge junk, no distortion, and the captions stay legible at 375 px. Sources block, CTA and the one-line affiliate disclosure render at both widths. Two things the tool cannot decide and are recorded rather than hidden: the desktop nav-dropdown crop is the page region under a closed dropdown (same as article 01), so the dropdown itself is covered by shot_qa's nav=True/31 items, not by the crop; and the in-body alert-info sits at 16,747 px on mobile, below the first screen, which shot_qa reports without failing because the donor shell puts it after the article body on every page in the series.",
-    "wired": ["sitemap.xml (lastmod 2026-10-20)", "llms.txt (The 1894 File section)", "_redirects (/tesla-one-wire-power 301)", "articles.html card, after the article 01 card, Published October 20 2026"],
+    "wired": [
+      "sitemap.xml (lastmod 2026-10-20)",
+      "llms.txt (The 1894 File section)",
+      "_redirects (/tesla-one-wire-power 301)",
+      "articles.html card, after the article 01 card, Published October 20 2026"
+    ],
     "wired_note": "All four written by hand rather than with make_article.py --wire: wire_updates() truncates the llms.txt line at 150 characters of the standfirst, which is what left article 01's entry ending mid-sentence ('the tests he ran to'). That line is completed here. The card was checked by rendering articles.html at 1280 and 375 (website/_qa/articles-card-one-wire*.png): the card sits in the series block, is not clipped, and the grid is intact.",
     "backlinks_added": "none yet: 04 does not exist, so the >=3 reciprocal gate on 02 rests on the pages already linking into the series; articles.html now links to it as well",
     "blocked_on": "nothing numeric; the hub out-link and the 02 <-> 04 reciprocal pair are added when those pages exist (feature-004/t5, feature-012)",
     "committed": true
+  },
+  {
+    "slug": "tesla-wireless-power-1893.html",
+    "no": 4,
+    "draft": "new_content/1894-series/04-tesla-wireless-power-1893/article.md",
+    "rendered_preview": "new_content/1894-series/04-tesla-wireless-power-1893/tesla-wireless-power-1893.html",
+    "deployed": false,
+    "date": "2026-10-21",
+    "words_draft": 3349,
+    "tid": "1894_04",
+    "figures": [
+      {
+        "src": "/assets/tesla1894/p344-fig184.webp",
+        "verified": true,
+        "printed_page": 344,
+        "scan_file": 362,
+        "book_figs": [
+          184
+        ],
+        "subject": "Line diagram, Fig. 184: an alternator marked G feeding two line wires L and L1 across the plate; plan II, a coil wound in many sections, tapped at an intermediate point, with a phosphorescence lamp B in a rectangular case at its free end; plan I, a coil C1 with a brush of discharge drawn at one end, led through the condenser plates c and c1 to a large rectangular plate P1",
+        "note": "Viewed against books/tmp/scan-p362-150ppi.png on 2026-10-11 (task feature-004/t6): printed page 344 in the corner, printed 'FIG. 184.' caption in place, and the p.344 sentence 'In Fig. 184 I. is shown a plan which has been followed in the study of the resonance effects by means of a high frequency alternator' plus the p.345 description of C1, the plates c and c1 and the 'much larger plate' match the drawing. Labels read from three enlarged crops of the re-crop (books/tmp/v-fig184-left.png, -mid.png, -right.png): G, L, L1, II, I, C1, c, c1, B, P1. Number taken from the printed caption, not the extractor name. Re-cropped at 400 ppi (1005x368) with the caption inside; supersedes p362-fig1-fig184.webp (768x240, 150 ppi, no printed caption, number from a body-text line). Chosen over the brief's list: fig99 (printed p.154) is a disc-machine photograph from the alternator discussion, fig117 (printed p.179) is already used by article 01, and nothing earth-current is printed pp. 183 to 190."
+      },
+      {
+        "src": "/assets/tesla1894/p188-fig125.webp",
+        "verified": true,
+        "printed_page": 188,
+        "scan_file": 206,
+        "book_figs": [
+          125
+        ],
+        "subject": "Plate, Fig. 125: two metal sheets drawn in perspective one above the other, dark discharge about the edges of both and a dark column filling the space between them, two exhausted tubes glowing in that space, and at the left the connections drawn schematically, a source symbol at the bottom, leads through a small rectangular device to two coupled coils drawn as spirals, one lead from each terminal to a sheet",
+        "note": "Viewed against books/tmp/scan-p206-150ppi.png on 2026-10-11: printed page 188 in the corner, 'FIG. 125.' set sideways at the right, caption inside the crop. The p.189 text 'Or else I suspend two sheets as illustrated in Fig. 125, each sheet being connected with one of the terminals of the coil, and their size being carefully determined. An exhausted tube may then be carried in the hand anywhere between the sheets ... it remains always luminous' matches what is drawn. Circuit read from an enlarged crop (books/tmp/v-fig125-left.png). Re-cropped at 400 ppi (905x1715) as one whole plate; supersedes p206-fig1-fig125.webp (upper half, no caption) and p206-fig2-fig125.webp (lower half plus caption). Dark halftone left as printed, no level correction. Alt corrected from the draft: the drawing shows the sheets in perspective with no insulating cords visible, and two tubes, not one."
+      },
+      {
+        "src": "/assets/tesla1894/scan-p346-detail.webp",
+        "verified": true,
+        "printed_page": 346,
+        "scan_file": 364,
+        "book_figs": [],
+        "subject": "Page-scan crop of printed p. 346: the page number and running head, then the paragraph 'I mean the transmission of intelligible signals or perhaps even power to any distance without the use of wires', the sentence on the great majority of scientific men, and the closing question 'Why then not try to avail ourselves of the earth for this purpose?'",
+        "note": "Viewed against books/tmp/scan-p364-150ppi.png on 2026-10-11: printed page 346 and running head inside the crop, text legible. \u00a76.6 sourcing order 4, the words are the artefact, following the scan-p486.webp precedent from article 03. Cropped at 250 ppi (821x1073, 1.1x the 740 px column) so the three figures stay inside the 400 KB article gate (381 KB total). Placed in 'What the internet gets wrong', adjacent to the paragraph that says the record is a proposal with conditions, because the crop shows the claim and its hedge in one paragraph."
+      }
+    ],
+    "figures_note": "All three figures verified against the printed pages on 2026-10-11 (task feature-004/t6): each crop opened side by side with the page render it came from, scan file 362 = printed p.344, scan file 206 = printed p.188, scan file 364 = printed p.346. Every figure number read off the printed page or the printed caption inside the crop, none from an extractor filename. Two figures the draft had used are superseded by re-crops that carry the printed captions. Recorded in website/assets/tesla1894/manifest_qc.csv rows 211-213, verdicts keep (A, B, B). Checked and rejected: Fig. 185 (printed p.348, scan file 366) exists but only as a narrow margin strip, two plans joined by a long vertical line with 'FIG. 185.' set sideways between them, unreadable at column width, so it is recorded as verified and not used; Fig. 186a/b/c (printed p.351, scan file 369) are the exhausted versus air-filled lamp experiment, not earth transmission; the brief's fig99 and fig117 are a machine photograph and a plate already used by article 01.",
+    "quotes_pages": [
+      138,
+      143,
+      151,
+      188,
+      189,
+      196,
+      197,
+      344,
+      345,
+      346,
+      347,
+      348,
+      349
+    ],
+    "quotes_note": "check_quotes.py: 0 problems, 42 quote checks verbatim and page-cited, including the phrases now quoted inside the two figure captions (pp. 344, 345, 346)",
+    "internal_links": [
+      "solar.html",
+      "tesla-high-frequency-alternator.html",
+      "tesla-lit-lamps-without-wires.html",
+      "tesla-one-wire-power.html",
+      "whole-house.html"
+    ],
+    "blocked_on": "feature-004/t7 (render website/tesla-wireless-power-1893.html + qa_page.py) and feature-004/t8 (shot_qa at 3 widths, sitemap/llms.txt/_redirects/card wiring). The rendered_preview in this entry predates the t6 figure swap and is stale; t7 regenerates it.",
+    "committed": true,
+    "committed_note": "Work repo: article.md (figures verified, body switched to the verified crops, third figure placed) + this entry. Site repo: the three crops and manifest_qc.csv rows 211-213. No page rendered yet, so nothing wired; no push."
   }
 ]

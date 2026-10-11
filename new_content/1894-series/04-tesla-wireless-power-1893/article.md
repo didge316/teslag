@@ -10,39 +10,67 @@ series_no: 4
 primary_query: tesla wireless transmission of energy
 tid: "1894_04"
 og_image: assets/og/tesla-wireless-power-1893.webp
-card_image: assets/tesla1894/p362-fig1-fig184.webp
-card_alt: "1894 diagram, Fig. 184: a high-frequency alternator driving a sectionalised coil and a condenser in a resonance experiment"
+card_image: assets/tesla1894/p344-fig184.webp
+card_alt: "1894 diagram, Fig. 184, printed p. 344: a high-frequency alternator feeding two coils in a resonance study, one ending in a phosphorescence lamp, the other in a condenser and a large metal plate"
 standfirst: "In early 1893 Tesla told two engineering audiences that he meant to work devices, and possibly transmit power, through the earth with no wire between the ends. The 1894 book prints the plan, the apparatus, and the conditions he attached to it."
 figures:
+  # Verified against the printed pages on 2026-10-11 (task feature-004/t6). Every number below was
+  # read off the printed page in the scan, not off an extractor filename, and each crop was opened
+  # next to the page render it came from (books/tmp/scan-p362-150ppi.png = printed p. 344,
+  # books/tmp/scan-p206-150ppi.png = printed p. 188, books/tmp/scan-p364-150ppi.png = printed p. 346).
   # Fig. 184 is the plate that belongs next to the resonance method: the text introducing it is on
   # printed p. 344, two pages before the earth-transmission passage of pp. 346 to 349, and it is the
   # resonance study the method of p. 347 depends on. The brief's figure list (fig99 printed p. 154,
-  # fig117 printed p. 179, an earth-current engraving from pp. 183 to 190) does not hold: fig99 is a
-  # machine from the alternator discussion, fig117 is already used by article 01, and there is no
-  # earth-current engraving in pp. 183 to 190 (see the notes in quotes.md). The earth figure the text
-  # refers to, Fig. 185, is named twice on printed p. 348 but no 'FIG. 185' caption appears in the OCR
-  # of pp. 344 to 358 and the extractor cut nothing from scan file 366. t6 must view scan file 366
-  # before that figure is claimed, and should consider a page scan of printed p. 346 instead
-  # (scan-p346.webp, the scan-p486.webp precedent from article 03).
-  - src: /assets/tesla1894/p362-fig1-fig184.webp
-    alt: "1894 diagram, Fig. 184, printed p. 344: a high-frequency alternator at left feeding a coil of many turns divided into sections, with a condenser and a means of adjusting the coil section by section"
-    width: 768
-    height: 240
-    caption: "NOT YET VISUALLY VERIFIED (figure task t6). Fig. 184, printed p. 344: the plan the book describes for studying resonance effects with a high-frequency alternator, the coil G divided into small sections so the adjustment can be made step by step (1894, p. 344). It is not a wireless transmitter; it is the resonance apparatus of the same chapter, two pages before the earth plan. Public domain."
+  # fig117 printed p. 179, an earth-current engraving from pp. 183 to 190) does not hold: the manifest
+  # row for p172-fig1-fig99.webp is a photograph of a disc machine on an X-frame stand, from the
+  # alternator discussion; fig117 is already used by article 01; and the art printed pp. 183 to 190 is
+  # Figs. 122 to 125, exhausted-lamp photographs and the electrostatic-field room plate, with no
+  # earth-current engraving among them (the inventory is in the notes of quotes.md, checked against
+  # manifest_qc.csv rows for scan files 201 to 208).
+  # The extractor crop p362-fig1-fig184.webp (768x240) is superseded: it is a 150 ppi cut, it carries
+  # no printed caption, and its figure number came from a body-text line, not a caption. Re-cropped at
+  # 400 ppi as p344-fig184.webp (1005x368) with the printed 'FIG. 184.' inside; the re-crop was opened
+  # in three overlapping zooms (books/tmp/v-fig184-left.png, -mid.png, -right.png) to read the labels.
+  - src: /assets/tesla1894/p344-fig184.webp
+    alt: "1894 line diagram, Fig. 184, printed p. 344: at left an alternator marked G, with two line wires L and L1 running across the top and the bottom of the plate; in the middle, marked II, a long coil wound in many sections, one line joined to an intermediate point of it and the other to one end, with a small phosphorescence lamp in a rectangular case at its free end; at the right, marked I and C1, a second coil with a brush of discharge drawn at one end and the other end led to one plate of a condenser, the second plate wired to a large rectangular metal plate marked P1"
+    width: 1005
+    height: 368
+    caption: "Fig. 184, printed p. 344, with the printed caption inside the crop. The book describes it as the plan followed 'in the study of the resonance effects by means of a high frequency alternator': a coil of many turns 'divided into small separate sections for the purpose of adjustment', one end connected to the line from the alternator, the other 'to one of the plates c of a condenser', the second plate 'connected to a much larger plate' (1894, pp. 344 to 345). It is not a wireless transmitter. It is the method the earth plan of pp. 346 to 349 depends on, printed two pages before it. Public domain."
   # Fig. 125, printed p. 188, is the nearest thing to 'power without wires' in the range the brief
   # names, and no other article uses it. It belongs to the 1891 lecture's electrostatic-field room,
-  # which is exactly the contrast this article draws, so the caption says so. Two extractor crops
-  # exist (p206-fig1-fig125.webp and p206-fig2-fig125.webp); t6 should view scan file 206 and keep
-  # whichever holds the printed caption 'FIG. 125' and both sheets.
-  - src: /assets/tesla1894/p206-fig1-fig125.webp
-    alt: "1894 engraving, Fig. 125, printed p. 188: two metal sheets suspended in a room on insulating cords, each wired to one terminal of an induction coil, with an exhausted tube glowing between them"
-    width: 790
-    height: 609
-    caption: "NOT YET VISUALLY VERIFIED (figure task t6). Fig. 125, the plate printed p. 188: the two suspended sheets of the electrostatic-field room, each connected with one of the terminals of the coil, with a tube carried anywhere between them remaining luminous (1894, p. 189). This is a room-sized field from the 1891 lecture, not the earth plan of pp. 346 to 349. Public domain."
+  # which is exactly the contrast this article draws, so the caption says so. The two extractor crops
+  # split the plate in half: p206-fig1-fig125.webp (790x609) holds the upper sheet and one tube with
+  # no caption, p206-fig2-fig125.webp (695x688) holds the lower sheet, the second tube and the printed
+  # caption, and neither shows the whole plate. Superseded by one 400 ppi crop of the whole plate with
+  # the printed 'FIG. 125.' inside; the circuit at the left was read from an enlarged crop
+  # (books/tmp/v-fig125-left.png).
+  - src: /assets/tesla1894/p188-fig125.webp
+    alt: "1894 plate, Fig. 125, printed p. 188: two metal sheets drawn in perspective one above the other, dark discharge about the edges of both and a dark column filling the space between them, two exhausted tubes glowing in that space; at the left the connections are drawn schematically, a source symbol at the bottom, leads running up through a small rectangular device to two coupled coils drawn as spirals, and from the two ends of one of those coils a lead to each sheet"
+    width: 905
+    height: 1715
+    caption: "Fig. 125, printed p. 188, with the printed caption inside the crop. The text beside it says what is drawn: he suspends two sheets, each connected with one of the terminals of the coil and their size carefully determined, and an exhausted tube carried anywhere between them stays luminous (1894, p. 189). This is a room-sized field made by a coil on a bench, not the earth plan of pp. 346 to 349. Public domain."
+  # Third figure, added in t6. The earth figure the text refers to, Fig. 185, does exist on printed
+  # p. 348 (scan file 366): it is a margin figure, a 200 x 1990 px strip at 400 ppi, the two plans
+  # of connection joined by a long vertical line, with 'FIG. 185.' set sideways in the margin between
+  # them. The extractor cut nothing from that page because the strip is too narrow for its row
+  # masking. Viewed on books/tmp/scan-p366-150ppi.png on 2026-10-11: the figure is there, a small plan
+  # at the top of the inner margin, a second at the bottom, a long vertical line joining them, and
+  # 'FIG. 185.' set sideways in the margin between the two. It is recorded as verified and not used:
+  # at column width the strip is about 7,000 px tall and the two circuit plans are unreadable in it.
+  # Fig. 186a/b/c on printed p. 351 (scan file 369) was also viewed and rejected: those three plates
+  # are the exhausted versus air-filled lamp experiment, not earth transmission. §6.6 sourcing order 4 instead: the words are
+  # the artefact here, so the crop is of printed p. 346 itself, the page the article's central
+  # paragraph is on, following the scan-p486.webp precedent from article 03. Cropped at 250 ppi
+  # (821 px wide, 1.1x the 740 px column) to keep the three figures inside the 400 KB article gate.
+  - src: /assets/tesla1894/scan-p346-detail.webp
+    alt: "Detail of printed page 346 of the 1894 first edition: the page number and running head at the top, then the paragraph in which Tesla writes of transmitting intelligible signals or perhaps even power to any distance without the use of wires, and in the same paragraph of the great majority of scientific men who will not believe such results can be practically and immediately realized"
+    width: 821
+    height: 1073
+    caption: "The page the claim is on. The paragraph that says he means 'the transmission of intelligible signals or perhaps even power to any distance without the use of wires' is the same paragraph that says the great majority of scientific men will not believe such results can be practically and immediately realized, and it ends on the question Why then not try to avail ourselves of the earth for this purpose? (1894, p. 346). Public domain."
 cta:
   text: "Wireless power in 1893 was an open problem in electrical engineering, not a finished system. If you are wiring a home generator today, the plans we recommend come with a parts list and a straight answer about output."
   href_suffix: "1894_04"
-pages_used: [138, 143, 151, 188, 189, 196, 197, 344, 346, 347, 348, 349]
+pages_used: [138, 143, 151, 188, 189, 196, 197, 344, 345, 346, 347, 348, 349]
 faq:
   - q: "Did Nikola Tesla invent wireless power?"
     a: "He proposed it, in his own words, and he hedged it. In a lecture delivered to the Franklin Institute in February 1893 and to the National Electric Light Association at St. Louis, he wrote: 'I mean the transmission of intelligible signals or perhaps even power to any distance without the use of wires' (1894, p. 346). The demonstration the famous paragraph rests on was a small motor turned by one insulated line in a laboratory (1894, p. 138). No power system was shown, and the measurement the plan needed, the electrical period of the earth, had not been made (1894, p. 347)."
@@ -121,7 +149,7 @@ for the effect: "By varying the frequency of the currents and carefully observin
 of the insulated body and watching for the disturbance at various neighboring points of the
 earth's surface resonance might be detected" (1894, p. 347).
 
-![1894 diagram, Fig. 184, printed p. 344: a high-frequency alternator at left feeding a coil of many turns divided into sections, with a condenser and a means of adjusting the coil section by section](/assets/tesla1894/p362-fig1-fig184.webp "NOT YET VISUALLY VERIFIED (figure task t6). Fig. 184, printed p. 344: the plan the book describes for studying resonance effects with a high-frequency alternator, the coil G divided into small sections so the adjustment can be made step by step (1894, p. 344). It is not a wireless transmitter; it is the resonance apparatus of the same chapter, two pages before the earth plan. Public domain.")
+![1894 line diagram, Fig. 184, printed p. 344: at left an alternator marked G, with two line wires L and L1 running across the top and the bottom of the plate; in the middle, marked II, a long coil wound in many sections, one line joined to an intermediate point of it and the other to one end, with a small phosphorescence lamp in a rectangular case at its free end; at the right, marked I and C1, a second coil with a brush of discharge drawn at one end and the other end led to one plate of a condenser, the second plate wired to a large rectangular metal plate marked P1](/assets/tesla1894/p344-fig184.webp "Fig. 184, printed p. 344, with the printed caption inside the crop. The book describes it as the plan followed 'in the study of the resonance effects by means of a high frequency alternator': a coil of many turns 'divided into small separate sections for the purpose of adjustment', one end connected to the line from the alternator, the other 'to one of the plates c of a condenser', the second plate 'connected to a much larger plate' (1894, pp. 344 to 345). It is not a wireless transmitter. It is the method the earth plan of pp. 346 to 349 depends on, printed two pages before it. Public domain.")
 
 Resonance is the method, and that is why this is an engineering plan rather than a vision. He
 is not going to measure a wattage. He is going to sweep frequency and watch a potential until
@@ -140,7 +168,7 @@ honest edge of the demonstrated record. The hand-held tube belongs to
 1891 demonstration in full. The earth plan of pp. 346 to 349 is the same thought applied to a
 planet, with the frequency, the potential and the period all still unknown.
 
-![1894 engraving, Fig. 125, the plate printed p. 188: two metal sheets suspended in a room on insulating cords, each wired to one terminal of an induction coil, with an exhausted tube glowing between them](/assets/tesla1894/p206-fig1-fig125.webp "NOT YET VISUALLY VERIFIED (figure task t6). Fig. 125, the plate printed p. 188: the two suspended sheets of the electrostatic-field room, each connected with one of the terminals of the coil, with a tube carried anywhere between them remaining luminous (1894, p. 189). This is a room-sized field from the 1891 lecture, not the earth plan of pp. 346 to 349. Public domain.")
+![1894 plate, Fig. 125, printed p. 188: two metal sheets drawn in perspective one above the other, dark discharge about the edges of both and a dark column filling the space between them, two exhausted tubes glowing in that space; at the left the connections are drawn schematically, a source symbol at the bottom, leads running up through a small rectangular device to two coupled coils drawn as spirals, and from the two ends of one of those coils a lead to each sheet](/assets/tesla1894/p188-fig125.webp "Fig. 125, printed p. 188, with the printed caption inside the crop. The text beside it says what is drawn: he suspends two sheets, each connected with one of the terminals of the coil and their size carefully determined, and an exhausted tube carried anywhere between them stays luminous (1894, p. 189). This is a room-sized field made by a coil on a bench, not the earth plan of pp. 346 to 349. Public domain.")
 
 ## What he claimed, and what he refused to claim
 
@@ -233,6 +261,8 @@ The pattern in every version of this mistake is the same: a proposal gets compre
 achievement. The 1893 text is more interesting than the compressed version, not less. It names
 the measurement that was missing and the machine that would have to be invented to make it, and
 the next section is in his own words about exactly those.
+
+![Detail of printed page 346 of the 1894 first edition: the page number and running head at the top, then the paragraph in which Tesla writes of transmitting intelligible signals or perhaps even power to any distance without the use of wires, and in the same paragraph of the great majority of scientific men who will not believe such results can be practically and immediately realized](/assets/tesla1894/scan-p346-detail.webp "The page the claim is on. The paragraph that says he means 'the transmission of intelligible signals or perhaps even power to any distance without the use of wires' is the same paragraph that says the great majority of scientific men will not believe such results can be practically and immediately realized, and it ends on the question Why then not try to avail ourselves of the earth for this purpose? (1894, p. 346). Public domain.")
 
 ## Why it did not happen
 
