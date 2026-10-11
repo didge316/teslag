@@ -274,7 +274,7 @@
     "publish_hold": "owner review required before any push to website/ (pushing deploys)",
     "blocked_on": "nothing; all out-links resolve",
     "backlinks_added": [
-      "03 and 11 now link here (\u00a75.2)",
+      "03 and 11 now link here (§5.2)",
       "magnetic-dynamo-generator.html: second series link in the existing Sources H2"
     ]
   },
@@ -476,7 +476,7 @@
         "scan_file": 364,
         "book_figs": [],
         "subject": "Page-scan crop of printed p. 346: the page number and running head, then the paragraph 'I mean the transmission of intelligible signals or perhaps even power to any distance without the use of wires', the sentence on the great majority of scientific men, and the closing question 'Why then not try to avail ourselves of the earth for this purpose?'",
-        "note": "Viewed against books/tmp/scan-p364-150ppi.png on 2026-10-11: printed page 346 and running head inside the crop, text legible. \u00a76.6 sourcing order 4, the words are the artefact, following the scan-p486.webp precedent from article 03. Cropped at 250 ppi (821x1073, 1.1x the 740 px column) so the three figures stay inside the 400 KB article gate (381 KB total). Placed in 'What the internet gets wrong', adjacent to the paragraph that says the record is a proposal with conditions, because the crop shows the claim and its hedge in one paragraph."
+        "note": "Viewed against books/tmp/scan-p364-150ppi.png on 2026-10-11: printed page 346 and running head inside the crop, text legible. §6.6 sourcing order 4, the words are the artefact, following the scan-p486.webp precedent from article 03. Cropped at 250 ppi (821x1073, 1.1x the 740 px column) so the three figures stay inside the 400 KB article gate (381 KB total). Placed in 'What the internet gets wrong', adjacent to the paragraph that says the record is a proposal with conditions, because the crop shows the claim and its hedge in one paragraph."
       }
     ],
     "figures_note": "All three figures verified against the printed pages on 2026-10-11 (task feature-004/t6): each crop opened side by side with the page render it came from, scan file 362 = printed p.344, scan file 206 = printed p.188, scan file 364 = printed p.346. Every figure number read off the printed page or the printed caption inside the crop, none from an extractor filename. Two figures the draft had used are superseded by re-crops that carry the printed captions. Recorded in website/assets/tesla1894/manifest_qc.csv rows 211-213, verdicts keep (A, B, B). Checked and rejected: Fig. 185 (printed p.348, scan file 366) exists but only as a narrow margin strip, two plans joined by a long vertical line with 'FIG. 185.' set sideways between them, unreadable at column width, so it is recorded as verified and not used; Fig. 186a/b/c (printed p.351, scan file 369) are the exhausted versus air-filled lamp experiment, not earth transmission; the brief's fig99 and fig117 are a machine photograph and a plate already used by article 01.",
@@ -507,11 +507,79 @@
     "numeric_gates": "26/26 (qa_page.py, incl. FAQPage, no-dashes, no-comments, no-PDF, dead-link); article 02 re-run 26/26; --all-series 7/8, the 8th is the unwritten hub",
     "render_note": "make_article.py from the nikola-tesla-inventor-extraordinaire.html shell, tid 1894_04: 50,379 bytes, 1 h1 / 9 h2 / 4 h3, 3 figures in <figure class=\"mb-4 pt-5\">, 36 internal links, article figure weight 372 KB (gate < 400 KB; the 230 KB p.346 page crop is what puts this page near the limit). Whole-page image weight 646 KB, of which 273 KB is the shared shell, so the note qa_page prints about the page budget applies here as it does on every series page. Rendered without --wire: sitemap.xml, llms.txt, _redirects and the articles.html card are t8, and wire_updates() truncates the llms.txt line (see the feature-004/t4 lesson). The rendered_preview in the draft directory is regenerated from the same article.md and is byte-identical to the site page; it is gitignored.",
     "visual_gates": "shot_qa.py passes at 375/768/1280 (console clean, no 404s, no horizontal overflow, nav=True 31 items, all 3 figures decode, fit the column and carry width/height). Reviewed with vision through shot_crops.py desktop + mobile crops 2026-10-11: Fig. 184 (printed p. 344) shows the alternator G, the line wires L and L1, the sectional coil II with the phosphorescence lamp B, and coil C1 through the condenser plates c and c1 to the plate P1, with the printed FIG. 184 caption inside the crop; Fig. 125 (printed p. 188) shows the two sheets in perspective, the dark column between them, two glowing exhausted tubes and the schematic connections at the left, with the printed FIG. 125 inside; the p. 346 page crop shows the page number, the running head and the paragraph its caption quotes. No page-edge junk, no distortion, and the HTML captions stay legible at 375 px. Sources block, CTA and the one-line affiliate disclosure render at both widths. The articles.html card was rendered at 1280 and 375 (books/tmp/card_shot_04.py, throwaway): not clipped, grid columns equal width, no horizontal overflow. Three things the tools cannot decide, recorded rather than hidden: at 375 px the printed labels inside Fig. 184 (G, L, L1, II, I, C1) and the printed body text of the p. 346 crop are small, legible at desktop and marginal at mobile, so the alt text and the captions carry those labels and the quoted sentence in words; the desktop nav-dropdown crop is the page region under a closed dropdown (as on 01 and 02), so the dropdown is covered only by shot_qa's nav=True/31 items; and the in-body alert-info sits at 21,671 px on mobile, below the first screen, which shot_qa reports without failing because the donor shell puts it after the article body on every series page (see the feature-004/t4 lesson).",
-    "wired": ["sitemap.xml (lastmod 2026-10-21)", "llms.txt (The 1894 File section)", "_redirects (/tesla-wireless-power-1893 301)", "articles.html card, after the article 02 card, Published October 21 2026"],
+    "wired": [
+      "sitemap.xml (lastmod 2026-10-21)",
+      "llms.txt (The 1894 File section)",
+      "_redirects (/tesla-wireless-power-1893 301)",
+      "articles.html card, after the article 02 card, Published October 21 2026"
+    ],
     "wired_note": "Written by hand, not with make_article.py --wire: wire_updates() truncates the llms.txt entry at 150 characters (feature-004/t4 lesson). The 04 entry is written out in full. Three older entries in the same section (07, 09, 11) are still in the truncated form; left alone here because they are not this task's pages, and recorded in the lessons file.",
     "backlinks_added": "articles.html now links to 04. No body in-link yet: 02 links to 04 only when feature-009/t2 closes the 02 <-> 04 reciprocal pair, and 10 and the hub do not exist yet (feature-008, feature-012). The qa_page reciprocal gate on 04 still reads ok because it is vacuous as written (feature-004/t7 lesson); the real §5.2 in-links are open and named there.",
     "blocked_on": "nothing. The §5.2 in-links from 02, 10 and the hub stay open until those pages and edits exist (feature-009/t2, feature-008, feature-012); they are not part of this task.",
     "committed": true,
     "committed_note": "Work repo: this entry, the plan row and the lessons entry. Site repo: sitemap.xml, llms.txt, _redirects and the articles.html card (the page itself, the three crops and manifest_qc.csv rows 211-213 were committed at t6/t7). No push (D6: pushing deploys)."
+  },
+  {
+    "slug": "tesla-high-frequency-massage.html",
+    "no": 5,
+    "draft": "new_content/1894-series/05-tesla-high-frequency-massage/article.md",
+    "rendered_preview": "new_content/1894-series/05-tesla-high-frequency-massage/tesla-high-frequency-massage.html",
+    "deployed": false,
+    "date": "2026-10-22",
+    "words_draft": 3111,
+    "tid": "1894_05",
+    "figures": [
+      {
+        "src": "/assets/tesla1894/p392-fig208.webp",
+        "verified": true,
+        "printed_page": 392,
+        "scan_file": 410,
+        "book_figs": [
+          208
+        ],
+        "subject": "Engraving, Fig. 208: a ring marked A lined on the inside with two sets of tin-foil coatings marked a and b, and inside it a cylinder marked B carrying coatings marked a1 and b1, the two sets led out to two ring terminals marked T with + and - signs, dashed field lines drawn through both; printed FIG. 208. caption inside the crop",
+        "note": "Viewed against books/tmp/f05t2/p410-400.png on 2026-10-11 (task feature-005/t2): chapter XXX heading and printed page 392 in the render, printed caption in place. Labels read off the crop itself: A, B, a, b, a1, b1, T, + and -. The p.392 prose matches the drawing ('a ring of dry, shellacked hard wood ... two sets of coatings of tin foil ... a cylinder ... arranged so that it can rotate'). Number taken from the printed caption, not the extractor filename. Re-cropped at 400 ppi (900x950) with the caption inside; supersedes p410-fig1-fig208.webp (680x665, 150 ppi, no printed caption). Chapter XXX is a different paper from the massage article; it is on this page because chapter XXXI has no illustration (see figures_note). manifest_qc.csv row 139 called this a 'Circular phase diagram', which it is not - caption written from the prose on the printed page."
+      },
+      {
+        "src": "/assets/tesla1894/patents/us568176-fig1.webp",
+        "verified": true,
+        "printed_page": null,
+        "scan_file": null,
+        "book_figs": [],
+        "patent": "US 568,176",
+        "subject": "Patent sheet drawing, Fig. 1 of US 568,176, Nikola Tesla, 'Apparatus for Producing Electric Currents of High Frequency and Potential': a source marked A at the bottom feeding two choking coils marked B and a plate condenser marked H through a toothed rotary controller marked C with segments D and E under two brushes F, into a transformer primary marked K with secondary marked L, that secondary led out through leads marked L' to two incandescent lamps and a long discharge tube at the top; sheet header 'No. 568,176. Patented Sept. 22, 1896.' inside the crop",
+        "note": "The §6.3 supplement for this page. Cropped 2026-10-11 from the Google Patents drawing sheet for US568176A (sheet 1 of 2) at 950x1235, header and figure number inside the crop, the witness and inventor signature block below the figure excluded. Number, title and dates read off the sheet and confirmed against the record at https://patents.google.com/patent/US568176A/en the same day: Nikola Tesla, of New York, application filed April 22 1896, patented September 22 1896. The specification's own account of Fig. 1 matches every label in the crop (A any source of direct current, A' branch conductors, B B choking coils, C the circuit-controller with insulated segments D and segments E joined to the cylinder, brushes F, condenser H, primary K, secondary L used as the source of the high-frequency currents for illumination and tubes). Chosen over the electrode families US 685,953-6 and US 583,953 because the page's argument is about the source, not the electrode: the massage paper names no apparatus, and the two passages it is set against (p.395 'a mere question of the dimensions and character of the apparatus', p.162 the injury warning about a machine, a low-resistance secondary and condensers) are about a circuit. Raw sheet kept as a local working copy at website/assets/tesla1894/patents/us568176-drawings-page-1.png; the site repo gitignores raw patent downloads and commits only the derived .webp."
+      },
+      {
+        "src": "/assets/tesla1894/p393-fig209.webp",
+        "verified": true,
+        "printed_page": 393,
+        "scan_file": 411,
+        "book_figs": [
+          209
+        ],
+        "subject": "Engraving, Fig. 209: a circular plate carrying two sets of coatings marked a and b cut as six lobed sectors, a shaft cross-section at the centre, and two leads run out to two ring terminals at the lower right; printed FIG. 209. caption inside the crop",
+        "note": "Viewed against books/tmp/f05t2/p411-400.png on 2026-10-11 (task feature-005/t2): printed page 393 and the printed caption 'FIG. 209.' legible inside the crop. The p.393 prose names this plate Fig. 209 ('Another form of apparatus is illustrated in Fig. 209 ... the coatings a and b are glued on a plate of ebonite, and a similar plate which is rotated ... is provided'), which is what is drawn. The extractor file was named fig208 and manifest_qc.csv row 140 already records that number as wrong; the number here is read off the printed caption. Re-cropped at 400 ppi (860x910); supersedes p411-fig1-fig208.webp (645x639, 150 ppi, wrong number, no caption)."
+      }
+    ],
+    "figures_note": "Verified 2026-10-11 (task feature-005/t2). Chapter XXXI ('MASSAGE WITH CURRENTS OF HIGH FREQUENCY', printed pp. 394 to 395, scan files 412 and 413) carries no illustration: both pages were rendered from books/pdf-pages-tesla-1894/page-412.pdf and page-413.pdf and viewed (books/tmp/f05t2/v-p394-small.png, v-p395-small.png), the extractor cut nothing from either, and manifest.csv and manifest_qc.csv have no row for them. That is the §6.2/§6.3 gap this page was flagged for, so the page carries one patent plate. The two engravings are from the adjacent chapter XXX, which §6.6 sourcing order 2 allows for exactly this case; the p. 394 page-scan crop that §9 brief 05 suggests is NOT used, because qa_page.py gates the page at 2-3 figures and §6.3's ratio caps the patent plate at one per two engravings, so a fourth figure cannot ship - the 'patent medicine' paragraph is quoted in full in the body instead. Ratio as shipped: 1 patent plate to 2 1894 engravings, exactly at the cap. Figure weight 239 KB (104 + 87 + 53 KB), inside the 400 KB article gate. Checked and not used: no other article in this index carries fig208 or fig209; the superseded extractor crops p410-fig1-fig208.webp and p411-fig1-fig208.webp are left in the site repo as they were for articles 02 and 04. New manifest_qc.csv rows 214-216, verdicts keep (A, A, A).",
+    "quotes_pages": [
+      162,
+      392,
+      393,
+      394,
+      395,
+      495
+    ],
+    "quotes_note": "check_quotes.py: 0 problems, every quote verbatim and page-cited, re-run 2026-10-11 after the figure captions and the patent paragraph were edited. The chapter's own footnote was re-read at 400 ppi from books/tmp/f05t2/p412x-1.png: it prints 'Article by Mr. Tesla in The Electrical Engineer of Dec. 23d, 1891.', which matches the date given in the sources block.",
+    "internal_links": [
+      "How-Much-Noise-Does-a-Free-Energy-Device-Make.html",
+      "magnetic-generator-scam.html",
+      "tesla-high-frequency-alternator.html",
+      "tesla-lit-lamps-without-wires.html"
+    ],
+    "blocked_on": "nothing for figures. t3 (render + qa_page.py) and t4 (shot_qa at 3 widths, sitemap/llms.txt/_redirects/articles.html card) are still open; the §5.2 out-link to article 10 stays deferred to feature-009/t2 as recorded in the draft, since tesla-free-energy-what-he-said.html does not exist yet and would fail the dead-link gate at t3.",
+    "committed": true,
+    "committed_note": "Work repo: this entry and the draft's figures block, patent paragraph and sources entry. Site repo: the three figure files (p392-fig208.webp, p393-fig209.webp, patents/us568176-fig1.webp) and manifest_qc.csv rows 214-216. No push (D6: pushing deploys)."
   }
 ]

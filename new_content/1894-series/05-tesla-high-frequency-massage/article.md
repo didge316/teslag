@@ -10,46 +10,40 @@ series_no: 5
 primary_query: tesla high frequency current therapy
 tid: "1894_05"
 og_image: assets/og/tesla-high-frequency-massage.webp
-card_image: assets/tesla1894/p410-fig1-fig208.webp
-card_alt: "1894 diagram from chapter XXX, printed p. 392: a hard-wood ring lined with two sets of tin-foil coatings, with a charged cylinder arranged to rotate inside it"
+card_image: assets/tesla1894/p392-fig208.webp
+card_alt: "1894 engraving from chapter XXX, printed p. 392: a hard-wood ring lined with two sets of tin-foil coatings, with a charged cylinder arranged to rotate inside it"
 standfirst: "Nikola Tesla printed two pages about high-frequency currents and the human body, and the 1894 book reproduces them in full. In the first he insists he is not a patent-medicine man. In the second he warrants one effect, heating, and ends by saying whether the effects are beneficial remains to be proved."
 figures:
-  # Figure task feature-005/t2 owns these. Chapter XXXI (printed pp. 394 to 395) carries no
-  # illustration at all: the extractor cut nothing from scan files 412 to 413 and
-  # website/assets/tesla1894/manifest_qc.csv has no row for them, which is why §6.3 requires a
-  # patent supplement for this page. Both crops below are from the adjacent chapter XXX, which
-  # §6.6 rule 2 allows for exactly this article. Neither has been viewed against its printed page.
-  # t2 must open books/pdf-pages-tesla-1894/page-410.pdf and page-411.pdf before either ships.
+  # Figure task feature-005/t2 (2026-10-11): all three viewed against the printed page or the
+  # patent sheet before use, and re-cropped from the page renders at 400 ppi / the patent sheet at
+  # 300 ppi so the printed caption or the patent number is inside the crop.
+  # Chapter XXXI (printed pp. 394 to 395) carries no illustration: the extractor cut nothing from
+  # scan files 412 to 413, manifest.csv and manifest_qc.csv have no row for them, and both page
+  # renders were opened and are text only. That is the §6.3 gap, so this page carries one patent
+  # plate. The two engravings are from the adjacent chapter XXX, which §6.6 rule 2 allows for
+  # exactly this article; §6.3's ratio (one patent plate per two 1894 engravings) is met exactly.
+  # The p. 394 page-scan crop that §9 brief 05 suggests is NOT on this page: qa_page.py gates the
+  # page at 2-3 figures and the ratio rule caps the patent plate at one, so a fourth figure cannot
+  # ship. The 'patent medicine' paragraph is quoted in full in the body instead.
   # manifest_qc.csv describes the p. 392 crop as 'Circular phase diagram: a ring with six marked
   # points and radial/diagonal connecting lines', which is not what the p. 392 prose describes for
-  # Fig. 208 (a shellacked hard-wood ring with two sets of tin-foil coatings, a charged cylinder
-  # rotating inside it, the ring mica-lined). Caption from the prose on the page, never from the
-  # QC subject line or the OCR caption.
-  - src: /assets/tesla1894/p410-fig1-fig208.webp
-    alt: "1894 diagram from chapter XXX, printed p. 392: a ring with two sets of coatings inside it and a cylinder arranged to rotate close inside the ring, the two sets of coatings wired to terminals marked T"
-    width: 680
-    height: 665
-    caption: "NOT YET VISUALLY VERIFIED (figure task t2). The plate that introduces chapter XXX, printed p. 392. The prose on that page describes it: a ring of dry shellacked hard wood lined with two sets of tin-foil coatings, the sets wired to two terminals, and a cylinder of the same wood carrying the same coatings charged to high potential by a Holtz or Wimshurst machine, set to rotate inside the ring (1894, p. 392). Chapter XXX is a different paper from the massage article, an article in The Electrical Engineer of May 6 1891. Public domain."
-  # The second crop's filename number is wrong and manifest_qc.csv already says so: 'p.393 tagged
-  # Fig.208 (that is the p.392 ring) - number wrong, image clean'. The p. 393 prose calls this
-  # plate Fig. 209 ('Another form of apparatus is illustrated in Fig. 209'), and its printed caption
-  # came out of the OCR as 'FIG. 20«J'. t2 must read the number off the printed page.
-  - src: /assets/tesla1894/p411-fig1-fig208.webp
-    alt: "1894 diagram from chapter XXX, printed p. 393: two flat plates, one of them rotated, each carrying two sets of tin-foil coatings, with the coatings of the moving plate charged to high potential"
-    width: 645
-    height: 639
-    caption: "NOT YET VISUALLY VERIFIED (figure task t2). The second plate of chapter XXX, printed p. 393, which the prose on that page calls Fig. 209: the two sets of tin-foil coatings are glued on a plate of ebonite, and a similar plate, rotated, has its coatings charged as in the first figure (1894, p. 393). The extractor filename says Fig. 208; the printed page says otherwise, and manifest_qc.csv already records the number as wrong. Public domain."
-  # t2 must add a third figure here, per §9 brief 05 and §6.6 rule 4 (the words are the artefact):
-  # a page-scan crop of printed p. 394, the page the 'patent medicine' paragraph is on, cropped from
-  # books/pdf-pages-tesla-1894/page-412.pdf. Article 03 did the same for printed p. 486 and article
-  # 04 for printed p. 346; follow their crop handling and credit line, and keep the article figure
-  # weight inside the 400 KB gate.
-  # t2 must also confirm one high-frequency electrode patent on patents.google.com and credit it
-  # 'US patent NNN,NNN (year), Nikola Tesla.' (§4.2). No number is fixed yet; never ship an
-  # unverified one. §6.3 ratio: at most one patent plate per two 1894 engravings, so with the two
-  # chapter XXX plates above, one patent drawing is the maximum.
-  # Never reuse an engraving another article carries: check index.json figures[] before swapping
-  # either plate for anything from chapters XXVI, XXVIII or XXIX.
+  # Fig. 208. Captions are written from the prose on the printed page, never from the QC subject
+  # line or the OCR caption.
+  - src: /assets/tesla1894/p392-fig208.webp
+    alt: "1894 engraving from chapter XXX, printed p. 392, Fig. 208: a ring marked A lined on the inside with two sets of tin-foil coatings marked a and b, and a cylinder marked B carrying coatings marked a1 and b1 arranged to rotate close inside it, the two sets led out to two ring terminals marked T"
+    width: 900
+    height: 950
+    caption: "Fig. 208, printed p. 392, with the printed caption inside the crop. The text beside it describes what is drawn: a ring of dry shellacked hard wood with two sets of tin-foil coatings on its inside, and inside that ring, in close proximity, a cylinder of the same wood carrying similar coatings charged to a high potential by a Holtz or Wimshurst machine and arranged to rotate (1894, pp. 392 to 393). This is chapter XXX, a different paper from the massage article, an article in The Electrical Engineer of May 6 1891. It is on this page because chapter XXXI has no illustration of its own, and it is not the apparatus of the massage paper, which names none. Public domain."
+  - src: /assets/tesla1894/patents/us568176-fig1.webp
+    alt: "1896 patent drawing, US 568,176, Nikola Tesla, Fig. 1: a source of high-frequency high-potential currents drawn as a circuit diagram, a supply main and a source marked A at the bottom feeding two choking coils marked B and a plate condenser marked H, a rotary interrupter marked C with segments D and E touched by brushes F, a transformer with primary windings marked K and a secondary marked L, and that secondary led out through the leads marked L' to two incandescent lamps and a long discharge tube at the top"
+    width: 950
+    height: 1235
+    caption: "Sheet drawing Fig. 1 from US patent 568,176 (1896), Nikola Tesla, 'Apparatus for Producing Electric Currents of High Frequency and Potential', filed April 22 1896, patented September 22 1896. The number and the date are legible on the sheet. Public domain. This is not the apparatus of the 1891 experiments, which the paper never describes; it is Tesla's later way of getting currents of high frequency and high potential out of an ordinary direct-current supply, drawn as a machine, a condenser marked H and a transformer secondary marked L. The 1894 volume prints his own warning about exactly those parts: currents 'if received directly from a machine or from a secondary of low resistance, they produce more or less powerful effects, and may cause serious injury, especially when used in conjunction with condensers' (1894, p. 162)."
+  - src: /assets/tesla1894/p393-fig209.webp
+    alt: "1894 engraving from chapter XXX, printed p. 393, Fig. 209: a circular plate carrying two sets of tin-foil coatings marked a and b, cut as six lobed sectors, with two leads run out to two ring terminals"
+    width: 860
+    height: 910
+    caption: "Fig. 209, printed p. 393, with the printed caption inside the crop. The prose on the page names this plate Fig. 209 and says what is drawn: in this apparatus the two sets of tin-foil coatings are glued on a plate of ebonite, and a similar plate which is rotated, and the coatings of which are charged as in Fig. 208, is provided (1894, p. 393). The extractor file for this plate was named fig208 and manifest_qc.csv already records that number as wrong; the number here is read off the printed caption. Public domain."
 # §5.2 out-link map for this article: magnetic-generator-scam.html (present, below),
 # How-Much-Noise-Does-a-Free-Energy-Device-Make.html (present, below), and 10 =
 # tesla-free-energy-what-he-said.html. That third target is NOT deferred by choice: article 10 is
@@ -80,6 +74,8 @@ sources:
     url: "https://doi.org/10.7759/cureus.57427"
   - text: "Almalty AR, Abdelnour HM, Hawamdeh M, Alkhob SA. \"Physiotherapists' Understanding of Shortwave Diathermy Contraindications: A Questionnaire Survey.\" Risk Management and Healthcare Policy 16 (2023) 1171 to 1185, for the statement that some physiotherapy services have reduced their use of short-wave diathermy for want of evidence of efficacy"
     url: "https://doi.org/10.2147/RMHP.S413806"
+  - text: "US patent 568,176, 'Apparatus for Producing Electric Currents of High Frequency and Potential', Nikola Tesla, of New York, application filed April 22 1896, patented September 22 1896. The number, title and date were read off the drawing sheet used as the figure on this page, and the same three are given in the public record at patents.google.com, checked 11 October 2026"
+    url: "https://patents.google.com/patent/US568176A/en"
   - text: "Every quote here was re-grepped from the text layer of our scan and pinned to its printed page before drafting; the register is new_content/1894-series/05-tesla-high-frequency-massage/quotes.md, re-runnable with books/tools/grep_quote.py and regenerated by gen_quotes.py in that directory"
 ---
 
@@ -160,7 +156,7 @@ second, and a rotor with 480 polar projections on each side gave 30,000 (1894, p
 Those machines, and the reasons they were hard to build, are the subject of
 [Tesla's high-frequency alternator](tesla-high-frequency-alternator.html).
 
-![1894 diagram from chapter XXX, printed p. 392: a ring with two sets of coatings inside it and a cylinder arranged to rotate close inside the ring, the two sets of coatings wired to terminals marked T](/assets/tesla1894/p410-fig1-fig208.webp "NOT YET VISUALLY VERIFIED (figure task t2). The plate that introduces chapter XXX, printed p. 392. The prose on that page describes it: a ring of dry shellacked hard wood lined with two sets of tin-foil coatings, the sets wired to two terminals, and a cylinder of the same wood carrying the same coatings charged to high potential by a Holtz or Wimshurst machine, set to rotate inside the ring (1894, p. 392). Chapter XXX is a different paper from the massage article, an article in The Electrical Engineer of May 6 1891. Public domain.")
+![1894 engraving from chapter XXX, printed p. 392, Fig. 208: a ring marked A lined on the inside with two sets of tin-foil coatings marked a and b, and a cylinder marked B carrying coatings marked a1 and b1 arranged to rotate close inside it, the two sets led out to two ring terminals marked T](/assets/tesla1894/p392-fig208.webp "Fig. 208, printed p. 392, with the printed caption inside the crop. The text beside it describes what is drawn: a ring of dry shellacked hard wood with two sets of tin-foil coatings on its inside, and inside that ring, in close proximity, a cylinder of the same wood carrying similar coatings charged to a high potential by a Holtz or Wimshurst machine and arranged to rotate (1894, pp. 392 to 393). This is chapter XXX, a different paper from the massage article, an article in The Electrical Engineer of May 6 1891. It is on this page because chapter XXXI has no illustration of its own, and it is not the apparatus of the massage paper, which names none. Public domain.")
 
 The plate above belongs to the chapter next door, and it is worth pausing on it because it is
 the counter-example to everything the wellness version claims. That apparatus makes alternating
@@ -224,6 +220,20 @@ produce more or less powerful effects, and may cause serious injury, especially 
 conjunction with condensers" (1894, p. 162). That is a warning about a machine and a jar, not
 about a handheld wand, and nothing on this page is an invitation to try any of it at home.
 
+![1896 patent drawing, US 568,176, Nikola Tesla, Fig. 1: a source of high-frequency high-potential currents drawn as a circuit diagram, a supply main and a source marked A at the bottom feeding two choking coils marked B and a plate condenser marked H, a rotary interrupter marked C with segments D and E touched by brushes F, a transformer with primary windings marked K and a secondary marked L, and that secondary led out through the leads marked L' to two terminals at the top](/assets/tesla1894/patents/us568176-fig1.webp "Sheet drawing Fig. 1 from US patent 568,176 (1896), Nikola Tesla, 'Apparatus for Producing Electric Currents of High Frequency and Potential', filed April 22 1896, patented September 22 1896. The number and the date are legible on the sheet. Public domain. This is not the apparatus of the 1891 experiments, which the paper never describes; it is Tesla's later way of getting currents of high frequency and high potential out of an ordinary direct-current supply, drawn as a machine, a condenser marked H and a transformer secondary marked L. The 1894 volume prints his own warning about exactly those parts: currents 'if received directly from a machine or from a secondary of low resistance, they produce more or less powerful effects, and may cause serious injury, especially when used in conjunction with condensers' (1894, p. 162).")
+
+The warning is about a circuit, and this is a circuit: a rotary interrupter C carrying toothed
+segments under two brushes F, the segments D insulated and the segments E joined to the body of
+the cylinder so that the circuit closes as the wheel turns, a plate condenser H, a transformer
+with a primary K and a secondary L, and choking coils B in the supply line. Tesla patented it in 1896, four
+years after the paper the book prints as chapter XXXI, and it is not the machine of the 1891
+demonstrations, which no text in this volume describes part by part. It belongs on this page
+because it is what his own sentences keep pointing at. The massage paper puts the whole effect in
+a design question, 'It is a mere question of the dimensions and character of the apparatus to
+produce any degree of heating desired' (1894, p. 395), and the lecture says where the hazard
+sits: in the machine, the secondary and the condenser. Neither passage is about a hand-held wand,
+and neither one sets out a dose.
+
 ## What the internet gets wrong
 
 **That Tesla signed off on current therapy.** He signed off on heating, and he published the
@@ -270,7 +280,7 @@ to: "The effects, however, cannot be compared with those obtainable with an indu
 which is operated by an alternate current machine of high frequency, some of which were
 described by me a short while ago" (1894, p. 393).
 
-![1894 diagram from chapter XXX, printed p. 393: two flat plates, one of them rotated, each carrying two sets of tin-foil coatings, with the coatings of the moving plate charged to high potential](/assets/tesla1894/p411-fig1-fig208.webp "NOT YET VISUALLY VERIFIED (figure task t2). The second plate of chapter XXX, printed p. 393, which the prose on that page calls Fig. 209: the two sets of tin-foil coatings are glued on a plate of ebonite, and a similar plate, rotated, has its coatings charged as in the first figure (1894, p. 393). The extractor filename says Fig. 208; the printed page says otherwise, and manifest_qc.csv already records the number as wrong. Public domain.")
+![1894 engraving from chapter XXX, printed p. 393, Fig. 209: a circular plate carrying two sets of tin-foil coatings marked a and b, cut as six lobed sectors, with two leads run out to two ring terminals](/assets/tesla1894/p393-fig209.webp "Fig. 209, printed p. 393, with the printed caption inside the crop. The prose on the page names this plate Fig. 209 and says what is drawn: in this apparatus the two sets of tin-foil coatings are glued on a plate of ebonite, and a similar plate which is rotated, and the coatings of which are charged as in Fig. 208, is provided (1894, p. 393). The extractor file for this plate was named fig208 and manifest_qc.csv already records that number as wrong; the number here is read off the printed caption. Public domain.")
 
 Two questions, and they are the whole method. What is the source, and what does it output?
 Tesla answered them about his own apparatus before anyone else could: a rotating-plate machine
