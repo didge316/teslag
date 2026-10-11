@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "baseRevision": 31,
+  "baseRevision": 32,
   "goals": [
     {
       "id": "goal-001",
@@ -525,7 +525,7 @@
           "id": "t4",
           "key": "feature-005/t4",
           "description": "Article 05 visual QA, wiring, commit",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-005/t3"
           ],

@@ -166,14 +166,14 @@
     }
   },
   "maxRetries": 50,
-  "retryCount": 28,
-  "taskRetryCount": 28,
+  "retryCount": 29,
+  "taskRetryCount": 29,
   "featureRetryCount": 0,
-  "phaseRetryCount": 28,
+  "phaseRetryCount": 29,
   "retryPerLevel": {
     "subtask": 0,
-    "phase": 28,
-    "task": 28
+    "phase": 29,
+    "task": 29
   },
   "pipelineIteration": 2,
   "gateHistory": [
@@ -641,6 +641,18 @@
       "timestamp": "2026-10-11T07:29:01.660Z",
       "feature": "feature-005",
       "task": "feature-005/t3"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T07:29:41.559Z"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-11T07:44:14.501Z",
+      "feature": "feature-005",
+      "task": "feature-005/t4"
     }
   ]
 }
