@@ -97,3 +97,32 @@ not exist in the site repo, on all seven shipped pages (legacy pages use real `a
 Nothing in `qa_page.py` or `make_article.py` looks at the og file, and §12's "OG legibility" is a
 vision gate over a file that was never made. feature-010 already owns this (OG images for all 13
 pages), so it is left to that feature rather than fixed as a per-article side fix.
+
+## 2026-10-11 — feature-004/t8: the wiring half of a task has no test, and a page-scan figure is not legible on mobile
+
+shot_qa.py passes on 04 at 375/768/1280 (console clean, no 404s, no overflow, nav intact, all
+three figures decode and fit the column) and the shot_crops.py desktop + mobile crops were
+reviewed by eye: Fig. 184 (printed p. 344), Fig. 125 (p. 188) and the p. 346 page crop each show
+what their alt and caption say, with the printed captions inside the first two. Nothing to fix.
+Two limits worth recording:
+
+A page-scan figure is a different object from a figure crop. At 1280 the p. 346 crop is readable
+as type; at 375 the printed body text is about the size of a footnote and the labels inside
+Fig. 184 (G, L, L1, II, I, C1) drop below readable. §12's "caption legibility" is about the HTML
+caption, which holds at both widths, so this is not a gate failure — but it means a page-crop
+figure must never be the only place a claim appears. 04's caption quotes the sentence in full and
+the body quotes it again, which is why the crop is acceptable. Any future page-crop figure needs
+the same, and should be sized against the 375 px column, not the desktop one.
+
+Second: `articles.html` has no QA tool at all. shot_qa.py and shot_crops.py both work from
+`article figure` and the series-page DOM, so the card that "wired" requires is added blind. Wrote
+books/tmp/card_shot_04.py (throwaway, gitignored) to shoot just that card and its grid row at
+1280 and 375 and measure clipping, column width and page overflow — all clean. Lesson: five more
+articles and the hub each add a card, so if that check is done twice more it belongs in
+books/tools/, not in tmp/.
+
+Also still true and left alone: three llms.txt entries in The 1894 File section (07, 09, 11) are
+still in the truncated `--wire` form, ending mid-word ("the man w", "It al", "give a paper ").
+01, 02 and 04 are written out in full. Nothing reads llms.txt back and no gate checks it, so the
+only way these get fixed is someone noticing. Not fixed here because those are not this task's
+pages; the fix is three sentences of standfirst, whenever someone is in there.
