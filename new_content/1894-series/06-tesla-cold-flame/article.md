@@ -26,8 +26,8 @@ figures:
   # books/tools/fig_crop.py --printed <N> --view --view-ppi 500. scan-p183-500ppi.png = printed p. 165,
   # scan-p186-500ppi.png = printed p. 168, scan-p244-500ppi.png = printed p. 226
   # (printed page = scan file - 18, §0). Each crop is at
-  # 500 ppi, the native resolution of the scan image embedded in the page PDFs (1856 x 3226 px a
-  # page), carries its printed caption inside the crop, and is the whole plate rather than the
+  # 500 ppi, the native resolution of the scan image embedded in the page PDFs (1856 x 3227 px a
+  # page, measured on the renders of scan files 183, 184, 186 and 244), carries its printed caption inside the crop, and is the whole plate rather than the
   # 150 ppi fragment the extractor cut. Figure weight as used: 56 + 51 + 51 = 158 KB, inside the
   # 400 KB article gate. What was read off the print, and where:
   #   printed p. 165 (scan file 183): two photographs side by side, 'FIG. 109.' under the left and
@@ -41,10 +41,44 @@ figures:
   #     renders both as 'FIG. ill.' for 111.
   #   printed p. 226 (scan file 244): printed captions 'FIG. 141.' under this plate and 'FIG. 142.'
   #     under the plate to its right (figures/p226-caption-band-fig141-fig142.png). Figure 3 below is the
-  #     left-hand plate. The italic part letters in this print are too degraded to read even at
-  #     500 ppi (figures/p226-fig141-part-letter-zoom.png), so the alt text names shapes only and the
-  #     parts are named in the caption from the p. 226 prose, which is the quote pinned in
-  #     quotes.md under 'Printed p. 226 (scan file 244)'.
+  #     left-hand plate. The small italic letters inside this plate, by the tube, at the pool and at the
+  #     ring, are smudges even at 500 ppi (figures/p226-fig141-part-letter-zoom.png), so the alt text
+  #     names shapes only and the parts are named in the caption from the p. 226 prose, which is the
+  #     quote pinned in quotes.md under 'Printed p. 226 (scan file 244)'. The globe label is NOT one of
+  #     the illegible ones. It was re-opened at 500 ppi at feature-005/a06-figrec on 2026-10-12 because
+  #     the record contradicted itself there, and it is an italic L. Two reads settle it, both against the
+  #     print of the same page, and both recorded in figures/README.md with their exact boxes:
+  #       (a) the printed line that names the globe. The page's text layer puts the word it renders 'Z,'
+  #     at x 245.088-252.351 pt, y 384.330-392.338 pt of a 267.264 x 464.544 pt page, i.e. 6.9444 px
+  #     per pt in the 500 ppi render. Cropping that box (x 1381, y 2645 to x 1770, y 2743) shows the
+  #     line ending '...lamp globe L,': a serif bar across the top of the letter, one stem slanting
+  #     down-left, a foot running right and turning up at its end, then a comma. That is an L; a Z needs
+  #     a top bar the full width of the letter and a flat bottom bar, and this glyph has neither
+  #     (figures/p226-textline-globe-L.png, sha256 c2d99d772a24d88a4da080d1f087babc6ebbbd0518eaf6fb
+  #     d69431f242fd7fe3).
+  #       (b) the plate label is the same letterform. Mapped at native pixels, no interpolation, the
+  #     glyph at the right edge of the globe (x 795-818, y 1467-1490 of the render) has the same three
+  #     strokes in the same arrangement as that printed italic L: short serif bar above the top of the
+  #     stem, one stem slanting down-left, foot running right and turning up. It is 23 px tall against
+  #     the body text's 33 px, which is why a 4x LANCZOS upscale of it reads as a '7' - the interpolation
+  #     smears the serif bar into a top bar and the rising foot into a flat one. The crops are
+  #     figures/p226-fig141-globe-label.png (180 x 160 px, box x 740 to 920 and y 1440 to 1600 of
+  #     books/tmp/scan-p244-500ppi.png, sha256 f8f427dd67fcebbacb0717808dfc5ad3beaeb9787be459b353dcb9e04619cfa0)
+  #     and the same crop at 4x, figures/p226-fig141-globe-label-4x.png, sha256
+  #     b8c69c9b293e1a164a0aa6897b71f76e13294886f72f4923490bea083a108e6e; the read was made from the
+  #     native pixels, not from the upscale. Both label crops re-derive from those boxes exactly:
+  #     re-cut at this task out of books/tmp/scan-p244-500ppi.png, the plate crop reproduces sha256
+  #     f8f427dd... byte for byte and the printed-line crop reproduces c2d99d77... byte for byte, so
+  #     the boxes are not an approximation and anyone can re-make the read from them.
+  #     So the text layer is the wrong one twice over: it prints 'incandescent lamp globe Z' where the
+  #     type says L, and it renders the barometer tube's label as '&' in the same sentence. The p. 227
+  #     line 'When the globe L (Figs. 141 and 142)' on printed p. 227 is not quoted on the page but is
+  #     verbatim in the volume's text layer, and the p. 228 sentence 'it is usually sufficient to grasp
+  #     the globe L with the hand', which the page quotes in its FAQ answer, are clean text and agree
+  #     with the plate.
+  #     The caption and the quoted description keep eliding the letter positions, because check_quotes.py
+  #     checks against the OCR text and 'globe L' would not match it there; the label is recorded here
+  #     and in figures/README.md, not in the page copy.
   # No other article in this series carries Figs. 109, 110, 111 or 141 (index.json figures[] read
   # 2026-10-11 and again 2026-10-12), so §6.6's no-reuse rule is satisfied.
   # NONE OF THE THREE IS AN ENGRAVING. The art in this part of the volume is photographic: Figs. 109

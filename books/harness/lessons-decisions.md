@@ -244,3 +244,43 @@ Three different word counts were in circulation for the same draft (5,113 in the
 records the method and the variants. Lesson: a count without its method is a claim, and the
 `words_draft` numbers in `index.json` are snapshots of one particular measure, not comparable to
 anything counted a different way.
+
+## 2026-10-12 — feature-005/a06-figrec (rework pass): the Fig. 141 globe label was settled here, not at t6
+
+The entry above says settling the label and narrowing the front-matter claim "stays with
+feature-005/t6". That is superseded: the task went to rework (the previous attempt died on a
+turn timeout with the tree modified and uncommitted), and in this pass the label was settled and
+the front-matter sentence narrowed. What the record now says, and how it was proved:
+
+- The globe label is an italic `L`, the text layer's `Z` is the mis-read. Two reads, both against
+  the print of the same page: the printed line that introduces the plate (cropped from the text
+  layer's own bbox for the word it renders `Z,` — x 245.088–252.351 pt × 6.9444 px/pt at 500 ppi —
+  ends `…lamp globe L,`), and the plate glyph itself, which has the same three strokes as that
+  printed italic `L`. The clean body text agrees: `When the globe L (Figs. 141 and 142)` (p. 227)
+  and the p. 228 sentence the page already quotes verbatim.
+- A 23 px glyph read from a 4x LANCZOS upscale reads as a `7`; interpolation smears the serif bar
+  into a top bar and the rising foot into a flat one. The read was made from a native-pixel map.
+  Lesson: for a label this small, print the pixels, do not upscale them.
+- The two label crops were re-cut from the boxes now recorded in `figures/README.md` and came out
+  byte-identical to the committed files. The five t6 crops cannot be re-cut at all — their boxes
+  were never written down. Lesson: record the `--box` with the crop, or the crop is evidence only
+  for as long as the working directory lives.
+- Two incidental numbers in the record were wrong and are corrected: the 500 ppi page size, given
+  as 1856 x 3226 in the front matter and the README, is 1856 x 3227 on all four renders; and the
+  README's account of its own provenance ("seven of eight" from t6) is five from t6 and three cut
+  at this task.
+- Still open and still not this task's: `manifest_qc.csv` has no rows for the three published
+  crops (the file still ends at rows 214-216), which belongs with feature-005/t6.
+
+Closing `feature-005/t6` at this task. Its plan row was still `pending` when no commit has its
+name: the reading was done 2026-10-11/12 and its output (the front-matter record and the five
+`books/tmp/f05t6*` crops, copied out and committed) went in under `feature-005/a06-wipcommit`,
+so the row was never closed and `a06-figrec` could not be marked complete while it was open —
+the plan tool refuses a `complete` task with an incomplete dependency. Checked against t6's three
+criteria rather than assumed: the record was read before anything was re-opened; only the figure
+whose evidence contradicted itself was re-opened at 500 ppi; and every read is written into the
+front matter and `figures/README.md`, not left in gitignored `books/tmp/`. All three hold, so the
+row is closed here. What is genuinely still open, and is now t7's and t8's and a06-wirecommit's
+rather than t6's: the `manifest_qc.csv` rows for the three published crops. Lesson: a task whose
+work landed in someone else's commit still needs its own row closed, or the next task inherits a
+dependency it cannot satisfy.
