@@ -1,54 +1,104 @@
+# ---------------------------------------------------------------------------
+# URL scheme: this site's canonical URLs are extensionless. Cloudflare Pages
+# resolves /x to x.html natively and 308-redirects /x.html and /x/ to /x, so
+# canonicals, sitemap and internal links all use the extensionless form.
+#
+# Rules below are for legacy WordPress slugs only - paths that have no matching
+# file. Each one is written in BOTH forms (no trailing slash and trailing
+# slash): Cloudflare treats /foo and /foo/ as different paths, and the
+# trailing-slash form used to fall through to the SPA fallback and serve the
+# homepage at HTTP 200 (a soft 404). That gap carried 76% of all impressions.
+#
+# Do NOT add rules whose source is an existing page slug - asset resolution
+# runs before _redirects, so such a rule never fires, and its presence stops
+# Cloudflare from normalising the trailing-slash variant.
+# ---------------------------------------------------------------------------
+
+# --- ClickBank affiliate links --------------------------------------------
 /wplink.php    https://d8eb82m1v0d-e34sx8nd2men7t.hop.clickbank.net/?tid=wplink
-/wp-link.php    https://d8eb82m1v0d-e34sx8nd2men7t.hop.clickbank.net/?tid=wplink
-/wplink2.php    https://d8eb82m1v0d-e34sx8nd2men7t.hop.clickbank.net/?tid=wplink2
-/wp-link2.php    https://d8eb82m1v0d-e34sx8nd2men7t.hop.clickbank.net/?tid=wplink2
-/wplink3.php    https://d8eb82m1v0d-e34sx8nd2men7t.hop.clickbank.net/?tid=wplink3
-/wp-link3.php    https://d8eb82m1v0d-e34sx8nd2men7t.hop.clickbank.net/?tid=wplink3
-/wplink4.php    https://d8eb82m1v0d-e34sx8nd2men7t.hop.clickbank.net/?tid=wplink4
-/wp-link4.php    https://d8eb82m1v0d-e34sx8nd2men7t.hop.clickbank.net/?tid=wplink4
+/wp-link.php   https://d8eb82m1v0d-e34sx8nd2men7t.hop.clickbank.net/?tid=wplink
+/wplink2.php   https://d8eb82m1v0d-e34sx8nd2men7t.hop.clickbank.net/?tid=wplink2
+/wp-link2.php  https://d8eb82m1v0d-e34sx8nd2men7t.hop.clickbank.net/?tid=wplink2
+/wplink3.php   https://d8eb82m1v0d-e34sx8nd2men7t.hop.clickbank.net/?tid=wplink3
+/wp-link3.php  https://d8eb82m1v0d-e34sx8nd2men7t.hop.clickbank.net/?tid=wplink3
+/wplink4.php   https://d8eb82m1v0d-e34sx8nd2men7t.hop.clickbank.net/?tid=wplink4
+/wp-link4.php  https://d8eb82m1v0d-e34sx8nd2men7t.hop.clickbank.net/?tid=wplink4
 /wplink-con.php    https://d8eb82m1v0d-e34sx8nd2men7t.hop.clickbank.net/?tid=wplinkcon
-/wp-link-con.php    https://d8eb82m1v0d-e34sx8nd2men7t.hop.clickbank.net/?tid=wplinkcon
-/wplink-con2.php    https://d8eb82m1v0d-e34sx8nd2men7t.hop.clickbank.net/?tid=wplinkcon2
-/wp-link-con2.php    https://d8eb82m1v0d-e34sx8nd2men7t.hop.clickbank.net/?tid=wplinkcon2
+/wp-link-con.php   https://d8eb82m1v0d-e34sx8nd2men7t.hop.clickbank.net/?tid=wplinkcon
+/wplink-con2.php   https://d8eb82m1v0d-e34sx8nd2men7t.hop.clickbank.net/?tid=wplinkcon2
+/wp-link-con2.php  https://d8eb82m1v0d-e34sx8nd2men7t.hop.clickbank.net/?tid=wplinkcon2
 
-# Home
-/                                /index.html                    301
+# --- Legacy WordPress slugs -> current canonical URL -----------------------
+# whole-house
+/homemade-magnetic-generator                    /whole-house    301
+/homemade-magnetic-generator/                   /whole-house    301
 
-# Magnetic Generator Pages
-/homemade-magnetic-generator    /whole-house.html             301
-/how-to-build-a-magnetic-generator /build-a-magnetic-generator.html 301
-/energize-your-home-with-a-diy-magnetic-generator /diy-magnetic-generator.html 301
-/generate-electricity-using-magnets /electricity-using-magnets.html 301
-/free-energy-magnet-motor        /magnet-motor.html            301
-/how-to-make-free-electricity-at-home /How-to-Make-Free-Electricity-at-Home.html 301
-/how-much-noise                  /How-Much-Noise-Does-a-Free-Energy-Device-Make.html 301
-/you-will-never-see-a-magnetic-generator-for-sale /can-I-buy.html 301
+# build-a-magnetic-generator
+/how-to-build-a-magnetic-generator              /build-a-magnetic-generator    301
+/how-to-build-a-magnetic-generator/             /build-a-magnetic-generator    301
 
-# Perpetual Motion Pages
-/perpetual-motion-machines       /perpetual-motion-generator.html 301
-/how-to-build-a-perpetual-motion-generator /build-a-perpetual-motion-generator.html 301
+# diy-magnetic-generator
+/energize-your-home-with-a-diy-magnetic-generator          /diy-magnetic-generator    301
+/energize-your-home-with-a-diy-magnetic-generator/         /diy-magnetic-generator    301
 
-# Solar and Free Energy Pages
-/solar-power                     /solar.html                   301
-/tesla-generator-scam            /magnetic-generator-scam.html 301
-# Old WordPress post "Free Energy Generator: Real or Fake?" - no such page in this
-# repo, so the slug used to fall through to the homepage (soft 404).
-/free-energy-generator-real-or-fake /magnetic-generator-scam.html 301
+# electricity-using-magnets
+/generate-electricity-using-magnets             /electricity-using-magnets    301
+/generate-electricity-using-magnets/            /electricity-using-magnets    301
 
-# Tesla and Magnet Facts
-/tesla_wp/nikola-tesla-inventor-extraordinaire /nikola-tesla-inventor-extraordinaire.html 301
-/nikola_tesla_inventor_extraordinaire.html     /nikola-tesla-inventor-extraordinaire.html 301
-/interesting-facts-about-magnets /7-interesting-facts-about-magnets.html 301
+# magnet-motor
+/free-energy-magnet-motor                       /magnet-motor    301
+/free-energy-magnet-motor/                      /magnet-motor    301
+/the-free-energy-magnet-motor                   /magnet-motor    301
+/the-free-energy-magnet-motor/                  /magnet-motor    301
 
-# Magnetic Electricity / Energy
-/the-magnetic-dynamo-generator-explained /magnetic-dynamo-generator.html 301
+# How-to-Make-Free-Electricity-at-Home
+/how-to-make-free-electricity-at-home           /How-to-Make-Free-Electricity-at-Home    301
+/how-to-make-free-electricity-at-home/          /How-to-Make-Free-Electricity-at-Home    301
 
-# The 1894 File series (§5.1)
-/tesla-earthquake-machine /tesla-earthquake-machine.html 301
-/tesla-worlds-fair-1893 /tesla-worlds-fair-1893.html 301
-/tesla-high-frequency-alternator /tesla-high-frequency-alternator.html 301
-/tesla-rotating-magnetic-field /rotating-magnetic-field-1888.html 301
-/tesla-lit-lamps-without-wires    /tesla-lit-lamps-without-wires.html 301
-/tesla-one-wire-power    /tesla-one-wire-power.html 301
-/tesla-wireless-power-1893    /tesla-wireless-power-1893.html 301
-/tesla-high-frequency-massage    /tesla-high-frequency-massage.html 301
+# How-Much-Noise-Does-a-Free-Energy-Device-Make
+/how-much-noise                                 /How-Much-Noise-Does-a-Free-Energy-Device-Make    301
+/how-much-noise/                                /How-Much-Noise-Does-a-Free-Energy-Device-Make    301
+
+# can-I-buy
+/you-will-never-see-a-magnetic-generator-for-sale    /can-I-buy    301
+/you-will-never-see-a-magnetic-generator-for-sale/   /can-I-buy    301
+
+# perpetual-motion-generator
+/perpetual-motion-machines                      /perpetual-motion-generator    301
+/perpetual-motion-machines/                     /perpetual-motion-generator    301
+
+# build-a-perpetual-motion-generator
+/how-to-build-a-perpetual-motion-generator      /build-a-perpetual-motion-generator    301
+/how-to-build-a-perpetual-motion-generator/     /build-a-perpetual-motion-generator    301
+
+# solar
+/solar-power                                    /solar    301
+/solar-power/                                   /solar    301
+
+# magnetic-generator-scam
+/tesla-generator-scam                           /magnetic-generator-scam    301
+/tesla-generator-scam/                          /magnetic-generator-scam    301
+# old WordPress post "Free Energy Generator: Real or Fake?" - no equivalent page
+# in this repo; it used to fall through to the homepage as a soft 404.
+/free-energy-generator-real-or-fake             /magnetic-generator-scam    301
+/free-energy-generator-real-or-fake/            /magnetic-generator-scam    301
+
+# nikola-tesla-inventor-extraordinaire
+/tesla_wp/nikola-tesla-inventor-extraordinaire          /nikola-tesla-inventor-extraordinaire    301
+/tesla_wp/nikola-tesla-inventor-extraordinaire/         /nikola-tesla-inventor-extraordinaire    301
+/nikola_tesla_inventor_extraordinaire.html              /nikola-tesla-inventor-extraordinaire    301
+/nikola_tesla_inventor_extraordinaire.html/             /nikola-tesla-inventor-extraordinaire    301
+
+# 7-interesting-facts-about-magnets
+/interesting-facts-about-magnets                /7-interesting-facts-about-magnets    301
+/interesting-facts-about-magnets/               /7-interesting-facts-about-magnets    301
+
+# magnetic-dynamo-generator
+/the-magnetic-dynamo-generator-explained        /magnetic-dynamo-generator    301
+/the-magnetic-dynamo-generator-explained/       /magnetic-dynamo-generator    301
+
+# --- The 1894 File series --------------------------------------------------
+# The series slugs ARE the canonical URLs (/tesla-earthquake-machine etc.), so
+# they need no rules. Only this one differs from its file name:
+/tesla-rotating-magnetic-field                  /rotating-magnetic-field-1888    301
+/tesla-rotating-magnetic-field/                 /rotating-magnetic-field-1888    301
