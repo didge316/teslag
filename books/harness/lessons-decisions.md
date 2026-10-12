@@ -210,3 +210,37 @@ Also checked rather than assumed: sitemap.xml still parses (43 `<url>` entries, 
 not the 150-character form, and qa_page.py still exits 0 on 05 after the wiring (26/26). The
 mobile CTA position is unchanged in kind: alert-info at 21,150 px, scarcity at 25,329 px — still
 below the first screen on every series page, still a shell issue, still reported not failed.
+
+## 2026-10-12 — feature-005/a06-figrec: a WIP commit in `website/` is only half committed until the gitlink moves
+
+The 06 index.json entry exists now. The figure record it carries was already on disk (draft
+front matter plus the five evidence crops under `06-tesla-cold-flame/figures/`), so this task
+restated it instead of re-deriving it, which is what §6.6 asks for. Two gaps found while writing
+it, both recorded in the entry rather than fixed as drive-bys:
+
+- The site-repo WIP commit `7b32754` (the three published crops) was never recorded in the work
+  repo: the gitlink still pointed at `249733b`. Lesson: the pattern at feature-004/t6 and
+  feature-005/t2 was one work-repo commit carrying `index.json` **plus** the gitlink; a WIP commit
+  that touches only the site repo leaves the record broken until someone moves it. Moved here, and
+  said so in the commit message.
+- `manifest_qc.csv` has no rows for the three published crops; the file still ends at rows 214-216
+  (article 05). Every earlier figure task wrote rows for the crops it shipped. Named in
+  `blocked_on` for feature-005/t6 instead of written here: the rows belong with the figure work, and
+  writing them means a second site-repo commit inside a logging task.
+
+Checking rather than assuming paid for itself once. The three published `.webp` files hash to the
+sha256s in `figures/README.md` and their pixel sizes match the front-matter `width`/`height`, so the
+files on disk are the plates the record describes; opening them confirmed each carries its printed
+`FIG.` line inside the crop and nothing else from the page. That is also what turned the Fig. 141
+globe label from a hypothetical into a fact: the published crop shows an italic `L` at the right of
+the globe where the OCR prints `Z`, and the p. 228 sentence "grasp the globe L with the hand" is
+verbatim in `check_quotes.py`, so the OCR is the wrong one. Settling it against the 500 ppi print,
+and narrowing the front-matter claim that the part letters are "too degraded to read even at
+500 ppi", stays with feature-005/t6; the alt text naming shapes rather than part letters is
+unaffected either way.
+
+Three different word counts were in circulation for the same draft (5,113 in the front matter,
+9,280 in the plan row, 5,471 measured now, 4,930 excluding figure alt and caption copy). The entry
+records the method and the variants. Lesson: a count without its method is a claim, and the
+`words_draft` numbers in `index.json` are snapshots of one particular measure, not comparable to
+anything counted a different way.
