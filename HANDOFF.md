@@ -1,5 +1,23 @@
 # Tesla Generator Content Research — Handoff Notes
 
+> **Current entry point (2026-10-12): the SEO URL fix.** Start at `SEO-URL-FIX-PLAN.md` §2.1 — it
+> is self-contained and supersedes everything below for anything touching URLs, canonicals,
+> `sitemap.xml`, `_redirects` or `llms.txt`.
+>
+> **`website/` Deploy 1 is committed and waiting on the owner.** `8e62498` holds `_redirects` + the
+> new `404.html` and nothing else. The extensionless URL rewrite (internal links, canonicals,
+> `og:url`, JSON-LD) is **still uncommitted on purpose** — 46 files, +2,368 / −2,368 — and must
+> stay unstaged until it is committed as Deploy 2 (W2); `git add -A` would fold it into a Deploy 1
+> rollback. Do not commit, revert or reformat those files without reading the plan. **Nothing has
+> been pushed** — the live site is still the old behaviour, and it stays that way until the owner
+> turns off the Cloudflare Pages SPA fallback (D5) and pushes.
+>
+> The 1894 series workflow below still stands for writing articles, with two changes recorded in
+> `books/harness/docs/DECISIONS.md` (2026-10-12) and reflected in the `DOMAIN.md` glossary: canonical
+> URLs are extensionless (`/x`, served from `x.html`; no year in a slug), and a **produced article
+> is published in the same cycle it is produced** — 40 drafted articles are sitting undeployed in
+> `new_content/`, which is what that rule exists to stop.
+
 > **Current work stream (from 2026-10-10): the 1894 book series.**
 > Start at `SERIES-PLAN-1894.md` §0.4 — it is self-contained and supersedes the
 > keyword-farm workflow below for new content. The 200 figure crops are committed in
@@ -35,6 +53,11 @@
 - Popular Pages thumbnails fixed with d-flex alignment and hover underline
 
 ## What's Needed Next
+
+> **Superseded — do not follow this list.** It predates the 1894 series and the SEO URL fix, and it
+> treats drafted articles as finished work, which invariant 9 of `SEO-URL-FIX-PLAN.md` §1 removes.
+> 40 of the articles it calls done are still undeployed. The live next actions are in
+> `SEO-URL-FIX-PLAN.md` §2.1. This section gets rewritten when Deploy 1 is live.
 1. Start writing Phase 1 articles (keywords 1-10, product-adjacent, highest conversion)
 2. Each article should:
    - Read the folder's `sources.json` for reference URLs

@@ -32,3 +32,31 @@ branching `website/` too. `website/` is the deploy repo (pushing deploys, D6) an
 is what the owner reviews and pushes; a branch there would hide the review surface without
 adding safety. Every series change in `website/` is still a separate named commit so a single
 legacy-page edit can be reverted alone.
+
+## 2026-10-12 — Publish on completion; canonical URLs move to extensionless
+
+Three decisions forced by one site audit. Full plan: `SEO-URL-FIX-PLAN.md` at the work-repo root.
+
+**Publish on completion.** Chosen: a *produced* article is deployed in the same cycle it is
+produced. D6 stands — only the owner pushes, and pushing remains a named action — but "unpublished
+until the owner gets to it" is no longer a valid end state for a page that has passed its gates.
+Rejected: the standing default as written. Evidence: `new_content/` holds 50 unique article slugs;
+10 are live, **40 are not**. `TRACKER.md` marks 40 keyword articles ✅ Done while the site never
+carried them, and two of those 40 are pages the live site links to — the site has been shipping
+links to articles that exist only as markdown. "Written" had quietly become the end state of the
+workflow, which is also why 40 drafted articles carry no deploy-time defects anyone has seen.
+
+**Extensionless canonicals.** Chosen: `/x` is the canonical URL, served by Cloudflare from
+`x.html`; canonical, `og:url`, JSON-LD, sitemap `<loc>`, `llms.txt` and every internal link use
+that string, root-absolute. Rejected: keeping `.html` as canonical. Cloudflare resolves static
+assets *before* `_redirects`, so a redirect rule cannot override it — proven by the eight 1894-series
+rules that never fired, which left `/x` and `/x.html` both live at 200 and `/x/` serving the
+homepage at 200. That trailing-slash gap carried 76% of all impressions in the GSC export. The
+glossary follows in DOMAIN.md (**Canonical URL**, **Wired**, **Published**, **Deployed**).
+
+**No year in a slug.** Chosen: year-free slugs; a year lives in a title or the prose, where it can
+be refreshed without moving a URL. Rejected: dated slugs. `magnetic-generator-plans-review-2026` was
+an AI-written article the owner asked to rename because it is nearly 2027; the rename half-happened,
+the file became the year-free page, and five live pages have linked at a dead slug ever since. Two
+of the three pages the site links to are published from their existing drafts; the third is that
+mid-rename article, so its five links are repointed to the year-free page that already exists.
