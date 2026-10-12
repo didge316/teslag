@@ -5,7 +5,7 @@
   "pilot": "autopilot",
   "tiers": {},
   "limits": {
-    "unitWallClockMs": 1800000,
+    "unitWallClockMs": 3600000,
     "maxRecycles": 8,
     "maxReworkPerUnit": 2,
     "maxReplansPerPhase": 3,
@@ -16,7 +16,7 @@
   "currentRole": "generator",
   "currentFeature": null,
   "currentTask": null,
-  "paused": false,
+  "paused": true,
   "features": {
     "remaining": 0,
     "passing": 0,
@@ -128,7 +128,7 @@
   "retry": {
     "tasks": {
       "enabled": true,
-      "maxRetries": 50
+      "maxRetries": 100
     },
     "features": {
       "enabled": false,
@@ -157,7 +157,7 @@
       },
       "task": {
         "enabled": true,
-        "maxRetries": 50
+        "maxRetries": 100
       },
       "subtask": {
         "enabled": false,
@@ -165,15 +165,15 @@
       }
     }
   },
-  "maxRetries": 50,
-  "retryCount": 29,
-  "taskRetryCount": 29,
+  "maxRetries": 100,
+  "retryCount": 9,
+  "taskRetryCount": 9,
   "featureRetryCount": 0,
-  "phaseRetryCount": 29,
+  "phaseRetryCount": 9,
   "retryPerLevel": {
     "subtask": 0,
-    "phase": 29,
-    "task": 29
+    "phase": 9,
+    "task": 9
   },
   "pipelineIteration": 2,
   "gateHistory": [
@@ -653,6 +653,271 @@
       "timestamp": "2026-10-11T07:44:14.501Z",
       "feature": "feature-005",
       "task": "feature-005/t4"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T07:45:16.329Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T12:36:01.543Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T13:06:03.548Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T15:12:53.346Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T15:42:55.418Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T16:12:57.406Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T16:18:29.620Z",
+      "feature": "feature-005",
+      "task": "feature-005/t9"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-11T16:19:46.020Z",
+      "feature": "feature-005",
+      "task": "feature-005/t9"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T16:20:23.003Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T16:50:25.093Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T17:20:27.324Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T17:20:32.502Z"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-11T17:21:16.212Z",
+      "feature": "feature-005",
+      "task": "t5"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T17:50:29.406Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T18:20:31.493Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T18:50:33.791Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T18:50:59.555Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T18:52:30.150Z",
+      "feature": "feature-005",
+      "task": "feature-005/t5"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T19:20:35.875Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T19:41:32.089Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T20:11:34.332Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-11T20:14:23.619Z",
+      "feature": "feature-005",
+      "task": "feature-005/t5"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-12T11:32:50.496Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-12T12:02:52.661Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-12T12:06:20.828Z",
+      "feature": "feature-005",
+      "task": "feature-005/t5"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-12T12:11:14.544Z"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-12T12:23:24.728Z",
+      "feature": "feature-005",
+      "task": "feature-005/t5"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-12T12:24:40.814Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-12T12:54:43.594Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-12T12:57:28.730Z",
+      "feature": "feature-005",
+      "task": "feature-005/t6"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-12T13:24:46.373Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-12T15:12:16.346Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-12T15:12:20.775Z"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-12T15:32:11.173Z",
+      "feature": "feature-005",
+      "task": "feature-005/a06-wipcommit"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-12T15:35:06.786Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-12T15:42:51.896Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-12T16:12:54.098Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-12T16:42:56.453Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-12T16:45:36.439Z",
+      "feature": "feature-005",
+      "task": "feature-005/a06-figrec"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-12T17:03:06.816Z",
+      "feature": "feature-005",
+      "task": "feature-005/a06-figrec"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-12T17:03:36.409Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-12T17:18:57.370Z",
+      "feature": "feature-005",
+      "task": "feature-005/a06-wirecommit"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-12T17:28:44.259Z",
+      "feature": "feature-005",
+      "task": "feature-005/a06-wirecommit"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-12T17:29:17.287Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-12T17:48:19.507Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-12T18:02:08.733Z",
+      "feature": "feature-006",
+      "task": "feature-006/t0"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-12T18:09:14.066Z",
+      "feature": "feature-006",
+      "task": "feature-006/t0"
     }
   ]
 }
