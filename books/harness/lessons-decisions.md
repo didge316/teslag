@@ -321,3 +321,23 @@ from the file and the reason is written down.
 The card was verified with `books/tmp/card_shot.py` at 1280 and 375 and both crops reviewed —
 that is the card this task added, so it belongs here; the page-level `shot_qa.py` run and the
 screenshot review stay with t8.
+
+The row could not be closed from the work alone: `infinity_plan` refuses
+`a06-wirecommit = complete` while `feature-005/t8`, one of its `dependsOn`, is still `pending`.
+The gate then fails on `task-criteria: ... is "rework", not complete`, and the same brief is
+re-issued — a task handed out of dependency order cannot be closed until its dependency is, so the
+loop would have spun on it. `t8` (`shot_qa.py` at 375/768/1280 plus the screenshot review) was
+unblocked by the render, so it was done in this session and both rows closed. Lesson: when the plan
+refuses a `complete` on a dependency, that is a signal about the plan's order, not a reason to stop;
+finish the dependency if it is genuinely unblocked and say so in the record, or the row stays
+`rework` and burns retries. `t7` was closed the same way — its two criteria (the page renders,
+`qa_page.py` exits 0) were both measured here, and leaving it open would have handed the next task a
+dependency it could only re-run.
+
+Found while reading the rendered page, not fixed: the Sources block says the quote register is
+"52 quotes across 18 printed pages", `quotes.md`'s own header says "53 quotes (58 fragments)", and
+`check_quotes.py` on the draft counts 56 fragments. Three numbers for one register and the smallest
+is the one the public reads. It is in the draft's front matter (feature-005/t5's artifact), so it is
+named in `blocked_on` rather than patched at a wiring task. Lesson: a count that travels from a
+register into a page copy drifts, because nothing re-checks it at render time; if the number is on
+the page it belongs in the render-time check, not in prose.
