@@ -341,3 +341,58 @@ is the one the public reads. It is in the draft's front matter (feature-005/t5's
 named in `blocked_on` rather than patched at a wiring task. Lesson: a count that travels from a
 register into a page copy drifts, because nothing re-checks it at render time; if the number is on
 the page it belongs in the render-time check, not in prose.
+
+## feature-006/t0 (2026-10-12) — article 08 quote pin, batch 1 (entries 1-3)
+
+`new_content/1894-series/08-tesla-weird-inventions-1894/quotes.md` + `gen_quotes.py`:
+29 quotes verified across 12 printed pages (pp. 6, 409, 410, 412, 413, 416, 417, 418,
+419, 420, 422, 423), 16 rejected with the reason each one fails. The generator is the
+same shape as article 06's: it imports `check_quotes.fragments`/`locate`, so a quote
+that passes here passes in the draft, and it exits non-zero and writes nothing if any
+quote misses. Batches 2 and 3 append to the lists in the script and re-run; the file is
+generated, so the header counts never drift (the article 06 lesson about three
+different counts for one register is the reason this one is not hand-written).
+
+Three findings that outlive this task.
+
+1. **A §9 brief hook can be wrong about the print, and the pin is where that gets
+   caught.** Brief 08 calls entry 3 "an amp-hour meter that counts bubbles": the
+   chapter (printed pp. 420-423) registers a change in *resistance* caused by metal
+   plating on and off two conductors, names the unit as the **lamp-hour** (1 hit in the
+   volume, p. 422), and praises reading it off an ohm-meter "without resorting to
+   weighing the deposit" (p. 423). `bubble` occurs 9 times in the volume and never in
+   that chapter. Brief 08's entry-2 hook ("the reason your capacitor is not in air") is
+   a modern claim about a modern object, and the 1894 text is about high-frequency,
+   high-potential apparatus only. Lesson: the hooks in §9 are prompts, not sources —
+   grep the hook's own words before writing the entry, and if the print contradicts the
+   hook the print wins. Where a hook cannot be grepped at all it goes into Rejected
+   with the counts that show why, so the next task does not meet it as new.
+
+2. **Appendix D's word counts are not all re-greppable.** It records `magnetic
+   generator` as 5 hits at pp. 6, 424, 429, 496. Re-grepped: 4 hits, at pp. 6, 429,
+   496. The fifth is the chapter XXXVI heading on printed p. 424, which this scan OCRs
+   as "MOTORS AND PYRO-MAGNETIC RATORS" because "GENE-" is cut at the foot of the page
+   — so it exists in the print and cannot be re-grepped. The claim itself holds (every
+   occurrence is *pyro*-magnetic), which is what article 08's closing beat and article
+   10 both rest on. Batch 2 (entry 4, pp. 424-431) must state the beat from pp. 429 and
+   496 and treat the heading as a page-scan detail, not a quote. Lesson: when a fact box
+   in SERIES-PLAN-1894.md cannot be reproduced by the tool, write down which half is
+   greppable and which half is a scan-reading, rather than quietly repeating the number.
+
+3. **Part III is the editor's prose about Tesla, in the third person, and a listicle
+   about "his weird inventions" blurs two third-persons into one.** Chs. XXXIII-XXXV
+   say "Mr. Tesla divides such circuit", "attributable to Mr. Tesla". Same trap the
+   article 06 pin flags for ch. XXIX. The pin carries the evidence as two quotes (the
+   editor's own inventory of the "Miscellaneous" section at printed p. 6, which is
+   almost item for item brief 08's nine entries — so the list is the book's, not ours)
+   and a flag telling the draft to say once, early, that Part III is the editor's
+   writing.
+
+Also recorded for the figure task (feature-006/t2), so it does not re-open settled
+work: crops for entries 1 and 3 already exist and are QCd `keep`/A (scan files
+428-434, 439, 440); entry 2's engravings (Figs. 227, 228, printed p. 418 = scan 436)
+have **no** crop and no manifest row, and `books/pdf-pages-tesla-1894/page-436.pdf` is
+there to cut them from. Two of the existing `manifest_qc.csv` subject lines describe
+those engravings wrongly (the meter figures are called a coherer; Fig. 220 is called a
+lamp loop), which is the standing reason captions come from the prose and figure numbers
+from the printed page, never from the extractor filename or the QC note.
