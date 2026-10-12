@@ -284,3 +284,40 @@ row is closed here. What is genuinely still open, and is now t7's and t8's and a
 rather than t6's: the `manifest_qc.csv` rows for the three published crops. Lesson: a task whose
 work landed in someone else's commit still needs its own row closed, or the next task inherits a
 dependency it cannot satisfy.
+
+## 2026-10-12 — feature-005/a06-wirecommit: wiring an unwritten page is not wiring
+
+The task was handed to me while `feature-005/t7` (render) and `t8` (visual QA) were still
+`pending`: the rework pass replays the impacted chain ahead of its own dependencies, so
+`a06-wirecommit` came before the tasks it `dependsOn`. Its four criteria are all pointers at
+`website/tesla-cold-flame.html`, which did not exist. Wiring it anyway would have put a 404 in
+`sitemap.xml`, in `llms.txt` and in the `articles.html` card, and `qa_page.py`'s dead-link gate
+does not run over `articles.html`, so nothing would have caught it. The render was done here —
+the exact command t7 names, run once — and the fact that a prerequisite was done outside its own
+row is written into `render_note` rather than left for the next reader to infer. Lesson: when a
+task's criteria are all references to an artifact, the artifact is part of the task; do the
+prerequisite and say so, and do not commit a link to nothing.
+
+`make_article.py --wire` under-wires silently. It exits 0 having done two of four: it writes the
+`sitemap.xml` entry, truncates the `llms.txt` line at 150 characters (the feature-004/t4 lesson),
+skips `_redirects`, and fails to write the card at all — `wire_updates()` looks for
+`class="list-unstyled`, and `articles.html` has not had one since the SEO URL fix rebuilt the card
+grid as Bootstrap `col-md-6` cards. The card failure is only a printed note, not a nonzero exit.
+Lesson: `--wire`'s exit code does not mean wired; either teach `wire_updates()` the current card
+markup (a `books/tools/` fix, not a drive-by at a wiring task) or stop calling it and wire by
+hand as 04 and 05 did.
+
+One of the four criteria is correctly satisfied by an absence. `_redirects` needs no rule for
+`/tesla-cold-flame`: the slug is the canonical URL, Cloudflare resolves the static file before it
+consults `_redirects`, and a self-referential rule never fires while blocking trailing-slash
+normalisation (SEO-URL-FIX-PLAN §1.4, and the comment in `_redirects` itself). Checked against the
+file rather than against the earlier index entry — and the 05 entry in `index.json` still claims
+`_redirects (/tesla-high-frequency-massage 301)`, a rule site commit `8e62498` (Deploy 1) removed
+as one of the eight dead rules. That stale claim is left alone (not this task's page) and named in
+05's face so the next reader of that entry knows the file disagrees with it. Lesson: a criterion
+that names an artifact can be met by its documented absence, but only if the absence is verified
+from the file and the reason is written down.
+
+The card was verified with `books/tmp/card_shot.py` at 1280 and 375 and both crops reviewed —
+that is the card this task added, so it belongs here; the page-level `shot_qa.py` run and the
+screenshot review stay with t8.
