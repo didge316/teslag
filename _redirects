@@ -97,6 +97,18 @@
 /the-magnetic-dynamo-generator-explained        /magnetic-dynamo-generator    301
 /the-magnetic-dynamo-generator-explained/       /magnetic-dynamo-generator    301
 
+# --- Removed pages (decision D3) ------------------------------------------
+# Both pages were live but linked from nowhere and had zero impressions and zero
+# clicks. They are deleted; these four rules are insurance against an old
+# backlink we cannot see from here. /opt-in has no successor page, so it lands
+# on the home. /electrical-experimenter's only content was a download button, so
+# it lands on the download itself - the free 1919 magazine is the lead magnet in
+# the email sequence, and the PDF is unaffected by deleting the page.
+/opt-in                    /                                        301
+/opt-in/                   /                                        301
+/electrical-experimenter   /assets/electrical-experimenter.pdf    301
+/electrical-experimenter/  /assets/electrical-experimenter.pdf    301
+
 # --- The 1894 File series --------------------------------------------------
 # The series slugs ARE the canonical URLs (/tesla-earthquake-machine etc.), so
 # they need no rules. Only this one differs from its file name:

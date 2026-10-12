@@ -10,31 +10,36 @@ Jake Mercer is a DIY enthusiast who has built four magnetic generators and gone 
 
 The build plans recommended throughout this site are packaged as the Complete Ultimate OFF-GRID Generator — a step-by-step DIY blueprint based on Nikola Tesla's suppressed magnetic generator designs. A companion video, presented by Michael Morgan, explains how Tesla's designs were suppressed and walks through what the plans cover.
 
+## Free Download
+
+- [The Electrical Experimenter (1919 magazine, PDF)](https://teslamagneticgenerator.com/assets/electrical-experimenter.pdf): The free book the site offers to new email subscribers. It is a PDF, not a page; the old /electrical-experimenter landing page was removed and now redirects here.
+
 ## Main Pages
 
 - [Home](https://teslamagneticgenerator.com/): Overview of Tesla magnetic generators and what they can do
-- [Build a Magnetic Generator](https://teslamagneticgenerator.com/build-a-magnetic-generator.html): Step-by-step guide to building your first magnetic generator
-- [Power Your Whole Home](https://teslamagneticgenerator.com/whole-house.html): Can a magnetic generator power an entire house?
-- [DIY Magnetic Generator](https://teslamagneticgenerator.com/diy-magnetic-generator.html): Energize your home with a DIY magnetic generator
-- [Perpetual Motion Generator](https://teslamagneticgenerator.com/perpetual-motion-generator.html): The truth about perpetual motion machines
-- [Build a Perpetual Motion Generator](https://teslamagneticgenerator.com/build-a-perpetual-motion-generator.html): How to build one and save thousands
-- [Free Energy Magnet Motor](https://teslamagneticgenerator.com/magnet-motor.html): How the free energy magnet motor works
-- [Generate Electricity Using Magnets](https://teslamagneticgenerator.com/electricity-using-magnets.html): How magnets generate electricity
-- [Free Electricity From Magnets](https://teslamagneticgenerator.com/free-electricity-from-magnets.html): Generating free electricity using magnetic fields
-- [How to Make Free Electricity at Home](https://teslamagneticgenerator.com/How-to-Make-Free-Electricity-at-Home.html): Practical home electricity generation
-- [Magnetic Generator Scam?](https://teslamagneticgenerator.com/magnetic-generator-scam.html): Separating fact from fiction
-- [You'll Never See One For Sale](https://teslamagneticgenerator.com/can-I-buy.html): Why magnetic generators aren't commercially available
-- [Solar vs Magnetic Energy](https://teslamagneticgenerator.com/solar.html): Comparing solar power and magnetic generators
-- [Nikola Tesla - Inventor Extraordinaire](https://teslamagneticgenerator.com/nikola-tesla-inventor-extraordinaire.html): Tesla's life and hidden inventions
-- [7 Interesting Facts About Magnets](https://teslamagneticgenerator.com/7-interesting-facts-about-magnets.html): Magnet science and applications
-- [The Magnetic Dynamo Generator](https://teslamagneticgenerator.com/magnetic-dynamo-generator.html): How magnetic dynamo generators work
-- [How Much Noise Do They Make?](https://teslamagneticgenerator.com/How-Much-Noise-Does-a-Free-Energy-Device-Make.html): Noise levels for magnetic generators
-- [Is Magnetic Energy Renewable?](https://teslamagneticgenerator.com/is-magnetic-energy-renewable-or-nonrenewable.html): Classifying magnetic energy
-- [Can Magnets Generate Electricity?](https://teslamagneticgenerator.com/can-we-use-magnets-to-generate-electricity-a-magnetic-marvel.html): The science behind magnetic electricity generation
-- [Renewable Energy Using Magnets](https://teslamagneticgenerator.com/renewable-energy-using-magnets-a-magnetic-revolution.html): Magnets and the renewable energy revolution
-- [Unleashing Free Energy](https://teslamagneticgenerator.com/unleashing-the-power-of-free-energy.html): The potential of free energy devices
-- [Is Free Energy Possible?](https://teslamagneticgenerator.com/unleashing-the-magnet-magic-is-free-energy-possible.html): Honest assessment of free energy claims
-- [About Jake Mercer](https://teslamagneticgenerator.com/about.html): Who writes this site and why
+- [All Articles](https://teslamagneticgenerator.com/articles): Every guide, review and Tesla history piece on the site, in one index
+- [Build a Magnetic Generator](https://teslamagneticgenerator.com/build-a-magnetic-generator): Step-by-step guide to building your first magnetic generator
+- [Power Your Whole Home](https://teslamagneticgenerator.com/whole-house): Can a magnetic generator power an entire house?
+- [DIY Magnetic Generator](https://teslamagneticgenerator.com/diy-magnetic-generator): Energize your home with a DIY magnetic generator
+- [Perpetual Motion Generator](https://teslamagneticgenerator.com/perpetual-motion-generator): The truth about perpetual motion machines
+- [Build a Perpetual Motion Generator](https://teslamagneticgenerator.com/build-a-perpetual-motion-generator): How to build one and save thousands
+- [Free Energy Magnet Motor](https://teslamagneticgenerator.com/magnet-motor): How the free energy magnet motor works
+- [Generate Electricity Using Magnets](https://teslamagneticgenerator.com/electricity-using-magnets): How magnets generate electricity
+- [Free Electricity From Magnets](https://teslamagneticgenerator.com/free-electricity-from-magnets): Generating free electricity using magnetic fields
+- [How to Make Free Electricity at Home](https://teslamagneticgenerator.com/How-to-Make-Free-Electricity-at-Home): Practical home electricity generation
+- [Magnetic Generator Scam?](https://teslamagneticgenerator.com/magnetic-generator-scam): Separating fact from fiction
+- [You'll Never See One For Sale](https://teslamagneticgenerator.com/can-I-buy): Why magnetic generators aren't commercially available
+- [Solar vs Magnetic Energy](https://teslamagneticgenerator.com/solar): Comparing solar power and magnetic generators
+- [Nikola Tesla - Inventor Extraordinaire](https://teslamagneticgenerator.com/nikola-tesla-inventor-extraordinaire): Tesla's life and hidden inventions
+- [7 Interesting Facts About Magnets](https://teslamagneticgenerator.com/7-interesting-facts-about-magnets): Magnet science and applications
+- [The Magnetic Dynamo Generator](https://teslamagneticgenerator.com/magnetic-dynamo-generator): How magnetic dynamo generators work
+- [How Much Noise Do They Make?](https://teslamagneticgenerator.com/How-Much-Noise-Does-a-Free-Energy-Device-Make): Noise levels for magnetic generators
+- [Is Magnetic Energy Renewable?](https://teslamagneticgenerator.com/is-magnetic-energy-renewable-or-nonrenewable): Classifying magnetic energy
+- [Can Magnets Generate Electricity?](https://teslamagneticgenerator.com/can-we-use-magnets-to-generate-electricity-a-magnetic-marvel): The science behind magnetic electricity generation
+- [Renewable Energy Using Magnets](https://teslamagneticgenerator.com/renewable-energy-using-magnets-a-magnetic-revolution): Magnets and the renewable energy revolution
+- [Unleashing Free Energy](https://teslamagneticgenerator.com/unleashing-the-power-of-free-energy): The potential of free energy devices
+- [Is Free Energy Possible?](https://teslamagneticgenerator.com/unleashing-the-magnet-magic-is-free-energy-possible): Honest assessment of free energy claims
+- [About Jake Mercer](https://teslamagneticgenerator.com/about): Who writes this site and why
 
 ## Key Topics
 
@@ -49,11 +54,11 @@ The build plans recommended throughout this site are packaged as the Complete Ul
 
 ## The 1894 File
 
-- [Tesla's Earthquake Machine: What the 1893 Record Says](https://teslamagneticgenerator.com/tesla-earthquake-machine.html): The machine is real and the 1893 report is specific. The earthquake is a story Tesla told an interviewer in 1935, fifty years later.
-- [Tesla's 1893 World's Fair Exhibit, Walked Through](https://teslamagneticgenerator.com/tesla-worlds-fair-1893.html): Most accounts of the 1893 Fair retell a publicity war. There is also a contemporary walkthrough of Tesla's exhibit, item by item, written by the man w
-- [30,000 Alternations a Second: Tesla's Lost Generator](https://teslamagneticgenerator.com/tesla-high-frequency-alternator.html): Chapter XXIX of the 1894 volume describes rotary machines with hundreds of poles, built to make current at frequencies we would still call high. It al
-- [The Paper Tesla Scribbled in Pencil: How AC Won](https://teslamagneticgenerator.com/rotating-magnetic-field-1888.html): The document that made alternating current usable was almost never read aloud. The man who edited the 1894 book had to persuade Tesla to give a paper 
-- [Tesla Lit Lamps by Holding Them: The 1891 Proof](https://teslamagneticgenerator.com/tesla-lit-lamps-without-wires.html): Tesla lit lamps by holding them, in New York in 1891 and in London in 1892, and the 1894 book prints both lectures. It also prints the tests behind it: high potential, the insulated body as the return path, and a point where the light goes out.
-- [Tesla's One-Wire Power: The Experiment Textbooks Skip](https://teslamagneticgenerator.com/tesla-one-wire-power.html): Tesla told the Institution of Electrical Engineers in 1892 that currents of high frequency and high potential let him work with one wire only, and the 1894 book prints the apparatus: a motor, an electrolytic cell and a lamp each worked from a single connection. It also prints his reason, an engineering one about the cost of copper, and the limits he put on it.
-- [Tesla's Wireless Power Plan, In His Own Words (1893)](https://teslamagneticgenerator.com/tesla-wireless-power-1893.html): In early 1893 Tesla told two engineering audiences that he meant to work devices, and possibly transmit power, through the earth with no wire between the ends. The 1894 book prints the plan, the apparatus, and the conditions he attached to it: resonance, a single conductor, the earth itself as the medium, and a machine powerful enough to disturb it.
-- [Tesla's High-Frequency "Massage" Cure of 1891](https://teslamagneticgenerator.com/tesla-high-frequency-massage.html): Nikola Tesla printed two pages about high-frequency currents and the human body, and the 1894 book reproduces them in full. In the first he insists he is not a patent-medicine man. In the second he warrants one effect, heating, and ends by saying whether the effects are beneficial remains to be proved.
+- [Tesla's Earthquake Machine: What the 1893 Record Says](https://teslamagneticgenerator.com/tesla-earthquake-machine): The machine is real and the 1893 report is specific. The earthquake is a story Tesla told an interviewer in 1935, fifty years later.
+- [Tesla's 1893 World's Fair Exhibit, Walked Through](https://teslamagneticgenerator.com/tesla-worlds-fair-1893): Most accounts of the 1893 Fair retell a publicity war. There is also a contemporary walkthrough of Tesla's exhibit, item by item, written by the man w
+- [30,000 Alternations a Second: Tesla's Lost Generator](https://teslamagneticgenerator.com/tesla-high-frequency-alternator): Chapter XXIX of the 1894 volume describes rotary machines with hundreds of poles, built to make current at frequencies we would still call high. It al
+- [The Paper Tesla Scribbled in Pencil: How AC Won](https://teslamagneticgenerator.com/rotating-magnetic-field-1888): The document that made alternating current usable was almost never read aloud. The man who edited the 1894 book had to persuade Tesla to give a paper 
+- [Tesla Lit Lamps by Holding Them: The 1891 Proof](https://teslamagneticgenerator.com/tesla-lit-lamps-without-wires): Tesla lit lamps by holding them, in New York in 1891 and in London in 1892, and the 1894 book prints both lectures. It also prints the tests behind it: high potential, the insulated body as the return path, and a point where the light goes out.
+- [Tesla's One-Wire Power: The Experiment Textbooks Skip](https://teslamagneticgenerator.com/tesla-one-wire-power): Tesla told the Institution of Electrical Engineers in 1892 that currents of high frequency and high potential let him work with one wire only, and the 1894 book prints the apparatus: a motor, an electrolytic cell and a lamp each worked from a single connection. It also prints his reason, an engineering one about the cost of copper, and the limits he put on it.
+- [Tesla's Wireless Power Plan, In His Own Words (1893)](https://teslamagneticgenerator.com/tesla-wireless-power-1893): In early 1893 Tesla told two engineering audiences that he meant to work devices, and possibly transmit power, through the earth with no wire between the ends. The 1894 book prints the plan, the apparatus, and the conditions he attached to it: resonance, a single conductor, the earth itself as the medium, and a machine powerful enough to disturb it.
+- [Tesla's High-Frequency "Massage" Cure of 1891](https://teslamagneticgenerator.com/tesla-high-frequency-massage): Nikola Tesla printed two pages about high-frequency currents and the human body, and the 1894 book reproduces them in full. In the first he insists he is not a patent-medicine man. In the second he warrants one effect, heating, and ends by saying whether the effects are beneficial remains to be proved.
