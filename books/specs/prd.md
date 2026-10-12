@@ -15,7 +15,9 @@ Produced and wired in `website/`: **03** `tesla-earthquake-machine.html` (24/24 
 Tooling exists and works: `contact_sheet.py`, `grep_quote.py`, `make_article.py`,
 `qa_page.py`, `shot_qa.py`. Figure QC done: `manifest_qc.csv`, 203 rows, 198 usable.
 Known open defect: **09 links to `rotating-magnetic-field-1888.html` (07), which does not
-exist** — the only dead relative link in the series. `shot_qa.py` has never been run on
+exist** — the only dead relative link in the series. *(Closed since 2026-10-11: 07 is live, and
+`qa_page.py` now resolves root-absolute links too, so a link like this fails the page instead of
+being remembered.)* `shot_qa.py` has never been run on
 09 or 11.
 
 ## 2. In scope (the contract)
@@ -31,8 +33,10 @@ exist** — the only dead relative link in the series. `shot_qa.py` has never be
 5. The §16.3 linkable assets: `tesla-1894-plates.html`, `tesla-1894-word-search.html`,
    `tesla-1894-part1-text.html`, a public `tesla1894` GitHub repo, and a first batch of 20
    outreach emails **drafted** (sending is the owner's).
-6. Tooling gap the plan flags twice: `qa_page.py` must fail a page with a dead relative
-   link, so "no broken links" is machine-checked rather than remembered.
+6. Tooling gap the plan flags twice: `qa_page.py` must fail a page with a dead link, so "no
+   broken links" is machine-checked rather than remembered. *(Done 2026-10-12: the gate now
+   resolves root-absolute links through the same order Cloudflare uses, and a new gate rejects any
+   internal link pointing at a URL that only exists to redirect.)*
 
 ## 3. Definition of done for one article (applies to every article feature)
 
@@ -49,7 +53,8 @@ exist** — the only dead relative link in the series. `shot_qa.py` has never be
   including the no-dashes voice rule and the no-comments/no-PDF rules).
 - `python3 books/tools/shot_qa.py` measurable gates pass at 375/768/1280 **and** the three
   screenshots are reviewed by a vision pass.
-- wired: `sitemap.xml`, `llms.txt`, `_redirects` pretty slug from §5.1, `articles.html`
+- wired: `sitemap.xml`, `llms.txt`, `articles.html` card, and a `_redirects` rule **only** for an
+  alias from §5.1 - never for a page's own URL, which is the file name without `.html`;
   card; out-links and in-links per §5.2 with ≥3 reciprocal.
 - `new_content/1894-series/index.json` updated (`figures[].verified`, `numeric_gates`,
   `visual_gates`, `wired`, `committed: true`); both repos committed; **nothing pushed**.

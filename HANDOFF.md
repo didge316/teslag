@@ -14,9 +14,20 @@
 > existing page's signals changed - but GSC now has three URL groups, not two, and that changes how
 > the week of data must be read (plan §10 step 4).
 >
-> **The extensionless URL rewrite is still uncommitted on purpose** — 46 files, +2,368 / −2,368 —
-> and must stay unstaged until it is committed as Deploy 2 (W2); `git add -A` would fold it into a
-> Deploy 1 rollback. Do not commit, revert or reformat those files without reading the plan.
+> **Deploy 2 is committed in `website/` and deliberately not pushed.** `c3232e0` (W2: the extensionless
+> link/canonical/`og:url`/JSON-LD rewrite, `sitemap.xml`, `llms.txt`, two unused pages deleted, five
+> links repointed) and `249733b` (W3: titles, metas, asset links) sit on top of the live `8e62498`.
+> The working tree is clean apart from `js/email-capture-widget.html`, which was already untracked
+> before any of this. Whether to push now or after reading the Deploy 1 week is the owner's call, and
+> it is the open question in plan §2.1 step 3 — pushing now means the two effects can no longer be
+> attributed separately.
+>
+> **The pipeline is fixed, so the next article will not reintroduce any of this.** `make_article.py`
+> emits extensionless canonicals/links and only ever writes a `_redirects` rule for a real alias;
+> `qa_page.py` resolves links the way Cloudflare does and now gates canonical, `og:url` and links that
+> point at a redirect. Both self-tests pass; 8/9 live series pages pass 29 gates each, and the 9th is
+> the hub, which does not exist — while all 8 series pages describe `/tesla-1894` in their structured
+> data and it returns 404 (plan §2.3 item 11).
 >
 > The 1894 series workflow below still stands for writing articles, with two changes recorded in
 > `books/harness/docs/DECISIONS.md` (2026-10-12) and reflected in the `DOMAIN.md` glossary: canonical

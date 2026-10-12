@@ -57,6 +57,59 @@ WEB = ROOT / "website"
 SERIES = ROOT / "new_content" / "1894-series"
 
 
+# ------------------------------------------------------------------- urls
+# The site's URL contract (SEO-URL-FIX-PLAN.md §1): a page is addressed at
+# /<name> with no extension; the .html file is where it is stored, not what it is
+# called. index.html is the site root. Everything below goes through these two
+# helpers so no emitter can reintroduce the old form.
+
+def page_url(slug):
+    """Absolute canonical URL for a site page file name."""
+    s = str(slug).strip().strip("/")
+    if s in ("", "index", "index.html"):
+        return SITE + "/"
+    if s.endswith(".html"):
+        s = s[:-5]
+    return f"{SITE}/{s}"
+
+
+def page_href(slug):
+    """The same URL as a root-absolute link for use inside HTML.
+
+    Root-absolute, not relative: a page reached at a trailing-slash base resolves a
+    relative href against that base, and that is how a stylesheet link becomes a 404.
+    """
+    return "/" + page_url(slug)[len(SITE):].lstrip("/")
+
+
+def local_href(href):
+    """Normalise a link written in markdown to the site's URL form."""
+    if href.startswith(("http://", "https://", "#", "mailto:", "tel:", "data:", "//")):
+        return href
+    return page_href(href)
+
+
+def redirect_rules(pretty, slug):
+    """The _redirects lines for one page, or [] when such a rule would be dead.
+
+    Cloudflare resolves a static page before it consults _redirects, so a rule whose
+    source is an existing page never fires - and it blocks the platform's own
+    trailing-slash normalisation. That is how 8 dead rules got written (§2.2). A rule
+    is wanted only when the URL deliberately differs from the file name, so
+    pretty_slug must be set for an alias, never to restate the file name.
+    """
+    src = str(pretty or "").strip()
+    if not src:
+        return []
+    if not src.startswith("/"):
+        src = "/" + src
+    target = page_href(slug)
+    if src.strip("/") == target.strip("/"):
+        return []
+    return [f"{s}    {target} 301" for s in (src, src.rstrip("/") + "/")]
+
+
+
 # ------------------------------------------------------------- front matter
 
 def split_front_matter(text):
@@ -112,7 +165,7 @@ def inline(s, figmap, base_dir):
         if href.startswith("http"):
             return (f'<a href="{href}" target="_blank" '
                     f'rel="noopener noreferrer nofollow">{txt}</a>')
-        return f'<a href="{href}">{txt}</a>'
+        return f'<a href="{local_href(href)}">{txt}</a>'
     return re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", link, s)
 
 
@@ -219,14 +272,15 @@ def _trim_stray_divs(shell):
 
 
 def add_nav_entry(nav, slug, title):
-    if f'href="{slug}"' in nav:
+    href = page_href(slug)
+    if f'href="{href}"' in nav:
         return nav
     marker = '<ul class="dropdown-menu">'
     k = nav.find(marker)
     if k < 0:
         return nav
     entry = ('\n                                <li><a class="dropdown-item" '
-             f'href="{slug}">{title}</a></li>')
+             f'href="{href}">{title}</a></li>')
     return nav[:k + len(marker)] + entry + nav[k + len(marker):]
 
 
@@ -240,7 +294,7 @@ def fmt_date(d):
 
 
 def build_head(fm, slug):
-    url = f"{SITE}/{slug}"
+    url = page_url(slug)
     title, desc = fm["title"], fm["description"]
     og = fm.get("og_image", "") or ""
     og_url = og if og.startswith("http") else (f"{SITE}/{og.lstrip('/')}" if og else "")
@@ -277,16 +331,16 @@ def build_head(fm, slug):
     <link rel="canonical" href="{url}" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
 
     <!-- CSS -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" /><link href="css/styles-custom.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" /><link href="/css/styles-custom.css" rel="stylesheet" />
 """
 
 
 def build_jsonld(fm, slug):
-    url = f"{SITE}/{slug}"
+    url = page_url(slug)
     art = {
         "@context": "https://schema.org",
         "@type": "Article",
@@ -295,7 +349,7 @@ def build_jsonld(fm, slug):
         "url": url,
         "datePublished": fm.get("date_published"),
         "dateModified": fm.get("date_modified", fm.get("date_published")),
-        "author": {"@type": "Person", "name": AUTHOR, "url": f"{SITE}/about.html"},
+        "author": {"@type": "Person", "name": AUTHOR, "url": page_url("about.html")},
         "publisher": {"@type": "Organization", "name": PUBLISHER, "url": SITE + "/"},
         "mainEntityOfPage": url,
         "about": {"@type": "Thing", "name": "Nikola Tesla"},
@@ -308,7 +362,7 @@ def build_jsonld(fm, slug):
     else:
         crumbs = [{"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
                   {"@type": "ListItem", "position": 2, "name": "The 1894 File",
-                   "item": f"{SITE}/tesla-1894.html"},
+                   "item": page_url("tesla-1894.html")},
                   {"@type": "ListItem", "position": 3, "name": fm["title"], "item": url}]
     blocks.append({"@context": "https://schema.org", "@type": "BreadcrumbList",
                    "itemListElement": crumbs})
@@ -323,7 +377,7 @@ def build_jsonld(fm, slug):
                        "name": "The 1894 File",
                        "numberOfItems": len(fm["series_items"]),
                        "itemListElement": [{"@type": "ListItem", "position": n + 1,
-                                           "url": f"{SITE}/{it['file']}"}
+                                           "url": page_url(it["file"])}
                                            for n, it in enumerate(fm["series_items"])]})
     return "\n".join('    <script type="application/ld+json">\n'
                      + json.dumps(b, indent=2).replace("\n", "\n    ")
@@ -407,18 +461,24 @@ def build(fm, body_md, shell, tid, base_dir):
 def wire_updates(fm, slug):
     """§7: articles.html card, nav dropdown, sitemap.xml, _redirects, llms.txt."""
     changed, notes = [], []
-    url = f"{SITE}/{slug}"
+    url = page_url(slug)
+    href = page_href(slug)
 
-    pretty = fm.get("pretty_slug")
-    if pretty:
-        p = WEB / "_redirects"
+    rules = redirect_rules(fm.get("pretty_slug"), slug)
+    if fm.get("pretty_slug") and not rules:
+        notes.append("_redirects: skipped - pretty_slug equals the page's own URL, so a "
+                     "rule here would never fire and would block trailing-slash "
+                     "normalisation (see SEO-URL-FIX-PLAN.md §1.4)")
+    p = WEB / "_redirects"
+    for rule in rules:
         lines = p.read_text().splitlines()
-        if not any(l.split()[0] == pretty for l in lines if l.strip()):
-            lines.append(f"{pretty}    /{slug} 301")
-            p.write_text("\n".join(lines) + "\n")
+        src = rule.split()[0]
+        if any(l.split()[0] == src for l in lines if l.strip() and not l.startswith("#")):
+            notes.append(f"_redirects: {src} already present")
+            continue
+        p.write_text("\n".join(lines).rstrip("\n") + "\n" + rule + "\n")
+        if "_redirects" not in changed:
             changed.append("_redirects")
-        else:
-            notes.append("_redirects: entry already present")
 
     sm = WEB / "sitemap.xml"
     txt = sm.read_text()
@@ -434,7 +494,7 @@ def wire_updates(fm, slug):
 
     art = WEB / "articles.html"
     html = art.read_text()
-    if f'href="{slug}"' not in html:
+    if f'href="{href}"' not in html:
         k = _card_anchor(html)
         if k:
             art.write_text(html[:k] + _article_card(fm, slug) + html[k:])
@@ -465,7 +525,7 @@ def wire_updates(fm, slug):
         touched = 0
         for f in sorted(WEB.glob("*.html")):
             h = f.read_text()
-            if '<ul class="dropdown-menu">' not in h or f'href="{slug}"' in h:
+            if '<ul class="dropdown-menu">' not in h or f'href="{href}"' in h:
                 continue
             f.write_text(add_nav_entry(h, slug, fm["title"]))
             touched += 1
@@ -481,7 +541,7 @@ def _article_card(fm, slug):
            f'class="rounded me-2 flex-shrink-0" alt="{fm.get("card_alt", fm["title"])}">'
            if src else "")
     return ('                                    <li class="pt-2">\n'
-            '                                        <a href="' + slug + '" class="d-flex align-items-center text-dark link-underline link-underline-opacity-0 link-underline-opacity-100-hover">'
+            '                                        <a href="' + page_href(slug) + '" class="d-flex align-items-center text-dark link-underline link-underline-opacity-0 link-underline-opacity-100-hover">'
             + pic + '<span class="text-dark">' + fm["title"] + '</span></a>\n'
             '                                    </li>\n')
 
@@ -596,10 +656,37 @@ def self_test(donor):
             fails.append(f"JSON-LD does not parse: {e}")
     if not re.search(r'"citation"', out):
         fails.append("Article.citation missing")
-    internal = re.findall(r'href="([a-z0-9\-]+\.html)"', out)
-    page_links = {u for u in internal if u != fm["slug"]}
-    if len(page_links) < 4:
-        fails.append(f"only {len(page_links)} internal links: {sorted(page_links)}")
+    # Content links must come out root-absolute and extensionless. This check used to
+    # match href="x.html" only, so against a migrated page it passed on zero links -
+    # the same silent-pass failure mode qa_page.py had (SEO-URL-FIX-PLAN.md G2).
+    want = {"/perpetual-motion-generator", "/magnet-motor",
+            "/magnetic-generator-plans-review", "/tesla-1894"}
+    got = set(re.findall(r'href="(/[A-Za-z0-9._\-]+)"', out))
+    missing = sorted(want - got)
+    if missing:
+        fails.append(f"content links not emitted in the canonical form: {missing}")
+    if re.search(r'href="[^"]*\.html["\s]', out):
+        fails.append("a .html href was emitted")
+    if re.search(r'(?:href|src)="(?!https?:|#|/|mailto:|tel:|data:|javascript:)[^"]+"', out):
+        fails.append("a relative href/src was emitted")
+    can = re.search(r'<link rel="canonical" href="([^"]+)"', out)
+    if not can or can.group(1) != page_url(fm["slug"]):
+        fails.append(f"canonical is not self-referential and extensionless: "
+                     f"{can.group(1) if can else None}")
+    if can and can.group(1).endswith(".html"):
+        fails.append("canonical carries .html")
+    ogu = re.search(r'<meta property="og:url" content="([^"]+)"', out)
+    if not ogu or (can and ogu.group(1) != can.group(1)):
+        fails.append("og:url does not equal canonical")
+    # The dead-rule rule, checked directly: --wire is not run by the self-test, and a
+    # rule that restates a page's own URL is what put 8 dead rules in _redirects.
+    if redirect_rules("/_selftest-fixture", "_selftest-fixture.html"):
+        fails.append("a rule restating the page's own URL was not skipped")
+    alias = redirect_rules("/tesla-rotating-magnetic-field",
+                           "rotating-magnetic-field-1888.html")
+    if len(alias) != 2 or not all(r.endswith(" 301") for r in alias) \
+            or not any(r.startswith("/tesla-rotating-magnetic-field/ ") for r in alias):
+        fails.append(f"alias rule wrong: {alias}")
     if re.search(r'href="http://', out):
         fails.append("http:// link present")
     if "localhost" in out:
@@ -678,12 +765,18 @@ def main():
 
     imgs = re.findall(r"<img\b[^>]*>", html)
     figs = [i for i in imgs if 'src="/assets/tesla1894/' in i or 'assets/tesla1894/' in i]
-    links = {u for u in re.findall(r'href="([a-z0-9\-]+\.html)"', html) if u != slug}
+    shell_links = set()
+    for v in shell.values():
+        shell_links |= set(re.findall(r'href="(/[A-Za-z0-9._\-]+)"', v))
+    links = ({u for u in re.findall(r'href="(/[A-Za-z0-9._\-]+)"', html)}
+             - shell_links - {page_href(slug)})
     print(f"wrote {out_path}  ({len(before)} -> {len(html.encode())} bytes)")
     print(f"  headings: {html.count('<h1')} h1, {html.count('<h2')} h2, "
           f"{html.count('<h3')} h3")
     print(f"  images: {len(figs)} series figures / {len(imgs)} total")
     print(f"  internal links: {len(links)}")
+    if re.search(r'href="[^"]*\.html["\s]', html):
+        print("  WARNING: a .html href is present - the page will point at a redirect")
     print(f"  tid: {tid}")
     if args.wire:
         changed, notes = wire_updates(fm, slug)

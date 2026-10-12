@@ -345,21 +345,34 @@ ClickBank reporting isolates the series.
 
 ### 5.1 URL and redirect table
 
-| # | File | Pretty slug (301 in `_redirects`) |
-|---|---|---|
-| H | `tesla-1894.html` | `/1894` |
-| 01 | `tesla-lit-lamps-without-wires.html` | `/tesla-lit-lamps-without-wires` |
-| 02 | `tesla-one-wire-power.html` | `/tesla-one-wire-power` |
-| 03 | `tesla-earthquake-machine.html` | `/tesla-earthquake-machine` |
-| 04 | `tesla-wireless-power-1893.html` | `/tesla-wireless-power-1893` |
-| 05 | `tesla-high-frequency-massage.html` | `/tesla-high-frequency-massage` |
-| 06 | `tesla-cold-flame.html` | `/tesla-cold-flame` |
-| 07 | `rotating-magnetic-field-1888.html` | `/tesla-rotating-magnetic-field` |
-| 08 | `tesla-weird-inventions-1894.html` | `/tesla-weird-inventions` |
-| 09 | `tesla-worlds-fair-1893.html` | `/tesla-worlds-fair-1893` |
-| 10 | `tesla-free-energy-what-he-said.html` | `/tesla-free-energy-what-he-said` |
-| 11 | `tesla-high-frequency-alternator.html` | `/tesla-high-frequency-alternator` |
-| 12 | `tesla-glowing-tubes-vacuum.html` | `/tesla-glowing-tubes-before-tubes` |
+**The rule (SEO-URL-FIX-PLAN.md §1.4, and the reason 8 dead rules were written here):** a page's
+canonical URL is its file name without `.html`. Cloudflare resolves a static page *before* it
+consults `_redirects`, so a rule whose source is an existing page never fires - and it blocks the
+platform's own trailing-slash normalisation, which is the thing we wanted in the first place. A
+rule is therefore only ever for an **alias**: a URL we want to own and hand out that is not the
+file name. `make_article.py` now enforces this - `redirect_rules()` returns nothing when
+`pretty_slug` restates the page's own URL, and emits both the bare and trailing-slash source when
+it does not.
+
+| # | File | Canonical URL | `_redirects` rule? |
+|---|---|---|---|
+| H | `tesla-1894.html` | `/tesla-1894` | **yes** - `/1894` and `/1894/` as promo aliases (D1). Not added yet: the hub page does not exist, and a rule pointing at a 404 is a different kind of dead. Add it with the hub. |
+| 01 | `tesla-lit-lamps-without-wires.html` | `/tesla-lit-lamps-without-wires` | no |
+| 02 | `tesla-one-wire-power.html` | `/tesla-one-wire-power` | no |
+| 03 | `tesla-earthquake-machine.html` | `/tesla-earthquake-machine` | no |
+| 04 | `tesla-wireless-power-1893.html` | `/tesla-wireless-power-1893` | no |
+| 05 | `tesla-high-frequency-massage.html` | `/tesla-high-frequency-massage` | no |
+| 06 | `tesla-cold-flame.html` | `/tesla-cold-flame` | no |
+| 07 | `rotating-magnetic-field-1888.html` | `/rotating-magnetic-field-1888` | **yes** - `/tesla-rotating-magnetic-field` is an alias, live in both forms (`_redirects` lines 115-116). The one row where the file name and the hand-out URL deliberately differ; it predates this rule. |
+| 08 | `tesla-weird-inventions-1894.html` | `/tesla-weird-inventions-1894` | decide before writing: name the file after the URL you want and need no rule, or keep this name and add `/tesla-weird-inventions` as an alias. The old table listed the alias as the URL, which is exactly the shape that produced the dead rules. |
+| 09 | `tesla-worlds-fair-1893.html` | `/tesla-worlds-fair-1893` | no |
+| 10 | `tesla-free-energy-what-he-said.html` | `/tesla-free-energy-what-he-said` | no |
+| 11 | `tesla-high-frequency-alternator.html` | `/tesla-high-frequency-alternator` | no |
+| 12 | `tesla-glowing-tubes-vacuum.html` | `/tesla-glowing-tubes-vacuum` | as 08 - `/tesla-glowing-tubes-before-tubes` only makes sense as an alias, and an alias costs a hop on every click. Prefer the file name. |
+
+Rows 01-06 and 09-11 need nothing at all: the URL and the file name are the same thing, which is
+what a rule-free row looks like. The 8 live pages sit in that group, and their trailing-slash
+form is handled by the platform (verified 2026-10-12: `/x/` 308s to `/x` with no rule written).
 
 ### 5.2 Internal link map (each article: 4–6 out-links, ≥3 in-links)
 
@@ -532,7 +545,8 @@ python3 books/tools/make_article.py \
 - Affiliate links get `?tid=<tid>` and `rel="noopener noreferrer nofollow"`.
 
 **`--wire` also updates:** `articles.html` (card), nav dropdown, `sitemap.xml`
-(`<url>` + `lastmod`), `_redirects` (pretty slug 301), `llms.txt` (series list).
+(`<url>` + `lastmod`), `llms.txt` (series list), and `_redirects` **only when an alias is
+wanted** - a rule whose source is the page's own file name is never emitted (§5.1).
 
 **Safety:** writes only the target file; refuses to overwrite anything not listed
 in `new_content/1894-series/index.json` unless `--force`; prints a diff summary
@@ -1182,9 +1196,9 @@ a rewrite session instead.
 ### Decided (2026-10-10)
 
 **D6 — Commit every session, never push.** Standing rule, not a one-off hold. At the end of
-each production session: commit the site repo (page, figures, sitemap, `_redirects`,
-`llms.txt`, `articles.html`, any shell CSS) and the work repo (drafts, `index.json`, tools,
-this plan), then stop. `git push` in `website/` deploys, so it happens only on the owner's
+each production session: commit the site repo (page, figures, sitemap, `llms.txt`,
+`articles.html`, any shell CSS, and `_redirects` only if an alias was deliberately added - see
+§5.1) and the work repo (drafts, `index.json`, tools, this plan), then stop. `git push` in `website/` deploys, so it happens only on the owner's
 explicit sign-off, and it is always a separate, named action. Rationale: three sessions of
 work sat uncommitted on 2026-10-10, which is one crash away from being lost, while a push
 would have put unreviewed pages in front of the public.

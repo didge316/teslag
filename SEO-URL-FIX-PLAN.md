@@ -72,10 +72,16 @@ and the soft-404 fix is still measurable - but only by URL group, and there are 
 (legacy slugs, current slugs, brand-new 1894 pages) instead of two. Read §10 step 4 with that in
 mind before drawing any conclusion from a week of GSC data.
 
-The rest of the migration is still uncommitted, by design. `git diff --shortstat` in `website/` reads
-**46 files, +2,368 / −2,368** — the link / canonical / `og:url` / JSON-LD rewrite that is Deploy 2
-(W2). Those files stay unstaged until W2 is its own commit; `git add -A` would fold them into a
-Deploy 1 rollback.
+Deploy 2 is **committed locally and not pushed**: `c3232e0` (W2, the signal change) and `249733b`
+(W3, titles, metas, asset links) sit on top of the live `8e62498`. `git status` in `website/` is
+clean apart from `js/email-capture-widget.html`, which was already untracked before any of this work.
+Pushing stays the owner's action, and per §10 it should either wait for the Deploy 1 observation week
+or be accepted explicitly as a second change on top of it.
+
+What Deploy 2 does not contain: no page's URL changes, no `_redirects` rule is added for an existing
+page, and no page's prose is rewritten. It changes what the site *says* about its URLs — canonical,
+`og:url`, JSON-LD, sitemap, `llms.txt`, titles, descriptions — and removes two pages nobody linked to
+or read.
 
 Done in the first session, verified offline. `git diff --shortstat` at that point: 47 files,
 +2,469 / −2,420.
@@ -105,31 +111,38 @@ Also done in the first session (work repo, docs) — **committed 2026-10-12** al
   plan, and the current working-tree state stated there rather than here.
 - This file.
 
-Still to edit in Phase G3:
-- `books/specs/prd.md:52` ("wired: … `_redirects` pretty slug from §5.1").
-- `SERIES-PLAN-1894.md` §5.1 (the hub row, per D1), line 535, line 1185.
-- `HANDOFF.md` — ✅ entry-point pointer and the current state added; the stale "What's Needed Next"
-  list is marked superseded so the next session does not follow it. Still owed: a real rewrite of
-  "What's Needed Next" and "Website Status", which treat the 40 keyword articles as finished work -
-  after the GSC week following Deploy 1 has been read, so the rewrite can state what changed.
+Phase G3 is done (2026-10-12): `SERIES-PLAN-1894.md` §5.1 rewritten as a canonical-URL table that
+says which rows need a rule and why the rest need none, plus its line 535 and its D6 session
+checklist restated; `books/specs/prd.md` §3 wired-list wording corrected and its §2.6 tooling item
+closed. `DOMAIN.md` and `DECISIONS.md` were already done in `a6169c1`.
+
+Still owed to G3: `HANDOFF.md` — ✅ entry-point pointer and the current state added; the stale
+"What's Needed Next" list is marked superseded so the next session does not follow it. Still owed: a
+real rewrite of "What's Needed Next" and "Website Status", which treat the 40 keyword articles as
+finished work - after the GSC week following Deploy 1 has been read, so the rewrite can state what
+changed.
 
 ### 2.1 Start here (new session)
 
-**Deploy 1 is live and verified** (2026-10-12). The next unit of work is Deploy 2.
+**Deploy 1 is live and verified. Deploy 2 is committed locally and not pushed.** The next unit of
+work is the GSC read, then the owner's push.
 
-1. `cd /home/matt/projects/other/tesla-generator/website && git log --oneline -1` — expect
-   `8e62498 Deploy 1 (W1): trailing-slash redirects + a real 404`, matching `origin/main`, and
-   `git diff --shortstat` = 46 files, +2,368 / −2,368 unstaged. If the 46 files are gone, W2 has
-   already been committed and this plan is out of date — stop and re-read the log.
-2. Do Deploy 2 as separate commits: **W2** = Phase B (sitemap), D (llms.txt), B2 (delete the two
-   unused pages + add the four D3 insurance rules), E3 (repoint the 5 `plans-review-2026` links);
-   **W3** = titles/metas (F); **B1/B2** in the work repo = the pipeline (G1, G2) and docs (G3).
-   Re-run the §9 offline assertions before each commit - they are cheap and they caught the defects.
-3. **W4** (E2, publish the two drafted pages) is content work with its own gates — do it after
-   G1/G2 so the pipeline and its gates are already correct.
-4. Owner pushes each named commit separately. Nothing in Deploy 2 changes an existing page's URL, so
-   the §11 flux risk does not re-open.
+1. `cd /home/matt/projects/other/tesla-generator/website && git log --oneline -3` — expect `249733b`
+   (W3), `c3232e0` (W2), `8e62498` (W1, = `origin/main`). `git status` clean except
+   `js/email-capture-widget.html`. If `origin/main` has moved past `8e62498`, Deploy 2 has been
+   pushed: re-read §9c and start the observation clock from that date instead.
+2. **Read the GSC data by URL group** (§10 step 4). Three groups, not two: legacy slugs, current
+   slugs, and the brand-new 1894 pages that went live in the same push. Do not read the first week
+   of numbers for the new pages as an effect of the URL fix.
+3. **Then ask the owner to push Deploy 2**, or accept that it is a second change on top of the first
+   and stop attributing the two separately. Both are defensible; not deciding is what makes the data
+   unreadable.
+4. **W4** (E2, publish the two drafted pages) is content work with its own gates. G1/G2 are done, so
+   the pipeline and its gates are already correct — that was the blocker, and it is gone.
 5. The year-stamp pass (F2) stays a third change, after Deploy 2 settles.
+6. The hub (`tesla-1894.html`) is now the most valuable missing page on the site, not for its own
+   traffic but because all 8 live series pages describe it in their structured data and it 404s
+   (§2.3 item 11).
 
 Already settled, do not re-litigate: D1-D5 (§12), the two-deploy split (D4), and the §11 fallback,
 which turned out not to be needed - removing the dead rules did restore `/x/` → 308 on all 8 series
@@ -193,9 +206,89 @@ sitting side by side on the live host, same day, same config - the only differen
 That is the root cause in §0 reproduced against the live site. It does not replace the post-push
 matrix - it makes the expected result predictable.
 
+### 2.3 Deploy 2 — what was committed, and the eleven places this plan turned out to be wrong
+
+Committed 2026-10-12, **not pushed**:
+
+| commit | contents | gate run before committing |
+|---|---|---|
+| `c3232e0` **W2** | the 44-page link / canonical / `og:url` / JSON-LD rewrite; `sitemap.xml` rewritten (44 entries, real `lastmod`); `llms.txt` rewritten; `opt-in.html` + `electrical-experimenter.html` deleted and replaced by 4 insurance rules; 5 `plans-review-2026` links repointed | the §9 offline list, all green |
+| `249733b` **W3** | 10 titles, 4 meta descriptions, 18 `og:description` mirrors, 411 asset links made root-absolute, 3 head-block gaps closed | a 45-page metadata audit: 0 issues |
+
+The plan held up where it mattered — the dead-rule diagnosis in §0, the two-deploy split (D4), the
+F title and description strings (used verbatim, all 14), the E3 approach, the B2 deletions. It was
+wrong, or incomplete, in these eleven places. Each one was found by running something, not by
+reading.
+
+1. **Phase F's stated method does not describe the titles it fixes.** It says "drop the trailing
+   brand suffix (`— Tesla Magnetic Generator`)". None of the ten had a brand suffix; they were long
+   because of descriptive subtitles ("Complete 2026 Cost Breakdown", "Reliable Power When You Need
+   It"). The proposed replacement strings are right and were used as written; the method note was
+   describing a different site.
+2. **`og:description` is not a duplicate of the meta description.** The plan assumed it mirrored it
+   everywhere and needed touching on 4 pages. On **18 pages it is a different string**, and on **15 of
+   those it is over 160 characters** (up to 224) — which social platforms truncate anyway. Every
+   page's `og:description` is now exactly its meta description; no new copywriting was needed, because
+   the shorter string already existed on every page and was the one Google was being shown.
+3. **Phase A left the asset links relative.** It made page links root-absolute and stopped. 411
+   references to `css/`, `js/`, `assets/` and `avatars/` stayed relative across 44 files. They resolve
+   correctly today only because every trailing-slash URL 308s to its canonical before anything renders
+   — the exact dependency invariant 1 exists to remove. All 411 are root-absolute now; each target was
+   confirmed on disk first.
+4. **Three head blocks were incomplete, and no gate would have said so.** `articles.html` — indexable,
+   in the sitemap, linked from all 45 pages — had **no Open Graph and no Twitter Card block at all**.
+   `contact.html` and `privacy.html` had no `robots` meta (behaviour unchanged; every other page states
+   it, and the page gate needs a uniform head shape to assert against). Added.
+5. **The `lastmod` range in §3 was wrong, and the old file was worse than stale.** The plan describes
+   2026-07-03 → 2026-10-11. No commit in this repo's history touches those 35 pages on 2026-07-03 —
+   those values were hand-written. Eight series entries were dated **2026-10-14 to 2026-10-22, in the
+   future**. The real git-derived range is 2026-10-02 → 2026-10-11, which is what the sitemap now
+   carries.
+6. **`llms.txt` lists the free book at the PDF, not at `/electrical-experimenter`.** The plan said to
+   keep that page in the list; the page is deleted in the same deploy, so listing it would have meant
+   handing a model a URL that 301s. It is listed at `/assets/electrical-experimenter.pdf`, its actual
+   location, under a short "Free Download" section.
+7. **§9 item 5's assertion was half wrong.** "`assets/electrical-experimenter.pdf` is referenced by
+   nothing in `website/`" was true of the PDF; the string that appears in `js/exit-popup.js` is the
+   **cover image**, `electrical-experimenter-cover.webp`, and the popup posts an email form rather than
+   linking to the deleted page — so deleting the page breaks nothing. The PDF is now referenced by
+   `llms.txt` and by the insurance rule, which is the point.
+8. **`make_article.py` emitted more of the old convention than G1 listed.** G1 names 8 places. The
+   markdown link emitter (`inline()`) also passed `[text](page.html)` straight through as a **relative
+   `.html` href** — that is where the 4 forward-reference links in §6 came from — and the head
+   template emitted `href="assets/favicon.ico"` and `href="css/styles-custom.css"`. Both fixed; the
+   nav and article-card emitters now emit root-absolute extensionless hrefs.
+9. **`qa_page.py`'s dead-link gate was not checking the wrong thing, it was checking nothing.** It
+   skipped every root-absolute href on the grounds that the deploy root was not this checkout's job.
+   Under the new convention nearly every link is root-absolute, so the gate passed every page
+   unconditionally. It now resolves root-absolute paths through the same order Cloudflare uses
+   (static file, then `x.html`), and the `>= 4 internal links` / `>= 3 reciprocal` gates — which
+   matched `href="x.html"` and would have silently counted zero on a migrated page — key on the page
+   file instead, accepting both spellings so the tool still runs against pre-migration pages.
+10. **G3's claim about which §5.1 rows need a rule was wrong.** It says only 07 and the hub need one.
+    Rows 08 (`tesla-weird-inventions-1894.html` vs `/tesla-weird-inventions`) and 12
+    (`tesla-glowing-tubes-vacuum.html` vs `/tesla-glowing-tubes-before-tubes`) differ from their
+    planned URLs too, which is the same shape that produced the 8 dead rules. §5.1 is now a
+    canonical-URL table that states the rule and marks each row; 08 and 12 are flagged as a decision
+    to make before writing, with "name the file after the URL you want" as the default.
+11. **A live defect this plan did not know about: all 8 series pages describe a 404 in their
+    structured data.** Their `BreadcrumbList` carries `"item": "…/tesla-1894"`, and `/tesla-1894`
+    returns **404** (measured 2026-10-12; `/1894` too). No `href` points there, so no link gate
+    catches it — it is only in JSON-LD. Two ways to close it: ship the hub, or drop the hub crumb
+    until it exists. Shipping the hub is better for the series and is now the highest-value missing
+    page on the site.
+
+State after Deploy 2, measured offline: 45 pages; 2,114 internal links, 0 unresolved except the 2
+deliberate forward references; 0 `.html` links; 0 relative `href`/`src` in html or js; canonical ==
+own URL and `og:url` == canonical on all 44 indexable pages; 45 JSON-LD blocks parse; every title
+≤60 and every description ≤160; sitemap 44 entries, no `.html`, no future `lastmod`, every `<loc>`
+mapping to a real file; no `noindex` page in the sitemap and no indexable page missing from it;
+`_redirects` 54 rules, none dead, none missing a trailing-slash twin, every target resolving.
+
 ---
 
 ## 3. Phase B — `sitemap.xml`
+
 
 Rewrite the file. Rules:
 
@@ -407,12 +500,21 @@ Recommendation, deliberately **not** bundled into Deploy 1 or 2:
 - Sequencing matters more than the year: doing this at the same time as the URL change means the
   GSC wiggle can't be attributed to either cause.
 
-## 8. Phase G — the article pipeline (so unpublished articles don't reintroduce this)
+## 8. Phase G — the article pipeline (so unpublished articles don't reintroduce this) — **done 2026-10-12**
 
 This is the part that matters for the articles still being written in `books/` /
 `new_content/`. Today the tooling emits the old convention.
 
-### G1 — `books/tools/make_article.py`
+**Done.** Both tools now emit and enforce the contract, both self-tests pass, and `qa_page.py
+--all-series` reports 8/9 live series pages passing 29 gates each — the 9th is the hub, which does
+not exist yet. What each tool actually needed is in §2.3 items 8-9; both needed more than this
+section described.
+
+### G1 — `books/tools/make_article.py` — **done**
+
+*(The line numbers below refer to the file as it stood when this plan was written; it has changed
+since. The implementation is `page_url()` / `page_href()` / `local_href()` / `redirect_rules()` at
+the top of the file, and `make_article.py --self-test` is the gate.)*
 
 - Add one helper, `page_url(slug)` → `SITE + "/" + slug[:-5]` (and `SITE + "/"` for `index`), and
   use it at the three places that build `url = f"{SITE}/{slug}"` (lines 243, 289, 410). That single
@@ -429,7 +531,10 @@ This is the part that matters for the articles still being written in `books/` /
     file name.
 - `--self-test` (if any) and the `--wire` output: assert the generated canonical has no `.html`.
 
-### G2 — `books/tools/qa_page.py`
+### G2 — `books/tools/qa_page.py` — **done**
+
+*(Same caveat about line numbers. The implementation is `page_key()` / `alive()` /
+`redirecting_links()`; `qa_page.py --self-test` runs 8 fixture cases across the three gates.)*
 
 The gates parse links with `href="([A-Za-z0-9._\-]+\.html)"` (lines 39, 87). Under the new
 convention that matches nothing, so the "≥4 internal links", "≥3 reciprocal links" and
@@ -443,7 +548,7 @@ convention that matches nothing, so the "≥4 internal links", "≥3 reciprocal 
   This is the gate whose absence let 46 wrong canonicals ship.
 - Add a gate: **no internal link may point at a URL that 308s or 301s** — i.e. no `.html` links.
 
-### G3 — docs that state the old convention
+### G3 — docs that state the old convention — **done**
 
 - `SERIES-PLAN-1894.md` §5.1 (line 348): the table header says "Pretty slug (301 in
   `_redirects`)". Change to "Canonical URL" and mark which rows actually need a rule. Rows where
@@ -462,16 +567,27 @@ convention that matches nothing, so the "≥4 internal links", "≥3 reciprocal 
 
 ## 9. Phase H — verification
 
-Offline (before commit):
-1. Re-run the Cloudflare-emulation link check → expect only the 4 known forward references.
+Offline (before commit) — **run 2026-10-12 before W2 and again before W3. All green; results in
+§2.3.** Two corrections to the list itself, found by running it:
+1. Re-run the Cloudflare-emulation link check → expect only the **2** known forward references
+   (`/magnetic-generator-battery-storage`, `/tesla-magnetic-generator-maintenance-requirements`).
+   The plan said 4; E3 removes one and the hub crumb is JSON-LD, not a link, so it never appeared
+   here. Anything else unresolved is a defect.
 2. Assert: zero `.html` in internal links / canonicals / `og:url` / JSON-LD self-URLs.
 3. Assert: every canonical == its own extensionless URL; `og:url` == canonical.
 4. Parse `sitemap.xml`; assert every `<loc>` maps to a real file, no `<loc>` has `.html`, no
    `lastmod` is in the future, and neither `/opt-in` nor `/electrical-experimenter` is present.
-5. Assert `assets/electrical-experimenter.pdf` is still referenced by nothing in `website/` but is
-   still committed (it is linked from the email sequence, not from the site).
+5. Assert `assets/electrical-experimenter.pdf` is still committed and is referenced only by
+   `llms.txt` and the insurance rule. (Before Deploy 2 it was referenced by nothing in `website/`;
+   the string in `js/exit-popup.js` is the **cover image**, not the PDF. Making the PDF discoverable
+   is the point of §2.3 item 6.)
 6. Run `qa_page.py --self-test` after G2, then `qa_page.py` on the 8 live series pages → gates
    must still pass (this proves the gates didn't just go vacuous).
+7. Audit the head block of every page, not just the ones being edited: presence of title,
+   description, robots, canonical, the five `og:` tags and the four `twitter:` tags; title ≤60 and
+   description ≤160 on **every** page rather than only the ones in F's tables; `og:description` ==
+   `description`; every JSON-LD block parses. This is the check that found §2.3 items 2 and 4 — the
+   F tables list 14 pages, and the defect was on 18 others.
 
 Online (after the owner pushes — this is the part that cannot be verified locally):
 ```
@@ -562,16 +678,19 @@ Why this is safe on its own: every new `_redirects` target is an extensionless U
 returns 200 today, and `404.html` only affects paths that match nothing. No page's canonical, links
 or sitemap entry changes, so no page's ranking signal is touched.
 
-### Deploy 2 — the signal change (after the week)
+### Deploy 2 — the signal change (after the week) — **committed, not pushed**
 
-- **W2** — the 44-page link / canonical / `og:url` / JSON-LD rewrite, `sitemap.xml`, `llms.txt`,
-  the two page deletions (B2) and the 5 repointed `plans-review-2026` links (E3).
-- **W3** — titles and metas (F).
-- **W4** — the two newly published articles (E2). Content work: its own gates, its own review.
-- Work repo: **B1** pipeline tools (G1, G2), **B2** docs (G3 + the publish-on-completion rule).
+- **W2** `c3232e0` — the 44-page link / canonical / `og:url` / JSON-LD rewrite, `sitemap.xml`,
+  `llms.txt`, the two page deletions (B2) and the 5 repointed `plans-review-2026` links (E3).
+- **W3** `249733b` — titles and metas (F), plus the asset-link and head-block work in §2.3 items 3-4.
+- **W4** — the two newly published articles (E2). Content work: its own gates, its own review. Not
+  started; G1/G2 were the blocker and are done.
+- Work repo: **B1** pipeline tools (G1, G2) and **B2** docs (G3) — **done 2026-10-12**.
 
-**Do not push any of these.** D6 stands: push deploys, and each push is a separate named owner
-action. The year-stamp pass (F2) is deliberately a *third* change, after both of these settle.
+**Not pushed.** D6 stands: push deploys, and each push is a separate named owner action. The open
+question for the owner is §2.1 step 3: push Deploy 2 after reading the Deploy 1 week, or push it now
+and accept that the two effects can no longer be separated. The year-stamp pass (F2) is deliberately
+a *third* change, after both of these settle.
 
 ## 11. Risks and rollback
 
