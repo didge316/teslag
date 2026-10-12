@@ -72,11 +72,11 @@ and the soft-404 fix is still measurable - but only by URL group, and there are 
 (legacy slugs, current slugs, brand-new 1894 pages) instead of two. Read §10 step 4 with that in
 mind before drawing any conclusion from a week of GSC data.
 
-Deploy 2 is **committed locally and not pushed**: `c3232e0` (W2, the signal change) and `249733b`
-(W3, titles, metas, asset links) sit on top of the live `8e62498`. `git status` in `website/` is
-clean apart from `js/email-capture-widget.html`, which was already untracked before any of this work.
-Pushing stays the owner's action, and per §10 it should either wait for the Deploy 1 observation week
-or be accepted explicitly as a second change on top of it.
+Deploy 2 is **live**. `c3232e0` (W2, the signal change) and `249733b` (W3, titles, metas, asset
+links) were pushed to `origin/main` on 2026-10-12 at the owner's explicit instruction, on top of the
+live `8e62498`. `git status` in `website/` is clean apart from `js/email-capture-widget.html`, which
+was already untracked before any of this work. The owner accepted that this ends the separate
+attribution of the two deploys: the GSC week now reads as one change, not two (§9c).
 
 What Deploy 2 does not contain: no page's URL changes, no `_redirects` rule is added for an existing
 page, and no page's prose is rewritten. It changes what the site *says* about its URLs — canonical,
@@ -124,25 +124,26 @@ changed.
 
 ### 2.1 Start here (new session)
 
-**Deploy 1 is live and verified. Deploy 2 is committed locally and not pushed.** The next unit of
-work is the GSC read, then the owner's push.
+**Both deploys are live.** Deploy 1 `8e62498` and Deploy 2 `c3232e0` + `249733b` are on
+`origin/main` and verified against the live site (§9c). `origin/main` = `249733b`.
 
-1. `cd /home/matt/projects/other/tesla-generator/website && git log --oneline -3` — expect `249733b`
-   (W3), `c3232e0` (W2), `8e62498` (W1, = `origin/main`). `git status` clean except
-   `js/email-capture-widget.html`. If `origin/main` has moved past `8e62498`, Deploy 2 has been
-   pushed: re-read §9c and start the observation clock from that date instead.
-2. **Read the GSC data by URL group** (§10 step 4). Three groups, not two: legacy slugs, current
-   slugs, and the brand-new 1894 pages that went live in the same push. Do not read the first week
-   of numbers for the new pages as an effect of the URL fix.
-3. **Then ask the owner to push Deploy 2**, or accept that it is a second change on top of the first
-   and stop attributing the two separately. Both are defensible; not deciding is what makes the data
-   unreadable.
-4. **W4** (E2, publish the two drafted pages) is content work with its own gates. G1/G2 are done, so
-   the pipeline and its gates are already correct — that was the blocker, and it is gone.
-5. The year-stamp pass (F2) stays a third change, after Deploy 2 settles.
-6. The hub (`tesla-1894.html`) is now the most valuable missing page on the site, not for its own
-   traffic but because all 8 live series pages describe it in their structured data and it 404s
-   (§2.3 item 11).
+1. `cd /home/matt/projects/other/tesla-generator/website && git log --oneline -3` — expect
+   `249733b`, `c3232e0`, `8e62498`, matching `origin/main`, working tree clean apart from
+   `js/email-capture-widget.html`.
+2. **The URL work is done.** What is left on this plan is reading, not editing: the GSC read by URL
+   group (§10 step 4), now against a single combined change rather than two.
+3. **W4 (E2, the two drafted keyword pages) is parked by the owner** — to be run after the SEO work
+   settles. Note before starting it: `make_article.py` cannot render them as written. It is a
+   series-only tool — it hard-requires a `1894_NN` tid, the 1894 book citation, ≥3 `(1894, p. N)`
+   quotes and series figures, and it prints "The 1894 File" kicker. E2 step 2 assumed a generality
+   the tool does not have. Either give it a non-series mode or write those two pages into the shell
+   by hand; that is a decision, not a step.
+4. **The 1894 series is still being written**, and the hub (`tesla-1894.html`) ships with it. Until
+   it does, all 8 live series pages carry a `BreadcrumbList` item pointing at `/tesla-1894`, which
+   returns 404 (§2.3 item 11). That is a known consequence of the series being unfinished, not a
+   regression — but the hub must ship with the D1 `/1894` alias rule added at the same moment, and
+   the breadcrumb should be dropped from the other pages if the hub slips again.
+5. The year-stamp pass (F2) stays a third change, after this one settles.
 
 Already settled, do not re-litigate: D1-D5 (§12), the two-deploy split (D4), and the §11 fallback,
 which turned out not to be needed - removing the dead rules did restore `/x/` → 308 on all 8 series
@@ -654,6 +655,42 @@ Two notes, both parked (§13), neither a defect: `/404` is itself reachable at 2
 `noindex` with no canonical, so it cannot be indexed, and a redirect rule for it would be dead by
 §1.4), and `/index.html/` returns 404 rather than 308 → `/` - an odd URL nothing links to.
 
+### 9c. Phase H online — Deploy 2 — **run 2026-10-12 after the push. Passed.**
+
+Deploy 2 changes what the site says about its URLs, so the online check is a metadata audit of every
+page in the sitemap, not a redirect matrix (the redirect matrix is §9b and was re-run as a spot check).
+
+| check | expected | result |
+|---|---|---|
+| every `<loc>` in `sitemap.xml` | 200, and its `canonical` equals that exact string | 44 entries, **44 × 200**, canonical == loc on all 44 ✓ |
+| `og:url` | equals canonical | 44/44 ✓ |
+| `<title>` | ≤60 chars | 44/44, longest 54 ✓ |
+| `description` / `og:description` | ≤160 and equal to each other | 44/44 ✓ |
+| internal links | no `.html`, no relative `href`/`src` | 0 on all 44 ✓ |
+| URL forms (unchanged by Deploy 2) | `/x` 200, `/x.html` 308, `/x/` 308 | `/magnetic-generator` 200 / 308 / 308 ✓ |
+| the two deleted pages | 301 to their D3 targets | `/opt-in` and `/opt-in/` → 301 → `/`; `/electrical-experimenter` and `/…/` → 301 → the PDF ✓ |
+| unknown path | still a real 404 | `/no-such-page-xyz` → **404** ✓ |
+| `llms.txt` | no `.html` URLs, `/articles` listed | 0 `.html`, `/articles` present ✓ |
+| a retitled page, live | the new title, not the old one | `/magnetic-generator` serves `How Much Does It Cost to Build a Magnetic Generator?` (52) ✓ |
+
+**One gap this found, and it needs an owner decision.** The `.html` form of a deleted page 404s:
+`/opt-in.html` → 404, `/electrical-experimenter.html` → 404. The D3 insurance rules cover `/opt-in`
+and `/opt-in/`, but Cloudflare's extension normalisation only fires when the file exists — and it
+does not any more — so the `.html` spelling falls through to `_redirects`, which has no matching
+source. For a page that still exists the `.html` form 308s normally; only deleted pages have the gap.
+
+That matters more than it looks: this site was WordPress-origin, so an old backlink is at least as
+likely to be written `opt-in.html` as `/opt-in`. Two more rules close it —
+`/opt-in.html → /` and `/electrical-experimenter.html → /assets/electrical-experimenter.pdf`, both
+301, neither dead (the files are gone). Not added: it is a third change on a deploy that is already
+live, and the whole point of this plan's sequencing is that changes like this are named and counted.
+
+`/magnetic-generator-plans-review-2026` and its `.html` form both 404, which is correct — that URL
+never existed as a file, and the five links that pointed at it were repointed in W2, so nothing on the
+site reaches it.
+
+
+
 ## 10. Phase I — commit / deploy protocol (**D4: two deploys**, decided)
 
 The two halves have different risk, so they get different deploys. The point of splitting is
@@ -678,19 +715,22 @@ Why this is safe on its own: every new `_redirects` target is an extensionless U
 returns 200 today, and `404.html` only affects paths that match nothing. No page's canonical, links
 or sitemap entry changes, so no page's ranking signal is touched.
 
-### Deploy 2 — the signal change (after the week) — **committed, not pushed**
+### Deploy 2 — the signal change — **pushed and live, 2026-10-12**
 
 - **W2** `c3232e0` — the 44-page link / canonical / `og:url` / JSON-LD rewrite, `sitemap.xml`,
   `llms.txt`, the two page deletions (B2) and the 5 repointed `plans-review-2026` links (E3).
 - **W3** `249733b` — titles and metas (F), plus the asset-link and head-block work in §2.3 items 3-4.
-- **W4** — the two newly published articles (E2). Content work: its own gates, its own review. Not
-  started; G1/G2 were the blocker and are done.
+- **W4** — the two newly published articles (E2). **Parked by the owner**, to run after the SEO work
+  settles. Read §2.1 step 3 first: `make_article.py` cannot render them as E2 assumed.
 - Work repo: **B1** pipeline tools (G1, G2) and **B2** docs (G3) — **done 2026-10-12**.
 
-**Not pushed.** D6 stands: push deploys, and each push is a separate named owner action. The open
-question for the owner is §2.1 step 3: push Deploy 2 after reading the Deploy 1 week, or push it now
-and accept that the two effects can no longer be separated. The year-stamp pass (F2) is deliberately
-a *third* change, after both of these settle.
+Pushed on the owner's explicit instruction, both commits at once. The consequence, stated plainly so
+nobody is surprised later: **the GSC week now reads as one change, not two.** Deploy 1 and Deploy 2
+are 45 minutes apart on the same branch, so a movement in the legacy-slug or current-slug group can
+be attributed to the URL contract as a whole, but the soft-404 recovery and the canonical/sitemap
+change cannot be separated from each other. The split still earned its keep — it is why the live
+verification in §9b could prove the dead-rule diagnosis before any signal changed — but the
+attribution it was designed to buy has been spent by choice, and that is a decision, not an accident.
 
 ## 11. Risks and rollback
 

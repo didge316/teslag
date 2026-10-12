@@ -14,20 +14,40 @@
 > existing page's signals changed - but GSC now has three URL groups, not two, and that changes how
 > the week of data must be read (plan §10 step 4).
 >
-> **Deploy 2 is committed in `website/` and deliberately not pushed.** `c3232e0` (W2: the extensionless
-> link/canonical/`og:url`/JSON-LD rewrite, `sitemap.xml`, `llms.txt`, two unused pages deleted, five
-> links repointed) and `249733b` (W3: titles, metas, asset links) sit on top of the live `8e62498`.
-> The working tree is clean apart from `js/email-capture-widget.html`, which was already untracked
-> before any of this. Whether to push now or after reading the Deploy 1 week is the owner's call, and
-> it is the open question in plan §2.1 step 3 — pushing now means the two effects can no longer be
-> attributed separately.
+> **Deploy 2 is live too.** `c3232e0` (W2: the extensionless link/canonical/`og:url`/JSON-LD
+> rewrite, `sitemap.xml`, `llms.txt`, two unused pages deleted, five links repointed) and `249733b`
+> (W3: titles, metas, asset links) were pushed on 2026-10-12 at the owner's instruction; `origin/main`
+> is `249733b`. Verified against the live site: all 44 sitemap URLs 200 with canonical == the sitemap
+> entry and `og:url` == canonical, every title ≤60 and every description ≤160, no `.html` or relative
+> link anywhere, the two deleted pages 301 to their intended targets, unknown paths still a real 404.
+> Matrix in `SEO-URL-FIX-PLAN.md` §9c.
+>
+> **Both deploys went out 45 minutes apart, so the GSC week reads as one change.** The split still
+> earned its keep — it is what let the live check in §9b prove the dead-rule diagnosis before any
+> signal moved — but the separate attribution it was meant to buy has been spent by choice. Read the
+> week as "the URL contract changed", not as two effects.
+>
+> **One open item from the live check:** the `.html` form of a deleted page 404s — `/opt-in.html`,
+> `/electrical-experimenter.html`. The insurance rules cover `/opt-in` and `/opt-in/` only, and this
+> site was WordPress-origin, so an old backlink is at least as likely to use the `.html` spelling.
+> Two rules would close it; it was left alone because it is a third change on a deploy that is already
+> live. Owner decision, §9c.
 >
 > **The pipeline is fixed, so the next article will not reintroduce any of this.** `make_article.py`
 > emits extensionless canonicals/links and only ever writes a `_redirects` rule for a real alias;
 > `qa_page.py` resolves links the way Cloudflare does and now gates canonical, `og:url` and links that
-> point at a redirect. Both self-tests pass; 8/9 live series pages pass 29 gates each, and the 9th is
-> the hub, which does not exist — while all 8 series pages describe `/tesla-1894` in their structured
-> data and it returns 404 (plan §2.3 item 11).
+> point at a redirect. Both self-tests pass; 8/9 live series pages pass 29 gates each.
+>
+> **The two keyword pages in E2 are parked by the owner** until the SEO work settles — and note that
+> `make_article.py` cannot render them as the plan assumed: it is a series-only tool (it requires a
+> `1894_NN` tid, the 1894 book citation, ≥3 page-cited quotes and series figures). That is a decision
+> to make before starting, not a step to follow.
+>
+> **The 1894 series is still being written**, and its hub ships with it. Until `tesla-1894.html`
+> exists, the 8 live series pages carry a `BreadcrumbList` item pointing at `/tesla-1894`, which 404s.
+> That is a consequence of the series being unfinished, not a regression — but the hub must ship with
+> its `/1894` alias rule at the same moment (D1), and the crumb should come out of the other pages if
+> the hub slips again.
 >
 > The 1894 series workflow below still stands for writing articles, with two changes recorded in
 > `books/harness/docs/DECISIONS.md` (2026-10-12) and reflected in the `DOMAIN.md` glossary: canonical
