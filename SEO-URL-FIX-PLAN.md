@@ -55,9 +55,10 @@ Two secondary defects found while auditing, both bigger than the email's headlin
 ## 2. Status
 
 **Deploy 1 (W1) is committed**: `website/` `8e62498` — `_redirects` + the new `404.html`, 2 files,
-+248 / −52. **Not pushed** (D6), and it must not be pushed before the SPA fallback is off (D5), or
-`404.html` is never reached. Until the owner pushes, the live site is unchanged and every number in
-this plan still describes it.
++248 / −52. **Not pushed** (D6). Pushing it is the whole of Deploy 1 — there is no dashboard
+switch to flip first (D5 withdrawn, §4 and §12: Pages' SPA fallback exists *because* `404.html` is
+absent, so adding the file is the switch). Until the push, the live site is unchanged and every
+number in this plan still describes it.
 
 Everything else is still uncommitted, by design. `git diff --shortstat` in `website/` now reads
 **46 files, +2,368 / −2,368** — the link / canonical / `og:url` / JSON-LD rewrite that is Deploy 2
@@ -109,8 +110,8 @@ until the curl matrix below has been run against the live site.
    `Deploy 1 (W1): trailing-slash redirects + a real 404`, and `git diff --shortstat` = 46 files,
    +2,368 / −2,368 unstaged. If W1 is missing, it was never made; if the 46 files are gone, W2 has
    already been committed and this plan is out of date — stop and re-read the log.
-2. Ask the owner for the two actions only they can take: **turn off the Cloudflare Pages SPA
-   fallback (D5)**, then **push** `website/main`. Both are needed; either alone leaves the fix inert.
+2. Ask the owner to **push** `website/main` - the only owner action Deploy 1 needs. (The plan's
+   second owner action, "turn off the SPA fallback", does not exist; see D5, withdrawn below.)
 3. Run the Phase H curl matrix against the live site (§9). This is the only part of the plan that
    cannot be verified locally.
 4. If the matrix holds, do Deploy 2: Phase B (sitemap), D (llms.txt), B2 (delete the two unused
@@ -161,8 +162,22 @@ The `/tesla-1894` hub is referenced only from JSON-LD `BreadcrumbList` `item` va
 `href`, so it is not in that count; it is still a forward reference and still must not be sitemapped
 until the hub exists.
 
-**Not verified, and cannot be:** whether removing the 8 dead rules restores `/x/` → 308
-normalisation on the series pages (§11). That is the first thing the curl matrix must answer.
+**Not verified locally, and now measured on the live site** (2026-10-12, before the push). The claim
+that removing the 8 dead rules restores `/x/` → 308 normalisation is supported by the two classes
+sitting side by side on the live host, same day, same config - the only difference is whether a
+`_redirects` rule exists for the path:
+
+| live URL | today | what it shows |
+|---|---|---|
+| `/magnetic-generator` | 200 | the canonical form works |
+| `/magnetic-generator.html` | **308** → `/magnetic-generator` | Pages' own extension normalisation |
+| `/magnetic-generator/` | **308** → `/magnetic-generator` | a page **with no rule** normalises its trailing slash |
+| `/tesla-earthquake-machine/` | **200** (homepage) | a page **with a dead rule** does not - the duplicate + soft 404 |
+| `/how-to-build-a-perpetual-motion-generator/` | **200** (homepage) | the #1 landing page, 1,769 imp, is a soft 404 |
+| `/no-such-page-xyz` | **200** (homepage, `<title>Generate Free Electricity…`) | the implicit SPA fallback |
+
+That is the root cause in §0 reproduced against the live site. It does not replace the post-push
+matrix - it makes the expected result predictable.
 
 ---
 
@@ -238,10 +253,18 @@ the thing to hold to if the page is ever edited.
   "page not found" body, links to `/articles`, `/magnetic-generator`, `/about`, a search-free
   design, `<meta name="robots" content="noindex">`, **no canonical**, and no sitemap entry.
   Cloudflare Pages serves `404.html` with a 404 status automatically.
-- **Owner action (cannot be done in the repo):** Cloudflare Pages → project → Settings →
-  **Build & deploy → Single Page Application (SPA) fallback is ON**. That is what serves
-  `index.html` at 200 for unknown paths. If it stays on, `404.html` is never reached and the soft
-  404s continue. It must be turned off in the dashboard. Until then, the repo change is inert.
+- **No dashboard action is needed - D5 is withdrawn.** Pages' SPA fallback is not a setting; it is
+  what Pages does when there is no top-level `404.html`. Cloudflare's own *Serving Pages* doc
+  (updated 2026-10-10): *"If your project does not include a top-level `404.html` file, Pages
+  assumes that you are deploying a single-page application … serves the root (`/`) for any incoming
+  path that does not correspond to a static asset."* So the `404.html` above **is** the switch.
+  Checked on the live account 2026-10-12 (brave-browser-control): the `teslag` project's
+  Settings → Production page exposes only Build (git repo, build configuration, build cache, branch
+  control, watch paths, build system version, deploy hooks), Variables and secrets, Bindings,
+  Runtime and General - no SPA or routing control; the Build configuration dialog has framework
+  preset, build command, output directory, root directory and build comments only. The zone also has
+  **0 Page Rules** and no configured redirect or cache rules, so nothing outside the repo overrides
+  this. Phase C goes live on the push, not after a dashboard edit.
 - After both: `curl -o /dev/null -w '%{http_code}' https://teslamagneticgenerator.com/no-such-page`
   must print `404`.
 
@@ -446,7 +469,7 @@ Online (after the owner pushes — this is the part that cannot be verified loca
 /tesla-earthquake-machine.html -> 308 -> /tesla-earthquake-machine
 /tesla-earthquake-machine/     -> 308 -> /tesla-earthquake-machine
 # unknown path:
-/no-such-page -> 404   (needs the SPA fallback off)
+/no-such-page -> 404   (true once 404.html is deployed - that is the switch, §4)
 ```
 
 Runnable form — every URL the plan changes, in one pass. Expect the three columns to read
@@ -474,7 +497,7 @@ done
 curl -so /dev/null -w '%{http_code} -> %{redirect_url}\n' \
   https://teslamagneticgenerator.com/how-to-build-a-perpetual-motion-generator/
 
-# 4. unknown path — 404 only if the SPA fallback is off (D5)
+# 4. unknown path — 404 once 404.html is deployed (the file itself is the switch)
 curl -o /dev/null -w '%{http_code}\n' https://teslamagneticgenerator.com/no-such-page
 ```
 
@@ -491,8 +514,8 @@ attribution: Deploy 1 should move the 76%-of-impressions soft-404 leak and nothi
    Stage selectively — `git add _redirects 404.html`. The 46 rewritten HTML files stay unstaged;
    they belong to Deploy 2. **Done 2026-10-12 as `8e62498`**; the split held (2 files staged, 46
    left unstaged).
-2. Owner action (D5): Cloudflare Pages → project → **Settings → Build & deploy → turn off the SPA
-   fallback**. Without this, `404.html` is never reached and the soft 404s continue.
+2. ~~Owner action (D5): turn off the SPA fallback~~ - **withdrawn.** There is no such setting; the
+   `404.html` in W1 is what removes the fallback (§4, §12).
 3. Owner pushes. Verify the Phase H curl matrix immediately.
 4. Watch GSC for ~1 week, comparing **by URL group** (legacy-slug group vs current-slug group), not
    per URL.
@@ -526,12 +549,13 @@ action. The year-stamp pass (F2) is deliberately a *third* change, after both of
 - **Rollback:** the whole change is text in git. `git revert` the relevant `website/` commit (W1-W4
   are deliberately separate) and push. `_redirects` is the only file whose rollback changes live
   behaviour immediately.
-- **Unverifiable locally:** Cloudflare's asset-resolution precedence. The claim that removing the 8
-  dead rules restores `/x/` → 308 normalisation is inferred from the 35 pages that have no rule
-  (`/magnetic-generator/` → 308 verified) and must be confirmed with the Phase H curl matrix.
-  If it does not hold, the fallback is to add explicit `/x/ → /x 301` rules for those 8 pages.
+- **Was "unverifiable locally"; now measured, not inferred** (§2.2 table, live, 2026-10-12 before
+  the push): `/magnetic-generator/` → **308** (no rule → normalises) while
+  `/tesla-earthquake-machine/` → **200** homepage (dead rule → does not). Same host, same config;
+  the only variable is the presence of the rule. Still confirm with the Phase H matrix after the
+  push. If it does not hold, the fallback is explicit `/x/ → /x 301` rules for those 8 pages.
 
-## 12. Decisions — all five settled on 2026-10-12
+## 12. Decisions — five settled on 2026-10-12; D5 withdrawn the same day
 
 **D1 — 1894 hub slug: keep `tesla-1894.html`, canonical `/tesla-1894`.** Add `/1894` and `/1894/`
 as 301 aliases to `/tesla-1894`, for promo use only — nothing on the site links them.
@@ -553,8 +577,15 @@ the giveaway itself, which is a real conversion asset rather than a dead end.
 
 **D4 — two deploys**, as §10.
 
-**D5 — SPA fallback off** in the Cloudflare dashboard, with Deploy 1. Owner action; not a repo
-change. Until it is done, Phase C is inert and unknown paths keep returning the homepage at 200.
+**D5 — withdrawn the same day it was made.** It read "SPA fallback off in the Cloudflare dashboard;
+owner action; not a repo change." There is no such setting to turn off, and the premise was inferred
+rather than checked. Cloudflare's *Serving Pages* doc (updated 2026-10-10) states the behaviour
+plainly: a Pages project **without** a top-level `404.html` is assumed to be an SPA, and Pages then
+serves `/` for any path that matches no static asset. The soft 404 is the *absence* of the file, so
+W1's `404.html` is the fix itself, not a prelude to one. Confirmed on the account: no SPA or routing
+control anywhere in the `teslag` project settings, and the zone has 0 Page Rules and no configured
+redirect/cache rules. **Consequence:** Deploy 1 is one owner action (push), not two, and Phase C is
+live the moment that push builds.
 
 ## 13. Parked / out of scope
 

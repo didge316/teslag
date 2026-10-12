@@ -9,8 +9,10 @@
 > `og:url`, JSON-LD) is **still uncommitted on purpose** — 46 files, +2,368 / −2,368 — and must
 > stay unstaged until it is committed as Deploy 2 (W2); `git add -A` would fold it into a Deploy 1
 > rollback. Do not commit, revert or reformat those files without reading the plan. **Nothing has
-> been pushed** — the live site is still the old behaviour, and it stays that way until the owner
-> turns off the Cloudflare Pages SPA fallback (D5) and pushes.
+> been pushed** — the live site is still the old behaviour until the owner pushes. That is **one**
+> action, not two: the plan's "turn off the SPA fallback" (D5) was withdrawn the same day. Cloudflare
+> Pages serves the homepage for unknown paths *because there is no top-level `404.html`* — the file
+> W1 adds is the switch, and there is no dashboard setting for it. Evidence: plan §4, §12.
 >
 > The 1894 series workflow below still stands for writing articles, with two changes recorded in
 > `books/harness/docs/DECISIONS.md` (2026-10-12) and reflected in the `DOMAIN.md` glossary: canonical
