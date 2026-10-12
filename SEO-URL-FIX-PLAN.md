@@ -26,6 +26,11 @@ Two secondary defects found while auditing, both bigger than the email's headlin
    series rules have a source that matches an existing page, so they never fire — and their
    presence stops Cloudflare from normalising the trailing-slash variant. Result: `/x` and
    `/x.html` both serve 200 (duplicate content), and `/x/` serves the homepage.
+   *(Corrected 2026-10-12, after the push: that describes the **pending** deploy, not the live site.
+   `origin/main` had no series rules at all, and none of the 8 series pages existed there - every
+   one of those URLs was a soft 404 serving the homepage. The defect was real, but as something that
+   would have shipped with the new pages, not as something already live. Removing the rules was
+   still right: measured after the push, all 8 now normalise `/x/` → 308 → `/x`. §9b.)*
 
 ## 1. The target contract (invariants to hold from here on)
 
@@ -54,13 +59,20 @@ Two secondary defects found while auditing, both bigger than the email's headlin
 
 ## 2. Status
 
-**Deploy 1 (W1) is committed**: `website/` `8e62498` — `_redirects` + the new `404.html`, 2 files,
-+248 / −52. **Not pushed** (D6). Pushing it is the whole of Deploy 1 — there is no dashboard
-switch to flip first (D5 withdrawn, §4 and §12: Pages' SPA fallback exists *because* `404.html` is
-absent, so adding the file is the switch). Until the push, the live site is unchanged and every
-number in this plan still describes it.
+**Deploy 1 (W1) is live.** `website/` `8e62498` (`_redirects` + the new `404.html`, 2 files,
++248 / −52) was pushed to `origin/main` on 2026-10-12 and built in about 30 seconds. The full
+Phase H matrix was then run against the live site: **0 violations** across 46 pages × 3 URL forms,
+every legacy slug one hop, unknown paths a real 404. Results in §9.
 
-Everything else is still uncommitted, by design. `git diff --shortstat` in `website/` now reads
+One thing the plan got wrong about the deploy, and it matters for attribution: `main` was **16
+commits** ahead of `origin/main`, not 1. The push therefore shipped W1 together with 15 earlier
+unpushed commits - the 1894 series pages 01, 02, 04, 05, 07, 09, 11, their 200 engravings, and a
+`.gitignore` change. Those are all **new URLs**, so they do not touch any existing page's signals,
+and the soft-404 fix is still measurable - but only by URL group, and there are now three groups
+(legacy slugs, current slugs, brand-new 1894 pages) instead of two. Read §10 step 4 with that in
+mind before drawing any conclusion from a week of GSC data.
+
+The rest of the migration is still uncommitted, by design. `git diff --shortstat` in `website/` reads
 **46 files, +2,368 / −2,368** — the link / canonical / `og:url` / JSON-LD rewrite that is Deploy 2
 (W2). Those files stay unstaged until W2 is its own commit; `git add -A` would fold them into a
 Deploy 1 rollback.
@@ -96,30 +108,32 @@ Also done in the first session (work repo, docs) — **committed 2026-10-12** al
 Still to edit in Phase G3:
 - `books/specs/prd.md:52` ("wired: … `_redirects` pretty slug from §5.1").
 - `SERIES-PLAN-1894.md` §5.1 (the hub row, per D1), line 535, line 1185.
-- `HANDOFF.md` — ✅ entry-point pointer and the current working-tree state added; the stale "What's
-  Needed Next" list is marked superseded so the next session does not follow it. Still owed, once
-  Deploy 1 is live: a real rewrite of "What's Needed Next" and "Website Status", which treat the 40
-  keyword articles as finished work - the exact assumption invariant 9 removes.
+- `HANDOFF.md` — ✅ entry-point pointer and the current state added; the stale "What's Needed Next"
+  list is marked superseded so the next session does not follow it. Still owed: a real rewrite of
+  "What's Needed Next" and "Website Status", which treat the 40 keyword articles as finished work -
+  after the GSC week following Deploy 1 has been read, so the rewrite can state what changed.
 
 ### 2.1 Start here (new session)
 
-**Deploy 1 is done in the repo and waiting on the owner.** Nothing in `website/` should be committed
-until the curl matrix below has been run against the live site.
+**Deploy 1 is live and verified** (2026-10-12). The next unit of work is Deploy 2.
 
 1. `cd /home/matt/projects/other/tesla-generator/website && git log --oneline -1` — expect
-   `Deploy 1 (W1): trailing-slash redirects + a real 404`, and `git diff --shortstat` = 46 files,
-   +2,368 / −2,368 unstaged. If W1 is missing, it was never made; if the 46 files are gone, W2 has
+   `8e62498 Deploy 1 (W1): trailing-slash redirects + a real 404`, matching `origin/main`, and
+   `git diff --shortstat` = 46 files, +2,368 / −2,368 unstaged. If the 46 files are gone, W2 has
    already been committed and this plan is out of date — stop and re-read the log.
-2. Ask the owner to **push** `website/main` - the only owner action Deploy 1 needs. (The plan's
-   second owner action, "turn off the SPA fallback", does not exist; see D5, withdrawn below.)
-3. Run the Phase H curl matrix against the live site (§9). This is the only part of the plan that
-   cannot be verified locally.
-4. If the matrix holds, do Deploy 2: Phase B (sitemap), D (llms.txt), B2 (delete the two unused
-   pages), E3 (repoint 5 links), F (titles/metas), G (pipeline + remaining docs).
-5. If the 8 series pages still serve `/x/` as the homepage, apply the §11 fallback (explicit
-   `/x/ → /x 301` rules) as a **Deploy 1 follow-up**, before any Deploy 2 work.
-6. E2 (publish the two drafts) is content work with its own gates; do it after G1/G2 so the
-   pipeline and its gates are already correct.
+2. Do Deploy 2 as separate commits: **W2** = Phase B (sitemap), D (llms.txt), B2 (delete the two
+   unused pages + add the four D3 insurance rules), E3 (repoint the 5 `plans-review-2026` links);
+   **W3** = titles/metas (F); **B1/B2** in the work repo = the pipeline (G1, G2) and docs (G3).
+   Re-run the §9 offline assertions before each commit - they are cheap and they caught the defects.
+3. **W4** (E2, publish the two drafted pages) is content work with its own gates — do it after
+   G1/G2 so the pipeline and its gates are already correct.
+4. Owner pushes each named commit separately. Nothing in Deploy 2 changes an existing page's URL, so
+   the §11 flux risk does not re-open.
+5. The year-stamp pass (F2) stays a third change, after Deploy 2 settles.
+
+Already settled, do not re-litigate: D1-D5 (§12), the two-deploy split (D4), and the §11 fallback,
+which turned out not to be needed - removing the dead rules did restore `/x/` → 308 on all 8 series
+pages (§9b, measured live).
 
 ### 2.2 Deploy 1 — what actually shipped, and what was verified
 
@@ -441,10 +455,10 @@ convention that matches nothing, so the "≥4 internal links", "≥3 reciprocal 
 - `books/harness/docs/DOMAIN.md` line 13 ("Wired — present in … `_redirects`") — redefine *Wired*:
   sitemap + llms.txt + articles card; `_redirects` only when an alias is wanted.
 - `books/specs/prd.md` line 52 — same wording change.
-- `HANDOFF.md` — ✅ entry-point pointer, working-tree state and a "superseded" marker on the stale
-  list, all added 2026-10-12. Remaining: rewrite "What's Needed Next" / "Website Status" so they
-  stop treating drafted as finished - after Deploy 1 is live, so the rewrite can say what actually
-  changed.
+- `HANDOFF.md` — ✅ entry-point pointer, live state and a "superseded" marker on the stale list,
+  all added 2026-10-12. Remaining: rewrite "What's Needed Next" / "Website Status" so they stop
+  treating drafted as finished - after the GSC week following Deploy 1, so the rewrite reports what
+  actually happened rather than what was attempted.
 
 ## 9. Phase H — verification
 
@@ -503,12 +517,33 @@ curl -o /dev/null -w '%{http_code}\n' https://teslamagneticgenerator.com/no-such
 
 Then re-run the Semrush crawl and confirm the four critical groups go to zero.
 
+### 9b. Phase H online — **run 2026-10-12 after the W1 push. Passed.**
+
+The build landed in ~30 s (no build command, output `/`). Results, from the runnable block above:
+
+| check | expected | measured |
+|---|---|---|
+| every page, all three URL forms (46 pages × 3 = 138 requests) | `/x` 200; `/x/` and `/x.html` 308 → `/x` | **0 violations.** The only artifacts were `//` and `/.html`, produced by the script itself for `index.html` |
+| `/index.html` | 308 → `/` | 308 ✓ |
+| the 8 series pages, trailing slash | 308 → `/x` | **all 8 ✓** - `/tesla-earthquake-machine/`, `/rotating-magnetic-field-1888/` and the other six. The §11 fallback was **not needed** |
+| legacy slugs, both forms | 301, one hop, extensionless final | `/how-to-build-a-perpetual-motion-generator` and `/…/` → 301 → `/build-a-perpetual-motion-generator`; `/homemade-magnetic-generator/` → `/whole-house`; `/the-free-energy-magnet-motor` → `/magnet-motor`; `/free-energy-generator-real-or-fake` → `/magnetic-generator-scam`; `/tesla-rotating-magnetic-field/` → `/rotating-magnetic-field-1888` ✓ |
+| unknown path | 404 | `/no-such-page-xyz` → **404** serving the real 404 page (`<title>Page Not Found…`, `noindex, follow`, no canonical). Both slash forms ✓ |
+| the 404 page body | matches the repo | head byte-identical to `404.html` ✓ |
+| ClickBank `.php` rules | unchanged | `/wplink.php` → 302 → the hop link ✓ |
+| the lead magnet | unchanged | `/assets/electrical-experimenter.pdf` → 200 ✓ |
+| the 1894 pages that shipped in this push | real content, not the homepage | `/tesla-earthquake-machine`, `/rotating-magnetic-field-1888`, `/tesla-high-frequency-massage` each serve their own `<title>` ✓ |
+| `sitemap.xml` | untouched by Deploy 1 | still 42 `.html` `<loc>` entries - that is W2, unchanged, as designed ✓ |
+
+Two notes, both parked (§13), neither a defect: `/404` is itself reachable at 200 (the page is
+`noindex` with no canonical, so it cannot be indexed, and a redirect rule for it would be dead by
+§1.4), and `/index.html/` returns 404 rather than 308 → `/` - an odd URL nothing links to.
+
 ## 10. Phase I — commit / deploy protocol (**D4: two deploys**, decided)
 
 The two halves have different risk, so they get different deploys. The point of splitting is
 attribution: Deploy 1 should move the 76%-of-impressions soft-404 leak and nothing else.
 
-### Deploy 1 — recovery only (no page's own canonical changes) — **W1 committed, not pushed**
+### Deploy 1 — recovery only (no page's own canonical changes) — **pushed and live, 2026-10-12**
 
 1. `website/` commit **W1**: `_redirects` (already rewritten in the working tree) + new `404.html`.
    Stage selectively — `git add _redirects 404.html`. The 46 rewritten HTML files stay unstaged;
@@ -518,7 +553,10 @@ attribution: Deploy 1 should move the 76%-of-impressions soft-404 leak and nothi
    `404.html` in W1 is what removes the fallback (§4, §12).
 3. Owner pushes. Verify the Phase H curl matrix immediately.
 4. Watch GSC for ~1 week, comparing **by URL group** (legacy-slug group vs current-slug group), not
-   per URL.
+   per URL. **Amended after the push:** `main` was 16 commits ahead, so the deploy also carried 15
+   previously unpushed commits and the 1894 series pages are a third group - brand-new URLs with no
+   history. Do not read their first-week numbers as an effect of this change, and do not read a dip
+   in the current-slug group as one until the legacy group is seen moving the other way.
 
 Why this is safe on its own: every new `_redirects` target is an extensionless URL that already
 returns 200 today, and `404.html` only affects paths that match nothing. No page's canonical, links
@@ -549,11 +587,10 @@ action. The year-stamp pass (F2) is deliberately a *third* change, after both of
 - **Rollback:** the whole change is text in git. `git revert` the relevant `website/` commit (W1-W4
   are deliberately separate) and push. `_redirects` is the only file whose rollback changes live
   behaviour immediately.
-- **Was "unverifiable locally"; now measured, not inferred** (§2.2 table, live, 2026-10-12 before
-  the push): `/magnetic-generator/` → **308** (no rule → normalises) while
-  `/tesla-earthquake-machine/` → **200** homepage (dead rule → does not). Same host, same config;
-  the only variable is the presence of the rule. Still confirm with the Phase H matrix after the
-  push. If it does not hold, the fallback is explicit `/x/ → /x 301` rules for those 8 pages.
+- **Was "unverifiable locally"; measured after the push and it holds** (§9b): all 8 series pages now
+  answer `/x/` → **308** → `/x`. The §11 fallback (explicit `/x/ → /x 301` rules) was **not needed**
+  and must not be added - a rule whose source is an existing page is the defect class that caused
+  this whole bug (§1.4).
 
 ## 12. Decisions — five settled on 2026-10-12; D5 withdrawn the same day
 
@@ -591,6 +628,11 @@ live the moment that push builds.
 
 - `_redirects` and `_headers` are publicly fetchable at 200 (Cloudflare serves config files as
   assets). Cosmetic; no rule added.
+- **`/404` is reachable at 200** (measured, §9b). The page is `noindex` with no canonical, so it
+  cannot enter the index, and a `_redirects` rule for it would be dead by §1.4. Leave it.
+- **`/index.html/` returns 404** rather than 308 → `/` (measured, §9b). Pages normalises `/x.html`
+  → `/x` but not `/x.html/`. Nothing links that form, and it is now a real 404 rather than a soft
+  one. Leave it.
 - The ClickBank `.php` affiliate redirects resolve in 3 hops to an external host. Not SEO-relevant
   (no equity passes), and changing them risks breaking tracked affiliate IDs.
 - `<changefreq>` / `<priority>` in the sitemap — Google ignores them. Left alone.

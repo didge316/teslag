@@ -4,15 +4,19 @@
 > is self-contained and supersedes everything below for anything touching URLs, canonicals,
 > `sitemap.xml`, `_redirects` or `llms.txt`.
 >
-> **`website/` Deploy 1 is committed and waiting on the owner.** `8e62498` holds `_redirects` + the
-> new `404.html` and nothing else. The extensionless URL rewrite (internal links, canonicals,
-> `og:url`, JSON-LD) is **still uncommitted on purpose** — 46 files, +2,368 / −2,368 — and must
-> stay unstaged until it is committed as Deploy 2 (W2); `git add -A` would fold it into a Deploy 1
-> rollback. Do not commit, revert or reformat those files without reading the plan. **Nothing has
-> been pushed** — the live site is still the old behaviour until the owner pushes. That is **one**
-> action, not two: the plan's "turn off the SPA fallback" (D5) was withdrawn the same day. Cloudflare
-> Pages serves the homepage for unknown paths *because there is no top-level `404.html`* — the file
-> W1 adds is the switch, and there is no dashboard setting for it. Evidence: plan §4, §12.
+> **`website/` Deploy 1 is live.** `8e62498` (`_redirects` + the new `404.html`) was pushed
+> 2026-10-12 and verified against the live site: every page 200 at its extensionless URL and 308
+> from both other forms, every legacy slug one hop, unknown paths a real 404, and all 8 series
+> pages now normalise `/x/` → 308. Full matrix in `SEO-URL-FIX-PLAN.md` §9b.
+>
+> **The push was not W1 alone.** `main` was 16 commits ahead of `origin/main`, so the 1894 series
+> pages 01/02/04/05/07/09/11 and their 200 engravings went out with it. They are new URLs, so no
+> existing page's signals changed - but GSC now has three URL groups, not two, and that changes how
+> the week of data must be read (plan §10 step 4).
+>
+> **The extensionless URL rewrite is still uncommitted on purpose** — 46 files, +2,368 / −2,368 —
+> and must stay unstaged until it is committed as Deploy 2 (W2); `git add -A` would fold it into a
+> Deploy 1 rollback. Do not commit, revert or reformat those files without reading the plan.
 >
 > The 1894 series workflow below still stands for writing articles, with two changes recorded in
 > `books/harness/docs/DECISIONS.md` (2026-10-12) and reflected in the `DOMAIN.md` glossary: canonical
@@ -59,7 +63,8 @@
 > **Superseded — do not follow this list.** It predates the 1894 series and the SEO URL fix, and it
 > treats drafted articles as finished work, which invariant 9 of `SEO-URL-FIX-PLAN.md` §1 removes.
 > 40 of the articles it calls done are still undeployed. The live next actions are in
-> `SEO-URL-FIX-PLAN.md` §2.1. This section gets rewritten when Deploy 1 is live.
+> `SEO-URL-FIX-PLAN.md` §2.1 (Deploy 2). This section gets rewritten once the GSC week after
+> Deploy 1 has been read, so it can say what actually changed rather than what was attempted.
 1. Start writing Phase 1 articles (keywords 1-10, product-adjacent, highest conversion)
 2. Each article should:
    - Read the folder's `sources.json` for reference URLs
