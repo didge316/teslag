@@ -39,6 +39,26 @@ PIN_DATE = "2026-10-11"
 
 # (quote as it will be printed, printed page, brief 06 section, why it is in the piece)
 QUOTES = [
+    # --- 0. Provenance: the chapter footnotes, added at draft time (feature-005/t5).
+    # The draft names which lecture each passage comes from, so the footnotes that
+    # date the chapters are quoted rather than paraphrased. Both verify exactly.
+    ("Lecture delivered before the Institution of Electrical Engineers, London, "
+     "February, 1892.",
+     198, "0. Provenance (ch. XXVII footnote)",
+     "dates the London chapter, which carries the stage moment at printed p. 258. "
+     "Added at draft time (feature-005/t5) so the article can name its text instead "
+     "of asserting a date"),
+    ("A lecture delivered before the American Institute of Electrical Engineers, "
+     "at Columbia College, N. Y., May 20, 1891.",
+     145, "0. Provenance (ch. XXVI footnote)",
+     "dates the New York chapter, which carries the brush passages at printed "
+     "pp. 166-171. Added at draft time (feature-005/t5). The two footnotes are "
+     "quoted because the article's first job is to keep four texts apart"),
+    ("the true electric flame",
+     121, "5. What the internet gets wrong",
+     "the short form the draft prints, inside the longer editorial sentence pinned "
+     "above. Added at draft time (feature-005/t5) because the draft quotes the "
+     "phrase, not the whole editorial run"),
     # --- 1. The stage moment (ch. XXVII, IEE London, Feb 1892; printed p. 258)
     ("In one of the experiments this evening a brush was produced at the end of "
      "a wire",
@@ -100,7 +120,17 @@ QUOTES = [
      "itself",
      167, "2. What a brush actually is",
      "the practical consequence he draws, hedged with 'suggests itself'"),
-    # --- 3. Tesla's bigger idea (ch. XXVI, printed p. 167)
+    # Added at draft time (feature-005/t5, 2026-10-11). Printed p. 168 is the same
+    # Columbia College lecture, one page on. Every fragment below was re-grepped with
+    # books/tools/grep_quote.py --page 160-175 and verified exactly before being added
+    # here; the draft does not use a quote that is not in this file.
+    ("the air molecules are violently attracted and repelled, and by their impact "
+     "produce such a powerful heating effect",
+     168, "2. What a brush actually is",
+     "the same mechanism stated at full scale, in the storm-fire paragraph. Cut "
+     "before 'that a lire is started': the scan reads 'fire' as 'lire', ratio 0.989, "
+     "so that clause is unusable - see rejected #4"),
+    # --- 3. Tesla's bigger idea (ch. XXVI, printed pp. 167-168)
     ("When contemplating this singular phenomenon of the hot brush, we cannot help "
      "being convinced that a similar process must take place in the ordinary flame",
      167, "3. Tesla's bigger idea",
@@ -128,7 +158,34 @@ QUOTES = [
      167, "3. Tesla's bigger idea",
      "his one-sentence theory of the flame. Short, and it is his, so it can carry "
      "quotation marks; the modern ionisation account is ours (see flags)"),
-    # --- 4. Why he never got it (printed pp. 166, 169, 213, 259, 376, 381)
+    ("It is well known that objects are often set on fire without the lightning "
+     "striking them",
+     167, "3. Tesla's bigger idea",
+     "the consequence he draws in the next sentence after the electrostatic-molecular "
+     "theory: storm accidents where nothing was struck. Added at draft time "
+     "(feature-005/t5)"),
+    ("perhaps many million times a second",
+     168, "3. Tesla's bigger idea",
+     "the frequency the explanation needs, in his own words, one page on in the same "
+     "lecture. Against the 15,000 and 30,000 alternations per second of ch. XXIX this "
+     "is the gap, and it is why section 4 is the article. Added at draft time"),
+    ("It is conceivable that a ship at sea may, in this manner, catch fire at many "
+     "points at once",
+     168, "3. Tesla's bigger idea",
+     "the consequence he leaves standing, unhedged except by 'It is conceivable', "
+     "which is the same construction article 05's pin flags at p. 395. Added at "
+     "draft time"),
+    ("the local heating effect may be so exalted as to bring a body to "
+     "incandescence",
+     168, "3. Tesla's bigger idea",
+     "the practical route from the brush to a lamp: stop the air exchanging and a "
+     "body in an unexhausted globe glows. The sentence opens 'By preventing "
+     "completely the exchange of the air molecules' and the scan prints 'molecules^' "
+     "there, so the pin starts after that. Fig. 111 on the same page is the spinning "
+     "filament: 'the appearance of a luminous funnel' verifies exactly (1 occurrence, "
+     "printed p. 168) and is caption material for feature-005/t6. Added at draft "
+     "time"),
+    # --- 4. Why he never got it (printed pp. 166, 168, 169, 213, 259, 376, 381)
     ("Certainly they are not as hot as a gas burner, but they would be so if the "
      "frequency",
      166, "4. Why he never got it",
@@ -146,6 +203,23 @@ QUOTES = [
      "the end of that sentence, on printed p. 167: a frequency at which the same "
      "molecules would be struck again and again. Pinned to its own page because the "
      "cut is at the break"),
+    # Added at draft time (feature-005/t5, 2026-10-11). Both were re-grepped with
+    # books/tools/grep_quote.py --page 160-175 and verified exactly before being added.
+    ("Produced with, say, twenty thousand alternations per second, the heat is "
+     "easily perceptible even if the potential is not excessively high",
+     166, "4. Why he never got it",
+     "the frequency the hot brush was actually made with, in the same paragraph as "
+     "'veritable flames, for they are hot'. Set against 'perhaps many million times "
+     "a second' (printed p. 168) this is the size of the gap, and it is the number "
+     "section 4 is built on"),
+    ("The possibility of bringing a body to incandescence in an exhausted globe, or "
+     "even when not at all enclosed, would seem to afford a possible way of "
+     "obtaining light ... might be rendered available for useful purposes",
+     169, "4. Why he never got it",
+     "the lamp sentence, and it marks itself as a possibility: 'would seem to afford "
+     "a possible way'. Cut at the OCR's 'light eifects, which, in perfecting methods "
+     "of producing rapidly alternating potentials,'; each side of the cut verifies "
+     "separately on printed p. 169"),
     ("In employing a commercial coil, the production of very powerful brush effects "
      "is attended with considerable difficulties",
      169, "4. Why he never got it",
@@ -157,6 +231,26 @@ QUOTES = [
      "what actually failed: insulation. The printed page interleaves the caption "
      "'FIG. 112*.' between the two halves of this sentence; grep_quote.py's "
      "strip_furniture() drops the caption line, so the run verifies"),
+    ("with potentials of no more than one or two hundred thousand volts, the "
+     "heating effects are considerable",
+     168, "4. Why he never got it",
+     "the scale he actually had, stated by him as a premise for an inference, not a "
+     "measurement. Also the in-book basis for the safety note (see flags). Added at "
+     "draft time"),
+    ("we may imagine how much more powerful they must be with frequencies and "
+     "potentials many times greater",
+     168, "4. Why he never got it",
+     "the sentence that follows the last one, and it marks itself as reasoning: 'we "
+     "may imagine', and then 'the above explanation seems, to say the least, very "
+     "probable'. Added at draft time"),
+    ("I am not aware that, up to the present ... the heating effects of a brush "
+     "produced by a rapidly alternating potential ... have been experimentally "
+     "demonstrated, at least not to such a remarkable degree",
+     168, "4. Why he never got it",
+     "his own claim-priority sentence about this exact effect, cut at the printed "
+     "page's interposed caption 'FIG. ill.'; each of the three fragments verifies "
+     "separately on printed p. 168, which is how check_quotes.py reads a cut quote. "
+     "Added at draft time"),
     ("the heat as well as light effects produced should be proportionate, under "
      "otherwise equal conditions of test, to the product of frequency and square of "
      "potential",
@@ -226,6 +320,20 @@ QUOTES = [
      "what a plasma globe actually is, in his words, from the passage where he changes "
      "subject to the vacuum brushes ('I think it best at this juncture to bring before "
      "you a phenomenon...')"),
+    # Added at the figure task (feature-005/t6). This is the sentence that describes the
+    # plate printed on the same page as the figure, which is what a caption must follow.
+    ("In Fig. 141 the bulb comprises an incandescent lamp globe ... in the neck of "
+     "which is sealed a barometer tube ... the end of which is blown out to form a "
+     "small sphere",
+     226, "6. Where you see it now",
+     "the book's own description of the plate used as figure 3, set on the same printed "
+     "page beneath it. Every part named here - the globe, the barometer tube, the sphere "
+     "- is drawn in the crop, which is how the crop was identified. The cuts are where "
+     "the OCR drops the italic part letters (it prints 'globe Z' for globe L), so the "
+     "quote is pinned in the fragments that verify; the letters themselves are named in "
+     "the caption from the 500 ppi print, not from the text layer. Added at "
+     "feature-005/t6 because the draft's first caption cited the p. 227 sentence about "
+     "Figs. 143-145, which describes a different group of plates"),
     ("it is usually sufficient to grasp the globe L with the hand",
      228, "6. Where you see it now",
      "the plasma-globe demonstration, exactly as it is done today: hold the globe in "
@@ -241,6 +349,46 @@ QUOTES = [
      "the book's own description of the plates on printed pp. 227-228. Caption "
      "material for the figure task (feature-005/t6): the p. 228 plates are already "
      "article 02's, so read this sentence before choosing any crop"),
+
+    # Added at draft time (feature-005/t5, 2026-10-11). Four more from the same
+    # four texts, all re-grepped before use. The p. 171 pair is the same sentence
+    # that names the biggest brush of the Columbia College lecture and then states
+    # its chemical effect; the print sets the name in double quotes with a leading
+    # space ('called " St. Elmo\'s hot fire,"'), which check_quotes.py's scanner
+    # would split, so the draft quotes the run up to 'called' and gives the name
+    # in our own sentence, unquoted. The p. 121 quote is the EDITOR's text about
+    # 'Mr. Tesla', not a Tesla paper: it is the volume's own name for the effect.
+    ("an excessively powerful brush, several inches long, which may be "
+     "appropriately called",
+     171, "2. What a brush actually is",
+     "the name the 1894 text gives its own biggest brush, in the Columbia College "
+     "lecture: St. Elmo's hot fire. This is the book's vocabulary, and it is not "
+     "'cold'. The sentence continues into the ozonizer sentence below"),
+    ("It is a most powerful ozonizer, so powerful indeed, that only a few minutes "
+     "are sufficient to fill the whole room with the smell of ozone",
+     171, "6. Where you see it now",
+     "the ancestor of the ozone generator, stated by him as an observation about his "
+     "own apparatus, and the in-book half of the modern health point"),
+    ("This is done merely to enable the apparatus to perform the work which it is "
+     "not capable of performing at ordinary air pressure",
+     259, "4. Why he never got it",
+     "the plain statement that the evacuated bulb is a workaround for machinery he "
+     "did not have. It follows 'But as such means are not at disposal' on the same "
+     "page and closes section 4"),
+    ("if a coil, such as this one, is worked for a very long time it will make the "
+     "atmosphere of a small room unbearable, for the eyes and throat are attacked",
+     322, "6. Where you see it now",
+     "his own account of what the chemistry does to a room, from the Philadelphia "
+     "and St. Louis lecture, in the same passage as the 'they always exist, "
+     "consuming energy' quote. The in-book basis for the safety paragraph; pair it "
+     "with the EPA source, never with a health claim of ours"),
+    ("starting from the thread-like discharge and passing through various stages to "
+     "the true electric flame",
+     121, "5. What the internet gets wrong",
+     "the volume's own editorial introduction, third person about 'Mr. Tesla', "
+     "classifying the discharge series as leading to 'the true electric flame'. "
+     "Attribute to the editor, never to Tesla; it is the closest the 1894 book "
+     "comes to naming this a flame, and it is not 'cold' either"),
 ]
 
 # Considered and NOT carried forward, with the reason. Each reason states what the
@@ -457,10 +605,87 @@ FLAGS = [
     "VOICE RULE (§0.5, enforced by qa_page.py). No em or en dashes, no curly quotes, no "
     "Unicode ellipsis in the article body. Every cut in this pin is ASCII ' ... ' for "
     "that reason; keep it that way in the draft.",
+    "WORD COUNTS RE-RUN AT DRAFT TIME (feature-005/t5, 2026-10-11), not copied from "
+    "this pin: whole-word matching over the text layer of our scan, whole volume. "
+    "'cold flame' 0, 'cold fire' 0, 'corona' 0, 'plasma' 0, 'ioniz' 0, 'electron' 0, "
+    "'ultraviolet' 0, 'combustion' 0. 'hot brush' 2 (printed pp. 127, 167). "
+    "'veritable flame' 3 (printed pp. 120, 166, 167; p. 120 is the editor's "
+    "introduction). 'ozone' 7 (printed pp. 127, 158, 171, 322, and the index at pp. "
+    "495, 496). 'chemical process' 5 (printed pp. 127, 167, 214, 250, 272). "
+    "'luminous funnel' 1 (printed p. 168). These are the counts the draft prints.",
+    "MODERN SOURCES THE DRAFT CARRIES (§4.1: a modern technical claim needs a modern "
+    "source or it is cut). All three were fetched and read on 2026-10-11, and every "
+    "sentence they support is ours: no quotation marks, no page cite, kept visibly "
+    "separate from the 1894 material. (1) Zobaa, A. M., Abdelnabi, H. H., Reda, R. M. "
+    "and Mahmoud, A. G., 'Quantifying and mitigating electrical and environmental "
+    "impacts of corona discharge', Scientific Reports 15, 41165 (2025), for corona on "
+    "conductors: the field exceeding the dielectric strength of air (about 30 kV per cm "
+    "at standard temperature and pressure), ionisation and an electron avalanche, a blue "
+    "glow with audible noise, power loss and chemically active gas emissions, and "
+    "corona rings, larger conductors and wider spacing as the mitigations. (2) US EPA, "
+    "'Ozone Generators that are Sold as Air Cleaners', for ozone as a lung irritant "
+    "(chest pain, coughing, shortness of breath, throat irritation at relatively low "
+    "concentrations) and for the finding that at concentrations not exceeding public "
+    "health standards ozone has little potential to remove indoor air contaminants. "
+    "(3) Arizona State University Physics Instructional Resource Team, 'Plasma Globe', "
+    "for the modern toy: low-pressure krypton, xenon or neon, an electrode at the "
+    "centre, a high-voltage high-frequency transformer underneath at a few kilovolts "
+    "and a frequency in the vicinity of 35 kHz, ionising the gas into filaments. No "
+    "product claim from any site page is repeated here (§4.1).",
+    "NESTED QUOTE MARKS AT PRINTED p. 171. The print sets the name of the biggest "
+    "brush of the Columbia College lecture in double quotes with a leading space: "
+    "'which may be appropriately called \" St. Elmo's hot fire,\" may be caused to "
+    "appear at the other terminal of the secondary'. check_quotes.py's scanner splits "
+    "a quoted run at inner double marks (same problem as the p. 167 \" electric light "
+    "and heat \" flag), so the draft quotes only up to 'which may be appropriately "
+    "called' and gives the name in our own sentence, unquoted. The name is the book's; "
+    "it is 'St. Elmo's hot fire', which is the opposite of the title's word.",
+    "THE OTHER NAME FOR THIS IS THE EDITOR'S, NOT TESLA'S. 'starting from the "
+    "thread-like discharge and passing through various stages to the true electric "
+    "flame' (printed p. 121) is the volume's editorial introduction writing about "
+    "'Mr. Tesla' in the third person, like the p. 120 and p. 127 passages rejected "
+    "above. Attribute it to the book, never to Tesla, and note that it is not 'cold' "
+    "either: the 1894 names are 'the true electric flame' (editor), 'St. Elmo's hot "
+    "fire' (Tesla, p. 171), 'the hot brush' (pp. 127, 167) and 'a veritable flame' "
+    "(pp. 166, 167).",
+    "'cold' IS IN THE BOOK SEVEN TIMES, AND NEVER HERE (re-run at draft time, "
+    "feature-005/t5, whole-word over the normalised text layer): printed pp. 296, 300, "
+    "311, 361, 362, 363, 387. They are the sensation of warmth or cold on skin, air "
+    "condensed and solidified by intense cold, electrodes that may remain quite cold, "
+    "an outer globe that stays cold while a button inside it is incandescent (twice), "
+    "a medium that must be dark and cold, and a gas column between electrodes. Not one "
+    "is about the brush or the flame. The string 'scorch' occurs three times, printed "
+    "pp. 124, 167 and 258, and two of those are in the passages quoted here.",
+    "THE BRIDGE PAGES WERE READ, NOT ASSUMED (the feature-005/t1 lesson). "
+    "7-interesting-facts-about-magnets.html was opened at draft time, 2026-10-11: its "
+    "H2s are lodestones, magnets around you, making a paperclip into a magnet, the "
+    "Earth's magnetic poles and navigation, the Earth's magnetic core, electromagnets, "
+    "roller coasters, and how magnets generate electricity. It contains no corona, no "
+    "ozone and no plasma globe, so the bridge sentence describes it as this site's "
+    "beginner page on magnetic fields and on magnet-generated current, and says "
+    "plainly that the discharge is not on it. tesla-lit-lamps-without-wires.html and "
+    "tesla-high-frequency-alternator.html were read the same way; their bridges "
+    "describe what those pages actually do.",
 ]
 
 # Notes for the figure task (feature-005/t6). Read the number off the scan.
 FIGURE_NOTES = [
+    "WHAT THE DRAFT (feature-005/t5) ALREADY COMMITS TO. article.md front matter names "
+    "three figures, all marked NOT YET VISUALLY VERIFIED, and the body places them: "
+    "figure 1 inside the first three H2s is /assets/tesla1894/p184-fig110.webp, which "
+    "DOES NOT EXIST YET (crop Fig. 110 from books/pdf-pages-tesla-1894/page-184.pdf, "
+    "the plate the p. 166 'two powerful brushes ... flames of a gas' sentence points "
+    "at, add the manifest row, and use the p. 166 prose for the caption); figure 2 "
+    "mid-article is /assets/tesla1894/p186-fig1.webp (printed p. 168, the spinning "
+    "filament the prose calls Fig. 111 and the caption OCRs as 'FIG. ill.'), which "
+    "exists and is unused but must be viewed against page-186.pdf first because "
+    "manifest_qc.csv describes it as 'a primary coil with a pear-shaped vacuum lamp', "
+    "which is not what the prose describes; figure 3 is /assets/tesla1894/p244-fig1-"
+    "fig141.webp (printed p. 226, the vacuum bulb of Figs. 141-142), which exists, is "
+    "unused, and is a dark plate needing negate and a gutter split. t7 renders only "
+    "after t6 has created the p. 184 crop, because qa_page.py fails any <img> whose "
+    "file is missing. If Fig. 110 will not crop useably, substitute the p. 228 "
+    "page-scan crop described below and say so in the caption.",
     "the §9 brief 06 figure ids name PRINTED pages, but the files on disk are named by "
     "SCAN FILE (printed = scan - 18, §0). The three candidates map to: p247-fig151 -> "
     "website/assets/tesla1894/p265-fig1-fig151.webp (scan 265 = printed 247); "

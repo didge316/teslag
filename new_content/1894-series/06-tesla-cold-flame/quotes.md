@@ -9,7 +9,38 @@ Source: Martin (ed.), *The Inventions, Researches and Writings of Nikola Tesla*,
 - chapter XXVIII, 'ON LIGHT AND OTHER HIGH FREQUENCY PHENOMENA', the Philadelphia and St. Louis lecture, February-March 1892 (printed pp. 294-373). One quote, on the brush discharge as an energy loss. Printed p. 322.
 - chapter XXIX, the high-frequency alternator chapter - the EDITOR's text in the third person, the same chapter article 11 is built on. The 15,000 and 30,000 alternations-per-second figures. Printed pp. 376, 381. Attribute these to the book, not to Tesla.
 
-Verified: 34 quotes (34 fragments) across 14 printed pages, 0 failures. To re-check one quote: `python3 books/tools/grep_quote.py "<quote>" --page <lo>-<hi>`. To regenerate this file: `python3 new_content/1894-series/06-tesla-cold-flame/gen_quotes.py` (it exits non-zero and writes nothing if any quote fails).
+Verified: 53 quotes (58 fragments) across 18 printed pages, 0 failures. To re-check one quote: `python3 books/tools/grep_quote.py "<quote>" --page <lo>-<hi>`. To regenerate this file: `python3 new_content/1894-series/06-tesla-cold-flame/gen_quotes.py` (it exits non-zero and writes nothing if any quote fails).
+
+## Printed p. 121 (scan file 139)
+
+### 5. What the internet gets wrong
+
+> "the true electric flame"
+
+- cited as: `(1894, p. 121)`
+- why: the short form the draft prints, inside the longer editorial sentence pinned above. Added at draft time (feature-005/t5) because the draft quotes the phrase, not the whole editorial run
+- check_quotes.py: exact match, ratio 1.0, printed p. 121
+- raw OCR: `...exhaustive study of the various forms of the discharge presented by an induction coil when operated with these rapidly alternating currents, starting from the thread-like discharge and passing through various stages to the true electric flame. A point of great importance in the introduction of high tension alternating current which Mr. Tesla brings out is the necessity of carefully avoiding all gaseous matter in the high tension apparatus. He shows that, at...`
+
+### 5. What the internet gets wrong
+
+> "starting from the thread-like discharge and passing through various stages to the true electric flame"
+
+- cited as: `(1894, p. 121)`
+- why: the volume's own editorial introduction, third person about 'Mr. Tesla', classifying the discharge series as leading to 'the true electric flame'. Attribute to the editor, never to Tesla; it is the closest the 1894 book comes to naming this a flame, and it is not 'cold' either
+- check_quotes.py: exact match, ratio 1.0, printed p. 121
+- raw OCR: `...others suggested, will not fail to interest the reader. Mr. Tesla has made an exhaustive study of the various forms of the discharge presented by an induction coil when operated with these rapidly alternating currents, starting from the thread-like discharge and passing through various stages to the true electric flame. A point of great importance in the introduction of high tension alternating current which Mr. Tesla brings out is the necessity of carefully avoiding all gaseous matter in the high tension apparatus. He shows that, at...`
+
+## Printed p. 145 (scan file 163)
+
+### 0. Provenance (ch. XXVI footnote)
+
+> "A lecture delivered before the American Institute of Electrical Engineers, at Columbia College, N. Y., May 20, 1891."
+
+- cited as: `(1894, p. 145)`
+- why: dates the New York chapter, which carries the brush passages at printed pp. 166-171. Added at draft time (feature-005/t5). The two footnotes are quoted because the article's first job is to keep four texts apart
+- check_quotes.py: exact match, ratio 1.0, printed p. 145
+- raw OCR: `...s precise nature all is still conjecture, yet we know that the truth cannot be much longer hidden, and instinctively we feel that the understanding is dawning upon us. We still admire these beautiful phenomena, these 1. A lecture delivered before the American Institute of Electrical Engineers, at Columbia College, N. Y., May 20, 1891.`
 
 ## Printed p. 166 (scan file 184)
 
@@ -57,6 +88,15 @@ Verified: 34 quotes (34 fragments) across 14 printed pages, 0 failures. To re-ch
 - why: the scaling argument that makes him think a high enough frequency is reachable. The sentence runs on across the page break onto printed p. 167; the next quote is its far end
 - check_quotes.py: exact match, ratio 1.0, printed p. 166
 - raw OCR: `...n coming in contact with the terminal, its progress — by collision with other molecules — is retarded to such an extent, that it does not get away far from the terminal, but may strike the same many times in succession. The higher the frequency, the less the molecule is able to get away, and this the more so, as for a given effect the potential required is smaller ; and a frequency is conceivable — perhaps even obtainable — at`
+
+### 4. Why he never got it
+
+> "Produced with, say, twenty thousand alternations per second, the heat is easily perceptible even if the potential is not excessively high"
+
+- cited as: `(1894, p. 166)`
+- why: the frequency the hot brush was actually made with, in the same paragraph as 'veritable flames, for they are hot'. Set against 'perhaps many million times a second' (printed p. 168) this is the size of the gap, and it is the number section 4 is built on
+- check_quotes.py: exact match, ratio 1.0, printed p. 166
+- raw OCR: `...(Fig. 110). But they do not only resemble, they are veritable flames, for they are hot. Certainly they are not as hot as a gas burner, but they would be so if the frequency cmd the potential would be sufficiently high. Produced with, say, twenty thousand alternations per second, the heat is easily perceptible even if the potential is not excessively high. The heat developed is, of course, due to the impact of the air molecules against the terminals and against each other. As, at the ordinary pressures, the mean free path is excessively small, it is possible that in spit...`
 
 ## Printed p. 167 (scan file 185)
 
@@ -132,6 +172,15 @@ Verified: 34 quotes (34 fragments) across 14 printed pages, 0 failures. To re-ch
 - check_quotes.py: exact match, ratio 1.0, printed p. 167
 - raw OCR: `...otentials. I have no doubt that if the potential could be made to alternate with sufficient rapidity and power, the brush formed at the end of a wire would lose its electrical characteristics and would become flamelike. The flame must be due to electrostatic molecular action. This phenomenon now explains in a manner which can hardly be doubted the frequent accidents occurring in storms. It is well known that objects are often set on fire without the lightning striking them. We shall present...`
 
+### 3. Tesla's bigger idea
+
+> "It is well known that objects are often set on fire without the lightning striking them"
+
+- cited as: `(1894, p. 167)`
+- why: the consequence he draws in the next sentence after the electrostatic-molecular theory: storm accidents where nothing was struck. Added at draft time (feature-005/t5)
+- check_quotes.py: exact match, ratio 1.0, printed p. 167
+- raw OCR: `...rical characteristics and would become flamelike. The flame must be due to electrostatic molecular action. This phenomenon now explains in a manner which can hardly be doubted the frequent accidents occurring in storms. It is well known that objects are often set on fire without the lightning striking them. We shall presently see how this can happen. On a nail in a roof, for instance, or on a projection of any kind, more or less conducting, or rendered so by dampness, a powerful brush may appear. If the lightning strikes...`
+
 ### 4. Why he never got it
 
 > "which practically the same molecules would strike the terminal"
@@ -141,7 +190,84 @@ Verified: 34 quotes (34 fragments) across 14 printed pages, 0 failures. To re-ch
 - check_quotes.py: exact match, ratio 1.0, printed p. 167
 - raw OCR: `HIGH FREQUENCY AND HIGH POTENTIAL CURRENTS. 167 which practically the same molecules would strike the terminal. Under such conditions the exchange of the molecules would be very slow, and the heat produced at, and very near, the terminal would be excessive. But if the frequency would go on increasing constantly, the heat produce...`
 
+## Printed p. 168 (scan file 186)
+
+### 2. What a brush actually is
+
+> "the air molecules are violently attracted and repelled, and by their impact produce such a powerful heating effect"
+
+- cited as: `(1894, p. 168)`
+- why: the same mechanism stated at full scale, in the storm-fire paragraph. Cut before 'that a lire is started': the scan reads 'fire' as 'lire', ratio 0.989, so that clause is unusable - see rejected #4
+- check_quotes.py: exact match, ratio 1.0, printed p. 168
+- raw OCR: `...the present, the heating effects of a brush produced by a rapidly alternating potential FIG. ill. have been experimentally demonstrated, at least not to such a remarkable degree. By preventing completely the exchange of the air molecules^ the local heating effect may be so exalted as to bring a body to incandescence. Thus, for instance, if a small button, or preferably a very thin wire or filament be enclosed in an unexhausted globe and connected with t...`
+
+### 3. Tesla's bigger idea
+
+> "perhaps many million times a second"
+
+- cited as: `(1894, p. 168)`
+- why: the frequency the explanation needs, in his own words, one page on in the same lecture. Against the 15,000 and 30,000 alternations per second of ch. XXIX this is the gap, and it is why section 4 is the article. Added at draft time
+- check_quotes.py: exact match, ratio 1.0, printed p. 168
+- raw OCR: `168 INVENTIONS OF NIKOLA TESLA. neighborhood the enormous potential may be made to alternate or fluctuate perhaps many million times a second. The air molecules are violently attracted and repelled, and by their impact produce such a powerful heating effect that a lire is started. It is conceivable that a ship at sea may, in this manner, catch fire at many po...`
+
+### 3. Tesla's bigger idea
+
+> "It is conceivable that a ship at sea may, in this manner, catch fire at many points at once"
+
+- cited as: `(1894, p. 168)`
+- why: the consequence he leaves standing, unhedged except by 'It is conceivable', which is the same construction article 05's pin flags at p. 395. Added at draft time
+- check_quotes.py: exact match, ratio 1.0, printed p. 168
+- raw OCR: `...ntial may be made to alternate or fluctuate perhaps many million times a second. The air molecules are violently attracted and repelled, and by their impact produce such a powerful heating effect that a lire is started. It is conceivable that a ship at sea may, in this manner, catch fire at many points at once. When we consider, that even with the comparatively low frequencies obtained from a dynamo machine, and with potentials of no more than one or two hundred thousand volts, the heating effects are considerable, we may ima...`
+
+### 3. Tesla's bigger idea
+
+> "the local heating effect may be so exalted as to bring a body to incandescence"
+
+- cited as: `(1894, p. 168)`
+- why: the practical route from the brush to a lamp: stop the air exchanging and a body in an unexhausted globe glows. The sentence opens 'By preventing completely the exchange of the air molecules' and the scan prints 'molecules^' there, so the pin starts after that. Fig. 111 on the same page is the spinning filament: 'the appearance of a luminous funnel' verifies exactly (1 occurrence, printed p. 168) and is caption material for feature-005/t6. Added at draft time
+- check_quotes.py: exact match, ratio 1.0, printed p. 168
+- raw OCR: `...ating effects of a brush produced by a rapidly alternating potential FIG. ill. have been experimentally demonstrated, at least not to such a remarkable degree. By preventing completely the exchange of the air molecules^ the local heating effect may be so exalted as to bring a body to incandescence. Thus, for instance, if a small button, or preferably a very thin wire or filament be enclosed in an unexhausted globe and connected with the terminal of the coil, it may be rendered incandescent. The phenomenon is made...`
+
+### 4. Why he never got it
+
+> "with potentials of no more than one or two hundred thousand volts, the heating effects are considerable"
+
+- cited as: `(1894, p. 168)`
+- why: the scale he actually had, stated by him as a premise for an inference, not a measurement. Also the in-book basis for the safety note (see flags). Added at draft time
+- check_quotes.py: exact match, ratio 1.0, printed p. 168
+- raw OCR: `...that a lire is started. It is conceivable that a ship at sea may, in this manner, catch fire at many points at once. When we consider, that even with the comparatively low frequencies obtained from a dynamo machine, and with potentials of no more than one or two hundred thousand volts, the heating effects are considerable, we may imagine how much more powerful they must be with frequencies and potentials many times greater; and the above explanation seems, to say the least, very probable. Similar explanations may have been suggested, but...`
+
+### 4. Why he never got it
+
+> "we may imagine how much more powerful they must be with frequencies and potentials many times greater"
+
+- cited as: `(1894, p. 168)`
+- why: the sentence that follows the last one, and it marks itself as reasoning: 'we may imagine', and then 'the above explanation seems, to say the least, very probable'. Added at draft time
+- check_quotes.py: exact match, ratio 1.0, printed p. 168
+- raw OCR: `...ts at once. When we consider, that even with the comparatively low frequencies obtained from a dynamo machine, and with potentials of no more than one or two hundred thousand volts, the heating effects are considerable, we may imagine how much more powerful they must be with frequencies and potentials many times greater; and the above explanation seems, to say the least, very probable. Similar explanations may have been suggested, but I am not aware that, up to the present, the heating effects of a brush produced by a rapidly alternati...`
+
+### 4. Why he never got it
+
+> "I am not aware that, up to the present ... the heating effects of a brush produced by a rapidly alternating potential ... have been experimentally demonstrated, at least not to such a remarkable degree"
+
+- cited as: `(1894, p. 168)`
+- why: his own claim-priority sentence about this exact effect, cut at the printed page's interposed caption 'FIG. ill.'; each of the three fragments verifies separately on printed p. 168, which is how check_quotes.py reads a cut quote. Added at draft time
+- check_quotes.py: 3 fragments, each verified separately (check_quotes.py splits on '...'); frag 1: exact match, ratio 1.0, printed p. 168; frag 2: exact match, ratio 1.0, printed p. 168; frag 3: exact match, ratio 1.0, printed p. 168
+- raw OCR (frag 1: I am not aware that, up to the present): `...we may imagine how much more powerful they must be with frequencies and potentials many times greater; and the above explanation seems, to say the least, very probable. Similar explanations may have been suggested, but I am not aware that, up to the present, the heating effects of a brush produced by a rapidly alternating potential FIG. ill. have been experimentally demonstrated, at least not to such a remarkable degree. By preventing completely the exchange of the air mol...`
+- raw OCR (frag 2: the heating effects of a brush produced ): `...hey must be with frequencies and potentials many times greater; and the above explanation seems, to say the least, very probable. Similar explanations may have been suggested, but I am not aware that, up to the present, the heating effects of a brush produced by a rapidly alternating potential FIG. ill. have been experimentally demonstrated, at least not to such a remarkable degree. By preventing completely the exchange of the air molecules^ the local heating effect may be so exalted as to bring a body to inc...`
+- raw OCR (frag 3: have been experimentally demonstrated, a): `...tion seems, to say the least, very probable. Similar explanations may have been suggested, but I am not aware that, up to the present, the heating effects of a brush produced by a rapidly alternating potential FIG. ill. have been experimentally demonstrated, at least not to such a remarkable degree. By preventing completely the exchange of the air molecules^ the local heating effect may be so exalted as to bring a body to incandescence. Thus, for instance, if a small button, or preferably a very thin wire or filam...`
+
 ## Printed p. 169 (scan file 187)
+
+### 4. Why he never got it
+
+> "The possibility of bringing a body to incandescence in an exhausted globe, or even when not at all enclosed, would seem to afford a possible way of obtaining light ... might be rendered available for useful purposes"
+
+- cited as: `(1894, p. 169)`
+- why: the lamp sentence, and it marks itself as a possibility: 'would seem to afford a possible way'. Cut at the OCR's 'light eifects, which, in perfecting methods of producing rapidly alternating potentials,'; each side of the cut verifies separately on printed p. 169
+- check_quotes.py: 2 fragments, each verified separately (check_quotes.py splits on '...'); frag 1: exact match, ratio 1.0, printed p. 169; frag 2: exact match, ratio 1.0, printed p. 169
+- raw OCR (frag 1: The possibility of bringing a body to in): `...motions would probably not occur. That the motion is not likely to be due to others causes is evident from the fact that it is not of a definite direction, and that in a very highly exhausted globe it ceases altogether. The possibility of bringing a body to incandescence in an exhausted globe, or even when not at all enclosed, would seem to afford a possible way of obtaining light eifects, which, in perfecting methods of producing rapidly alternating potentials, might be rendered available for useful purposes. In employing a commercial coil, the production of very powerful brush effects is attend...`
+- raw OCR (frag 2: might be rendered available for useful p): `...a body to incandescence in an exhausted globe, or even when not at all enclosed, would seem to afford a possible way of obtaining light eifects, which, in perfecting methods of producing rapidly alternating potentials, might be rendered available for useful purposes. In employing a commercial coil, the production of very powerful brush effects is attended with considerable difficulties, for FIG. 112*. when these high frequencies and enormous potentials are used, the best insulation...`
 
 ### 4. Why he never got it
 
@@ -181,6 +307,35 @@ Verified: 34 quotes (34 fragments) across 14 printed pages, 0 failures. To re-ch
 - check_quotes.py: exact match, ratio 1.0, printed p. 171
 - raw OCR: `...cal affinities. For the production of ozone, alternating currents of very high frequency are eminently suited, not only on account of the advantages they offer in the way of conversion but also because of the fact, that the ozonizing action of a discharge is dependent on the frequency as well as on the potential, this being undoubtedly confirmed by observation. In these experiments if an iron core is used it should be carefully watched, as it is apt to get excessively hot in an incredibly short time. To give an idea of the rapi...`
 
+### 2. What a brush actually is
+
+> "an excessively powerful brush, several inches long, which may be appropriately called"
+
+- cited as: `(1894, p. 171)`
+- why: the name the 1894 text gives its own biggest brush, in the Columbia College lecture: St. Elmo's hot fire. This is the book's vocabulary, and it is not 'cold'. The sentence continues into the ozonizer sentence below
+- check_quotes.py: exact match, ratio 1.0, printed p. 171
+- raw OCR: `...the secondary, and, the nearest terminal of the latter being connected to the primary, a laminated iron core is introduced through the primary into the secondary as far as the streams will permit. Under these conditions an excessively powerful brush, several inches long, which may be appropriately called " St. Elmo's hot fire," may be caused to appear at the other terminal of the secondary, producing striking effects. It is a most powerful ozonizer, so powerful indeed, that only a few minutes are sufficient to fill the...`
+
+### 6. Where you see it now
+
+> "It is a most powerful ozonizer, so powerful indeed, that only a few minutes are sufficient to fill the whole room with the smell of ozone"
+
+- cited as: `(1894, p. 171)`
+- why: the ancestor of the ozone generator, stated by him as an observation about his own apparatus, and the in-book half of the modern health point
+- check_quotes.py: exact match, ratio 1.0, printed p. 171
+- raw OCR: `...these conditions an excessively powerful brush, several inches long, which may be appropriately called " St. Elmo's hot fire," may be caused to appear at the other terminal of the secondary, producing striking effects. It is a most powerful ozonizer, so powerful indeed, that only a few minutes are sufficient to fill the whole room with the smell of ozone, and it undoubtedly possesses the quality of exciting chemical affinities. For the production of ozone, alternating currents of very high frequency are eminently suited, not only on account of the advantages they offer...`
+
+## Printed p. 198 (scan file 216)
+
+### 0. Provenance (ch. XXVII footnote)
+
+> "Lecture delivered before the Institution of Electrical Engineers, London, February, 1892."
+
+- cited as: `(1894, p. 198)`
+- why: dates the London chapter, which carries the stage moment at printed p. 258. Added at draft time (feature-005/t5) so the article can name its text instead of asserting a date
+- check_quotes.py: exact match, ratio 1.0, printed p. 198
+- raw OCR: `...k the mental process which led me to these advances — which even by myself cannot be considered trifling, since they are so appreciated by you — I believe that their real origin, that which started me to work in this 1. Lecture delivered before the Institution of Electrical Engineers, London, February, 1892.`
+
 ## Printed p. 213 (scan file 231)
 
 ### 4. Why he never got it
@@ -212,6 +367,17 @@ Verified: 34 quotes (34 fragments) across 14 printed pages, 0 failures. To re-ch
 - why: what a plasma globe actually is, in his words, from the passage where he changes subject to the vacuum brushes ('I think it best at this juncture to bring before you a phenomenon...')
 - check_quotes.py: exact match, ratio 1.0, printed p. 226
 - raw OCR: `...e purely scientific investigator may perhaps appear more interesting than any of the results which I have the privilege to present to you this evening. It may be quite properly ranked among the brush phenomena— in fact, it is a brush, formed at, or near, a single terminal in high vacuum. In bulbs provided with a conducting terminal, though it be of FIG. 141. FIG. 142. aluminum, the brush -has but an ephemeral existence, and cannot, unfortunately, be indefinitely preserved in its most sensitive state, e...`
+
+### 6. Where you see it now
+
+> "In Fig. 141 the bulb comprises an incandescent lamp globe ... in the neck of which is sealed a barometer tube ... the end of which is blown out to form a small sphere"
+
+- cited as: `(1894, p. 226)`
+- why: the book's own description of the plate used as figure 3, set on the same printed page beneath it. Every part named here - the globe, the barometer tube, the sphere - is drawn in the crop, which is how the crop was identified. The cuts are where the OCR drops the italic part letters (it prints 'globe Z' for globe L), so the quote is pinned in the fragments that verify; the letters themselves are named in the caption from the 500 ppi print, not from the text layer. Added at feature-005/t6 because the draft's first caption cited the p. 227 sentence about Figs. 143-145, which describes a different group of plates
+- check_quotes.py: 3 fragments, each verified separately (check_quotes.py splits on '...'); frag 1: exact match, ratio 1.0, printed p. 226; frag 2: exact match, ratio 1.0, printed p. 226; frag 3: exact match, ratio 1.0, printed p. 226
+- raw OCR (frag 1: In Fig. 141 the bulb comprises an incand): `...en in a bulb devoid of any conducting electrode. In studying the phenomenon, by all means a bulb having no leading-in wire should be used. I have found it best to use bulbs constructed as indicated in Figs. 141 and 142. In Fig. 141 the bulb comprises an incandescent lamp globe Z, in the neck of which is sealed a barometer tube &, the end of which is blown out to form a small sphere s. This sphere should be sealed as closely as possible in the centre of the large globe. Before sealing, a thin...`
+- raw OCR (frag 2: in the neck of which is sealed a baromet): `...the phenomenon, by all means a bulb having no leading-in wire should be used. I have found it best to use bulbs constructed as indicated in Figs. 141 and 142. In Fig. 141 the bulb comprises an incandescent lamp globe Z, in the neck of which is sealed a barometer tube &, the end of which is blown out to form a small sphere s. This sphere should be sealed as closely as possible in the centre of the large globe. Before sealing, a thin tube t, of aluminum sheet, may be slipped in the ba...`
+- raw OCR (frag 3: the end of which is blown out to form a ): `...ng-in wire should be used. I have found it best to use bulbs constructed as indicated in Figs. 141 and 142. In Fig. 141 the bulb comprises an incandescent lamp globe Z, in the neck of which is sealed a barometer tube &, the end of which is blown out to form a small sphere s. This sphere should be sealed as closely as possible in the centre of the large globe. Before sealing, a thin tube t, of aluminum sheet, may be slipped in the barometer tube, but it is not important to employ it.`
 
 ## Printed p. 227 (scan file 245)
 
@@ -303,6 +469,15 @@ Verified: 34 quotes (34 fragments) across 14 printed pages, 0 failures. To re-ch
 - check_quotes.py: exact match, ratio 1.0, printed p. 259
 - raw OCR: `...producing electric impulses of a sufficiently high frequency, and for transmitting them, the bulb could be done away with, unless it were used to protect the electrode, or to economize the energy by confining the heat. But as such means are not at disposal, it becomes necessary to place the terminal in the bulb and rarefy the air in the same. This is done merely to enable the apparatus to perform the work which it is not capable of performing at ordinary air pressure. In the bulb we are able to intensify the action to any degree — so far that the brush emit...`
 
+### 4. Why he never got it
+
+> "This is done merely to enable the apparatus to perform the work which it is not capable of performing at ordinary air pressure"
+
+- cited as: `(1894, p. 259)`
+- why: the plain statement that the evacuated bulb is a workaround for machinery he did not have. It follows 'But as such means are not at disposal' on the same page and closes section 4
+- check_quotes.py: exact match, ratio 1.0, printed p. 259
+- raw OCR: `...less it were used to protect the electrode, or to economize the energy by confining the heat. But as such means are not at disposal, it becomes necessary to place the terminal in the bulb and rarefy the air in the same. This is done merely to enable the apparatus to perform the work which it is not capable of performing at ordinary air pressure. In the bulb we are able to intensify the action to any degree — so far that the brush emits a powerful light. The intensity of the light emitted depends principally on the frequency and potential of the impulses, and o...`
+
 ## Printed p. 291 (scan file 309)
 
 ### 5. What the internet gets wrong
@@ -324,6 +499,15 @@ Verified: 34 quotes (34 fragments) across 14 printed pages, 0 failures. To re-ch
 - why: the same point from the Philadelphia/St. Louis lecture: the brush discharge is a loss, always present, always consuming energy. Nothing in this volume supports a free-energy reading
 - check_quotes.py: exact match, ratio 1.0, printed p. 322
 - raw OCR: `322 INVENTIONS OF NIKOLA TESLA. they always exist, consuming energy and modifying the action of the apparatus. When intense, as they are at present, they produce ozone in great quantity, and also, as Professor Crookes has pointed out, nitrous acid. So quick is the chemical action that if a coil, such as this one, is worked for...`
+
+### 6. Where you see it now
+
+> "if a coil, such as this one, is worked for a very long time it will make the atmosphere of a small room unbearable, for the eyes and throat are attacked"
+
+- cited as: `(1894, p. 322)`
+- why: his own account of what the chemistry does to a room, from the Philadelphia and St. Louis lecture, in the same passage as the 'they always exist, consuming energy' quote. The in-book basis for the safety paragraph; pair it with the EPA source, never with a health claim of ours
+- check_quotes.py: exact match, ratio 1.0, printed p. 322
+- raw OCR: `...y and modifying the action of the apparatus. When intense, as they are at present, they produce ozone in great quantity, and also, as Professor Crookes has pointed out, nitrous acid. So quick is the chemical action that if a coil, such as this one, is worked for a very long time it will make the atmosphere of a small room unbearable, for the eyes and throat are attacked. But when moderately produced, the streamers refresh the atmosphere wonderfully, like a thunderstorm, and exercises unquestionably a beneficial effect. In this experiment the force acting between the plates changes in i...`
 
 ## Printed p. 376 (scan file 394)
 
@@ -385,9 +569,16 @@ Verified: 34 quotes (34 fragments) across 14 printed pages, 0 failures. To re-ch
 - HIS WORDING, NOT IDIOMATIC ENGLISH. The print reads 'It would, of course, be out of question to transmit...' (printed p. 291), with no 'the'; the modern idiom 'out of the question' is a 0.983 near-match and check_quotes.py FAILS it. The same trap runs through this pin: 'flamelike', 'ozonizing', 'brilliancy', 'rarefy the air in the same', 'such means are not at disposal'. Quote his wording or drop the quotation marks; never modernise a phrase inside them.
 - MODERN CLAIMS NEED MODERN SOURCES. Corona rings on high-voltage lines, commercial ozone generators, plasma globes and today's 'cold fire' videos are all outside this volume (rejected #9, #10). If the draft keeps brief 06 sections 5 and 6, each modern sentence needs a cited modern source in the Sources block, kept visibly separate from the 1894 material, or the sentence is cut.
 - VOICE RULE (§0.5, enforced by qa_page.py). No em or en dashes, no curly quotes, no Unicode ellipsis in the article body. Every cut in this pin is ASCII ' ... ' for that reason; keep it that way in the draft.
+- WORD COUNTS RE-RUN AT DRAFT TIME (feature-005/t5, 2026-10-11), not copied from this pin: whole-word matching over the text layer of our scan, whole volume. 'cold flame' 0, 'cold fire' 0, 'corona' 0, 'plasma' 0, 'ioniz' 0, 'electron' 0, 'ultraviolet' 0, 'combustion' 0. 'hot brush' 2 (printed pp. 127, 167). 'veritable flame' 3 (printed pp. 120, 166, 167; p. 120 is the editor's introduction). 'ozone' 7 (printed pp. 127, 158, 171, 322, and the index at pp. 495, 496). 'chemical process' 5 (printed pp. 127, 167, 214, 250, 272). 'luminous funnel' 1 (printed p. 168). These are the counts the draft prints.
+- MODERN SOURCES THE DRAFT CARRIES (§4.1: a modern technical claim needs a modern source or it is cut). All three were fetched and read on 2026-10-11, and every sentence they support is ours: no quotation marks, no page cite, kept visibly separate from the 1894 material. (1) Zobaa, A. M., Abdelnabi, H. H., Reda, R. M. and Mahmoud, A. G., 'Quantifying and mitigating electrical and environmental impacts of corona discharge', Scientific Reports 15, 41165 (2025), for corona on conductors: the field exceeding the dielectric strength of air (about 30 kV per cm at standard temperature and pressure), ionisation and an electron avalanche, a blue glow with audible noise, power loss and chemically active gas emissions, and corona rings, larger conductors and wider spacing as the mitigations. (2) US EPA, 'Ozone Generators that are Sold as Air Cleaners', for ozone as a lung irritant (chest pain, coughing, shortness of breath, throat irritation at relatively low concentrations) and for the finding that at concentrations not exceeding public health standards ozone has little potential to remove indoor air contaminants. (3) Arizona State University Physics Instructional Resource Team, 'Plasma Globe', for the modern toy: low-pressure krypton, xenon or neon, an electrode at the centre, a high-voltage high-frequency transformer underneath at a few kilovolts and a frequency in the vicinity of 35 kHz, ionising the gas into filaments. No product claim from any site page is repeated here (§4.1).
+- NESTED QUOTE MARKS AT PRINTED p. 171. The print sets the name of the biggest brush of the Columbia College lecture in double quotes with a leading space: 'which may be appropriately called " St. Elmo's hot fire," may be caused to appear at the other terminal of the secondary'. check_quotes.py's scanner splits a quoted run at inner double marks (same problem as the p. 167 " electric light and heat " flag), so the draft quotes only up to 'which may be appropriately called' and gives the name in our own sentence, unquoted. The name is the book's; it is 'St. Elmo's hot fire', which is the opposite of the title's word.
+- THE OTHER NAME FOR THIS IS THE EDITOR'S, NOT TESLA'S. 'starting from the thread-like discharge and passing through various stages to the true electric flame' (printed p. 121) is the volume's editorial introduction writing about 'Mr. Tesla' in the third person, like the p. 120 and p. 127 passages rejected above. Attribute it to the book, never to Tesla, and note that it is not 'cold' either: the 1894 names are 'the true electric flame' (editor), 'St. Elmo's hot fire' (Tesla, p. 171), 'the hot brush' (pp. 127, 167) and 'a veritable flame' (pp. 166, 167).
+- 'cold' IS IN THE BOOK SEVEN TIMES, AND NEVER HERE (re-run at draft time, feature-005/t5, whole-word over the normalised text layer): printed pp. 296, 300, 311, 361, 362, 363, 387. They are the sensation of warmth or cold on skin, air condensed and solidified by intense cold, electrodes that may remain quite cold, an outer globe that stays cold while a button inside it is incandescent (twice), a medium that must be dark and cold, and a gas column between electrodes. Not one is about the brush or the flame. The string 'scorch' occurs three times, printed pp. 124, 167 and 258, and two of those are in the passages quoted here.
+- THE BRIDGE PAGES WERE READ, NOT ASSUMED (the feature-005/t1 lesson). 7-interesting-facts-about-magnets.html was opened at draft time, 2026-10-11: its H2s are lodestones, magnets around you, making a paperclip into a magnet, the Earth's magnetic poles and navigation, the Earth's magnetic core, electromagnets, roller coasters, and how magnets generate electricity. It contains no corona, no ozone and no plasma globe, so the bridge sentence describes it as this site's beginner page on magnetic fields and on magnet-generated current, and says plainly that the discharge is not on it. tesla-lit-lamps-without-wires.html and tesla-high-frequency-alternator.html were read the same way; their bridges describe what those pages actually do.
 
 ## Notes for the figure task (feature-005/t6)
 
+- WHAT THE DRAFT (feature-005/t5) ALREADY COMMITS TO. article.md front matter names three figures, all marked NOT YET VISUALLY VERIFIED, and the body places them: figure 1 inside the first three H2s is /assets/tesla1894/p184-fig110.webp, which DOES NOT EXIST YET (crop Fig. 110 from books/pdf-pages-tesla-1894/page-184.pdf, the plate the p. 166 'two powerful brushes ... flames of a gas' sentence points at, add the manifest row, and use the p. 166 prose for the caption); figure 2 mid-article is /assets/tesla1894/p186-fig1.webp (printed p. 168, the spinning filament the prose calls Fig. 111 and the caption OCRs as 'FIG. ill.'), which exists and is unused but must be viewed against page-186.pdf first because manifest_qc.csv describes it as 'a primary coil with a pear-shaped vacuum lamp', which is not what the prose describes; figure 3 is /assets/tesla1894/p244-fig1-fig141.webp (printed p. 226, the vacuum bulb of Figs. 141-142), which exists, is unused, and is a dark plate needing negate and a gutter split. t7 renders only after t6 has created the p. 184 crop, because qa_page.py fails any <img> whose file is missing. If Fig. 110 will not crop useably, substitute the p. 228 page-scan crop described below and say so in the caption.
 - the §9 brief 06 figure ids name PRINTED pages, but the files on disk are named by SCAN FILE (printed = scan - 18, §0). The three candidates map to: p247-fig151 -> website/assets/tesla1894/p265-fig1-fig151.webp (scan 265 = printed 247); p228-fig144 -> p246-fig1-fig144.webp, superseded by p228-figs144-145.webp; p179-fig117 -> p197-fig1-fig117.webp, superseded by p179-figs116-117.webp. Use the current filenames.
 - TWO OF THE BRIEF'S THREE CANDIDATES ARE ALREADY USED. index.json figures[] read on 2026-10-11: 1894_01 carries p179-figs116-117.webp, and 1894_02 carries p228-figs144-145.webp. §6.6's last rule says never reuse the same engraving on two articles unless the caption differs, and duplicate images across the series look thin. So the brief's p228-fig144 and p179-fig117 are blocked unless a genuinely different crop and caption are made.
 - THE THIRD CANDIDATE DOES NOT SHOW A BRUSH. p265-fig1-fig151.webp is free, but the prose that names it is on printed p. 245: 'Fig. 151 illustrates a similar arrangement, with a large tube T protruding into the part of the bulb containing the refractory button' - a bulb construction detail. manifest_qc.csv row for it says 'Caption spans Figs.151-152; the radiant-discharge half is the useful part - split at gutter; dark plate - negate'. It is not a flame and not a brush; brief 06's instruction to 'verify which show brush discharge visually' answers no for this one.
