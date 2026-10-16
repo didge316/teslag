@@ -35,12 +35,26 @@ LOWER = {
 # Capitalise the word after these, since a colon or dash starts a new unit.
 FORCE_CAP_AFTER = (":", "-", "--", "\u2014", "\u2013")
 
+# A quotation inside a heading is the source's wording, not ours, so its case is
+# left alone. An opening quote only opens a span when it is not stuck to a word,
+# which is what keeps Tesla's and Don't from reading as quotations, and the span
+# has to close at whitespace, sentence punctuation or the end of the heading.
+QUOTE_SPAN = re.compile(
+    r'(?<![\w])(["\u201c])[^"\u201c]{1,300}?["\u201d](?=[\s).,;:!?]|$)'
+    r"|(?<![\w])(['\u2018])[^'\u2019\s][^'\u2019]{0,300}?['\u2019](?=[\s).,;:!?]|$)"
+)
+
 
 def _split_token(tok: str):
-    """Return (leading punctuation, core word, trailing punctuation)."""
+    """Return (leading punctuation, core word, trailing punctuation).
+
+    The trailing run is searched for in what the leading run did not take, so a
+    token that is nothing but punctuation (a lone em dash) is not counted twice.
+    """
     lead = re.match(r'^[^\w\'"\u2018\u201c]*', tok).group(0)
-    trail = re.search(r'[^\w\'"\u2018\u201c]*$', tok).group(0)
-    core = tok[len(lead): len(tok) - len(trail) if trail else len(tok)]
+    rest = tok[len(lead):]
+    trail = re.search(r'[^\w\'"\u2018\u201c]*$', rest).group(0)
+    core = rest[: len(rest) - len(trail)] if trail else rest
     return lead, core, trail
 
 
@@ -57,12 +71,24 @@ def _cap(word: str) -> str:
     return word
 
 
+def _quoted_spans(text: str):
+    """Character ranges in this heading that are quotations, not our wording."""
+    return [(m.start(), m.end()) for m in QUOTE_SPAN.finditer(text)]
+
+
 def titlecase(text: str) -> str:
     text = html.unescape(text)
-    toks = text.split()
+    spans = _quoted_spans(text)
+    toks = list(re.finditer(r"\S+", text))
     out = []
     prev = ""
-    for i, tok in enumerate(toks):
+    for i, m in enumerate(toks):
+        tok = m.group(0)
+        if any(s < m.end() and m.start() < e for s, e in spans):
+            # a quoted source term: verbatim from the print, case included
+            out.append(tok)
+            prev = tok
+            continue
         lead, core, trail = _split_token(tok)
         is_last = i == len(toks) - 1
         force_cap = (
@@ -98,6 +124,16 @@ HEAD_RE = re.compile(r"(<h([23])\b[^>]*>)(.*?)(</h\2>)", re.S)
 # move with the headings. Only Question names appear inside a FAQPage block.
 LD_RE = re.compile(r'(<script type="application/ld\+json">)(.*?)(</script>)', re.S)
 NAME_RE = re.compile(r'("name"\s*:\s*")((?:[^"\\]|\\.)*)(")')
+
+
+def check_headings(path: Path):
+    """Headings on this page that are not title case, without touching the file.
+
+    Returns [(kind, current, expected), ...] where kind is "2", "3" or "faq".
+    qa_page.py's heading-case gate calls this, so --check mode and the gate are
+    the same code and cannot drift apart.
+    """
+    return process(path, True)
 
 
 def process(path: Path, check: bool):

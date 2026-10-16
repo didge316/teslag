@@ -13,6 +13,10 @@ Link resolution follows the URL contract in SEO-URL-FIX-PLAN.md §1: a page is
 addressed at /x with no extension, and /x is alive iff x.html exists. The older
 x.html spelling is still resolved, so the tool runs against pages written before
 that change, but it is reported by the redirect gate.
+
+Heading case is not a number, but it is decided from the file, so it is gated too.
+That gate delegates to books/tools/titlecase_headings.py -- the tool that also
+fixes the headings -- so the rule lives in one place and cannot drift.
 """
 
 import argparse
@@ -21,6 +25,11 @@ import json
 import re
 import sys
 from pathlib import Path
+
+# The heading-case gate calls its sibling tool; make the import work however this
+# file is invoked (as a script, from another cwd, or imported by another tool).
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import titlecase_headings  # noqa: E402
 
 WEB = Path(__file__).resolve().parents[2] / "website"
 SERIES = Path(__file__).resolve().parents[2] / "new_content" / "1894-series"
@@ -79,6 +88,26 @@ def inbound_map():
 
 
 DEAD_LINK_GATE = "no dead links (\u00a712)"
+HEADING_CASE_GATE = "h2/h3 and FAQ names are title case"
+
+
+def heading_case(path):
+    """Headings on this page that are not title case: [(kind, current, expected)].
+
+    The check is titlecase_headings.check_headings(), the same call its --check
+    mode makes, so the gate and the tool that fixes the headings are one rule.
+    <h1> is exempt there on purpose: it is mirrored into <title>, og:title and
+    twitter:title, which the 60-char gate above is sized to, so retitling it can
+    fail that gate. A quoted source term keeps the print's case for the same
+    reason check_quotes.py needs the quotation verbatim.
+    """
+    try:
+        found = titlecase_headings.check_headings(path)
+    except Exception as e:                 # unreadable page is a failed gate, not a pass
+        return [("error", str(e), "")]
+    label = {"2": "h2", "3": "h3", "faq": "faq-name"}
+    return [(label.get(kind, kind), cur, want) for kind, cur, want in found]
+
 
 
 def redirecting_links(html):
@@ -146,6 +175,14 @@ def check(path: Path):
     gate(h1 == 1, "exactly one <h1>", f"{h1} found")
     h2 = len(re.findall(r"<h2\b", html))
     gate(5 <= h2 <= 9, "H2 count 5-9", f"{h2} found")
+
+    # The house style for this series is title-case headings (harness/docs/
+    # CONSTRAINTS.md). It was prose until now, which is why 9 shipped pages had to
+    # be retitled by hand afterwards rather than caught before they shipped.
+    bad_head = heading_case(path)
+    gate(not bad_head, HEADING_CASE_GATE,
+         f"{len(bad_head)} not title case: "
+         + " | ".join(f"{k}: {cur!r} -> {want!r}" for k, cur, want in bad_head[:3]))
 
     hrefs = re.findall(r'href="([^"]+)"', html)
     out = {k for k in (page_key(h) for h in hrefs) if k and k != stem}
@@ -270,7 +307,7 @@ def check(path: Path):
 
 
 def self_test():
-    """Fixture tests for the link and canonical gates.
+    """Fixture tests for the link, canonical and heading-case gates.
 
     Each case names a fixture, a gate, whether that gate should pass, and a string
     that must appear in the failure detail. Fixtures live in a temp dir; website/ is
@@ -308,6 +345,35 @@ def self_test():
         (tmp / "canon_bad.html").write_text(
             f'<head><link rel="canonical" href="{CAN_OK}.html">'
             f'<meta property="og:url" content="{CAN_OK}"></head><body>x</body>')
+        # the heading-case gate. FAQPage names are checked because they must match
+        # the visible <h3> text, so schema drift is the same defect in another file.
+        FAQ_OK = ('<script type="application/ld+json">{"@type":"FAQPage","mainEntity":'
+                  '[{"@type":"Question","name":"What Did the Coil Do?","acceptedAnswer":'
+                  '{"@type":"Answer","text":"It rang."}}]}</script>')
+        FAQ_BAD = FAQ_OK.replace('What Did the Coil Do?', 'What did the coil do?')
+        (tmp / "case_ok.html").write_text(
+            '<h1>The Coil That Ran All Night</h1>'
+            '<h2>The Coil That Ran All Night</h2>'
+            '<h3>What Did the Coil Do?</h3>' + FAQ_OK)
+        # <h1> is exempt: it is mirrored into <title>/og:title, sized to 60 chars
+        (tmp / "case_h1_exempt.html").write_text(
+            '<h1>the coil that ran all night</h1>'
+            '<h2>The Coil That Ran All Night</h2>' + FAQ_OK)
+        # a quoted source term keeps the print's case; the rest of the heading does not
+        (tmp / "case_quote_ok.html").write_text(
+            '<h1>The Machine Was Hard</h1>'
+            '<h2>"a tale of woe": Why the Machine Was Hard</h2>' + FAQ_OK)
+        (tmp / "case_bad.html").write_text(
+            '<h1>The Machine Ran at Full Power</h1>'
+            '<h2>the machine ran at full power</h2>'
+            '<h3>What Did the Coil Do?</h3>' + FAQ_OK)
+        (tmp / "case_faq_bad.html").write_text(
+            '<h1>What Did the Coil Do?</h1>'
+            '<h2>What Did the Coil Do?</h2>'
+            '<h3>What Did the Coil Do?</h3>' + FAQ_BAD)
+        (tmp / "case_quote_partial_bad.html").write_text(
+            '<h1>The Machine Was Hard</h1>'
+            '<h2>"a tale of woe": why the machine was hard</h2>' + FAQ_OK)
         cases = (
             ("live", DEAD_LINK_GATE, True, ""),
             ("broken", DEAD_LINK_GATE, False, "/rotating-magnetic-field-1888"),
@@ -319,6 +385,13 @@ def self_test():
             ("canon_bad", "canonical self-referential and extensionless", False,
              f"{CAN_OK}.html"),
             ("canon_bad", "og:url equals canonical", False, ""),
+            ("case_ok", HEADING_CASE_GATE, True, ""),
+            ("case_h1_exempt", HEADING_CASE_GATE, True, ""),
+            ("case_quote_ok", HEADING_CASE_GATE, True, ""),
+            ("case_bad", HEADING_CASE_GATE, False, "the machine ran at full power"),
+            ("case_faq_bad", HEADING_CASE_GATE, False, "What did the coil do?"),
+            ("case_quote_partial_bad", HEADING_CASE_GATE, False,
+             "why the machine was hard"),
         )
         results = []
         for name, label, want_ok, want_named in cases:
@@ -354,7 +427,8 @@ def main():
         fails = self_test()
         for f in fails:
             print(f"FAIL {f}")
-        print("self-test: link and canonical gates " + ("FAIL" if fails else "PASS"))
+        print("self-test: link, canonical and heading-case gates "
+              + ("FAIL" if fails else "PASS"))
         return 1 if fails else 0
 
     targets = []

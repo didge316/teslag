@@ -435,3 +435,53 @@ before the gate will pass — the gate check *is* the status field
 `{key, status}` only: `applyTaskList` inherits every omitted field from the stored task
 (`src/taskList.ts`, "merge onto the stored task so unknown fields survive"), so subjects,
 `dependsOn`, criteria and subtasks survive untouched and there is nothing to mistype.
+
+## 2026-10-16 — feature-001/heading-case-gate: a gate is only as good as the code it delegates to
+
+Heading case is now a `qa_page.py` gate. `check()` calls
+`titlecase_headings.check_headings()` — the same call the tool's own `--check` mode makes —
+so the gate and the fixer are one rule and cannot drift apart. `--self-test` grew seven
+fixture cases for it, both directions on the same gate (a gate that always passes fails the
+`False` cases, one that always fails the `True` ones), and they cover the two exemptions the
+rule claims: an `<h1>` in sentence case must pass, and a quoted source term keeps the print's
+case while the rest of its heading is still title-cased. The rule itself is written into
+`harness/docs/CONSTRAINTS.md`, which was an empty stub until now, so a drafting session meets
+it before writing rather than in a red gate afterwards.
+
+Measured, not asserted: the nine shipped pages go from 29/29 to 30/30 gates, all pass;
+`titlecase_headings.py --check` still reports 0 on all nine; `--all-series` still exits 1 for
+one reason only, the unwritten hub (`MISSING website/tesla-1894.html`, feature-012), which is
+what it did before this change. `--self-test` passes.
+
+Two defects found in the tool the gate now leans on, both fixed here because a gate that
+proposes a wrong fix is a gate nobody trusts:
+
+1. **The quoted-source-term exemption was in the task description and not in the code.**
+   `titlecase('"a tale of woe": why the machine was hard')` returned
+   `'"a Tale of Woe": Why the Machine Was Hard'` — the leading quote blocked capitalisation of
+   the first word (`_cap` only touches tokens that start with a letter) while the interior
+   words were capitalised, so the output was neither the print's case nor title case. That is
+   not a style nit: `check_quotes.py` checks quotations against the printed text, so a
+   title-cased quotation stops being the quote it is quoting. The retrofit shows the cost —
+   article 11's draft heading is `## "A tale of woe": why the machine was hard` and the shipped
+   page reads `"A Tale of Woe"`. Fixed with `QUOTE_SPAN`: a quotation is left verbatim, and
+   only the quotation. An opening quote counts only when it is not stuck to a word, which is
+   what keeps `Tesla's` and `Don't` from reading as quotations.
+2. **`_split_token` doubled a token that is nothing but punctuation** (a lone em dash came back
+   as two), because the trailing-punctuation run was searched for in the whole token instead of
+   in what the leading run had not taken. Unreachable on a series page — `qa_page.py` already
+   forbids em/en dashes anywhere in the article body, headings included — but the gate prints
+   the tool's proposed replacement, so the fix went in with the gate.
+
+**Open, named rather than fixed: the retrofit stopped at the rendered pages.** The nine pages
+were retitled by hand; the ten drafts under `new_content/1894-series/` were not — 72 `##`/`###`
+lines still sentence case (counted at this task with the tool's own `titlecase()` over the
+draft headings; none of those headings contains inline markup, so the count is clean).
+`make_article.py` renders from `article.md`, so the next re-render puts sentence case back and
+the new gate fails a page that passed last week — and a re-render is already planned:
+feature-009/t2 re-renders 02 and 04 to close the reciprocal pair. This needs its own row, not
+a drive-by at a gate task: the enforcement point for a generator-written page is the artifact
+the generator writes from, or the check has to run after every render. Lesson: when a brief
+says "the rule as implemented", read the implementation — the brief described an exemption the
+code did not have, and the description of a rule and the code that applies it drift exactly the
+way a page copy and its register do.
