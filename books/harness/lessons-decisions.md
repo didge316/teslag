@@ -396,3 +396,42 @@ there to cut them from. Two of the existing `manifest_qc.csv` subject lines desc
 those engravings wrongly (the meter figures are called a coherer; Fig. 220 is called a
 lamp loop), which is the standing reason captions come from the prose and figure numbers
 from the printed page, never from the extractor filename or the QC note.
+
+## 2026-10-16 — feature-006/t0 (rework pass): a suspect row is re-proved by re-running it, not by rewriting it
+
+The rework came from `feature-005/a06-wipcommit` exhausting its retry budget
+(`harness/rework.json`, `maxImpactDepth: 3`), which dragged `feature-006/t0` down with it.
+Nothing in the pin had failed, so the pass was a re-proof, not a rewrite:
+
+- `gen_quotes.py` re-run — exits 0, 29 quotes / 29 fragments / 12 printed pages /
+  0 failures / 16 rejected, and it reproduced the committed pin (347e8b5) **byte for
+  byte**. A generated pin that regenerates identically is the whole test; the article 06
+  lesson about three different counts for one register is exactly why this file is
+  generated and why "identical output" is a meaningful result.
+- Seven quotes re-grepped a second time through the independent CLI (`grep_quote.py
+  --page N-N`), one per entry plus the awkward ones: the ASCII ` - ` form that folds to
+  the print's em dash (p. 410), the form that starts after the print's doubled `it`
+  (p. 419), the lamp-hour sentence (p. 422), the editor's verdict on electrolytic
+  meters (p. 423). Each returned exactly one hit on its stated page.
+- The OCR artefacts the pin relies on were counted in the raw text again: `isvaried` 1,
+  `bychanges` 1, `should -be changed` 1, `for a -given time` 1, `what may termed` 1.
+  The doubled `it` at p. 419 is **not** greppable as `it it has been` — the OCR puts a
+  line break between the two words — so only the pinned form, which starts after it,
+  matches. Lesson: a rejected item's *reason* has to be re-checked too; a claim about the
+  scan written in prose can be as stale as a quote.
+
+New finding, recorded in the pin header for batches 2 and 3: **`check_quotes.py` is not a
+gate for a pin file.** Run on `quotes.md` it reads the apostrophes in the `- why:`
+annotations and the struck-through Rejected items as quotation marks and reports ~40
+false failures around 30 real matches. A session that reaches for the draft checker at a
+pin task will spend its budget explaining a red run that means nothing. The pin gate is
+`gen_quotes.py` — it imports `check_quotes.fragments`/`locate` over the same index, so a
+quote that passes there passes in the draft, and it writes nothing if one misses.
+`check_quotes.py` belongs to `article.md` (feature-006/t3).
+
+Closing a `rework` row still needs the plan row set to `complete` through `infinity_plan`
+before the gate will pass — the gate check *is* the status field
+(`task-criteria: ... is "rework", not complete`). Submitting 91 rows is safe with
+`{key, status}` only: `applyTaskList` inherits every omitted field from the stored task
+(`src/taskList.ts`, "merge onto the stored task so unknown fields survive"), so subjects,
+`dependsOn`, criteria and subtasks survive untouched and there is nothing to mistype.
