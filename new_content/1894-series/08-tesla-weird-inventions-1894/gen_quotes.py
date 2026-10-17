@@ -39,9 +39,14 @@ OUT = Path("/home/matt/projects/other/tesla-generator/new_content/1894-series/"
 
 PIN_DATE = "2026-10-12"
 BATCH2_DATE = "2026-10-16"
-BATCH = ("batches 1-2 of 3 are in: §9 brief 08 entries 1-6, the six Part III "
-         "chapters at printed pp. 409-447, plus one quote from the author's own "
-         "chapter at printed p. 390 (batch 1 = entries 1-3, batch 2 = entries 4-6)")
+BATCH3_DATE = "2026-10-17"
+BATCH = ("all three batches are in: §9 brief 08's nine entries. Batch 1 (t0) = "
+         "entries 1-3, the Part III chapters at printed pp. 409-423; batch 2 "
+         "(a08-qp2) = entries 4-6, printed pp. 424-447, plus one quote from the "
+         "author's own chapter at printed p. 390; batch 3 (a08-qp3) = entries 7-9, "
+         "the last three Part III chapters at printed pp. 448-474, of which ch. "
+         "XLI, printed pp. 467-474, is the author's own reprinted article. "
+         "a08-qpdone re-checks all nine together")
 
 # This pin was sent back as SUSPECT, not as wrong: feature-005/a06-wipcommit burned
 # its whole retry budget, and everything downstream of it went to rework with it
@@ -56,9 +61,10 @@ REVERIFIED = (
     "08-tesla-weird-inventions-1894/gen_quotes.py` exits 0 and reproduced the pin "
     "byte for byte against the commit that first landed it (347e8b5) - 29 quotes, 29 "
     "fragments, 12 printed pages, 0 failures, 16 rejected. What has been added since "
-    "is this re-proof paragraph, the two batch-2 paragraphs, and batch 2's 35 quotes - "
-    "all of it added to the generator, never hand-written into the file, and batch 1's "
-    "29 quotes are unchanged in every re-run since. Seven of the 29 were then "
+    "is this re-proof paragraph, the two batch-2 paragraphs, batch 2's 35 quotes, the "
+    "two batch-3 paragraphs and batch 3's 62 quotes - all of it added to the "
+    "generator, never hand-written into the file, and batch 1's 29 quotes are "
+    "unchanged in every re-run since. Seven of the 29 were then "
     "re-grepped a second time through the independent CLI, one per entry plus the "
     "awkward ones, each returning exactly one hit on its stated printed page: "
     "`grep_quote.py \"includes a great many other inventions in arc lighting, "
@@ -102,7 +108,11 @@ BATCH2 = (
     "printed p. 438, and '1885' is 1 hit in the whole volume - which is the only dated "
     "invention statement anywhere in these six chapters, while ch. XXXVII gives nothing "
     "but 'some years ago' and 'A few years later'; (3) entry 6 is the one entry of the "
-    "nine where Tesla's own words are in this volume: printed p. 390, in ch. XXIX, he "
+    "nine where Tesla's own words are in this volume [CORRECTED BY BATCH 3: entry 9's "
+    "chapter carries seven printed pages of his own writing, and he claims the "
+    "belt-contact machines himself at printed p. 474 - see BATCH3_CORRECTED and the "
+    "flag PART III IS NOT ALL THE COMPILER'S PROSE: CH. XLI IS TESLA'S OWN "
+    "REPRINTED ARTICLE]: printed p. 390, in ch. XXIX, he "
     "claims the third brush himself, in the third person he uses about himself ('it may "
     "not be thought immodest of the writer'); (4) neither ch. XXXVI nor ch. XXXVIII "
     "reports any result for its machine - 'efficiency' 0 hits on pp. 424-431 and 0 on "
@@ -140,6 +150,207 @@ BATCH2_CORRECTED = (
     "scratch file: what was considered and not carried is in Rejected, which is where "
     "the next batch should look.")
 
+# What batch 3 found, which batches 1-2 could not have. Same purpose as the
+# batch-2 paragraph: the pin is the record, and the next task (a08-qpdone, then
+# t1) should read this rather than re-derive it.
+BATCH3 = (
+    "BATCH 3 ADDED 2026-10-17 (feature-006/a08-qp3): entries 7-9, the three "
+    "remaining Part III chapters - ch. XXXIX, printed pp. 448-450; ch. XL, printed "
+    "pp. 451-464; ch. XLI, printed pp. 465-474 - 62 quotes, 65 fragments, 22 "
+    "printed pages (448-456, 460, 462-472, 474). HOW THOSE BATCH COUNTS "
+    "WERE OBTAINED, because the draft will copy a number and not the method: the "
+    "totals in the line above this one are counted by this script on every run, and "
+    "the batch-3 share is the difference between this run and the same generator at "
+    "commit 2e6b42f, which printed 64 quotes, 67 fragments and 29 printed pages. "
+    "126-64=62, 132-67=65, 51-29=22. The per-entry split is read off the section "
+    "labels in QUOTES: entry 7 = 13, entry 8 = 21, entry 9 = 28. The page counts "
+    "happen to subtract because batch 3's pages do not overlap batches 1-2's; that is "
+    "not true in general, so the split above is the one to trust. Do not restate any "
+    "of these as a fact about the book; they describe this file. The baseline was "
+    "re-measured, not remembered: the generator as committed at 2e6b42f was checked "
+    "out and re-run on 2026-10-17, and it printed 64 quotes, 67 fragments and 29 "
+    "printed pages, so the subtraction above compares two runs of one tool. EVERY "
+    "QUOTE RE-GREPS, AND THE WHOLE BATCH WAS RE-CHECKED, NOT A SAMPLE. Each quote is "
+    "re-grepped at generation time by this script through the same matcher "
+    "check_quotes.py uses, and the script writes nothing if one fails. Then the whole "
+    "batch was re-grepped a second time through the independent index - "
+    "grep_quote.py's own load_pages + build_index + find_hits, the code "
+    "`grep_quote.py --count` runs, loaded once instead of once per quote - with each "
+    "of the 65 fragments searched restricted to the printed page this file pins it to. "
+    "That run, counted the same way: 59 fragments return exactly one hit at ratio 1.0 "
+    "on the pinned page, 6 return a fuzzy or multiple-candidate window instead, 0 "
+    "return nothing. The six are named so the next task does not re-derive them: p. "
+    "451 'The armature is constructed with the view ...' (0.962), p. 455 'the passive "
+    "or electrically inactive wire is reduced to a minimum' (0.927), p. 455 'The arc "
+    "lamps invented by Mr. Tesla ...' (0.989), p. 465 'the currents induced in the "
+    "rotating conductor ...' (0.986, best of three candidate windows), p. 466 'the "
+    "difficulty of securing and maintaining good contact ...' (0.989), p. 474 "
+    "'Several machines with belt contact ...' (0.989). All six are on the page this "
+    "file pins them to, all six verify through the space-ignoring index that "
+    "check_quotes.py - and therefore this script - additionally builds "
+    "(build_nospace), which is the index the draft will be judged on, and each is "
+    "annotated in its own entry as a whitespace-only difference. grep_quote.py does "
+    "not build that index, so it cannot call a glued or hyphen-broken word exact; that "
+    "is a difference between the tools, not a fault in the pin, and the flag THE CLI "
+    "AND THE GATE DO NOT SHARE AN INDEX gives the reason for each of the six. The "
+    "same batch was then re-typed through the CLI as fourteen separate processes (two "
+    "from entry 7; five from entry 8, including the p. 452 fifty-per-cent "
+    "illustration, the two p. 455 efficiency fragments either side of the folio and "
+    "the p. 463 'rod sticks' cut with its second half; six from entry 9, including "
+    "the p. 467 compiler's hand-over sentence and its footnote, the p. 468 'no "
+    "reaction between armature and field' sentence and the p. 474 'two years ago' "
+    "sentence; and the p. 495 index line), and it reproduced the sweep: twelve "
+    "returned exactly one hit at ratio 1.0 on the pinned page, the p. 455 fragment "
+    "returned one hit per page it spans when the range covered both, and the p. 474 "
+    "sentence came back 0.989 quoted in full and 0.963 quoted only up to 'two years "
+    "ago'. A ratio belongs to the string typed and the range asked for, not to the "
+    "quote - so a ratio is quoted with its string and its range, or not at all. "
+    "Five things "
+    "this batch found that batches 1-2 could not have: (1) ch. XLI is NOT the "
+    "compiler's prose. Halfway down printed p. 467 the compiler hands the chapter "
+    "over - 'It is thought appropriate by the compiler to append here some notes on "
+    "unipolar dynamos, written by Mr. Tesla, on a recent occasion' - and the "
+    "footnote on the same page names the source and the date: 'Article by Mr. "
+    "Tesla, contributed to The Electrical Engineer, N. Y., Sept. 2, 1891'. From the "
+    "middle of printed p. 467 to the foot of printed p. 474 - eight printed pages, "
+    "the first of them part-way - entry 9 is the inventor's own writing, and it is "
+    "the only such thing in Part III. (2) Entry 9 is the only one of the nine where the "
+    "volume records why the work stopped, and it is the inventor recording it: "
+    "'Several machines with belt contact were constructed by the writer two years "
+    "ago, and worked satisfactorily ; but for want of time the work in that "
+    "direction has been temporarily suspended' (p. 474). (3) Entry 8 is the only "
+    "one where the volume explains why a device was not taken up, and it is a "
+    "narrative, not a verdict: the system was 'confided to a company formed for "
+    "its exploitation', Tesla 'then proceeded to devote his energies to ... his "
+    "more celebrated' rotary field system, and the apparatus 'appeared at a time "
+    "when a great many other lamps and machines were in the market' (all p. 451). "
+    "'arrival in America', 'exploitation' and 'rotary field' are each 1 hit in the "
+    "whole volume, all on that one page, and the company is never named anywhere in "
+    "the chapter. (4) Entry 8 is the one entry with a worked number - 'if the "
+    "length of the armature-core is twelve inches ... the waste currents will be "
+    "reduced to fifty per cent' (p. 452) - so batch 2's 'per cent 0' pattern stops "
+    "at p. 447 and does not extend into ch. XL; 'per cent' is 5 in the volume, and "
+    "one of the five is here. (5) Entry 7 is the empty one: no date, no patent "
+    "number, no trial, no result, and exactly one advantage ('The bearings for the "
+    "shaft are located at the neutral points of the field', p. 450) sitting behind "
+    "the sentence 'This machine possesses several advantages' (p. 450). See the "
+    "flags and Rejected #23-#39.")
+
+# What batch 3 corrected in the earlier batches. Recorded here, and the affected
+# batch-1 and batch-2 flags are amended in place, because a flag the drafter
+# reads that is no longer true is the failure this task exists to prevent.
+BATCH3_CORRECTED = (
+    "BATCH 3 CORRECTED FIVE CLAIMS MADE ABOUT THE WHOLE OF THE NINE, AND FOUR OF "
+    "THEM WERE WRONG IN THE SAME DIRECTION. (a) Batch 1's first flag said Part III's chapters "
+    "are 'none of them a Tesla paper or lecture'. That is true of chs. XXXIII-XXXVIII "
+    "and false of ch. XLI: printed pp. 467-474 is a reprinted article by Tesla, with "
+    "the compiler's hand-over sentence and the publication footnote both on printed "
+    "p. 467. The flag now names the chapters it is true of and points to the new "
+    "flag. (b) Batch 2's paragraph claimed entry 6 was 'the one entry of the nine "
+    "where Tesla's own words are in this volume', and its priority-claim flag said "
+    "the p. 390 sentence is 'the only one of the nine devices Tesla claims himself "
+    "in this volume'. Both are wrong: entry 9's chapter carries the last eight "
+    "printed pages - from the middle of p. 467 to the foot of p. 474 - as his own "
+    "writing, and at printed p. 474 he claims building the belt-contact machines "
+    "himself ('constructed by the writer two years ago'). Both flags now say 'of "
+    "entries 1-8'. Nothing batch 1 or batch 2 PINNED turns out to be wrong - the "
+    "re-greps still pass, the page numbers still hold, and the corrections are all "
+    "about scope: what may be said about the nine, rather than what any one quote "
+    "says. (c) Two claims that batch 2 stated as absolutes about the volume still "
+    "hold after batch 3 and are re-stated with batch 3's numbers: the closing beat "
+    "('magnetic gener' 4 on the default index, 5 with --keep-furniture, every one of "
+    "them PYRO-magnetic, and 0 in printed pp. 448-474 - re-run 2026-10-17: default 4 "
+    "hits (pp. 6, 429, 496), --keep-furniture 5 (pp. 6, 424, 429, 496)). The volume's "
+    "own index carries the entry 'Pyromagnetic Generators' at printed p. 496 with "
+    "'429' on the following OCR line, and the joined string 'Pyromagnetic Generators "
+    "429' verifies only with --keep-furniture: strip_furniture drops a line that is "
+    "only a number as a bare folio, so on the default index that same string comes "
+    "back fuzzy 0.885 at printed p. 429, which is a different occurrence. Quote the "
+    "index entry without its page number, or quote it with --keep-furniture, and say "
+    "which), and 'patent' 3 hits in the "
+    "volume (pp. 5, 26, 394), none in pp. 448-474, so entries 7-9 have no patent "
+    "number to recall any more than entries 1-6 do. (d) One §9 brief 08 hook that "
+    "batch 1's flag treated as one of the unreliable ones turns out to be the best "
+    "in the table: entry 9's 'the disc that spins without commutation' is close to "
+    "Tesla's own sentence at printed p. 468. The flag now says which hooks the print "
+    "supports and which it does not. (e) Batch 2's flag ENTRY 5 IS UNDATED IN THE "
+    "VOLUME AND ENTRY 6 IS NOT said the compiler's '1885' at printed p. 438 is 'the "
+    "only date any of the nine entries may carry from this volume'. That is now "
+    "false, and it was the kind of sentence the draft would have copied without "
+    "checking: ch. XLI's footnote dates Tesla's own article to 'Sept. 2, 1891' "
+    "(printed p. 467), and the same chapter says the belt-contact machines were made "
+    "'two years ago' (printed p. 474). Two more dates are therefore available for "
+    "entry 9, and neither is a year the volume states - one is the date of an "
+    "article, the other is relative to it. The flag now separates the three, and the "
+    "new flag ENTRY 9'S DATE IS RELATIVE AND THE DERIVATION MUST BE SHOWN gives the "
+    "rule for using them. Nothing batch 1 or batch 2 pinned changed: '1885' is still "
+    "1 hit and still at p. 438. What was wrong was the word 'only'.")
+
+# What this task re-checked in batch 3's own record before committing it. Same
+# purpose as BATCH2_CORRECTED: the correction goes into the generator, so the
+# rendered pin and the generator stay one artefact.
+BATCH3_VERIFIED = (
+    "BATCH 3 RE-CHECKED ON 2026-10-17 (feature-006/a08-qp3) before it was committed. "
+    "The pin itself held - gen_quotes.py exits 0 and reproduces this file byte for "
+    "byte - and six sentences about the re-check did not survive the re-check. "
+    "(a) THE RECORD NEVER REACHED THE FILE. BATCH3 and BATCH3_CORRECTED were defined "
+    "in the generator but were not in the list the header renders, so quotes.md "
+    "carried batch 1's and batch 2's paragraphs and none of batch 3's, while its own "
+    "header claimed the file describes the pin as it stands. Both are emitted now. "
+    "(b) THE RE-GREP CLAIM WAS WRONG IN METHOD. It said fourteen quotes were "
+    "re-grepped through the CLI and all fourteen returned exactly one hit, twelve at "
+    "ratio 1.0. What was actually run is the whole batch: 65 fragments through "
+    "grep_quote.py's own index, each restricted to the printed page this file pins it "
+    "to - 59 exact single hits, 6 fuzzy or multiple-candidate windows, 0 missing - and "
+    "a fourteen-process CLI spot-check that reproduced it. The two ratios the old "
+    "sentence quoted are real but belong to particular strings: 0.963 is the p. 474 "
+    "sentence cut off at 'two years ago' (0.989 quoted in full), and the p. 455 "
+    "fragment returns one hit per page it spans when the range covers both pages. "
+    "(c) THE FIGURE COUNT WAS WRONG BOTH WAYS. 'Seventeen crops sit on disk for scan "
+    "files 467-491' named sixteen files and a range listing returns eighteen: "
+    "p480-fig298.webp and p482-figs300-308.webp are named by PRINTED page and cropped "
+    "from scan files 498 and 500, which are Part IV chapters, not these. The figure "
+    "note now gives sixteen names, the scans with no crop, the two files to exclude, "
+    "and the listing that produces them. (d) TWO INDEX LINES WERE SAYING THEY VERIFY "
+    "EXACTLY WHEN THEY DO NOT AS TYPED: 'Forbes Unipolar Generator 468, 474' is "
+    "0.986 on both indexes and 'Thomson, Sir W., Current Accumulator 471' is 0.831 on "
+    "the default index, 1.0 only with --keep-furniture, and 'Pyromagnetic Generators "
+    "429' likewise. The volume's index sets each entry's page number on its own OCR "
+    "line, and strip_furniture drops a line that is only a number as a bare folio, so "
+    "the number is not in the default index and the run breaks. Drop the number and "
+    "both verify at 1.0. The flags now give the form that verifies and the index that "
+    "says so. (e) 'NONE OF THE CHAPTER HEADINGS IS GREPPABLE - DISPLAY TYPE IS "
+    "STRIPPED AS FURNITURE' is right in result and wrong in mechanism for half of it: "
+    "the ch. XXXIX heading is in the raw OCR and is dropped as a running head, leaving "
+    "a fuzzy 0.876 window, while the contents-page line at scan file 17 is interleaved "
+    "with the neighbouring entries, so 'IMPROVEMENT IN DYNAMO AND MOTOR CONSTRUCTION' "
+    "returns 0 hits on both indexes. The two index lines that do verify exactly are "
+    "'Dynamos, Improved Direct Current' (printed p. 494) and 'Improved Direct Current "
+    "Dynamos and Motors' (printed p. 495), 1 hit each at ratio 1.0. (f) THE '13 "
+    "PLURAL FORMS' COUNT HAD NO PATTERN AND NO UNIT: grep -c counts lines and says 11, "
+    "grep -o counts occurrences and says 13, and adding 'writer' says 15 and 17. The "
+    "flag now carries the pattern and both numbers. WHAT SURVIVED THE RE-CHECK "
+    "UNCHANGED, AND THIS IS THE PART TO TRUST: every count the batch-3 flags print was "
+    "re-run through grep_quote.py's index, whole-volume and range-scoped, 43 of 43 "
+    "matching - 'arrival in America' 1, 'exploitation' 1, 'rotary field' 1, 'cast in "
+    "two parts' 1, 'flexible conducting belt' 1, 'extraordinary output' 1, 'very "
+    "inefficient' 1, 'Ibs.' 1, 'two years ago' 2, 'Forbes' 4, 'Faraday' 5, "
+    "'commutating' 2, 'compound magnet' 7, 'dash pot' 5, 'exciter' 9, 'wasteful' 5, "
+    "'homopolar' 0, 'unipolar' 10, 'Phil. Magazine' 1, 'the writer' 16, 'patent' 3 "
+    "with none in pp. 448-474, 'per cent' 5 with none in pp. 424-447, 'efficiency' 33 "
+    "with 1 in pp. 448-476 at p. 455, 'magnetic gener' 4 default and 5 with "
+    "--keep-furniture and 0 in pp. 448-474, and the scoped zeros on pp. 448-450 for "
+    "'test', 'experiment', 'result', 'per cent' and 'efficiency'. The batch-2 "
+    "baseline was re-measured rather than trusted: the generator as committed at "
+    "2e6b42f was checked out and run, and printed 64 quotes, 67 fragments and 29 "
+    "printed pages. The header's claim about check_quotes.py on this file was re-run "
+    "on 2026-10-17 and matched exactly: 193 problems, 329 fragments scanned, 136 "
+    "verbatim and page-cited, 161 not verbatim, 31 not cited, 1 WRONG PAGE. Every "
+    "internal reference resolves: 33 'Rejected #N' references, all inside the 39 rows "
+    "that exist, and 22 flag references, all present. Lesson, once more: the pin is "
+    "the record, and a record that was written but never rendered, or a number stated "
+    "without the command that produced it, is the same failure in two costumes.")
+
 # Chapters this pin draws on, in the order the volume prints them. Batch 3 appends
 # its own rows here rather than editing the header prose.
 CHAPTERS = [
@@ -171,6 +382,59 @@ CHAPTERS = [
     "printed pp. 438-447 (scan files 456-465). Entry 6, including the compiler's "
     "footnote on printed p. 438 and the one dated invention statement in the "
     "volume ('devised by him as far back as 1885').",
+    "chapter XXXIX, 'IMPROVEMENT IN THE CONSTRUCTION OF DYNAMOS AND MOTORS', "
+    "printed pp. 448-450 (scan files 466-468). Entry 7. The compiler's prose again: "
+    "'THIS invention of Mr. Tesla'. Three pages, one device, no date, no patent "
+    "number, no trial. The volume calls this chapter three different things: the "
+    "contents page says 'IMPROVEMENT IN DYNAMO AND MOTOR CONSTRUCTION' (which is "
+    "what §9 brief 08 copies), the chapter heading says 'IMPROVEMENT IN THE "
+    "CONSTRUCTION OF DYNAMOS AND MOTORS', and the index says 'Dynamos, Improved "
+    "Direct Current' (printed p. 494) and 'Improved Direct Current Dynamos and "
+    "Motors' (printed p. 495). Neither chapter title verifies as a run of text, and "
+    "the reason is not one thing: the heading at the head of scan file 466 IS in the "
+    "raw OCR, but strip_furniture drops short all-caps lines as running heads, so the "
+    "default index returns only a fuzzy 0.876 window spanning the heading and the first "
+    "prose line; and the contents-page line at scan file 17 is interleaved with the "
+    "neighbouring entries - the raw text reads 'IMPROVEMENT IN DYNAMO' then other "
+    "chapters' words then 'AND MOTOR CONSTRUCTION' - so 'IMPROVEMENT IN DYNAMO AND "
+    "MOTOR CONSTRUCTION' returns 0 hits on both indexes. What does verify exactly is "
+    "the volume's own index: 'Dynamos, Improved Direct Current' (printed p. 494) and "
+    "'Improved Direct Current Dynamos and Motors' (printed p. 495), 1 hit each at "
+    "ratio 1.0. Those two are the only strings in this set that can be quoted at all; "
+    "a chapter title has to be paraphrased, not quoted, and never cited as a "
+    "quotation.",
+    "chapter XL, 'DIRECT CURRENT ARC LIGHTING SYSTEM', printed pp. 451-464 (scan "
+    "files 469-482). Entry 8. The compiler's prose, but its first paragraph is a "
+    "narrative about him and it is the only place in the volume that explains why a "
+    "device in this list was not taken up. The chapter opening's number OCRs as "
+    "'CHAPTER TKSLA XI,'; the contents page (scan file 17) and the index give XL "
+    "correctly. Never cite a roman numeral out of a chapter opening.",
+    "chapter XLI, 'IMPROVEMENT IN \"UNIPOLAR\" GENERATORS', printed pp. 465-474 "
+    "(scan files 483-492). Entry 9, and the one chapter in Part III with two "
+    "voices. Printed pp. 465-467 are the compiler's ('ANOTHER interesting class of "
+    "apparatus to which Mr. Tesla has directed his attention', 'the disc type, "
+    "which Mr. Tesla is inclined to favor for that machine'); from halfway down "
+    "printed p. 467 to the foot of printed p. 474 the text is Tesla's own, "
+    "reprinted from The Electrical Engineer, N. Y., Sept. 2, 1891 - the compiler's "
+    "hand-over sentence and the footnote giving that date are both on printed p. "
+    "467, and both are pinned. He writes of himself as 'the writer' (printed pp. "
+    "468, 474). He writes in the editorial 'we' and never in the singular first "
+    "person: page_dump.py 467-474 through grep -cE '(^|[^A-Za-z])(I|my|me|mine)"
+    "([^A-Za-z]|$)' returns 0, and the same range returns 13 plural forms counted as "
+    "OCCURRENCES with grep -oE '(^|[^A-Za-z])(we|our|us)([^A-Za-z]|$)'; grep -c on "
+    "that pattern says 11 because it counts lines, and adding 'writer' to the "
+    "alternation says 17 and 15. The full method is in the flag PART III IS NOT ALL "
+    "THE COMPILER'S PROSE: CH. XLI IS TESLA'S OWN REPRINTED ARTICLE. Do not "
+    "'prove' this with grep_quote.py, which matches substrings and returns 'my' once "
+    "at p. 468 inside 'mystery' (see the flag THE CLI AND THE GATE DO NOT SHARE AN "
+    "INDEX). The volume's own "
+    "index treats the notes as the substance of the chapter: it lists 'Forbes "
+    "Unipolar Generator' (printed p. 494) and 'Thomson, Sir W., Current Accumulator' "
+    "(printed p. 496). Both verify exactly only with the trailing page number left out "
+    "of the string: the index sets the number on its own OCR line, which the default "
+    "index strips as a bare folio, so 'Forbes Unipolar Generator 468, 474' comes back "
+    "fuzzy 0.986 and 'Thomson, Sir W., Current Accumulator 471' fuzzy 0.831 (1.0 with "
+    "--keep-furniture).",
     "chapter XXIX, the author's own account of high-frequency alternating-current "
     "generators, printed pp. 374-391 (scan files 392-409). NOT Part III: this is "
     "the author writing about himself in the third person ('the writer', 'it may "
@@ -745,6 +1009,547 @@ QUOTES = [
      "the device is said to do, with no trial, no figure and no commercial result "
      "anywhere in printed pp. 438-447. Record that as an absence (see Rejected #22), "
      "never as an 1894 verdict"),
+
+    # --- Entry 7. Improvement in dynamo and motor construction (ch. XXXIX, printed
+    # pp. 448-450). The compiler's prose about him again - 'THIS invention of Mr.
+    # Tesla'. Three pages, one device, and nothing in it about whether it worked.
+    ("THIS invention of Mr. Tesla is an improvement in the construction of dynamo "
+     "or magneto electric machines or motors, consisting in a novel form of frame "
+     "and field magnet which renders the machine more solid and compact as a "
+     "structure, which requires fewer parts, and which involves less trouble and "
+     "expense in its manufacture",
+     448, "Entry 7. Two-casting frame (the book's own statement, ch. XXXIX opening)",
+     "the whole invention in its opening sentence, and the tell of what this entry "
+     "is: the claim is not performance, it is manufacture - 'requires fewer parts', "
+     "'less trouble and expense in its manufacture'. No figure, no comparison and no "
+     "cost anywhere in the chapter follows it. 'cast in two parts' is 1 hit in the "
+     "volume, on this page. The capitals 'THIS' are the print's paragraph opening"),
+    ("It is applicable to generators and motors generally, not only to those which "
+     "have independent circuits adapted for use in the Tesla alternating current "
+     "system, but to other continuous or alternating current machines of the "
+     "ordinary type generally used",
+     448, "Entry 7. Two-casting frame (what it is for)",
+     "the scope claim, and a useful one for the article's provenance paragraph: this "
+     "is the volume calling its own subject's system one option among 'the ordinary "
+     "type generally used'. It also says the frame was never tied to the alternating-"
+     "current work, which is why entry 7 is the least 'Tesla-series' device of the "
+     "nine and why it is the hardest to write as a story"),
+    ("The field magnets and frame are cast in two parts. These parts are identical "
+     "in size and shape",
+     448, "Entry 7. Two-casting frame (the invention in one sentence)",
+     "the mechanism: two identical castings bolted together, each of which is "
+     "half the frame and half the field magnet. Say 'identical' only with this "
+     "sentence attached - it is the book's word and it is the point of the design "
+     "(one pattern, two halves)"),
+    ("each consists of the solid plates or ends A B, from which project inwardly "
+     "the cores c D and the side bars or bridge pieces, E F",
+     448, "Entry 7. Two-casting frame (what a casting is)",
+     "the part list, in the book's lettering. Keep the letters if the entry carries "
+     "the p. 449 engraving, so the caption and the prose match; otherwise leave the "
+     "letters out and describe the shape in our own words"),
+    ("The precise shape of these parts is largely a matter of choice - that is to "
+     "say, each casting, as shown, forms an approximately rectangular frame ; but "
+     "it might obviously be more or less oval, round, or square, without departure "
+     "from the invention",
+     448, "Entry 7. Two-casting frame (the claim is generic)",
+     "the honest read on why this entry has no story: the patent-style claim covers "
+     "any shape, so there is no distinctive machine to describe and no reason for it "
+     "to have caught on or not. The print's em dash after 'choice' is typed ' - ' "
+     "here, which folds to the same normalised text; the print's spaced semicolon "
+     "before 'but' is kept, which is why this verifies exact"),
+    ("It is also desirable to reduce the width of the side bars, E F, at the center",
+     448, "Entry 7. Two-casting frame (the one design refinement)",
+     "the only refinement the chapter offers beyond 'two identical castings', and "
+     "the sentence it belongs to cannot be quoted past this point: the print reads "
+     "'the sur-. faces of the poles' with a stray hyphen and period mid-word (see "
+     "Rejected #23). Pin here and finish the thought in our own words"),
+    ("The bearings G for the armature shaft are cast in the side bars E F",
+     448, "Entry 7. Two-casting frame (bearings cast in, not fitted)",
+     "the detail that makes the cost claim concrete: the bearing housings come out "
+     "of the casting instead of being machined and fitted separately. This is the "
+     "closest the chapter comes to showing its own economics, and it shows it by "
+     "describing a part, not by giving a number"),
+    ("The field coils are either wound on the pole pieces or on a form and then "
+     "slipped on over the ends of the pole pieces",
+     448, "Entry 7. Two-casting frame (assembly)",
+     "assembly detail in the book's own words, and the second half of the "
+     "manufacturing claim: the coils go on over the ends, so the frame can be closed "
+     "around an armature without dismantling the windings"),
+    ("In order to secure an easier fit, the side bars E F, and end pieces, A B, are "
+     "so cast that slots M are formed when the two parts are put together",
+     449, "Entry 7. Two-casting frame (casting to fit, not machining to fit)",
+     "the second manufacturing trick, and the one that shows what kind of invention "
+     "this is: a pattern-making shortcut. 'so cast that slots ... are formed when "
+     "the two parts are put together' is the whole idea in eleven words"),
+    ("This machine possesses several advantages",
+     450, "Entry 7. Two-casting frame (the only evaluative sentence in the chapter)",
+     "count it: 'several advantages' is followed by exactly one, the neutral-point "
+     "bearing sentence pinned below, and then the chapter widens the claim instead "
+     "of supporting it. This sentence and its one example are the evidence that "
+     "ch. XXXIX reports no trial - the draft states that as an absence (Rejected "
+     "#35), never as an 1894 verdict"),
+    ("the magnetic circuit between the poles of each part of a casting is completed "
+     "through the solid iron side bars",
+     450, "Entry 7. Two-casting frame (why the frame is also the magnet)",
+     "the electrical reason the frame is cast as one piece: each half is its own "
+     "magnetic circuit. Pair it with the neutral-point sentence below; together they "
+     "are the whole technical case the chapter makes"),
+    ("The bearings for the shaft are located at the neutral points of the field, so "
+     "that the armature core is not affected by the magnetic condition of the field",
+     450, "Entry 7. Two-casting frame (the one advantage the chapter gives)",
+     "the single concrete benefit: cast-in bearings sit where the field is neutral, "
+     "so no current is induced in the frame and the shaft bearings are not part of a "
+     "magnetic circuit. If the entry names one engineering reason for the design, "
+     "this is it, and it is the only one the volume offers"),
+    ("The improvement is not restricted to the use of four pole pieces, as it is "
+     "evident that each pole piece could be divided or more than four formed by the "
+     "shape of the casting",
+     450, "Entry 7. Two-casting frame (how the chapter ends)",
+     "the chapter's last sentence broadens the claim instead of testing it. Read "
+     "with the 'oval, round, or square' quote from p. 448 it is the pattern of the "
+     "whole chapter: a claim, a part list, one advantage, and a wider claim. That "
+     "pattern is the entry's 'why it lost', and it is the book's, not ours"),
+
+    # --- Entry 8. Tesla's direct-current arc lighting system (ch. XL, printed
+    # pp. 451-464). The compiler's prose, except for its first paragraph, which is
+    # a narrative about him and is the best 'why it lost' passage in this pin.
+    ("AT one time, soon after his arrival in America, Mr. Tesla was greatly "
+     "interested in the subject of arc lighting, which then occupied public "
+     "attention and readily enlisted the support of capital",
+     451, "Entry 8. DC arc lighting (how the chapter opens: the only dated-sounding "
+     "narrative in the volume)",
+     "the volume's only biographical bridge between Tesla's attention and one of "
+     "these devices, and it is the compiler's, not Tesla's. 'soon after his arrival "
+     "in America' is as close as this volume comes to dating any of the nine: "
+     "'arrival in America' is 1 hit in the whole book, here. Do not turn it into "
+     "1884 or any other year without an external source; the book gives no year"),
+    ("He therefore worked out a system which was confided to a company formed for "
+     "its exploitation, and then proceeded to devote his energies to the perfection "
+     "of the details of his more celebrated",
+     451, "Entry 8. DC arc lighting (what happened to it: a company, then he moved "
+     "on)",
+     "the sentence the whole entry is built on: the system went to a company formed "
+     "to exploit it, and its inventor then turned to something else. The quote stops "
+     "before 'rotary field' because the print sets that phrase in its own quote "
+     "marks, which would split the run in check_quotes.py's scanner - the phrase "
+     "itself is pinned separately below. The company is never named anywhere in the "
+     "chapter (Rejected #36)"),
+    ("rotary field", 451, "Entry 8. DC arc lighting (the phrase the volume uses for "
+     "the system he turned to)",
+     "'rotary field' is 1 hit in the entire volume and it is here, set in the "
+     "print's own quote marks - the compiler's shorthand for the polyphase system "
+     "the rest of the book is about. Article 07 (rotating-magnetic-field-1888.html) "
+     "is that system; this is the 1894 volume admitting that the device in entry 8 "
+     "was set aside for it. Quote the two words with the page, or do not use the "
+     "phrase at all"),
+    ("The Tesla arc lighting apparatus appeared at a time when a great many other "
+     "lamps and machines were in the market, but it commanded notice by its "
+     "ingenuity",
+     451, "Entry 8. DC arc lighting (the book's own reason it did not win)",
+     "a crowded market and a compliment about ingenuity rather than success - the "
+     "closest thing to a commercial verdict anywhere in the nine entries, and it is "
+     "the compiler's. Note what it does not say: no failure, no withdrawal, no "
+     "date. 'in the market' is the only market language in this pin; the draft may "
+     "say the book attributes the outcome to timing and competition, and may not "
+     "say anyone in 1894 wrote the system off (§4.1)"),
+    ("Its chief purpose was to lessen the manufacturing cost and simplify the "
+     "processes of operation",
+     451, "Entry 8. DC arc lighting (what the system was for)",
+     "the design goal in one sentence, and the same cost-and-simplicity framing as "
+     "entry 7. Two of the nine entries are about making apparatus cheaper to build "
+     "and run, which is a better explanation of the list than 'weird', and it is "
+     "the book's own framing, on this page and on p. 448"),
+    ("The armature is constructed with the view to reduce to a minimum the loss of "
+     "power due to Foucault currents and to the change of polarity",
+     451, "Entry 8. DC arc lighting (the dynamo's design intent)",
+     "the dynamo half of the system, in the book's words. The fragment runs across "
+     "the folio (it ends in the first line of printed p. 452), so cite p. 451, "
+     "where it begins, and never a range. 'Foucault currents' is the book's term "
+     "and it verifies here; the same chapter misspells it 'Foueault' on printed "
+     "p. 453, where the misspelling is what greps (see the OCR flag)"),
+    ("currents are generated in the iron body of the armature which develop heat, "
+     "and consequently cause ... a waste of power",
+     452, "Entry 8. DC arc lighting (the problem the design answers)",
+     "the textbook explanation of eddy-current loss, in the book's words, and the "
+     "reason entry 8 is the most technically sane entry in the list. The ' ... ' cut "
+     "is where the FIG. 271 engraving caption sits between the two halves of the "
+     "sentence in the column; both fragments verify exactly on printed p. 452"),
+    ("For instance, if the length of the armature-core is twelve inches, and by a "
+     "suitable construction it is subdivided electrically, so that there are in the "
+     "generating direction six inches of iron and six inches of intervening "
+     "air-spaces or insulating material, the waste currents will be reduced to "
+     "fifty per cent",
+     452, "Entry 8. DC arc lighting (the only worked numerical illustration in the "
+     "nine entries - see the flag CH. XL BREAKS THE NO-NUMBERS PATTERN AND CH. XLI "
+     "THE NO-OBSERVATIONS PATTERN)",
+     "the one place in the whole pin where the book puts a number into an "
+     "engineering argument: a twelve-inch core split into six inches of iron and six "
+     "of insulation, 'reduced to fifty per cent'. It is an illustration of a "
+     "principle, not a measurement of a machine - no machine is described as tested - "
+     "and the entry must present it that way. 'per cent' is 5 hits in the volume "
+     "and this is one of them, which is why batch 2's 'per cent 0' pattern must not "
+     "be generalised past p. 447"),
+    ("An armature core constructed in the manner described may be revolved between "
+     "the poles of the field magnets without showing the slightest increase of "
+     "temperature",
+     453, "Entry 8. DC arc lighting (the strongest unmeasured claim in batch 3)",
+     "'without showing the slightest increase of temperature' - a sweeping claim "
+     "with no test, no instrument and no figure anywhere near it. It is the "
+     "sharpest example in this batch of the pattern batch 2 flagged: the book "
+     "reports what a device is said to do, never what it was measured doing. Keep "
+     "'may be revolved' and 'without showing' in the quote; they are the hedge"),
+    ("instead of being connected to the next following commutator bars, are "
+     "connected to the directly opposite bars of the commutator",
+     454, "Entry 8. DC arc lighting (the winding trick)",
+     "the odd detail the listicle wants: the second group of coils is connected to "
+     "the diametrically opposite commutator bars, not the next ones, so the two "
+     "sides of the armature balance. The sentence before it OCRs 'the coils < -f "
+     "this second group' (a misread 'of'), which is why the quote starts after it"),
+    ("the passive or electrically inactive wire is reduced to a minimum ... In this "
+     "way the electrical efficiency of the machine is increased",
+     455, "Entry 8. DC arc lighting (the efficiency claim, printed p. 455)",
+     "the payoff sentence of the armature design, and the only 'efficiency' in "
+     "printed pp. 448-476 (33 in the volume). No figure follows it. The first "
+     "fragment straddles the folio: the print hyphenates 'electrically in-' at the "
+     "foot of p. 454 and continues 'active' on p. 455, so the clean form verifies "
+     "only because the normaliser folds a line-end hyphen, and it may be cited to "
+     "either page - cite p. 455, where the sentence ends (Rejected #30)"),
+    ("The arc lamps invented by Mr. Tesla for use on the circuits from the above "
+     "described dynamo are those in which the separation and feed of the carbon "
+     "electrodes or their equivalents is accomplished by means of electro-magnets "
+     "or solenoids in connection with suitable clutch mechanism",
+     455, "Entry 8. DC arc lighting (the lamps: what he invented there)",
+     "the book's statement of the lamp half of the system, and it says 'invented by "
+     "Mr. Tesla' plainly, where the dynamo half is only 'devised by him'. The "
+     "fragment verifies through the space-ignoring index because the scan glues "
+     "'bymeans'; print it spaced. Note 'or their equivalents': the book is writing a "
+     "patent-style description, not a shop description"),
+    ("of remedying certain faults common to arc lamps",
+     456, "Entry 8. DC arc lighting (what the lamp was meant to fix)",
+     "the end of a sentence that begins on printed p. 455 ('and were designed for "
+     "the purpose'); the halves sit on different pages so one quote cannot carry one "
+     "citation (Rejected #31). Pin the p. 456 half and put the front of the sentence "
+     "in our own words"),
+    ("to dispense with the dash pot, clock work, or gearing and similar devices; to "
+     "render the lamp extremely sensitive, and to feed the carbon almost "
+     "imperceptibly, and thereby obtain a very steady and uniform light",
+     456, "Entry 8. DC arc lighting (the aims, as the book lists them)",
+     "the program of the design in the book's own list, and the only place in Part "
+     "III where 'dash pot' appears ('dash pot' 5 hits in the volume: here and at "
+     "pp. 486, 487 - not in ch. XXXVII, which is where a reader of entry 5 would "
+     "expect it). Note the internal tension the entry can honestly name: 'extremely "
+     "sensitive' and 'feed the carbon almost imperceptibly' are opposite "
+     "requirements, and the book lists both as aims"),
+    ("In both these classes of lamps it has been customary to use dash pot, clock "
+     "work, or equivalent retarding devices ; but these are often unreliable and "
+     "objectionable, and increase the cost of construction",
+     456, "Entry 8. DC arc lighting (the book's prior art)",
+     "the book admitting what already existed and why it was disliked - the same "
+     "move as the 'auxiliary brushes have been used' paragraph in entry 6. This is "
+     "the strongest 'the problem was real and everyone knew it' evidence in batch "
+     "3, and it is the book's, not ours"),
+    ("Mr. Tesla combines two electro-magnets - one of low resistance in the main or "
+     "lamp circuit, and the other of comparatively high resistance in a shunt "
+     "around the arc",
+     456, "Entry 8. DC arc lighting (the mechanism in one sentence)",
+     "the design: a main magnet in series and a shunt magnet across the arc, pulling "
+     "against each other on one lever. The print's em dash after 'electro-magnets' "
+     "is typed ' - ', which folds to the same normalised text and verifies exact. "
+     "Everything after this on pp. 457-464 is the working out of that one sentence"),
+    ("The magnets M and N are made very flat, so that their width exceeds three "
+     "times their thickness, or even more. In this way a comparatively small number "
+     "of convolutions is sufficient to produce the required magnetism, while a "
+     "greater surface is offered for cooling off the wires",
+     460, "Entry 8. DC arc lighting (the one proportion the book gives)",
+     "the only dimensioned design rule in entry 8's chapter: magnets whose width is "
+     "at least three times their thickness, for cooling. 'or even more' is the "
+     "hedge and belongs in the quote. It is a rule of thumb, not a test result, and "
+     "the entry should say so in its own words"),
+    ("both magnets with either one of the armatures L and g may be considered as "
+     "one horseshoe magnet",
+     462, "Entry 8. DC arc lighting (the book's own name for the trick)",
+     "the chapter's own shorthand for the two-magnet arrangement. The word the "
+     "chapter actually coins for it - 'compound magnet', 7 hits, all printed pp. "
+     "462-464 - is set in the print's own quote marks ('which we might term a "
+     "\" compound magnet.\"'), so it cannot be carried inside this quote; name it in "
+     "our own words with the page cite, or quote the fragment 'which we might term "
+     "a' and supply the term outside quotation marks"),
+    ("In practice the feed is so sensitive that for the greatest part of the time "
+     "the movement of the rod cannot be detected without some actual measurement",
+     463, "Entry 8. DC arc lighting (the claim that declines to measure itself)",
+     "the book's own superlative about the lamp feed, followed immediately by an "
+     "admission that nobody has measured it: 'cannot be detected without some actual "
+     "measurement' - and no measurement is given. This is the cleanest single "
+     "sentence in the pin for the article's actual thesis: real ingenuity, no "
+     "numbers"),
+    ("It occurs often in practical work that the rod sticks in the guides. In this "
+     "case the arc reaches a great length, until it finally breaks ... Then the "
+     "light goes out, and frequently the fine wire is injured",
+     463, "Entry 8. DC arc lighting (what actually went wrong in service)",
+     "the only failure mode the volume describes for any of the nine, and it is a "
+     "practical one: the carbon rod sticks, the arc stretches, the lamp goes out and "
+     "the shunt winding burns. It is the reason the automatic cut-out below exists. "
+     "The ' ... ' cut is the folio: the sentence begins on printed p. 463 and its "
+     "last words are on p. 464, so the second fragment is cited to p. 463, where "
+     "the quote starts, and never to a range"),
+    ("the lamp cuts itself out automatically when the arc gets too long, and "
+     "reinserts itself automatically in the circuit if the carbons drop together",
+     464, "Entry 8. DC arc lighting (the chapter's last claim, and its cleverest)",
+     "the automatic cut-out and re-insertion: a series lamp that removes itself when "
+     "its feed fails and puts itself back when the carbons touch. This is the "
+     "genuinely clever thing in entry 8 and the entry should end on it. Note the "
+     "book's own hedge two sentences earlier - 'The cut out may be used in this "
+     "form without any further improvement' - and that the chapter still reports no "
+     "installation and no result"),
+
+    # --- Entry 9. Unipolar generators (ch. XLI, printed pp. 465-474). Two voices:
+    # the compiler's until halfway down printed p. 467, then Tesla's own reprinted
+    # article. The quotes below say which is which, every time.
+    ("generators, in which a disc or a cylindrical conductor is mounted between "
+     "magnetic poles adapted to produce an approximately uniform field",
+     465, "Entry 9. Unipolar generators (the book's definition, ch. XLI opening)",
+     "the definition of the machine class, in the compiler's words. The quote starts "
+     "after 'unipolar' because the print sets the word in its own quote marks - "
+     "'that of \" unipolar \" generators' - which would split the run in "
+     "check_quotes.py's scanner. 'approximately uniform field' is the technical "
+     "requirement and belongs in the entry: the whole class depends on it"),
+    ("the currents induced in the rotating conductor flow from the centre to the "
+     "periphery, or conversely, according to the direction of rotation or the lines "
+     "of force as determined by the signs of the magnetic poles",
+     465, "Entry 9. Unipolar generators (how a disc makes a current)",
+     "the physics in one sentence, and the reason the entry is the most interesting "
+     "of the nine: a disc spinning in a steady field makes a direct current with no "
+     "commutator at all. Verifies through the space-ignoring index (the scan glues "
+     "'bythe'); print it spaced"),
+    ("In order to develop economically an electromotive force available for "
+     "practicable purposes, it is necessary either to rotate the conductor at a "
+     "very high rate of speed or to use a disc of large diameter or a cylinder of "
+     "great length",
+     465, "Entry 9. Unipolar generators (the problem, stated by the book)",
+     "why this class never took over, stated as physics rather than as bad luck: a "
+     "disc generator's voltage is small, so you pay for it in speed or size. This is "
+     "the best 'why it lost' the compiler gives for any entry, and it is on the "
+     "first page of the chapter"),
+    ("but in either case it becomes difficult to secure and maintain a good "
+     "electrical connection between the collecting brushes and the conductor, owing "
+     "to the high peripheral speed",
+     465, "Entry 9. Unipolar generators (the actual obstacle: getting the current "
+     "off a fast rim)",
+     "the obstacle: brushes on a fast rim. Read it with Tesla's own answer at "
+     "printed p. 474 (a flexible metal belt instead of brushes) - the chapter sets "
+     "up the problem and the inventor's own notes solve it. That structure is the "
+     "entry's spine, and both halves are page-citable"),
+    ("It has been proposed to couple two or more discs together in series, with the "
+     "object of obtaining a higher electro-motive force",
+     465, "Entry 9. Unipolar generators (the prior art)",
+     "the book's prior-art sentence, and it names no one and no date. 'Forbes "
+     "unipolar dynamo' is named later, in Tesla's own text (printed p. 468), with no "
+     "first name anywhere in the volume - see the flag FORBES IS A SURNAME HERE, NOT "
+     "A BIOGRAPHY"),
+    ("this difficulty is still felt to be a serious obstacle to the use of this "
+     "kind of generator",
+     465, "Entry 9. Unipolar generators (the book's verdict on the class)",
+     "'a serious obstacle to the use of this kind of generator' - the volume's "
+     "honest, general reason the class stayed marginal, and it is the compiler's. "
+     "The draft may say the book says this about the class, and may not say the "
+     "book says it about Tesla's machine in particular"),
+    ("These objections Mr. Tesla has sought to avoid by constructing a machine with "
+     "two fields, each having a rotary conductor mounted between its poles",
+     465, "Entry 9. Unipolar generators (what he did about it)",
+     "the invention in one sentence: two fields, two discs, so the terminals are on "
+     "the slow shafts instead of on the fast rims. 'has sought to avoid' is the "
+     "hedge - it claims an attempt, not a result - and it must stay in the quote"),
+    ("the disc type, which Mr. Tesla is inclined to favor for that machine",
+     465, "Entry 9. Unipolar generators (the compiler's note of a preference)",
+     "the only preference the compiler records for any of the nine: between the disc "
+     "form and the cylinder form, he says, Tesla favors the disc. 'is inclined to "
+     "favor' is exactly as strong as the volume gets about what he thought of his "
+     "own device, and it is the compiler's inference, not a quotation of Tesla"),
+    ("so that rotation of the discs in the same direction develops a current in one "
+     "from centre to circumference and in the other from circumference to centre",
+     466, "Entry 9. Unipolar generators (the two-field trick, in clean text)",
+     "the mechanism, and the sentence to use instead of the one the scan corrupts "
+     "('tield' for 'field', Rejected #26). Two opposite fields, one rotation "
+     "direction, currents that add. This is the paragraph the Fig. 290 engraving "
+     "belongs to"),
+    ("form the terminals of a circuit the electro-motive force in which is the sum "
+     "of the electro-motive forces",
+     466, "Entry 9. Unipolar generators (why two discs are worth having)",
+     "the payoff: shaft terminals, and the voltages add. The quote stops before the "
+     "print's own typo 'of the two dises' (Rejected #27) - do not repair it inside "
+     "quotation marks. Note where the brushes go: onto the shafts, which is the "
+     "answer to the p. 465 obstacle sentence"),
+    ("the difficulty of securing and maintaining good contact with the peripheries "
+     "of the discs is avoided and a cheap and durable machine made which is useful "
+     "for many purposes - such as for an exciter for alternating current generators, "
+     "for a motor, and for any other purpose for which dynamo machines are used",
+     466, "Entry 9. Unipolar generators (what the book says it is good for)",
+     "the chapter's claim of use: an exciter for alternating-current generators, a "
+     "motor, anything a dynamo does. 'exciter' is 9 hits in the volume, only here in "
+     "this sense, and it is the one real application the volume names for any of the "
+     "nine - worth quoting because the article's thesis is that these devices have no "
+     "recorded use, and here the book names one. The print's em dash before 'such "
+     "as' is typed ' - '; the fragment verifies through the space-ignoring index"),
+    ("It is thought appropriate by the compiler to append here some notes on "
+     "unipolar dynamos, written by Mr. Tesla, on a recent occasion",
+     467, "Entry 9. Unipolar generators (the compiler hands the chapter to Tesla)",
+     "THE PROVENANCE SENTENCE OF THIS WHOLE PIN, and the reason the article can say "
+     "that for one of the nine it has Tesla's own words. It is the compiler "
+     "introducing a change of authorship in the middle of a chapter. Quote it before "
+     "anything quoted from printed pp. 467-474 and say plainly that the words that "
+     "follow are his, in the volume's own telling"),
+    ("Article by Mr. Tesla, contributed to The Electrical Engineer, N. Y., Sept. 2, "
+     "1891",
+     467, "Entry 9. Unipolar generators (the footnote that dates and names it)",
+     "the footnote on the same page, and it does three things no other place in the "
+     "volume does: it names the publication, the city and the date of an article by "
+     "Tesla. Cite the 1894 page for the text as printed, and say the volume itself "
+     "dates the article to Sept. 2, 1891. Never cite 1891 as the publication of the "
+     "volume, and never let the two dates blur (§4.1)"),
+    ("The memorable experiment of Faraday with a disc rotating between the two poles "
+     "of a magnet, which has borne such magnificent fruit, has long passed into "
+     "every-day experience",
+     467, "Entry 9. Unipolar generators (Tesla's own opening: Faraday's disc)",
+     "Tesla's own first sentence in the volume, and it names the ancestor of the "
+     "whole class. 'Faraday' is 5 hits in the volume; this is the only one about the "
+     "disc. The book gives no year for the disc experiment, so no year may be "
+     "attached to it without a modern source (Rejected #38). 'such magnificent "
+     "fruit' is also the only place in the volume where Tesla is quoted praising a "
+     "predecessor's experiment in his own voice"),
+    ("But in the above example of the disc surrounded completely by the polar "
+     "surfaces, there is no shifting of the magnetic action, no change whatever, as "
+     "far as we know, and yet rotation ensues",
+     468, "Entry 9. Unipolar generators (Tesla on why the disc motor puzzles him)",
+     "Tesla, in his own article, saying that a disc motor of this kind cannot be "
+     "explained by the usual account of motors - and hedging it twice: 'as far as we "
+     "know'. This is the opposite of the mystic-Tesla framing: the inventor "
+     "describing an open question. Keep both hedges"),
+    ("we cannot even give a superficial explanation, as in ordinary motors, and the "
+     "operation will be clear to us only when we shall have recognized the very "
+     "nature of the forces concerned, and fathomed the mystery of the invisible "
+     "connecting mechanism",
+     468, "Entry 9. Unipolar generators (and says he cannot explain it)",
+     "the most useful sentence in batch 3 for the article's §4.1 duty: it is Tesla "
+     "himself, not a modern populariser, admitting the mechanism was not understood. "
+     "'fathomed the mystery of the invisible connecting mechanism' sounds like "
+     "mysticism out of context, so the entry must quote it inside the sentence that "
+     "is plainly about physics, and attribute it to the 1891 article"),
+    ("In addition to its peculiarity of giving currents of one direction without "
+     "the employment of commutating devices, such a machine differs from ordinary "
+     "dynamos in that there is no reaction between armature and field",
+     468, "Entry 9. Unipolar generators (the hook, in the inventor's own words)",
+     "§9 brief 08's hook for entry 9 is 'the disc that spins without commutation', "
+     "and this is the sentence it paraphrases - the only brief hook in the whole "
+     "table that the print supports almost word for word, and it is Tesla's own "
+     "phrase, not the compiler's. 'commutating' is 2 hits in the volume: here and at "
+     "printed p. 390 (article 11's chapter). Write the entry from this sentence"),
+    ("This, however, is true only as long as the magnets are weakly energized, for "
+     "when the magnets are more or less saturated, both magnetizations at right "
+     "angles seemingly interfere with each other",
+     468, "Entry 9. Unipolar generators (and the limit he puts on his own claim)",
+     "Tesla qualifying his own advantage two sentences after claiming it, with "
+     "'seemingly' as well. This is the sentence that kills any 'magnet machines beat "
+     "ordinary machines' claim on this site's authority: the one person in the volume "
+     "who argues for the class also states where the argument stops"),
+    ("it would appear that the output of such a machine should, for the same "
+     "weight, be much greater than that of any other machine in which the armature "
+     "current tends to demagnetize the field",
+     468, "Entry 9. Unipolar generators (the claim, in his own hedged form)",
+     "the strongest performance claim any of the nine has, and note the grammar: 'it "
+     "would appear that ... should'. It is an inference from the absence of armature "
+     "reaction, not a measurement. If the entry quotes the Forbes sentence below, "
+     "quote this one first so the inference is visible"),
+    ("The extraordinary output of the Forbes unipolar dynamo and the experience of "
+     "the writer confirm this view",
+     468, "Entry 9. Unipolar generators (his own experience as evidence)",
+     "'the experience of the writer' - Tesla offering his own experience as the "
+     "confirmation, in print, in this volume. 'Forbes' is 4 hits in the volume (pp. "
+     "468, 474, 494, 496) and never with a first name: the volume assumes the reader "
+     "knows whose dynamo it means, and we may not fill that in from memory. "
+     "'extraordinary output' is 1 hit, here, and it is about someone else's machine "
+     "class, not Tesla's"),
+    ("If the poles do not cover the disc completely on both sides, then, of course, "
+     "unless the disc be properly subdivided, the machine will be very inefficient",
+     469, "Entry 9. Unipolar generators (the failure mode he names himself)",
+     "'very inefficient' is 1 hit in the volume and it is Tesla describing what goes "
+     "wrong when the field does not cover the disc. This is the counterweight to "
+     "every glowing reading of the entry: the inventor's own condition for the "
+     "machine working at all. 'of course' is his own aside and may be kept"),
+    ("the eddy currents circulating in the disc will energize the field magnet. "
+     "This is a result quite contrary to what we might be led to suppose at first",
+     470, "Entry 9. Unipolar generators (the counter-intuitive finding)",
+     "the intellectual heart of entry 9: in a disc machine the eddy currents help "
+     "energise the field instead of opposing it, and Tesla says so against the "
+     "expected behaviour. It is also the one place in the nine where an inventor "
+     "reports a result that goes the wrong way from theory and treats that as "
+     "interesting rather than as a defect"),
+    ("In experiments with alternate current motors in which the field was shifted by "
+     "currents of differing phase, this interesting result was observed",
+     471, "Entry 9. Unipolar generators (where the number comes from - not from a "
+     "disc machine)",
+     "the sentence that owns the 900-pound figure at printed p. 471: the experiment "
+     "is with alternate-current motors whose field is shifted by currents of "
+     "differing phase - the rotating-field work article 07 is about - not with a "
+     "unipolar generator. Quote this and state the number in our own words, since "
+     "the scan's '900 Ibs.' cannot be quoted (Rejected #28). If the entry uses it at "
+     "all, it must say which machine class it belongs to"),
+    ("Mr. Tesla shows that diffusion is absolutely necessary for the excitation and "
+     "that when the disc is subdivided no excitation can occur",
+     471, "Entry 9. Unipolar generators (the compiler's footnote: Tesla against "
+     "Thomson)",
+     "the compiler's footnote on the same page, summarising a disagreement: Sir W. "
+     "Thomson's 1865 'uniform electric current accumulator' assumed a subdivided "
+     "disc; the footnote says Tesla showed subdivision makes excitation impossible. "
+     "It is the compiler's summary of Tesla's argument, so attribute it that way, "
+     "and the footnote dates the paper it refers to - 'an interesting article which "
+     "appeared in July, 1865, in the Phil. Magazine, by Sir W. Thomson'. 'Phil. "
+     "Magazine' is 1 hit in the whole volume, here. Ch. XLI is the only chapter in "
+     "this volume that dates a source it cites, and it does it twice: this footnote "
+     "and the p. 467 footnote naming Tesla's own article. Both are the compiler's "
+     "footnotes, not the author's text, and neither may be printed as though Tesla "
+     "had cited a source himself"),
+    ("Although there is no doubt that under proper conditions a machine might be "
+     "excited in this or a similar manner, there being sufficient experimental "
+     "evidence to warrant such an assertion, such a mode of excitation would be "
+     "wasteful",
+     472, "Entry 9. Unipolar generators (his own verdict on his own idea)",
+     "Tesla claiming experimental evidence and then rejecting the idea as wasteful - "
+     "in his own article, about his own suggestion. Nothing else in the nine entries "
+     "comes close to this: an inventor publishing a result and a negative judgement "
+     "on the same page. 'wasteful' is 5 hits in the volume, 1 in this sense"),
+    ("may be excited in an efficient manner by simply properly subdividing the disc "
+     "or cylinder in which the currents are set up, and it is practicable to do "
+     "away with the field coils which are usually employed",
+     472, "Entry 9. Unipolar generators (the idea worth keeping)",
+     "the constructive result of the whole discussion: a disc machine with no field "
+     "coils at all, excited by the way the disc itself is cut. 'it is practicable' "
+     "is the strength of the claim and it is all the strength it has - no machine is "
+     "described as built that way. Pair with the p. 473 sentence about a machine "
+     "consisting only of a cylinder or two discs in a metal casting"),
+    ("In the experience of the writer it has been found that instead of taking the "
+     "current from two such discs by sliding contacts, as usual, a flexible "
+     "conducting belt may be employed to advantage",
+     474, "Entry 9. Unipolar generators (his own answer to the book's obstacle)",
+     "the belt contact: the answer to the brush problem the compiler set out on "
+     "printed p. 465, and it is offered as something found in practice ('in the "
+     "experience of the writer'). 'flexible conducting belt' is 1 hit in the volume, "
+     "here. This is the sentence that makes entry 9 a story rather than a "
+     "curiosity: problem in the compiler's chapter, solution in the inventor's"),
+    ("Several machines with belt contact were constructed by the writer two years "
+     "ago, and worked satisfactorily ; but for want of time the work in that "
+     "direction has been temporarily suspended",
+     474, "Entry 9. Unipolar generators (the closest thing to a why in the whole "
+     "pin)",
+     "the sentence the article has been looking for: machines were built, they "
+     "worked, and the work stopped - 'for want of time'. In the inventor's own "
+     "words, in print, in this volume. Every word of the hedge matters: 'several "
+     "machines', 'worked satisfactorily', 'temporarily suspended', and the "
+     "reason - want of time, not want of success. It is also the only dated "
+     "invention statement by Tesla himself anywhere in the volume, and it is dated "
+     "only relatively: 'two years ago' from an article the footnote puts at Sept. 2, "
+     "1891 (see the flag ENTRY 9'S DATE IS RELATIVE AND THE DERIVATION MUST BE "
+     "SHOWN, and Rejected #37). Verifies through the space-ignoring index because "
+     "the scan glues 'bythe'; print it spaced"),
 ]
 
 # Considered and NOT carried forward, with the reason. Each reason states what the
@@ -916,30 +1721,160 @@ REJECTED = [
      "about what the design needs, not a record of a machine in service. Same rule as "
      "the row above; both are ch. XXXVI and ch. XXXVIII's shared silence, and §9 brief "
      "08's 'why it lost' beat is built from it"),
+    ("the spaces between the pole pieces will be practically equal to the arcs "
+     "which the surfaces of the poles occupy", 448,
+     "the print reads 'the sur-. faces of the poles' with a stray hyphen and a "
+     "period mid-word, so the clean form matches only fuzzily (ratio 0.954, a FAIL). "
+     "Pin 'It is also desirable to reduce the width of the side bars, E F, at the "
+     "center' and finish the thought in our own words, unquoted"),
+    ("IMPROVEMENT IN THE CONSTRUCTION OF DYNAMOS AND MOTORS", 448,
+     "the chapter heading is display type and the OCR interleaves it with the "
+     "chapter numeral; the furniture stripper removes it, so it matches only fuzzily "
+     "(ratio 0.876). A chapter title is not quotable in this volume. If the draft "
+     "must name the chapter in the book's words, the index line 'Improved Direct "
+     "Current Dynamos and Motors' verifies exactly at printed p. 495 - cite the "
+     "index and say it is the index. §9 brief 08's own name for entry 7, "
+     "'Improvement in dynamo and motor construction', is the contents-page wording, "
+     "which is display type too"),
+    ("The discs are formed with flanges, after the manner of pulleys", 465,
+     "the scan reads 'after tho' at the foot of printed p. 465 - a dropped letter, "
+     "which no normaliser restores (ratio 0.976, a FAIL). Pin the p. 466 half "
+     "instead: 'manner of pulleys, and are connected together by flexible conducting "
+     "bands or belts' verifies exactly on printed p. 466"),
+    ("the direction of magnetism or order of the poles in one field of force is "
+     "opposite to that in the other", 466,
+     "the scan reads 'tield' for 'field' - a letter substitution, not a spacing "
+     "artefact, so neither matcher fixes it (ratio 0.986, a FAIL). The next sentence "
+     "says the same thing in clean text and is pinned instead"),
+    ("the electro-motive force in which is the sum of the electro-motive forces of "
+     "the two discs", 466,
+     "the print's own typo: it sets 'of the two dises'. Ratio 0.983, a FAIL. Cut the "
+     "quote before the typo, as pinned above; §3 forbids repairing a printer's "
+     "mistake inside quotation marks, and 'dises' in a published sentence reads as "
+     "our mistake, which is the same failure in the other direction"),
+    ("the motor would show a torque of 900 lbs. or more, measured on a pulley 12 "
+     "inches in diameter", 471,
+     "the scan reads '900 Ibs.' - a capital I for the lower-case l of 'lbs', so the "
+     "clean form matches only fuzzily (ratio 0.989, a FAIL) and the scan's form "
+     "prints what every reader will take for our own typo. 'Ibs.' is 1 hit in the "
+     "volume, 'lbs' 71. The number is stated in our own words with the page cite and "
+     "no quotation marks; the framing sentence ('In experiments with alternate "
+     "current motors...') is pinned and may be quoted"),
+    ("Consider, for instance, the case of a disc of iron or other metal revolving "
+     "between the two opposite poles of a magnet", 467,
+     "the sentence straddles the folio and the running head on printed p. 468 "
+     "('INVENTIONS OF NIKOLA TESLA.') is not stripped by the furniture cleaner in "
+     "this range, so the single run does not exist in the text layer at all - no "
+     "match, not even fuzzy. Pin the two halves separately, cited to printed p. 467 "
+     "and printed p. 468"),
+    ("the passive or electrically in- active wire is reduced to a minimum", 455,
+     "typed with the print's line-end hyphen this fails (ratio 0.984). What "
+     "verifies is the clean 'electrically inactive' form, and only because the "
+     "normaliser folds a hyphen followed by whitespace; the fragment straddles "
+     "printed pp. 454-455, so it must be cited to one of them (p. 455 is pinned, "
+     "where the sentence ends). Note the same phrase is set 'electrically-inactive' "
+     "with a real hyphen on printed p. 453, where that form verifies and takes a "
+     "different page cite - two printings of one phrase, and the draft must not mix "
+     "them"),
+    ("were designed for the purpose of remedying certain faults common to arc "
+     "lamps", 456,
+     "the halves sit on different printed pages: 'and were designed for the purpose' "
+     "ends printed p. 455 and 'of remedying certain faults common to arc lamps' "
+     "opens p. 456, so no single citation covers the run and '(1894, pp. 455-456)' "
+     "never matches check_quotes.py's citation regex. Pin the p. 456 half alone"),
+    ("the pole may be considered as the clamping and the pole as the releasing "
+     "pole", 463,
+     "the print sets both words in its own quote marks and interleaves the figure "
+     "letters ('the pole m may be considered as the clamping and the pole n as the "
+     "releasing pole', with the letters OCRd as '77i' and '///'), so the run matches "
+     "only fuzzily (ratio 0.834). The chapter's own labels clamping and releasing "
+     "are named in our own words with the page cite, never inside quotation marks"),
+    ("arranged to rotate between the two poles N and s of a magnet, which "
+     "completely cover it on both sides", 472,
+     "the scan reads 'of a' magnet' with a stray apostrophe after the article, which "
+     "breaks the run (ratio 0.98, a FAIL). Pin the two halves separately - 'arranged "
+     "to rotate between the two poles N and s of a' and 'which completely cover it "
+     "on both sides' - both on printed p. 472"),
+    ("homopolar", 0,
+     "0 hits in the whole volume. §9 brief 08's parenthetical '(homopolar)' is the "
+     "brief's word, not the book's: the volume writes 'unipolar' inside its own "
+     "quote marks (printed p. 465) and its index writes 'Improvements in Unipolar "
+     "Generators' (printed p. 495). Never put 'homopolar' in quotation marks or give "
+     "it a page cite; if the modern term is used at all it is our word, unquoted, "
+     "with a modern source beside it"),
+    ("any test, trial, measurement or commercial result for the two-casting frame", 0,
+     "no such sentence anywhere in printed pp. 448-450: 'test', 'experiment', "
+     "'result', 'per cent' and 'efficiency' are all 0 in that range, and 'patent' is "
+     "3 hits in the volume (pp. 5, 26, 394) with none in it. The chapter's only "
+     "evaluative sentence is 'This machine possesses several advantages' (printed "
+     "p. 450), followed by exactly one advantage. This is an absence, not a quote: "
+     "the draft states it in our own words and never as an 1894 verdict (§4.1)"),
+    ("any commercial verdict on the arc lighting system, or the name of the company "
+     "it was confided to", 0,
+     "the chapter says the apparatus 'commanded notice by its ingenuity' in a "
+     "crowded market and that Tesla moved on to his rotary field system (all printed "
+     "p. 451, pinned); it never says the company failed, and it never names the "
+     "company - 'company' is 16 hits in the volume and only this one is in printed "
+     "pp. 451-464. 'failure' is 2 hits in printed pp. 448-474 and both are 'a "
+     "failure of the feed' in a lamp (pp. 459, 464); 'commercial' is 16 hits, none "
+     "in that range. Naming the company - the Tesla Electric Company or any other - "
+     "needs an external source carried separately"),
+    ("the year the belt-contact disc machines were built", 0,
+     "the volume gives only 'two years ago' (printed p. 474), relative to an "
+     "article the footnote dates to Sept. 2, 1891; 'two years ago' is 2 hits in the "
+     "volume (pp. 302, 474). Any year is a derivation from that footnote, not a "
+     "statement in the text: either show the derivation in the sentence or give no "
+     "year"),
+    ("the date of Faraday's disc experiment", 0,
+     "the volume writes 'The memorable experiment of Faraday with a disc rotating "
+     "between the two poles of a magnet' (printed p. 467) with no year, and no year "
+     "appears with it anywhere. 'Faraday' is 5 hits in the volume (pp. 123, 384, "
+     "467, 485) and none carries a date for the disc. A date needs a modern source "
+     "carried separately"),
+    ("the first name of the man whose dynamo is called Forbes's", 0,
+     "'Forbes' is 4 hits in the volume (pp. 468, 474, 494, 496) and never with an "
+     "initial, a first name or a date: the 1894 text assumes the reader knows the "
+     "reference. The draft may say the volume attributes the machine to Forbes and "
+     "cite the page; identifying Forbes further needs a modern source. The index's "
+     "'Forbes Unipolar Generator 468, 474' (printed p. 494) is the book's, not "
+     "ours"),
 ]
 
 # Notes the writer needs before drafting (feature-006/t1..t3). §3 quote policy.
 FLAGS = [
-    "PART III IS THE EDITOR'S TEXT, IN THE THIRD PERSON, ABOUT TESLA'S DEVICES. All "
-    "six chapters pinned so far sit in Part III, 'MISCELLANEOUS INVENTIONS AND "
+    "PART III IS THE EDITOR'S TEXT, IN THE THIRD PERSON, ABOUT TESLA'S DEVICES - "
+    "EXCEPT CH. XLI. All "
+    "nine chapters this pin draws on sit in Part III, 'MISCELLANEOUS INVENTIONS AND "
     "WRITINGS' (contents, scan file 16): ch. XXXIII 'METHOD OF OBTAINING DIRECT FROM "
     "ALTERNATING CURRENTS' (printed pp. 409-417), ch. XXXIV 'CONDENSERS WITH PLATES "
     "IN OIL' (printed pp. 418-419), ch. XXXV 'ELECTROLYTIC REGISTERING METER' "
     "(printed pp. 420-423), ch. XXXVI 'THERMO-MAGNETIC MOTORS AND PYRO-MAGNETIC "
     "GENERATORS' (printed pp. 424-431), ch. XXXVII 'ANTI-SPARKING BRUSH AND "
-    "COMMUTATOR' (printed pp. 432-437) and ch. XXXVIII 'AUXILIARY BRUSH REGULATION OF "
-    "DIRECT CURRENT DYNAMOS' (printed pp. 438-447). None is a Tesla paper or lecture. "
+    "COMMUTATOR' (printed pp. 432-437), ch. XXXVIII 'AUXILIARY BRUSH REGULATION OF "
+    "DIRECT CURRENT DYNAMOS' (printed pp. 438-447), and batch 3's three: ch. XXXIX "
+    "'IMPROVEMENT IN THE CONSTRUCTION OF DYNAMOS AND MOTORS' (printed pp. 448-450), "
+    "ch. XL 'DIRECT CURRENT ARC LIGHTING SYSTEM' (printed pp. 451-464) and ch. XLI "
+    "'IMPROVEMENT IN \"UNIPOLAR\" GENERATORS' (printed pp. 465-474). None of chs. "
+    "XXXIII-XXXVIII is a Tesla paper or lecture, and ch. XXXIX and ch. XL are the "
+    "compiler's prose in the same voice - 'THIS invention of Mr. Tesla', 'ANOTHER "
+    "interesting class of apparatus to which Mr. Tesla has directed his attention'. "
     "The prose says 'Mr. Tesla divides such circuit', 'In carrying out this idea Mr. "
     "Tesla employs', 'an ingenious form of electrolytic meter attributable to Mr. "
     "Tesla', 'Mr. Tesla some years ago employed', 'Mr. Tesla constructs a commutator', "
-    "'In machines of this type, devised by him as far back as 1885, he makes use of'. "
+    "'In machines of this type, devised by him as far back as 1885, he makes use of', "
+    "'The field magnets and frame are cast in two parts' behind that 'invention of Mr. "
+    "Tesla', and 'These objections Mr. Tesla has sought to avoid'. "
     "Never 'Tesla wrote in 1894', never put this prose in his mouth, and attribute it "
     "as the book's account of his devices. This is the same trap the article 06 pin "
     "flags for ch. XXIX, and it is the biggest accuracy risk in article 08: a listicle "
     "about 'Tesla's weird inventions' naturally writes about him in the third person "
     "too, "
     "and the two third-persons blur into one. The fix is to name the chapter and the "
-    "page every time, and to say once, early, that Part III is the editor's writing.",
+    "page every time, and to say once, early, that Part III is the editor's writing. "
+    "THAT SENTENCE NOW COVERS CHS. XXXIII-XXXVIII ONLY: batch 3 found that ch. XLI "
+    "(entry 9, printed pp. 465-474) is not the editor's text past p. 467. Read the "
+    "flag PART III IS NOT ALL THE COMPILER'S PROSE before writing entry 9, and never "
+    "let 'the book says' stand for Tesla's own words there.",
     "THE NINE ENTRIES ARE THE BOOK'S, NOT OURS. The editor's inventory at printed p. "
     "6 maps onto §9 brief 08's table almost item for item (see the pinned quote). Say "
     "so in the intro: the list comes out of the volume's own contents pages and its "
@@ -967,7 +1902,20 @@ FLAGS = [
     "greppable strings and none of them is quotable. Do not quote a roman numeral, a "
     "heading or a running head: name the chapter by its title, which is unambiguous, "
     "and cite the page. If a chapter number must appear, take it from the contents page "
-    "and say it is from the contents.",
+    "and say it is from the contents. BATCH 3 IS WORSE, NOT BETTER: ch. XL's opening "
+    "reads 'CHAPTER TKSLA XI,' where the numeral is XL, ch. XXXIX's heading OCRs "
+    "complete but is display type and therefore stripped as furniture, and the running "
+    "heads in pp. 448-474 include 'DIRECT CURRENT ARC LIGHTING SYXTKM' (p. 463) and "
+    "'UNIPOLAR GENERATORS' (pp. 465, 467). Printed folios in this range are "
+    "unreliable in a new way: p. 463's reads '4fc]' and p. 450's is missing. The "
+    "volume's own names for these chapters disagree with each other and only the index "
+    "lines are greppable: the contents page says 'IMPROVEMENT IN DYNAMO AND MOTOR "
+    "CONSTRUCTION' (which is what §9 brief 08 copies), the chapter heading says "
+    "'IMPROVEMENT IN THE CONSTRUCTION OF DYNAMOS AND MOTORS', and the index says "
+    "'Improved Direct Current Dynamos and Motors' at printed p. 495, which verifies "
+    "exactly. Same for entry 9: 'Improvements in Unipolar Generators', printed p. 495, "
+    "1 hit. If the draft must name a chapter in the book's words, cite the index and "
+    "say it is the index.",
     "THE BRIEF'S HOOKS ARE NOT THE PRINT'S, AND FOUR OF THE SIX PINNED SO FAR ARE "
     "WRONG OR MISLEADING. §9 brief 08 gives entry 3 as 'an amp-hour meter that counts "
     "bubbles' and entry 2 as 'the reason your capacitor is not in air'. The meter "
@@ -985,7 +1933,17 @@ FLAGS = [
     "hooks are prompts, not sources: nothing from the hooks goes inside quotation "
     "marks or carries a page cite, and where a hook contradicts the text the text "
     "wins. Entry 1's hook ('before solid-state rectifiers') is workable but needs a "
-    "modern source for the history sentence (rejected #7).",
+    "modern source for the history sentence (rejected #7). BATCH 3 ADDS THE OPPOSITE "
+    "CASE: entry 9's hook, 'the disc that spins without commutation', is supported "
+    "almost word for word by the print, and in the author's own words - see the flag "
+    "ENTRY 9'S HOOK IS THE ONE IN THE TABLE THE PRINT SUPPORTS. The rule is "
+    "unchanged either way: the hook is a prompt, the sentence is the source. §9 brief "
+    "08 leaves entry 7's and entry 8's hook cells empty as well as entry 6's. Three "
+    "empty cells are not three gaps: entry 7 writes itself from the pinned mechanism "
+    "and entry 8 from the pinned narrative at printed p. 451, and an empty cell is the "
+    "brief declining to put words in the book's mouth. Six of the nine entries have a "
+    "hook written; five of those six are wrong, misleading or need a modern source, and "
+    "one is supported almost word for word. Do not generalise from either number.",
     "ENTRY 2 IS THE ENTRY THAT DID NOT LOSE. The brief asks for 'why it lost' nine "
     "times, and for entry 2 the honest answer is that the principle won (oil and "
     "oil-impregnated dielectrics are standard in high-voltage apparatus) while the "
@@ -1024,7 +1982,18 @@ FLAGS = [
     "figure, tariff or sales result is reported for any of the six devices. The "
     "article's case - real devices, real ingenuity, no evidence of commercial success "
     "- is carried by these hedges; nothing needs to be "
-    "invented, and any number we do not find in the text does not go in the draft.",
+    "invented, and any number we do not find in the text does not go in the draft. "
+    "BATCH 3'S ARE THE SAME SHAPE AND SHARPER, BECAUSE TWO OF THEM ARE THE INVENTOR "
+    "HEDGING HIMSELF: 'has sought to avoid' and 'is inclined to favor' (p. 465), "
+    "'it would appear that the output of such a machine should' and 'both "
+    "magnetizations at right angles seemingly interfere with each other' (p. 468), "
+    "'as far as we know' and 'we cannot even give a superficial explanation' (p. 468), "
+    "'such a mode of excitation would be wasteful' and 'it is practicable to do away "
+    "with the field coils' (p. 472), 'or even more' (p. 460), 'may be revolved ... "
+    "without showing the slightest increase of temperature' (p. 453), 'a cheap and "
+    "durable machine made which is useful for many purposes' (p. 466), and the "
+    "compiler's 'it commanded notice by its ingenuity' (p. 451). Keep every one of "
+    "them inside the quotation marks it is pinned with.",
     "CROSS-PAGE SENTENCES: CITE ONE PAGE, NEVER A RANGE. One sentence in this batch "
     "straddles a folio: 'There may thus be obtained from an alternating current two or "
     "more direct currents without the employment of any commutator' (printed p. 409) "
@@ -1033,7 +2002,20 @@ FLAGS = [
     "'(1894, pp. 409-410)' never satisfies check_quotes.py: its citation regex is "
     "'\\(1894, p{1,2}s?\\. ([\\d,\\s]+?)\\)' and cannot read a hyphen. The same rule "
     "applies to the p. 418/p. 419 condenser split (rejected #4): the engravings are on "
-    "p. 418, the sentence describing them is on p. 419.",
+    "p. 418, the sentence describing them is on p. 419. BATCH 3 HAS SIX MORE, AND "
+    "ONE IS A NEW KIND: the p. 451 armature sentence ends on p. 452; 'the passive or "
+    "electrically inactive wire' is hyphenated across the folio at the foot of p. 454 "
+    "and ends on p. 455 (Rejected #30); 'and were designed for the purpose' ends "
+    "p. 455 and 'of remedying certain faults common to arc lamps' opens p. 456 "
+    "(Rejected #31); the 'rod sticks' sentence begins on p. 463 and its last words "
+    "are on p. 464; and 'Consider, for instance, the case of a disc of iron or other "
+    "metal revolving between the two opposite poles of a magnet' does not exist as a "
+    "single run at all, because the running head on p. 468 is not stripped in this "
+    "range, so neither half matches even fuzzily (Rejected #29). The new kind is a "
+    "line-end hyphen across a folio: the clean form verifies only through the "
+    "space-ignoring index, and the CLI cannot see it at all (see the flag THE CLI AND "
+    "THE GATE DO NOT SHARE AN INDEX). Cite one page, always the one where the quote "
+    "starts or ends, never a range.",
     "OCR SPACING AND GLUED WORDS, NOT WORDING. Three pinned quotes verify only through "
     "check_quotes.py's space-ignoring index because the OCR or the compositor glued "
     "them: 'the electrical resistance of the conductor IS VARIED' (p. 420, 'isvaried'), "
@@ -1043,7 +2025,18 @@ FLAGS = [
     "word. Two pinned quotes keep the print's spaced semicolon ('insulation ; but Mr. "
     "Tesla believes', p. 419) so they verify as exact matches. No [sic], no bracketed "
     "correction, and no repair of the print's doubled 'it it' (rejected #5) or its "
-    "dropped 'be' (rejected #12) inside quotation marks.",
+    "dropped 'be' (rejected #12) inside quotation marks. BATCH 3 ADDS THREE PINNED "
+    "QUOTES THAT CARRY A GLUED WORD AND SO VERIFY ONLY THROUGH build_nospace: 'as "
+    "determined bythe signs of the magnetic poles' (p. 465), 'constructed bythe writer "
+    "two years ago' (p. 474) and 'accomplished bymeans of electro-magnets' (p. 455). "
+    "Print them spaced. A fourth glued word in this range, 'the winding and connecting "
+    "upis effected' (p. 454), is in the scan but is in NO pinned quote - it is "
+    "recorded here so the draft does not quote that sentence from memory. Those three, "
+    "with three fragments whose print hyphenation or em dash leaves the normaliser "
+    "gluing a word (p. 451's 'min-', the p. 454/455 'electrically in-', and p. 466's "
+    "em dash before 'such as'), are the six batch-3 fragments that come back fuzzy "
+    "through grep_quote.py's index and exact through build_nospace - see the flag THE "
+    "CLI AND THE GATE DO NOT SHARE AN INDEX, which names all six.",
     "STRAY HYPHENS ARE THE MAIN OCR TRAP IN PART III. Four otherwise quotable "
     "sentences are killed by stray hyphens the scan inserts mid-sentence: 'should -be "
     "changed' (p. 423), 'for a -given time' (p. 421), and 'the light- power of the "
@@ -1056,7 +2049,18 @@ FLAGS = [
     "interleaving, and grep_quote.py's furniture stripper does not remove every "
     "running head here (printed p. 413's folio OCRs as '418', and p. 415's as '4ir>'). "
     "Never trust a printed folio read out of the OCR: printed page = scan file - 18 "
-    "(§0), and that is the only page number to cite.",
+    "(§0), and that is the only page number to cite. BATCH 3 CONFIRMS THE WARNING AND "
+    "ADDS THREE ARTIFACTS THAT ARE NOT HYPHENS AT ALL, so no normaliser can be "
+    "relied on in this range: a stray period inside a word ('the sur-. faces of the "
+    "poles', p. 448, Rejected #23), letter substitutions and printer's typos that "
+    "survive both matchers ('tield' for 'field', p. 466 Rejected #26; 'after tho', "
+    "p. 465 Rejected #25; 'of the two dises', p. 466 Rejected #27; 'the coils < -f "
+    "this second group' for 'of', p. 454), and a capital I for a lower-case l ('900 "
+    "Ibs.', p. 471, Rejected #28 - 'Ibs.' is 1 hit in the volume, 'lbs' 71, and "
+    "typing the scan's form prints what every reader will take for our own typo). One "
+    "is a stray apostrophe inside a word ('of a' magnet', p. 472, Rejected #33). The "
+    "rule that covers all of them is unchanged: quote the part that verifies and put "
+    "the rest in our own words, unquoted.",
     "VOICE RULE (§0 non-negotiable 5, enforced by qa_page.py). No em or en dashes, no "
     "curly quotes, no Unicode ellipsis in the article body, figure alt text or "
     "captions. The print sets 'direct current - that is', 'self -exciting', 'devices - "
@@ -1077,7 +2081,18 @@ FLAGS = [
     "each source it uses, keep those sentences visibly separate from the 1894 "
     "material, give them no quotation marks and no page cite, and list them in the "
     "Sources block separately from the book - the way article 06's draft handled its "
-    "three modern sources. If a source is not fetched, the sentence is cut.",
+    "three modern sources. If a source is not fetched, the sentence is cut. BATCH 3 "
+    "ADDS FIVE, ALL OF THEM THINGS THE VOLUME DOES NOT SAY: the date of Faraday's "
+    "disc experiment (Rejected #38 - the volume gives none), the identity of the man "
+    "behind 'the Forbes unipolar dynamo' (Rejected #39, and the flag FORBES IS A "
+    "SURNAME HERE, NOT A BIOGRAPHY), the name of the company the arc lighting system "
+    "was 'confided to' (Rejected #36 - the chapter never names it), the modern term "
+    "'homopolar' for the entry 9 class (Rejected #34 - 0 hits; the book writes "
+    "'unipolar' inside its own quote marks), and any sentence about what became of "
+    "the arc lighting system or the disc machines after 1894, which this volume "
+    "cannot supply because it stops at 1894. Entry 9's 'the work in that direction "
+    "has been temporarily suspended' is the book's last word on the subject and the "
+    "draft must not write past it.",
     "SAFETY (§4.1). Nothing in these six chapters is safe to imply the reader should "
     "try at home: ch. XXXIV is high-potential apparatus in a sealed can of hot oil, "
     "ch. XXXV passes the whole lighting current through two conductors in an open "
@@ -1088,7 +2103,19 @@ FLAGS = [
     "lighting' (p. 432). The in-book basis for the caution is the chapters' own "
     "framing ('currents of high frequency and high potential', p. 418; 'the whole of "
     "the current to be measured may be passed through the instrument', p. 423). Use it "
-    "for 'do not try this', never for a health or materials claim.",
+    "for 'do not try this', never for a health or materials claim. BATCH 3 ADDS THREE "
+    "MORE REASONS NOT TO TRY THIS AT HOME, AND THEY ARE IN THE TEXT: entry 8's lamp "
+    "is an automatic arc lamp whose described failure mode is the carbon rod sticking, "
+    "the arc stretching and 'frequently the fine wire is injured' (printed p. 463, "
+    "pinned) - an open arc, a hot carbon and a burnt-out shunt winding; entry 9's "
+    "disc machines are specified for use 'for an exciter for alternating current "
+    "generators, for a motor, and for any other purpose for which dynamo machines are "
+    "used' (printed p. 466), i.e. machines, not toys, and the compiler's own reason "
+    "the class is awkward is 'the high peripheral speed' (printed p. 465); and entry "
+    "7's subject is a cast-iron frame and field magnet for dynamos 'of great "
+    "electromotive force' (printed p. 448). Same rule as above: the caution is "
+    "quoted from what the book says about the apparatus, never from a modern health "
+    "or materials claim.",
     "WORD COUNTS RE-RUN AT PIN TIME (batch 1's on 2026-10-12 and every count in this "
     "flag re-run on 2026-10-16, over the normalised text layer of our scan, whole "
     "volume, with grep_quote.py --count). Read the page list before repeating any "
@@ -1119,7 +2146,33 @@ FLAGS = [
     "452), 0 anywhere in pp. 424-447. 'brought to light' 1 (p. 438). 'interview with "
     "Mr. Tesla' 1 (p. 424). These are the counts "
     "the draft may print; re-run them at draft time (feature-006/t1) rather than "
-    "copying, exactly as article 06's draft did.",
+    "copying, exactly as article 06's draft did. BATCH 3'S COUNTS, RE-RUN 2026-10-17 "
+    "THE SAME WAY (grep_quote.py --count, whole volume unless a range is given): "
+    "'arrival in America' 1 (p. 451), 'exploitation' 1 (p. 451), 'rotary field' 1 "
+    "(p. 451), 'cast in two parts' 1 (p. 448), 'flexible conducting belt' 1 (p. 474), "
+    "'extraordinary output' 1 (p. 468), 'very inefficient' 1 (p. 469), 'Ibs.' 1 "
+    "(p. 471), 'two years ago' 2 (pp. 302, 474), 'Forbes' 4 (pp. 468, 474, 494, 496), "
+    "'Faraday' 5 (pp. 123, 384, 467, 485 - one of those pages carries two, which is "
+    "why a page list can be shorter than a count), 'commutating' 2 (pp. 390, 468), "
+    "'compound magnet' 7 (pp. 462-464), 'dash pot' 5 (pp. 456, 486, 487 - not in ch. "
+    "XXXVII, where a reader of entry 5 would expect it), 'exciter' 9 (pp. 42, 43, "
+    "466), 'wasteful' 5 (pp. -7, 173, 175, 184, 472 - the -7 is unnumbered front "
+    "matter and is not citable), 'homopolar' 0, 'unipolar' 10 (pp. 6, 465, 467, 468, "
+    "472, 473, 494, 495, 496), 'Phil. Magazine' 1 (p. 471), 'the writer' 16 (pp. "
+    "381-391 and 468, 474 - the first nine are ch. XXIX, article 11's chapter, so two "
+    "articles in this series quote the same self-referential voice and must describe "
+    "it the same way). SCOPED COUNTS, WHICH MUST BE QUOTED WITH THEIR RANGE: 'test' "
+    "0, 'experiment' 0, 'result' 0, 'per cent' 0 and 'efficiency' 0 on printed pp. "
+    "448-450; 'experiment' 0 on printed pp. 451-464 but 5 on 448-474, all of them in "
+    "Tesla's own reprinted notes (pp. 467, 470, 471, 472); 'efficiency' 1 on printed "
+    "pp. 448-476, at p. 455; 'failure' 2 on printed pp. 448-474 (pp. 459, 464, both "
+    "'a failure of the feed' in a lamp); 'commercial' 0 on printed pp. 448-474; "
+    "'company' 1 on printed pp. 451-464 (p. 451); 'magnetic gener' 0 on printed pp. "
+    "448-474. THE METHOD ONE MORE TIME, BECAUSE THIS FLAG IS THE ONE THE DRAFT WILL "
+    "COPY: --count is case-insensitive substring matching with a fuzzy fallback, so a "
+    "short string returns OCR near-matches rather than the word, a page list can be "
+    "shorter than the count when one page carries two hits, and a printed page of -7 "
+    "is front matter with no folio to cite. Re-run every count at draft time.",
     "THE 400-500-A-MINUTE NUMBER IS A FOOTNOTE, NOT A SPEC (entry 4). §9 brief 08's "
     "hook for entry 4 quotes 'oscillating as rapidly as 400 to 500 times a minute', "
     "and it is the one hook in the brief that greps verbatim - 1 hit in the volume, "
@@ -1162,8 +2215,16 @@ FLAGS = [
     "all: the first device is 'some years ago' and the second 'A few years later' (both "
     "p. 432-433, pinned). Ch. XXXVIII gives 'devised by him as far back as 1885' (p. "
     "438), and '1885' is 1 hit in the whole volume - the only dated invention statement "
-    "in these six chapters. It is the compiler's date, not Tesla's, and it is the only "
-    "date any of the nine entries may carry from this volume. No year may be attached to "
+    "in these six chapters. It is the compiler's date, not Tesla's. CORRECTED BY BATCH "
+    "3, because this flag used to end by calling that date 'the only date any of the "
+    "nine entries may carry from this volume', and that was wrong: ch. XLI carries two "
+    "more, both in the compiler's footnotes - 'Sept. 2, 1891' for the article entry 9 "
+    "is printed from (printed p. 467) and 'July, 1865' for Sir W. Thomson's Phil. "
+    "Magazine paper (printed p. 471). '1885' is still 1 hit, still only at p. 438, and "
+    "still the only year the volume attaches to any of entries 1-6; what was wrong was "
+    "the word 'only'. Entry 9 has dates, and they are publication dates rather than "
+    "invention dates - read the flag ENTRY 9'S DATE IS RELATIVE AND THE DERIVATION "
+    "MUST BE SHOWN before putting any of them in the draft. No year may be attached to "
     "entry 5's devices without a patent record checked under §6.3, and neither ch. "
     "XXXVI, XXXVII nor XXXVIII prints a patent number anywhere, so there is nothing in "
     "the text to recall from memory.",
@@ -1176,8 +2237,10 @@ FLAGS = [
     "have been the first who has successfully regulated machines by providing a bridge "
     "connection between a point of the external circuit and the commutator by means of "
     "a third brush'. Both hedges are in the sentence and must be kept: 'as far as "
-    "records go', 'he seems to have been'. This is the only one of the nine devices "
-    "Tesla claims himself in this volume. Article 11 (feature-007) is built on the same "
+    "records go', 'he seems to have been'. This is the only one of entries 1-8 that "
+    "Tesla claims himself in this volume - entry 9's chapter is his own writing and "
+    "claims the belt-contact machines at printed p. 474 (see the flag PART III IS NOT "
+    "ALL THE COMPILER'S PROSE). Article 11 (feature-007) is built on the same "
     "chapter, so the two pages must not contradict each other about who is speaking or "
     "what is claimed; and the compiler's 1885 at p. 438 must never be turned into "
     "Tesla's own statement.",
@@ -1192,7 +2255,198 @@ FLAGS = [
     "'lessening the duration of the short circuit obviously increases the efficiency of "
     "the machine' (p. 434), with no figure behind it. Rejected #21 and #22 record both "
     "silences. The draft may write 'the book reports no trial' and must not write that "
-    "anyone in 1894 thought these devices had failed (§4.1).",
+    "anyone in 1894 thought these devices had failed (§4.1). SCOPED, AND SCOPED "
+    "ON PURPOSE: everything in this flag is true of printed pp. 424-447 and stops "
+    "there. Ch. XL and ch. XLI are different, and a drafter who reads this flag as a "
+    "property of the book will write a sentence batch 3 can disprove. Read the flag "
+    "CH. XL BREAKS THE NO-NUMBERS PATTERN AND CH. XLI THE NO-OBSERVATIONS PATTERN "
+    "before writing entries 8 or 9.",
+    "PART III IS NOT ALL THE COMPILER'S PROSE: CH. XLI IS TESLA'S OWN REPRINTED "
+    "ARTICLE (ENTRY 9). Batch 1's first flag is true of chs. XXXIII-XXXVIII and false "
+    "of ch. XLI, and it is the single largest provenance fact in this pin, because it "
+    "changes what one of the nine entries is allowed to say. Halfway down printed "
+    "p. 467 the compiler hands the chapter over - 'It is thought appropriate by the "
+    "compiler to append here some notes on unipolar dynamos, written by Mr. Tesla, on "
+    "a recent occasion' - and the footnote on the same printed page names the source "
+    "and the date: 'Article by Mr. Tesla, contributed to The Electrical Engineer, N. "
+    "Y., Sept. 2, 1891'. Both are pinned. From that point to the foot of printed "
+    "p. 474 the text is his, and it is the only such thing in Part III. HOW THE VOICE "
+    "WAS ESTABLISHED, since grep_quote.py cannot do it: python3 books/tools/"
+    "page_dump.py 467-474 piped through grep -cE '(^|[^A-Za-z])(I|my|me|mine)"
+    "([^A-Za-z]|$)' returns 0 lines, and the case-insensitive -ciE of the same "
+    "pattern also returns 0 (re-run 2026-10-17 over 266 lines of page_dump output). "
+    "THE PLURAL COUNT NEEDS ITS PATTERN AND ITS UNIT, because grep -c counts LINES and "
+    "grep -o counts OCCURRENCES: grep -oE '(^|[^A-Za-z])(we|our|us)([^A-Za-z]|$)' "
+    "returns 13 occurrences over 11 lines, and adding 'writer' to the alternation "
+    "returns 17 occurrences over 15 lines. The 13 is the (we|our|us) count and it is "
+    "the number to quote, with the pattern beside it. Separately, the string 'the "
+    "writer' occurs 4 times in the range, at printed pp. 468 and 474. Do NOT try to show this with "
+    "grep_quote.py: it does substring matching, so 'my' returns 1 hit at p. 468, "
+    "inside 'mystery'. The accurate claim is that the reprinted article uses no "
+    "singular first-person form and writes in the editorial 'we', not that it uses no "
+    "first person. WHAT FOLLOWS FOR THE DRAFT: entry 9 may say Tesla wrote these "
+    "words, and must say what they are - notes he contributed to a New York "
+    "periodical in 1891, reprinted by the book - and must quote the hand-over sentence "
+    "before anything quoted from pp. 467-474. The compiler's own pp. 465-466 stay "
+    "third person ('ANOTHER interesting class of apparatus to which Mr. Tesla has "
+    "directed his attention', 'the disc type, which Mr. Tesla is inclined to favor') "
+    "and must be attributed as the book's account. Never run the two voices together "
+    "in one quotation or one citation. The volume's own index treats the notes as the "
+    "substance of the chapter, and its two entries are worth knowing even though "
+    "neither verifies as typed: 'Forbes Unipolar Generator 468, 474' (printed p. 494) "
+    "returns 1 hit at ratio 0.986 on both indexes, and 'Thomson, Sir W., Current "
+    "Accumulator 471' (printed p. 496) returns 1 hit at 0.831 on the default index and "
+    "1.0 with --keep-furniture. The reason is the index's own typography: the volume "
+    "sets an entry's page number on a separate OCR line, and strip_furniture drops a "
+    "line that is only a number as a bare folio, so the number is not in the default "
+    "index and the run breaks. Drop the page number and both verify exactly: 'Forbes "
+    "Unipolar Generator' and 'Thomson, Sir W., Current Accumulator' are 1 hit each at "
+    "ratio 1.0. Both point into the reprinted part, not the compiler's.",
+    "THE CLI AND THE GATE DO NOT SHARE AN INDEX, AND A RE-GREP IS NOT A VERDICT. "
+    "grep_quote.py builds one index (build_index, normalised for OCR artefacts). "
+    "check_quotes.py - and therefore gen_quotes.py, which imports its fragments() and "
+    "locate() - additionally builds build_nospace, the same text with the spaces "
+    "removed. A quote whose words the scan glues therefore verifies through the gate "
+    "and comes back FUZZY through the CLI, and the CLI has no way to call it exact. "
+    "The full-batch sweep named in BATCH3 found six such fragments in batch 3, and "
+    "every one of them sits on the page this file pins it to: p. 451 'The armature is "
+    "constructed with the view ...' (0.962 - the print hyphenates 'min-' at the foot "
+    "of p. 451, the normaliser folds the line-end hyphen, and the join between the two "
+    "pages leaves a space where the word was), p. 455 'the passive or electrically "
+    "inactive wire is reduced to a minimum' (0.927 - the same thing at 'electrically "
+    "in-' at the foot of p. 454), p. 455 'The arc lamps invented by Mr. Tesla ...' "
+    "(0.989 - the scan glues 'bymeans'), p. 465 'the currents induced in the rotating "
+    "conductor ...' (0.986, the best of three candidate windows - the scan glues "
+    "'bythe'), p. 466 'the difficulty of securing and maintaining good contact ...' "
+    "(0.989 - the print sets an em dash before 'such as', which the normaliser folds "
+    "to nothing and so glues 'purposes' to 'such'), and p. 474 'Several machines with "
+    "belt contact ...' (0.989 - the scan glues 'bythe'). All six verify through the "
+    "index the draft will actually be judged on, and each is annotated in its own "
+    "entry. One more caution about the numbers themselves: a ratio belongs to the "
+    "string typed and the range asked for, not to the quote. The p. 474 sentence "
+    "returns 0.989 quoted in full and 0.963 quoted only up to 'two years ago', and the "
+    "p. 455 fragment returns one hit per page it spans when the range covers both "
+    "pages and a single hit when it does not. State a ratio with the string and the "
+    "range that produced it. The rule this sets: use the CLI to "
+    "confirm a page and to read the raw scan, use gen_quotes.py to decide whether a "
+    "quote passes, and when the two disagree write down which index said what. "
+    "'Fuzzy' from the CLI is not a failure, and 'exact' from the CLI is not the "
+    "gate.",
+    "ENTRY 9 IS THE ONE ENTRY THE VOLUME EXPLAINS, AND ENTRY 8 IS THE ONE IT "
+    "NARRATES. The brief asks nine times for 'why it lost', and for seven of the nine "
+    "the volume gives nothing (see WHY ENTRY 1 LOST, ENTRY 2 IS THE ENTRY THAT DID NOT "
+    "LOSE, ENTRY 7 HAS NO STORY). For entry 8 the compiler gives a narrative on "
+    "printed p. 451, all three sentences pinned: the system 'was confided to a company "
+    "formed for its exploitation', he 'then proceeded to devote his energies to the "
+    "perfection of the details of his more celebrated' 'rotary field' system, and the "
+    "apparatus 'appeared at a time when a great many other lamps and machines were in "
+    "the market, but it commanded notice by its ingenuity'. It is the closest thing to "
+    "a commercial verdict in this whole pin and it is still not a verdict: no "
+    "failure, no withdrawal, no date, and the company is never named (Rejected #36). "
+    "For entry 9 the inventor gives the reason himself, at printed p. 474: several "
+    "machines 'were constructed by the writer two years ago, and worked "
+    "satisfactorily ; but for want of time the work in that direction has been "
+    "temporarily suspended'. That is the only place in the nine where a machine is "
+    "described as built and run, and the reason given is want of time, not want of "
+    "success. Both beats are quotable and both keep every hedge. Neither supports the "
+    "brief's title claim that these nine 'never caught on': entry 9's machines worked, "
+    "entry 2's principle won, and the volume reports no failure for any of the nine "
+    "(see the Links note about the hub card).",
+    "ENTRY 7 HAS NO STORY, AND THE DRAFT MUST NOT GIVE IT ONE. Ch. XXXIX is three "
+    "pages, one device, and nothing about whether it was ever built. No date, no "
+    "patent number, no trial, no measurement, no result: 'test', 'experiment', "
+    "'result', 'per cent' and 'efficiency' are all 0 in printed pp. 448-450, and "
+    "'patent' is 3 hits in the volume (pp. 5, 26, 394) with none in that range. What "
+    "the chapter claims is manufacturability - 'requires fewer parts', 'less trouble "
+    "and expense in its manufacture', bearings 'cast in the side bars E F', slots "
+    "'formed when the two parts are put together' - and its one technical advantage is "
+    "the neutral-point bearing sentence at printed p. 450. 'This machine possesses "
+    "several advantages' is followed by exactly one, and the chapter ends by widening "
+    "the claim rather than testing it. The honest entry says what the design is and "
+    "what the book claims about making it; it invents no market, no date and no "
+    "reason it lost, because the chapter has none (Rejected #35). If the nine entries "
+    "must be roughly the same length, entry 7 reaches it on mechanism and part names, "
+    "not on narrative - and 'the least Tesla-shaped of the nine' is itself something "
+    "the chapter supports, because it says the frame applies to 'machines of the "
+    "ordinary type generally used', not only to his own system (printed p. 448).",
+    "CH. XL BREAKS THE NO-NUMBERS PATTERN AND CH. XLI THE NO-OBSERVATIONS PATTERN. "
+    "Batch 2's flag NO RESULT IS REPORTED FOR EITHER MACHINE IN PP. 424-447 is true "
+    "of printed pp. 424-447 and stops there, and a drafter who reads it as a property "
+    "of the book will write something batch 3 can disprove. Ch. XL has a worked "
+    "numerical illustration ('if the length of the armature-core is twelve inches ... "
+    "the waste currents will be reduced to fifty per cent', printed p. 452), an "
+    "efficiency claim ('the electrical efficiency of the machine is increased', "
+    "printed p. 455 - the only 'efficiency' in printed pp. 448-476), a dimensioned "
+    "design rule ('their width exceeds three times their thickness, or even more', "
+    "printed p. 460) and a superlative that admits nobody measured it ('the movement "
+    "of the rod cannot be detected without some actual measurement', printed p. 463). "
+    "Ch. XLI has an inventor reporting observations of his own ('In experiments with "
+    "alternate current motors in which the field was shifted by currents of differing "
+    "phase, this interesting result was observed', printed p. 471; 'the experience of "
+    "the writer confirm this view', printed p. 468) and a 900-pound torque figure that "
+    "belongs to a rotating-field motor, not to a disc machine (Rejected #28). NONE OF "
+    "THESE IS A TEST OF ONE OF THE NINE MACHINES: the p. 452 number illustrates a "
+    "principle, the p. 455 claim has no figure behind it, the p. 460 rule is a rule of "
+    "thumb, and the p. 471 experiment is with a different class of machine. Print each "
+    "with its page and say in our own words which kind of statement it is. Re-running "
+    "the counts at pin time is what found this - 'per cent' is 5 in the volume and one "
+    "of the five is at p. 452 - which is exactly why batch 2 scoped 'per cent 0' to "
+    "pp. 424-447 and why no count in this pin may be written as a property of the "
+    "book without its range.",
+    "ENTRY 9'S HOOK IS THE ONE IN THE TABLE THE PRINT SUPPORTS. §9 brief 08 gives "
+    "entry 9 as 'the disc that spins without commutation', and it is close to Tesla's "
+    "own sentence at printed p. 468 ('In addition to its peculiarity of giving "
+    "currents of one direction without the employment of commutating devices, such a "
+    "machine differs from ordinary dynamos in that there is no reaction between "
+    "armature and field'), pinned above. It is the only hook in the brief's table that "
+    "the print supports almost word for word, and it is the inventor's phrasing, not "
+    "the compiler's. 'commutating' is 2 hits in the volume, here and at printed p. 390 "
+    "(article 11's chapter). The trap is the opposite of the one the other hooks set: "
+    "because the brief's words and the book's words nearly match, it is tempting to "
+    "print the hook as if it were a quotation. It is not. Print the pinned sentence "
+    "with its page, or write the entry in our own words, and give the hook no quote "
+    "marks and no page cite.",
+    "ENTRY 9'S DATE IS RELATIVE AND THE DERIVATION MUST BE SHOWN. Three dates touch "
+    "entry 9 and not one of them is an invention date the volume states. The footnote "
+    "at printed p. 467 dates the reprinted article to 'Sept. 2, 1891'. The sentence at "
+    "printed p. 474 says the belt-contact machines were made 'two years ago' - 2 hits "
+    "for that phrase in the volume, printed pp. 302 and 474 - and it is relative to "
+    "that article. The volume itself is 1894. 'two years ago' from September 1891 "
+    "gives 1889, but that is arithmetic we are doing, not a statement in the text, and "
+    "the article was written before it was printed, so even the arithmetic has a slack "
+    "in it. Either show the derivation inside the sentence - the book reprints notes "
+    "Tesla contributed to The Electrical Engineer on Sept. 2, 1891, in which he says "
+    "the machines had been built two years earlier - or give no year at all. Never "
+    "print 1891 as the date of the device, and never let the 1891 article date and the "
+    "1894 volume date merge into one date for the article (§4.1; Rejected #37).",
+    "FORBES IS A SURNAME HERE, NOT A BIOGRAPHY. 'Forbes' is 4 hits in the volume "
+    "(printed pp. 468, 474, 494, 496) and appears nowhere with an initial, a first "
+    "name, a date or a country: the 1894 text assumes the reader already knows whose "
+    "dynamo is meant, and the index line 'Forbes Unipolar Generator 468, 474' "
+    "(printed p. 494, 1 hit) is as far as the volume goes. The draft may say the "
+    "volume attributes the machine to Forbes and cite the page. It may not supply a "
+    "first name, dates, employer or nationality from memory, and it may not fold "
+    "Forbes's machine into Tesla's: Tesla's own sentence at printed p. 468 is 'The "
+    "extraordinary output of the Forbes unipolar dynamo and the experience of the "
+    "writer confirm this view', which is praise of somebody else's machine used to "
+    "support his own inference. 'extraordinary output' is 1 hit in the volume, here, "
+    "and it is not about a Tesla machine. Any further identification needs a modern "
+    "source carried separately (Rejected #39).",
+    "ENTRY 8'S 'ROTARY FIELD' SENTENCE IS THE FOURTH LINK THIS ARTICLE CAN ACTUALLY "
+    "MAKE TODAY. §5.2 row 08 names three out-links (magnet-motor.html, "
+    "perpetual-motion-generator.html, article 10) and qa_page.py needs at least four "
+    "internal links, so feature-006/t1 needs a fourth. Article 10 is not rendered when "
+    "08 is written (see the Links note ARTICLE 10 DOES NOT EXIST YET). Ch. XL supplies "
+    "one that is in the text rather than in the plan: at printed p. 451 the compiler "
+    "says Tesla turned from this system to the perfection of the details of his more "
+    "celebrated 'rotary field' motor system, and 'rotary field' is 1 hit in the whole "
+    "volume, on that page. rotating-magnetic-field-1888.html is article 07 and it is "
+    "rendered. That is the honest fourth link, because the 1894 volume itself says this "
+    "device was set aside for the machine article 07 is about. Describe article 07 as "
+    "the rotating-field system this volume calls 'rotary field', keep the two words "
+    "inside quotation marks with the p. 451 cite, and do not overstate it: the "
+    "compiler's sentence is a characterisation of what Tesla did next, not a record of "
+    "the arc lighting system being dropped.",
 ]
 
 # Notes for the figure task (feature-006/t2, a08-figrec). Read the existing figure
@@ -1291,6 +2545,105 @@ FIGURE_NOTES = [
     "p446-*/p447-* row exists). t2 must crop from books/pdf-pages-tesla-1894/ and read "
     "the number off the printed page, exactly as §8 step 3 requires, before entry 4 can "
     "carry an engraving.",
+    "WHAT ALREADY EXISTS FOR ENTRIES 7-9, SO feature-006/t2 DOES NOT RE-RENDER IT. "
+    "Sixteen crops exist for these three chapters. THE COUNT AND ITS METHOD, because a "
+    "bare number here is a number t2 will trust: list website/assets/tesla1894/ for "
+    "the scan-file prefixes below and cross-read every name against manifest_qc.csv, "
+    "which marks all sixteen keep; file names are SCAN files, printed page = scan - 18. "
+    "Entry 7 (ch. "
+    "XXXIX, scan 466-468): p467-fig1-fig270.webp, p467-fig2-fig270.webp, "
+    "p467-fig3-fig270.webp (printed p. 449). Entry 8 (ch. XL, scan 469-482): "
+    "p470-fig1-fig271.webp (p. 452), p471-fig1.webp (p. 453), p472-fig1.webp (p. "
+    "454), p473-fig1-fig277.webp and p473-fig2-fig277.webp (p. 455), "
+    "p475-fig1-fig281.webp and p475-fig2-fig281.webp (p. 457), p478-fig1-fig283.webp "
+    "and p478-fig2-fig283.webp (p. 460), p480-fig1.webp (p. 462). Entry 9 (ch. XLI, "
+    "scan 483-492): p484-fig1-fig290.webp (p. 466), p490-fig1-fig293.webp (p. 472), "
+    "p491-fig1-fig295.webp (p. 473). That is 3 + 10 + 3 = 16, and it is the complete "
+    "list: nothing was cropped from scan 466, 468, 469, 474, 476, 477, 479, 481, 482, "
+    "483, 485, 486, 487, 488, 489 or 492. Two files in that directory fall inside the "
+    "same numeric range and must not be swept up by a range listing: "
+    "p480-fig298.webp and p482-figs300-308.webp are named by PRINTED page, cropped "
+    "from scan files 498 and 500 (printed pp. 480 and 482), and belong to the "
+    "oscillator chapters in Part IV. A listing of p467 through p491 therefore returns "
+    "18 files, and the count of 16 holds only when those two printed-page names are "
+    "excluded - which is why the method is written out beside the number.",
+    "ENTRY 7'S THREE CROPS ALL CARRY THE SAME FIGURE NUMBER AND TWO OF THEM CANNOT BE "
+    "TRUSTED WITH IT. The p. 448 prose names all three engravings and says what each "
+    "is - 'Fig. 268 shows the machine in side elevation. Fig. 269 is a vertical "
+    "sectional view of the field magnets and frame and an end view of the armature ; "
+    "and Fig. 270 is a plan view of one of the parts of the frame and the armature, a "
+    "portion of the latter being cut away' - and that sentence is the caption source. "
+    "The captions actually printed on p. 449 read only 'FIG. 268.' and 'FIG. 270.'; "
+    "FIG. 269's caption did not survive the OCR. All three crops are named fig270 by "
+    "the extractor, and manifest_qc says so itself: 'p.449 has three views all tagged "
+    "Fig.270 - pick one, caption by page' and, for the third, 'number unreliable'. t2 "
+    "must open books/pdf-pages-tesla-1894/page-467.pdf, read the numbers off the "
+    "printed page, and caption from the p. 448 prose. §9 brief 08's figure table names "
+    "nothing for entry 7, so there is no brief-side candidate to check against.",
+    "§9 BRIEF 08'S TWO FIGURE CANDIDATES FOR ENTRY 8 ARE ONE MIS-NUMBERED FILE AND "
+    "ONE UNCONFIRMED ONE, AND THE FIGURE THAT IS BOTH CLEAN AND CORRECT IS ONE THE "
+    "BRIEF NEVER MENTIONS. The brief lists 'p457-fig281' and 'p460-fig283', which are "
+    "printed pages, i.e. p475-fig1-fig281.webp and p478-fig1-fig283.webp. Printed "
+    "p. 457 carries the captions 'FIG. 279,', 'FIG. 281.' and 'FIG. 280.' in that "
+    "order, and manifest_qc's own note on the crop is 'Caption spans Figs.281 and 280 "
+    "(order reversed in OCR)' - so that number is not confirmed. Printed p. 460 "
+    "carries 'FIG. 284.', 'FIG. 287.' and 'FIG. 288.' and no FIG. 283 caption at all: "
+    "Fig. 283 is described in the p. 459 prose and referred to again in the p. 460 "
+    "text, but the engraving on p. 460 is not it, so whatever p478-fig1-fig283.webp "
+    "shows, it is not Fig. 283. The one figure in entry 8 whose number the scan itself "
+    "confirms is Fig. 271: the caption 'FIG. 271.' is printed on p. 452, the crop "
+    "p470-fig1-fig271.webp is QCd 'Clean', and it sits in the middle of the "
+    "fifty-per-cent lamination illustration the entry is built on. Use that. The p. 451 "
+    "prose names Figs. 271-277 for the dynamo and the p. 456 and p. 459 prose name "
+    "Figs. 278-289 for the lamp; those sentences are the caption sources, not the file "
+    "names. p482-figs300-308.webp is NOT printed p. 464 despite its name - its own QC "
+    "note says it was cut from scan file 500, printed p. 482, which is article 11's "
+    "chapter. Do not use it here.",
+    "ENTRY 8'S LAMP HAS NO ENGRAVING FOR THE PART OF IT THE ENTRY WANTS. Nothing was "
+    "cropped from scan 469, 474, 476, 477, 479, 481 or 482 - printed pp. 451, 456, "
+    "458, 459, 461, 463, 464. The 'rod sticks' sentence (printed p. 463) and the "
+    "automatic cut-out and re-insertion (printed p. 464) have no engraving on disk, and "
+    "printed pp. 461-464 carry no figure captions at all; the lamp engravings end at "
+    "printed p. 460. If entry 8 carries the lamp rather than the dynamo, t2 must crop "
+    "from books/pdf-pages-tesla-1894/page-474.pdf or page-475.pdf, where Figs. 278-282 "
+    "are described on printed p. 456 and captioned on printed p. 457, and read the "
+    "number off the page. One engraving per entry (§9 brief 08), so this is a choice, "
+    "not a to-do: the dynamo route needs no new crop at all.",
+    "ENTRY 9 HAS THE ONLY FIGURE IN THIS BATCH WHOSE NUMBER EVERYTHING AGREES ON - AND "
+    "IT IS ON THE COMPILER'S HALF OF THE CHAPTER, WHICH IS THE PROBLEM. "
+    "p484-fig1-fig290.webp (printed p. 466) is what §9 brief 08 asks for ('p466-"
+    "fig290'), manifest_qc calls it 'Matches the Fig.290 description; clean' with "
+    "caption_ok yes, and the p. 466 prose names it: 'Fig. 290 is a side view, partly "
+    "in section, of this machine. Fig. 291 is a vertical section of the same at right "
+    "angles to the' - the two-field machine the compiler describes, not Tesla's "
+    "improvement. Fig. 291 has no crop. The belt-contact machines Tesla describes at "
+    "printed p. 474 have NO engraving anywhere: printed p. 474 (scan 492) carries none, "
+    "and printed pp. 467-471 (scan 485-489) carry none. So the entry must not let the "
+    "engraving stand next to the p. 474 sentences as if it showed them. If the entry "
+    "wants a figure from Tesla's own part of the chapter the candidates are Figs. 293 "
+    "and 294 at printed p. 472 - 'in Figs. 293 and 294 an arrangement is shown by "
+    "which a machine with a disc armature might be excited' - and Fig. 295 at printed "
+    "p. 473, the spiral-subdivision discussion. p490-fig1-fig293.webp covers the "
+    "293/294 pair and manifest_qc says 'Caption spans Figs.293-294' with caption_ok "
+    "no; p491-fig1-fig295.webp is QCd 'Clean; matches the spiral-disc text' but the "
+    "same page also carries 'FIG. 296.', so its number needs reading off the page too. "
+    "Captions from the prose at p. 466, p. 472 and p. 473, never from the file names.",
+    "NO FIGURE IN ENTRIES 7-9 IS USED BY ANY RENDERED PAGE TODAY (§6.6). index.json "
+    "rows are hub, 01-07, 09, 11, and the two crops in that range that belong to "
+    "article 11's chapter - p480-fig298.webp (cut from scan 498, printed p. 481) and "
+    "p482-figs300-308.webp (scan 500, printed p. 482) - are outside printed pp. "
+    "448-474, so there is no collision to work around. Re-check index.json at the time "
+    "t2 writes anyway: article 11 was rendered before this note existed. One engraving "
+    "per entry, figure 1 inside the first three H2s (§6.6), and no engraving may be "
+    "reused from another article with the same caption.",
+    "IF A PATENT DRAWING IS USED FOR ENTRIES 7-9, THE NUMBER IS NOT IN THE TEXT. "
+    "Neither ch. XXXIX, XL nor XLI prints a patent number anywhere: 'patent' is 3 hits "
+    "in the whole volume (printed pp. 5, 26, 394) and none of the three is in printed "
+    "pp. 448-474. No number may be recalled from memory for any of these three "
+    "devices; §6.3 requires confirming it on patents.google.com first and §4.2 "
+    "requires the credit line 'US patent NNN,NNN (year), Nikola Tesla.' Treat a patent "
+    "plate as optional and verify it independently, and remember §6.6's limit of one "
+    "patent plate per two 1894 engravings.",
 ]
 
 # Links (§5.2 row 08, §9 brief 08's closing beat) for feature-006/t1 and a08-wirecommit.
@@ -1300,8 +2653,15 @@ LINK_NOTES = [
     "beat names the same two money pages plus 10, and the bridge is the pyromagnetic "
     "generator (printed pp. 424-431, batch 2): the only 'magnetic generator' in the "
     "1894 volume is a heat-driven one, which is the sharpest sentence this article can "
-    "write about this site's own product vocabulary. Check both files exist in website/ "
-    "at draft time before linking them.",
+    "write about this site's own product vocabulary. Both files exist in website/ as "
+    "of 2026-10-17 (magnet-motor.html and perpetual-motion-generator.html both "
+    "present), which is what that check asked for; re-check at draft time.",
+    "THE FOURTH OUT-LINK IS IN CH. XL, NOT IN §5.2. qa_page.py needs >= 4 internal "
+    "links and §5.2 row 08 names only three, one of which (article 10) is not rendered "
+    "when 08 is written. The flag ENTRY 8'S 'ROTARY FIELD' SENTENCE IS THE FOURTH LINK "
+    "THIS ARTICLE CAN ACTUALLY MAKE TODAY gives the one the book itself supplies, to "
+    "rotating-magnetic-field-1888.html (article 07, rendered), with its page and its "
+    "limits. Read that flag before inventing a fourth link.",
     "ARTICLE 10 DOES NOT EXIST YET. index.json rows are hub, 01-07, 09, 11: 08 comes "
     "before 10 in the §sprint order (07, 01, 02, 04, 05, 06, 08, 10, 12), so at "
     "feature-006/t1 time tesla-free-energy-what-he-said.html is not rendered and cannot "
@@ -1324,11 +2684,18 @@ LINK_NOTES = [
     "either cites the 1894 page or is cut.",
     "THE HUB CARD FOR 08 IS FEATURE-012'S JOB, AND THIS PIN IS THE RECORD OF WHAT IT "
     "MUST NOT SAY. §9 brief 08's title is '9 Tesla Inventions From 1894 That Never "
-    "Caught On'. The volume never says any of these nine never caught on, and entry 2 "
-    "did catch on (rejected #11). The hub card and the article's own standfirst should "
-    "say what is supportable: these are nine devices the 1894 volume describes, in the "
-    "editor's own inventory at printed p. 6, with the book's own verdict where the book "
-    "gives one (printed p. 423 for electrolytic meters).",
+    "Caught On'. The volume never says any of these nine never caught on. Entry 2 "
+    "caught on (rejected #11); entry 9's machines were built and 'worked "
+    "satisfactorily' until the work was suspended for want of time (printed p. 474, "
+    "pinned); entry 8's was 'confided to a company formed for its exploitation' and "
+    "'commanded notice by its ingenuity' in a crowded market (printed p. 451, pinned), "
+    "which is not a failure; and 'failure' is 2 hits in printed pp. 448-474, both of "
+    "them a lamp's feed (pp. 459, 464). The hub card and the article's own standfirst "
+    "should say what is supportable: these are nine devices the 1894 volume describes, "
+    "in the editor's own inventory at printed p. 6, with the book's own verdict where "
+    "the book gives one (printed p. 423 for electrolytic meters, printed p. 465 for the "
+    "unipolar class, printed p. 451 for the arc lighting system). See the flag ENTRY 9 "
+    "IS THE ONE ENTRY THE VOLUME EXPLAINS, AND ENTRY 8 IS THE ONE IT NARRATES.",
 ]
 
 
@@ -1428,7 +2795,8 @@ def main():
         "# Article 08 quote pin: tesla-weird-inventions-1894.html",
         "",
         "SERIES-PLAN-1894.md §8 step 2. Every quote below was re-grepped on "
-        f"{PIN_DATE} (batch 1) or {BATCH2_DATE} (batch 2) from "
+        f"{PIN_DATE} (batch 1), {BATCH2_DATE} (batch 2) or {BATCH3_DATE} "
+        "(batch 3) from "
         f"`books/extracted/tesla-1894-plain.txt` through the same "
         "matcher `books/tools/check_quotes.py` uses (exact, or verbatim once OCR "
         "spacing is ignored) and is pinned to the printed page it was found on "
@@ -1446,11 +2814,15 @@ def main():
         "",
         "Source: Martin (ed.), *The Inventions, Researches and Writings of Nikola "
         "Tesla*, D. Van Nostrand, 1894, archive.org item `inventionsresear00martiala`. "
-        "Entries 1-6 all sit in Part III, 'MISCELLANEOUS INVENTIONS AND WRITINGS', "
-        "and none of that Part III prose is Tesla's own writing: these chapters "
-        "describe his devices about him in the third person. The one exception in this "
-        "pin is the printed p. 390 quote, which is from Part II and is the author's "
-        "own voice. The chapters, in the order the volume prints them:",
+        "All nine entries sit in Part III, 'MISCELLANEOUS INVENTIONS AND WRITINGS'. "
+        "Chs. XXXIII-XXXVIII are the compiler's prose about Tesla in the third person, "
+        "not his writing; ch. XLI is the exception, because from printed p. 467 it is a "
+        "reprinted article by Tesla which the compiler appends to its own chapter, and "
+        "the volume prints the hand-over sentence and the date of that article on "
+        "printed p. 467. One further quote in this pin, at printed p. 390, is from "
+        "Part II and is the author's own voice. Read the flag PART III IS NOT ALL THE "
+        "COMPILER'S PROSE before writing entry 9. The chapters, in the order the "
+        "volume prints them:",
         "",
         *[f"- {c}" for c in CHAPTERS],
         "",
@@ -1467,13 +2839,28 @@ def main():
         "",
         BATCH2_CORRECTED,
         "",
+        BATCH3,
+        "",
+        BATCH3_CORRECTED,
+        "",
+        BATCH3_VERIFIED,
+        "",
         "Do not run `check_quotes.py` on this file as a gate. It is built for a "
         "draft (`article.md`), and here its scanner reads the apostrophes in the "
         "'- why:' annotations and the struck-through Rejected items as quotation "
-        "marks, so it reports 107 problems on this file when run on 2026-10-16 - 84 "
-        "'not verbatim' (the annotations and struck-through rows) and 23 'not cited' "
-        "(the raw OCR windows, which carry no citation because the 'cited as:' line is "
-        "what the draft will print). None of them is a quote failing. The gate "
+        "marks, so it reports 193 problems on this file when run on 2026-10-17 (329 "
+        "'fragments' scanned, 136 verbatim and page-cited) - 161 'not verbatim' (the "
+        "annotations and struck-through rows), 31 'not cited' (the raw OCR windows, "
+        "which carry no citation because the 'cited as:' line is what the draft will "
+        "print) and 1 'WRONG PAGE'. Batch 2 recorded 107 of these on 2026-10-16; the "
+        "number grew because the file grew, and the count is quoted here with its run "
+        "date and its method because a bare number invites the draft to copy it. The "
+        "'WRONG PAGE' one is new and worth naming: the scanner takes the raw OCR "
+        "window under the p. 462 'compound magnet' entry, which opens with text from "
+        "printed p. 462, and pairs it with the nearest preceding citation, p. 463. It "
+        "is the window being read as a quotation, not a quote sitting on the wrong "
+        "page - gen_quotes.py verified that quote on p. 462. None of the 193 is a "
+        "quote failing. The gate "
         "for a pin file is `gen_quotes.py` itself: it imports the same matcher "
         "(`check_quotes.fragments` + `check_quotes.locate` over the index "
         "`check_quotes` builds) and refuses to write anything if a quote does not "
