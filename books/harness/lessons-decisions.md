@@ -571,3 +571,64 @@ compiler's third-person prose. Entry 1 was written without that sentence to stay
 and the draft's front matter names the intro (feature-006/a08-draft3) as the place it goes and
 lists the quotes that prove it. A deferral is only safe when it is written down; an unwritten one
 is indistinguishable from a forgotten one.
+
+## 2026-10-17 — feature-006/a08-draft2 (article 08 draft batch 2): the quote tool can fail a sentence whose quote is right
+
+Entries 4 to 6 are in `new_content/1894-series/08-tesla-weird-inventions-1894/article.md`, written
+from the register's batch-2 rows (chs. XXXVI, XXXVII, XXXVIII, printed pp. 424-447). All three
+passed `check_quotes.py` and `titlecase_headings.py` on the first run; the things worth recording
+are the three places where a tool or a count disagreed with what the draft had written.
+
+- **A short quoted run in front of a long one breaks the long one.** Entry 6 first read
+  `he writes of himself as "the writer": "as far as records go, ..."`. `check_quotes.py` pairs
+  double quotes in order, so the 10-character `the writer` fell under its 12-character fragment
+  floor, consumed one quote mark, and then paired the *closing* mark of that phrase with the closing
+  mark of the p. 390 quote. The fragment it tested therefore began with a quotation mark, scored
+  0.995, and FAILED - on a sentence that greps at ratio 1.0 through the CLI
+  (`grep_quote.py 'as far as records go, he seems to have been the first who has successfully
+  regulated machines' --page 390-390`, and the full sentence, both 1.0). Two rules came out of it.
+  First: when the tool fails a quote, run the same string through `grep_quote.py` before touching
+  the source; a FAIL can be a pairing artifact, and `check_quotes.py`'s own docstring warns against
+  rewriting a source to satisfy it. Second: when the source is right and the pairing is the problem,
+  the fix is our punctuation, not the print's - a short quoted term in front of a long quote has to
+  use single quotes, or none. The register's rule that a quote cut by ` ... ` must be cut over a
+  corrupt scan and not over a real word also got a working example: the p. 390 cut skips over the
+  mechanism the entry has just paraphrased, which is the shape the rule means.
+- **A substring count is not a word count, and the register said so before I found it.** The
+  register's flag WORD COUNTS ARE SUBSTRING COUNTS, SO AN ABSENCE SENTENCE HAS TO RE-RUN ITS OWN
+  COUNT AT DRAFT TIME predicted the failure on the first re-run
+  (`books/tmp/f06a08d2/counts_rerun.out`): `output` and `trial` are not 0 in printed pp. 424-431 -
+  one each, both at p. 429, `meaning larger output` about a design and `earlier trials` about
+  somebody else's work - so entry 4 says *neither machine is reported built, run or measured, and no
+  efficiency figure appears in the chapter*, which is a claim about what the chapter reports and not
+  about which words occur in it; and `test` is 1 in pp. 432-437 only because `greatest` contains it. Absence
+  sentences are ours, never the 1894's (Rejected #21 and #22), and their scope has to be the scope
+  the count actually covered.
+- **A cheap scan is worth running before a "no other" sentence.** Entry 6 says the 1885 date is the
+  only year in the six chapters entries 1 to 6 come from. That was measured, not recalled: split the
+  extracted text on its page markers, take scan files 427-465 (printed pp. 409-447), list every
+  four-digit year (`books/tmp/f06a08d2/years_scan.out`) - exactly one, 1885, at printed p. 438.
+  Three lines of Python turn a sentence that would otherwise be a hunch into one with a method.
+- **The brief's hooks are leads; the register's flags are what makes them safe to use.** The §9
+  brief 08 hooks for entries 4 and 5 were both wrong in ways the register had already written down:
+  "400 to 500 times a minute" is the compiler's footnote about a horseshoe-magnet bench experiment,
+  not a machine's speed, and the same footnote says the chapter's own devices vibrate "very slow";
+  and "the problem every DC motor had" describes a commutator fault that the print places in
+  high-EMF direct-current dynamos used for arc lighting. Both hooks are now in the article, in the
+  form the print supports, because the flag told the draft which form that was.
+- **A cross-chapter quote drags the front matter with it.** Entry 6's priority claim is at printed
+  p. 390, in ch. XXIX - the author's own chapter, writing about himself in the third person, with
+  both of his own hedges ("as far as records go", "seems") inside the marks. That made p. 390 a
+  page the page cites, so `pages_used` and the `sources:` block had to grow to cover a Part II
+  chapter, and the sources row says plainly that it is not Part III. Article 11 (feature-007) is
+  built on the same chapter and says nothing about that voice, so the two pages do not contradict
+  each other today; the front matter records that if either page ever describes the voice, both have
+  to be checked together. A quote borrowed across an article boundary is fine; the metadata boundary
+  has to move with it, or the Sources block stops describing the page it sits on.
+
+Deferred, written where the next task will read it: entry 4's 600 degrees centigrade stays out until
+a modern source is carried beside it (the register's flag THE BOOK'S 600° IS NOT THE CURIE POINT);
+entry 5's devices get no year, because the chapter prints none and §6.3 needs a patent record; and
+the six entries now run 148-156 words against the brief's "roughly 130", which is the same length
+flag article 06 carries into VERIFY. `check_quotes.py` reports 26 fragments, 26 verbatim, 0 problems
+for the whole draft (`books/tmp/f06a08d2/cq_final.out`, exit 0) - batch 1's 13 plus this batch's 14.
