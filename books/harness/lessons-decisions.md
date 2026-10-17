@@ -634,3 +634,65 @@ flag article 06 carries into VERIFY. `check_quotes.py` reports 27 fragments, 27 
 for the whole draft (`books/tmp/f06a08d2/cq_final.out`, exit 0) - batch 1's 13 plus this batch's 14,
 which is the arithmetic the sentence above it gives; the 26 first written here was a miscount of the
 same output, and it is corrected rather than left as an example of the thing this lesson warns about.
+
+## 2026-10-17 — feature-006/a08-draft3 (article 08 draft batch 3): a nine-entry listicle does not fit the H2 gate
+
+Entries 7 to 9, the Part III provenance paragraph and the closing beat are in
+`new_content/1894-series/08-tesla-weird-inventions-1894/article.md`, written from the register's
+batch-3 rows (chs. XXXIX, XL, XLI, printed pp. 448-474). `check_quotes.py` reports 45 fragments, 45
+verbatim and page-cited, 0 problems for the whole draft (`books/tmp/f06a08d3/cq_final.out`, exit 0):
+batch 1's 13, batch 2's 14, this batch's 18. The finding worth carrying to the next listicle is a
+structural one, and it only showed up because the draft was rendered before it was handed on.
+
+- **Nine entries cannot be nine H2s.** §9 brief 08 asks for nine entries; §12 asks for `H2 count
+  5-9`; `qa_page.py` counts `<h2>` in the whole rendered page (line 177) and the donor shell
+  contributes none, so the draft's own headings are the entire count - and `make_article.py` adds
+  one more for the Sources block. Eleven draft H2s rendered as twelve and failed. Nine entry H2s
+  cannot fit whatever the intro and closer do, so the brief and the gate cannot both be honoured by
+  nine H2s, and the gate is the referee. The fix is grouping, not cutting: three H2s that are the
+  volume's own chapter blocks (chs. XXXIII-XXXV, XXXVI-XXXVIII, XXXIX-XLI), nine numbered H3 entries
+  under them, intro and closer as H2 - six H2s rendered, inside the band, with all nine entries and
+  their order intact. Article 09 is the precedent: its brief lists nine structure items and it
+  shipped with six H2s and four H3s. The grouping follows the book's chapter blocks so it is the
+  book's structure, not an invention, and the intro says so in one sentence rather than leaving a
+  reader to infer why the headings change level. Lesson: render the draft before handing it to the
+  render task. `make_article.py --out books/tmp/...` (the `--out` basename has to match the front
+  matter slug) plus `qa_page.py` on the output costs two minutes and found a failure that would
+  otherwise have arrived as a t3 rework.
+- **A numbered heading must not open with an article.** `titlecase_headings.py` treats `7.` as
+  punctuation around a numeral token, so the word after it is not in first position: it wanted
+  `7. a Dynamo Frame Cast in Two Identical Halves` and `9. the Disc That Makes Direct Current
+  Without a Commutator`. Rather than ship headings that read wrong and let the tool lowercase an
+  article on the page, the two headings were reworded in the draft to say the same thing without an
+  opening article (`7. One Frame Pattern, Cast in Two Identical Halves`, `9. Discs That Make Direct
+  Current Without a Commutator`). CONSTRAINTS.md already says the rule bites in the draft, not the
+  page - `make_article.py` renders from it - and `titlecase_headings.py --check` on the rendered
+  smoke page now reports 0, which is what feature-006/a08-titlecase has to confirm.
+- **A scope sentence has to name the whole set.** The intro's voice disclosure first read "six of the
+  nine chapters, printed pp. 409 to 447, are the editor writing about his subject in the third
+  person". That is true of the six it named and misleading about the other three: the register's own
+  chapter list calls ch. XXXIX "the compiler's prose again" and ch. XL "the compiler's prose", and
+  only ch. XLI changes voice, partway down printed p. 467. Entries 7 and 8 are third-person prose
+  about Tesla too, so an intro about whose words these are had to say eight, not six. Same shape as
+  batch 3's correction to the pin: the quotes were right, the scope was wrong.
+- **A source URL can fail a gate it was never meant for.** §12's "no book-PDF link" is implemented
+  as a substring test for `.pdf` anywhere in the page, and the ABB Review citation batch 1 added for
+  entry 2 ends in `.pdf`. The page fails D4 on a journal PDF that is not the book. That is an owner
+  call - drop the URL, or find a non-`.pdf` location for the same article - so it is recorded in the
+  front matter with both options and not fixed by quietly deleting a citation.
+- **A count belongs to its method.** The per-entry counts are unchanged by the H2/H3 change (150,
+  149, 148, 156, 153, 156, 173, 180, 176), but the script that produced them split on `##` and had
+  to split on `##` and `###`. The new script reproduces batch 1's and batch 2's numbers unchanged,
+  and that reproduction is the check that the new method measures the same thing
+  (`books/tmp/f06a08d3/len_check.py`, output at `len_check.out`). The body now measures 2,034 words
+  against the brief's 1,500 - the same length flag article 06 carries into VERIFY, larger by the
+  provenance paragraph and the closing beat, which are not in the brief's per-entry budget and are
+  where the register's voice disclosure and §9's closing beat live.
+
+Deferred, written where the next task will read it: the CTA sentence is front matter and this file
+has no `cta:` key, so `{{CTA}}` renders an empty alert box and no plan task owns it (`qa_page.py`
+does not look for a CTA, so t3 will not catch it); §9 brief 08 asks for no FAQ, as brief 09's did,
+so `faq: []` is the brief as written; the reciprocal-links gate fails because nothing links to this
+page yet, which is feature-006/a08-wirecommit's in-link work; and the ABB `.pdf` URL above. The
+smoke render reports 26 of 28 gates with only those two failures
+(`books/tmp/f06a08d3/tesla-weird-inventions-1894.html`, `books/tmp/f06a08d3/qa_smoke.out`).
