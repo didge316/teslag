@@ -925,3 +925,50 @@ CTA block and the wrong figure alt (both `feature-006/a08-cta`, re-checked here:
 still renders an empty paragraph, the draft still has no `cta:` key, "three dark vertical
 strips" still appears once), the nav-dropdown overflow on all 39 pages, and
 `shot_qa.py`'s `-mobile-fold.png` not being the first screen. No push in either repo.
+
+## 2026-10-17 — feature-006/a08-titlecase: a page-level check does not prove the draft is clean
+
+This row was already met before it was picked up — `feature-006/a08-wirecommit` measured that
+and said so without closing it. It was re-measured, not redone, and nothing on the page or in
+the draft body changed: `titlecase_headings.py --check` reports 0 headings on
+`website/tesla-weird-inventions-1894.html`, exit 0, and the same on a fresh render of the
+current draft bytes. All three commands and their exit codes are at
+`books/tmp/f06a08tc/titlecase_check_final.out`. Three things outlive the row.
+
+- **A rendered page can pass a heading gate while the artifact that generates it still fails
+  it, and the tool cannot even see the artifact.** `titlecase_headings.py` matches `<h2>` and
+  `<h3>` tags; a markdown draft has `##`/`###` lines, so pointing the tool at `article.md`
+  scans nothing and reports success. The only honest draft check imports the tool's own
+  `titlecase()` (one rule, no second implementation to drift) and applies it to the draft's
+  heading lines — `books/tmp/f06a08tc/draft_titlecase_check.py`, which also compares the
+  draft's heading strings to the page's h2/h3 text so the two records are shown to be the
+  same list, and `cmp`s a fresh render against the committed page to show the page is what the
+  current tool makes from those bytes today. Article 08: 14 draft headings, 14 title case,
+  page = those 14 plus the `Sources` H2 `sources_block()` adds. Lesson: **check the rule at
+  the place the generator reads from**, and if the tool cannot read that place, say what you
+  actually ran.
+- **The open item `feature-001/heading-case-gate` left on 2026-10-16 is still open, and it now
+  has a count.** That entry closed with "the retrofit stopped at the rendered pages: the ten
+  drafts were not retitled", and nothing has touched them since. The same `titlecase()` over
+  every draft in `new_content/1894-series/` returns 11 drafts, 87 h2/h3 lines, **72 not title
+  case** (`books/tmp/f06a08tc/other_drafts_titlecase_scan.out`) — the same 72 that lesson
+  counted, unchanged. Article 08 is the only clean draft in the series, because its batches
+  wrote to the rule from the start. Every other series page was retitled on the rendered page
+  only, so any re-render puts sentence case back and fails `qa_page.py`'s heading-case gate on
+  a page that passed last week. Named, not fixed: it belongs to `feature-009/t2` (whose §5.2
+  out-link work re-renders 02 and 04, 7 lines each) and `feature-012/t1` (the hub draft, 8 of
+  its 9 lines); the other 50 lines sit in drafts no row re-renders today. Fixing it is one
+  command per draft — `titlecase_headings.py` cannot do it, because of the tag problem above,
+  so whoever owns it needs the draft-level pass written once. Lesson: **an open item with no
+  row is a number waiting to be re-measured**, and the second measurement is what turns it
+  into a finding nobody can call stale.
+- **A conditional acceptance criterion still needs a measurement, not a shrug.** "every FAQPage
+  `mainEntity` name matches its visible h3 exactly" is vacuously true on this page: `faq: []`
+  in front matter, 0 `FAQPage` blocks in the page, 0 names, 0 findings — which is what §9 brief
+  08 asks for (§7 emits `FAQPage` only "when `faq` present", and article 09 shipped the same
+  way). Recorded with the count rather than as "n/a", because a criterion written as a
+  universal is indistinguishable from an unmet one until something counts the set. The h1 half
+  was measured the same way: h1 and its `title`/`og:title`/`twitter:title` mirrors are four
+  identical strings, and this task changed none of them — the register edit is front-matter
+  comment only, and the re-render after it is byte-identical, which is the proof that claim
+  carries rather than asserts.
