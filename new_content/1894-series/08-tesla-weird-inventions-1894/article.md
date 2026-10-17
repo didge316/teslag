@@ -512,6 +512,44 @@ sources:
 #      '9. The Disc That Makes...' -> '9. Discs That Make Direct Current Without a Commutator'. Both
 #      say what the entry says. 'In' in the closing H2 and 'The' in the intro H2 follow the tool's
 #      rule for short prepositions and mid-heading articles.
+# 16b. CONFIRMED AT feature-006/a08-titlecase (2026-10-17), and not one byte of this draft or of the
+#      page was changed to confirm it. Three measurements, all exit 0:
+#        python3 books/tools/titlecase_headings.py --check website/tesla-weird-inventions-1894.html
+#          -> '1 page(s) scanned, 0 heading(s) not title case', exit 0. That is the same code
+#          qa_page.py's heading-case gate calls, so the gate and this number cannot disagree.
+#        the draft re-rendered as it stands (make_article.py, feature-006/a08-wirecommit's command
+#          without --wire) to books/tmp/f06a08tc/tesla-weird-inventions-1894.html: 45,641 bytes, cmp
+#          clean against the committed page, and --check on that fresh render reports 0 as well. That
+#          cmp is what makes the page check a check of the draft: the page is what the current tool
+#          makes from these bytes today, so the case cannot be living only in the committed file. The
+#          render was re-run after this block was written and cmp is still clean at 45,641 bytes
+#          (books/tmp/f06a08tc/render_after_register_edit.out), which is the proof that a front-matter
+#          comment moves no rendered byte and that the numbers above describe the bytes this file now
+#          holds. All three commands and their exit codes are kept at books/tmp/f06a08tc/
+#          titlecase_check_final.out. Two more were re-run on these same bytes because a register
+#          edit is still an edit: qa_page.py on the page, 29/29 exit 0 with 'h2/h3 and FAQ names are
+#          title case' ok, and check_quotes.py on the draft, 45 fragments, 45 verbatim and
+#          page-cited, 0 problems, exit 0 - unchanged from the batch-3 count, because check_quotes
+#          strips the front matter before it scans and this block is front matter.
+#        books/tmp/f06a08tc/draft_titlecase_check.py (output draft_titlecase_check.out, exit 0,
+#          0 findings) applies the tool's own titlecase() to this draft's heading lines, because the
+#          tool reads <h2>/<h3> tags and cannot be pointed at a markdown draft at all. Result: 14
+#          draft headings (5 H2, 9 H3), 14 already title case; the page's 15 h2/h3 strings are those
+#          14 verbatim plus the Sources H2 sources_block() adds, so the two records are the same
+#          list; 0 FAQPage blocks, so 0 mainEntity names to keep in step (front matter faq: [],
+#          which is what §9 brief 08 asks for - §7 emits FAQPage only 'when faq present'); h1 and
+#          its title/og:title/twitter:title mirrors all four identical and untouched.
+#      WHAT THAT ROW MEASURED BEYOND ITS OWN PAGE, named and not fixed here. The open item
+#      feature-001/heading-case-gate left on 2026-10-16 ('the retrofit stopped at the rendered
+#      pages') is still open, and it now has a count: books/tmp/f06a08tc/other_drafts_titlecase_
+#      scan.out runs that same titlecase() over every draft in new_content/1894-series/ and returns
+#      11 drafts, 87 h2/h3 lines, 72 not title case. Article 08 is the only clean draft in the
+#      series. Every other series page was retitled on its rendered page only, so re-rendering any
+#      of those drafts puts sentence case back and fails the heading-case gate on a page that passed
+#      last week. It belongs to feature-009/t2, whose §5.2 out-link work touches the series pages -
+#      the 2026-10-16 lesson records that it re-renders 02 and 04, 7 lines each - and to
+#      feature-012/t1 for the hub draft (8 of its 9 lines); the other 50 lines sit in drafts no row
+#      re-renders today. One command per draft fixes it, and no page needs a hand edit.
 # LENGTH. §9 brief 08 asks for nine entries of roughly 130 words in a 1,500-word listicle. All nine
 # are counted with the command below, because a count without its method is the failure this
 # register has already been corrected for twice. The method changed with decision 15: it now splits
