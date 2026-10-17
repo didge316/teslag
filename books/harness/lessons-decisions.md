@@ -840,3 +840,88 @@ not the page's link count — it subtracts every href the donor shell carries, a
 page's three body out-links are also in that shell's sidebar. And the render is reproducible:
 re-run to `books/tmp/f06t3/` and `cmp` says byte-identical to the committed page, which is the
 check to run after editing front matter, since a front-matter comment is still front matter.
+
+## 2026-10-17 — feature-006/a08-wirecommit (article 08 wiring and final commit): a wiring task is mostly a decision about where the page sits
+
+The four artifacts this task names are small. The two decisions under them are not, and
+neither was in the task text.
+
+- **The publish date, settled by measuring the invariant rather than by picking a date.**
+  `a08-figrec` wrote that the draft's `date_published: 2026-10-17` would make "the card
+  grid read out of order" and left it here. Before choosing, the order was read off the
+  nine rendered pages: 03 10-14, 09 10-16, 11 10-17, 07 10-18, 01 10-19, 02 10-20,
+  04 10-21, 05 10-22, 06 10-23, and `articles.html` in exactly that order. So the grid
+  has two properties, not one: dates ascend, **and** card order is wiring order. Keeping
+  10-17 and inserting the card between the 11 and 07 cards satisfies the first (it is
+  also inside §11's "never more than 2 in a day"), and breaks the second. Taking the
+  next date, 10-24, satisfies both, and this page is the tenth wired, so the arithmetic
+  picks it. Lesson: **when a record says "X would read out of order", go and measure
+  what order it is actually in.** A vague worry about ordering becomes a decision the
+  moment the invariant is written down; without it, both options look defensible and the
+  task just passes the problem on again.
+- **A front-matter change at a wiring task is only safe because the render was proved
+  reproducible first.** Before editing anything, `make_article.py` was run on the draft
+  exactly as `feature-006/t3` left it, into `books/tmp/f06wire/`, and `cmp` came out
+  clean against the committed page at 45,641 B. That is what let a date be changed here
+  rather than re-opening `feature-006/t3`. After the edit the diff is five lines (two
+  `article:*_time` metas, two JSON-LD date fields, one visible date line) and the byte
+  count is unchanged, which is the proof that no layout moved and that the t4 visual
+  record still describes the page. Lesson: **a text-only change can be proven, not
+  assumed, not to invalidate a visual record: diff it and compare byte counts.** Re-run
+  the expensive gate when the diff says the pixels can move; do not re-run it, and do
+  not ignore it, when the diff says they cannot.
+- **The `_redirects` pair is the first rule this series has ever needed, and the order of
+  writing it matters.** Articles 01 to 06 set `pretty_slug` to their own file name, so
+  `redirect_rules()` returns `[]` and there is nothing to write; that is why eight dead
+  rules were deleted once and never re-added. Here the alias differs from the file name,
+  which is the only condition on which a rule fires. The pair was written by hand, with
+  the section comment rewritten to name the two rows of the §5.1 table that need a rule,
+  **before** `--wire` ran, so `wire_updates()` reported "already present" for both
+  instead of appending them under the removed-pages block. Then the whole file was
+  checked mechanically: 56 rules, 0 duplicate sources, 0 rules whose source is an
+  existing page. Lesson: **a config file's correctness is a measurement, not a claim**,
+  and hand-editing before the tool runs is how you keep the tool's idempotence check
+  doing your placement work for you.
+- **A workaround applied four times is a defect with no row.** `--wire` wrote the
+  `llms.txt` entry cut at 150 characters, as it has on every page since `feature-004/t4`
+  named it, and the line was rewritten by hand for the fourth time (01 to 06 and now 08);
+  07, 09 and 11 still ship truncated lines. Lesson: **counting how often a workaround is
+  applied is how you decide it is a tool task**, and saying "still unfixed" in three
+  entries is not filing it. It is named in `blocked_on` with the count, because no row
+  owns it and this task is not the place to change the tool.
+- **Before patching a gap, check whether it is local or graph-wide.** This page has no
+  body in-link, which is what §5.2 says it needs. Measured across every series page that
+  exists: `tesla-wireless-power-1893.html` and `tesla-cold-flame.html` have zero too, and
+  several want in-links from pages that have never been written. Placing the 03 to 08
+  link here would have meant re-opening `feature-003`'s draft, re-rendering a page whose
+  visual record describes it, and re-running its gates, to fix one edge of a graph-wide
+  gap on my own initiative. It is recorded with the numbers and named to `feature-009`,
+  whose own description is the in-link requirement. Lesson: **the measurement is what
+  turns "not my scope" from an excuse into a finding.** An unowned gap that is graph-wide
+  belongs to the row that owns the graph; a gap that is only yours is yours to fix.
+- **A pending row can already be met, and that is worth saying without closing it.**
+  `feature-006/a08-titlecase` is still open. `titlecase_headings.py --check` on the draft
+  reports 0 headings not title case, exit 0, and the rendered page passes
+  `qa_page.py`'s heading-case gate. It is recorded in `blocked_on` with the command, and
+  not marked complete, because it is not this task's row. Lesson: **measure a pending
+  row's criterion before anyone does its work**, and leave the closing to the row that
+  owns it.
+- **The card grid's order is checkable, so "the card is in the right place" is not an
+  opinion.** `books/tmp/f06wire/card_order.py` lists all 31 cards on `articles.html` in
+  DOM order with their date lines at 1280 and 375: the ten series cards read October 14
+  through 24 ascending, this card is index 9 of 31, immediately after `tesla-cold-flame`
+  and immediately before the first legacy card. `card_shot.py` measured the card itself
+  (no clipping, no horizontal overflow, equal columns) and both crops were read, plus the
+  row crop, which is where the grid actually shows. Lesson: **a layout claim about an
+  index page should come with the DOM order and the two widths**, the same way a figure
+  claim comes with a crop.
+
+Re-measured rather than carried: `qa_page.py` on the new bytes, 29/29 exit 0;
+`--all-series` 10 of 11, exit 1, the 11th MISSING the unwritten hub, and the other nine
+pages unchanged at their own counts, which is the check `feature-006/t3`'s lesson says to
+re-run whenever a page moves into a gate that reads the site graph. Carried forward
+unchanged and still not this task's: the length overrun, the missing OG image, the empty
+CTA block and the wrong figure alt (both `feature-006/a08-cta`, re-checked here: line 226
+still renders an empty paragraph, the draft still has no `cta:` key, "three dark vertical
+strips" still appears once), the nav-dropdown overflow on all 39 pages, and
+`shot_qa.py`'s `-mobile-fold.png` not being the first screen. No push in either repo.
