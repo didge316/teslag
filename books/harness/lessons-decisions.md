@@ -485,3 +485,41 @@ the generator writes from, or the check has to run after every render. Lesson: w
 says "the rule as implemented", read the implementation — the brief described an exemption the
 code did not have, and the description of a rule and the code that applies it drift exactly the
 way a page copy and its register do.
+
+## 2026-10-16 — feature-006/a08-qp2: a count without its method is a claim the draft will copy wrong
+
+Article 08's quote pin, batch 2 (entries 4-6, printed pp. 424-447) was already written to the
+working tree when this task picked it up: 35 quotes, 38 fragments, 17 printed pages, and
+`gen_quotes.py` exited 0 on a byte-identical re-run. What it was not was checked. Four claims
+in its prose did not survive a re-check against the tools, and all four were about numbers:
+
+1. **"'Curie' is 0 hits in the whole volume."** It is 0 *exact* hits. `grep_quote.py --count`
+   returns 4, every one a fuzzy match on the words 'cured' and 'curved' (printed pp. 69, 453).
+   The substance was right — the volume never names the effect — and the number was wrong,
+   because `--count` is substring matching with a fuzzy fallback and nobody had read the page
+   list. A pin's counts are the numbers the draft is allowed to print, so a count stated
+   without its method is a claim that will be copied into a public page.
+2. **"the fifth 'magnetic gener' hit is the ch. XXXVI heading mis-OCRd as 'PYRO-MAGNETIC
+   RATORS'".** The heading on scan file 442 is complete; it is the *contents-page* line at scan
+   file 17 that the OCR truncates. The heading is missing from the tool's default count only
+   because `load_pages()` strips page-opening display type as furniture — `--keep-furniture`
+   returns 5 hits and names printed p. 424, which is exactly what Appendix D reports. Appendix D
+   was right and the tool's default index was not. Lesson for anyone citing a count as a
+   rebuttal to the plan: check which index the tool used before calling the plan wrong.
+3. **"a quote beginning at 'a pyromagnetic generator of electricity' does not verify"** — it
+   verifies exactly, through the pin's own matcher, because the footnote digit the print hangs
+   on 'electricity' does not break a substring match. A guessed failure is as bad as a guessed
+   quote: it silently removes material the article could have used.
+4. **Six notes pointed at Rejected rows and flags that had not been written** ("see Rejected",
+   "see the flag"). In a hand-written file that is a TODO; in a generated file it is a
+   contradiction, because the file claims to be complete. The rows and flags are written now
+   (#17-#22 and six batch-2 flags), and the header's own claim about `check_quotes.py` on a pin
+   file was measured rather than remembered (107 problems on this file, 84 of them the scanner
+   reading apostrophes in the annotations as quote marks).
+
+The correction is recorded inside the generator (`BATCH2_CORRECTED`), not bolted onto the
+rendered file, so the next batch inherits it and the pin still regenerates byte for byte.
+`gen_quotes.py` remains the gate for a pin; `check_quotes.py` is not, and the file now says why
+with numbers. Lesson: when a task arrives with the work already done in the tree, the work is
+the re-check — re-grep a sample through the independent CLI, re-run every count the file prints,
+and follow every internal reference the file makes to itself.
