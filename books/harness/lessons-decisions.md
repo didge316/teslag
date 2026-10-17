@@ -523,3 +523,51 @@ rendered file, so the next batch inherits it and the pin still regenerates byte 
 with numbers. Lesson: when a task arrives with the work already done in the tree, the work is
 the re-check — re-grep a sample through the independent CLI, re-run every count the file prints,
 and follow every internal reference the file makes to itself.
+
+## 2026-10-17 — feature-006/t1 (article 08 draft batch 1): a word count and a page cite pull in opposite directions
+
+`new_content/1894-series/08-tesla-weird-inventions-1894/article.md` now exists: entries 1-3, front
+matter with the two modern sources the register demands, and 17 quote fragments taken only from
+`quotes.md`. `check_quotes.py` on the draft: 17 fragments, 17 verbatim and page-cited, 0 problems
+(one through the space-ignoring index, the glued 'isvaried' the register already annotates). Three
+findings that outlive the three entries.
+
+1. **`titlecase_headings.py` lowercases an article in the second position, so a numbered heading
+   that opens with one fails the gate the series just built.** The number is the first token, so
+   "The" in `3. The Electrolytic Registering Meter` is a middle word, and a middle-word article
+   goes lowercase: `titlecase()` returns `3. the Electrolytic Registering Meter`. Verified against
+   the tool, not from its docstring. The fix is to write numbered headings without a leading
+   article — `3. Electrolytic Registering Meter`, which is also the book's own chapter name — and
+   to check every heading against `titlecase_headings.py` **while drafting**, which is what
+   feature-006/a08-titlecase exists to stop needing. Applies to the six remaining entries of this
+   page and to any numbered heading on any page in the series.
+2. **The brief's ~130 words per entry and the rule that every quoted run must be verbatim and
+   page-cited fight each other.** Three quotes, their three `(1894, p. N)` citations and the
+   connective prose come to roughly 145 words before a single word of argument. The entries landed
+   at 150/149/148, and the overage is not padding: entry 1's "why it lost" *is* the synchronism
+   sentence (printed p. 412), entry 2's honesty *is* the book's own hedge on its novelty (printed
+   p. 419), entry 3's *is* the reversal step and the editor's verdict (printed p. 423). Cutting to
+   130 means dropping a quote, and with it the page cite the entry exists to carry. So the choice
+   is written into the draft's frontmatter with the two pinned quotes that were left out, rather
+   than resolved silently by shipping a thinner draft — same shape as the article 06 length flag,
+   and `qa_page.py` has no word-count gate to catch any of it.
+3. **Two of the nine entries cannot be written from the 1894 text alone, and a modern source has
+   two rules attached.** Rejected #7 requires a modern source for any sentence putting entry 1 in a
+   history of rectifiers; the flag ENTRY 2 IS THE ENTRY THAT DID NOT LOSE requires one for the
+   claim that the principle won. Both were fetched (Blalock, *IEEE Power and Energy Magazine*,
+   Nov/Dec 2013; Jonsson and Johansson, *ABB Review* 3/2009) and each is listed in the front
+   matter beside the sentence it supports. Rule one: a modern source is paraphrased, never quoted —
+   `check_quotes.py` matches every double-quoted run in the body against the 1894 text, so a modern
+   quotation in quotation marks is a FAIL by construction, which is why article 06 paraphrases its
+   ASU and *Scientific Reports* sources too. Rule two: the modern claim is scoped to what the
+   source says. The ABB article supports oil-impregnated paper's share of the high-voltage bushing
+   market and the void-free reason for vacuum impregnation; it says nothing about a household
+   capacitor, so the draft makes no claim about one, and the brief's hook "the reason your
+   capacitor is not in air" stays out of the entry.
+
+One deferral, written down where the next batch will read it: the register's flag PART III IS NOT
+ALL THE COMPILER'S PROSE requires the page to say once and early that chs. XXXIII-XXXVIII are the
+compiler's third-person prose. Entry 1 was written without that sentence to stay near the length,
+and the draft's front matter names the intro (feature-006/a08-draft3) as the place it goes and
+lists the quotes that prove it. A deferral is only safe when it is written down; an unwritten one
+is indistinguishable from a forgotten one.
