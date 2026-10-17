@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "baseRevision": 32,
+  "baseRevision": 47,
   "goals": [
     {
       "id": "goal-001",
@@ -87,7 +87,7 @@
           "phase": "build",
           "criteria": [
             "new gate in books/tools/qa_page.py prints the offending href and fails the page",
-            "run on the 3 existing pages: exactly one dead link (09 -> rotating-magnetic-field-1888.html), no false positives"
+            "run on the 3 existing pages: exactly one dead link (09 -> rotating-magnetic-field-1893.html), no false positives"
           ]
         },
         {
@@ -105,6 +105,21 @@
             "--all-series runs the check over every page in new_content/1894-series/index.json",
             "books/tools/qa_page.py committed in the work repo"
           ]
+        },
+        {
+          "id": "heading-case-gate",
+          "description": "Make title-case headings the enforced default. Wire books/tools/titlecase_headings.py --check into qa_page.py as a gate (it already exits 1 on any h2/h3 or FAQPage schema name that is not title case), and record the rule in harness/docs/CONSTRAINTS.md so a drafting session sees it before writing, not after. The rule as implemented: capitalise every word of four letters or more plus all verbs and pronouns; leave lowercase only articles, coordinating conjunctions and prepositions of three letters or fewer, and never in first or last position; capitalise the first word after a colon or dash; title-case both elements of a hyphenated compound; leave quoted source terms ('massage', \"A tale of woe\") in their original case; leave <h1> alone because it is mirrored into <title>/og:title/twitter:title, which were tuned to the 60-char limit in Deploy 2.",
+          "status": "complete",
+          "dependsOn": [],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "acceptanceCriteria": [
+            "qa_page.py --all-series still exits 0 on the 9 pages now on the site, so the new gate does not break completed work",
+            "qa_page.py fails a page whose h2 or h3 is sentence case, proven against a deliberately broken fixture rather than asserted",
+            "FAQPage mainEntity question names are checked too, so schema cannot drift from the visible h3 text",
+            "harness/docs/CONSTRAINTS.md states the rule, including the h1 exemption and the quoted-source-term exemption"
+          ],
+          "key": "feature-001/heading-case-gate"
         }
       ],
       "description": "The plan flags twice that §12's 'no broken relative links' is not machine-checked. Close that gap before more pages exist.",
@@ -294,7 +309,8 @@
             "quotes.md written in Article 02's new_content/1894-series/ directory",
             "every quote verbatim from the 1894 text with its printed page number recorded",
             "no quote carried forward that cannot be re-grepped"
-          ]
+          ],
+          "phase": "build"
         },
         {
           "id": "t1",
@@ -374,7 +390,8 @@
             "quotes.md written in Article 04's new_content/1894-series/ directory",
             "every quote verbatim from the 1894 text with its printed page number recorded",
             "no quote carried forward that cannot be re-grepped"
-          ]
+          ],
+          "phase": "build"
         },
         {
           "id": "t5",
@@ -454,7 +471,7 @@
     {
       "id": "feature-005",
       "name": "Articles 05 + 06 - high-frequency massage and cold flame",
-      "passes": false,
+      "passes": true,
       "tasks": [
         {
           "id": "t0",
@@ -470,7 +487,8 @@
             "quotes.md written in Article 05's new_content/1894-series/ directory",
             "every quote verbatim from the 1894 text with its printed page number recorded",
             "no quote carried forward that cannot be re-grepped"
-          ]
+          ],
+          "phase": "build"
         },
         {
           "id": "t1",
@@ -541,7 +559,7 @@
           "id": "t9",
           "key": "feature-005/t9",
           "description": "Article 06 quote-pin: grep every intended quote, pin to printed page, write quotes.md",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-005/t4"
           ],
@@ -551,13 +569,14 @@
             "quotes.md written in Article 06's new_content/1894-series/ directory",
             "every quote verbatim from the 1894 text with its printed page number recorded",
             "no quote carried forward that cannot be re-grepped"
-          ]
+          ],
+          "phase": "build"
         },
         {
           "id": "t5",
           "key": "feature-005/t5",
           "description": "Article 06 draft: cold flame, written from quotes.md",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-005/t9"
           ],
@@ -570,10 +589,26 @@
           ]
         },
         {
+          "id": "a06-wipcommit",
+          "description": "WIP-commit the Article 06 draft and its figure evidence",
+          "status": "complete",
+          "dependsOn": [
+            "feature-005/t5"
+          ],
+          "subtasks": [],
+          "difficulty": "easy",
+          "acceptanceCriteria": [
+            "06-tesla-cold-flame/article.md (untracked, 9,280 words) committed as a named WIP commit",
+            "figure evidence copied out of gitignored books/tmp/ into the article directory",
+            "no push; the WIP commit is named so the QA commit supersedes it"
+          ],
+          "key": "feature-005/a06-wipcommit"
+        },
+        {
           "id": "t6",
           "key": "feature-005/t6",
-          "description": "Article 06 figures verified against the printed pages",
-          "status": "pending",
+          "description": "Article 06 figure evidence: re-verify only the gaps, record in frontmatter",
+          "status": "complete",
           "dependsOn": [
             "feature-005/t5"
           ],
@@ -581,15 +616,32 @@
           "difficulty": "moderate",
           "phase": "build",
           "criteria": [
-            "figures viewed against the scan before use",
-            "index.json figures[] verified:true"
+            "the figure record in 06-tesla-cold-flame/article.md frontmatter and the books/tmp/f05t6*/ crops are read before any figure is re-opened",
+            "only figures whose evidence is missing or contradicted are re-opened against a 500 ppi render",
+            "each verification read is written into the article frontmatter, not left in gitignored books/tmp/"
           ]
+        },
+        {
+          "id": "a06-figrec",
+          "description": "Article 06 index.json entry with figures verified",
+          "status": "complete",
+          "dependsOn": [
+            "feature-005/t6",
+            "feature-005/a06-wipcommit"
+          ],
+          "subtasks": [],
+          "difficulty": "easy",
+          "acceptanceCriteria": [
+            "index.json gains tesla-cold-flame.html with the same fields as the 8 completed entries",
+            "figures[] verified:true for all three figures, sourced to the frontmatter record, not re-derived"
+          ],
+          "key": "feature-005/a06-figrec"
         },
         {
           "id": "t7",
           "key": "feature-005/t7",
           "description": "Article 06 render + numeric gates",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-005/t6"
           ],
@@ -604,8 +656,8 @@
         {
           "id": "t8",
           "key": "feature-005/t8",
-          "description": "Article 06 visual QA, wiring, commit",
-          "status": "pending",
+          "description": "Article 06 visual QA: shot_qa at 3 widths and screenshot review",
+          "status": "complete",
           "dependsOn": [
             "feature-005/t7"
           ],
@@ -613,9 +665,25 @@
           "difficulty": "moderate",
           "phase": "build",
           "criteria": [
-            "shot_qa.py passes at 3 widths, screenshots reviewed",
-            "wired (sitemap, llms.txt, _redirects, card); committed, no push"
+            "shot_qa.py passes at 375/768/1280 for tesla-cold-flame",
+            "screenshots reviewed with vision; notes recorded in index.json visual_gates"
           ]
+        },
+        {
+          "id": "a06-wirecommit",
+          "description": "Article 06 wiring and final commit",
+          "status": "complete",
+          "dependsOn": [
+            "feature-005/t8",
+            "feature-005/a06-figrec"
+          ],
+          "subtasks": [],
+          "difficulty": "easy",
+          "acceptanceCriteria": [
+            "wired: sitemap.xml, llms.txt, _redirects, series card",
+            "committed, no push"
+          ],
+          "key": "feature-005/a06-wirecommit"
         }
       ],
       "description": "05's chapter has no book illustration and pp. 394-395 yield zero usable crops, so the §6.3 patent supplement is required.",
@@ -636,50 +704,141 @@
         {
           "id": "t0",
           "key": "feature-006/t0",
-          "description": "Article 08 quote-pin: nine entries, each quote grepped and page-cited, write quotes.md",
-          "status": "pending",
+          "description": "Article 08 quote-pin batch 1: entries 1-3 grepped and page-cited",
+          "status": "complete",
           "dependsOn": [
-            "feature-005/t8"
+            "feature-005/a06-wirecommit"
           ],
           "subtasks": [],
           "difficulty": "moderate",
           "criteria": [
-            "quotes.md written in Article 08's new_content/1894-series/ directory",
-            "all nine entries have their quotes verbatim with printed page numbers",
+            "entries 1-3 quotes verbatim with printed page numbers, appended to quotes.md as each is confirmed",
             "no entry carried forward that cannot be re-grepped"
-          ]
+          ],
+          "phase": "build"
         },
         {
-          "id": "t1",
-          "key": "feature-006/t1",
-          "description": "Article 08 draft: nine weird-invention entries, written from quotes.md",
-          "status": "pending",
+          "id": "a08-qp2",
+          "description": "Article 08 quote-pin batch 2: entries 4-6",
+          "status": "complete",
           "dependsOn": [
             "feature-006/t0"
           ],
           "subtasks": [],
           "difficulty": "moderate",
+          "acceptanceCriteria": [
+            "entries 4-6 quotes verbatim with printed page numbers, appended to quotes.md as each is confirmed",
+            "no entry carried forward that cannot be re-grepped"
+          ],
+          "key": "feature-006/a08-qp2"
+        },
+        {
+          "id": "a08-qp3",
+          "description": "Article 08 quote-pin batch 3: entries 7-9",
+          "status": "complete",
+          "dependsOn": [
+            "feature-006/a08-qp2"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "acceptanceCriteria": [
+            "entries 7-9 quotes verbatim with printed page numbers, appended as each is confirmed",
+            "no entry carried forward that cannot be re-grepped"
+          ],
+          "key": "feature-006/a08-qp3"
+        },
+        {
+          "id": "a08-qpdone",
+          "description": "Article 08 quotes.md complete: all nine entries re-greppable",
+          "status": "pending",
+          "dependsOn": [
+            "feature-006/a08-qp3"
+          ],
+          "subtasks": [],
+          "difficulty": "easy",
+          "acceptanceCriteria": [
+            "quotes.md in 08-tesla-weird-inventions-1894/ covers all nine entries",
+            "every quote re-greps against the 1894 text with its printed page number"
+          ],
+          "key": "feature-006/a08-qpdone"
+        },
+        {
+          "id": "t1",
+          "key": "feature-006/t1",
+          "description": "Article 08 draft batch 1: entries 1-3 written from quotes.md",
+          "status": "pending",
+          "dependsOn": [
+            "feature-006/a08-qpdone"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
           "phase": "build",
           "criteria": [
-            "new_content/1894-series/08-tesla-weird-inventions-1894/article.md per §9 brief 08",
-            "nine entries of roughly 130 words, each carrying a page-cited 1894 detail"
+            "three entries of roughly 130 words, each carrying a page-cited 1894 detail",
+            "written into 08-tesla-weird-inventions-1894/article.md; quotes.md already complete"
           ]
         },
         {
-          "id": "t2",
-          "key": "feature-006/t2",
-          "description": "Article 08 figures verified against the printed pages",
+          "id": "a08-draft2",
+          "description": "Article 08 draft batch 2: entries 4-6 from quotes.md",
           "status": "pending",
           "dependsOn": [
             "feature-006/t1"
           ],
           "subtasks": [],
           "difficulty": "moderate",
+          "acceptanceCriteria": [
+            "entries 4-6 of roughly 130 words each, each carrying a page-cited 1894 detail",
+            "written into the same article.md, no rework of entries 1-3"
+          ],
+          "key": "feature-006/a08-draft2"
+        },
+        {
+          "id": "a08-draft3",
+          "description": "Article 08 draft batch 3: entries 7-9 plus intro and closer",
+          "status": "pending",
+          "dependsOn": [
+            "feature-006/a08-draft2"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "acceptanceCriteria": [
+            "entries 7-9 to the same length and citation standard",
+            "article.md assembled per §9 brief 08 with intro and closer; nine entries total"
+          ],
+          "key": "feature-006/a08-draft3"
+        },
+        {
+          "id": "t2",
+          "key": "feature-006/t2",
+          "description": "Article 08 figure evidence: re-verify only the gaps, record in frontmatter",
+          "status": "pending",
+          "dependsOn": [
+            "feature-006/a08-draft3"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
           "phase": "build",
           "criteria": [
-            "figures viewed against the scan before use",
-            "index.json figures[] verified:true"
+            "any existing figure record and crops are read before a figure is re-opened",
+            "only figures whose evidence is missing or contradicted are re-opened against a 500 ppi render",
+            "each read written into the article frontmatter, not left in gitignored books/tmp/"
           ]
+        },
+        {
+          "id": "a08-figrec",
+          "description": "Article 08 index.json entry with figures verified",
+          "status": "pending",
+          "dependsOn": [
+            "feature-006/t2"
+          ],
+          "subtasks": [],
+          "difficulty": "easy",
+          "acceptanceCriteria": [
+            "index.json gains tesla-weird-inventions-1894.html",
+            "figures[] verified:true, sourced to the frontmatter record"
+          ],
+          "key": "feature-006/a08-figrec"
         },
         {
           "id": "t3",
@@ -700,7 +859,7 @@
         {
           "id": "t4",
           "key": "feature-006/t4",
-          "description": "Article 08 visual QA, wiring, commit",
+          "description": "Article 08 visual QA: shot_qa at 3 widths and screenshot review",
           "status": "pending",
           "dependsOn": [
             "feature-006/t3"
@@ -709,9 +868,25 @@
           "difficulty": "moderate",
           "phase": "build",
           "criteria": [
-            "shot_qa.py passes at 3 widths, screenshots reviewed",
-            "wired (sitemap, llms.txt, _redirects /tesla-weird-inventions, card); committed, no push"
+            "shot_qa.py passes at 375/768/1280 for tesla-weird-inventions-1894",
+            "screenshots reviewed with vision; notes recorded in index.json visual_gates"
           ]
+        },
+        {
+          "id": "a08-wirecommit",
+          "description": "Article 08 wiring and final commit",
+          "status": "pending",
+          "dependsOn": [
+            "feature-006/t4",
+            "feature-006/a08-figrec"
+          ],
+          "subtasks": [],
+          "difficulty": "easy",
+          "acceptanceCriteria": [
+            "wired: sitemap, llms.txt, _redirects /tesla-weird-inventions, card",
+            "committed, no push"
+          ],
+          "key": "feature-006/a08-wirecommit"
         },
         {
           "id": "t9",
@@ -719,15 +894,17 @@
           "description": "Article 12 quote-pin: grep every intended quote, pin to printed page, write quotes.md",
           "status": "pending",
           "dependsOn": [
-            "feature-007/t4"
+            "feature-007/a10-wirecommit"
           ],
           "subtasks": [],
           "difficulty": "moderate",
           "criteria": [
             "quotes.md written in Article 12's new_content/1894-series/ directory",
             "every quote verbatim from the 1894 text with its printed page number recorded",
-            "no quote carried forward that cannot be re-grepped"
-          ]
+            "no quote carried forward that cannot be re-grepped",
+            "quotes.md is appended to as each quote is confirmed, so a restart resumes rather than restarts"
+          ],
+          "phase": "build"
         },
         {
           "id": "t5",
@@ -748,7 +925,7 @@
         {
           "id": "t6",
           "key": "feature-006/t6",
-          "description": "Article 12 figures verified against the printed pages",
+          "description": "Article 12 figure evidence: re-verify only the gaps, record in frontmatter",
           "status": "pending",
           "dependsOn": [
             "feature-006/t5"
@@ -757,9 +934,25 @@
           "difficulty": "moderate",
           "phase": "build",
           "criteria": [
-            "figures viewed against the scan before use",
-            "index.json figures[] verified:true"
+            "any existing figure record and crops are read before a figure is re-opened",
+            "only figures whose evidence is missing or contradicted are re-opened against a 500 ppi render",
+            "each read written into the article frontmatter, not left in gitignored books/tmp/"
           ]
+        },
+        {
+          "id": "a12-figrec",
+          "description": "Article 12 index.json entry with figures verified",
+          "status": "pending",
+          "dependsOn": [
+            "feature-006/t6"
+          ],
+          "subtasks": [],
+          "difficulty": "easy",
+          "acceptanceCriteria": [
+            "index.json gains tesla-glowing-tubes-vacuum.html",
+            "figures[] verified:true, sourced to the frontmatter record"
+          ],
+          "key": "feature-006/a12-figrec"
         },
         {
           "id": "t7",
@@ -780,7 +973,7 @@
         {
           "id": "t8",
           "key": "feature-006/t8",
-          "description": "Article 12 visual QA, wiring, commit",
+          "description": "Article 12 visual QA: shot_qa at 3 widths and screenshot review",
           "status": "pending",
           "dependsOn": [
             "feature-006/t7"
@@ -789,9 +982,41 @@
           "difficulty": "moderate",
           "phase": "build",
           "criteria": [
-            "shot_qa.py passes at 3 widths, screenshots reviewed",
-            "wired (sitemap, llms.txt, _redirects /tesla-glowing-tubes-before-tubes, card); committed, no push"
+            "shot_qa.py passes at 375/768/1280 for tesla-glowing-tubes-vacuum",
+            "screenshots reviewed with vision; notes recorded in index.json visual_gates"
           ]
+        },
+        {
+          "id": "a12-wirecommit",
+          "description": "Article 12 wiring and final commit",
+          "status": "pending",
+          "dependsOn": [
+            "feature-006/t8",
+            "feature-006/a12-figrec"
+          ],
+          "subtasks": [],
+          "difficulty": "easy",
+          "acceptanceCriteria": [
+            "wired: sitemap, llms.txt, _redirects /tesla-glowing-tubes-before-tubes, card",
+            "committed, no push"
+          ],
+          "key": "feature-006/a12-wirecommit"
+        },
+        {
+          "id": "a08-titlecase",
+          "description": "Article 08's headings must be title case from the draft, not retrofitted later. The draft batches were planned before this rule existed, so check the draft against books/tools/titlecase_headings.py --check and fix any sentence-case h2/h3 before a08-wipcommit, keeping the FAQPage schema names in step.",
+          "status": "pending",
+          "dependsOn": [
+            "feature-006/a08-draft3"
+          ],
+          "subtasks": [],
+          "difficulty": "easy",
+          "acceptanceCriteria": [
+            "python3 books/tools/titlecase_headings.py --check reports 0 for article 08's page before it is wired",
+            "every FAQPage mainEntity name matches its visible h3 exactly",
+            "the h1 and its <title>/og:title/twitter:title mirrors are untouched"
+          ],
+          "key": "feature-006/a08-titlecase"
         }
       ],
       "description": "08 is nine ~130-word entries; 12 closes the tube and lamp thread and links back to 01 and 06.",
@@ -815,15 +1040,17 @@
           "description": "Article 10 quote-pin: grep every intended quote, pin to printed page, write quotes.md",
           "status": "pending",
           "dependsOn": [
-            "feature-006/t4"
+            "feature-006/a08-wirecommit"
           ],
           "subtasks": [],
           "difficulty": "moderate",
           "criteria": [
             "quotes.md written in Article 10's new_content/1894-series/ directory",
             "every quote verbatim from the 1894 text with its printed page number recorded",
-            "no claim carried forward that the live pages cannot support"
-          ]
+            "no claim carried forward that the live pages cannot support",
+            "quotes.md is appended to as each quote is confirmed, so a restart resumes rather than restarts"
+          ],
+          "phase": "build"
         },
         {
           "id": "t1",
@@ -844,7 +1071,7 @@
         {
           "id": "t2",
           "key": "feature-007/t2",
-          "description": "Article 10 figures verified; no claim beyond live pages",
+          "description": "Article 10 figure evidence: re-verify only the gaps, record in frontmatter",
           "status": "pending",
           "dependsOn": [
             "feature-007/t1"
@@ -853,9 +1080,26 @@
           "difficulty": "moderate",
           "phase": "build",
           "criteria": [
-            "figures viewed against the scan before use",
-            "no sentence claims anything about the product not already on a live page (§4.1)"
+            "any existing figure record and crops are read before a figure is re-opened",
+            "only figures whose evidence is missing or contradicted are re-opened against a 500 ppi render",
+            "each read written into the article frontmatter, not left in gitignored books/tmp/"
           ]
+        },
+        {
+          "id": "a10-claims",
+          "description": "Article 10 claims check and index.json entry",
+          "status": "pending",
+          "dependsOn": [
+            "feature-007/t2"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "acceptanceCriteria": [
+            "no sentence claims anything about the product not already on a live page (§4.1)",
+            "evidence stays within the Appendix D counts already in the draft",
+            "index.json entry for tesla-free-energy-what-he-said.html with figures[] verified:true"
+          ],
+          "key": "feature-007/a10-claims"
         },
         {
           "id": "t3",
@@ -863,7 +1107,7 @@
           "description": "Article 10 render + numeric gates",
           "status": "pending",
           "dependsOn": [
-            "feature-007/t2"
+            "feature-007/a10-claims"
           ],
           "subtasks": [],
           "difficulty": "moderate",
@@ -876,7 +1120,7 @@
         {
           "id": "t4",
           "key": "feature-007/t4",
-          "description": "Article 10 visual QA, wiring, commit",
+          "description": "Article 10 visual QA: shot_qa at 3 widths and screenshot review",
           "status": "pending",
           "dependsOn": [
             "feature-007/t3"
@@ -885,9 +1129,26 @@
           "difficulty": "moderate",
           "phase": "build",
           "criteria": [
-            "shot_qa.py passes at 3 widths, screenshots reviewed",
-            "wired (sitemap, llms.txt, _redirects, card); committed, no push; publish order after 03/01/07 noted in index.json"
+            "shot_qa.py passes at 375/768/1280 for tesla-free-energy-what-he-said",
+            "screenshots reviewed with vision; notes recorded in index.json visual_gates"
           ]
+        },
+        {
+          "id": "a10-wirecommit",
+          "description": "Article 10 wiring, publish order, final commit",
+          "status": "pending",
+          "dependsOn": [
+            "feature-007/t4",
+            "feature-007/a10-claims"
+          ],
+          "subtasks": [],
+          "difficulty": "easy",
+          "acceptanceCriteria": [
+            "wired: sitemap, llms.txt, _redirects, card",
+            "publish order after 03/01/07 recorded in index.json",
+            "committed, no push"
+          ],
+          "key": "feature-007/a10-wirecommit"
         }
       ],
       "description": "Kept as a flagship with a softer title, published after 03/01/07 so the reader meets three neutral history pieces first.",
@@ -911,7 +1172,7 @@
           "description": "Linkable asset: tesla-1894-plates.html gallery",
           "status": "pending",
           "dependsOn": [
-            "feature-006/t8"
+            "feature-006/a08-wirecommit"
           ],
           "subtasks": [],
           "difficulty": "difficult",
@@ -988,18 +1249,33 @@
         {
           "id": "t6",
           "key": "feature-008/t6",
-          "description": "Draft 20 outreach emails, none sent",
+          "description": "Outreach emails 1-10: offer-first drafts, none sent",
           "status": "pending",
           "dependsOn": [
-            "feature-006/t8"
+            "feature-006/a08-wirecommit"
           ],
           "subtasks": [],
           "difficulty": "easy",
           "phase": "build",
           "criteria": [
-            "20 offer-first emails under new_content/outreach/, no affiliate links",
-            "none sent; sending is recorded as the owner's action"
+            "10 offer-first emails under new_content/outreach/, no affiliate links",
+            "none sent"
           ]
+        },
+        {
+          "id": "outreach-11-20",
+          "description": "Outreach emails 11-20: offer-first drafts, none sent",
+          "status": "pending",
+          "dependsOn": [
+            "feature-008/t6"
+          ],
+          "subtasks": [],
+          "difficulty": "easy",
+          "acceptanceCriteria": [
+            "20 emails total under new_content/outreach/, no affiliate links",
+            "none sent; sending is recorded as the owner's action"
+          ],
+          "key": "feature-008/outreach-11-20"
         }
       ],
       "description": "§16.3: the only link strategy worth having. The hub links to two of these, so they must exist before the hub ships.",
@@ -1020,19 +1296,35 @@
         {
           "id": "t1",
           "key": "feature-009/t1",
-          "description": "Backlink pass: Sources H2 on the 8 named legacy pages",
+          "description": "Backlink pass batch 1: Sources H2 on 4 of the 8 named legacy pages",
           "status": "pending",
           "dependsOn": [
-            "feature-006/t8"
+            "feature-006/a08-wirecommit"
           ],
           "subtasks": [],
           "difficulty": "moderate",
           "phase": "build",
           "criteria": [
-            "a Sources and further reading H2 with 1-2 series links on each of the 8 pages named in §5.2",
+            "a Sources and further reading H2 with 1-2 series links on 4 of the pages named in §5.2",
             "each legacy edit is a separate named commit in website/ so it can be reverted alone",
             "no em dash, en dash, curly quote or ellipsis added; nothing else on those pages changes"
           ]
+        },
+        {
+          "id": "backlinks-2",
+          "description": "Backlink pass batch 2: Sources H2 on the remaining 4 legacy pages",
+          "status": "pending",
+          "dependsOn": [
+            "feature-009/t1"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "acceptanceCriteria": [
+            "all 8 pages named in §5.2 now carry the H2 with 1-2 series links",
+            "each legacy edit is a separate named commit in website/",
+            "no em dash, en dash, curly quote or ellipsis added"
+          ],
+          "key": "feature-009/backlinks-2"
         },
         {
           "id": "t2",
@@ -1040,7 +1332,7 @@
           "description": "Close the §5.2 out-link map on all 13 series pages",
           "status": "pending",
           "dependsOn": [
-            "feature-009/t1"
+            "feature-009/backlinks-2"
           ],
           "subtasks": [],
           "difficulty": "moderate",
@@ -1084,7 +1376,7 @@
         {
           "id": "t2",
           "key": "feature-010/t2",
-          "description": "Generate OGs for all 13 pages and set their meta",
+          "description": "Generate the 13 series OG webp files",
           "status": "pending",
           "dependsOn": [
             "feature-010/t1"
@@ -1093,14 +1385,28 @@
           "difficulty": "moderate",
           "phase": "build",
           "criteria": [
-            "website/assets/og/ holds one webp per article and the hub, named after the page slug",
-            "every page's og:image and twitter:image point at its own file; no meta references a missing file"
+            "website/assets/og/ holds one webp per article and the hub, named after the page slug"
           ]
+        },
+        {
+          "id": "og-meta",
+          "description": "Set og:image and twitter:image meta on all 13 pages",
+          "status": "pending",
+          "dependsOn": [
+            "feature-010/t2"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "acceptanceCriteria": [
+            "every page's og:image and twitter:image point at its own file",
+            "no meta references a missing file"
+          ],
+          "key": "feature-010/og-meta"
         },
         {
           "id": "t3",
           "key": "feature-010/t3",
-          "description": "View every OG at 300 px; record credits",
+          "description": "View OGs 1-7 at 300 px; record credits",
           "status": "pending",
           "dependsOn": [
             "feature-010/t2"
@@ -1109,9 +1415,25 @@
           "difficulty": "moderate",
           "phase": "build",
           "criteria": [
-            "each OG viewed at 300 px wide with the title legible at that size",
+            "the first 7 OGs viewed at 300 px wide with the title legible at that size",
             "credit recorded in the generator or index.json"
           ]
+        },
+        {
+          "id": "og-view2",
+          "description": "View OGs 8-13 at 300 px; record credits",
+          "status": "pending",
+          "dependsOn": [
+            "feature-010/t3",
+            "feature-010/og-meta"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "acceptanceCriteria": [
+            "all 13 OGs viewed at 300 px wide with the title legible",
+            "credit recorded in the generator or index.json"
+          ],
+          "key": "feature-010/og-view2"
         }
       ],
       "description": "§6.4: one OG per page, legible at 300 px, built from the series' own scans.",
@@ -1147,19 +1469,81 @@
         {
           "id": "t2",
           "key": "feature-011/t2",
-          "description": "Visual QA pass over all 13 series pages",
+          "description": "Visual QA batch 1: pages 03, 07, 01 at 375/768/1280 with vision review",
           "status": "pending",
           "dependsOn": [
             "feature-012/t2",
-            "feature-010/t2"
+            "feature-010/og-meta"
           ],
           "subtasks": [],
-          "difficulty": "difficult",
+          "difficulty": "moderate",
           "phase": "build",
           "criteria": [
-            "shot_qa.py clean at 375/768/1280 for all 13: no console errors, 404s, overflow, undecoded figures",
+            "shot_qa.py clean at 375/768/1280 for pages 03, 07, 01: no console errors, 404s, overflow, undecoded figures",
             "screenshots reviewed with vision; per-page notes in index.json visual_gates"
           ]
+        },
+        {
+          "id": "vqa-2",
+          "description": "Visual QA batch 2: pages 02, 04, 05 at 375/768/1280",
+          "status": "pending",
+          "dependsOn": [
+            "feature-012/t2",
+            "feature-010/og-meta"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "acceptanceCriteria": [
+            "shot_qa.py clean at all three widths for pages 02, 04, 05",
+            "screenshots reviewed with vision; per-page notes in index.json visual_gates"
+          ],
+          "key": "feature-011/vqa-2"
+        },
+        {
+          "id": "vqa-3",
+          "description": "Visual QA batch 3: pages 06, 08, 10 at 375/768/1280",
+          "status": "pending",
+          "dependsOn": [
+            "feature-011/vqa-2"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "acceptanceCriteria": [
+            "shot_qa.py clean at all three widths for pages 06, 08, 10",
+            "screenshots reviewed with vision; per-page notes in index.json visual_gates"
+          ],
+          "key": "feature-011/vqa-3"
+        },
+        {
+          "id": "vqa-4",
+          "description": "Visual QA batch 4: page 12 and the hub at 375/768/1280",
+          "status": "pending",
+          "dependsOn": [
+            "feature-011/vqa-3"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "acceptanceCriteria": [
+            "shot_qa.py clean at all three widths for page 12 and the hub",
+            "screenshots reviewed with vision; per-page notes in index.json visual_gates"
+          ],
+          "key": "feature-011/vqa-4"
+        },
+        {
+          "id": "vqa-rollup",
+          "description": "Visual QA roll-up: all 13 pages recorded clean",
+          "status": "pending",
+          "dependsOn": [
+            "feature-011/vqa-4",
+            "feature-011/t1"
+          ],
+          "subtasks": [],
+          "difficulty": "easy",
+          "acceptanceCriteria": [
+            "shot_qa clean at 375/768/1280 for all 13 series pages including 09 and 11",
+            "index.json visual_gates complete for all 13"
+          ],
+          "key": "feature-011/vqa-rollup"
         },
         {
           "id": "t3",
@@ -1167,7 +1551,7 @@
           "description": "Fix or record every visual defect found",
           "status": "pending",
           "dependsOn": [
-            "feature-011/t2"
+            "feature-011/vqa-rollup"
           ],
           "subtasks": [],
           "difficulty": "moderate",
@@ -1229,19 +1613,34 @@
         {
           "id": "t3",
           "key": "feature-012/t3",
-          "description": "Series close-out: all 13 pages pass, index.json, commits",
+          "description": "Series close-out gate: all 13 pages pass",
           "status": "pending",
           "dependsOn": [
             "feature-011/t3",
-            "feature-010/t3"
+            "feature-010/og-view2"
           ],
           "subtasks": [],
           "difficulty": "moderate",
           "phase": "build",
           "criteria": [
             "python3 books/tools/qa_page.py --all-series exits 0 for 13 pages",
-            "index.json shows 13 entries with committed:true deployed:false; both repos clean, nothing pushed"
+            "the dead-relative-link check reports zero dead links"
           ]
+        },
+        {
+          "id": "series-record",
+          "description": "Series record: index.json 13 entries, both repos committed",
+          "status": "pending",
+          "dependsOn": [
+            "feature-012/t3"
+          ],
+          "subtasks": [],
+          "difficulty": "moderate",
+          "acceptanceCriteria": [
+            "index.json shows 13 entries with committed:true deployed:false",
+            "both repos clean, nothing pushed"
+          ],
+          "key": "feature-012/series-record"
         }
       ],
       "description": "The hub links to all 12 articles and two Tier 6 assets, so it can only ship once they exist. It is the series completion marker.",

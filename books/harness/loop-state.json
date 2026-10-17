@@ -1,8 +1,8 @@
 {
-  "runId": "9312c409-01ae-4046-9803-0f2facc531cd",
-  "startedAt": "2026-10-10T20:40:27.353Z",
-  "iterations": 29,
-  "lastFingerprint": "d5d864f915b0976d",
+  "runId": "2d9a9019-67b5-46b2-9004-405432f53b22",
+  "startedAt": "2026-10-17T06:25:32.372Z",
+  "iterations": 5,
+  "lastFingerprint": "6f351275882d9953",
   "noProgressStreak": 0,
   "lastPhase": "build",
   "lastDecision": "continue",
@@ -11,66 +11,18 @@
   "escalation": {
     "consultedCount": 0,
     "masterUsed": false,
-    "lastUnstuckAt": "2026-10-11T02:15:10.868Z",
-    "fingerprints": [
-      "06837ba0d7ad437d",
-      "f98b7e4ba487ba64",
-      "f98b7e4ba487ba64",
-      "69105b178f2c9ef4",
-      "69105b178f2c9ef4"
-    ],
+    "lastUnstuckAt": null,
+    "fingerprints": [],
     "tried": []
   },
   "perLevelEscalation": {
     "task": {
       "consultedCount": 0,
       "masterUsed": false,
-      "lastUnstuckAt": "2026-10-11T02:15:10.868Z",
-      "fingerprints": [
-        "06837ba0d7ad437d",
-        "f98b7e4ba487ba64",
-        "f98b7e4ba487ba64",
-        "69105b178f2c9ef4",
-        "69105b178f2c9ef4"
-      ],
+      "lastUnstuckAt": null,
+      "fingerprints": [],
       "tried": []
     }
   },
-  "escalations": [
-    {
-      "at": "2026-10-10T21:10:29.487Z",
-      "strategy": "retry",
-      "level": "task",
-      "reason": "retry eligible",
-      "applied": null
-    },
-    {
-      "at": "2026-10-10T22:55:58.889Z",
-      "strategy": "retry",
-      "level": "task",
-      "reason": "retry eligible",
-      "applied": null
-    },
-    {
-      "at": "2026-10-10T23:15:15.222Z",
-      "strategy": "reframe",
-      "level": "task",
-      "reason": "reframe eligible",
-      "applied": null
-    },
-    {
-      "at": "2026-10-11T01:45:08.630Z",
-      "strategy": "retry",
-      "level": "task",
-      "reason": "retry eligible",
-      "applied": null
-    },
-    {
-      "at": "2026-10-11T02:15:10.868Z",
-      "strategy": "reframe",
-      "level": "task",
-      "reason": "reframe eligible",
-      "applied": null
-    }
-  ]
+  "escalations": []
 }
