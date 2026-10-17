@@ -8,8 +8,25 @@ slug: tesla-weird-inventions-1894.html
 pretty_slug: /tesla-weird-inventions
 description: "Nine devices from the 1894 book, each cited to its printed page. The volume reports no failure for any of them. It records what each one still needed."
 keywords: [tesla lesser known inventions, weird tesla inventions, tesla facts list, tesla failed inventions, tesla 1894 book inventions]
-date_published: "2026-10-17"
-date_modified: "2026-10-17"
+# PUBLISH DATE, settled at feature-006/a08-wirecommit (2026-10-17). The draft carried 2026-10-17,
+# the day its first batch was written, which is the day article 11 is already dated on the site. The
+# nine wired pages in this series each carry their own date, ascending in the order they were wired:
+# 03 10-14, 09 10-16, 11 10-17, 07 10-18, 01 10-19, 02 10-20, 04 10-21, 05 10-22, 06 10-23. That is
+# section 11's cadence rule ('2 per week, never more than 2 in a day') applied as one page per date,
+# and articles.html is in that same order. This page is the tenth wired, so it takes the next date in
+# the sequence and its card goes after the article 06 card, which is where feature-005/a06-wirecommit
+# put that one. The alternative was measured before it was rejected: keep 10-17 and insert this card
+# between the 11 and 07 cards. It is inside the cadence rule and it keeps the grid monotonic, but it
+# puts two pages on one date and breaks the second invariant the grid already has, that card order is
+# wiring order. Nothing here is a claim that anything is published: no page in this series has been
+# pushed (D6), and six of the nine already carry dates in the future for the same reason.
+# CHECKED BEFORE THE CHANGE, NOT ASSUMED: make_article.py run on this draft exactly as it stands puts
+# out a page byte-identical to the committed one (books/tmp/f06wire/tesla-weird-inventions-1894.html,
+# cmp clean against website/tesla-weird-inventions-1894.html at 45,641 bytes), so the render is
+# reproducible and the only bytes this edit moves are the five date strings in the head, the JSON-LD
+# and the visible date line. The feature-006/t4 visual record therefore still describes this page.
+date_published: "2026-10-24"
+date_modified: "2026-10-24"
 series_no: 8
 primary_query: tesla lesser known inventions
 tid: "1894_08"
