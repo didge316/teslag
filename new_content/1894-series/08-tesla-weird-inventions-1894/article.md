@@ -22,12 +22,22 @@ tid: "1894_08"
 standfirst: "Nine devices, each cited to the printed page of the 1894 book that collected them. The volume never says any of them failed, and for most of the nine it says nothing at all about what became of them. What it does record, entry by entry, is the thing each machine needed and had not got: a rotating armature turning in step with the line, a dielectric with no gas in it, a current that had to be reversed after every reading."
 # FIGURES: none used in this batch. feature-006/t2 reads the figure evidence and a08-figrec writes
 # the index.json row. One engraving per entry is the brief's plan; entries 1 and 3 already have
-# QCd crops (p410-fig220 and p422-fig230, both manifest_qc keep/A per the feature-006/t0 record),
-# entry 2 has none. Two manifest_qc subject lines describe those meters wrongly, which is why the
-# captions come from the prose and the figure numbers from the printed page.
+# QCd crops, entry 2 has none. The two crops are named on disk by scan file, not by printed page,
+# so the names are given here as the files have them: website/assets/tesla1894/p428-fig1-fig220.webp
+# (fig. 220, printed p. 410, entry 1) and website/assets/tesla1894/p440-fig1-fig230.webp (fig. 230,
+# printed p. 422, entry 3), both manifest_qc keep/A at rows 149 and 157 of that CSV. Listing the
+# printed-page names here instead sent the next task looking for two files that do not exist.
+# App. C's own row for this page uses the same scan-file names (p440-fig230 p.422, etc.), so the
+# printed-page forms in §9 brief 08 are a shorthand, not filenames. Two manifest_qc subject lines
+# describe those meters wrongly, which is why the captions come from the prose and the figure
+# numbers from the printed page.
 #
-# PAGES USED so far, to be completed with entries 4 to 9:
-pages_used: [409, 412, 416, 418, 419, 420, 422, 423]
+# PAGES USED so far, to be completed with entries 4 to 9. This list is rendered into the published
+# Sources block by make_article.py sources_block(), so it is the pages the page actually cites, not
+# the pages consulted: printed p. 416 was read but is not cited anywhere in this draft, because the
+# 'active (as distinguished from a dead) resistance' quote was left out (see LENGTH below), so 416
+# is not in the list and returns only if that quote is added.
+pages_used: [409, 412, 418, 419, 420, 422, 423]
 #
 # SOURCES. The two modern ones are not decoration: the register's Rejected #7 requires a modern
 # source for any sentence placing entry 1 in a history of rectifiers, and the flag ENTRY 2 IS THE
@@ -85,8 +95,9 @@ sources:
 # three are counted with the command below, because a count without its method is the failure this
 # register has already been corrected for twice:
 #   python3 - <<'PY'   # split the body on '\n## ', count whitespace tokens in each section body
-#   entry 1: 150 words, entry 2: 149, entry 3: 148   [re-measure at assembly; the counts move
-#   with the text, and a count taken before the sentence reporting it was written is a stale count]
+#   entry 1: 150 words, entry 2: 149, entry 3: 148   [re-measured 2026-10-17 by that method and
+#   unchanged; re-measure again at assembly, because the counts move with the text and a count
+#   taken before the sentence reporting it was written is a stale count]
 # They are 10 to 15 percent over the brief's number, and the overage is the register's rules, not
 # padding: entry 1 needs the synchronism sentence to say why it lost, entry 2 needs the finding and
 # the book's own hedge on its novelty, entry 3 needs the reversal step and the editor's verdict.
@@ -98,8 +109,15 @@ sources:
 # length flag, and qa_page.py has no word-count gate to catch it either.
 #
 # QUOTE CHECK, this batch only. python3 books/tools/check_quotes.py
-# new_content/1894-series/08-tesla-weird-inventions-1894/article.md, run on 2026-10-17 on the
-# bytes this task wrote: 1 file, 17 quote fragments, 17 verbatim and page-cited, 0 problems. One
+# new_content/1894-series/08-tesla-weird-inventions-1894/article.md, re-run on 2026-10-17 on the
+# bytes this file now holds (output kept at books/tmp/f06t1fix/cq_after_fix_run1.out): 1 file, 13
+# quote fragments, 13 verbatim and page-cited, 0 problems. The first pass of this task recorded 17
+# fragments and 17 verbatim here, and 17 does not reproduce on any version of these bytes: the tool
+# reports 13, and 13 is what the body actually holds, because the tool counts fragments, not quoted
+# runs, and splits a quotation cut by ' ... ' into its two halves (12 double-quoted runs in this
+# draft, 13 fragments: the p. 412 synchronism quote is one run cut in two). The count is stated with the command,
+# the date and the file the run is in, per the register's rule that a count without its method is a
+# claim the next draft copies wrong. One
 # fragment ('the electrical resistance of the conductor is varied in a definite proportion to the
 # strength of the current', printed p. 420) verifies through the space-ignoring index because the
 # OCR glues 'isvaried'; the register annotates it the same way and the clean form is the print's.
