@@ -716,3 +716,71 @@ so `faq: []` is the brief as written; the reciprocal-links gate fails because no
 page yet, which is feature-006/a08-wirecommit's in-link work; and the ABB `.pdf` URL above. The
 smoke render reports 26 of 28 gates with only those two failures
 (`books/tmp/f06a08d3/tesla-weird-inventions-1894.html`, `books/tmp/f06a08d3/qa_smoke.out`).
+
+## 2026-10-17 — feature-006/t2 (article 08 figure evidence): a record that says it did a thing is not the doing
+
+The figure work was already on disk when this task was picked up: four 500 ppi renders, three
+published crops, eight evidence crops, and a front-matter record in article 08 that reads like a
+closed task. Three things that record asserted were not true, and each was found by checking the
+file it names instead of re-reading the prose.
+
+- **"All three notes are corrected in `manifest_qc.csv` at this task, in the site repo."** That file
+  had not been touched: `git status` clean, mtime Oct 11. The three corrections (row 149's Fig. 220
+  subject line, row 156's "coherer" comparison for a meter figure, row 157's incomplete description
+  of the meter plate) existed only as prose in the article. Written now, each note naming the read
+  that corrects it, plus two more rows this task turned up while checking: row 158's "Figure number
+  281 is genuine for p.425", which that page's own three printed captions contradict without anything
+  settling it, and row 161's description of the p.430 two-figure band. Rows 217-219 now carry the
+  three published crops with their box, sha256, the evidence crop that carries the read, and the row
+  each supersedes — the pattern feature-004/t6 and feature-005/t2 set, and the omission
+  feature-005/a06-figrec noticed for article 06's three and never closed. Article 08's three are in;
+  article 06's three still are not, and that is still open.
+- **"A crop exists and is keep/A (row 176)"** for the p.430 band. Row 176 is `p464-fig1-fig266.webp`
+  on printed p.446. The band is row 161 of both manifest files. Every other row reference in that
+  record (149, 156, 157, 158, 163) is a line number in `manifest_qc.csv` and is right, which is
+  precisely why the one wrong number would not be caught by anyone who had learned to trust the
+  others. The record now names the row and says what row 176 actually is. Lesson: a row number is a
+  pointer, and a pointer gets re-resolved, not re-used.
+- **"the same 3-for-8 confusion this scan makes on printed p. 425 ('Fig. 281' for 231)"** was stated
+  as fact in one block of the same record and hedged as "says which is likely" in another. Neither
+  page was re-opened, so neither is settled; the disagreement on p.425 is internal to one page (three
+  printed captions against one body line), which is a reason to flag it and not a reason to publish a
+  verdict. Both places now hedge the same way and say why — §6.6 re-opens a figure whose evidence is
+  missing or contradicted, and this one is neither.
+
+What checking rather than trusting bought, beyond the corrections: **every crop in this record
+re-derives.** All eight evidence crops re-cut from the boxes in `figures/README.md` are pixel-identical
+to the committed files, and all three published `.webp` re-encode byte for byte at
+`quality=88, method=4` (21,236 / 40,390 / 73,692 bytes, sha256s matching the table). That is more
+than article 06's record claims — five of its eight evidence crops have no recorded box. Opening the
+four caption crops confirmed `FIG. 220.`, `FIG. 227.`/`FIG. 228.`, `FIG. 230.` and
+`FIG. 242.`/`FIG. 243.`; the three published crops each carry their printed caption inside the crop;
+and the Fig. 230 plate shows the R' and R'' coils, the round instrument G in the line conductors L L
+and the seven-contact bank T that row 157's subject line omits — which is how that row's note got
+written from the plate and not from the earlier note. Lesson: a box and a hash are only worth
+anything if someone re-runs them; the re-run is the test, and it costs one script.
+
+Two tool facts worth carrying:
+
+- **`manifest_qc.csv` is CRLF.** Reading it in Python text mode and rejoining with `\n` rewrote all
+  216 lines and buried a five-row change in a 435-line diff. Read and write with `newline=""` and
+  split on `\r\n`; the diff is then 8 insertions and 5 deletions, which is what a reviewer can
+  actually read. Lesson: check the line endings of any file you regenerate, especially a CSV another
+  script writes.
+- **`extract_figures.py` returns 0 figures for a page whose engraving sits inside a claimed text
+  block** — scan 436 / printed p.418 at both 300 and 500 dpi, because the tool masks every row the
+  text layer claims. A zero from that tool is not evidence that a page has no plate. It is why entry
+  2 had no crop and no row: the gap in the record was a tool limit, not a lost file, and the caption
+  band crop is the only proof the plates were ever there.
+
+Re-rendered after the front-matter edits, because a front-matter comment block is still front matter:
+`make_article.py` → `books/tmp/f06t2b/tesla-weird-inventions-1894.html`, 1 h1 / 6 h2 / 9 h3, 3 series
+figures; `qa_page.py` 27 of 29 with only the two already-deferred failures (reciprocal links, which
+is feature-006/a08-wirecommit's in-link work, and the ABB `.pdf` url, an owner call at t3);
+`check_quotes.py` 0 problems; `pages_used` still exactly the 27 pages the body cites. The earlier
+"26 of 28" in the draft record is not comparable to this "27 of 29": `qa_page.py` line 304 only
+adds the `2-3 figures in <figure class="mb-4 pt-5">` gate when the page references
+`assets/tesla1894/`, so the figure-less draft was scored against 28 gates and this page against 29.
+Same two failures, one new gate that passes. Lesson: a gate count is a function of the page, not a
+constant of the tool — quote the count with what the page contains, or re-measure it before writing
+it down.
