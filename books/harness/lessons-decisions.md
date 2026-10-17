@@ -630,5 +630,7 @@ Deferred, written where the next task will read it: entry 4's 600 degrees centig
 a modern source is carried beside it (the register's flag THE BOOK'S 600° IS NOT THE CURIE POINT);
 entry 5's devices get no year, because the chapter prints none and §6.3 needs a patent record; and
 the six entries now run 148-156 words against the brief's "roughly 130", which is the same length
-flag article 06 carries into VERIFY. `check_quotes.py` reports 26 fragments, 26 verbatim, 0 problems
-for the whole draft (`books/tmp/f06a08d2/cq_final.out`, exit 0) - batch 1's 13 plus this batch's 14.
+flag article 06 carries into VERIFY. `check_quotes.py` reports 27 fragments, 27 verbatim, 0 problems
+for the whole draft (`books/tmp/f06a08d2/cq_final.out`, exit 0) - batch 1's 13 plus this batch's 14,
+which is the arithmetic the sentence above it gives; the 26 first written here was a miscount of the
+same output, and it is corrected rather than left as an example of the thing this lesson warns about.
