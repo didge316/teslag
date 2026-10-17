@@ -684,10 +684,30 @@ structural one, and it only showed up because the draft was rendered before it w
   149, 148, 156, 153, 156, 173, 180, 176), but the script that produced them split on `##` and had
   to split on `##` and `###`. The new script reproduces batch 1's and batch 2's numbers unchanged,
   and that reproduction is the check that the new method measures the same thing
-  (`books/tmp/f06a08d3/len_check.py`, output at `len_check.out`). The body now measures 2,034 words
+  (`books/tmp/f06a08d3/len_check.py`, output at `len_check.out`). The body measured 2,034 words at
+  that point, 2,003 after the length pass below,
   against the brief's 1,500 - the same length flag article 06 carries into VERIFY, larger by the
   provenance paragraph and the closing beat, which are not in the brief's per-entry budget and are
   where the register's voice disclosure and §9's closing beat live.
+- **A draft batch is measured against the batches before it, not only against the brief.** Batch 3
+  handed over entries at 173, 180 and 176 while the six already in the file ran 148 to 156. Every
+  entry misses the brief's "roughly 130", and that flag goes to VERIFY as article 06's did; the
+  nearer complaint is this task's own criterion, "the same length", and 11 to 15 percent over the
+  band the earlier batches set is a different thing from 14 to 20 percent over a brief. A pass over
+  this batch's connective prose - ours, not the volume's - brought the three to 165, 162 and 171, 4
+  to 10 percent over that band: "and closes by widening the claim" and "It also says the frame
+  suits" gone, "the polyphase machinery of" reduced to "set out in" over the same article 07 link,
+  a comma turned into a colon, and the p. 464 lamp quote taken as its first clause only. The p. 474
+  belt-contact sentence was not touched: the closing beat's "until their inventor ran out of time"
+  rests on that sentence, so cutting it there would unmoor a claim the page makes, and the full
+  p. 464 run stays in quotes.md for whoever wants it back. What did not move is the proof: the same
+  `check_quotes.py` on the new bytes reports the same 45 fragments, 45 verbatim and page-cited, 0
+  problems (`books/tmp/f06a08d3b/cq_final.out`, exit 0), `pages_used` still equals the set of pages
+  the body cites, and the smoke render still reports 26 of 28 with the same two deferred failures
+  (`books/tmp/f06a08d3b/tesla-weird-inventions-1894.html`, `qa_smoke.out`). Lesson: cut your own
+  words before you cut a quote, then re-run the quote tool, because a shortened quotation is a
+  different quotation and a shorter entry is only safe if the page cites still land where the tool
+  can see them.
 
 Deferred, written where the next task will read it: the CTA sentence is front matter and this file
 has no `cta:` key, so `{{CTA}}` renders an empty alert box and no plan task owns it (`qa_page.py`
