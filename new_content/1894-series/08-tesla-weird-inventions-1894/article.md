@@ -135,7 +135,11 @@ standfirst: "Nine devices, each cited to the printed page of the 1894 book that 
 #   printed p. 418: two plates side by side, 'FIG. 227.' under the left and 'FIG. 228.' under the
 #     right (figures/p418-printed-caption-band-fig227-fig228.png). Fig. 227 is a rectangular can in
 #     section, walls hatched, with a plate stack near each end drawn as a set of horizontal lines,
-#     three dark vertical strips between them, the interior filled with a stippled space, a terminal
+#     two dark vertical strips between them (the count in this read was wrong and is corrected at
+#     feature-006/a08-cta, per the feature-006/t4 measurement of the published crop: inked over more
+#     than 55 percent of the interior height in exactly two column bands, x 269 to 296 and x 648 to
+#     677, the only other vertical bands anywhere being the case walls at x 145 to 164 and x 782 to
+#     800), the interior filled with a stippled space, a terminal
 #     led out through the middle of each short wall, and letters on the plate. Fig. 228 is a taller
 #     can in section with two plates whose outer edges are curved, a threaded rod with nuts and a
 #     stuffing box through each side wall, and the same filled interior. The page after this one names
@@ -271,7 +275,7 @@ figures:
   # figures for scan 436 at both 300 and 500 dpi, which is why there was no row for it. Every letter
   # named in this caption is legible in the crop and is the letter the prose on printed p. 419 uses.
   - src: /assets/tesla1894/p418-fig227.webp
-    alt: "1894 engraving, Fig. 227, printed p. 418: a rectangular can shown in section with its walls hatched, a stack of horizontal plates standing inside near each end, three dark vertical strips between the two stacks, the whole interior filled with a stippled space, a terminal led out through the middle of each short wall, and letters marking the case, the two plate stacks, the dark strips, the terminals and the filled interior"
+    alt: "1894 engraving, Fig. 227, printed p. 418: a rectangular can shown in section with its walls hatched, a stack of horizontal plates standing inside near each end, two dark vertical strips between the two stacks, the whole interior filled with a stippled space, a terminal led out through the middle of each short wall, and letters marking the case, the two plate stacks, the dark strips, the terminals and the filled interior"
     width: 933
     height: 496
     caption: "Fig. 227, printed p. 418, the whole plate with its printed caption inside the crop; the plate beside it on the same printed page is Fig. 228, the same condenser with adjustable plates. Engraving from Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), p. 418. Public domain. The page after this one describes what is drawn, and the letters on the plate are its letters: a box or receptacle containing the plates or armatures, led out to terminals through the sides of the case, the plates separated by strips of porous insulating material used merely for the purpose of maintaining them in position, and the space within the can filled with oil. Nothing in the drawing is a solid dielectric. The insulating thing between the plates is the oil, and the strips are spacers, which is the whole of entry 2 above drawn as the book drew it. The book hedges its own novelty on the same page, saying oil between conductors has been a common practice, and that hedge is why this is the entry on this list that did not lose."
@@ -283,6 +287,25 @@ figures:
     width: 1169
     height: 768
     caption: "Fig. 242, printed p. 430, the whole apparatus with its printed caption inside the crop; the small plate beside it on the same printed page, a rectangle of circles inside a casing, is Fig. 243, which the same page calls a cross-section of the magnetic armature-core of the generator. Engraving from Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), p. 430. Public domain. The text on this page says the armature core is a casing enclosing a number of hollow iron tubes, that conductors wound around it form the coils in which the currents are developed, that current consuming devices are in the circuits of those coils, that a furnace or closed firebox surrounds the middle of the core, that a boiler holding water sits above the fire, and that the steam from the boiler passes through the tubes, which is the artificial cooling the page calls the first of its two features of novelty. The drawing matches that list part for part. What the chapter reports with the drawing is what it reports without it: no output, no efficiency figure and no trial. This is the machine the section above names as the only one in this volume that the phrase 'magnetic generator' is attached to, and it is a heat engine."
+# CTA, feature-006/a08-cta (2026-10-17). This key was absent from the draft's first batch, and
+# make_article.py cta_block() emits c.get('text','') without testing it, so the alert-info block
+# rendered as an empty paragraph above 'See the generator plans' on the live page. qa_page.py has no
+# CTA gate, so the page's 29/29 never covered it; feature-006/t4 saw it in the screenshots at 375 and
+# at 1280 and named it, and feature-006/a08-wirecommit re-measured it on the page it rendered.
+# The sentence is written to this page's nine entries and not taken from another article: what the
+# volume records for seven of the nine is a description with no trial, no output and no result, which
+# is the same distinction the closing beat draws about the pyromagnetic generator, and the same
+# question a buyer should put to any generator listing. Nothing here claims anything about what a
+# generator can do (non-negotiable 4, section 0): the sentence is about asking for a rating. The
+# parts-list and output framing is the one the nine pages already wired in this series use, and it is
+# the claim the link's own page makes about those plans (magnetic-generator-plans-review.html, 'parts
+# lists with just item names and 2 to 3 simple sketches', and the output discussion beside it). No
+# words from the book appear in it, so it adds no citation for check_quotes.py to chase, and it is
+# clean of em dashes, en dashes and curly quotes, which is what qa_page.py's voice gates test.
+# href_suffix is this page's own tid, 1894_08, which is what the affiliate link already carried.
+cta:
+  text: "Seven of these nine are described in full and measured nowhere in the book: no output, no efficiency, no trial. Ask the same question of anything you are buying, and get the answer in writing. The plans we recommend come with a parts list and a straight answer about output."
+  href_suffix: "1894_08"
 #
 # PAGES USED, all nine entries. This list is rendered into the published
 # Sources block by make_article.py sources_block(), so it is the pages the page actually cites, not
