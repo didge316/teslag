@@ -251,13 +251,16 @@ sources:
 #   python3 books/tmp/f06a08d3/len_check.py   # output kept beside it at len_check.out
 #   entry 1: 150, entry 2: 149, entry 3: 148   [feature-006/t1's three, re-measured 2026-10-17 by
 #   that method and unchanged]   entry 4: 156, entry 5: 153, entry 6: 156
-#   [feature-006/a08-draft2's three, unchanged]   entry 7: 173, entry 8: 180, entry 9: 176
+#   [feature-006/a08-draft2's three, unchanged]   entry 7: 165, entry 8: 162, entry 9: 171
 #   [feature-006/a08-draft3's three, measured 2026-10-17 by that same command on the bytes this
-#   file now holds; re-measure again at assembly, because the counts move with the text and a count
-#   taken before the sentence reporting it was written is a stale count]
-# The whole body measures 2,034 words by that command, re-run on the bytes this file now holds
-# (books/tmp/f06a08d3/len_check.out, 2026-10-17): standfirst 83, the provenance paragraph 287, the
-# three group H2s 0 (they carry no prose of their own, by decision 15), the nine entries 1,441, the
+#   file now holds, after the length pass recorded below; the same command on the bytes batch 3
+#   first handed over gave 173, 180 and 176, and that earlier number is kept here rather than
+#   overwritten, because the pass below is the reason the two differ. Re-measure again at assembly,
+#   because the counts move with the text and a count taken before the sentence reporting it was
+#   written is a stale count]
+# The whole body measures 2,003 words by that command, re-run on the bytes this file now holds
+# (books/tmp/f06a08d3b/len_check.out, 2026-10-17): standfirst 83, the provenance paragraph 287, the
+# three group H2s 0 (they carry no prose of their own, by decision 15), the nine entries 1,410, the
 # closing beat 223. Against the brief's 1,500 that is a third over, and
 # part of it is structural rather than padding: the provenance paragraph and the closing beat are not
 # in the brief's per-entry budget, and they are where the register's required voice disclosure and
@@ -270,9 +273,23 @@ sources:
 # of on the machine, entry 5 needs the sentence that says the fault is a generator's and the hedge
 # inside the book's own claim, and entry 6 needs both hedges of the p. 390 claim, which is the
 # longest quoted run in the draft until batch 3, and is now second behind the p. 474 belt-contact
-# sentence at 30 words. Entries 7 to 9 are 173, 180 and 176: 11 to 15 percent over the top of the
-# band the first six set, which is the comparison this batch's acceptance criterion asks for, and 33
-# to 38 percent over the brief's number. The same shape, for the same reasons. Entry 7 needs the
+# sentence at 30 words. Entries 7 to 9 came out of batch 3 at 173, 180 and 176: 11 to 15 percent
+# over the top of the band the first six set, which is the comparison this batch's acceptance
+# criterion asks for, and 33 to 38 percent over the brief's number. A length pass on this batch's
+# own prose brought them to 165, 162 and 171 - 4 to 10 percent over that band, 25 to 32 percent
+# over the brief's number. What came out was connective wording of ours, not evidence: 'and closes
+# by widening the claim', 'It also says the frame suits', 'the polyphase machinery of' became 'set
+# out in' over the same article 07 link, 'and the book prints no measurement' turned into a colon,
+# and the p. 464 lamp quote taken as its first clause only - 'the lamp cuts itself out automatically
+# when the arc gets too long', where the draft had quoted the whole run including 'and reinserts
+# itself automatically in the circuit if the carbons drop together'. The full run stays in quotes.md
+# at printed p. 464 for whoever wants it back. No entry lost a page cite and no page left the body:
+# check_quotes.py re-run on these bytes still reports 45 fragments, 45 verbatim and page-cited, 0
+# problems, and pages_used above still equals the set of pages the body cites, read out by the same
+# regex. The p. 474 belt-contact sentence was not cut, and the p. 464 self-reinserting half was the
+# only quote shortened: the closer's 'until their inventor ran out of time' rests on the p. 474
+# sentence, so cutting it there would have unmoored a claim the closing beat makes. The same shape,
+# for the same reasons, at the new lengths. Entry 7 needs the
 # sentence reporting that the chapter gives no build, no trial, no date and no patent number, because
 # the register says the entry has no story and must not be given one. Entry 8 needs the company
 # sentence and the sentence saying the company is never named, which is the only narrative the volume
@@ -377,21 +394,21 @@ The priority claim is his own, in another chapter, on high-frequency alternators
 
 ### 7. One Frame Pattern, Cast in Two Identical Halves
 
-Chapter XXXIX is three printed pages, one device, and no story. "The field magnets and frame are cast in two parts. These parts are identical in size and shape" (1894, p. 448): one pattern, two halves, bearings cast in rather than fitted later. The claim is manufacture, not performance: it "requires fewer parts, and which involves less trouble and expense in its manufacture" (1894, p. 448).
+Chapter XXXIX is three printed pages, one device, and no story. "The field magnets and frame are cast in two parts. These parts are identical in size and shape" (1894, p. 448): one pattern, two halves, bearings cast in with the frame. The claim is manufacture, not performance: the machine "requires fewer parts, and which involves less trouble and expense in its manufacture" (1894, p. 448).
 
-Its one technical reason is a bearing placement: "The bearings for the shaft are located at the neutral points of the field, so that the armature core is not affected by the magnetic condition of the field" (1894, p. 450). It prefaces that with "This machine possesses several advantages" (1894, p. 450), supplies exactly one, and closes by widening the claim. Nothing in printed pp. 448 to 450 says the frame was built, tried or measured, and no date or patent number appears in it. It also says the frame suits machines 'of the ordinary type generally used' (1894, p. 448): the least Tesla-shaped of the nine.
+The one technical reason is a bearing placement: "The bearings for the shaft are located at the neutral points of the field, so that the armature core is not affected by the magnetic condition of the field" (1894, p. 450). The book prefaces that with "This machine possesses several advantages" (1894, p. 450) and supplies exactly one. Nothing in printed pp. 448 to 450 says the frame was built or tried, and no date or patent number appears in it. The frame suits machines 'of the ordinary type generally used' (1894, p. 448): the least Tesla-shaped of the nine.
 
 ### 8. Tesla's Direct Current Arc Lighting System
 
-Chapter XL is the only one that says what became of the device. Tesla worked out a direct current arc lighting system which "was confided to a company formed for its exploitation", then turned to what the compiler calls his 'more celebrated' "rotary field" system (1894, p. 451), the polyphase machinery of [the paper Tesla scribbled in pencil](rotating-magnetic-field-1888.html). The company is never named. The book's reason it did not win is a crowded market and a compliment: the apparatus "appeared at a time when a great many other lamps and machines were in the market" (1894, p. 451).
+Chapter XL is the only one that says what became of the device. Tesla's direct current arc lighting system "was confided to a company formed for its exploitation"; he then turned to what the compiler calls his 'more celebrated' "rotary field" system (1894, p. 451), set out in [the paper Tesla scribbled in pencil](rotating-magnetic-field-1888.html). The company is never named. The book's reason it did not win: a crowded market and a compliment. The apparatus "appeared at a time when a great many other lamps and machines were in the market" (1894, p. 451).
 
-The lamp is the clever half: two electro-magnets pulling against each other on the carbon-feed lever. The feed is so fine that "the movement of the rod cannot be detected without some actual measurement" (1894, p. 463), and the book prints no measurement. Its last claim: "the lamp cuts itself out automatically when the arc gets too long, and reinserts itself automatically in the circuit if the carbons drop together" (1894, p. 464). The chapter reports no installation, load test or result.
+The lamp is the clever half: two electro-magnets pull against each other on the carbon-feed lever. The feed is so fine that "the movement of the rod cannot be detected without some actual measurement" (1894, p. 463): the book prints no measurement. Its last claim: "the lamp cuts itself out automatically when the arc gets too long" (1894, p. 464). The chapter reports no installation, load test or result.
 
 ### 9. Discs That Make Direct Current Without a Commutator
 
 A unipolar machine is a disc turned between the poles of an even field; its current runs from centre to rim, "of one direction without the employment of commutating devices" (1894, p. 468). A useful voltage needs very high speed or a very large disc, and at either "it becomes difficult to secure and maintain a good electrical connection between the collecting brushes and the conductor, owing to the high peripheral speed" (1894, p. 465).
 
-The rest of the chapter is Tesla's own writing. His answer to that difficulty: "a flexible conducting belt may be employed to advantage" (1894, p. 474). Then the only sentence in this list that reports a machine built and run: "Several machines with belt contact were constructed by the writer two years ago, and worked satisfactorily ; but for want of time the work in that direction has been temporarily suspended" (1894, p. 474). The book dates those notes to Sept. 2, 1891 (1894, p. 467), so 'two years ago' in them means about 1889 - our arithmetic, not the volume's.
+The rest of the chapter is Tesla's own writing. His answer: "a flexible conducting belt may be employed to advantage" (1894, p. 474). Then the one sentence in this list that reports a machine built and run: "Several machines with belt contact were constructed by the writer two years ago, and worked satisfactorily ; but for want of time the work in that direction has been temporarily suspended" (1894, p. 474). The book dates those notes to Sept. 2, 1891 (1894, p. 467), so 'two years ago' means about 1889 - our arithmetic, not the volume's.
 
 ## The Only Magnetic Generator in This Book
 
