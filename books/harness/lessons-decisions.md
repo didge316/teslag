@@ -784,3 +784,59 @@ adds the `2-3 figures in <figure class="mb-4 pt-5">` gate when the page referenc
 Same two failures, one new gate that passes. Lesson: a gate count is a function of the page, not a
 constant of the tool — quote the count with what the page contains, or re-measure it before writing
 it down.
+
+## 2026-10-17 — feature-006/t3 (article 08 render + numeric gates): a gate that reads the site graph changes when the page moves into it
+
+The same bytes scored 27 of 29 at the `feature-006/t2` smoke render
+(`books/tmp/f06t2b/tesla-weird-inventions-1894.html`) and 29 of 29 at this task, in
+`website/`. Nothing about the page changed between those two measurements except where it
+lives. Two of the three deferred failures the earlier record named were wrong as predictions:
+
+- **The reciprocal-links gate.** The smoke render reported `reciprocal: []`; the real page
+  reports 36 reciprocal links and passes. `qa_page.py`'s `inbound_map()` walks `website/`, and
+  once the page is inside `website/` it is in its own inbound set — the shared shell links to
+  `/about`, `/contact`, `/articles` and the rest on every page of the site, and the page under
+  test carries that same shell, so it satisfies the gate against itself. Measured directly:
+  `tesla-weird-inventions` is in its own inbound set for `about`. This is the vacuity
+  `feature-004/t7` already recorded, and it is left alone for the reason that record gives:
+  fixing it would fail 01, 02 and 04 too, and that is an owner call. Lesson: **a gate that
+  reads the site graph is not measured by a render outside the site graph.** A deferred failure
+  carried forward from a smoke render has to be re-measured at render time, not copied — and a
+  gate that *passes* is not a gate that is satisfied. The truth for this page is unchanged:
+  three out-links placed and resolving, zero in-links from anywhere, and §5.2 is still
+  `feature-006/a08-wirecommit`'s work and the hub's.
+- **D4, `no book-PDF link`,** did fail, and not for the reason its name gives. It is a plain
+  substring test for `.pdf` anywhere in the page, and what tripped it was a journal article:
+  the ABB Review source row carries a url ending in `.pdf`. The draft left the choice to this
+  task — drop the url, or find a non-`.pdf` address — and the second was measured before it was
+  rejected: `curl` returns 200 for the `.pdf` itself, 403 for the `library.e.abb.com` public
+  path with the file name removed, 403 for a guessed `66-70.html` at the end of that path. So
+  there is no non-`.pdf` location for that article, and inventing one was the one thing not to
+  do. The url line is off the row; the citation keeps authors, title, journal, issue and pages;
+  the `.pdf` address stays in a front-matter comment so the source is still findable.
+  `qa_page.py`'s D4 is left exactly as it is — narrowing a substring test to "the book PDF" is
+  a tool change, and a page render is not where to make it. Lesson: **when a gate's test is
+  broader than its name, the page passing is not the gate being right.** Say which one was
+  worked around, or the next page inherits the same trap with a clean bill of health.
+- **The empty CTA block is the one defect on this page that no tool sees.** `cta_block()` emits
+  `c.get("text","")` unchecked, so a draft with no `cta:` key renders an empty
+  `<p class="mb-2">` inside the alert box; `qa_page.py` has no CTA gate, so 29/29 says nothing
+  about it. It was flagged at `a08-draft3` and again at `a08-figrec`, both times writing that it
+  needs a plan row rather than a drive-by, and no row was ever added — which is how a defect
+  survives three tasks. Lesson: **a flag that needs an owner is not filed until it has a row.**
+  `feature-006/a08-cta` was added at this task, after t3 and before `a08-wirecommit`; the CTA
+  sentence itself was not written here, and no other page's CTA was copied.
+
+Measured and recorded rather than fixed, because none of it is this task's: the length overrun
+(the draft's own `len_check.py` method gives 2,003 words against brief 08's 1,500, and
+`qa_page.py` has no word gate, so 29/29 does not mean the length is right), the date ordering
+question `a08-figrec` raised, the missing `assets/og/` file (`feature-010/t2`), and the §5.2
+in-links. `--wire` was deliberately not run: the sitemap entry, the llms.txt line, the
+`_redirects` pair for the `/tesla-weird-inventions` alias and the articles.html card belong to
+`feature-006/a08-wirecommit`, which has two known tool defects waiting for it there.
+
+Two facts worth keeping about the render itself: `make_article.py`'s "internal links: 1" line is
+not the page's link count — it subtracts every href the donor shell carries, and two of this
+page's three body out-links are also in that shell's sidebar. And the render is reproducible:
+re-run to `books/tmp/f06t3/` and `cmp` says byte-identical to the committed page, which is the
+check to run after editing front matter, since a front-matter comment is still front matter.
