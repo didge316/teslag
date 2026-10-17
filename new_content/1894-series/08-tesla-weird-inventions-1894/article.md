@@ -13,26 +13,259 @@ date_modified: "2026-10-17"
 series_no: 8
 primary_query: tesla lesser known inventions
 tid: "1894_08"
-# og_image and card_image are set at feature-006/t2 and a08-figrec, once a figure has been read
-# against its printed page. card_image is figure 1 of the page on every other article in this
-# series, so it waits for the same reason the figures do. App. C's candidates for this page are
-# p422-fig230, p434-fig247, p446-fig266, p457-fig281, p460-fig283, p466-fig290; entry 2's
-# engravings (Figs. 227 and 228, printed p. 418) have no crop and no manifest row at all, and
-# books/pdf-pages-tesla-1894/page-436.pdf is there to cut them from.
+# og_image is the path every page in this series carries and no page in this series has the file
+# yet: feature-010/t2 generates all thirteen with the script feature-010/t1 writes. Setting the path
+# here is the series convention, not a claim that the file exists.
+# card_image is figure 1 of the page, as on every other article in the series, so it is set at
+# feature-006/t2 with the figure record below, once the number had been read off the printed caption
+# at 500 ppi. It is the same file as figure 1, not a second crop of the same plate.
+og_image: assets/og/tesla-weird-inventions-1894.webp
+card_image: assets/tesla1894/p410-fig220.webp
+card_alt: "1894 circuit diagram, Fig. 220, printed p. 410: an alternating current generator feeding a line that divides at one point and rejoins at another, with a direct current source in each of the two branches"
 standfirst: "Nine devices, each cited to the printed page of the 1894 book that collected them. The volume never says any of them failed, and for most of the nine it says nothing at all about what became of them. What it does record, entry by entry, is the thing each machine needed and had not got: a rotating armature turning in step with the line, a dielectric with no gas in it, a current that had to be reversed after every reading."
-# FIGURES: none used in either draft batch. feature-006/t2 reads the figure evidence and a08-figrec
-# writes the index.json row. One engraving per entry is the brief's plan; entries 1 and 3 already
-# have QCd crops, entry 2 has none, and entries 4 to 6 have no crop on disk either - entry 5's
-# figure is App. C's p434-fig247, which is in the candidate list below. The two crops are named on
-# disk by scan file, not by printed page,
-# so the names are given here as the files have them: website/assets/tesla1894/p428-fig1-fig220.webp
-# (fig. 220, printed p. 410, entry 1) and website/assets/tesla1894/p440-fig1-fig230.webp (fig. 230,
-# printed p. 422, entry 3), both manifest_qc keep/A at rows 149 and 157 of that CSV. Listing the
-# printed-page names here instead sent the next task looking for two files that do not exist.
-# App. C's own row for this page uses the same scan-file names (p440-fig230 p.422, etc.), so the
-# printed-page forms in §9 brief 08 are a shorthand, not filenames. Two manifest_qc subject lines
-# describe those meters wrongly, which is why the captions come from the prose and the figure
-# numbers from the printed page.
+# FIGURES, feature-006/t2 (2026-10-17). Three figures, placed one per entry, in entries 1, 2 and 4.
+# Not nine, and the reason is §6.6 and §12 rather than a shortage of engravings: §6.6 'Every article
+# ships with 2-3 images placed in the body, each adjacent to the paragraph it illustrates', and nine
+# cannot be squared with that or with the 400 KB figure gate. §9 brief 08's 'one engraving per entry'
+# is the same kind of brief line as the nine H2s that decision 15 had to give up for the 5-9 H2 gate,
+# and it goes the same way: the gate is the boundary and the count is not. Article 06 shipped three
+# under the identical brief line. Six entries carry no figure on this page; which ones, and what it
+# would take to add one, is under 'NOT RE-OPENED' at the end of this block.
+#
+# READ BEFORE ANYTHING WAS RE-OPENED (criterion 1). App. C's row for this page names six candidates
+# by scan file: p440-fig230 p.422, p452-fig247 p.434, p478-fig283 p.460, p484-fig290 p.466,
+# p464-fig266 p.446, p475-fig281 p.457. §9 brief 08 prints the same six in printed-page form
+# (p422-fig230, p434-fig247, p446-fig266, p457-fig281, p460-fig283, p466-fig290), which is a
+# shorthand and not a filename: printed page = scan file - 18 (§0), so p422-fig230 is the file
+# p440-fig1-fig230.webp. Then website/assets/tesla1894/manifest.csv and manifest_qc.csv rows 149 to
+# 192 - every row either file has anywhere in the page range of all nine entries, scans 428 to 491,
+# since neither file has a row for scan 427 or 492 - and the crops themselves,
+# opened as images: p428-fig1-fig220.webp, p440-fig1-fig230.webp and p448-fig1-fig243.webp. Also
+# read: the feature-006/t0 lesson in books/harness/lessons-decisions.md, which named entry 2 as the
+# gap, and feature-005/a06-figrec's two lessons, which are why every box below is written down.
+# Three claims in this page's own earlier record are wrong, and they are corrected here instead of
+# being carried into the figure task:
+#   1. 'entries 4 to 6 have no crop on disk either'. They have crops. manifest.csv has rows, and the
+#      files exist, for printed pp. 425, 426, 427 and 430 (entry 4), 433, 434, 435 and 436 (entry 5)
+#      and 439, 440, 441, 442, 444, 445 and 446 (entry 6). Entry 2 is the only one of the nine with
+#      no crop anywhere, and it is the only one of the nine with no row in manifest.csv either.
+#   2. 'entry 5's figure is App. C's p434-fig247, which is in the candidate list below'. The file is
+#      website/assets/tesla1894/p452-fig1-fig247.webp, it is on disk, and manifest_qc row 163 calls
+#      it keep/A. It is not used here; the reason is under 'NOT RE-OPENED'.
+#   3. 'Two manifest_qc subject lines describe those meters wrongly'. Two subject lines, yes, but only
+#      one of the two figures is a meter. Measured against the print the two are row 149 (Fig. 220,
+#      which is not a meter and has no battery in the sense the note means) and row 156 (Fig. 229, a
+#      meter figure, called 'good coherer/retcoherer illustration'). Row 157 (Fig. 230) is not wrong
+#      so much as incomplete: it omits the galvanometer and both resistance coils, which are most of
+#      the drawing. All three notes are corrected in manifest_qc.csv at this task, in the site repo,
+#      with the read that corrects them named in the note, and so are two more that turned up while
+#      checking them: row 158's 'Figure number 281 is genuine for p.425', which that page's own three
+#      printed captions contradict without anything settling it (the note now says NOT SETTLED and says
+#      why the page was not re-opened), and row 161's description of the p.430 two-figure band, which
+#      is the crop this task replaced. That is the standing reason every caption
+#      below is written from the prose of the printed page and every figure number from the printed
+#      caption, never from an extractor filename or a QC note (§6.6).
+#
+# RE-OPENED AT 500 ppi, and only these four pages (criterion 2). Each was chosen because its evidence
+# is missing or contradicted, not because it was next to hand. pdftoppm -r 500 of
+# books/pdf-pages-tesla-1894/page-NNN.pdf, 1856 x 3227 px a page, the native resolution of the image
+# embedded in the page PDF, the same size feature-005/a06-figrec measured. The renders themselves are
+# in gitignored books/tmp/f06t2/; every crop that carries a read is committed under figures/ beside
+# this file, with the exact box it was cut at and its sha256 in figures/README.md, so the read can be
+# re-made without re-rendering anything.
+#   printed p. 410, scan 428 (entry 1). A crop exists and is keep/A (row 149), but its subject line
+#     is contradicted by the print, and the crop carries no printed caption, which §6.6 requires.
+#   printed p. 418, scan 436 (entry 2). No crop, no manifest row, nothing. Re-opened, and the reason
+#     the row was never written is now known: extract_figures.py run over scan 436 at both 300 and
+#     500 dpi returns 0 figures for this page, because it masks every row the text layer claims and
+#     these two plates sit inside the claimed text block. The plates are there. In the 500 ppi render
+#     their ink runs y 1474 to 1941, x 230 to 1143 for the left plate and x 1233 to 1730 for the
+#     right, and both printed captions are set under them at y 1945 to 2024.
+#   printed p. 422, scan 440 (entry 3). A crop exists and is keep/A (row 157), but the number was
+#     contradicted: the text layer of this page sets the printed caption as 'FIG. 280.' while the body
+#     of the same page reads 'In Fig. 230 the conductors c c' are connected in parallel'. Re-opened to
+#     settle which the print says.
+#   printed p. 430, scan 448 (entry 4). A crop exists and is keep/A (row 161 of both manifest files;
+#     this block first said row 176, which is p464-fig1-fig266 on printed p. 446 and untouched here),
+#     but it is a two-figure band at 300 ppi holding Fig. 242 and Fig. 243 side by side with neither
+#     printed caption, its subject line ('A long solenoid with a sliding armature rod and a detail block at right')
+#     describes neither plate correctly, and the file is named for the smaller of the two. Re-opened,
+#     because this is the machine the closing beat names.
+#
+# WHAT THE PRINT SAYS, read off those renders. The crops named below are the evidence and they are in
+# git, not in tmp/.
+#   printed p. 410: the printed caption under the single plate is 'FIG. 220.'
+#     (figures/p410-printed-caption-fig220.png), and the body line on the same page begins 'In Fig.
+#     220, A designates a generator of alternating currents,'
+#     (figures/p410-bodyref-fig220-line.png). The plate is one diagram: a box marked A low in the
+#     centre, two conductors marked B leading out of it and turning up at the sides of the plate,
+#     dividing at a point marked Y at the left and rejoining at a point marked X at the right, two
+#     branch conductors between those points marked C above and D below, a round cell symbol with one
+#     long and one short bar inside it in each branch, marked E above and F below, and three small
+#     dark diamond shaped symbols set at intervals along each branch. The prose on the same page says
+#     the same thing in other words: 'A designates a generator of alternating currents, and B B the
+#     main or line circuit therefrom', the circuit 'is divided into two paths or branches', and 'the
+#     generators E F are connected up in series therein, one generator in each part or half of the
+#     circuit' (printed p. 410); the page before it says, of the devices put in the branches, 'Assume,
+#     for example, that these devices are batteries, primary or secondary, or continuous current dynamo
+#     machines' (printed p. 409). So row 149's 'two lamps in opposite arms of a loop with a battery and
+#     switches' gets the loop right and the parts wrong: A is the alternating current generator, the two
+#     devices in the arms are the direct current sources the chapter calls generators and then current
+#     sources, and no word for a lamp, a meter, an indicator or a switch appears anywhere in the four
+#     printed pages of this chapter (scans 427 to 430 searched). The three dark symbols are not
+#     described either, so the alt text gives their shapes and the caption says plainly that they are
+#     not named.
+#   printed p. 418: two plates side by side, 'FIG. 227.' under the left and 'FIG. 228.' under the
+#     right (figures/p418-printed-caption-band-fig227-fig228.png). Fig. 227 is a rectangular can in
+#     section, walls hatched, with a plate stack near each end drawn as a set of horizontal lines,
+#     three dark vertical strips between them, the interior filled with a stippled space, a terminal
+#     led out through the middle of each short wall, and letters on the plate. Fig. 228 is a taller
+#     can in section with two plates whose outer edges are curved, a threaded rod with nuts and a
+#     stuffing box through each side wall, and the same filled interior. The page after this one names
+#     both plates and their letters, in the volume's own text layer and clean: 'Fig. 227 is a section
+#     of a condenser constructed in accordance with this principle and having stationary plates; and
+#     Fig. 228 is a similar view of a condenser with adjustable plates', then box or receptacle A,
+#     plates B and c, terminals D and E through the sides of the case, strips of porous insulating
+#     material F 'used merely for the purpose of maintaining them in position', and 'The space within
+#     the can is filled with oil G' (printed p. 419). Every one of those letters is legible in the
+#     500 ppi crop and points where the prose says it points. That sentence on p. 419 is already
+#     quoted in entry 2, so the caption adds no quote the register has not pinned.
+#   printed p. 422: the printed caption under the plate is 'FIG. 230.' (figures/p422-printed-caption-
+#     fig230.png), and the body line on the same page reads 'In Fig. 230 the conductors c c' are
+#     connected in parallel, the' (figures/p422-bodyref-fig230-line.png). The print says 230; the
+#     text layer's 'FIG. 280.' is the mis-read, and it is the same 3-for-8 confusion this scan makes
+#     twice nearby - 'Fig. 281' on printed p. 425, whose three printed captions read 231, 232 and 233,
+#     and 'FIG. 287.' on p. 427, where the sequence reads 237, 238, 239. Both of those two are text-
+#     layer reads and neither was re-opened, so they are flagged and not settled; see 'NOT RE-OPENED'.
+#     Settled against the print, so the figure this page would have published for entry 3 carries the
+#     number the print gives it. The plate is the meter: a long tube in section with hatched end plugs, two conductors
+#     running its whole length, one labelled above the tube and one below it (the text on the same page
+#     calls them c and c'), both led out to coiled resistances marked R' and R'', a round instrument
+#     marked G in the line conductors L L, and a vertical ladder of seven contact points marked T. The
+#     printed caption 'FIG. 230.' is inside the plate crop as well as in the caption crop. The prose on
+#     pp. 421 and 422 describes exactly that, and says
+#     'Figs. 229 and 230 illustrate two forms of such a meter' (printed p. 421). Entry 3 is not
+#     illustrated on this page, and the reason is under 'NOT RE-OPENED'.
+#   printed p. 430: 'FIG. 242.' under the left plate and 'FIG. 243.' under the right
+#     (figures/p430-printed-caption-band-fig242-fig243.png), and the two body lines on the same page
+#     say which is which: 'Fig. 242 is a central vertical longitudinal section of the com-'
+#     (figures/p430-bodyref-fig242-line.png) and 'plete apparatus and Fig. 243 is a cross-section of
+#     the magnetic' (figures/p430-bodyref-fig243-line.png). Fig. 242 is the pyromagnetic generator:
+#     a long horizontal bundle of parallel tubes in section spanning the plate, wound at two places
+#     with coils, those two coils led up to two small round instruments, the middle of the bundle
+#     passing up through a column that stands in a rectangular firebox with a fire drawn under it and
+#     a door with a handle at its foot, two vessels partly filled with liquid and a wide flue above
+#     them, and pipes from the ends of the bundle to those vessels. Fig. 243 is a small rectangle of
+#     circles inside a casing, which is the armature core in cross-section. The prose on the same page
+#     matches the drawing part for part: a casing or shell enclosing hollow iron tubes, conductors
+#     wound around the core to form the coils in which the currents are developed, current consuming
+#     devices in the circuits of those coils, a furnace or closed firebox through which the middle of
+#     the core extends, a boiler above the fire, and a steam exhaust pipe that communicates with all
+#     the tubes (printed p. 430). Note that the letters on this plate do not all match the letters in
+#     that prose, which is normal for a reprinted patent drawing: the firebox the text calls n is
+#     marked D on the plate. The caption therefore names the parts in words and not by letter, per the
+#     feature-005/t4 rule that a figure whose point is a labelled part must have the part named in the
+#     caption text.
+#
+# WHAT IS PUBLISHED, and where it sits. Three crops, cut at 500 ppi, each the whole plate with its
+# printed caption inside the crop, named by printed page as §6.2.5 asks and as article 06's three are
+# named. They are in the site repo, committed at this task, and manifest_qc.csv gains a row for each
+# of them - rows 217, 218 and 219 of that file, each with the box it was cut at, its sha256, the
+# evidence crop that carries the read, and the row it supersedes named:
+#   figure 1, website/assets/tesla1894/p410-fig220.webp, 1115 x 629, 21,236 bytes, sha256
+#     30a0d64a1841cf4357ae59381ea502fa2cd46e73e65c4a1c38f01e4b8db1a419. Cut from scan 428 at box x
+#     396 to 1511, y 1291 to 1920 of the 500 ppi render. It supersedes p428-fig1-fig220.webp, which
+#     is the same plate at 300 ppi with no printed caption and a subject line the print contradicts.
+#     Placed at the end of entry 1, inside the first entries H2, which is where §6.6 puts figure 1.
+#   figure 2, website/assets/tesla1894/p418-fig227.webp, 933 x 496, 40,390 bytes, sha256
+#     adf89bbad4ce82ea53aef1b845cb7562d0e87c485c1585c247c802862546c65d. Cut from scan 436 at box x
+#     220 to 1153, y 1538 to 2034. There is no earlier crop of this plate to supersede: it is the
+#     first crop of printed p. 418 in five years of extraction. Placed at the end of entry 2.
+#   figure 3, website/assets/tesla1894/p430-fig242.webp, 1169 x 768, 73,692 bytes, sha256
+#     40e6a706c34dfaa4384dd5bf3c789a1dcfabe6b1ea64189d5d73d08d02a04072. Cut from scan 448 at box x
+#     196 to 1365, y 1189 to 1957. It supersedes the two-figure band p448-fig1-fig243.webp. Placed
+#     inside the closing beat, after the paragraph that names this machine, which is where §6.6 puts
+#     figure 3 and is the pairing the page's own argument asks for.
+#   Total figure weight as published: 135,318 bytes, inside the 400 KB gate. The three alt texts and
+#   captions are the figures: block below and are the only copy: the body image lines carry no alt
+#   and no title, so make_article.py takes both from here (img_tag and the figmap lookup). Article 06
+#   keeps a second copy of both in its body image lines and the two copies of its Fig. 110 alt already
+#   disagree with each other ('black ground' against 'dark ground'), which is the defect this avoids.
+#   The captions cite their page in §6.6's form, '(1894), p. 410', not in the '(1894, p. 410)' form,
+#   so they do not enter the citation regex and pages_used below is unchanged by the figures. The four
+#   pages the plates are on are inside the chapter ranges the sources: block already lists.
+#   One deviation from §6.6, stated rather than left to be noticed: figure 2 sits in the same H2 block
+#   as figure 1, because entries 1, 2 and 3 are one H2 and the only figures with verified evidence are
+#   in entries 1 to 4. Figure 3 is where §6.6 wants it. If the owner wants figure 2 out of that block,
+#   the candidate is Fig. 247 on printed p. 434, and it has to be read off the print first.
+#
+# NOT RE-OPENED, and what that leaves open. Six entries have no figure here, and for none of them is
+# the printed caption number known, because no task has read one. App. C's six candidates are crops
+# that exist and are keep/A, and their QC notes are not contradicted by anything I read, but a QC note
+# is not a printed-caption read, and §6.6 is explicit that the extractor filename and the QC note are
+# hints. So they are recorded as available and unverified, which is the honest state, and none of them
+# is published here:
+#   entry 3, Fig. 230, printed p. 422: read at this task and settled above, and not published. The
+#     reason is placement, not evidence: entry 3 is in the same H2 block as entries 1 and 2, and a
+#     fourth figure in that block would be three in one section of a five-section page and would put
+#     this page outside §6.6. If the owner wants the meter on the page, it replaces figure 2, not adds
+#     to it. The crop for it is cuttable at the box in the record above whenever wanted.
+#   entry 5, Fig. 247, printed p. 434 (App. C's p452-fig247): the file p452-fig1-fig247.webp exists
+#     and row 163 calls it keep/A. The text layer of printed p. 434 sets two captions on that page,
+#     'FIG. 246.' and 'FIG. 247.', and the body line says Fig. 246 is a section of the end of a shaft
+#     with the commutator on it and Fig. 247 is the inner or bearing face of the collector. The crop is
+#     971 x 616 and covers both, so it is a two-figure band like the one this task replaced at p. 430.
+#     Not re-opened: nothing about it is contradicted, and this page has no room for a fourth figure.
+#   entries 6, 7, 8 and 9: App. C's p464-fig266, p475-fig281, p478-fig283 and p484-fig290, and the
+#     crops for printed pp. 439 to 446, 449, 452 to 462 and 466 to 473. Several of those rows already
+#     flag their own numbers as uncertain ('number unreliable', 'Caption spans Figs.293-294'), which is
+#     a reason not to publish them, not a reason to re-open them at this task: the page is at three
+#     figures. Anyone adding one reads the printed caption at 500 ppi first, which is the whole of
+#     §6.6's verification step.
+#   printed p. 425 (entry 4's chapter, first figure page): manifest_qc row 158 says 'Figure number 281
+#     is genuine for p.425'. The text layer of that page sets three captions, 'FIG. 231.', 'FIG. 232.'
+#     and 'FIG. 233.', and the body line on the same page that the extractor took the number from
+#     reads 'In Fig. 281 the permanent magnet N is connected with a frame'. One of those two is wrong,
+#     and the 3-for-8 confusion this scan makes twice nearby (pp. 422, 427) says which is likely. Not
+#     re-opened, because this page publishes no figure from p. 425 and entry 4's figure is the one on
+#     p. 430. Flagged here and in that file, whose row 158 note now reads NOT SETTLED with the reason
+#     the page was not re-opened, so no next reader takes it as settled.
+#   The two page renders this task did not need: printed p. 419 (scan 437), whose prose names Figs.
+#     227 and 228, was read in the text layer and not rendered. That prose is clean, contains no
+#     figure number the print contradicts, and is already quoted in entry 2, so a crop of it would
+#     prove nothing the register has not pinned. If the caption for figure 2 is ever changed to quote
+#     that sentence, re-read it against the render first.
+#
+# WHAT feature-006/a08-figrec and t3 take from this block: three figures, verified:true, sourced here
+# and not re-derived; the index.json figures[] rows point at the three files above; t3 renders the
+# page with the three body image lines already in place, and qa_page.py's image gates will find the
+# files, their alt, width and height in the block below; t4 reviews these three crops at 375, 768 and
+# 1280, where the letters inside the plates are expected to be marginal, as they were on article 05,
+# which is why every part the argument needs is named in words in the caption text.
+figures:
+  # Figure 1. Number read off the printed caption at 500 ppi, not from the extractor filename or the
+  # manifest_qc subject line, both of which are wrong about this plate. See the block above.
+  - src: /assets/tesla1894/p410-fig220.webp
+    alt: "1894 circuit diagram, Fig. 220, printed p. 410: a rectangular box marked A low in the centre, two conductors marked B leading out of it and turning up at the sides of the plate, dividing at a point marked Y at the left and rejoining at a point marked X at the right, two branch conductors running between those points, the upper marked C and the lower marked D, a round cell symbol with one long and one short bar inside it in each branch, marked E in the upper branch and F in the lower, and three small dark diamond shaped symbols set at intervals along each branch"
+    width: 1115
+    height: 629
+    caption: "Fig. 220, printed p. 410, the whole diagram with its printed caption inside the crop. Engraving from Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), p. 410. Public domain. The text on that page names the parts: A is a generator of alternating currents, B B is the line, and at the point where direct currents are wanted the line is divided into two paths or branches, with a generator in each, the two connected in series one in each half of the circuit. The drawing is that division, and it is drawn as a division: the line enters at the left, splits at Y, runs along the two branches, and rejoins at X. The three small dark symbols in each branch are not described anywhere in the chapter, so they are named here by shape only and not as lamps or meters. This is the arrangement entry 1 above is about, and the part of it that matters is the split, not the two cells: the chapter's own difficulty, quoted above, is that the devices which do this work in the other figures of the same chapter have to turn in step with the line."
+  # Figure 2. The first crop of printed p. 418 that any pass has made: extract_figures.py returns 0
+  # figures for scan 436 at both 300 and 500 dpi, which is why there was no row for it. Every letter
+  # named in this caption is legible in the crop and is the letter the prose on printed p. 419 uses.
+  - src: /assets/tesla1894/p418-fig227.webp
+    alt: "1894 engraving, Fig. 227, printed p. 418: a rectangular can shown in section with its walls hatched, a stack of horizontal plates standing inside near each end, three dark vertical strips between the two stacks, the whole interior filled with a stippled space, a terminal led out through the middle of each short wall, and letters marking the case, the two plate stacks, the dark strips, the terminals and the filled interior"
+    width: 933
+    height: 496
+    caption: "Fig. 227, printed p. 418, the whole plate with its printed caption inside the crop; the plate beside it on the same printed page is Fig. 228, the same condenser with adjustable plates. Engraving from Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), p. 418. Public domain. The page after this one describes what is drawn, and the letters on the plate are its letters: a box or receptacle containing the plates or armatures, led out to terminals through the sides of the case, the plates separated by strips of porous insulating material used merely for the purpose of maintaining them in position, and the space within the can filled with oil. Nothing in the drawing is a solid dielectric. The insulating thing between the plates is the oil, and the strips are spacers, which is the whole of entry 2 above drawn as the book drew it. The book hedges its own novelty on the same page, saying oil between conductors has been a common practice, and that hedge is why this is the entry on this list that did not lose."
+  # Figure 3. Placed with the closing beat, which names this machine. The letters on this plate do not
+  # all match the letters in the prose on the same page (the firebox the text calls n is marked D on
+  # the plate), so the caption names the parts in words and not by letter.
+  - src: /assets/tesla1894/p430-fig242.webp
+    alt: "1894 engraving, Fig. 242, printed p. 430: a long horizontal bundle of parallel tubes in section spanning the width of the plate, wound at two places with coils of many turns, those two coils led up to two small round instruments near the top of the drawing; the middle of the bundle passes up through a column standing in a rectangular firebox with a fire drawn under it and a door with a handle at its foot, and above the firebox the column branches into two vertical vessels partly filled with liquid with a wide flue rising between them; pipes run from near the ends of the tube bundle up and over to those vessels, one of them with a valve in it; a spring loaded fitting and a bracket are drawn at the left end of the bundle and the whole machine stands on a flat base"
+    width: 1169
+    height: 768
+    caption: "Fig. 242, printed p. 430, the whole apparatus with its printed caption inside the crop; the small plate beside it on the same printed page, a rectangle of circles inside a casing, is Fig. 243, which the same page calls a cross-section of the magnetic armature-core of the generator. Engraving from Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), p. 430. Public domain. The text on this page says the armature core is a casing enclosing a number of hollow iron tubes, that conductors wound around it form the coils in which the currents are developed, that current consuming devices are in the circuits of those coils, that a furnace or closed firebox surrounds the middle of the core, that a boiler holding water sits above the fire, and that the steam from the boiler passes through the tubes, which is the artificial cooling the page calls the first of its two features of novelty. The drawing matches that list part for part. What the chapter reports with the drawing is what it reports without it: no output, no efficiency figure and no trial. This is the machine the section above names as the only one in this volume that the phrase 'magnetic generator' is attached to, and it is a heat engine."
 #
 # PAGES USED, all nine entries. This list is rendered into the published
 # Sources block by make_article.py sources_block(), so it is the pages the page actually cites, not
@@ -62,7 +295,7 @@ pages_used: [6, 390, 409, 412, 418, 419, 420, 422, 423, 424, 429, 432, 434, 436,
 # FAIL there by construction, and that is how article 06 handles it too. ONE OF THE TWO URLS
 # BREAKS A §12 GATE, AND IT IS NOT A BOOK PDF: the ABB Review row's url ends in '.pdf', and
 # qa_page.py's D4 gate is a plain substring test for '.pdf' anywhere in the page, so it fails this
-# page on a journal PDF. Measured at the smoke render below (books/tmp/f06a08d3/qa_smoke.out).
+# page on a journal PDF. Measured at the smoke render below (books/tmp/f06t2b/qa_smoke.out).
 # Fixing it is an owner call at feature-006/t3, not a silent edit here: either the ABB citation
 # loses its url and keeps the bibliographic text, or a non-.pdf location is found for the same
 # article. Inventing a URL is the one thing not to do.
@@ -105,16 +338,26 @@ sources:
 #   written, and {{FAQ}} renders as nothing. If the owner wants one, that is a new task.
 #   The {{FAQ}}, {{CTA}} and {{SOURCES}} placeholders are in the body, in the order every other
 #   page in this series has them.
-#   figures, frontmatter figure record, og_image, card_image   feature-006/t2, a08-figrec
+#   the figure record, the three published crops, card_image and card_alt   feature-006/t2, done
+#   2026-10-17, and the record is the FIGURES block below rather than a line in this list
+#   the index.json figures[] row   feature-006/a08-figrec, which reads this record and does not
+#   re-derive it; the og_image FILE   feature-010/t2, which generates all thirteen
 #   render and numeric gates   feature-006/t3; visual QA   feature-006/t4
-# WHAT A SMOKE RENDER OF THIS DRAFT ALREADY FAILS, measured 2026-10-17 by rendering it to
-# books/tmp/f06a08d3/tesla-weird-inventions-1894.html and running qa_page.py on that (output at
-# books/tmp/f06a08d3/qa_smoke.out): 26 of 28 gates, 2 failures, both named with their owner. The
-# reciprocal-links gate wants 3 links to pages that link back and finds none, because nothing links
-# to this page yet - that is feature-006/a08-wirecommit's in-link work, not a defect in the draft.
-# The D4 book-PDF gate is the ABB url noted above. Everything else passes, including the H2 count
-# (6, inside 5-9) and the heading-case gate, which is why the headings are written to that case in
-# the draft rather than left to be fixed on the page (decision 16).
+# WHAT A SMOKE RENDER OF THIS DRAFT ALREADY FAILS, measured again at this task (2026-10-17) by
+# rendering it to books/tmp/f06t2b/tesla-weird-inventions-1894.html and running qa_page.py on that
+# (output at books/tmp/f06t2b/qa_smoke.out; the quote tool's own output for the same bytes is at
+# books/tmp/f06t2b/check_quotes.out, 45 fragments, 45 verbatim and page-cited, 0 problems, exit 0):
+# 27 of 29 gates, 2 failures, both named with their owner, and both the same two the draft batch
+# that wrote this page measured (books/tmp/f06a08d3/qa_smoke.out). The denominator moved between
+# those two measurements and it is not a tool change: qa_page.py line 304 adds the '2-3 figures in
+# <figure class="mb-4 pt-5">' gate only for a page that references assets/tesla1894/, so the
+# figure-less draft was scored against 28 gates and this page is scored against 29. The new gate
+# passes. The two that do not: the reciprocal-links gate wants 3 links to pages that link back and
+# finds none, because nothing links to this page yet - that is feature-006/a08-wirecommit's in-link
+# work, not a defect in the draft. The D4 book-PDF gate is the ABB url noted above. Everything else
+# passes, including the H2 count (6, inside 5-9), the figure count (3) and the heading-case gate,
+# which is why the headings are written to that case in the draft rather than left to be fixed on
+# the page (decision 16).
 #   in-links per §5.2 (03, 10 and the hub in)   feature-006/a08-wirecommit
 #   the fourth out-link §5.2 asks for, the one to article 10   feature-006/a08-wirecommit. The
 #   three out-links this draft places all point at pages that exist today - rotating-magnetic-
@@ -364,9 +607,13 @@ Chapter XXXIII splits an alternating circuit "at any desired point into two bran
 
 The volume never says the scheme failed. What it says three times, of three machines, is that they must turn in step with the supply: "the rotation and action of the commutator must be in synchronism ... with the periods of the alternations" (1894, p. 412). That is the difficulty: a rotating part tied to the line frequency. Conversion later went to static devices, and the last rotary converters feeding New York direct current were shut down in 1977 and replaced by solid-state rectifier units (Blalock, 2013).
 
+![](/assets/tesla1894/p410-fig220.webp)
+
 ### 2. Condensers With the Plates in Oil
 
 In high-frequency, high-potential apparatus the expected insulators are wrong: glass and mica, the bodies with the highest specific inductive capacity, are "inferior as insulators" (1894, p. 418). The reason is gas. It is "very desirable to exclude all gaseous matter from the apparatus" (1894, p. 418), because molecular bombardment in it wastes energy and injures the device. The device is a can. Its plates are held apart by porous strips "used merely for the purpose of maintaining them in position" (1894, p. 419): the oil is the dielectric. The book hedges its own novelty: oil between conductors "has been a common practice" (1894, p. 419). That hedge is why this entry did not lose. Vacuum oil impregnation is still how high-voltage paper insulation is made, because oil leaves no voids; oil-impregnated bushings hold more than 80 percent of that market (Jonsson and Johansson, 2009). Nobody builds the 1894 form.
+
+![](/assets/tesla1894/p418-fig227.webp)
 
 ### 3. Electrolytic Registering Meter
 
@@ -413,6 +660,8 @@ The rest of the chapter is Tesla's own writing. His answer: "a flexible conducti
 ## The Only Magnetic Generator in This Book
 
 Entry 4 is the one that concerns this site. Search the text layer of our copy of the volume for 'magnetic gener': four hits on three printed pages, one page carrying two - the editor's inventory (1894, p. 6), the chapter text at printed p. 429, and the volume's own index entry "Pyromagnetic Generators" (1894, p. 496), which points back to p. 429. Every one is pyro-magnetic. There is no other. The generator this book attaches that phrase to is entry 4's machine: one that works because heat destroys magnetism, with a flame under it, in a chapter that reports no output, no efficiency figure and no trial.
+
+![](/assets/tesla1894/p430-fig242.webp)
 
 The pages here about magnet motors and perpetual motion are [the Tesla magnet motor](magnet-motor.html) and [perpetual motion machines](perpetual-motion-generator.html). Neither cites this book, and nothing on this page is evidence for what they sell. What this page can say is narrower: the only magnetic generator in the 1894 volume is a heat engine, and none of the nine machines here is one either.
 
