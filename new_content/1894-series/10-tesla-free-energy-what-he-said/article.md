@@ -282,7 +282,7 @@ figures:
     alt: "1894 engraving, Fig. 242, printed p. 430: a long horizontal bundle of parallel tubes in section spanning the width of the plate, wound at two places with coils of many turns, those coils led up to two small round instruments near the top of the drawing; the middle of the bundle passes up through a column standing inside a rectangular firebox with a fire drawn under it and a door with a handle at its foot, and above the firebox the column branches into two vertical vessels partly filled with liquid with a wide flue rising between them; pipes run from near the ends of the tube bundle up and over to those vessels, one of them with a valve in it; a spring loaded fitting and a bracket at the left end of the bundle, and the whole machine standing on a flat base"
     width: 1169
     height: 768
-    caption: "Fig. 242, printed p. 430, the whole apparatus with its printed caption inside the crop; the small plate beside it on the same printed page, a rectangle of circles inside a casing, is Fig. 243, which that page calls a cross-section of the magnetic armature-core of the generator. Engraving from Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), p. 430. Public domain. This is the drawing of the only machine in this volume that the phrase magnetic generator is attached to, and the drawing says what the phrase does not: a fire is drawn under the firebox, and the page carrying the drawing says Above the fire is a boiler K, containing water. It is a section of a design, not a photograph of a machine anyone ran, and the chapter reports nothing measured on it: no efficiency figure, no trial, and no number for any machine in it."
+    caption: "Fig. 242, printed p. 430, the whole apparatus with its printed caption inside the crop; the small plate beside it on the same printed page, a rectangle of circles inside a casing, is Fig. 243, which that page calls a cross-section of the magnetic armature-core of the generator. Engraving from Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), p. 430. Public domain. This is the drawing of the only machine in this volume that the phrase magnetic generator is attached to, and the drawing says what the phrase does not: a fire is drawn under the firebox, and the page carrying the drawing says Above the fire is a boiler K, containing water. It is a section of a design, not a photograph of a machine anyone ran, and the chapter reports nothing measured on it: no efficiency figure, no trial, and no measurement taken on any machine in it."
   # Figure 3. Placed with the section that argues the book's own index is the evidence. Both index
   # entries the article counts were read off the 500 ppi renders of scans 512 and 514 at this task,
   # and figures/p494-generators-pyromagnetic-429.png and
@@ -316,17 +316,136 @@ figures:
 #     the editor's inventory and the volume's index, one is inside an OCR-broken 'electro-magnetic
 #     motor' at p. 46. quotes.md flag 18 says the draft may say the phrase is never there
 #     unqualified and must not imply the words never appear; the body now says exactly that. A
-#     regex for a magnet word next to a generator word, either order, returns 5 (all pyro-) and 0
-#     the other way, which is the sentence the first draft had wrong.
+#     regex for a magnet word FOLLOWED by a generator word returns 5 (all pyro-); the reverse order
+#     returns 0, and 0 again with any pattern that will not let a hyphen stand inside the magnet
+#     word. It is 1 only for a hyphen-tolerant pattern, and the single hit is the OCR's 'the
+#     generator iielcl-magnets' at printed p. 35. Measured at feature-007/a10-claims by
+#     claims_check.py in this directory; that is the sentence the first draft had wrong.
 #   - Printed p. 8: the 94-and-95-per-cent three-wire sentence names no tester. The named tests on
 #     that page are Prof. Anthony's in the winter of 1887-8 and the 1889 Pittsburgh tests made by
-#     Tesla and Albert Schmid. Chapter I is the editor's, so 'the compiler says why he printed such
-#     figures' is now 'the editor says'.
+#     Tesla and Albert Schmid. The p. 8 writing is the editor's own, so 'the compiler says why he
+#     printed such figures' is now 'the editor says'. feature-007/a10-claims later found that this
+#     page had put those figures in the wrong chapter: printed p. 8 is chapter II, and chapter I ends
+#     at p. 6. Both chapters are Thomas Commerford Martin writing about Tesla in the third person, so
+#     the sentence about the voice held; the chapter attribution did not. Item 7 below.
 #   - Printed p. 236, counted on the page: the hedge paragraph is two paragraphs after the
 #     wheelwork paragraph, not four, and Crookes is named in the sentence after it, not four
 #     sentences later. The chapter heading the body names is the print's full heading,
 #     'THERMO-MAGNETIC MOTORS AND PYRO-MAGNETIC GENERATORS', which is also how article 08's
 #     sources list writes it; the first draft named half of it.
+# WHAT feature-007/a10-claims RE-MEASURED, AND THE SENTENCES IT CORRECTED (2026-10-18). The claims
+# check for this page is claims_check.py in this directory. word_counts.py measures the Appendix D
+# rows; this measures the rest of the evidence the page puts in front of a reader, and prints PASS or
+# FAIL against the sentence in article.md that states it. Ten statements in the draft were wrong: five
+# in the body (items 1 to 5) and five in the rendered Sources block and the voice paragraph (items 7
+# to 10). The checker had six bugs of its own, two in each group (items 6 and 11). Each correction
+# names the measurement that settles it, and every one of them is re-runnable by running the script:
+# 156 checks, 156 pass, exit 0, measured at the end of this task.
+#   1. 'a conditional that ends four sentences later in an insult'. On printed p. 236 the insult is
+#      the THIRD sentence after 'the very wheelwork of nature': 'Of all, living or dead, Crookes came
+#      nearest to doing it.', then the radiometer sentence, then 'But, unfortunately, ... the most
+#      inefficient machine ever invented !'. Counted off the text layer by the check. It is the same
+#      count the body already prints when it says the cut version 'stops three sentences early', and
+#      the two sentences in this page disagreed with each other. Both now say three.
+#   2. The magnet/generator regex, covered in the bullet above: the two orders give 5 and 0, not 5 in
+#      either order. The body now states them separately, and printed p. 35 joins pages_used because
+#      the corrected sentence cites it.
+#   3. 'not one of the three can be quoted as a phrase' for 'magnetic motor'. Two of the three ARE
+#      quotable: 'thermo-magnetic motors' at p. 6 and 'Thermo-Magnetic Motors' at p. 496. What is
+#      true, and what the body now says, is that none of the three is a bare 'magnetic motor'. The
+#      third is at p. 46, where the text layer reads 'an ordinary form of electroof source magnetic
+#      motor', two words the OCR put between 'electro' and 'magnetic motor'. The body no longer says
+#      what the print says there, because printed p. 46 has never been rendered at 500 ppi and this
+#      page does not claim a read it has not made. Measured here as well: 'magnetic motor' is 3 on
+#      the raw text (pp. 6, 46, 496) and 4 on the index the quote checker builds, which joins
+#      'electro-' to 'magnetic motors' across a line break at printed p. 55. The body now names that
+#      difference, because a page whose whole thesis is 'ask which index a count came from' cannot
+#      leave its own count unexplained.
+#   4. 'the trials below it say who ran them' for the 94-and-95-per-cent figure. On printed p. 8 the
+#      named tests are ABOVE that sentence, and the 94-and-95 clause names no tester at all: 'With
+#      some larger motors it was then found practicable to obtain an efficiency, with the three wire
+#      system, up to as high as 94 and 95 per cent.' The tests the page does name are Prof. Anthony's,
+#      which it dates to the winter of 1887-8, and the 1889 Pittsburgh tests made by Mr. Tesla and Mr.
+#      Albert Schmid on motors up to 10 H. p. SERIES-PLAN-1894.md Appendix D's efficiency row splits
+#      them the same way (Anthony about 50 and just over 60 per cent, Pittsburgh nearly 90, larger
+#      three-wire machines 94-95), so the split is the plan's as well as the page's. The body now
+#      names those tests as the page's own citations and attaches none of them to the 94-and-95 figure.
+#   5. 'the only other number in the chapter that is not a folio, a figure reference or a drawing
+#      label is a temperature'. Over printed pp. 424 to 431 the numeric tokens also include footnote
+#      markers and part labels drawn inside the figures, so those three categories are not exhaustive
+#      and the sentence cannot be checked as written. What can be checked, and is what the section
+#      needs, is that only two numbers in the chapter state a quantity: '400 to 500 times a minute'
+#      at p. 424 and 'about 600 degrees centigrade' at p. 429. The check takes every numeric token on
+#      those eight pages and looks a window either side for a unit word; it returns exactly those
+#      two. The body now says that. It also drops the quotation marks the previous draft put round
+#      the temperature: 'about 600° centigrade' is not a pinned quote in quotes.md, and the rule of
+#      this page is that an unpinned quote does not go into the draft. The temperature itself stays,
+#      because it is on the page: printed p. 429 reads 'raising that portion of the iron to an orange
+#      red, or a temperature of about 600° centigrade' and then 'the iron somewhat suddenly loses its
+#      magnetic properties, if it be very thin', which is what the corrected sentence paraphrases,
+#      qualifier kept.
+#   6. THE CHECKER'S OWN TWO BUGS, fixed in the script and not in the draft. The 'magnetic motor'
+#      qualifier test sliced the page text so that its end anchor fell inside the phrase it was
+#      testing, so a qualifier could never match; and the pages_used test used a citation regex that
+#      could not read the single-page form '(1894, p. N)', so it found one citation in a body that
+#      carries dozens. Both were measured against the text before either number was believed. With
+#      the regex reading both forms, pages_used and the body's citation set agree exactly, 19 pages,
+#      nothing on either side, and the figure captions' '(1894), p. N' form still adds 0 to it.
+#   7. 'Chapter I, the editor's introduction, printed pp. 3 to 16'. Chapter I is printed pp. 3 to 6.
+#      The boundary is the volume's own: chapter II, 'A NEW SYSTEM OF ALTERNATING CURRENT MOTORS AND
+#      TRANSFORMERS', opens at the top of printed p. 7, and chapter III opens on p. 9, so chapter II
+#      is pp. 7 to 8 and the efficiency figures this page cites at printed p. 8 are in chapter II,
+#      not chapter I. Measured by chapter_starts() in claims_check.py, which reads the chapter
+#      headings out of the text layer: the OCR sets the word CHAPTER as CHAPTEE, CHAPTEK and CHAPTE R
+#      on different pages, and on some pages interleaves the chapter number into the display heading,
+#      so the number is looked for in the 200 characters after the heading word and a real heading is
+#      the one that puts a period after the number. 39 chapter openings come back, and they give every
+#      range this page states. The voice claim survived the correction because both chapters are the
+#      editor's third-person writing; the chapter number in the Sources block did not survive it.
+#   8. 'This article quotes from four texts in three voices.' It quotes from seven chapters, and the
+#      paragraph named four of them. Measured by taking every sentence in the body that carries both a
+#      double-quoted passage of 12 characters or more and a page citation: printed pp. 6, 8, 120, 138,
+#      167, 196, 197, 232, 236, 267, 394, 424, 429, 430, which map to chapters I, II, XXV, XXVI,
+#      XXVII, XXXI and XXXVI, plus the volume's index at pp. 494 and 496, which is not a chapter. The
+#      paragraph now names all seven, and it names who the editor is: the title page (scan file 9)
+#      sets 'THOMAS COMMERFORD MARTIN' with 'Editor THE ELECTRICAL ENGINEER' under the name, the
+#      copyright page (scan file 10) is 'T. C. MARTIN', and printed p. 6 is where he calls himself 'the
+#      compiler of this volume'. All three are checked, in that order, by claims_check.py.
+#   9. The Sources block named three of this site's own pages by titles that are not their titles.
+#      'Is the magnetic generator a scam?' is 'Is The Magnetic Generator Just a Scam?'; 'Free
+#      Electricity from Magnets: How It Works' is not that page's title at all, which is 'Free
+#      Electricity From Magnets - Is It Possible?'. A source note that names a page by a title the
+#      page does not carry is a reference the reader cannot follow. The block now carries the exact
+#      <title> strings, and the check reads them off the live pages rather than off this file.
+#   10. Two wording claims in the Sources block that the measurement does not support as written. 'the
+#      text layer ... misreads two letters' understates it: on printed p. 145 the text layer mis-sets
+#      three words, 'EXPEEIMENTS', 'WlTH' and 'HlGH', and each of those three strings is now checked
+#      on that page. And the block quoted 'THE LONDON LECTURE' as a prefix the contents pages carry:
+#      the contents page sets 'CHAPTER THE XXVII. LONDON LECTURE.', with the chapter number between
+#      'THE' and 'LONDON', so that exact string is not in the text layer while 'THE NEW YORK LECTURE'
+#      is. The row now says what the contents pages do carry - both lectures listed by title, with the
+#      dates and the opening pages this article cites - and the check measures the titles, the opening
+#      pages 145 and 198, and the dates MAY 20 and FEBRUARY on those front-matter pages.
+#   11. THE CHECKER'S OWN FOUR BUGS IN THE SOURCES GROUP, all fixed in the script and not in the
+#      draft. (a) The pattern for the word CHAPTER did not match the OCR at all: it required the
+#      letters the print sets, and the text layer sets CHAPTEE, CHAPTEK and CHAPTE R on different
+#      pages, so chapter_starts() returned nothing and every chapter range came back as None. (b) The
+#      rule that every 'printed p. N' in a chapter row must sit inside that row's own range flagged
+#      printed p. 396, which the row names precisely because that is where the next chapter opens; the
+#      rule now allows a page that is itself a measured chapter opening. (c) The sentence splitter cut
+#      '(1894, p. 267)' away from the quote it belongs to, because 'p.' is a period followed by a
+#      space, and it cut that same sentence again at the three dots inside the quotation: with both
+#      fixed the quoted passages sit on 16 printed pages, which is what check_quotes.py reports for
+#      this draft; with the first unfixed the count came back 0 and with the second, 15. (d) The
+#      pattern that reads quoted strings out of the Sources block matched between the apostrophes of
+#      'this site's' and 'the article's', so it reported four page titles where the block holds three.
+#      Every one of these four was found by a number that refused to match a number measured another
+#      way, which is the only way a checker's own bug ever gets found.
+# WHAT THE CHECK STILL CANNOT CLOSE, and no edit here closes it: the out-link to
+# tesla-1894-word-search.html does not resolve, because that page is unwritten and owned by
+# feature-008/t2. The check reports every other .html link in the body as resolving and names that
+# one as the single pending link with its owner, so a NEW dead link fails instead of joining it.
+#
 # CROSS-PAGE, AND IT IS NOT NEW. website/tesla-weird-inventions-1894.html (live since
 # feature-006/a08-wirecommit) prints 'four hits on three printed pages' for 'magnetic gener'
 # because that article searched the GATE index; its own register records 4 and 5 side by side. This
@@ -351,6 +470,25 @@ figures:
 # 2,532 words against §9's 1,800, which is the series' existing range measured the same way (03 is
 # 1,787 against 1,700, 08 is 2,128 against 1,500, 09 is 1,704 against 1,500, 06 is 5,503 against
 # 1,200); no numeric gate reads word count.
+# RE-MEASURED AT feature-007/a10-claims (2026-10-18), because the paragraph above is t1's record of
+# t1's draft and this file has changed since. The body as this file now stands is 2,788 whitespace
+# tokens after the closing front-matter delimiter (the front matter is 12,632 tokens and is not body);
+# §9's 1,800 is still over by 988, and index.json's words_note for this page says what would have to
+# be cut to close it and why that is an owner decision at VERIFY rather than a cleanup at this task.
+# The render above was re-made into books/tmp/f07a10recheck/ (gitignored, NOT website/, made without
+# --wire, so nothing was wired and no site file was written): 56,013 bytes, 1 h1, 8 h2, 8 h3, 3
+# figures. qa_page.py on it: 27/30, exit 1, and the three failures are the three named above. ONE OF
+# THEM IS NOT A TOOL GAP, and the t1 paragraph above had it right while the index row for this page
+# contradicted it: qa_page.py's gate is named 'h2/h3 and FAQ names are title case', it reads the
+# generated furniture, and it reported "h2: 'Frequently asked questions' -> 'Frequently Asked
+# Questions'" - the H2 faq_block() hard-codes, not anything in this file. The four FAQ question names
+# sit in <h3> tags in the render and are already title case. Measured on a copy: titlecase_headings.py
+# retitles that one heading, its --check then returns 0 findings, no other heading changes, and the
+# gate arithmetic after that is 28/30 with the two remaining failures owned by feature-008/t2 (the
+# dead word-search link) and the wiring/feature-009/t2 pair (reciprocal links). So the sequence for
+# feature-007/t3 is render, titlecase_headings.py, then qa_page.py. The heading count is 8 H2, not the
+# 7 the index row first said: the render adds two generated headings, the FAQ one and the Sources one.
+# 8 is inside the 5-to-9 gate. Both corrections are written into the index row as well.
 cta:
   text: "The 1894 book measures what its machines wasted, and never once says a machine gives something for nothing. If you are sizing a real supply for a shed, a workshop or a small off-grid structure, the plans we recommend come with a parts list and a straight answer about output."
   href_suffix: "1894_10"
@@ -360,8 +498,14 @@ cta:
 # t1 correction of that count never re-ran this list. 46 is added here, so the printed Sources line
 # now names a page the body actually cites. The three figure captions cite their pages in §6.6's
 # form, '(1894), p. 236', which the citation regex does not match, so the figures add nothing to
-# this list; that was measured on the rendered page, not assumed.
-pages_used: [6, 8, 46, 119, 120, 138, 167, 196, 197, 232, 236, 267, 394, 424, 429, 430, 494, 496]
+# this list; that was measured on the rendered page, not assumed. Re-measured again at
+# feature-007/a10-claims and one page was missing: 35, which the corrected magnet/generator regex
+# sentence now cites for the one hyphen-tolerant hit, 'the generator iielcl-magnets'. 35 is added
+# here for the same reason 46 was: the list is the body's citation set, and the body now cites it.
+# The check that measures this is in claims_check.py in this directory ('pages_used equals the
+# body's citation set'), and it reads the citation with qa_page.py's own regex plus the 'pp.' form
+# that regex cannot read.
+pages_used: [6, 8, 35, 46, 119, 120, 138, 167, 196, 197, 232, 236, 267, 394, 424, 429, 430, 494, 496]
 faq:
   - q: "Did Tesla Invent Free Energy?"
     a: "Nothing in the 1894 book supports the claim. A word search of its text layer returns 0 occurrences of 'free energy', 'free-energy', 'perpetual', 'over unity' and 'over-unity'. The closest sentence in the volume is a claim about a method, not a machine: 'there is a possibility of obtaining energy not only in the form of light, but motive power, and energy of any other form, in some more direct way from the medium' (1894, p. 196). On the same page he declines to say what any of it is worth in practice: 'How far the results here borne out are capable of practical applications will be decided in the future' (1894, p. 196). No device, no output, no measurement."
@@ -372,15 +516,15 @@ faq:
   - q: "Is a Tesla Magnetic Generator a Real Thing?"
     a: "Not in this book's vocabulary. 'magnetic generator' occurs 5 times in the 1894 volume, at printed pp. 6, 424, 429 twice and 496, and every one of those five sits inside 'pyro-magnetic' or 'pyromagnetic'. 'magnet motor', 'magnetic engine', 'magnetic dynamo', 'free electricity', 'bifilar' and the patent number '512,340' return 0 hits each. What the 1894 text describes is a heat engine whose magnetic circuit is opened and closed by heat: the page that names the generator also says 'Above the fire is a boiler K, containing water' (1894, p. 430). The phrase a shopper types today is a product name, and it belongs to this century."
 sources:
-  - text: "Chapter I, the editor's introduction, printed pp. 3 to 16 of the 1894 edition. The inventory sentence and the date fence are printed p. 6, and the efficiency figures are printed p. 8. Chapter I is the editor writing about Tesla in the third person, not Tesla"
+  - text: "Chapter I, the editor's biographical introduction, printed pp. 3 to 6, and chapter II, his preface to the polyphase section, printed pp. 7 to 8. The inventory sentence and the date fence are printed p. 6, in chapter I; the efficiency figures are printed p. 8, in chapter II. The boundary is the volume's own: chapter II's heading is set at the top of printed p. 7. Both chapters are the editor writing about Tesla in the third person, not Tesla"
   - text: "Chapter XXV, 'INTRODUCTION. - THE SCOPE OF THE TESLA LECTURES', printed pp. 119 to 144, which is the compiler's running review of three lectures and not Tesla's text. The one-wire summary at printed p. 137 and the grounded-motor passage at printed p. 138 are in it. The compiler labels his own chapter: 'We may now proceed to a running review of the lectures themselves' (1894, p. 119)"
-  - text: "Chapter XXVI, 'EXPERIMENTS WITH ALTERNATE CURRENTS OF VERY HIGH FREQUENCY', the lecture delivered at Columbia College on May 20, 1891, dated by the chapter's own footnote: 'A lecture delivered before the American Institute of Electrical Engineers, at Columbia College, N. Y., May 20, 1891.' (1894, p. 145). The flame passage is printed pp. 166 to 167"
-  - text: "Chapter XXVII, the lecture delivered before the Institution of Electrical Engineers, London, February 1892, dated by its own footnote: 'Lecture delivered before the Institution of Electrical Engineers, London, February, 1892.' (1894, p. 198). The energy-from-the-medium passage is printed pp. 196 to 197, the one-wire sentence is printed p. 232, the wheelwork passage is printed p. 236, and the one-wire prediction is printed p. 267"
-  - text: "Chapter XXXI, the paper on high-frequency currents and the body, printed p. 394, from which the 'misuse and abuse of electricity' sentence is quoted here. That paper is about medical advertising, and this article uses it only as his general position on electrical hype. The paper itself is worked through in the site's article on Tesla's high-frequency 'massage'"
-  - text: "Chapter XXXVI, on thermo-magnetism and pyro-magnetism, printed pp. 424 to 431, which is the compiler's chapter about a device, with footnotes he says came from an interview with Tesla: 'In an interview with Mr. Tesla on this subject, the compiler learned of an experiment which will interest students' (1894, p. 424). The chapter's display heading is named in this article, not quoted: it is display type, and the search index that strips running heads does not contain it"
+  - text: "Chapter XXVI, 'EXPERIMENTS WITH ALTERNATE CURRENTS OF VERY HIGH FREQUENCY AND THEIR APPLICATION TO METHODS OF ARTIFICIAL ILLUMINATION', printed pp. 145 to 197, the lecture delivered at Columbia College on May 20, 1891, dated by the chapter's own footnote: 'A lecture delivered before the American Institute of Electrical Engineers, at Columbia College, N. Y., May 20, 1891.' (1894, p. 145). The heading is quoted from the print of scan file 163, read at 500 ppi: on printed p. 145 the text layer interleaves the chapter number into the display heading and mis-sets three words, 'EXPEEIMENTS', 'WlTH' and 'HlGH', so the heading does not grep as one string there. The book's own contents pages list both lectures by title, with the dates and the opening pages this article cites; they are front matter and this article takes no page numbers from them. The flame passage is printed pp. 166 to 167. The energy-from-the-medium passage is printed pp. 196 to 197, which are this chapter's last two pages, not chapter XXVII's opening"
+  - text: "Chapter XXVII, 'EXPERIMENTS WITH ALTERNATE CURRENTS OF HIGH POTENTIAL AND HIGH FREQUENCY', printed pp. 198 to 293, the lecture delivered before the Institution of Electrical Engineers, London, February 1892, dated by its own footnote: 'Lecture delivered before the Institution of Electrical Engineers, London, February, 1892.' (1894, p. 198). The heading was read off the print at 500 ppi, scan file 216, because the text layer sets 'HlGH', a capital H with a lowercase L, for HIGH on that page, and 'CHAPTEE' for CHAPTER. The one-wire sentence is printed p. 232, the wheelwork passage is printed p. 236, and the one-wire prediction is printed p. 267"
+  - text: "Chapter XXXI, the paper on high-frequency currents and the body, printed pp. 394 to 395, from which the 'misuse and abuse of electricity' sentence is quoted here. That paper is about medical advertising, and this article uses it only as his general position on electrical hype. It runs two pages: printed p. 396 opens the next chapter. The paper itself is worked through in the site's article on Tesla's high-frequency 'massage'"
+  - text: "Chapter XXXVI, on thermo-magnetism and pyro-magnetism, printed pp. 424 to 431, which is the compiler's chapter about a device, with footnotes he says came from an interview with Tesla: 'In an interview with Mr. Tesla on this subject, the compiler learned of an experiment which will interest students' (1894, p. 424). The chapter's display heading is named in this article, not quoted as a string from the text layer: it is display type, the text layer interleaves the chapter number into it ('THERMO-MAGNETIC' then 'XXXVI.' then 'MOTORS AND PYRO-MAGNETIC GENERATORS.'), and the search index that strips running heads and display type does not contain it. The heading this article names was read off the print of scan file 442 at 500 ppi"
   - text: "The volume's own index, printed pp. 494 and 496, for the two entries that file the machine under pyromagnetic"
   - text: "The word search: books/extracted/tesla-1894-plain.txt, the text layer of our scan of archive.org item inventionsresear00martiala, whole volume, exact substring counts, case-insensitive, with printed page = scan file page minus 18. Re-run on 2026-10-18 by new_content/1894-series/10-tesla-free-energy-what-he-said/word_counts.py, which prints the counts three ways (raw text, the index books/tools/check_quotes.py builds, and that index with running heads and display type kept) and prints the counts scoped to printed pp. 424 to 431. The raw counts are the ones SERIES-PLAN-1894.md Appendix D prints, and they are the ones this page shows. The near-match fallback in books/tools/grep_quote.py is why no count on this page is taken from that tool's output"
-  - text: "The three pages on this site that the article reads, and whose own words it reports: 'Is the magnetic generator a scam?', 'Is a Tesla Magnetic Generator Worth It?' and 'Free Electricity from Magnets: How It Works'. They are this site's current commercial pages, not sources about Tesla, and the article's rule is that it reports what they claim rather than repeating it"
+  - text: "The three pages on this site that the article reads, and whose own words it reports: 'Is The Magnetic Generator Just a Scam?', 'Is a Tesla Magnetic Generator Worth It? (2026 Review)' and 'Free Electricity From Magnets - Is It Possible?'. They are this site's current commercial pages, not sources about Tesla, and the article's rule is that it reports what they claim rather than repeating it"
   - text: "The word-search page that shows this method and its counts, tesla-1894-word-search, is not on the site yet. It is planned, and this article's table is the same measurement it will publish. The link is left in place rather than substituted, and it is recorded here as pending so the dead-link check reports it instead of hiding it"
   - text: "Every quote in this article was re-grepped and pinned to its printed page before drafting. The register is new_content/1894-series/10-tesla-free-energy-what-he-said/quotes.md, re-runnable with books/tools/grep_quote.py and regenerated by gen_quotes.py in that directory; it records 72 verified quotes, 26 rejected ones, and the flags this draft writes around"
 ---
@@ -396,10 +540,10 @@ The corpus is Martin (ed.), *The Inventions, Researches and Writings of Nikola T
 Nostrand, New York. Our copy is 518 page images and one text file of 174,169 words, marked into 506
 page bodies; the counts below run over those page bodies, which are 172,651 words. Counts are exact
 substrings, case-insensitive, over the whole volume. Printed pages are the book's own; the scan files
-run 18 ahead. A second text file of the same scan runs 176,810 words, and that is the figure the
-plan's '177,000 words' refers to; no count on this page comes from it. A word count is only
-reproducible if the file and the text it was taken from are named, so this page names both here and
-in the Sources block.
+run 18 ahead. A second text file of the same scan runs 176,810 words, and it is the only file of
+this scan whose count rounds to the plan's '177,000 words'; no count on this page comes from it. A
+word count is only reproducible if the file and the text it was taken from are named, so this page
+names both here and in the Sources block.
 
 One thing about counting matters more than the rest. The index the quote checker builds strips
 running heads and bare folios, and it is 167,998 words rather than 174,169. Over the text as it
@@ -434,7 +578,7 @@ the very wheelwork of nature" (1894, p. 236).
 ![](/assets/tesla1894/scan-p236.webp)
 
 The version in circulation ends at 'nature', prints 'attach' for the page's 'attaching', and stops
-four sentences early. What follows names William Crookes, then the machine: "His radiometer will turn
+three sentences early. What follows names William Crookes, then the machine: "His radiometer will turn
 in the light of day and in the darkness of the night; it will turn everywhere where there is heat,
 and heat is everywhere" (1894, p. 236). Then the verdict: "this beautiful little machine, while it
 goes down to posterity as the most interesting, must likewise be put on record as the most
@@ -443,20 +587,24 @@ inefficient machine ever invented" (1894, p. 236).
 It is a conditional about kinetic energy, it names a radiometer, and it ends by calling the nearest
 thing to its own idea the worst machine ever invented. Then the paragraph breaks and the book says
 what the passage was for: the radiometer is one of many experiments that can be done on a single
-wire at high potential and high frequency (1894, p. 236). Two paragraphs later he hedges the plan:
+wire at high potential and high frequency (1894, p. 236). In the next paragraph he hedges the plan:
 impracticable in many cases it may look, but "certainly seems practicable, and even recommendable,
 in the production of light" (1894, p. 236).
 
 ## What He Did Claim, and in Whose Voice
 
-This article quotes from four texts in three voices. Chapters XXVI and XXVII are the printed texts of
-two lectures, his, of 1891 and 1892. Chapter XXV is the compiler's running review of those lectures,
-which he says he is writing (1894, p. 119). Chapter XXXVI is the compiler's chapter about a device.
-Chapter I is the editor's.
+Two people wrote the pages this article quotes, and which of them is speaking changes what a sentence
+is worth. Chapters XXVI and XXVII are the printed texts of two lectures Tesla gave, in 1891 and 1892,
+and chapter XXXI is his own short paper on medical advertising: his words, in the first person.
+Everything it quotes from anywhere else is Thomas Commerford Martin's, the volume's editor, who calls
+himself its compiler on printed p. 6 and writes about Tesla in the third person. He writes in three
+postures: a biographical introduction (chapter I), a running review of the lectures (chapter XXV)
+that says he is writing one (1894, p. 119), and descriptive chapters about devices (chapters II and
+XXXVI). The efficiency figures cited below are in chapter II, not chapter I (1894, p. 8).
 
 ### Energy From the Medium
 
-In the London lecture he settles the practical question first: "How far the results here borne out
+In the 1891 Columbia lecture he settles the practical question first: "How far the results here borne out
 are capable of practical applications will be decided in the future" (1894, p. 196). Then the
 proposition: "there is a possibility of obtaining energy not only in the form of light, but motive
 power, and energy of any other form, in some more direct way from the medium" (1894, p. 196). A
@@ -479,7 +627,8 @@ power.
 ### A Motor Grounded to the Earth
 
 The compiler's, in chapter XXV, describing a rotating-field motor run from a single insulated line
-(1894, p. 138); the machine is the one the site's rotating-magnetic-field article is about. Then the
+(1894, p. 138); the machine is the kind of motor the site's rotating-magnetic-field article is about.
+Then the
 claim: "Experiments of this kind seem to bring it within possibility to operate a motor at any point
 of the earth's surface from a central source, without any connection to the same except through the
 earth" (1894, p. 138). What follows is a chain of conditionals, none of them a build (1894, p. 138).
@@ -529,10 +678,13 @@ on it. An absence of measurement is not a negative measurement. The book never s
 failed, and this article does not either. What the book does say is that Tesla had "worked out one or
 two operative devices worthy of note" (1894, p. 424).
 
-The one number in the chapter is a vibration rate: the compiler heard about a demonstration in an
-interview with Tesla, a horseshoe magnet, an L of sheet iron and a spirit lamp, vibrating "as rapidly
-as 400 to 500 times a minute" (1894, p. 424). That string occurs once in the volume, and it is a
-footnote about a bench demonstration, not a rating of any machine the chapter describes.
+The only number in the chapter that reads like a rating is a vibration rate: the compiler heard about
+a demonstration in an interview with Tesla, a horseshoe magnet, an L of sheet iron and a spirit lamp,
+vibrating "as rapidly as 400 to 500 times a minute" (1894, p. 424). It is a footnote about a bench
+demonstration, not a rating of any machine the chapter describes. The only other number on those
+eight pages that states a quantity is a temperature, in the p. 429 experiment above: the page gives
+its heat as about 600 degrees centigrade, and says that at that temperature thin iron loses its
+magnetic properties (1894, p. 429).
 [The site's list of nine inventions that did not catch on](tesla-weird-inventions-1894.html) carries
 the same footnote for a different purpose.
 
@@ -542,15 +694,21 @@ the same footnote for a different purpose.
 'magnetic engine' 0, 'magnetic dynamo' 0, 'free electricity' 0, 'bifilar' 0, '512,340' 0,
 'coil for electromagnets' 0. 'magnetic motor' is 3, and never stands alone: two of the three are
 'Thermo-Magnetic Motors' in the editor's inventory and in the volume's own index (1894, pp. 6, 496),
-and the third is inside a line the print breaks and the OCR cannot read, 'electro-magnetic motor'
-(1894, p. 46), so not one of the three can be quoted as a phrase. Set a regex for a magnet word next
-to a generator word in either order and the volume returns 5, all of them 'pyro-magnetic generator(s)'
-or 'pyromagnetic generator(s)', and 0 in the other order. The site's review of what a Tesla magnetic
-generator is attributes the device to a patent number that does not appear in this book.
+and the third sits in a line the OCR has scrambled, where 'electro' and 'magnetic motor' are split by
+two words that do not belong between them (1894, p. 46). None of the three is a bare 'magnetic
+motor'. That count is 3 on the text as it sits on disk and 4 on the index the quote checker builds,
+which joins 'electro-' to 'magnetic motors' across a line break at printed p. 55; the page prints 3
+because that is what the printed volume contains, and the difference is the one the method section
+already names. Set a regex for a magnet word followed by a generator word and the volume returns 5,
+all of them 'pyro-magnetic generator(s)' or 'pyromagnetic generator(s)'. Reverse the order and the
+count is 0. It stays 0 unless the pattern lets a hyphen stand inside the magnet word, and then the
+single hit it produces is 'the generator iielcl-magnets' (1894, p. 35), where 'iielcl' is not a word.
+The site's review of what a Tesla magnetic generator is attributes the device to a patent number that
+does not appear in this book.
 
 ![](/assets/tesla1894/scan-p496-index.webp)
 
-**That the wheelwork sentence is a promise.** It is a conditional that ends four sentences later in
+**That the wheelwork sentence is a promise.** It is a conditional that ends three sentences later in
 an insult about a machine's efficiency. The cut version is what circulates.
 
 **That 400 to 500 is a rating.** It is the vibration rate of a bench demonstration the compiler says
@@ -570,14 +728,15 @@ warrant in that paper is in
 
 Three pages here sell the device; the honest thing is to report what they claim in their own words.
 The review of whether one is worth buying attributes the device to a Tesla patent granted in 1894,
-and in its own list of drawbacks says such a machine is 'not truly free energy' and 'requires a
+and in its own list of drawbacks says such a machine is not truly 'free energy' and 'requires a
 prime mover'. The free-electricity page describes a design that 'keeps spinning as long as the
 magnets are in place'. The scam page says a device 'actually produces roughly 5 times more energy
 than it consumes'. Those are this site's claims, not Tesla's, and the reader is linked to them.
 
 What the 1894 book supplies instead is measurement. Its top efficiency figure is 94 and 95 per cent,
-for larger motors on the three-wire system, and the trials below it say who ran them: Prof. Anthony's
-in the winter of 1887-8, and the 1889 Pittsburgh tests made by Tesla and Albert Schmid (1894, p. 8).
+for larger motors on the three-wire system, and the same page names the tests it is citing: Prof.
+Anthony's, which it dates to the winter of 1887-8, and the 1889 Pittsburgh tests made by Tesla and
+Albert Schmid (1894, p. 8).
 The editor says why he printed such figures: they "are cited to show that the efficiency of the system has not
 had to wait until the present late day for any demonstration of its commercial usefulness"
 (1894, p. 8). A book that measures how little energy is wasted is not a book that promises something
