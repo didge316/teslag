@@ -2813,6 +2813,65 @@ def structural_check(rows, prose):
         f"additionally builds, {none_n} return nothing")
     for n in names:
         lines.append(f"  - {n}")
+
+    # The first paragraph of this file states, in prose, how big the file is.
+    # Re-parse the rendered body and hold it against that sentence: a table
+    # that renders fewer rows than the generator counted, or a section that
+    # does not render at all, would otherwise sit under a header that says the
+    # numbers were measured.
+    def section(name):
+        mt = re.search(r"^## " + name + r".*?\n(.*?)(?=^## |\Z)",
+                       text, re.M | re.S)
+        return mt.group(1) if mt else ""
+
+    n_frag = 0
+    for ln in text.splitlines():
+        if ln.startswith("- check_quotes.py: "):
+            mt = re.match(r"- check_quotes\.py: (\d+) fragments", ln)
+            n_frag += int(mt.group(1)) if mt else 1
+    body = {"quotes": n_quote,
+            "fragments": n_frag,
+            "printed pages": len(set(re.findall(r"^## Printed p\. (-?\d+)",
+                                                text, re.M))),
+            "Rejected rows": len(re.findall(r"^\d+\. ~~",
+                                            section("Rejected"), re.M)),
+            "flags": len(re.findall(r"^- \*\*",
+                                    section("Flags for the writer"), re.M)),
+            "counted terms": len(re.findall(
+                r"^\| `", section("THE VOCABULARY TABLE"), re.M)),
+            "spelling variants": len(re.findall(
+                r"^\| `", section("The spellings the book"), re.M)),
+            "scoped counts": len(re.findall(
+                r"^\| `", section("The scoped counts"), re.M))}
+    order = [("quotes", r"Verified: (\d+) quotes"),
+             ("fragments", r"\((\d+) fragments\)"),
+             ("printed pages", r"across (\d+) printed pages"),
+             ("Rejected rows", r"not carried forward: (\d+)"),
+             ("flags", r"Flags for the writer: (\d+)"),
+             ("counted terms", r"Counted terms: (\d+) over the whole volume"),
+             ("spelling variants", r"plus (\d+) OCR spelling variants"),
+             ("scoped counts", r"and (\d+) scoped to four ranges")]
+    head = next((ln for ln in text.splitlines() if ln.startswith("Verified: ")),
+                "")
+    said, missing = {}, [pat for _k, pat in order
+                         if not re.search(pat, head)]
+    if missing:
+        bad.append(f"the header's own count sentence does not parse "
+                   f"({len(missing)} parts missing: {missing}), so its numbers "
+                   "cannot be held against the body")
+    else:
+        for key, pat in order:
+            said[key] = int(re.search(pat, head).group(1))
+        off = [f"{k}: header says {said[k]}, the body renders {body[k]}"
+               for k in said if said[k] != body[k]]
+        if off:
+            bad.append("the header's numbers are not the body's numbers: "
+                       + "; ".join(off))
+        lines.append(
+            "the header's stated counts are re-parsed out of the rendered body "
+            "and agree: " + ", ".join(f"{k} {body[k]}" for k in said)
+            + f" - {len(off)} disagreements")
+
     lines += ["FAIL — " + b for b in bad]
     return lines, not bad
 
@@ -3023,8 +3082,9 @@ def main():
         f"Verified: {len(rows)} quotes ({sum(len(r[4]) for r in rows)} "
         f"fragments) across {len(by_page)} printed pages, 0 failures. Rejected "
         f"and not carried forward: {len(REJECTED)}. Flags for the writer: "
-        f"{len(FLAGS)}. Counted terms: {len(table_rows)} over the whole volume "
-        f"and {len(scoped_rows)} scoped to four ranges. To re-check one quote by "
+        f"{len(FLAGS)}. Counted terms: {len(vocab_rows)} over the whole "
+        f"volume, plus {len(spell_rows)} OCR spelling variants of them, and "
+        f"{len(scoped_rows)} scoped to four ranges. To re-check one quote by "
         "hand: `python3 books/tools/grep_quote.py \"<quote>\" --page <lo>-<hi>` "
         "- but that tool's `--count` falls back to fuzzy matching and reports "
         "hits for words that are not in the book, so a zero it prints is not "
@@ -3100,7 +3160,8 @@ def main():
         "",
         f"The three indices do not agree, and not on one term: measured on the "
         f"date above, {len(disagree)} of the {len(table_rows)} counted terms "
-        "count differently depending on which is used. Where raw is below the "
+        "and spelling variants count differently depending on which is used. "
+        "Where raw is below the "
         "other two, a line break in the print is the cause - the phrase is on "
         "the page but the OCR ends a line inside it, and a raw substring count "
         "cannot cross a newline. Where gate is below keep, furniture is the "
@@ -3252,7 +3313,8 @@ def main():
     print(f"wrote {OUT} ({len(rows)} quotes, "
           f"{sum(len(r[4]) for r in rows)} fragments, {len(by_page)} printed "
           f"pages, {len(REJECTED)} rejected, {len(FLAGS)} flags, "
-          f"{len(table_rows)} counted terms, {len(scoped_rows)} scoped counts, "
+          f"{len(vocab_rows)} counted terms, {len(spell_rows)} spelling "
+          f"variants, {len(scoped_rows)} scoped counts, "
           f"{len(overlap)} fragments already on a live page)")
     if not ok:
         for ln in check_lines:
