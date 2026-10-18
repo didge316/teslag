@@ -299,9 +299,18 @@ figures:
 # That is six, at the top of §5.2's 4 to 6 band, so the flame sentence and the grounded-motor
 # sentence name articles 06 and 07 in prose without a link, which is what the register's link notes
 # recommend; adding them would put the page outside the band and move the reciprocal arithmetic.
-# tesla-1894-word-search.html is feature-008/t2 and does not exist yet. The link stays, and
-# feature-007/t3's qa_page run will report it dead until feature-008/t2 lands. That is the one
-# cross-feature dependency in this article and it is named here rather than discovered at t3.
+# tesla-1894-word-search.html is feature-008/t2 and does not exist yet. t1 and a10-claims left the
+# link in and predicted that t3's qa_page run would report it dead. t3 ran it, and the link is now
+# DEFERRED, not left in. Measured at t3 on the rendered page: qa_page.py 28/30, exit 1, and the two
+# failures were this link ('1 dead: [/tesla-1894-word-search]') and the FAQ H2's case. dead_links()
+# has no pending-link exception, it resolves /x against website/, and this task's acceptance
+# criterion is that qa_page.py exits 0, so the anchor is out of the sentence and the sentence names
+# the planned page in prose. That is how articles 06 and 08 handled the same situation (their
+# index.json rows record an out-link deferred to an unwritten page for exactly this gate), and the
+# sprint contract's 'How we know it is done' asks for zero dead links. RESTORE THE LINK AT
+# feature-008/t2, in this sentence, when that page renders. feature-007's own criterion wants the
+# link present AND resolving, which no page can do before that page exists; the tension is named
+# here, and it is not closed by inventing a stub page at this task.
 # COUNTS, RE-RUN 2026-10-18 BY word_counts.py IN THIS DIRECTORY, AND WHAT THE FIRST DRAFT GOT
 # WRONG. The Appendix D rows agree exactly (free energy 0, free-energy 0, perpetual 0, over unity 0,
 # over-unity 0, magnetic generator 5 at printed pp. 6, 424, 429 twice, 496). Four measurements the
@@ -489,6 +498,50 @@ figures:
 # feature-007/t3 is render, titlecase_headings.py, then qa_page.py. The heading count is 8 H2, not the
 # 7 the index row first said: the render adds two generated headings, the FAQ one and the Sources one.
 # 8 is inside the 5-to-9 gate. Both corrections are written into the index row as well.
+# RENDERED AT feature-007/t3 (2026-10-18), INTO THE SITE REPO, and the two failures the preview
+# render predicted are the two that happened, with what was done about each. The command, from the
+# repo root as §7 gives it, WITHOUT --wire (the wiring is feature-007/a10-wirecommit, which is how
+# articles 01 to 08 were done too):
+#   python3 books/tools/make_article.py --md new_content/1894-series/10-tesla-free-energy-what-he-said/article.md
+#     --donor website/nikola-tesla-inventor-extraordinaire.html
+#     --out website/tesla-free-energy-what-he-said.html --tid 1894_10
+# First render: 56,013 bytes, 1 h1 / 8 h2 / 8 h3, 3 figures in <figure class="mb-4 pt-5">, 11 img
+# tags, article figure weight 249 KB (gate < 400 KB). qa_page.py on that page: 28/30, exit 1, and
+# the two failures were the two the a10-claims row named, the heading-case gate on the 'Frequently
+# asked questions' H2 that faq_block() emits, and the dead link /tesla-1894-word-search. The third
+# thing that row expected to fail did not: the reciprocal gate. inbound_map() scans website/*.html,
+# so once this page is IN website/ its own stem sits in the inbound set of everything it links to,
+# and the gate is vacuous for any page inside the site (the feature-004/t7 defect, untouched here).
+# FIX 1, heading case, is the fix the live pages already carry: titlecase_headings.py run on the
+# rendered page retitled that one H2 (its own output: '1 heading(s) retitled'), and its --check then
+# returns 0 findings on the page and 0 on this draft. The tool was NOT changed, so faq_block() still
+# emits the sentence-case H2 and every later FAQ page in this series needs the same post-render
+# retitle; that is the open item feature-006/a08-titlecase already recorded, not a new one.
+# FIX 2, the dead link, is the deferral written in the LINKS block above: the anchor is out of the
+# closing paragraph, which now names the planned page in prose, and this file's sources: entry says
+# the same. Measured either way, not asserted: 28/30 exit 1 with the link, 30/30 exit 0 without it.
+# The other option, writing a stub tesla-1894-word-search.html here, was rejected: that page is
+# feature-008/t2's deliverable, and a placeholder page on a live site is what the anti-placeholder
+# gate is for.
+# AFTER THE FIXES, MEASURED ON THE PAGE AS IT NOW SITS IN website/: 56,204 bytes, sha256
+# fe1ea31ec9239090e7621e2716854232b31d3491ae259b23aa114a07a558403a, 1 h1 / 8 h2 / 8 h3, 3 figures,
+# 11 img tags, 38 distinct internal page hrefs, 57 '(1894, p. N)' citation markers, and qa_page.py
+# 30/30, exit 0. qa_page.py --all-series: 11 of 12 pages pass, exit 1, the 12th MISSING being the
+# unwritten hub tesla-1894.html (feature-012); no other series page changed or broke. check_quotes.py
+# on this draft: 0 problems, exit 0. claims_check.py in this directory: 156/156. titlecase_headings.py
+# --check on this draft: 0 findings. The links to article 05 (tesla-high-frequency-massage) and
+# article 08 (tesla-weird-inventions-1894) resolve: one href each, both alive under the URL contract
+# qa_page.py resolves against. Body tokens after the closing delimiter: 2,820, up 32 from the 2,788
+# a10-claims measured, and that increase is the prose that replaced the deferred link and nothing
+# else; no verified quote chain was touched.
+# DETERMINISM, MEASURED AFTER THIS RECORD WAS WRITTEN: re-rendering from this file produced a page
+# differing from the one above at one place only, byte 38,097, line 265, and diff shows nothing but
+# the FAQ heading; titlecase_headings.py then reproduced the earlier bytes exactly (cmp clean at
+# 56,204 B). Front-matter comments do not reach the page, which is the only thing that could have
+# made this record and the page disagree by construction.
+# NOT RUN AT THIS TASK, and owned by the next one: shot_qa.py at 375 / 768 / 1280 and the screenshot
+# review (feature-007/t4). Nothing in this block says the page looks right, only that the numeric
+# gates pass.
 cta:
   text: "The 1894 book measures what its machines wasted, and never once says a machine gives something for nothing. If you are sizing a real supply for a shed, a workshop or a small off-grid structure, the plans we recommend come with a parts list and a straight answer about output."
   href_suffix: "1894_10"
@@ -525,7 +578,7 @@ sources:
   - text: "The volume's own index, printed pp. 494 and 496, for the two entries that file the machine under pyromagnetic"
   - text: "The word search: books/extracted/tesla-1894-plain.txt, the text layer of our scan of archive.org item inventionsresear00martiala, whole volume, exact substring counts, case-insensitive, with printed page = scan file page minus 18. Re-run on 2026-10-18 by new_content/1894-series/10-tesla-free-energy-what-he-said/word_counts.py, which prints the counts three ways (raw text, the index books/tools/check_quotes.py builds, and that index with running heads and display type kept) and prints the counts scoped to printed pp. 424 to 431. The raw counts are the ones SERIES-PLAN-1894.md Appendix D prints, and they are the ones this page shows. The near-match fallback in books/tools/grep_quote.py is why no count on this page is taken from that tool's output"
   - text: "The three pages on this site that the article reads, and whose own words it reports: 'Is The Magnetic Generator Just a Scam?', 'Is a Tesla Magnetic Generator Worth It? (2026 Review)' and 'Free Electricity From Magnets - Is It Possible?'. They are this site's current commercial pages, not sources about Tesla, and the article's rule is that it reports what they claim rather than repeating it"
-  - text: "The word-search page that shows this method and its counts, tesla-1894-word-search, is not on the site yet. It is planned, and this article's table is the same measurement it will publish. The link is left in place rather than substituted, and it is recorded here as pending so the dead-link check reports it instead of hiding it"
+  - text: "The word-search page that will publish this method and these counts as a standing page, tesla-1894-word-search, is planned and is not on the site yet, and this article's list is the same measurement it will publish. The out-link to it is deferred until that page exists rather than left pointing at a page no one has written, so this page carries no link that its own QA gate calls dead"
   - text: "Every quote in this article was re-grepped and pinned to its printed page before drafting. The register is new_content/1894-series/10-tesla-free-energy-what-he-said/quotes.md, re-runnable with books/tools/grep_quote.py and regenerated by gen_quotes.py in that directory; it records 72 verified quotes, 26 rejected ones, and the flags this draft writes around"
 ---
 **Standfirst.** The sentence most often quoted as Nikola Tesla's promise of free energy is printed
@@ -745,9 +798,11 @@ pyromagnetic generator, and the book's account of it is a firebox, a boiler and 
 
 The useful thing here is not a set of zeros but a method: ask for the phrase, in the book, on the
 page; ask which index a count came from; ask who is writing, since a Victorian editor summarising a
-lecture is not the lecturer. The counts above are re-run and published at
-[the 1894 word search](tesla-1894-word-search.html), and the two questions behind this page, what a
-device is claimed to deliver and what has been measured, are worked through at
+lecture is not the lecturer. The counts above were re-run by a script in this site's own tooling
+while this page was being written, and what that script returned is what this page prints. A
+standing word-search page for these counts is planned and is not on the site yet. The two questions
+behind this page, what a device is claimed to deliver and what has been measured, are worked
+through at
 [Is the magnetic generator a scam?](magnetic-generator-scam.html),
 [Is a Tesla Magnetic Generator Worth It?](tesla-magnetic-generator-worth-it.html) and
 [Free Electricity from Magnets](free-electricity-from-magnets.html).
