@@ -1850,6 +1850,102 @@ def main():
     index = tuple(gq.build_index(pages)) + tuple(CQ.build_nospace(pages))
     raw_by_page = {fp: raw for fp, pp, itext, raw, _ in pages}
 
+    # Rendering helpers, defined before the verification loop because the loop
+    # uses them: feature-007/t0's fourth criterion says the file is appended to
+    # as each quote is confirmed, so a quote has to reach the disk the moment it
+    # verifies, not at the end of the run.
+    def how_note(checks):
+        parts = []
+        for i, (_f, how, _pps, _fp, _raw, straddle, others) in enumerate(checks, 1):
+            tag = ("exact match, ratio 1.0" if how == "exact"
+                   else "whitespace-only difference: the OCR spacing is not the "
+                        "print's (words glued, or a stray space). Print the clean "
+                        "form; check_quotes.py flags it the same way")
+            lead = "" if len(checks) == 1 else f"frag {i}: "
+            extra = ""
+            if len(straddle) > 1:
+                extra = (f" (this ONE fragment straddles printed pp. "
+                         f"{'-'.join(str(p) for p in straddle)}; check_quotes.py "
+                         "accepts a citation to either page, so cite one page - a "
+                         "hyphenated range never matches its citation regex)")
+            elif others:
+                extra = (f" (the same words also occur on printed pp. "
+                         f"{', '.join(str(p) for p in others)}; cite the pinned "
+                         "page)")
+            parts.append(f"{lead}{tag}{extra}")
+        head = ("" if len(checks) == 1 else
+                f"{len(checks)} fragments, each verified separately "
+                "(check_quotes.py splits on '...'); ")
+        return head + "; ".join(parts)
+
+    def page_head(page, rows_p):
+        where = (f"scan file {rows_p[0][4][0][3]}"
+                 if page >= 0 else
+                 f"scan file {rows_p[0][4][0][3]}, unnumbered front-matter leaf")
+        return f"## Printed p. {page} ({where})"
+
+    def block_lines(row):
+        quote, _p, section, why, checks = row
+        straddling = [c for c in checks if len(c[5]) > 1]
+        lines = [f"### {section}", "", f'> "{quote}"', "",
+                 f"- cited as: `(1894, p. {_p})`"]
+        if straddling:
+            lines += [f"- straddle: this ONE fragment sits on printed pp. "
+                      f"{straddling[0][5][0]}-{straddling[0][5][-1]} as a "
+                      "single run; check_quotes.py accepts a citation to either "
+                      "page, so cite one page only - '(1894, pp. ...)' never "
+                      "matches its citation regex"]
+        lines += [f"- why: {why}",
+                  f"- check_quotes.py: {how_note(checks)}"]
+        for i, (frag, _how, _pps, _fp, raw, _st, _ot) in enumerate(checks, 1):
+            tag = "" if len(checks) == 1 else f" (frag {i}: {frag[:40]})"
+            lines += [f"- raw OCR{tag}: `{raw}`"]
+        lines += [""]
+        return lines
+
+    def grouped(rows_):
+        byp = {}
+        for r in rows_:
+            byp.setdefault(r[1], []).append(r)
+        return byp
+
+    def write_partial(confirmed, why_stop=None):
+        """The pin on disk at any moment is the pin confirmed so far.
+
+        feature-007/t0's fourth criterion: 'quotes.md is appended to as each
+        quote is confirmed, so a restart resumes rather than restarts'. The
+        first version of this script verified all 72 quotes and only then wrote
+        the file, so one bad fragment lost the whole afternoon's work and a
+        restart started the pin from nothing. Each confirmed quote is written
+        here the moment it verifies; the complete render at the end of the run
+        replaces this file, and a run that stops part-way leaves a file that
+        says what is confirmed and what stopped it.
+        """
+        byp = grouped(confirmed)
+        lines = [
+            "# Article 10 quote pin: PARTIAL",
+            "",
+            f"PARTIAL PIN written {PIN_DATE} by `gen_quotes.py`: "
+            f"{len(confirmed)} of {len(QUOTES)} intended quotes confirmed, each "
+            "verified through `check_quotes.py`'s matcher and pinned to its "
+            "printed page. Re-run `python3 gen_quotes.py` in this directory: it "
+            "re-verifies every quote and replaces this file with the complete "
+            "pin - the measured count tables, the rejected list, the flags and "
+            "the self-check are generated in the same run. A quote confirmed "
+            "here is a quote that verified against the text, so a restart "
+            "continues from this state rather than starting the pin again.",
+            "",
+            ("What stopped the run: " + why_stop) if why_stop else
+            "Mid-run snapshot; the run had not finished when this was written.",
+            "", "## Quotes, pinned by printed page", "",
+        ]
+        for page in sorted(byp):
+            lines += [page_head(page, byp[page]), ""]
+            for row in byp[page]:
+                lines += block_lines(row)
+        OUT.parent.mkdir(parents=True, exist_ok=True)
+        OUT.write_text("\n".join(lines) + "\n")
+
     rows, problems = [], []
     for quote, page, section, why in QUOTES:
         frags = CQ.fragments(quote)
@@ -1879,35 +1975,16 @@ def main():
             problems.append((quote, page, bad))
             continue
         rows.append((quote, page, section, why, checks))
+        write_partial(rows)
 
     if problems:
         for q, p, why in problems:
             print(f"FAIL p.{p} {q[:70]!r} -> {why}", file=sys.stderr)
+        write_partial(rows, why_stop="; ".join(
+            f"p.{p} {q[:60]!r}: {w}" for q, p, w in problems))
+        print(f"quotes.md left as a PARTIAL pin with {len(rows)} confirmed "
+              f"quote(s); {len(problems)} failed", file=sys.stderr)
         sys.exit(1)
-
-    def how_note(checks):
-        parts = []
-        for i, (_f, how, _pps, _fp, _raw, straddle, others) in enumerate(checks, 1):
-            tag = ("exact match, ratio 1.0" if how == "exact"
-                   else "whitespace-only difference: the OCR spacing is not the "
-                        "print's (words glued, or a stray space). Print the clean "
-                        "form; check_quotes.py flags it the same way")
-            lead = "" if len(checks) == 1 else f"frag {i}: "
-            extra = ""
-            if len(straddle) > 1:
-                extra = (f" (this ONE fragment straddles printed pp. "
-                         f"{'-'.join(str(p) for p in straddle)}; check_quotes.py "
-                         "accepts a citation to either page, so cite one page - a "
-                         "hyphenated range never matches its citation regex)")
-            elif others:
-                extra = (f" (the same words also occur on printed pp. "
-                         f"{', '.join(str(p) for p in others)}; cite the pinned "
-                         "page)")
-            parts.append(f"{lead}{tag}{extra}")
-        head = ("" if len(checks) == 1 else
-                f"{len(checks)} fragments, each verified separately "
-                "(check_quotes.py splits on '...'); ")
-        return head + "; ".join(parts)
 
     table_rows, scoped_rows = measure_all()
     claims = measure_claims(pages)
@@ -1923,9 +2000,7 @@ def main():
                 in table_rows if not (r == k == g)]
     vol_pages = gq.load_pages(TXT, clean=True)
 
-    by_page = {}
-    for r in rows:
-        by_page.setdefault(r[1], []).append(r)
+    by_page = grouped(rows)
 
     out = [
         "# Article 10 quote pin: tesla-free-energy-what-he-said.html",
@@ -2191,26 +2266,9 @@ def main():
     ]
     for page in sorted(by_page):
         rows_p = by_page[page]
-        where = (f"scan file {rows_p[0][4][0][3]}"
-                 if page >= 0 else
-                 f"scan file {rows_p[0][4][0][3]}, unnumbered front-matter leaf")
-        out += [f"## Printed p. {page} ({where})", ""]
-        for quote, _p, section, why, checks in rows_p:
-            straddling = [c for c in checks if len(c[5]) > 1]
-            out += [f"### {section}", "", f'> "{quote}"', "",
-                    f"- cited as: `(1894, p. {page})`"]
-            if straddling:
-                out += [f"- straddle: this ONE fragment sits on printed pp. "
-                        f"{straddling[0][5][0]}-{straddling[0][5][-1]} as a "
-                        "single run; check_quotes.py accepts a citation to either "
-                        "page, so cite one page only - '(1894, pp. ...)' never "
-                        "matches its citation regex"]
-            out += [f"- why: {why}",
-                    f"- check_quotes.py: {how_note(checks)}"]
-            for i, (frag, _how, _pps, _fp, raw, _st, _ot) in enumerate(checks, 1):
-                tag = "" if len(checks) == 1 else f" (frag {i}: {frag[:40]})"
-                out += [f"- raw OCR{tag}: `{raw}`"]
-            out += [""]
+        out += [page_head(page, rows_p), ""]
+        for row in rows_p:
+            out += block_lines(row)
     out += ["## Rejected: considered and not carried forward", "",
             "(Numbered, because 'Rejected #N' is cited from the rows above and "
             "the numbers are the order of the REJECTED list in `gen_quotes.py`; "
@@ -2233,8 +2291,10 @@ def main():
             "file is a count of this file's own prose. The gate for a pin file "
             "is `gen_quotes.py` itself: it imports the same matcher "
             "(`check_quotes.fragments` + `check_quotes.locate` over the index "
-            "`check_quotes` builds) and refuses to write anything if a quote "
-            "does not verify on its stated page. `check_quotes.py` runs on "
+            "`check_quotes` builds), writes each quote to this file the moment "
+            "it verifies, and if a quote does not verify it reports the failure "
+            "and leaves the confirmed quotes on disk marked PARTIAL rather than "
+            "throwing the run's work away. `check_quotes.py` runs on "
             "`article.md` in feature-007/t3.", ""]
 
     # The checks feature-006/a08-qpdone ran by hand over the article 08 pin,
