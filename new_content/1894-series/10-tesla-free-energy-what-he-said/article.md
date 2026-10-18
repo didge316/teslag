@@ -12,15 +12,25 @@ slug: tesla-free-energy-what-he-said.html
 pretty_slug: /tesla-free-energy-what-he-said
 description: "A word search of the 1894 first edition: free energy 0, perpetual 0, over unity 0, and five hits for magnetic generator, all of them a heat engine."
 keywords: [did tesla invent free energy, tesla free energy machine true or false, tesla wheelwork of nature, tesla magnetic generator real or fake, tesla free energy myth checked]
-# DRAFTING DATE, not a publish date. feature-006/a08-wirecommit settled that the publish date is
-# fixed at the wiring task, one page per date in wiring order, and the ten wired pages run
-# 10-14 through 10-24. This page is the eleventh, so 10-25 is the arithmetic candidate; it is
-# settled at feature-007/a10-wirecommit against the state of articles.html at that moment, not here.
+# PUBLISH DATE, settled at feature-007/a10-wirecommit (2026-10-18), not a drafting date. The rule
+# feature-006/a08-wirecommit set is one page per date in wiring order, and the invariant was
+# measured here rather than assumed: books/tmp/f07wire/card_order.py reads every card on
+# website/articles.html in DOM order with its date line, and the ten series cards before this task
+# run 03 10-14, 09 10-16, 11 10-17, 07 10-18, 01 10-19, 02 10-20, 04 10-21, 05 10-22, 06 10-23,
+# 08 10-24, in exactly that DOM order. The grid therefore has two properties at once: the dates
+# ascend, and card order is wiring order. This page is the eleventh wired, so the next date in the
+# series is 2026-10-25 and its card goes immediately after 08's and immediately before the first
+# legacy card. That is the only choice satisfying both properties: keeping the old 10-18 would put a
+# date already taken by 07, and inserting the card at the end of the grid would break the second.
+# One page on 10-25 also keeps §11's 'never more than 2 in a day'.
 # §11's publish order for this page is S4, after 03, 01 and 07, so a reader meets three neutral
 # history pieces before the myth-check (O2 = B, the plan's recommendation, settled in
-# specs/prd.md line 86 and in this feature's own name).
-date_published: "2026-10-18"
-date_modified: "2026-10-18"
+# specs/prd.md line 86 and in this feature's own name). 03 is 10-14, 01 is 10-19 and 07 is 10-18,
+# all three earlier than 10-25, so S4 and O2 = B hold on the measured dates, not on intent.
+# date_modified is the same date because the caption count fix and the date change land in one
+# render; a modified date earlier than the published date would read as a contradiction on the page.
+date_published: "2026-10-25"
+date_modified: "2026-10-25"
 series_no: 10
 primary_query: did tesla invent free energy
 tid: "1894_10"
@@ -120,8 +130,12 @@ standfirst: "The sentence most often quoted as Nikola Tesla's promise of free en
 #     of printed p. 496, sitting between Polyphase Transformer and Regulator for Rotary Current
 #     Motors, with 'Thermo-Magnetic Motors..... 424' in that page's right column. The published crop
 #     stops at that entry, which is why it reads like the end of the column; it is not the end, the
-#     column runs on for ten more entries. The first draft of this record called it the last entry of
-#     the column, and that is corrected here. Proof
+#     column runs on for eleven more entries, ending the column with 'Streaming Discharges of High
+#     Tension Coil..... 155, 163'. The first draft of this record called it the last entry of
+#     the column, and that is corrected here. The count ten, which the published caption carried
+#     from feature-007/t2 until feature-007/a10-wirecommit, was wrong by one; feature-007/t4 counted
+#     eleven twice, against a 500 ppi render of scan 514 and against this scan's own text layer, and
+#     the corrected number is in the caption now. Proof
 #     crops: figures/p494-generators-pyromagnetic-429.png and
 #     figures/p496-right-column-thermo-magnetic-motors-424.png; the published figure 3 is the left
 #     column of p. 496 itself.
@@ -292,7 +306,7 @@ figures:
     alt: "Printed page 496 of the 1894 volume: the folio 496 at the upper left and the start of the running head INDEX. cut off at the right edge of the crop, then the top of the left column of the volume's own index in display type, seven entries ending at the foot of the crop: Ozone Production of, Phenomena Produced by Electrostatic Force, Phosphorescence and Sulphide of Zinc, Physiological Effects of High Frequency, Polyphase Systems, Polyphase Transformer, and Pyromagnetic Generators with dotted leaders running to the page number 429"
     width: 860
     height: 695
-    caption: "Page-scan crop of the top of the left column of the volume's own index, printed p. 496, from the folio down to the entry Pyromagnetic Generators and the number it gives, 429. Scan from Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), p. 496. Public domain. The book indexes its own generator and files it under a heat word. The entry sits under Polyphase Transformer and the crop stops there; the column runs on below it for ten more entries, so this is not the whole column and nothing in the article depends on it being one. The right column of the same page carries Thermo-Magnetic Motors and 424, and the G column two pages earlier carries Generators, Pyromagnetic and 429, which is the other of the two index entries this article counts. The dotted leaders are the printer's, and the text layer of this scan puts an entry and its number on separate lines, which is why this article cites the phrase and the number separately rather than as one string."
+    caption: "Page-scan crop of the top of the left column of the volume's own index, printed p. 496, from the folio down to the entry Pyromagnetic Generators and the number it gives, 429. Scan from Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), p. 496. Public domain. The book indexes its own generator and files it under a heat word. The entry sits under Polyphase Transformer and the crop stops there; the column runs on below it for eleven more entries, ending with Streaming Discharges of High Tension Coil, so this is not the whole column and nothing in the article depends on it being one. The right column of the same page carries Thermo-Magnetic Motors and 424, and the G column two pages earlier carries Generators, Pyromagnetic and 429, which is the other of the two index entries this article counts. The dotted leaders are the printer's, and the text layer of this scan puts an entry and its number on separate lines, which is why this article cites the phrase and the number separately rather than as one string."
 #
 # LINKS. §5.2 row 10 gives five out-links and this draft carries all five, plus the
 # tesla-1894-word-search.html link that §9 brief 10 item 8 and this feature's own criteria require.
