@@ -1,0 +1,118 @@
+Electric Discharges in Vacuum Tubes	494
+Article by Mr. Tesla in The Electrical Engineer. N. Y., July 1, 1891.	396
+In The Electrical Engineer of June 10 I have noted the description of some experiments of Prof. J. J. Thomson	396
+in your issue of June 24 Prof. Elihu Thomson describes an experiment of the same kind	396
+The phenomena of vacuum discharges were, Prof. Thomson said, greatly simplified when their path was wholly gaseous, the complication of the dark space surrounding the negative electrode, and the stratifications so commonly observed in ordinary vaciium tubes, being absent	402
+the first experiment I tried with the discharge of a Leyden jar produced luminosity in the tube, but it was not until after six weeks' continuous experimenting that I was able to get a discharge in the exhausted tube which I was satisfied was due to what is ordinarily called electrodynamic action	406
+My investigations in this line occupied me principally during the winter and spring of the past year	396
+It is needless to say that at this moment Mr. Tesla is engaged on a number of interesting ideas and inventions, tobe made public in due course	6
+The account of the experiments in the Electrician was from a reporter's note, and was not written, or even read, by me	406
+I have now almost finished writing out, and hope very shortly to publish, an account of these and a large number of allied experiments	406
+I take a tube in my hand and move it about, and it is lighted wherever I may hold it; throughout space the invisible forces act	288
+It was of interest to see how some of the phosphorescent bulbs of Professor Crookes would behave with these currents, and he has had the kindness to lend me a few for the occasion	290
+The effects produced are magnificent, especially by the sulphide of calcium and sulphide of zinc	290
+With the disruptive discharge coil they glow intensely merely by holding them in the hand and connecting the body to the terminal of the coil	290
+A small phosphorescent bulb, when attached to a wire connected to a coil, emits sufficient light to allow reading ordinary print at a distance of five to six paces	289
+Intense phosphorescence may be excited in a bulb by merely connecting it to a plate within the field, and the plate need not be any larger than an ordinary lamp shade	289
+These coatings are merely used to enable me to perform two experiments with the tube	289
+to produce the effect desired either by direct connection of the body of the experimenter or of another body to the wire w, or by acting inductively through the glass	289
+I have produced the incandescence of a button, filament, or wire enclosed in a tube. To get to this result it was necessary to economize the energy which is obtained from the field, and direct most of it on the small body to be rendered incandescent	289
+What change have I produced in the tube in the act of exciting it?	288
+If a motion imparted to atoms, it is difficult to perceive how it can persist so long without being arrested by f rictional losses	288
+if a strain exerted in the dielectric, such as a simple electrification would produce, it is easy to see how it may persist indefinitely, but very difficult to understand why such a condition should aid the excitation when we have to deal with potentials which are rapidly alternating	288
+Since I have exhibited these phenomena for the first time, I have obtained some other interesting effects	289
+It has been, my chief aim in presenting these results to point out phenomena or features of novelty, and to advance ideas which I am hopeful will serve as starting points of new departures	292
+the pleasure I have had in presenting these results to a gathering of so many able men	293
+But I may take another tube and it might not light, the vacuum being very high	288
+I excite it by means of a disruptive discharge coil, and now it will light in the electrostatic field	288
+The fundamental idea in these experiments is to set up an electromotive force in a vacuum tube	396
+preferably devoid of any electrodes	396
+by means of electro-magnetic induction, and to excite the tube in this manner	396
+the idea of replacing the tinfoil coatings of a Leyden jar by rarefied gas and exciting luminosity in the condenser thus obtained by repeatedly charging and discharging it	396
+The idea being obvious, whatever merit there is in this line of investigation must depend upon the completeness of the study of the subject and the correctness of the observations	396
+The following lines are not penned with any desire on my part to put myself on record as one who has performed similar experiments, but with a desire to assist other experimenters by pointing out certain peculiarities of the phenomena observed	396
+the luminous effects, which are producible by induction in a tube devoid of electrodes, I am inclined to consider as being of an electrostatic nature	175
+It must be remembered that in these experiments we have to deal with primary currents of an enormous frequency or rate of change and of high potential, and that the secondary conductor consists of a rarefied gas, and that under such conditions electrostatic effects must play an important part	398
+an exhausted tube be introduced from the other side in the hollow space, the tube is lighted most intensely because of the increased condenser action, and in this position the striae are most sharply defined. In all these experiments described, and in many others, the action is clearly electrostatic	186
+an ordinary exhausted tube (preferably of large diameter) be surrounded by a spiral of thick copper wire serving as the primary	399
+feebly luminous spiral may be induced in the tube	399
+the lamp-bulb was provided with a tinfoil coating on the side opposite to the primary and each time the tinfoil coating was connected to the ground or to a large object the luminosity of the circle was considerably increased. This was evidently due to electrostatic action	399
+the fact that a glow can be produced along the primary in the form of an open spiral argues for an electrostatic effect	399
+when the specific inductive capacity of the medium between the primary and secondary is increased, the inductive effect is augmented	401
+a glass tube T slipped between the primary and the bulb, when the effect pointed out was noted. Were the action wholly electromagnetic no change could possibly have been observed	401
+when a bulb is surrounded by a wire closed upon itself and in the plane of the primary, the formation of the luminous circle within the bulb is not prevented	401
+But if instead of the wire a broad strip of tinfoil is glued upon the bulb, the formation of the luminous band was prevented, because then the action was distributed over a greater surface	401
+there is a molecular bombardment inthe plane of the luminous circle at right angles to the glass	400
+this bombardment being evident from the rapid heating of the glass near the primary. Were the bombardment not at right angles to the glass the heating could not be so rapid	401
+In using the term electrostatic I had reference rather to the nature of the action than to a stationary condition, which is the usual acceptance of the term	404
+at the outset, I myself looked for a purely electrodynamic effect and believed that I had obtained it. But many experiments performed at that time proved to me that the electrostatic effects were generally of far greater importance	404
+Without doubting in the least that, with the care and precautions taken by Prof. J. J. Thomson, the luminosity excited was due solely to electrodynamic action, I would say that in many experiments I have observed curious instances of the ineffectiveness of the screening	405
+Wet blotting paper is a sufficiently good conductor to screen off a stationary electrostatic effect, though it is not a good enough one to stop waves of alternating electromotive intensity	406
+the importance of the quality of glass of which the tube is made	405
+I also endeavored to ascertain the influence of a medium of high permeability by using oxygen	405
+an oxygen tube when excited under similar conditions	405
+gives more light; but this, of course, may be due to many causes	405
+In all forms of apparatus used there was no special difficulty in exciting a luminous circle or cylinder in proximity to the primary	397
+two intensely luminous circles, each of them close to a turn of the primary spiral, were formed inside of the tube, and I attributed this phenomenon to the existence of nodes on the primary	399
+the circles were always in close proximity to the primary and were considerably easier produced when the latter was very close to the glass	400
+and these facts speak for an electrostatic effect	400
+in my experiments they were broad and often the whole of the bulb or tube was illuminated	400
+I have observed an intensely purplish glow, to which Prof. J. J. Thomson refers	400
+To produce discharges in tubes devoid of electrodes was, however, not easy to accomplish, for the only available means of producing an electromotive force in the discharge circuit was by electro-magnetic induction	402
+I have experimentally proved that if the same discharge which is barely sufficient to excite a luminous band in the bulb when passed through the primary circuit be so directed as to exalt the electrostatic inductive effect	402
+an exhausted tube, devoid of electrodes, may be excited at a distance of several feet	402
+Leyden jar, which combines the two essentials of a current whose maximum value is enormous, and whose rapidity of alternation is immensely great	403
+The two or three turns, as shown in Fig. 216, in each, were found to be quite sufficient	403
+An exhausted bulb, Fig. 217, containing traces of oxygen was plaeed within a primary spiral of three turns, and, on passing the jar discharge, a circle of light was seen within the bulb inclose proximity to the primary circuit, accompanied by a purplish glow, which lasted for a second or more	403
+On heating the bulb, the duration of the glow was greatly diminished, and it could be instantly extinguished by the presence of an electro-magnet	403
+the better the vacuum the more easily the bodies are brought to incandescence	177
+we may place a body in a very highly exhausted globe, in a non-striking vacuum, and, by employing very high frequencies and potentials, transfer sufficient energy from it to other bodies in the vicinity, or in general to the surroundings, to maintain it at any degree of incandescence	175
+in one of my experiments in which a vacuum was produced by the Torricellian method, I was unable to produce the luminous band, but this may have been due to the weak exciting current employed	402
+On exhausting the jar, however, the luminous discharge grew fainter, and a point was reached at which no secondary discharge was visible	403
+J urther exhaustion of the jar caused the secondary discharge to appear outside of the bulb	403
+before the disruptive discharge takes place, the tube or bulb is slightly excited and the formation of the luminous circle is decidedly facilitated	398
+the introduction of mercury or the heating of the bulb prevents the formation of the luminous band or shortens the after-glow; and also why in some cases a platinum wire may prevent the excitation of the tube	402
+we may place a body of some refractory material in a closed, and preferably more or less exhausted, globe, connect it to a source of	175
+high, rapidly alternating potential, causing the molecules of the gas to strike it many times a second at enormous speeds, and in this manner, with trillions of invisible hammers, pound it until it gets incandescent	175
+causing them to viorate and to emit light	176
+in this manner a simple lamp capable of giving any desired candle power is provided	177
+The success of lamps of this kind would depend largely on the selection of the light-giving bodies contained within the bulb	177
+We would then be simply using burners or flames, in which there would be no chemical process, no consumption of material, but merely a transfer of energy	214
+This is due principally to the fact that a much smaller potential is required to produce the same light effect, and also to the higher efficiency in the light production	176
+In the course of these experiments a great many trials were made with all kinds of carbon buttons. Electrodes made of ordinary carbon buttons were decidedly more durable when the buttons were obtained by the application of enormous pressure	253
+there can be no doubt that all kinds of carbon are fused under the molecular bombardment, but the liquid state must be one of great instability	253
+Of all the bodies tried there were two which withstood best - diamond and carborundum. These two showed up about equally, but the latter was preferable for many reasons	253
+As it is more than likely that this body is not yet generally known, I Avill venture to call your attention to it	253
+It has been recently produced by Mr. E. G. Acheson, of Monongahela City, Pa., II. S. A.	253
+Through the kindness of the inventor, I obtained a short while ago some samples which I desired to test in regard to their qualities of phosphorescence and capability of withstanding high degrees of heat	253
+The time has been too short to make a satisfactory study of the properties of this product, but enough experience has been gained in a few weeks I have experimented upon it to say that it does possess some remarkable properties in many respects	254
+The only difficulty which I have experienced in its use in connection with these experiments was to find some binding material which would resist the heat and the effect of the bombardment as successfully as carborundum itself does	254
+I have here a number of bulbs which I have provided with buttons of carborundum	254
+I take an ordinary lamp filament and dip its point in tar, or some other thick substance or paint which may be readily carbonized	254
+The button being mounted in a bulb, when a good vacuum has been reached, first a weak and then a strong discharge is passed through the bulb to carbonize the tar and expel all gases, and later it is brought to a very intense incandescence	254
+The difficulty is that the binding material gives way, and the carborundum is slowly thrown off after some time	255
+it might be found useful for coating the filaments of ordinary incandescent lamps, and I think that it is even possible to produce thin threads or sticks of carborundum which will replace the ordinary filaments in an incandescent lamp	255
+I prepared buttons of diamond dust in the same manner as of carborundum, and these came in durability nearest to those prepared of carborundum, but the binding paste gave way much more quickly in the diamond buttons	255
+this, however, I attributed to the size and irregularity of the grains of the diamond	255
+It was of interest to find whether carborundum possesses the quality of phosphorescence	255
+they are good conducting, and it is a fact that conductors do not phosphoresce	255
+Carborundum Button for Tesla Lamps	494
+One thing is certain, at any rate, and that is, that in augmenting the potential and frequency we rapidly intensify the streams	214
+though it may be very sanguine, it is surely not altogether hopeless to expect that we may succeed in producing a practical illuminant on these lines	214
+the luminosity in a tube near a wire through a Leyden jar was discharged was noted by Hittorf	405
+the luminosity in a tube near a wire through which a Leyden jar was discharged was noted by Hittorf	405
+in my experiments the effects were much more powerful than those usually noted	406
+I did not, as Prof. J. J. Thomson seems to believe, misunderstand his position in regard to the cause of the phenomena considered, but I thought that in his experiments, as well as in my own, electrostatic effects were of great importance	404
+He seems, however, to have misunderstood my position with respect to the cause of these discharges, which is not, as he implies, that luminosity in tubes without electrodes cannot be produced by electrostatic action, but that it can also be produced when this action is excluded	406
+Mr. Tesla seems to ascribe the effects he observed to electrostatic action, and I have no doubt, from the description he gives of his method of conducting his experiments, that in them electrostatic action plays a very important part	406
+Whilst the discharge of the jar is going on, it is difficult, and, from a theoretical point of view, undesirable, to eparate the effect into parts, one of which is called electrostatic, the other electromagnetic	406
+what we can prove is that in this case the discharge is not such as would be produced by electromotive forces derived from a potential function	406
+Assuming the tube to be perfectly well insulated, there would be only one instantaneous flash during the act of distribution. This would be due to the electrostatic action simply. But now, suppose the charged sphere to be moved at short intervals with great speed along the exhausted tube. The tube would now be permanently excited, as the moving sphere would cause a constant redistribution of electricity and collisions of the molecules of the rarefied gas	405
+the same would undoubtedly produce luminosity (if the potential be sufficiently high), until a permanent condition would be reached	405
+For want of time I have, however, not been able to perform the experiment	401
+I will suppose that near a closed exhausted tube be placed a small sphere charged to a very high potential. The sphere would act inductively upon the tube	404
+It did not appear, from the meagre description of his experiments, that all possible precautions had been taken to exclude these effects	404
+the physiological effect of the current required to maintain at a certain degree of brightness a tube four feet long, provided at the ends with outside and inside condenser coatings, is so powerful that, I think, it might produce serious injury to those not accustomed to such shocks	176
+with twenty thousand alternations per second, the tube may be maintained at the same degree of brightness without any effect being felt	176
+Fig. 210 may serve as an example of one of the many forms of apparatus used. This consisted of a large glass tube sealed at one end and projecting into an ordinary incandescent lamp bulb	397
+To excite luminosity in the tube it is not absolutely necessary that the conductor should be closed	398
