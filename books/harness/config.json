@@ -166,14 +166,14 @@
     }
   },
   "maxRetries": 100,
-  "retryCount": 19,
-  "taskRetryCount": 19,
+  "retryCount": 45,
+  "taskRetryCount": 45,
   "featureRetryCount": 0,
-  "phaseRetryCount": 19,
+  "phaseRetryCount": 45,
   "retryPerLevel": {
     "subtask": 0,
-    "phase": 19,
-    "task": 19
+    "phase": 45,
+    "task": 45
   },
   "pipelineIteration": 2,
   "gateHistory": [
@@ -1017,6 +1017,311 @@
       "timestamp": "2026-10-17T10:03:55.262Z",
       "feature": "feature-006",
       "task": "a08-qp3"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T10:05:02.505Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T11:05:04.733Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T11:52:04.219Z",
+      "feature": "feature-006",
+      "task": "feature-006/a08-qpdone"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-17T11:58:13.836Z",
+      "feature": "feature-006",
+      "task": "feature-006/a08-qpdone"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T11:58:42.381Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T12:26:39.709Z",
+      "feature": "feature-006",
+      "task": "feature-006/t1"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T12:27:06.282Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T12:28:37.773Z",
+      "feature": "feature-006",
+      "task": "feature-006/t1"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-17T12:39:45.556Z",
+      "feature": "feature-006",
+      "task": "feature-006/t1"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T12:40:08.679Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T13:40:00.614Z",
+      "feature": "feature-006",
+      "task": "a08-draft2"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T13:40:10.855Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T13:44:33.865Z",
+      "feature": "feature-006",
+      "task": "a08-draft2"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-17T13:46:17.012Z",
+      "feature": "feature-006",
+      "task": "a08-draft2"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T13:46:41.452Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T14:46:43.584Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T15:10:57.505Z",
+      "feature": "feature-006",
+      "task": "a08-draft3"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T15:12:40.290Z"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-17T15:36:14.389Z",
+      "feature": "feature-006",
+      "task": "feature-006/a08-draft3"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T15:36:40.538Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T16:36:42.841Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T17:03:16.109Z",
+      "feature": "feature-006",
+      "task": "feature-006/t2"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-17T17:04:56.116Z",
+      "feature": "feature-006",
+      "task": "feature-006/t2"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T17:05:28.716Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T17:32:51.503Z",
+      "feature": "feature-006",
+      "task": "a08-figrec"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T17:33:19.627Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T17:34:19.045Z",
+      "feature": "feature-006",
+      "task": "a08-figrec"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-17T17:39:07.824Z",
+      "feature": "feature-006",
+      "task": "a08-figrec"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T17:39:37.588Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T17:56:00.333Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T18:03:56.980Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T20:17:08.734Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T20:37:12.959Z",
+      "feature": "feature-006",
+      "task": "feature-006/t4"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-17T20:41:40.122Z",
+      "feature": "feature-006",
+      "task": "feature-006/t4"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T20:42:07.061Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T21:10:53.903Z",
+      "feature": "feature-006",
+      "task": "a08-wirecommit"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-17T21:14:21.114Z",
+      "feature": "feature-006",
+      "task": "a08-wirecommit"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T21:14:53.442Z"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-17T21:30:16.432Z",
+      "feature": "feature-006",
+      "task": "a08-titlecase"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T21:30:37.052Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T21:47:40.811Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T21:48:46.331Z",
+      "feature": "feature-006",
+      "task": "a08-cta"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-17T21:51:13.386Z",
+      "feature": "feature-006",
+      "task": "a08-cta"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T21:51:38.549Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T22:51:40.661Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T23:36:29.323Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T23:56:34.870Z",
+      "feature": "feature-007",
+      "task": "feature-007/t0"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-17T23:56:52.353Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-18T00:05:33.360Z"
+    },
+    {
+      "phase": "build",
+      "result": "fail",
+      "timestamp": "2026-10-18T00:08:54.799Z",
+      "feature": "feature-007",
+      "task": "feature-007/t0"
+    },
+    {
+      "phase": "build",
+      "result": "pass",
+      "timestamp": "2026-10-18T00:14:50.543Z",
+      "feature": "feature-007",
+      "task": "feature-007/t0"
     }
   ]
 }

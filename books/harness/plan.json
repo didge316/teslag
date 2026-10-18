@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "baseRevision": 47,
+  "baseRevision": 60,
   "goals": [
     {
       "id": "goal-001",
@@ -750,7 +750,7 @@
         {
           "id": "a08-qpdone",
           "description": "Article 08 quotes.md complete: all nine entries re-greppable",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-006/a08-qp3"
           ],
@@ -766,7 +766,7 @@
           "id": "t1",
           "key": "feature-006/t1",
           "description": "Article 08 draft batch 1: entries 1-3 written from quotes.md",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-006/a08-qpdone"
           ],
@@ -781,7 +781,7 @@
         {
           "id": "a08-draft2",
           "description": "Article 08 draft batch 2: entries 4-6 from quotes.md",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-006/t1"
           ],
@@ -796,7 +796,7 @@
         {
           "id": "a08-draft3",
           "description": "Article 08 draft batch 3: entries 7-9 plus intro and closer",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-006/a08-draft2"
           ],
@@ -812,7 +812,7 @@
           "id": "t2",
           "key": "feature-006/t2",
           "description": "Article 08 figure evidence: re-verify only the gaps, record in frontmatter",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-006/a08-draft3"
           ],
@@ -828,7 +828,7 @@
         {
           "id": "a08-figrec",
           "description": "Article 08 index.json entry with figures verified",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-006/t2"
           ],
@@ -844,7 +844,7 @@
           "id": "t3",
           "key": "feature-006/t3",
           "description": "Article 08 render + numeric gates",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-006/t2"
           ],
@@ -860,7 +860,7 @@
           "id": "t4",
           "key": "feature-006/t4",
           "description": "Article 08 visual QA: shot_qa at 3 widths and screenshot review",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-006/t3"
           ],
@@ -875,7 +875,7 @@
         {
           "id": "a08-wirecommit",
           "description": "Article 08 wiring and final commit",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-006/t4",
             "feature-006/a08-figrec"
@@ -1005,7 +1005,7 @@
         {
           "id": "a08-titlecase",
           "description": "Article 08's headings must be title case from the draft, not retrofitted later. The draft batches were planned before this rule existed, so check the draft against books/tools/titlecase_headings.py --check and fix any sentence-case h2/h3 before a08-wipcommit, keeping the FAQPage schema names in step.",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-006/a08-draft3"
           ],
@@ -1017,6 +1017,23 @@
             "the h1 and its <title>/og:title/twitter:title mirrors are untouched"
           ],
           "key": "feature-006/a08-titlecase"
+        },
+        {
+          "id": "a08-cta",
+          "description": "Article 08 CTA sentence: the draft carries no cta: key, so the CTA block renders empty on the live page",
+          "status": "complete",
+          "dependsOn": [
+            "feature-006/t3"
+          ],
+          "subtasks": [],
+          "difficulty": "easy",
+          "acceptanceCriteria": [
+            "article.md front matter gains a cta block in the shape the other pages in this series use (text plus href_suffix 1894_08), written to this page's nine entries rather than copied from another article",
+            "re-render: the rendered page has no empty paragraph inside the alert-info block, and the affiliate link still carries tid=1894_08",
+            "qa_page.py still exits 0 for the page; index.json records the CTA text and the re-render"
+          ],
+          "phase": "build",
+          "key": "feature-006/a08-cta"
         }
       ],
       "description": "08 is nine ~130-word entries; 12 closes the tube and lamp thread and links back to 01 and 06.",
@@ -1038,7 +1055,7 @@
           "id": "t0",
           "key": "feature-007/t0",
           "description": "Article 10 quote-pin: grep every intended quote, pin to printed page, write quotes.md",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-006/a08-wirecommit"
           ],

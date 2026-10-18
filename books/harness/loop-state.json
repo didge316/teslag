@@ -1,8 +1,8 @@
 {
-  "runId": "2d9a9019-67b5-46b2-9004-405432f53b22",
-  "startedAt": "2026-10-17T06:25:32.372Z",
-  "iterations": 5,
-  "lastFingerprint": "6f351275882d9953",
+  "runId": "ea127118-90fa-4235-ba7c-d61d4f70a284",
+  "startedAt": "2026-10-17T20:17:08.702Z",
+  "iterations": 10,
+  "lastFingerprint": "7fadd945b6ce1487",
   "noProgressStreak": 0,
   "lastPhase": "build",
   "lastDecision": "continue",
@@ -11,18 +11,30 @@
   "escalation": {
     "consultedCount": 0,
     "masterUsed": false,
-    "lastUnstuckAt": null,
-    "fingerprints": [],
+    "lastUnstuckAt": "2026-10-17T23:36:29.318Z",
+    "fingerprints": [
+      "6ac461d7dd2d3d37"
+    ],
     "tried": []
   },
   "perLevelEscalation": {
     "task": {
       "consultedCount": 0,
       "masterUsed": false,
-      "lastUnstuckAt": null,
-      "fingerprints": [],
+      "lastUnstuckAt": "2026-10-17T23:36:29.318Z",
+      "fingerprints": [
+        "6ac461d7dd2d3d37"
+      ],
       "tried": []
     }
   },
-  "escalations": []
+  "escalations": [
+    {
+      "at": "2026-10-17T23:36:29.318Z",
+      "strategy": "retry",
+      "level": "task",
+      "reason": "retry eligible",
+      "applied": null
+    }
+  ]
 }
