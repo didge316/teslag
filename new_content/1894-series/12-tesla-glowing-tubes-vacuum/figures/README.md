@@ -14,10 +14,17 @@ published figures say eleven and point here rather than at it.
 Page mapping used throughout (§0.4): **printed page = scan file page − 18**. So scan file 306 is
 printed p. 288, scan 415 is printed p. 397, scan 418 is printed p. 400, scan 420 is printed
 p. 402, scan 421 is printed p. 403. The renders are `pdftoppm -r 500` of
-`books/pdf-pages-tesla-1894/page-NNN.pdf`, 1856 x 3226 px a page, the native resolution of the
-image embedded in that page PDF. They are in
+`books/pdf-pages-tesla-1894/page-NNN.pdf`, **1856 x 3227 px a page** (this file said 3226 until
+feature-006/a12-figrec re-rendered all seven pages this record needs and measured them; the same
+off-by-one was corrected in article 06's record at feature-005/a06-figrec and never propagated
+here), the native resolution of the image embedded in that page PDF. They are in
 `books/tmp/f06t6/scan-{306,307,415,416,417,418,419,420,421}-500.png`, not committed (regenerable
-with `books/tools/fig_crop.py --printed <N> --view --view-ppi 500`). Seven of the nine were opened
+with `books/tools/fig_crop.py --printed <N> --view --view-ppi 500`). Those nine files were gone when
+feature-006/a12-figrec came to re-derive the crops, which is the point of the parenthesised command:
+re-rendering scans 306, 307, 415, 418, 419, 420 and 421 at 500 ppi and cutting the boxes below
+reproduced all fourteen files byte for byte. The re-cut script is `books/tmp/f06a12figrec/recut.py`
+(gitignored; it parses the boxes and expected hashes out of this file, so it tests the record and not
+a copy of it). Seven of the nine were opened
 against a plate; scans 416 and 417 were rendered only to read their printed captions in the text
 layer, which is the weakest read in this file and is marked as such wherever it was used.
 
@@ -141,6 +148,29 @@ To re-make a published crop exactly: same box, `--ppi 500`, and the tool's own w
 (`quality=92`). That reproduces all three files byte for byte. This was tested rather than
 asserted: each published file was re-cut from its recorded box and re-encoded, and all three
 re-cuts came out identical to the committed files, sha256 included.
+
+## Corrections made at feature-006/a12-figrec (2026-10-18)
+
+Two claims in this file and in the draft front matter were measured rather than restated, and one of
+them is wrong:
+
+- **Figure 3's spiral has four turns, not five.** The count appeared in the draft front matter three
+  times (the p. 403 plate description, the alt, the caption) and in `manifest_qc.csv` row 224's
+  subject line. Measured on the published 530x1110 file: four complete ellipses around the body of
+  the bulb at 2x and 3x, and along the bulb's vertical centre line `x=265` the ink runs start at
+  y 578, 628, 641, 665, 679, 686, 699, 725, 738, 756, 783, 796, 833, 840, 853, 866, 873, which
+  group from 628 to 866 into eight double-stroke arcs, i.e. four turns. The three front matter
+  places are corrected in `../article.md`; the QC row is in the site repo and was left for the row
+  that next commits `website/`. The rest of that plate was re-read and holds, including the three
+  leads through the stopper: above it at y 30-120 there are exactly three lines (x 185-201,
+  232-247, 279-296) and below it at y 500 three again (x 119-133, 241-256, 413-428).
+- **The 500 ppi page size is 1856 x 3227, not 1856 x 3226**, measured on all seven renders this
+  record needs. No box in this file is affected: the largest y any box reaches is 2779, far inside
+either height.
+
+Everything else held. All fourteen crops in this file, the eleven evidence PNGs and the three
+published webp files, re-cut from the boxes recorded above out of fresh 500 ppi renders, came out
+byte for byte identical to the committed files and to the hashes in the tables above.
 
 One caution for anyone re-cutting the published crops: the boxes above are the plate plus its
 printed caption and a margin. The figure ink bboxes alone, without the caption, are in the map

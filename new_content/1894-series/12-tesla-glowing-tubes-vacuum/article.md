@@ -304,8 +304,9 @@ sources:
 #     the jar, however, the luminous discharge grew fainter, and a point was reached at which no
 #     secondary discharge was visible.' The plate is that apparatus: a bell-jar on a flat base, an
 #     exhausted bulb with its long neck through a stopper, three leads led down through the stopper,
-#     and an open spiral of five turns around the body of the bulb with both ends led up out of the
-#     jar. The plate beside it on the same printed page, outside this crop, is Fig. 219, which the
+#     and an open spiral of four turns around the body of the bulb with both ends led up out of the
+#     jar (the count was given as five until feature-006/a12-figrec measured it; see CORRECTIONS).
+#     The plate beside it on the same printed page, outside this crop, is Fig. 219, which the
 #     same abstract describes as 'an exhausted secondary coil of one loop containing bulbs ; the
 #     discharge passed along the inner side of the bulbs, the primary coils being placed within the
 #     secondary', and which the un-cropped band shows as a square loop of tube with a bulb in each of
@@ -378,6 +379,24 @@ sources:
 #     what books/tmp/f06t6/crops.json recorded, because the two folio-token crops were cut after that
 #     file was written and never added to it. The rows now say eleven and point at the README, which is
 #     the durable record and lists all eleven with their boxes.
+#   Figure 3's spiral was recorded as five turns, in three places in this front matter: the p. 403
+#     plate description above, the alt, and the caption. It has four, and all three are corrected
+#     here rather than left for t8 to find on the rendered page. Measured at feature-006/a12-figrec
+#     on the published 530x1110 file, two ways. By eye at 2x and 3x: four complete ellipses around
+#     the body of the bulb, each with its own left and right extremity, at regular pitch, and above
+#     the topmost one nothing but the bulb's neck and the jar. Numerically: the ink runs along the
+#     bulb's vertical centre line x=265 start at y 578, 628, 641, 665, 679, 686, 699, 725, 738, 756,
+#     783, 796, 833, 840, 853, 866, 873, and from 628 to 866 those group into eight double-stroke
+#     arcs (the ninth pair's second edge is lost at 756 where the stroke crosses a light patch),
+#     which is four turns of wire; a fifth turn would add two more arcs and there is no row for them.
+#     What the plate does carry, and what the alt keeps unchanged, is three leads through the stopper:
+#     above it, at y 30 to 120, exactly three lines at x 185-201, 232-247 and 279-296, and below it,
+#     at y 500, three again at x 119-133, 241-256 and 413-428, one going to the bulb's neck and two
+#     being the spiral's ends led up outside it. The turn count is the one thing about this plate the
+#     record got wrong; the bell-jar, the flat base, the stopper, the long neck, the parts the other
+#     two alts name, and all three printed FIG. lines inside the crops were re-read at this task and
+#     hold. manifest_qc.csv row 224's subject line repeats the five-turn claim; that file is in the
+#     site repo and was not touched at this task, so the row that next commits website/ corrects it.
 #   The QC row for p417-fig1-fig214.webp said its number was contradicted 'by the print'. The
 #     contradiction is with the text layer of that page, and the plate was never opened. The row now
 #     says which of the two was read.
@@ -437,10 +456,10 @@ figures:
   # the preceding printed page. Number read off the printed caption inside the crop; the old file's
   # number came from a sentence of body type.
   - src: /assets/tesla1894/p403-fig218.webp
-    alt: "1894 engraving, Fig. 218, printed p. 403: a bell-jar with a rounded top standing on a flat circular base, an exhausted glass bulb inside it with a long neck passing up through a stopper at the mouth of the jar, three thin leads led down through the stopper, and an open spiral of five turns of wire wound around the body of the bulb with both of its ends led up outside the spiral and out through the stopper; the printed caption FIG. 218. is inside the crop below the base of the jar"
+    alt: "1894 engraving, Fig. 218, printed p. 403: a bell-jar with a rounded top standing on a flat circular base, an exhausted glass bulb inside it with a long neck passing up through a stopper at the mouth of the jar, three thin leads led down through the stopper, and an open spiral of four turns of wire wound around the body of the bulb with both of its ends led up outside the spiral and out through the stopper; the printed caption FIG. 218. is inside the crop below the base of the jar"
     width: 530
     height: 1110
-    caption: "Fig. 218, printed p. 403, the left-hand one of the two plates that page sets, with its printed caption inside the crop. Engraving from Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), p. 403. Public domain. This is the other man's apparatus and not Tesla's: the chapter prints it inside the report of the paper J. J. Thomson read to the Physical Society of London, and the same printed page says of it, 'Another exhausted bulb, Fig. 218, surrounded by a primary spiral, was contained in a bell-jar, and when the pressure of air in the jar was about that of the atmosphere, the secondary discharge occurred in the bulb, as is ordinarily the case.' What the drawing adds to that sentence is the shape of the thing: a bell-jar standing on a flat base, an exhausted bulb inside it with its long neck through a stopper at the top, three leads led down through the stopper, and an open spiral of five turns of wire around the body of the bulb with both ends led up out of the jar. The plate beside it on the same printed page, outside this crop, is Fig. 219, which the same abstract calls an exhausted secondary coil of one loop containing bulbs. The sentence about a bulb inside a spiral of three turns, quoted in the section above, names Fig. 217, whose plate the print sets on the preceding printed page, and the sentence about a bulb in a spiral of two or three turns with a funnel-shaped tube names Fig. 216, whose plate is on the page before that. This plate is the bell-jar bulb, and the paragraph it sits under is the one that says the thin ring of light in the popular retelling belongs to the abstract and not to Tesla: that is correct about the men and about the pages, and this is the plate on the page that claim names."
+    caption: "Fig. 218, printed p. 403, the left-hand one of the two plates that page sets, with its printed caption inside the crop. Engraving from Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), p. 403. Public domain. This is the other man's apparatus and not Tesla's: the chapter prints it inside the report of the paper J. J. Thomson read to the Physical Society of London, and the same printed page says of it, 'Another exhausted bulb, Fig. 218, surrounded by a primary spiral, was contained in a bell-jar, and when the pressure of air in the jar was about that of the atmosphere, the secondary discharge occurred in the bulb, as is ordinarily the case.' What the drawing adds to that sentence is the shape of the thing: a bell-jar standing on a flat base, an exhausted bulb inside it with its long neck through a stopper at the top, three leads led down through the stopper, and an open spiral of four turns of wire around the body of the bulb with both ends led up out of the jar. The plate beside it on the same printed page, outside this crop, is Fig. 219, which the same abstract calls an exhausted secondary coil of one loop containing bulbs. The sentence about a bulb inside a spiral of three turns, quoted in the section above, names Fig. 217, whose plate the print sets on the preceding printed page, and the sentence about a bulb in a spiral of two or three turns with a funnel-shaped tube names Fig. 216, whose plate is on the page before that. This plate is the bell-jar bulb, and the paragraph it sits under is the one that says the thin ring of light in the popular retelling belongs to the abstract and not to Tesla: that is correct about the men and about the pages, and this is the plate on the page that claim names."
 ---
 
 
