@@ -28,20 +28,271 @@ tid: "1894_10"
 # yet: feature-010/t2 generates them with the script feature-010/t1 writes. Setting the path here
 # is the series convention, not a claim that the file exists.
 og_image: assets/og/tesla-free-energy-what-he-said.webp
-# card_image is figure 1 of the page on every other article in the series, so it waits for
-# feature-007/t2 with the rest of the figure record.
+# card_image is figure 1 of the page on every other article in the series, so it is figure 1 here
+# too, and figure 1 is the page-scan crop of printed p. 236. Nothing renders a card thumbnail on any
+# live page in this series today (lessons-decisions.md, feature-006/a08-wirecommit), so this value is
+# a record of intent rather than a thing a reader sees; it is set anyway, because every other article
+# in the series sets it and a missing key reads as an oversight.
+card_image: assets/tesla1894/scan-p236.webp
+card_alt: "Printed page 236 of the 1894 first edition: its folio and running head, a paragraph of body type ending with the words the most inefficient machine ever invented!, and the indented first line of the paragraph after it"
 standfirst: "The sentence most often quoted as Nikola Tesla's promise of free energy is printed in a book that never uses the phrase. We searched our copy of the 1894 first edition and printed what came back: free energy 0, perpetual 0, over unity 0, and five hits for 'magnetic generator', every one of them inside a pyro- compound, attached to a machine that has a fire under it."
-# FIGURES: none in this batch. feature-007/t2 reads the figure evidence and feature-007/a10-claims
-# writes the index.json row. What the register's figure notes say, so the next task starts there
-# rather than re-deriving it: of the three crops §9 brief 10 names, one is mis-numbered (printed
-# p. 424 carries no engraving at all; chapter XXXVI's plates are on printed pp. 425 to 430), one
-# does not exist yet (the page-scan crop of printed p. 236, which §6.6 sourcing order 4 already
-# names for this article and which should be cut from books/pdf-pages-tesla-1894/page-254.pdf as
-# scan-p236.webp, following the scan-p486.webp precedent), and one is already the hub's card image
-# (scan-title-page.webp, index.json figures[0], still verified:false). The pyromagnetic plate
-# tesla1894-p430-fig242.webp is on disk and is article 08's figure 3; §6.6 allows it here only with
-# a caption about the fire and the boiler, which is a different point from article 08's. The p. 426
-# plate is the unclaimed alternative. The word-search table needs no figure: it is a table.
+# FIGURES: three, written at feature-007/t2 (2026-10-18). The task's three conditions were to read
+# the existing figure evidence before re-opening any figure, to re-open only where that evidence was
+# missing or contradicted, and to write every read into this file rather than leaving it in the
+# gitignored books/tmp/. Every box, pixel size, byte count and sha256 is copied into
+# new_content/1894-series/10-tesla-free-energy-what-he-said/figures/README.md, which is committed,
+# because the script that cut them (books/tmp/f07t2/cut_f07t2.py) is not. Page mapping throughout is
+# §0.4's: printed page = scan file − 18, and the renders are pdftoppm -r 500 of
+# books/pdf-pages-tesla-1894/page-NNN.pdf. The body pages render at 1856 x 3227 px and the two
+# front-matter pages do not: scan 9 is 1792 x 3272 and scan 10 is 1832 x 3202, so the boxes for
+# those two crops are in those pages' own pixel grids, not in the 1856 x 3227 grid. Twelve files
+# came out of this task, two published and ten evidence crops, and re-running the cut script at
+# the end of the task reproduced every one of them byte for byte from the recorded boxes (11
+# compared on the first re-run, 12 on the second, 0 changed), which is the test feature-006/t2
+# wrote down as its lesson: re-run a box and a hash, that is the test.
+#
+# READ BEFORE ANY PAGE WAS RE-OPENED. §9 brief 10's figure line in SERIES-PLAN-1894.md, which points
+# this article at 'tesla1894-p424-fig*'; SERIES-PLAN-1894.md Appendix C, which has no row for article
+# 10 at all, so that brief and the t1 note that used to sit here were the only figure pointers this
+# page had; §6.6, which puts a page-scan crop in sourcing order 4 and requires a figure number to be
+# read off the printed page and never off an extractor filename or a QC note; §6.2.5, on naming a
+# crop by its printed page; the hub's figures[0] row in new_content/1894-series/index.json, which
+# is scan-title-page.webp with verified:false (there is no website/index.json, and the first draft
+# of this record named that file); manifest_qc.csv rows 158 to 161, the extractor rows for chapter
+# XXXVI, and rows 162 to 163, which are not that chapter but the next one, printed pp. 433 and 434
+# opening 'SPARKING BRUSHES AND COMMUTATORS'; and rows 205 to 216, which include the only page-scan crops the site has, the
+# title page (no row), scan-p486.webp (no row), and scan-p346-detail.webp (row 213, article 04, with
+# its box and its '1.1x the 740 px column' sizing note); the crops already on disk for scan files
+# 443, 444, 445 and 448, opened as images and not trusted from their names; article 08's figure
+# record and its eight committed evidence crops, which carry the printed p. 430 read this page
+# borrows instead of re-making; and the figure lessons in lessons-decisions.md from feature-004/t8,
+# feature-005/t4 and feature-006/t2 on boxes, 500 ppi renders and printed captions.
+#
+# RE-OPENED AT 500 ppi: eight pages, each against one of the two conditions.
+#   printed p. 236 (scan 254), MISSING. No crop of this page exists anywhere; the site's page-scan
+#     crops are of printed pp. 346 and 486 and the title page, and none of them is this one. The
+#     article cites this page five times, four of them as quoted text (counted with check_quotes.py
+#     and with the citation regex qa_page.py uses), and its argument about where the paragraphs break
+#     is an argument about the page's own layout, so the page was rendered and read. Confirmed against the
+#     print: the folio 236 and the running head 'INVENTIONS OF NIKOLA TESLA.'; the wheelwork
+#     paragraph begins on the previous page and ends on this one at 'the most inefficient machine
+#     ever invented!'; the next paragraph opens indented with 'The preceding experiment is only one
+#     of many equally inter-', which is the single-wire paragraph; and the hedge is the paragraph
+#     after that, which is what the body says. The page sets em dashes around 'and this we know it
+#     is, for certain' and a thin space before the question mark in 'Is this energy static or
+#     kinetic ?'. The text layer carries the same em dashes the print sets, U+2014 in page-254.pdf
+#     and in books/extracted/tesla-1894-plain.txt, which is not what the first draft of this record
+#     said when it wrote that the text layer gives hyphens. The body prints spaced hyphens because
+#     qa_page.py's voice gate bans em and en dashes inside the article, not because the source
+#     differs, and the quote still verifies because grep_quote.normalise maps U+2014, U+2013 and
+#     U+2012 to a plain hyphen and then deletes hyphen-plus-space, so both spellings normalise to
+#     the same string. Proof crops: figures/p236-line-kinetic-em-dashes.png
+#     and figures/p236-paragraph-break-after-inefficient.png.
+#   printed p. 424 (scan 442), CONTRADICTION. §9 brief 10 asks this article for a figure at p. 424;
+#     the t1 note said that page carries no engraving. Both cannot be true. The page was rendered:
+#     it carries the chapter's display heading, two paragraphs of prose and a footnote, and no plate
+#     and no printed 'FIG.' line anywhere on it. The brief's pointer is wrong and the t1 note was
+#     right. Proof crops: figures/p424-chapter-heading.png (the heading as the page sets it) and
+#     figures/p424-page-no-plate.webp (the whole page, which is the proof that there is nothing on
+#     it to crop).
+#   printed p. 429 (scan 447), CONTRADICTION, and this one was inside the draft. The body said the
+#     generator 'is illustrated by a bench setup with a flame taken to orange red (1894, p. 429)'.
+#     The page has no illustration of any kind. What it says is that the principle of operation 'may
+#     be illustrated by a simple experiment', which it then describes in words: a magnetized steel
+#     bar end to end with a strip of soft iron, a coil wound on the iron, and a flame raised until
+#     that part of the iron is 'an orange red'. The chapter's drawings of the machine are on printed
+#     p. 430, two of them, and the body sentence is rewritten against that, in the section that
+#     names the machine. Proof crop: figures/p429-page-no-illustration.webp, the whole page.
+#   printed p. 431 (scan 449), MISSING, and it is the chapter's last page. Nothing on this article
+#     cites it, but which pages of chapter XXXVI carry art IS this article's figure question, and
+#     the record cannot answer it with one page of eight unread. It was rendered at 500 ppi during
+#     this task and read off that render: running head 'THERMO-MAGNETISM AND PYRO-MAGNETISM.',
+#     folio 431, one closing paragraph on the steam-exhaust pipe and the cooling device, and no
+#     illustration; the lower two thirds of the page is blank, and its text layer returns no 'FIG.'
+#     string either. The first draft of this record said this page had not been rendered, which is
+#     wrong. Proof crop: figures/p431-page-no-illustration.webp, the whole page. No figure of this
+#     article's is published from it.
+#   printed pp. 494 and 496 (scans 512, 514), MISSING. The article cites two index entries as its
+#     evidence that the book files this machine under pyromagnetic, and neither entry had a crop, a
+#     manifest row, or a printed-page read. Both index pages were rendered. Both entries are there
+#     exactly as the article gives them: 'Generators, Pyromagnetic..... 429' in the right column of
+#     printed p. 494, and 'Pyromagnetic Generators..... 429' seventh from the top of the left column
+#     of printed p. 496, sitting between Polyphase Transformer and Regulator for Rotary Current
+#     Motors, with 'Thermo-Magnetic Motors..... 424' in that page's right column. The published crop
+#     stops at that entry, which is why it reads like the end of the column; it is not the end, the
+#     column runs on for ten more entries. The first draft of this record called it the last entry of
+#     the column, and that is corrected here. Proof
+#     crops: figures/p494-generators-pyromagnetic-429.png and
+#     figures/p496-right-column-thermo-magnetic-motors-424.png; the published figure 3 is the left
+#     column of p. 496 itself.
+#   front matter, scan files 9 and 10, MISSING, and it is the hub's row. scan-title-page.webp is the
+#     hub's card image and the hub's figures[0], and its verified flag is false. Both pages were
+#     rendered and read. The title page gives the edition the method section and the Sources block
+#     already name: 'THE INVENTIONS RESEARCHES AND WRITINGS OF NIKOLA TESLA', 'WITH SPECIAL
+#     REFERENCE TO HIS WORK IN POLYPHASE CURRENTS AND HIGH POTENTIAL LIGHTING', 'BY THOMAS
+#     COMMERFORD MARTIN', the line under his name reading 'Editor THE ELECTRICAL ENGINEER;
+#     Past-President American Institute Electrical Engineers', then '1894', then 'THE ELECTRICAL
+#     ENGINEER / NEW YORK / D. VAN NOSTRAND COMPANY, / NEW YORK.' The copyright page gives 'Entered
+#     according to Act of Congress in the year 1893 by T. C. MARTIN in the office of the Librarian of
+#     Congress at Washington': entered 1893, title page 1894, which is worth knowing the next time
+#     anyone dates this edition from the copyright line. Proof crops:
+#     figures/frontmatter-title-page-scan09.webp and
+#     figures/frontmatter-copyright-page-scan10-entry-line.png.
+#
+# TWO THINGS THE TEXT LAYER DOES HERE, both specimens of the limit the method section already
+# describes, and neither of them a reason to doubt the reads above, which were made off the print.
+# The title page's text layer returns its subtitle with the words out of order ('WITH SPECIAL
+# REFERENCE CURRENTS AND TO HIGH HIS WORK POTENTIAL IN POLYPHASE LIGHTING'), and 'with special
+# reference' as a phrase returns 0 hits in the file while the page plainly sets it; the hub's
+# title-page row could not have been verified from the text layer at any price. The index pages put
+# an entry and its page number on separate lines, so a search for 'Pyromagnetic Generators......429'
+# as the page sets it returns 0 while the phrase alone returns 1; that is why this page cites the
+# phrase and the page number separately. Against that, the two index phrases this article counts are
+# in the text layer verbatim, once each, and the counts the body prints are unchanged by anything
+# read at this task. The foot of the copyright page runs the other way, and the first draft of this
+# record had it backwards: the printer's line IS legible off the print at 500 ppi, x 150 to x 700
+# and y 3040 to y 3110 of scan 10, and it reads 'Press of McIlroy & Emmet, 36 Cortlandt St.,
+# N. Y.' in dark roman type with no contrast stretching needed. The text layer of that page gives
+# the same line with a lower-case l, 'Mcllroy'; whether the printed letter is a capital I or a
+# lower-case l is not decidable at this resolution, so the line is recorded off the print and that
+# one letter is claimed neither way. What is unreadable is the faint line under it, and that is not
+# a printer's line at all: mirrored and contrast-stretched it reads '...AN NOSTRAND COMPANY,'
+# reversed, which is the title page's own imprint line showing through the back of the same leaf.
+# Scan 9 and scan 10 are the two faces of one physical leaf, which is worth knowing the next time
+# anyone counts them as two pages of front matter.
+#
+# NOT RE-OPENED, and what that leaves open. Printed p. 430 (scan 448): settled at feature-006/t2 on
+# 2026-10-17, where the printed captions 'FIG. 242.' and 'FIG. 243.' and the body line naming them
+# were read off a 500 ppi render and the crops carrying those reads were committed with their boxes.
+# Nothing at this task contradicts them, so the plate is borrowed, not re-made; the published file was
+# re-hashed to prove it is the same one, sha256 40e6a706c34dfaa4384dd5bf3c789a1dcfabe6b1ea64189d5d73d08d02a04072,
+# unchanged since article 08 recorded it. Printed pp. 425, 426 and 427 (scans 443, 444 and 445):
+# crops exist, rows 158 to 160 call them keep/A, and this page publishes nothing from them, so they
+# were not re-opened. The disagreement row 158 records for p. 425 (its note says 'Figure number 281
+# is genuine for p.425' while the page's text layer sets 'FIG. 231.', 'FIG. 232.' and 'FIG. 233.')
+# is still NOT SETTLED, exactly as article 08 left it, and nobody should take it as settled. Printed
+# p. 428 (scan 446) has NO crop on disk and no row in either manifest, even though its text layer
+# sets the caption lines 'FIG. 240.' and 'FIG. 241.': the extractor returned nothing for that page,
+# and nobody has read those two numbers off the print. The first draft of this record said rows 158
+# to 161 covered printed pp. 425 to 428; they cover printed pp. 425, 426, 427 and 430, because row
+# 161 is p448-fig1-fig243.webp, and 428 was never extracted at all. The chapter's plate pages,
+# named from the text layer's caption lines and not verified: printed pp. 425, 426, 427, 428 and
+# 430. What HAS been read off the print is the other side of that question: printed pp. 424, 429
+# and 431 carry no art at all, and printed p. 430 carries two plates whose printed captions were
+# read at feature-006/t2. Of the chapter's eight pages, four are settled and four are not.
+#
+# WHAT THE t1 NOTE POINTED AT, AND WHAT THE PRINT SAYS INSTEAD. Four pointers, each with the thing
+# that replaces it, so none of them comes back: (1) 'tesla1894-p424-fig*' names no file and no page.
+# No file in the site repo uses that name form at all, and printed p. 424 carries no plate. (2)
+# 'chapter XXXVI's plates are on printed pp. 425 to 430' reads as a continuous range and it is not:
+# p. 429 has none, and that is the page the article's own prose sits on. (3) 'The pyromagnetic plate
+# tesla1894-p430-fig242.webp is on disk' gives a name that does not exist; the file is
+# website/assets/tesla1894/p430-fig242.webp, with no 'tesla1894-' prefix, and §9 brief 10 writes the
+# same wrong form for the p. 424 pointer, so the plan's figure-name form does not match any file in
+# the repo. (4) 'The p. 426 plate is the unclaimed alternative' would have put the wrong machine on
+# this page: that plate is Fig. 235, which the same page's prose describes as 'a helix, Q, with an
+# armature adapted to swing toward or from the helix', one of the thermo-magnetic motors, not the
+# pyromagnetic generator this section is about. The p. 426 read is from the text layer, and it is
+# recorded here as a reason not to use that plate, not as a verified caption.
+#
+# WHAT IS PUBLISHED HERE, and why those three. Three figures in three different H2s, which is §6.6.
+# The word-search list needs no figure and has none: it is a list, and a picture of a page does not
+# carry a count. Total weight as published, 249,064 bytes, inside the 400 KB per-article gate.
+#   figure 1, website/assets/tesla1894/scan-p236.webp, 820 x 690, 115,452 bytes, sha256
+#     982e6b16fb9f5b4b189bbbe71386e33e429a048dc31788cae9b85ef58e8010b0. Cut from the 500 ppi render
+#     of scan 254 at box x110,y110 to x1750,y1490 and published at half that scale, which is the
+#     1.1x-the-column sizing row 213 records for scan-p346-detail.webp; at full scale the same crop
+#     would have put this page over the weight gate. Placed in 'The Sentence Everyone Posts', after
+#     the paragraph that quotes the sentence, because the page's own paragraphing is what that section
+#     argues about. §6.6 sourcing order 4: the words are the artefact.
+#   figure 2, website/assets/tesla1894/p430-fig242.webp, 1169 x 768, 73,692 bytes, sha256 above.
+#     Borrowed from article 08 unchanged, with its own caption written here for this page's point, the
+#     fire under the machine and the boiler above it, and for the fact that the drawing is a section
+#     of a design rather than a photograph of a machine anyone ran. Article 08's caption for the same
+#     plate names the parts and the absence of a trial; the two captions are not interchangeable, and
+#     the alt texts necessarily resemble each other because the plate is the same plate. Placed in the
+#     section that names the machine, after the paragraph that quotes the boiler sentence.
+#   figure 3, website/assets/tesla1894/scan-p496-index.webp, 860 x 695, 59,920 bytes, sha256
+#     a6e5df9f695cf4ff5618ad3aa041c0adff35844b0f7776eb99076bc6c8bdebda. Cut from the 500 ppi render
+#     of scan 514 at box x100,y110 to x960,y805 and published at 1:1, 1.16x the 740 px column; a
+#     smaller crop of a two-column index page loses the folio, and the folio is what makes the crop
+#     self-identifying. Placed in 'What the Internet Gets Wrong', after the paragraph that counts the
+#     phrases, because that is the section that argues the book's own index is the evidence. The
+#     '-index' suffix says which part of the page the crop is, which the existing '-detail' suffix on
+#     scan-p346-detail.webp does not; both names follow §6.2.5 in being named by printed page.
+#   Neither page-scan crop had a row in website/assets/tesla1894/manifest_qc.csv, so two were
+#     written at this task: row 220, scan-p236.webp, and row 221, scan-p496-index.webp, each with
+#     its box, its publishing scale and why, its size and its sha256, following row 213
+#     (scan-p346-detail.webp), the only comparable row in the file. Row 219 (p430-fig242.webp) gets
+#     a note saying the plate is now also used in article 10 with a different caption, which is the
+#     condition §6.6 puts on reusing an engraving. Row numbers are file line numbers, header
+#     included, the convention feature-006/t2 set when it added rows 217 to 219.
+#   The title page was read and verified and is NOT published here. It is the hub's card image and the
+#   hub's figures[0] already, §6.6 does not want the same image thin across pages for decoration, and
+#   this page's argument does not need a title page: the edition is named in the method section and in
+#   Sources. The read is recorded above so feature-007/a10-claims and feature-012 can set that row's
+#   verified flag from it, which is the hub's last unverified figure row. Note for whoever next
+#   touches the hub's card: scan-title-page.webp is a lower-resolution grayscale render with black
+#   bars at the sides, not a crop from the page PDF, and a 500 ppi render of the same page is now
+#   available if the owner wants a better one.
+#
+# WHAT feature-007/a10-claims, t3 and t4 take from this block. Three figures, all three read off the
+# print, for the index.json figures[] rows; the body image lines below are already in place and carry
+# no alt and no caption, so make_article.py takes both from the figures: block below, which is the
+# only copy of them (article 06 keeps a second copy in its body lines and the two copies of its Fig.
+# 110 alt already disagree with each other, which is the defect this avoids). The captions cite their
+# page in §6.6's form, '(1894), p. 236', so they do not enter the citation regex and pages_used
+# below is unchanged by the figures; the list itself needed a separate correction, which is recorded
+# beside it. t3's qa_page run will find the files, their alt, width and height. t4
+# reviews these three at 375, 768 and 1280; the two page-scan crops are text images and are expected
+# to be legible at 768 and marginal at 375, which is why every part of them the argument needs is
+# named in words in the caption text, and the p. 430 plate was already reviewed at those widths for
+# article 08.
+# ONE THING t3 WILL FIND THAT IS NOT THIS ARTICLE'S DEFECT, measured on the smoke render at this
+# task (books/tmp/f07t2/tesla-free-energy-what-he-said.html, qa_page.py 27 of 30). The third
+# failure is the heading case of 'Frequently asked questions', and that h2 is not in this draft: it
+# is hardcoded in make_article.py faq_block(), which emits it in sentence case, and qa_page.py's
+# titlecase gate reads the rendered page. This is the first page in the series whose render carries
+# an FAQ block at all - articles 01 to 07 and 11 have four faq items each in their drafts and their
+# published pages have FAQPage JSON-LD but no visible FAQ heading, because they were rendered before
+# faq_block emitted one, and article 08 has faq: [] - so the gate has never had anything to fail on
+# until now. It is a tool fix, not a draft fix, and it belongs to feature-007/t3 with the rest of
+# that page's qa run. The other two failures are known ones: the dead link is
+# tesla-1894-word-search, named in the LINKS block above and owned by feature-008/t2, and the
+# reciprocal-link gate is the one every page in this series fails until its own wiring task, which
+# feature-006/a08-wirecommit recorded the same way for article 08.
+figures:
+  # Figure 1. A page-scan crop, §6.6's sourcing order 4: the words are the artefact, and this
+  # section's argument is about where the printer broke the paragraph. Everything in the alt and the
+  # caption was read off the 500 ppi render of scan 254 at this task; figures/README.md has the box,
+  # the size and the sha256, and figures/p236-paragraph-break-after-inefficient.png is the proof of
+  # the paragraph break this caption describes. Published at half the scale it was cut at, which is
+  # the sizing manifest_qc.csv row 213 records for the site's other page-scan crop.
+  - src: /assets/tesla1894/scan-p236.webp
+    alt: "Printed page 236 of the 1894 volume: the folio 236 at the upper left and the running head INVENTIONS OF NIKOLA TESLA. across the top, then one column of body type that begins mid-sentence, carries the words Throughout space there is energy and the question Is this energy static or kinetic?, sets the answer off with two long dashes, reaches the words the very wheelwork of nature, goes on through the radiometer of Crookes, and ends with the words the most inefficient machine ever invented!; below that, the indented first line of the next paragraph"
+    width: 820
+    height: 690
+    caption: "Page-scan crop of printed p. 236, from the folio and running head down to the first line of the paragraph after the wheelwork passage. Scan from Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), p. 236. Public domain. The crop is the page's own layout, and that is the point of it. The sentence that circulates stops at the words the very wheelwork of nature; on this page the same paragraph runs on through Crookes's radiometer and closes with the words the most inefficient machine ever invented! The next paragraph is indented and opens The preceding experiment is only one of many equally inter-, which is where the book says what the passage was for. The two long dashes around and this we know it is, for certain are the printer's, and so is the space before the question mark in Is this energy static or kinetic?; this page writes both as ordinary characters because the site's voice rule bans typographic dashes in the body."
+  # Figure 2. The plate article 08 publishes, borrowed unchanged and re-captioned here, which is the
+  # condition §6.6 puts on reusing an engraving. It was NOT re-opened at this task: it was cut and
+  # its printed captions read off the print at feature-006/t2, and it was re-hashed here against the
+  # sha256 that task recorded, which is unchanged. Article 08's caption for the same plate is about
+  # the parts and the absence of a trial; this one is about the fire and the boiler.
+  - src: /assets/tesla1894/p430-fig242.webp
+    alt: "1894 engraving, Fig. 242, printed p. 430: a long horizontal bundle of parallel tubes in section spanning the width of the plate, wound at two places with coils of many turns, those coils led up to two small round instruments near the top of the drawing; the middle of the bundle passes up through a column standing inside a rectangular firebox with a fire drawn under it and a door with a handle at its foot, and above the firebox the column branches into two vertical vessels partly filled with liquid with a wide flue rising between them; pipes run from near the ends of the tube bundle up and over to those vessels, one of them with a valve in it; a spring loaded fitting and a bracket at the left end of the bundle, and the whole machine standing on a flat base"
+    width: 1169
+    height: 768
+    caption: "Fig. 242, printed p. 430, the whole apparatus with its printed caption inside the crop; the small plate beside it on the same printed page, a rectangle of circles inside a casing, is Fig. 243, which that page calls a cross-section of the magnetic armature-core of the generator. Engraving from Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), p. 430. Public domain. This is the drawing of the only machine in this volume that the phrase magnetic generator is attached to, and the drawing says what the phrase does not: a fire is drawn under the firebox, and the page carrying the drawing says Above the fire is a boiler K, containing water. It is a section of a design, not a photograph of a machine anyone ran, and the chapter reports nothing measured on it: no efficiency figure, no trial, and no number for any machine in it."
+  # Figure 3. Placed with the section that argues the book's own index is the evidence. Both index
+  # entries the article counts were read off the 500 ppi renders of scans 512 and 514 at this task,
+  # and figures/p494-generators-pyromagnetic-429.png and
+  # figures/p496-right-column-thermo-magnetic-motors-424.png are their proofs. Published at 1.0
+  # because a smaller crop of a two-column index page loses the folio.
+  - src: /assets/tesla1894/scan-p496-index.webp
+    alt: "Printed page 496 of the 1894 volume: the folio 496 at the upper left and the start of the running head INDEX. cut off at the right edge of the crop, then the top of the left column of the volume's own index in display type, seven entries ending at the foot of the crop: Ozone Production of, Phenomena Produced by Electrostatic Force, Phosphorescence and Sulphide of Zinc, Physiological Effects of High Frequency, Polyphase Systems, Polyphase Transformer, and Pyromagnetic Generators with dotted leaders running to the page number 429"
+    width: 860
+    height: 695
+    caption: "Page-scan crop of the top of the left column of the volume's own index, printed p. 496, from the folio down to the entry Pyromagnetic Generators and the number it gives, 429. Scan from Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), p. 496. Public domain. The book indexes its own generator and files it under a heat word. The entry sits under Polyphase Transformer and the crop stops there; the column runs on below it for ten more entries, so this is not the whole column and nothing in the article depends on it being one. The right column of the same page carries Thermo-Magnetic Motors and 424, and the G column two pages earlier carries Generators, Pyromagnetic and 429, which is the other of the two index entries this article counts. The dotted leaders are the printer's, and the text layer of this scan puts an entry and its number on separate lines, which is why this article cites the phrase and the number separately rather than as one string."
 #
 # LINKS. §5.2 row 10 gives five out-links and this draft carries all five, plus the
 # tesla-1894-word-search.html link that §9 brief 10 item 8 and this feature's own criteria require.
@@ -104,8 +355,13 @@ cta:
   text: "The 1894 book measures what its machines wasted, and never once says a machine gives something for nothing. If you are sizing a real supply for a shed, a workshop or a small off-grid structure, the plans we recommend come with a parts list and a straight answer about output."
   href_suffix: "1894_10"
 # Pages of the 1894 edition this draft cites, printed pages, measured from the body: grep the
-# body for '(1894, p.' and this list is that list.
-pages_used: [6, 8, 119, 120, 138, 167, 196, 197, 232, 236, 267, 394, 424, 429, 430, 494, 496]
+# body for '(1894, p.' and this list is that list. Re-measured at feature-007/t2 and it did not
+# match: printed p. 46 was missing, because the 'magnetic motor' count of 3 cites that page and the
+# t1 correction of that count never re-ran this list. 46 is added here, so the printed Sources line
+# now names a page the body actually cites. The three figure captions cite their pages in §6.6's
+# form, '(1894), p. 236', which the citation regex does not match, so the figures add nothing to
+# this list; that was measured on the rendered page, not assumed.
+pages_used: [6, 8, 46, 119, 120, 138, 167, 196, 197, 232, 236, 267, 394, 424, 429, 430, 494, 496]
 faq:
   - q: "Did Tesla Invent Free Energy?"
     a: "Nothing in the 1894 book supports the claim. A word search of its text layer returns 0 occurrences of 'free energy', 'free-energy', 'perpetual', 'over unity' and 'over-unity'. The closest sentence in the volume is a claim about a method, not a machine: 'there is a possibility of obtaining energy not only in the form of light, but motive power, and energy of any other form, in some more direct way from the medium' (1894, p. 196). On the same page he declines to say what any of it is worth in practice: 'How far the results here borne out are capable of practical applications will be decided in the future' (1894, p. 196). No device, no output, no measurement."
@@ -174,6 +430,8 @@ As the page has it, with the punctuation the printer set: "Throughout space ther
 energy static or kinetic ? If static our hopes are in vain; if kinetic - and this we know it is, for
 certain - then it is a mere question of time when men will succeed in attaching their machinery to
 the very wheelwork of nature" (1894, p. 236).
+
+![](/assets/tesla1894/scan-p236.webp)
 
 The version in circulation ends at 'nature', prints 'attach' for the page's 'attaching', and stops
 four sentences early. What follows names William Crookes, then the machine: "His radiometer will turn
@@ -251,9 +509,15 @@ why five hits and four pages are both true.
 
 The machine works because heat destroys magnetism: the chapter credits that fact to William Gilbert,
 an iron bar heated to redness losing its magnetism (1894, p. 424). Its stated laws are ordinary
-induction plus that effect, and nothing in them is free. The generator is illustrated by a bench
-setup with a flame taken to orange red (1894, p. 429), and the page describing the device says what
-sits above the fire: "Above the fire is a boiler K, containing water" (1894, p. 430).
+induction plus that effect, and nothing in them is free. The page that states them illustrates the
+principle with words rather than with a drawing: "This principle of operation may be illustrated by
+a simple experiment" (1894, p. 429), a magnetized steel bar laid end to end with a strip of soft
+iron, a coil wound on the iron, and a flame raised until that part of the iron is "an orange red"
+(1894, p. 429). There is no illustration on that page at all, and the chapter's two drawings of the
+machine are on printed p. 430 instead. That page says what sits above the fire: "Above the fire is
+a boiler K, containing water" (1894, p. 430).
+
+![](/assets/tesla1894/p430-fig242.webp)
 
 The compiler prints two judgements in that chapter, about different things, and they should not be
 merged. On the field of study: "since that time the influence of heat on the magnetic metals has
@@ -283,6 +547,8 @@ and the third is inside a line the print breaks and the OCR cannot read, 'electr
 to a generator word in either order and the volume returns 5, all of them 'pyro-magnetic generator(s)'
 or 'pyromagnetic generator(s)', and 0 in the other order. The site's review of what a Tesla magnetic
 generator is attributes the device to a patent number that does not appear in this book.
+
+![](/assets/tesla1894/scan-p496-index.webp)
 
 **That the wheelwork sentence is a promise.** It is a conditional that ends four sentences later in
 an insult about a machine's efficiency. The cut version is what circulates.
