@@ -10,6 +10,11 @@ series_no: 12
 primary_query: tesla vacuum tube experiment
 tid: "1894_12"
 og_image: assets/og/tesla-glowing-tubes-vacuum.webp
+# card_image is figure 1 of the page, as on every other article in the series, so it is set at
+# feature-006/t6 with the figure record below, once both numbers had been read off the printed
+# captions at 500 ppi. It is the same file as figure 1, not a second crop of the same pair.
+card_image: assets/tesla1894/p288-figs163-164.webp
+card_alt: "1894 engraving, Figs. 163 and 164, printed p. 288: two tall sealed glass tubes standing side by side on dark grounds, each with a band of coatings at its lower end and thin conductors inside it, and both printed captions inside the crop"
 standfirst: "In February 1892 Nikola Tesla took an exhausted glass tube with no wires in it in his hand, and it lit up. The 1894 first edition prints that demonstration, the nine pages about exciting a tube without wires that are four different texts by four different men, and the lamp Tesla tried to build out of the same glow. Every sentence below is cited to a printed page of that edition, and says whose sentence it is."
 cta:
   text: "The 1894 book describes lamps that were never measured and a glow it never converts into a power figure. If you are sizing a real supply for a shed, a workshop or a small off-grid structure, the plans we recommend come with a parts list and a straight answer about output."
@@ -54,23 +59,28 @@ sources:
 #
 # og_image is the path every page in this series carries and no page in this series has the file yet:
 # feature-010/t2 generates them with the script feature-010/t1 writes. Setting the path here is the
-# series convention, not a claim that the file exists. card_image is figure 1 of the page on every
-# other article in the series, so it waits for feature-006/t6 with the rest of the figure record.
+# series convention, not a claim that the file exists.
 #
-# FIGURES: none in this batch, and no image line in this draft. feature-006/t6 reads the figure
-# evidence and feature-006/a12-figrec writes the index.json row. What the register's figure notes
-# say, so that task starts there rather than re-deriving it: the brief's four names
-# (tesla1894-p400-fig215, p403-fig218, p398-fig212, p397-fig210) are PRINTED pages, not file names,
-# and none of those four files exists. The extractor names by scan file, so the real crops are
-# p415-fig1-fig210 (printed 397), p416-fig1 and p416-fig2 fig212 (printed 398), p418-fig1 and
-# p418-fig2 fig215 (printed 400), p421-fig1-fig218 (printed 403), plus p417-fig1-fig214 (printed 399)
-# and p420-fig1-fig216 (printed 402), which the brief does not list. Fig. 210 is the only shortlisted
-# figure whose caption is quotable from the same page (row 36, printed p. 397). Fig. 212 has two bands
-# and only fig1 is usable, full width. Fig. 215 has two bands and fig2 is the one that matches the
-# text beside it, whose word is 'feebly', not 'blazing'. Figs. 216 and 218 are J. J. Thomson's
-# apparatus inside the abstract, and a caption saying Tesla's apparatus under either is a factual
-# error a reader can see. Nothing in this pin has verified a lamp figure against a scan, so beat 3
-# carries no figure claim.
+# FIGURES, feature-006/t6 (2026-10-18). Three, placed one in each of the three arguments the page is
+# built on, and the record of every read is the FIGURES block further down this frontmatter plus
+# new_content/1894-series/12-tesla-glowing-tubes-vacuum/figures/README.md, both in git. The note this
+# paragraph replaces was written at feature-006/t5 and said no figure had been verified against a
+# scan; that is now false, and the record below replaces it rather than correcting it in place. What
+# the t5 note got right and t6 confirmed, so that the next reader of §9 brief 12 gets the same
+# warning: the brief's four names (tesla1894-p400-fig215, p403-fig218, p398-fig212, p397-fig210) are
+# PRINTED pages, not file names, and none of those four files exists. The extractor names by scan
+# file, so the files a reader would go looking for are p415-fig1-fig210 (printed 397), p416-fig1 and
+# p416-fig2 fig212 (printed 398), p418-fig1 and p418-fig2 fig215 (printed 400), p421-fig1-fig218
+# (printed 403), plus p417-fig1-fig214 (printed 399) and p420-fig1-fig216 (printed 402), which the
+# brief does not list. Appendix C's row for article 12 has the same defect and a worse one: its first
+# candidate, 'p418-fig215 p.400 1034x505', is a file whose number the print contradicts. The print
+# says p418-fig1-fig215.webp is Fig. 214. See RE-OPENED below.
+#
+# The one figure claim beat 3 makes is unchanged and still negative: no lamp figure is published, and
+# the reason is in the record. Printed pp. 253 to 259, where the carborundum passage sits, name no
+# figure in the text layer of our scan and produced no extractor crop; that is a text-layer
+# measurement, and §6.6's own lesson from feature-006/t2 is that a zero from extract_figures.py is
+# not proof a page has no plate, so what this page claims is only that it publishes no lamp figure.
 #
 # LINKS. Section 5.2 row 12 gives four out-links and this draft carries five: article 01, article 06,
 # article 10, and the two money pages the brief's bridge asks for. That is inside section 5.2's 4 to 6
@@ -173,6 +183,264 @@ sources:
 # was 159 and the gate said so. The sources block's Nobel entry was written as one YAML line with a
 # comma before url:, which is not valid YAML and made the renderer die before it reached the body; it is
 # a two-line mapping now.
+#
+# FIGURES, feature-006/t6 (2026-10-18). Three figures, and §6.6 sets the ceiling: 'Every article ships
+# with 2-3 images placed in the body, each adjacent to the paragraph it illustrates.' Chapter XXXII
+# prints ten plates across its nine pages and the February 1892 lecture prints two more on printed
+# p. 288, so this is three out of twelve and not a shortage. What decided the three is legibility and
+# whose apparatus the plate belongs to, both read off the print at 500 ppi. Printed page = scan file
+# minus 18 throughout (§0.4). The eleven evidence crops and the three published crops, with the exact
+# box each was cut at, are recorded in figures/README.md beside this draft; that file is in git
+# because books/tmp/ is not, which is the whole reason it exists.
+#
+# WHAT WAS READ BEFORE ANY FIGURE WAS RE-OPENED, in the order it was read. This is the first condition
+# of the task, and reading first is what changed what got re-opened:
+#   1. This draft's own figure note, above, written at feature-006/t5. It is what said which four
+#      names §9 brief 12 lists and that those four are printed pages rather than file names.
+#   2. SERIES-PLAN-1894.md §9 brief 12 and Appendix C's row for article 12 (the five candidate files
+#      with pixel sizes). Appendix C's first candidate is contradicted by the print; see RE-OPENED.
+#   3. website/assets/tesla1894/manifest.csv, the extractor's own output. Its caption field for
+#      p421-fig1-fig218.webp is a sentence of body type and not a caption at all, and its book_fig
+#      for p306-fig1-fig163.webp is '163' for a crop of two plates. That is where §6.6's warning
+#      about reading a number off a filename comes from, in this scan, on this page.
+#   4. website/assets/tesla1894/manifest_qc.csv, the QC pass. Lines 113 and 141 to 148 (line numbers
+#      as grep reports them; they move when a row is appended, so re-resolve rather than re-use, per
+#      the feature-006/t2 lesson) cover the eight crops that stand for those twelve plates. Three of
+#      the eight flagged themselves: 'Caption spans Figs.163-164', 'OCR FIG. 2V is a mis-read', 'two
+#      book figures in one band'. Those three flags, plus one contradiction found in the text layer,
+#      are what got re-opened. The five rows that made no flag were not re-opened.
+#   5. The three superseded crops, opened as image files: p306-fig1-fig163.webp,
+#      p415-fig1-fig210.webp, p421-fig1-fig218.webp. Opening them is what turned 'the caption is
+#      missing' from a QC note into a measured fact, and it corrected two claims the earlier part of
+#      this same task had already written down about them. See CORRECTIONS.
+#
+# WHICH FIGURES WERE RE-OPENED AGAINST A 500 ppi RENDER, and the defect that opened each one. Five
+# pages, every one with a defect in its existing record; nothing else on this page was re-opened.
+# The regions below were measured by matching each committed crop back onto the 500 ppi render it was
+# cut from (the extractor runs at 300 dpi, so its pixel sizes are 0.6 of the 500 ppi grid), and the
+# ink rows and caption rows were measured on the render itself.
+#   printed p. 288, scan 306, Figs. 163 and 164. Defect: the only crop gave one number to two plates
+#     and its caption_ok was already 'no'. Measured: that crop covers x503-1398 y969-2392, so both
+#     plates are inside it whole, and the two printed captions, which the print sets at y2369-2417,
+#     are cut through the middle of the letters. Re-cut as one crop of the pair with both captions
+#     inside it. Both numbers were then read off the print: figures/p288-printed-caption-band-fig163-
+#     fig164.png shows 'FIG. 163.' under the left plate and 'FIG. 164.' under the right.
+#   printed p. 397, scan 415, Fig. 210. Defect: caption_ok was 'yes' and the number is right, but the
+#     caption it was named from is not inside the file. Measured: that crop covers x347-1403
+#     y1174-2072. The plate ink is x620-1380 y1199-2047, so the whole plate is in it, and the first
+#     ink row of the printed caption is y2072, which is exactly where that crop ends. Re-cut with the
+#     caption inside. The number was never in doubt here; the caption was the gap.
+#   printed p. 403, scan 421, Fig. 218. Defect: the file's number came from a sentence of body type
+#     in manifest.csv, not from a caption, and the crop holds two plates. Measured: it covers
+#     x213-1504 y1097-2183, which is Fig. 218 and Fig. 219 side by side, and both printed captions
+#     (y2173-2226) are cut off at its lower edge. Re-cut as the left-hand plate alone, with its
+#     caption inside; figures/p403-printed-caption-band-fig218-fig219.png shows the print setting
+#     'FIG. 218.' under the left plate and 'FIG. 219.' under the right.
+#   printed p. 400, scan 418, Figs. 214 and 215. Defect: a contradiction. Both extractor crops on that
+#     page are named fig215. Re-opened and settled: the print sets 'FIG. 214.' under the upper plate
+#     and 'FIG. 215.' under the lower, proved by figures/p400-printed-caption-fig214.png and
+#     figures/p400-printed-caption-fig215.png. So p418-fig1-fig215.webp is Fig. 214, which is the
+#     candidate Appendix C names first, and p418-fig2-fig215.webp is the real Fig. 215. NOT
+#     PUBLISHED, and the reason is legibility and not truth: at 500 ppi the upper plate is a dark
+#     halftone whose ring reads as a smear, and the lower plate's point is the glass tube T slipped
+#     between the primary and the bulb, which this page quotes in prose and does not need a drawing to
+#     make. Both plates were opened and both are described in their QC rows.
+#   printed p. 402, scan 420, Figs. 216 and 217. Defect: a contradiction. One crop covers two plates,
+#     and the text layer returns the second caption as 'FIG. 2V,'. Re-opened and settled: the print
+#     says 'FIG. 217.', proved by figures/p402-printed-caption-band-fig216-fig217.png. NOT PUBLISHED:
+#     both plates on that page belong to the abstract of J. J. Thomson's paper, whose display heading
+#     opens on that same printed page above both plates, and this page's three places are filled by
+#     figures whose drawings are legible.
+# NOT RE-OPENED, and what that leaves open. Two pages carry contradicted names and neither is
+# published, so the contradiction is recorded rather than resolved:
+#   printed p. 398, scan 416. Both crops are named fig212 while that page's text layer carries two
+#     captions, 'FIG. 211.' and 'FIG. 212.', which cannot both be true. Unsettled; nothing on this
+#     page uses either plate, and the two QC rows now say NOT SETTLED with the reason.
+#   printed p. 399, scan 417. The crop is named fig214 while that page's text layer carries one
+#     caption, 'FIG. 213.', and no 'FIG. 214.' at all. That is a text-layer read and the plate was
+#     not opened, so the QC row now says contradicted by the text layer and not settled by the print.
+#     The same text layer returns 'FIG. 2V,' for 'FIG. 217.' two pages later, which is exactly why a
+#     text-layer read cannot settle a number by itself. Nothing on this page uses that plate.
+#   printed pp. 396, 401, 404, 405 and 406 carry no printed caption in the text layer at all, and
+#     printed pp. 289, 290 and 291 to 293 carry none: the pair on printed p. 288 is the only art on
+#     the pages that hold the tube-in-hand passage. Re-checking that over the whole text layer of
+#     scans 414 to 424 and 306 to 311 at this task returned the same map, and it is the map in
+#     figures/README.md.
+#
+# WHAT THE PRINT SAYS ABOUT THE THREE PLATES THIS PAGE PUBLISHES, in the volume's own words, on the
+# pages named. These are the sentences the captions below are built from. They are written here in
+# single quotes because a caption is not a quote slot: check_quotes.py strips the frontmatter before
+# it looks for a quotation, so nothing in this block or in the figures: list is matched by the quote
+# gate, and the body's own quotes are unchanged by it.
+#   printed p. 289, of both plates at once: 'In Fig. 163 and Fig. 164, two such tubes are
+#     illustrated, which are prepared for the occasion.' Then Fig. 163: 'In Fig. 163 a short tube TJ,
+#     sealed to another long tube T, is provided with a stem .$, with a platinum wire sealed in the
+#     latter. A very thin lamp filament I, is fastened to this wire ... The tube is provided with
+#     outside and inside coatings, c and GJ, respectively, and is filled as far as the coatings reach
+#     with conducting, and the space above with insulating, powder.' Then Fig. 164: 'The construction
+#     is the same as before, only instead of the lamp filament a small platinum wire ^>, sealed in a
+#     stem s, and bent above it in a circle ... A small stem *M is provided with a needle, on the
+#     point of which is arranged, to rotate very freely, a very light fan of mica v.' The damage in
+#     those letters is the scan's and not a transcription: 'TJ' is T', '.$' is s, 'GJ,' is G, '^>' is
+#     p, '*M' is M. The letters legible in the published crop, read off the render and not off the
+#     text, include T', T, c and G on the left plate and T', v, p, s, a and c on the right (the last
+#     one read at this task from a 3x zoom of the middle of the right plate, which is also how the
+#     earlier pass of this task got there). That list is not offered as exhaustive and it does not need
+#     to be, because the caption names the parts in words: the print names more parts than the plate
+#     marks legibly in our copy, which is the feature-005/t4 rule for a figure whose point is a
+#     labelled part.
+#   printed p. 397, of Fig. 210: 'Fig. 210 may serve as an example of one of the many forms of
+#     apparatus used. This consisted of a large glass tube sealed at one end and projecting into an
+#     ordinary incandescent lamp bulb. The primary, usually consisting of a few turns of thick,
+#     well-insulated copper sheet was inserted within the tube, the inside space of the bulb
+#     furnishing the secondary.' The heavy shaded cylinder in the drawing is that primary; the
+#     inverted U of clear glass around it is the tube sealed at one end; the fine curved lines between
+#     them are the luminous circle the same paragraph reports two sentences later. What that page does
+#     not describe is the small hatched object at the lower right of the plate, so the caption names
+#     it by shape only and gives it no function.
+#   printed p. 403, of Fig. 218: 'Another exhausted bulb, Fig. 218, surrounded by a primary spiral,
+#     was contained in a bell-jar, and when the pressure of air in the jar was about that of the
+#     atmosphere, the secondary discharge occurred in the bulb, as is ordinarily the case. On exhausting
+#     the jar, however, the luminous discharge grew fainter, and a point was reached at which no
+#     secondary discharge was visible.' The plate is that apparatus: a bell-jar on a flat base, an
+#     exhausted bulb with its long neck through a stopper, three leads led down through the stopper,
+#     and an open spiral of five turns around the body of the bulb with both ends led up out of the
+#     jar. The plate beside it on the same printed page, outside this crop, is Fig. 219, which the
+#     same abstract describes as 'an exhausted secondary coil of one loop containing bulbs ; the
+#     discharge passed along the inner side of the bulbs, the primary coils being placed within the
+#     secondary', and which the un-cropped band shows as a square loop of tube with a bulb in each of
+#     its two vertical sides. The sentence about a bulb inside a spiral of three turns, quoted in the
+#     argument section of this page, names Fig. 217, whose plate the print sets on printed p. 402.
+#     That distinction is spelled out in the caption for figure 3 because the page's own closing list
+#     makes a claim about that ring of light.
+#
+# WHAT IS PUBLISHED, and where it sits. Three crops, each the whole plate with its own printed
+# 'FIG. N.' line inside it, which is what §6.6 requires and what none of the three superseded files
+# carries. They are named by printed page, as §6.2.5 and articles 06, 08 and 10 name theirs. They live
+# in the website repo, committed at this task, and manifest_qc.csv gains a row for each of them (lines
+# 222, 223 and 224 as this is written; re-resolve them, do not re-use them). Every box below was
+# re-run at this task with books/tools/fig_crop.py at --ppi 500 and each re-cut came out byte for byte
+# identical to the committed file, sha256 included. That is the test, and it is the test feature-006/t2
+# ran for article 08; without --ppi 500 the tool renders at 400 and cuts a different, larger piece of
+# the page at the same pixel size, which is how the first re-cut at this task produced an 880x1450 file
+# that was not the published one.
+#   figure 1, website/assets/tesla1894/p288-figs163-164.webp, 880x1450, 84,776 bytes, sha256
+#     5312aff240f8cbf9341a7ba358cf7e4da3b52d0a41d21cee61230e2b68350595. Cut from the 500 ppi render
+#     of scan 306 at box x515,y980 to x1395,y2430 with levels stretched (fig_crop.py --autocontrast):
+#     the two plates are dark halftones and unshifted they read as two black bars. It supersedes
+#     p306-fig1-fig163.webp. Placed at the end of the paragraph in the second H2 that quotes the
+#     coatings sentence, which is the sentence that says what these two tubes are for; §6.6 wants
+#     figure 1 inside the first three H2s, and this is H2 two of the eight the page renders (six in
+#     the body, then FAQ and Sources).
+#   figure 2, website/assets/tesla1894/p397-fig210.webp, 785x939, 54,204 bytes, sha256
+#     0aaa8e1d9fea89a618b90b8f572e48ffb862ecccfee444229a5883cbe18932c7. Cut from the 500 ppi render
+#     of scan 415 at box x608,y1187 to x1393,y2126. It supersedes p415-fig1-fig210.webp. Placed after
+#     the paragraph in the third H2 that quotes the p. 397 sentence about exciting a luminous circle
+#     near the primary, because this is the one plate the chapter offers as an example of the forms it
+#     is describing. Mid-article, which is where §6.6 wants figure 2.
+#   figure 3, website/assets/tesla1894/p403-fig218.webp, 530x1110, 55,856 bytes, sha256
+#     7f411a57a6f4a09c844851d7ad17dc2990ce58b4023eb206be490b4d8cc4f57d. Cut from the 500 ppi render
+#     of scan 421 at box x235,y1120 to x765,y2230. It supersedes nothing usable: p421-fig1-fig218.webp
+#     is a 300 ppi band of two plates named from body type. Placed at the end of the paragraph under
+#     'What the Internet Gets Wrong' whose list of claims includes the sentence saying the thin ring in
+#     the popular drawing is the other man's apparatus on printed p. 403 and not Tesla's on printed
+#     p. 400. That is the claim this plate can be checked against, and the section is the fifth H2 of
+#     the eight, the last body section before the closing one, which is where §6.6 wants figure 3. The
+#     other pairing this plate has is the paragraph under 'The Vacuum Problem' (an h3 inside H2 three)
+#     that quotes the exhausting-of-the-jar sentences, which is the experiment the plate draws; it is
+#     named here so that a reader who prefers that pairing does not have to re-derive it. The caption
+#     carries the Fig. 217 and Fig. 218 distinction because the paragraph this figure sits under is the
+#     one that talks about a ring of light, and Fig. 217 is the plate that draws the ring.
+#   Total figure weight as published: 194,836 bytes, inside the 400 KB article-figure gate qa_page.py
+#   runs, with 205 KB of headroom. The three alt texts and captions exist once, in the figures: block
+#   below; the body image lines carry no alt and no title, so make_article.py takes both from here
+#   (img_tag and the figmap lookup), which is the convention articles 08 and 10 set and the reason
+#   article 06's two copies of one alt text were allowed to drift apart. The captions cite their page
+#   in §6.6's form, 'Martin (ed.), ... (1894), p. 397', and never in the '(1894, p. N)' form, so they
+#   add nothing to the citation regex and pages_used above is unchanged by the figures. That list
+#   already contains 288, 397 and 403, because the body cites those pages in prose.
+#
+# CORRECTIONS TO THE RECORD THIS TASK INHERITED, including the part of it written earlier the same
+# day. Each was found by opening the file the claim was about, which is the only way these are found.
+#   figures/README.md said p415-fig1-fig210.webp 'cuts off the small detail at the lower right of the
+#     plate'. It does not. Matched back onto the render, that crop covers x347-1403 y1174-2072, which
+#     is wider than the plate (x620-1380) and contains the small hatched object at its lower right.
+#     What it does not contain is the printed caption: the plate's last ink row is y2047 and the
+#     caption's first is y2072, which is where that crop ends. The supersession stands; the reason
+#     given for it did not, and the README now carries the measured one.
+#   The same README's map table gave the plate on printed p. 397 as running to y 2104. The plate ends
+#     at y 2047; y 2061 to 2117 is the printed caption. The table now separates the two, and the QC
+#     row that repeated the same figure was corrected with it.
+#   The README said the eleven evidence crops were cut 'out of six 500 ppi renders' and then named
+#     seven. Seven is right (scans 306, 307, 415, 418, 419, 420, 421). Scans 416 and 417 were rendered
+#     too, for the two text-layer caption reads that were not published.
+#   The three new manifest_qc rows said 'all nine evidence crops'. The directory holds eleven. Nine is
+#     what books/tmp/f06t6/crops.json recorded, because the two folio-token crops were cut after that
+#     file was written and never added to it. The rows now say eleven and point at the README, which is
+#     the durable record and lists all eleven with their boxes.
+#   The QC row for p417-fig1-fig214.webp said its number was contradicted 'by the print'. The
+#     contradiction is with the text layer of that page, and the plate was never opened. The row now
+#     says which of the two was read.
+#   Appendix C's row for article 12 lists 'p418-fig215 p.400' first. There is no file with that name;
+#     the two files on that page are p418-fig1-fig215.webp and p418-fig2-fig215.webp, and the print
+#     says the first is Fig. 214. Recorded above rather than fixed in the plan, which is the plan's to
+#     edit.
+#
+# WHAT feature-006/a12-figrec and t7 take from this block, and nothing else. a12-figrec writes the
+# index.json figures[] rows from the three files above, verified:true, with the credit line taken from
+# the captions; it does not re-derive a number, and it takes the card_image and card_alt above rather
+# than inventing them. t7 renders with the three body image lines already in place; qa_page.py's image
+# gates will find the files and their alt, width and height in the block below, and two gates now
+# apply to this page that did not apply to the t5 preview: the 2-to-3 figure gate, because
+# 'assets/tesla1894/' is then in the HTML, and the figure-weight gate, which has 205 KB of headroom.
+# t8 reviews the three crops at 375, 768 and 1280. Expect figure 1 to be the marginal one at 375: it
+# is a pair of tall dark halftones whose letters are a few pixels high, which is why its caption names
+# the parts in words. Figures 2 and 3 are line drawings and should hold. Nothing in this record depends
+# on how they read at any width; that measurement is t8's to make.
+#
+# MEASURED AT THIS TASK, on a smoke render to books/tmp/f06t6c/ (not wired, not committed, nothing
+# written under website/): make_article.py reports 3 series figures out of 11 images on the page, 8 h2
+# and 6 h3, 81,426 bytes. qa_page.py says 28 of 30 gates. The three image gates now run and pass:
+# every <img> has alt/width/height/lazy and the file exists, the article figure weight is 194,836
+# bytes against the 400 KB ceiling, and the figure count is inside the 2-to-3 band. The voice gate for
+# em/en dashes, curly quotes and ellipses also runs against the captions now, because a caption is
+# inside the article body HTML, and it passes; the captions use only ASCII apostrophes and hyphens for
+# that reason, which is a constraint a12-figrec inherits if it copies a caption into index.json. The
+# two failures are the two the t5 preview recorded and neither is a figure defect: the FAQ h2 is title
+# cased by titlecase_headings.py at render time (it finds exactly that one heading, as it did then),
+# and the reciprocal in-links gate is empty because no page links here until feature-009 and
+# feature-012 wire the hub. check_quotes.py is unaffected by this block: it strips the frontmatter
+# before it looks for a quotation, so the quotations in the record above and the quoted sentences inside
+# the captions are not matched by the quote gate, and the body still reports 109 fragments from 103
+# passages, all verbatim and page-cited, 0 problems. That is also why the captions cite their page as
+# 'Martin (ed.), ... (1894), p. 288' and not in the '(1894, p. N)' form the gate reads.
+figures:
+  # Figure 1. The pair as the volume sets it. Both numbers read off the printed captions inside the
+  # crop at 500 ppi, not from the extractor filename, which gives one number to both plates, and not
+  # from the QC subject line, which calls them graduated tubes. Parts named in words, not by letter,
+  # because only some of the letters are legible in our copy.
+  - src: /assets/tesla1894/p288-figs163-164.webp
+    alt: "1894 engraving, Figs. 163 and 164, printed p. 288: two tall sealed glass tubes standing side by side, each drawn against a dark ground, the left tube with a diagonally hatched band filling its lower end and two thin conductors running up its middle, the right tube with one thin conductor running its length and a small bright fitting at mid-height, small letters marking the parts on both tubes, and the printed captions FIG. 163. under the left tube and FIG. 164. under the right, both inside the crop"
+    width: 880
+    height: 1450
+    caption: "Figs. 163 and 164, printed p. 288, the pair as the volume sets it, with both printed captions inside the crop. Engraving from Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), p. 288. Public domain. The next printed page says what the two drawings are: 'In Fig. 163 and Fig. 164, two such tubes are illustrated, which are prepared for the occasion.' Fig. 163 is a short tube sealed to a longer one, with a stem holding a platinum wire, a very thin lamp filament fastened to that wire, outside and inside coatings marked c and G, and the space filled with powder up to the level of the coatings. Fig. 164 is built the same way except that a small platinum wire bent in a circle replaces the filament and a light fan of mica on a needle is added inside it. The letters legible in this crop include T', T, c and G on the left plate and T', v, p, s and a on the right; that list is not exhaustive, and the print names more parts than the plate marks legibly in our copy, so the parts are named here in words. These are the tubes the paragraph above is about. The sentence it quotes says the coatings exist only so that one tube can do two experiments, one where a person holds it and one where another body stands near it, and the volume draws the two preparations as two separate objects, which is why both plates are here and not one. The plates are dark halftones in this scan and the crop was cut with levels stretched, so the grounds read as dark bars rather than solid black ones."
+  # Figure 2. Number was never in doubt; the printed caption was outside the old crop, which is what
+  # this one fixes. The small hatched object at the lower right is named by shape only, because no
+  # sentence in these nine pages describes it.
+  - src: /assets/tesla1894/p397-fig210.webp
+    alt: "1894 engraving, Fig. 210, printed p. 397: an incandescent lamp bulb drawn in section with a tall inverted U of clear glass tube standing inside it and a heavy shaded cylinder inside that tube, two leads led down out of the tube and bent at right angles at the foot, a set of fine curved lines drawn in the space between the cylinder and the inner wall of the bulb, a small separate hatched object at the lower right of the plate, and the printed caption FIG. 210. inside the crop below the leads"
+    width: 785
+    height: 939
+    caption: "Fig. 210, printed p. 397, the whole plate with its printed caption inside the crop. Engraving from Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), p. 397. Public domain. This is the one example of the apparatus the chapter gives, and the page carrying the plate says so: 'Fig. 210 may serve as an example of one of the many forms of apparatus used.' The same paragraph describes what is drawn: a large glass tube sealed at one end and projecting into an ordinary incandescent lamp bulb, with the primary, a few turns of thick well-insulated copper sheet, inserted within the tube, and the inside space of the bulb furnishing the secondary. In the drawing the outer envelope with the double-line wall is that lamp bulb, the inverted U of clear glass inside it is the tube sealed at one end, and the heavy shaded cylinder is the primary. The fine curved lines between the cylinder and the bulb are the luminous circle the same page reports two sentences later. The small hatched object at the lower right of the plate is not described anywhere in these nine pages, so it is named here by shape only and given no function. The plate is a drawing and not a photograph, and nothing in the chapter reports an instrument reading taken on it."
+  # Figure 3. The abstract's apparatus, and the caption says so twice, because the paragraph this sits
+  # under is the one that talks about a ring of light and the plate that draws that ring is Fig. 217 on
+  # the preceding printed page. Number read off the printed caption inside the crop; the old file's
+  # number came from a sentence of body type.
+  - src: /assets/tesla1894/p403-fig218.webp
+    alt: "1894 engraving, Fig. 218, printed p. 403: a bell-jar with a rounded top standing on a flat circular base, an exhausted glass bulb inside it with a long neck passing up through a stopper at the mouth of the jar, three thin leads led down through the stopper, and an open spiral of five turns of wire wound around the body of the bulb with both of its ends led up outside the spiral and out through the stopper; the printed caption FIG. 218. is inside the crop below the base of the jar"
+    width: 530
+    height: 1110
+    caption: "Fig. 218, printed p. 403, the left-hand one of the two plates that page sets, with its printed caption inside the crop. Engraving from Martin (ed.), The Inventions, Researches and Writings of Nikola Tesla (1894), p. 403. Public domain. This is the other man's apparatus and not Tesla's: the chapter prints it inside the report of the paper J. J. Thomson read to the Physical Society of London, and the same printed page says of it, 'Another exhausted bulb, Fig. 218, surrounded by a primary spiral, was contained in a bell-jar, and when the pressure of air in the jar was about that of the atmosphere, the secondary discharge occurred in the bulb, as is ordinarily the case.' What the drawing adds to that sentence is the shape of the thing: a bell-jar standing on a flat base, an exhausted bulb inside it with its long neck through a stopper at the top, three leads led down through the stopper, and an open spiral of five turns of wire around the body of the bulb with both ends led up out of the jar. The plate beside it on the same printed page, outside this crop, is Fig. 219, which the same abstract calls an exhausted secondary coil of one loop containing bulbs. The sentence about a bulb inside a spiral of three turns, quoted in the section above, names Fig. 217, whose plate the print sets on the preceding printed page, and the sentence about a bulb in a spiral of two or three turns with a funnel-shaped tube names Fig. 216, whose plate is on the page before that. This plate is the bell-jar bulb, and the paragraph it sits under is the one that says the thin ring of light in the popular retelling belongs to the abstract and not to Tesla: that is correct about the men and about the pages, and this is the plate on the page that claim names."
 ---
 
 
@@ -278,6 +546,8 @@ the body of the experimenter or of another body to the wire w, or by acting indu
 glass" (1894, p. 289). His own body is one side of that circuit, and the cut in that quote is where the
 print sets a dash.
 
+![](/assets/tesla1894/p288-figs163-164.webp)
+
 Then the engineering sentence, which is the opposite of the miracle reading: "I have produced the
 incandescence of a button, filament, or wire enclosed in a tube. To get to this result it was necessary
 to economize the energy which is obtained from the field, and direct most of it on the small body to be
@@ -346,6 +616,8 @@ tube" (1894, p. 399). The cut is the scan's and not an elision in the text: the 
 glued to the next word, so no joined form of that sentence is in the index at all. 'feebly' is his
 own word for the brightness, and it is the counterweight to every retelling in which the tube
 blazed.
+
+![](/assets/tesla1894/p397-fig210.webp)
 
 Then the observation that a plate does what a wire does: "the lamp-bulb was provided with a tinfoil
 coating on the side opposite to the primary and each time the tinfoil coating was connected to the ground
@@ -661,6 +933,8 @@ thin ring of light in the popular drawing is Thomson's apparatus on printed p. 4
 printed p. 400. The word 'Geissler' is not in the nine pages about these tubes at all. And the X-rays
 this subject always seems to lead up to are outside the volume's dates, which is said above and is not a
 finding about him.
+
+![](/assets/tesla1894/p403-fig218.webp)
 
 ## What This Book Can Carry, and What It Cannot
 
