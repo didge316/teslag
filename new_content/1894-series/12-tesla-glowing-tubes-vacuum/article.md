@@ -54,7 +54,7 @@ sources:
 #
 # DRAFTING DATE, not a publish date. feature-006/a08-wirecommit settled that the publish date is fixed
 # at the wiring task, one page per date in wiring order. This page is last in section 11's order, so
-# the candidate date is settled at feature-007/a12-wirecommit against the state of articles.html at
+# the candidate date is settled at feature-006/a12-wirecommit against the state of articles.html at
 # that moment, not here.
 #
 # og_image is the path every page in this series carries and no page in this series has the file yet:
@@ -166,7 +166,94 @@ sources:
 # questions', which is on every page of this series until titlecase_headings.py runs over the rendered
 # file; running that tool over the preview took it to 29 of 29, which is how live page 10 reads today.
 # The preview was then deleted, because the page is t7's to render and commit and index.json has no row
-# for it until a12-figrec.
+# for it until a12-figrec. That paragraph is the t5 record and it is left as t5 wrote it; the '29' it
+# reports is a true reading of a page with no figures on it, and why the denominator moves is measured
+# in the RENDERED AT t7 block below rather than guessed here.
+#
+# RENDERED AT feature-006/t7 (2026-10-18), INTO THE SITE REPO, WITHOUT --wire, because the wiring is
+# feature-006/a12-wirecommit and that is how articles 01 to 11 were built. The command, from the repo
+# root as section 7 gives it: make_article.py --md new_content/1894-series/12-tesla-glowing-tubes-
+# vacuum/article.md --donor website/nikola-tesla-inventor-extraordinaire.html --out
+# website/tesla-glowing-tubes-vacuum.html --tid 1894_12. No --force was needed and none was used: the
+# a12-figrec row is in index.json, and that is what lets the tool write this path at all. First render:
+# 81,426 B, 1 h1 / 8 h2 / 6 h3, 3 figures in <figure class="mb-4 pt-5">, 11 img tags, article figure
+# weight 194,836 B against the 409,600 B gate (214,764 B of headroom), whole-page image weight 475,006 B
+# of which 280,170 B is the shared shell. qa_page.py on that render: 29 of 30, exit 1, and the single
+# failure is the one the paragraph above predicted, the H2 faq_block() emits in sentence case. Nothing
+# else failed: the dead-link gate, the figure gates and the citation gate all passed on the first render,
+# which is what the a12-figrec row expected on the two of those it discussed.
+# titlecase_headings.py then retitled exactly that one heading (its own output: '1 heading(s) retitled'),
+# its --check returns 0 findings on the page and 0 on this draft, and qa_page.py is 30 of 30, exit 0. The
+# page as committed: 81,426 B, sha256 777c42498480d8a131a16bd2a0acfe2afca8aacd60806382b40a82efb9d7b7b0.
+# The byte count does not move across the retitle, which is measured and not assumed: the fix changes
+# letter case in words of the same length. The tool was not changed, so faq_block() still emits the
+# sentence-case H2 and every page in this series with a faq: block needs the same post-render retitle;
+# that is the open item feature-006/a08-titlecase recorded and feature-007/t3 counted as a second
+# instance, and this is the third. It is named, not fixed, at a render task.
+#
+# WHAT THE GATE DENOMINATOR ACTUALLY DEPENDS ON, measured at t7 because two records above give two
+# different totals for this same page and neither says why. qa_page.py emits two gates conditionally:
+# 'FAQPage valid' only when a FAQPage object sits in the page's JSON-LD (qa_page.py line 267), and
+# '2-3 figures in <figure class="mb-4 pt-5">' only when the page already contains a figure wrapper
+# (line 302). Re-rendering this draft exactly as feature-006/t5 committed it (git 320d9c7, into
+# books/tmp/f06t7/t5/) gives 74,796 B, 0 series figures, and 28 of 29 gates, with the FAQPage gate
+# present and passing and the figure-count gate absent because there is no figure to count. The t6 smoke
+# render and this render both carry three figures and are both scored out of 30. So the t5 paragraph's
+# '29' and the a12-figrec row's '30' are both true readings of different bytes, and the thing that moves
+# the total is the figure gate, not the FAQ, which is what that row guessed. Pages 08 and 09 are scored
+# out of 29 for a third reason again: they carry no faq: block. Measured by diffing the gate lists of
+# 08, 09 and this page: the three lists differ by exactly the 'FAQPage valid' line and nothing else.
+#
+# THE RECIPROCAL GATE PASSED AND MEANS NOTHING HERE, exactly as feature-007/a10-claims measured for
+# article 10 and as the feature-004/t7 defect says in general. qa_page.py reports 38 of this page's 38
+# distinct internal hrefs as 'links to pages that link back', because inbound_map() scans website/*.html
+# and this page is now one of them, so its own stem is in the inbound set of everything it links to.
+# The real inbound set, measured at t7 with that same map: inbound['tesla-glowing-tubes-vacuum'] is
+# empty, 0 pages on the site link here. Section 5.2 wants in-links from 01, 06 and the hub; they are
+# feature-009/t2's and feature-012's, and a passing gate on this page is not evidence that they exist.
+#
+# THE ONE OTHER FILE THIS TASK CHANGED IN THE SITE REPO, and why it is in scope rather than a drive-by:
+# manifest_qc.csv row 224, the row for the published p403-fig218.webp, still described figure 3's spiral
+# as 'a spiral of five turns of wire'. feature-006/a12-figrec measured four on the published crop,
+# corrected the three places in this front matter, and left the QC row to 'the row that next commits
+# website/', which is this task. Re-measured at t7 rather than restated: along the bulb's vertical centre
+# line x=265 of the published 530x1110 file the dark runs below y=500 start at 579, 583, 628, 641, 665,
+# 679, 686, 699, 725, 738, 756, 783, 796, 833, 840, 853, 866, 873, which group from 628 to 876 into
+# eight double-stroke wire arcs, i.e. four turns; the same grouping at x=255 and x=275 gives eight arcs
+# as well, and the plate was also opened and read as an image, where four loops are visible. Row 148, the
+# older extractor band p421-fig1-fig218.webp, describes the same plate with the same wrong count and was
+# corrected with it, naming the measurement in its own note. Row 147's 'five turns' is left exactly as it
+# stands: it describes Fig. 217, a different plate that has not been re-measured. The file still parses
+# as 224 rows of 7 columns, no ragged rows, and 'five turns' now survives only in row 147.
+# NOT FIXED, NAMED: 11 rows of that manifest still say the 500 ppi page renders are '1856x3226' and 4
+# say '1856x3227', the off-by-one feature-006/a12-figrec measured and corrected in figures/README.md.
+# No box in this article's record reaches past y 2779, far inside either height, so nothing here depends
+# on it; rewriting 11 rows that other tasks wrote is not a render task's work, so it is named for
+# whoever owns the figure manifest.
+#
+# DETERMINISM, MEASURED AFTER THIS RECORD WAS WRITTEN INTO THIS FRONT MATTER. Re-rendering from this
+# file into books/tmp/f06t7/ differs from the committed page at one place only (cmp first difference byte
+# 64,763, line 304; diff shows nothing but the FAQ H2), and running titlecase_headings.py over that
+# render reproduces the committed bytes exactly (cmp clean, both sha256 777c42498480d8a131a16bd2a0acfe2a
+# fca8aacd60806382b40a82efb9d7b7b0). Front-matter comments do not reach the page, which is the only way
+# this record and the page could disagree by construction.
+#
+# WHAT t7 DID NOT TOUCH. No body sentence was changed, so every draft-side count above still holds and
+# was re-run rather than copied: check_quotes.py 109 fragments, 109 verbatim and page-cited, 0 problems,
+# exit 0; titlecase_headings.py --check on this draft 0 findings; 7,127 body tokens; 107 '(1894, p. N)'
+# markers across the same 28 printed pages the pages_used list carries, and the two sets agree exactly;
+# 0 em dashes, 0 en dashes, 0 curly quotes, 0 typographic ellipses in the body. The rendered page carries
+# 135 markers across the same 28 printed pages, and the extra 28 are accounted for rather than waved at:
+# 107 in the body as this draft writes it, 11 in the four visible FAQ answers, 6 in the Sources block from
+# the chapter ranges the sources: entries carry, and 11 more in the JSON-LD, which repeats the FAQ text.
+# The three figure captions add 0, because they use the '(1894), p. N' form, which that regex does not
+# match; measured over the three <figure> blocks. The rendered <article> block carries 9,295 words, and
+# the length flag stands unchanged: section 9 brief 12 asks for 1,300, and no tool in this series gates
+# a word count, so 30 of 30 does not mean the length is right. Nothing was wired: sitemap.xml,
+# llms.txt, articles.html and _redirects each still contain 0 occurrences of this slug, measured at t7,
+# and no _redirects rule is wanted for it (section 5.1 row 12, and the front matter's URL block above).
+# Nothing was looked at visually: shot_qa.py at 375, 768 and 1280 and the screenshot review are
+# feature-006/t8, and nothing in this block says the page looks right.
 #
 # THE CITATION REGEX DOES NOT SPAN A LINE. The first complete draft measured 7 quote failures that were
 # all line-wrapping and none a wrong page: '(1894,' at the end of a line and 'p. N' at the start of the
