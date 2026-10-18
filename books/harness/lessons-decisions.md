@@ -972,3 +972,85 @@ current draft bytes. All three commands and their exit codes are at
   identical strings, and this task changed none of them — the register edit is front-matter
   comment only, and the re-render after it is byte-identical, which is the proof that claim
   carries rather than asserts.
+
+## 2026-10-18 — feature-007/a10-wirecommit (article 10 wiring and final commit): a wiring step can undo a fix you already made
+
+The task was four config files and a date. What it actually produced was one new failure
+mode of a tool line this series has named twice already, and a rule about when a re-render
+owes a re-shoot.
+
+- **`make_article.py --wire` re-renders the page, and that silently reverted a fix I had
+  already applied.** The render was clean: `titlecase_headings.py` retitled the
+  sentence-case `Frequently asked questions` H2 that `faq_block()` (line 420) emits, and
+  `qa_page.py` on the page reported 30/30, exit 0. Then `--wire` ran, wrote the same page
+  out again from the draft, and put the sentence-case heading back. The single-page gate run
+  was not wrong when it ran — it described the bytes that existed then — and it could not
+  see a change that happened after it. `qa_page.py --all-series` found it afterwards: this
+  page FAIL 29/30, naming the heading-case gate. Retitled, `--check` 0 findings, 30/30 exit
+  0, and `--all-series` 11/12 with the unwritten hub the only failure. Lesson: **a gate
+  result describes bytes, not a file name, so the order of operations is part of the
+  result.** Either wire first and never render without it, or re-run the gate on the bytes
+  the wiring step left behind. This is the second distinct failure of one tool line: the
+  first was "the generator emits a heading that fails the gate" (feature-007/t3, pages 03,
+  05, 07, 10 each needed a post-render retitle), this one is "the generator can undo the
+  fix after you made it". Articles 11, 12 and the hub are still coming, so the count is
+  going up while nobody owns the line.
+- **A caption edit is a pixel edit; the diff says which changes are, and that decides what
+  gets re-run.** feature-006/a08-wirecommit proved a date-only change could be shown not to
+  move the layout (five lines, byte count unchanged) and skipped the expensive gate on that
+  evidence. Here the diff was five date lines *plus* 58 bytes of running text inside a
+  `figcaption`, which re-wraps, so `shot_qa.py` was re-run on the final bytes and
+  `books/tmp/f07wire/page_measure.py` re-measured the geometry feature-007/t4 had recorded:
+  page 30,808 / 18,503 / 16,488 px (was 30,787 / 18,503 / 16,467), figure 3's caption box
+  462 px at 375 (was 441), CTA band 22,082 px (was 22,061). The arithmetic closes: the CTA
+  moved by exactly the 21 px the caption grew, and every figure box and ratio is unchanged,
+  which is how "nothing else moved" is a measurement rather than a hope. Lesson: **the same
+  rule as last time, applied honestly, points the other way this time.** Prove which half of
+  a diff can move the pixels, then re-run the gates that half invalidates and say why the
+  other half does not need them.
+- **A count in a caption is a claim a reader cannot check unless the caption names the thing
+  it counts.** The defect feature-007/t4 left for this task was "ten more entries" where the
+  column has eleven. Changing the number alone would have left an unverifiable assertion, so
+  the caption now also names the entry the column ends on ("Streaming Discharges of High
+  Tension Coil"), which is what t4's own two measurements (a 500 ppi render of scan 514 and
+  the scan's text layer) established. It cost 58 bytes and one line of caption at phone
+  width, and it turns a number a reader must trust into one they can check against printed
+  p. 496. Lesson: **when a QA record hands a wrong count to a later task, the fix is the
+  count plus the evidence that makes it checkable**, not the count alone.
+- **Before believing your own number differs from an old record, measure the old bytes and
+  the new bytes in the same run.** The citation count read one short of feature-007/t4's
+  (50 body-form markers where that record says 51), which looked like the caption edit had
+  dropped a citation. It had not: `git show HEAD:<page>` measured with the same regex gives
+  the same 50, and the missing marker is a third form the page carries, `(1894, pp. 6, 496)`,
+  which the body-form regex does not match and t4's did. Counted in its own form, t4's
+  numbers reproduce exactly: 54 markers inside `<article>`, 58 body-form whole-file, 61
+  total, 21 distinct printed pages. Lesson: **a count is its regex; when a number and a
+  record disagree, diff the regexes before suspecting the page**, and keep the old bytes
+  around to diff against.
+- **A workaround applied seven times is a tool defect with a count, and the count has to be
+  measured, not remembered.** `wire_updates()` still cuts the `llms.txt` entry at 150
+  characters. Read the section rather than the last three records: of the eleven entries in
+  `## The 1894 File`, 3 are cut at exactly 150 characters (09, 11, 07) and 8 are full,
+  because the line was rewritten by hand on 01, 02, 04, 05, 06, 08 and now 10. (03's entry
+  is full too, but its standfirst was short enough that the tool's cut never bit.) That is
+  the seventh hand rewrite in the series. Named in `blocked_on` with both numbers; the
+  one-line tool change and the three stale lines belong to whoever owns `books/tools`, not
+  to this task.
+- **The card grid has two invariants, and a wiring task has to check both after, not just
+  place the card.** Dates ascend, and card order is wiring order. `card_order.py` re-read
+  all 32 cards in DOM order with their date lines and boxes at 1280 and 375 after the edit:
+  the eleven series cards read October 14 through 25 ascending, this card is index 10 of 32
+  between article 08 and the first legacy card, columns equal width, `scrollWidth ==
+  clientWidth` at both widths. `wiring_check.py` does the same for the other three files:
+  56 `_redirects` rules with 0 duplicates and 0 shadowing an existing page and 0 mentioning
+  this slug (which is what §5.1 row 10 requires, not an omission), 47 unique sitemap locs
+  with `lastmod` equal to the page's own published date, and the llms.txt section in wiring
+  order. Lesson: **"the card is in the right place" is a layout claim, so it ships with DOM
+  order, two widths, and the crop.**
+- **A pending row's criterion measured before its own task can save the next one a trap.**
+  `feature-006/a08-titlecase` is still open and still says what it said: every series page
+  except 08 was retitled on the rendered page only, so any re-render puts sentence case
+  back. This task is the first re-render of a series page since that was written, and it
+  found the same thing from the other direction — the re-render did put it back, and the
+  gate that had passed could not see it. The row is not closed here (it is not this task's
+  row), but the measurement is in its `blocked_on` with the command and the exit codes.
