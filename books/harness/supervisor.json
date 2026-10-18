@@ -4,111 +4,48 @@
   "owner": {
     "pid": 14305,
     "sessionId": "ea127118-90fa-4235-ba7c-d61d4f70a284",
-    "at": "2026-10-18T00:15:39.796Z",
-    "workerPid": 3515029
+    "at": "2026-10-18T01:53:53.405Z",
+    "workerPid": 3861701
   },
   "status": "running",
   "startedAt": "2026-10-17T20:17:08.681Z",
-  "updatedAt": "2026-10-18T00:15:39.796Z",
+  "updatedAt": "2026-10-18T01:53:53.405Z",
   "baseModel": "strata/strata",
   "handoff": "task",
   "unit": {
     "level": "task",
-    "key": "task:feature-007/t0",
-    "label": "feature-007/t0 · Article 10 quote-pin: grep every intended q…",
+    "key": "task:feature-007/t1",
+    "label": "feature-007/t1 · Article 10 draft: free-energy myth check, s…",
     "phase": "build",
-    "difficulty": "moderate",
+    "difficulty": "difficult",
     "model": "strata/strata",
     "thinking": "",
-    "taskKey": "feature-007/t0",
+    "taskKey": "feature-007/t1",
     "featureId": "feature-007",
     "scope": "You own this one task. Finish it, then stop — the harness starts the next one."
   },
   "worker": {
-    "name": "W7",
-    "unitKey": "task:feature-007/t0",
-    "unitLabel": "feature-007/t0 · Article 10 quote-pin: grep every intended q…",
+    "name": "W10",
+    "unitKey": "task:feature-007/t1",
+    "unitLabel": "feature-007/t1 · Article 10 draft: free-energy myth check, s…",
     "level": "task",
-    "difficulty": "moderate",
+    "difficulty": "difficult",
     "model": "strata/strata",
     "servedModel": "strata/strata",
     "thinking": "",
     "state": "working",
-    "doing": "bash cd /home/matt/projects/other/tesla-generator && git show --stat ed3…",
-    "startedAt": "2026-10-18T00:05:33.477Z",
+    "doing": "bash cd /home/matt/projects/other/tesla-generator && git show c34027e --…",
+    "startedAt": "2026-10-18T01:46:05.654Z",
     "turns": 1,
     "tokens": {
-      "inputTokens": 148,
-      "outputTokens": 926
+      "inputTokens": 377,
+      "outputTokens": 610
     },
     "contextRatio": null,
-    "sessionId": "01a14c53-f7b7-762f-acf7-e5c929d04ed6",
-    "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/ea127118-90fa-4235-ba7c-d61d4f70a284/task-feature-007-t0/session-7"
+    "sessionId": "01a14cb0-02c7-7490-a550-5859983ddede",
+    "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/ea127118-90fa-4235-ba7c-d61d4f70a284/task-feature-007-t1/session-10"
   },
   "history": [
-    {
-      "name": "W7",
-      "unitKey": "task:feature-006/a08-qpdone",
-      "unitLabel": "feature-006/a08-qpdone · Article 08 quotes.md complete: all nine ent…",
-      "level": "task",
-      "difficulty": "easy",
-      "model": "strata/strata",
-      "servedModel": "strata/strata",
-      "thinking": "",
-      "state": "closed",
-      "doing": "handoff — feature-006/a08-qpdone · Article 08 quotes.md complete: all nine ent… → feature-006/t1 · Article 08 draft batch 1: entries 1-3 writt…",
-      "startedAt": "2026-10-17T11:05:04.767Z",
-      "turns": 1,
-      "tokens": {
-        "inputTokens": 93,
-        "outputTokens": 714
-      },
-      "contextRatio": 0.8123881022135415,
-      "sessionId": "01a14989-6afc-7476-a01c-4fe1bec4a570",
-      "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/2d9a9019-67b5-46b2-9004-405432f53b22/task-feature-006-a08-qpdone/session-7"
-    },
-    {
-      "name": "W8",
-      "unitKey": "task:feature-006/t1",
-      "unitLabel": "feature-006/t1 · Article 08 draft batch 1: entries 1-3 writt…",
-      "level": "task",
-      "difficulty": "moderate",
-      "model": "strata/strata",
-      "servedModel": "strata/strata",
-      "thinking": "",
-      "state": "closed",
-      "doing": "context 86% full — fresh session",
-      "startedAt": "2026-10-17T11:58:42.507Z",
-      "turns": 1,
-      "tokens": {
-        "inputTokens": 71,
-        "outputTokens": 864
-      },
-      "contextRatio": 0.86474609375,
-      "sessionId": "01a149ba-844f-7339-b1e1-f6c13ee52769",
-      "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/2d9a9019-67b5-46b2-9004-405432f53b22/task-feature-006-t1/session-8"
-    },
-    {
-      "name": "W9",
-      "unitKey": "task:feature-006/t1",
-      "unitLabel": "feature-006/t1 · Article 08 draft batch 1: entries 1-3 writt…",
-      "level": "task",
-      "difficulty": "moderate",
-      "model": "strata/strata",
-      "servedModel": "strata/strata",
-      "thinking": "",
-      "state": "closed",
-      "doing": "handoff — feature-006/t1 · Article 08 draft batch 1: entries 1-3 writt… → feature-006/a08-draft2 · Article 08 draft batch 2: entries 4-6 from …",
-      "startedAt": "2026-10-17T12:27:06.411Z",
-      "turns": 1,
-      "tokens": {
-        "inputTokens": 70,
-        "outputTokens": 770
-      },
-      "contextRatio": 0.46313985188802076,
-      "sessionId": "01a149d4-842e-7043-a975-ee9b84bbbe6e",
-      "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/2d9a9019-67b5-46b2-9004-405432f53b22/task-feature-006-t1/session-9"
-    },
     {
       "name": "W10",
       "unitKey": "task:feature-006/a08-draft2",
@@ -465,9 +402,72 @@
       "contextRatio": 0.7097981770833335,
       "sessionId": "01a14c10-540d-7205-82d4-ce19f444a0fa",
       "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/ea127118-90fa-4235-ba7c-d61d4f70a284/task-feature-007-t0/session-6"
+    },
+    {
+      "name": "W7",
+      "unitKey": "task:feature-007/t0",
+      "unitLabel": "feature-007/t0 · Article 10 quote-pin: grep every intended q…",
+      "level": "task",
+      "difficulty": "moderate",
+      "model": "strata/strata",
+      "servedModel": "strata/strata",
+      "thinking": "",
+      "state": "closed",
+      "doing": "handoff — feature-007/t0 · Article 10 quote-pin: grep every intended q… → feature-007/t1 · Article 10 draft: free-energy myth check, s…",
+      "startedAt": "2026-10-18T00:05:33.477Z",
+      "turns": 1,
+      "tokens": {
+        "inputTokens": 71,
+        "outputTokens": 550
+      },
+      "contextRatio": 0.45278422037760424,
+      "sessionId": "01a14c53-f7b7-762f-acf7-e5c929d04ed6",
+      "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/ea127118-90fa-4235-ba7c-d61d4f70a284/task-feature-007-t0/session-7"
+    },
+    {
+      "name": "W8",
+      "unitKey": "task:feature-007/t1",
+      "unitLabel": "feature-007/t1 · Article 10 draft: free-energy myth check, s…",
+      "level": "task",
+      "difficulty": "difficult",
+      "model": "strata/strata",
+      "servedModel": "strata/strata",
+      "thinking": "",
+      "state": "closed",
+      "doing": "turn timed out",
+      "startedAt": "2026-10-18T00:16:01.125Z",
+      "turns": 1,
+      "tokens": {
+        "inputTokens": 59,
+        "outputTokens": 287
+      },
+      "contextRatio": 0.5480448404947916,
+      "sessionId": "01a14c5d-8b5d-701f-88c6-71ffef4add45",
+      "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/ea127118-90fa-4235-ba7c-d61d4f70a284/task-feature-007-t1/session-8"
+    },
+    {
+      "name": "W9",
+      "unitKey": "task:feature-007/t1",
+      "unitLabel": "feature-007/t1 · Article 10 draft: free-energy myth check, s…",
+      "level": "task",
+      "difficulty": "difficult",
+      "model": "strata/strata",
+      "servedModel": "strata/strata",
+      "thinking": "",
+      "state": "closed",
+      "doing": "context 78% full — fresh session",
+      "startedAt": "2026-10-18T01:16:03.141Z",
+      "turns": 1,
+      "tokens": {
+        "inputTokens": 203,
+        "outputTokens": 1043
+      },
+      "contextRatio": 0.777074178059896,
+      "sessionId": "01a14c94-81b3-7275-bea5-2dff6acc9b07",
+      "attemptDir": "/home/matt/projects/other/tesla-generator/books/tmp/infinity-harness/ea127118-90fa-4235-ba7c-d61d4f70a284/task-feature-007-t1/session-9"
     }
   ],
-  "sessions": 98,
+  "sessions": 101,
   "lastDecision": "continue",
   "stopReason": null
 }

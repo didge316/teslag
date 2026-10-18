@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "baseRevision": 60,
+  "baseRevision": 61,
   "goals": [
     {
       "id": "goal-001",
@@ -1073,7 +1073,7 @@
           "id": "t1",
           "key": "feature-007/t1",
           "description": "Article 10 draft: free-energy myth check, softer title (O2 = B), written from quotes.md",
-          "status": "pending",
+          "status": "complete",
           "dependsOn": [
             "feature-007/t0"
           ],
