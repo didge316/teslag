@@ -111,8 +111,8 @@
 
 # --- The 1894 File series --------------------------------------------------
 # The series slugs ARE the canonical URLs (/tesla-earthquake-machine etc.), so
-# they need no rules. Two rows in the SERIES-PLAN-1894.md section 5.1 table need
-# one, and both are aliases - a URL we hand out that is not a file name:
+# they need no rules. Three rows in the SERIES-PLAN-1894.md section 5.1 table need
+# one, and all three are aliases - a URL we hand out that is not a file name:
 #
 #   07 rotating-magnetic-field-1888.html: the hand-out URL is
 #     /tesla-rotating-magnetic-field. That row predates the rule above and is the
@@ -122,7 +122,16 @@
 #     feature-006/a08-wirecommit settled in favour of keeping. No file answers
 #     /tesla-weird-inventions, so this rule fires - unlike a rule whose source is
 #     an existing page, which never would.
+#   12 tesla-glowing-tubes-vacuum.html: same shape. The file name is the canonical
+#     URL, as section 5.1 row 12 prefers, and /tesla-glowing-tubes-before-tubes is
+#     the alias that row names, added at feature-006/a12-wirecommit because the task
+#     names it. No file answers that path either, so the rule fires.
+#   H tesla-1894.html: the /1894 promo alias is still not written. The hub page does
+#     not exist yet, and a rule pointing at a 404 is a different kind of dead. It
+#     goes in with the hub (feature-012).
 /tesla-rotating-magnetic-field                  /rotating-magnetic-field-1888    301
 /tesla-rotating-magnetic-field/                 /rotating-magnetic-field-1888    301
 /tesla-weird-inventions                         /tesla-weird-inventions-1894     301
 /tesla-weird-inventions/                        /tesla-weird-inventions-1894     301
+/tesla-glowing-tubes-before-tubes               /tesla-glowing-tubes-vacuum      301
+/tesla-glowing-tubes-before-tubes/              /tesla-glowing-tubes-vacuum      301
