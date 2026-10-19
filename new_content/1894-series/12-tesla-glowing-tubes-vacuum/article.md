@@ -4,8 +4,23 @@ slug: tesla-glowing-tubes-vacuum.html
 pretty_slug: /tesla-glowing-tubes-vacuum
 description: "Tesla took an exhausted glass tube with no wires in it and it lit up. What the 1894 first edition says about those tubes, and what it never says."
 keywords: [tesla vacuum tube experiment, geissler tube tesla, why does a bulb glow without wires, tesla phosphorescence, tesla glowing tubes 1894, carborundum lamp tesla]
-date_published: "2026-10-18"
-date_modified: "2026-10-18"
+# PUBLISH DATE, settled at feature-006/a12-wirecommit. The drafting day 2026-10-18 is already the
+# published date of rotating-magnetic-field-1888.html on this site, so it could not stand. The rule
+# feature-006/a08-wirecommit settled, and feature-007/a10-wirecommit re-measured, is one page per date
+# in wiring order: the eleven pages already wired run 2026-10-14 (03), 10-16 (09), 10-17 (11), 10-18
+# (07), 10-19 (01), 10-20 (02), 10-21 (04), 10-22 (05), 10-23 (06), 10-24 (08), 10-25 (10), and the
+# cards on articles.html sit in that same order. This page is the twelfth wired, so it takes 2026-10-26
+# and its card goes after the article 10 card. The alternative was measured before it was rejected:
+# keep 10-18 and place the card between the 07 and 01 cards, which is inside section 11's cadence rule
+# but puts two pages on one date and breaks the grid's second invariant, that card order is wiring
+# order. Checked before the change, not after: make_article.py run on this draft exactly as
+# feature-006/t7 left it writes 81,426 bytes against the committed page, and the only line that
+# differs is the FAQ H2, which is the faq_block() sentence-case line named at feature-007/a10-wirecommit
+# and corrected after render by books/tools/titlecase_headings.py. So the render is reproducible and the
+# bytes this edit moves are the five date strings in the head, the JSON-LD and the visible date line,
+# at unchanged byte count. The feature-006/t8 visual record therefore still describes this page.
+date_published: "2026-10-26"
+date_modified: "2026-10-26"
 series_no: 12
 primary_query: tesla vacuum tube experiment
 tid: "1894_12"
@@ -47,10 +62,17 @@ sources:
 # brief is SERIES-PLAN-1894.md section 9 brief 12, and every beat of it is here: the p. 288 demo, the
 # no-wires mechanism, the carborundum lamp, the vacuum problem, the corrections, the bridge, sources.
 #
-# URL. Section 5.1 row 12: this row needs no _redirects rule. pretty_slug restates the file name,
-# which is the condition on which redirect_rules() emits nothing, exactly as articles 01 to 06 and 09
-# to 11 do. The plan's alternative alias /tesla-glowing-tubes-before-tubes is not used, per the
-# register's link note: an alias costs a hop on every click and the file name is the URL we hand out.
+# URL. pretty_slug restates the file name, which is the condition on which redirect_rules() emits
+# nothing, exactly as articles 01 to 06 and 09 to 11 do; the file name is the canonical URL, as
+# section 5.1 row 12 prefers. The alias that row names, /tesla-glowing-tubes-before-tubes, is added by
+# hand at feature-006/a12-wirecommit because the task's acceptance criteria names it: two rows in
+# _redirects, bare and trailing-slash, both 301 to /tesla-glowing-tubes-vacuum. That is the shape the
+# section 5.1 note allows and the shape the article 08 alias took at feature-006/a08-wirecommit, and it
+# is not a dead rule: no file answers /tesla-glowing-tubes-before-tubes, so the rule fires, unlike a
+# rule whose source is an existing page, which Cloudflare resolves before it reads _redirects and which
+# would also block the platform's own trailing-slash normalisation. The hop the row warns about is real
+# and belongs to whoever hands out the alias; the canonical URL is unchanged and every link on this site
+# uses it.
 #
 # DRAFTING DATE, not a publish date. feature-006/a08-wirecommit settled that the publish date is fixed
 # at the wiring task, one page per date in wiring order. This page is last in section 11's order, so
