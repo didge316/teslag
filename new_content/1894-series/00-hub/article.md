@@ -90,11 +90,11 @@ Go there if you want the whole thing; we link it from every article.
 ## The twelve articles
 
 1. [Tesla lit lamps by holding them](tesla-lit-lamps-without-wires.html): the 1891 stage demonstration, in his words.
-2. [One-wire power](tesla-one-wire-power.html): why an insulated body "is equivalent to a return wire".
+2. [One-wire power](tesla-one-wire-power.html): why an insulated body "is equivalent to a return wire" (1894, p. 184).
 3. [The earthquake machine](tesla-earthquake-machine.html): what the 1893 record says, and what it does not.
 4. [Wireless power, in his own words](tesla-wireless-power-1893.html): the 1893 version of the idea.
-5. [High frequency massage](tesla-high-frequency-massage.html): the "patent medicine" complaint, 1892.
-6. [The cold flame](tesla-cold-flame.html): "is it the less a flame because it does not scorch my hand?"
+5. [High frequency massage](tesla-high-frequency-massage.html): the "patent medicine" complaint, 1892 (1894, p. 394).
+6. [The cold flame](tesla-cold-flame.html): "is it the less a flame because it does not scorch my hand?" (1894, p. 258).
 7. [The rotating magnetic field](rotating-magnetic-field-1888.html): the May 1888 paper and the machines that reached 95 per cent.
 8. [Tesla's weirdest inventions](tesla-weird-inventions-1894.html): from the book's own third part.
 9. [Tesla at the World's Fair](tesla-worlds-fair-1893.html): 1893, with the plates.

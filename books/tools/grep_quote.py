@@ -22,6 +22,7 @@ Usage
 """
 
 import argparse
+import collections
 import difflib
 import json
 import re
@@ -36,6 +37,16 @@ PAGE_MARKER = re.compile(r"<+ *page-(\d+) *>+")
 
 # Scan-file page -> printed page offset (SERIES-PLAN §0).
 PAGE_OFFSET = 18
+
+# The search structures, built once per run. Everything downstream takes this
+# instead of rebuilding it: the sorted vocabulary used to be rebuilt inside
+# every fuzzy call, which is what made the full quote pass take 94s.
+# nospace/nspans are added by check_quotes.py, the only caller that needs the
+# space-insensitive tier.
+BookIndex = collections.namedtuple(
+    "BookIndex",
+    "ntext spans words vocab wtok wfirst nospace nspans")
+BookIndex.__new__.__defaults__ = ("", [])
 
 
 def normalise(text: str) -> str:
@@ -58,6 +69,13 @@ def normalise(text: str) -> str:
     # Un-hyphenate line breaks: "alter- nations" -> "alternations", and also
     # allow the query to be written either way.
     t = re.sub(r"-\s+", "", t)
+    # ... and un-hyphenate a compound the scan broke with no space at all. This
+    # has to be symmetric with the rule above: the scan's text layer reads
+    # "a twophase motor" where the book prints "a two-phase motor", and a rule
+    # that only fires on "-\s" leaves the draft's "two-phase" and the scan's
+    # "twophase" unable to ever match. Letters only, so numeric ranges
+    # ("400-500 times a minute") are left alone.
+    t = re.sub(r"(?<=[a-z])-(?=[a-z])", "", t)
     t = re.sub(r"\s+", " ", t)
     return t.strip()
 
@@ -113,6 +131,10 @@ def build_index(pages):
     Searching the whole stream (not page by page) is deliberate: Appendix A
     quotes span page breaks, e.g. "we are whirling through endless space"
     runs from file 214 / printed 196 onto file 215 / printed 197.
+
+    Everything a caller needs is built here once: the sorted vocabulary the
+    fuzzy tier seeds from, and the word stream the punctuation-insensitive tier
+    matches against. Both used to be rebuilt inside every lookup.
     """
     parts, spans = [], []
     for fp, pp, itext, _raw, base in pages:
@@ -122,16 +144,63 @@ def build_index(pages):
         spans.append((start, start + len(n), fp, pp))
     ntext = " ".join(parts)
     words = [(m.start(), m.end(), m.group()) for m in re.finditer(r"\S+", ntext)]
-    return ntext, spans, words
+    vocab = sorted({w for _, _, w in words})
+    wtok = [(m.start(), m.end(), m.group())
+            for m in re.finditer(r"[a-z0-9]+", ntext)]
+    wfirst = {}
+    for i, (_s, _e, w) in enumerate(wtok):
+        wfirst.setdefault(w, []).append(i)
+    return BookIndex(ntext, spans, words, vocab, wtok, wfirst)
 
 
 def pages_for(spans, a, b):
     return [(fp, pp) for (s, e, fp, pp) in spans if s < b and e > a]
 
 
-def find_hits(index, needle_norm, page_lo=None, page_hi=None):
-    """Exact + fuzzy hits over the whole book. Cross-page aware."""
-    ntext, spans, _words = index
+def wordstream_hits(index, needle_norm, page_lo=None, page_hi=None):
+    """Tokens in order, punctuation dropped: the tier between spaces and fuzz.
+
+    The scan's text layer misreads punctuation constantly - printed p. 258 reads
+    "scorch my hand {" where the book prints "?", printed p. 151 reads
+    "giving^ say" for "giving, say,". A quote whose WORDS are the book's words
+    in the book's order is a verbatim quote even when the scan's punctuation is
+    wrong, and the tier that proves it has to be flagged, not folded into the
+    exact tier. A token-sequence match is exactly that rule and nothing wider.
+    """
+    toks = re.findall(r"[a-z0-9]+", needle_norm)
+    if len(toks) < 2:
+        return []
+    wtok, spans = index.wtok, index.spans
+    hits, seen = [], set()
+    n = len(toks)
+    for p in index.wfirst.get(toks[0], ()):
+        if p + n > len(wtok):
+            continue
+        cand = wtok[p:p + n]
+        if [w for _, _, w in cand] != toks:
+            continue
+        a, b = cand[0][0], cand[-1][1]
+        for fp, pp in pages_for(spans, a, b):
+            if page_lo is not None and not (page_lo <= pp <= page_hi):
+                continue
+            if (fp, a) in seen:
+                continue
+            seen.add((fp, a))
+            hits.append({"file_page": fp, "printed_page": pp, "ratio": 1.0,
+                         "offset": a, "wordstream": True,
+                         "spans_pages": [pp2 for _, pp2 in
+                                         pages_for(spans, a, b)]})
+    return hits
+
+
+def find_hits(index, needle_norm, page_lo=None, page_hi=None, fuzzy=True):
+    """Exact + fuzzy hits over the whole book. Cross-page aware.
+
+    fuzzy=False asks only "is this string in the book", which is what the
+    tiered caller wants: it must not pay for the fuzzy sweep on a fragment that
+    matched exactly, and it must be able to tell the two apart.
+    """
+    ntext, spans = index.ntext, index.spans
     hits, seen = [], set()
 
     def emit(a, b, ratio):
@@ -147,24 +216,31 @@ def find_hits(index, needle_norm, page_lo=None, page_hi=None):
 
     for m in re.finditer(re.escape(needle_norm), ntext):
         emit(m.start(), m.end(), 1.0)
-    if hits:
+    if hits or not fuzzy:
         return hits
 
     # fuzzy: only score windows that start on a word close to the needle's
     # first word — a full 177k-word SequenceMatcher sweep is far too slow.
     nwords = len(needle_norm.split())
-    words = index[2]
+    words = index.words
     if len(words) < nwords:
         return hits
-    vocab = sorted({w for _, _, w in words})
-    near = set(difflib.get_close_matches(needle_norm.split()[0], vocab,
+    near = set(difflib.get_close_matches(needle_norm.split()[0], index.vocab,
                                          n=12, cutoff=0.72))
     starts = [i for i, (_, _, w) in enumerate(words) if w in near]
+    # The window is seq2 on purpose: difflib builds its index (b2j) from seq2
+    # and its inner comparison loop runs over seq2, so the short sequence has to
+    # be the one that goes there. The two cheap upper bounds are tried first;
+    # both are documented upper bounds on ratio(), so screening at the gate
+    # threshold cannot drop a window that would have scored >= 0.80.
     for i in starts:
         if i + nwords > len(words):
             continue
         win = " ".join(w for _, _, w in words[i:i + nwords])
-        r = difflib.SequenceMatcher(None, needle_norm, win).ratio()
+        sm = difflib.SequenceMatcher(None, needle_norm, win)
+        if sm.real_quick_ratio() < 0.80 or sm.quick_ratio() < 0.80:
+            continue
+        r = sm.ratio()
         if r >= 0.80:
             emit(words[i][0], words[i + nwords - 1][1], r)
     return hits
@@ -245,6 +321,9 @@ def main():
                     help="re-check every Appendix A quote and its page")
     ap.add_argument("--keep-furniture", action="store_true",
                     help="do not strip running heads/bare folios from the index")
+    ap.add_argument("--wordstream", action="store_true",
+                    help="fall back to the punctuation-insensitive token tier "
+                         "(flagged as such) when nothing matches exactly")
     args = ap.parse_args()
 
     pages = load_pages(Path(args.txt), clean=not args.keep_furniture)
@@ -283,6 +362,8 @@ def main():
 
     needle = normalise(args.quote)
     hits = find_hits(index, needle, page_lo, page_hi)
+    if not hits and args.wordstream:
+        hits = wordstream_hits(index, needle, page_lo, page_hi)
     hits.sort(key=lambda h: h["file_page"])
 
     if args.count:
@@ -306,12 +387,18 @@ def main():
 
     for h in hits[:args.limit]:
         flag = "" if h["ratio"] > 0.999 else f"  [fuzzy {h['ratio']}]"
+        if h.get("wordstream"):
+            flag = "  [OCR punctuation normalised]"
         span = "" if len(h["spans_pages"]) < 2 else f" -> continues p. {'/'.join(map(str, h['spans_pages']))}"
         print(f"--- printed p. {h['printed_page']}  (scan file {h['file_page']}){flag}{span}")
-        print(raw_context(h, index[0], raw_by_page, args.context))
+        print(raw_context(h, index.ntext, raw_by_page, args.context))
         print()
     if len(hits) > args.limit:
         print(f"({len(hits)} hits total; showing {args.limit})")
+    if any(h.get("wordstream") for h in hits[:args.limit]):
+        print("NOTE: matched with punctuation dropped (word-stream tier). The "
+              "words above are the scan's words in the scan's order; check the "
+              "scan's punctuation against the print before quoting it.")
     return 0
 
 
