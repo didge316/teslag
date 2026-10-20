@@ -175,12 +175,20 @@ from the kept index, which is the wider of the two.
 | 'generator' | 203 | 231 | 243 | 91 pages, or 98 with display type |
 | 'magnetic' | 215 | 273 | 288 | 140 pages, or 144 with display type |
 | 'magnetic generator' | 0 | 4 | 5 | 6, 424, 429 twice, 496 |
-| 'pyro-magnetic' | 5 | 5 | 7 | 6, 424, 429 twice, 494, 496 |
-| 'thermo-magnetic' | 3 | 3 | 5 | 6, 424, 495, 496 |
+| 'pyro-magnetic' | 5 | 5 | 7 | contents page (scan 17, no printed folio), 6, 424, 429 twice, 494, 496 |
+| 'thermo-magnetic' | 3 | 3 | 5 | contents page (scan 17, no printed folio), 6, 424, 495, 496 |
 | 'magneto' | 1 | 1 | 1 | 448 |
 | 'dynamo' | 42 | 60 | 66 | 41 pages, or 43 with display type |
 | 'radiometer' | 4 | 4 | 4 | 126, 232 twice, 236 |
 | 'inexhaustible' | 1 | 1 | 1 | 197 |
+
+Two rows in that table start with a scan file number instead of a page number, and they do it
+because there is no page number to give. Scan 17 is the volume's own table of contents: it sets the
+chapter titles in display type, and it is where the seventh 'pyro-magnetic' and the fifth
+'thermo-magnetic' occurrence sit. Front matter carries no printed folio, so the script reports that
+hit at printed page -1, which is its way of saying 'no folio here, cite the scan file'. The default
+index drops those display lines, which is exactly why those two rows lose two occurrences each
+between the prose-only and everything-kept columns.
 
 The first seven rows are the claim. The rest are controls, and a null result without controls is
 worth very little. The same command on the same file finds 9 standalone occurrences of 'unity', 4 of
@@ -315,5 +323,7 @@ engravings from this scan are catalogued page by page at
 [Tesla 1894 Plates](tesla-1894-plates.html).
 
 {{FAQ}}
+
+{{CTA}}
 
 {{SOURCES}}
