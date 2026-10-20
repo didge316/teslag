@@ -177,15 +177,56 @@ def dead_links(html):
     return sorted(dead)
 
 
-def check(path: Path):
+def series_rows():
+    """The rows of new_content/1894-series/index.json, in file order.
+
+    index.json is the authoritative list of series pages: it is what carries the
+    tid, the figure manifest and the gate record for each page. Series membership
+    is read from it, never inferred from page content. It used to be inferred from
+    the string "The 1894 File" appearing in the page, and the hub's entry in the
+    shared nav dropdown puts that string on all 51 pages of the site, so every
+    legacy page was suddenly held to two series gates it was never built to
+    satisfy (measured 2026-10-20, HANDOFF-1894.md section 4).
+    """
+    p = SERIES / "index.json"
+    if not p.exists():
+        return []
+    return json.loads(p.read_text())
+
+
+def series_files():
+    """Every page file the series owns: the index.json rows plus any tesla-1894*
+    page on disk that has no row yet, so a page can never escape the gates by
+    being forgotten."""
+    files = {WEB / row["slug"] for row in series_rows()}
+    files |= set(WEB.glob("tesla-1894*.html"))
+    return {f.name.lower(): f for f in files}
+
+
+def check(path: Path, series=None):
     html = path.read_text(encoding="utf-8", errors="ignore")
     low = html.lower()
     slug = path.name.lower()
     stem = path.stem.lower()
+    if series is None:
+        series = slug in series_files()
+    hub = any(r["slug"].lower() == slug and r.get("no") == "hub"
+              for r in series_rows())
     res = []
 
     def gate(ok, label, detail=""):
         res.append((bool(ok), label, detail))
+
+    def gate_series(ok, label, detail=""):
+        """A SERIES-PLAN section 12 rule that binds a series page only.
+
+        Reported as skipped, not passed, on a page the series does not own: the
+        record has to say which rules were actually applied.
+        """
+        if not series:
+            res.append((None, label, "not a series page (no index.json row)"))
+        else:
+            gate(ok, label, detail)
 
     t = re.search(r"<title>(.*?)</title>", html, re.S)
     title = t.group(1).strip() if t else ""
@@ -197,13 +238,13 @@ def check(path: Path):
     h1 = len(re.findall(r"<h1\b", html))
     gate(h1 == 1, "exactly one <h1>", f"{h1} found")
     h2 = len(re.findall(r"<h2\b", html))
-    gate(5 <= h2 <= 9, "H2 count 5-9", f"{h2} found")
+    gate_series(5 <= h2 <= 9, "H2 count 5-9", f"{h2} found")
 
     # The house style for this series is title-case headings (harness/docs/
     # CONSTRAINTS.md). It was prose until now, which is why 9 shipped pages had to
     # be retitled by hand afterwards rather than caught before they shipped.
     bad_head = heading_case(path)
-    gate(not bad_head, HEADING_CASE_GATE,
+    gate_series(not bad_head, HEADING_CASE_GATE,
          f"{len(bad_head)} not title case: "
          + " | ".join(f"{k}: {cur!r} -> {want!r}" for k, cur, want in bad_head[:3]))
 
@@ -288,11 +329,11 @@ def check(path: Path):
               f"series defect")
 
     cites = re.findall(r"\(1894, p\. (\d+)\)", html)
-    gate(len(cites) >= 3, ">= 3 page-cited quotes (1894, p. N)",
+    gate_series(len(cites) >= 3, ">= 3 page-cited quotes (1894, p. N)",
          f"{len(cites)} cites on pages {sorted(set(cites), key=int)}")
 
-    gate(re.search(r">Sources<", html) is not None, "Sources block present")
-    gate(ARCHIVE_ITEM in html, f"archive.org item string present ({ARCHIVE_ITEM})")
+    gate_series(re.search(r">Sources<", html) is not None, "Sources block present")
+    gate_series(ARCHIVE_ITEM in html, f"archive.org item string present ({ARCHIVE_ITEM})")
 
     blocks = re.findall(r'<script type="application/ld\+json">\s*(\{.*?\})\s*</script>',
                        html, re.S)
@@ -304,8 +345,9 @@ def check(path: Path):
             errs.append(str(e))
     gate(blocks and not errs, "JSON-LD parses", "; ".join(errs[:2]))
     types = {p.get("@type") for p in parsed}
-    gate(any(p.get("@type") == "Article" and "citation" in p for p in parsed),
-         "Article.citation present", f"types={sorted(t for t in types if t)}")
+    gate_series(any(p.get("@type") == "Article" and "citation" in p for p in parsed),
+                "Article.citation present",
+                f"types={sorted(t for t in types if t)}")
     if "FAQPage" in types:
         faq = next(p for p in parsed if p.get("@type") == "FAQPage")
         ok = bool(faq.get("mainEntity")) and all(
@@ -313,10 +355,10 @@ def check(path: Path):
             for q in faq["mainEntity"])
         gate(ok, "FAQPage valid", f"{len(faq.get('mainEntity', []))} items")
 
-    gate("comments.css" not in html, "no css/comments.css (D3)")
-    gate("<!-- Comments section -->" not in html and "Comments</h3>" not in html,
-         "no comments block (D3)")
-    gate(".pdf" not in low, "no book-PDF link (D4)")
+    gate_series("comments.css" not in html, "no css/comments.css (D3)")
+    gate_series("<!-- Comments section -->" not in html and "Comments</h3>" not in html,
+                "no comments block (D3)")
+    gate_series(".pdf" not in low, "no book-PDF link (D4)")
     gate(len(html.encode()) < 200 * 1024, "HTML < 200 KB",
          f"{len(html.encode()) // 1024} KB")
     gate('href="http://' not in html, "no http:// links")
@@ -329,22 +371,27 @@ def check(path: Path):
 
     aff = re.findall(r'<a[^>]*hop\.clickbank\.net[^>]*>', html)
     tid = re.findall(r"[?&]tid=(1894_(?:\d{2}|hub))", html)
-    gate(bool(aff) and bool(tid), "affiliate link carries tid=1894_NN",
-         f"tids={sorted(set(tid))}")
+    gate_series(bool(aff) and bool(tid), "affiliate link carries tid=1894_NN",
+                f"tids={sorted(set(tid))}")
     if aff:
         badrel = [a for a in aff if 'rel="noopener noreferrer nofollow"' not in a]
-        gate(not badrel, "affiliate rel=noopener noreferrer nofollow",
-             f"{len(badrel)} bad")
+        gate_series(not badrel, "affiliate rel=noopener noreferrer nofollow",
+                    f"{len(badrel)} bad")
 
-    # series furniture (§3)
-    if "The 1894 File" in html:
-        gate("The 1894 File · No." in html or 'series' in low,
-             "series kicker present")
-        gate("We earn a commission" in html, "one-line affiliate disclosure present")
+    # Series furniture (section 3). The kicker is the element make_article.py emits
+    # from the `kicker:` field, so the gate reads the furniture, not any text that
+    # happens to mention the series. The hub is exempt and says so: it is the
+    # series landing page, and its furniture is the ItemList, not a "No. N of 12".
+    kicker = re.search(r'<p class="text-muted small mb-2">[^<]*The 1894 File', html)
+    itemlist = '"@type": "ItemList"' in html or '"@type":"ItemList"' in html
+    gate_series(bool(kicker) or (hub and itemlist), "series kicker present",
+                "hub landing page: ItemList in place of a kicker" if hub else
+                "no kicker element")
+    gate_series("We earn a commission" in html, "one-line affiliate disclosure present")
     figs = re.findall(r'<figure class="mb-4 pt-5">', html)
     if "assets/tesla1894/" in html:
-        gate(2 <= len(figs) <= 3, "2-3 figures in <figure class=\"mb-4 pt-5\">",
-             f"{len(figs)} figures")
+        gate_series(2 <= len(figs) <= 3, "2-3 figures in <figure class=\"mb-4 pt-5\">",
+                    f"{len(figs)} figures")
     return res
 
 
@@ -470,7 +517,8 @@ def self_test():
         results = []
         for name, label, want_ok, want_named in cases:
             WEB = tmp
-            gates = [g for g in check(tmp / f"{name}.html") if g[1] == label]
+            gates = [g for g in check(tmp / f"{name}.html", series=True)
+                     if g[1] == label]
             if len(gates) != 1:
                 results.append(f"{name}/{label}: gate not in the default set "
                                f"({len(gates)} found)")
@@ -481,6 +529,34 @@ def self_test():
                                f"({detail})")
             elif want_named and want_named not in detail:
                 results.append(f"{name}/{label}: offending value not printed ({detail})")
+
+        # Series membership comes from index.json, never from page content. The hub's
+        # entry in the shared nav dropdown puts the string "The 1894 File" into every
+        # page of this site, and the old content-based trigger then held 50 legacy
+        # pages to a kicker gate and a disclosure gate they were never built to
+        # satisfy (measured 2026-10-20, HANDOFF-1894.md section 4). A page that only
+        # mentions the series in its nav must have those gates skipped; a real series
+        # page with no kicker must still fail one.
+        (tmp / "nav_mention.html").write_text(
+            '<nav><a class="dropdown-item" href="/tesla-1894">The 1894 File: '
+            "Tesla's First Big Book, Page by Page</a></nav>")
+        (tmp / "kicker_ok.html").write_text(
+            '<p class="text-muted small mb-2">The 1894 File &middot; No. 6 of 12. '
+            "Every quote below is cited.</p>")
+        membership = (
+            # (fixture, series arg, expected ok)
+            ("nav_mention", None, None),      # inferred: not a series page -> skipped
+            ("nav_mention", True, False),    # a series page with no kicker still fails
+            ("kicker_ok", True, True),
+        )
+        for name, series_arg, want in membership:
+            got = [g for g in check(tmp / f"{name}.html", series=series_arg)
+                   if g[1] == "series kicker present"]
+            if len(got) != 1:
+                results.append(f"{name}: kicker gate missing ({len(got)})")
+            elif got[0][0] != want:
+                results.append(f"{name}: series={series_arg} expected ok={want}, "
+                               f"got ok={got[0][0]} ({got[0][2]})")
         return results
     finally:
         WEB = real_web
@@ -508,31 +584,33 @@ def main():
 
     targets = []
     if args.all_series:
-        idx = SERIES / "index.json"
-        if idx.exists():
-            for row in json.loads(idx.read_text()):
-                targets.append(WEB / row["slug"])
-        targets += sorted(WEB.glob("tesla-1894*.html"))
+        targets = sorted(series_files().values())
     elif args.page:
         targets.append(Path(args.page))
     else:
         ap.error("a page path, or --all-series")
 
-    failed = 0
+    failed = skipped_total = 0
     for p in dict.fromkeys(targets):
         if not p.exists():
             print(f"MISSING {p}")
             failed += 1
             continue
         res = check(p)
-        bad = [r for r in res if not r[0]]
+        applied = [r for r in res if r[0] is not None]
+        skipped = [r for r in res if r[0] is None]
+        skipped_total += len(skipped)
+        bad = [r for r in applied if not r[0]]
         print(f"\n=== {p.name} — {'PASS' if not bad else 'FAIL'} "
-              f"({len(res) - len(bad)}/{len(res)} gates) ===")
+              f"({len(applied) - len(bad)}/{len(applied)} gates"
+              + (f", {len(skipped)} series-only skipped" if skipped else "") + ") ===")
         for ok, label, detail in res:
-            mark = " ok " if ok else "FAIL"
-            print(f"  [{mark}] {label}" + (f"  -> {detail}" if detail and not ok else ""))
+            mark = {True: " ok ", False: "FAIL", None: "skip"}[ok]
+            print(f"  [{mark}] {label}" + (f"  -> {detail}" if detail and ok is not True else ""))
         failed += bool(bad)
-    print(f"\n{len(targets) - failed}/{len(targets)} pages pass the numeric gates")
+    print(f"\n{len(targets) - failed}/{len(targets)} pages pass the numeric gates"
+          + (f" ({skipped_total} series-only gates skipped on non-series pages)"
+             if skipped_total else ""))
     print("not covered here (need vision): figure subject/caption truth, "
           "3-viewport layout, OG legibility — §12 visual gates via shot_qa.py")
     return 1 if failed else 0

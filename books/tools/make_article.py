@@ -411,16 +411,22 @@ def build_jsonld(fm, slug):
         "publisher": {"@type": "Organization", "name": PUBLISHER, "url": SITE + "/"},
         "mainEntityOfPage": url,
         "about": {"@type": "Thing", "name": "Nikola Tesla"},
-        "citation": dict(BOOK),
+        # `citation:` in front matter for a page whose source is not the 1894 book.
+        # The 1919 magazine page is the one case: naming the 1894 volume as its
+        # citation would be a schema lie, and the default keeps all 15 series pages
+        # byte-identical.
+        "citation": fm.get("citation") or dict(BOOK),
     }
     blocks = [art]
     if is_hub(fm):
         crumbs = [{"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
                   {"@type": "ListItem", "position": 2, "name": fm["title"], "item": url}]
     else:
+        parent = fm.get("breadcrumb_parent") or {
+            "name": "The 1894 File", "item": page_url("tesla-1894.html")}
         crumbs = [{"@type": "ListItem", "position": 1, "name": "Home", "item": SITE + "/"},
-                  {"@type": "ListItem", "position": 2, "name": "The 1894 File",
-                   "item": page_url("tesla-1894.html")},
+                  {"@type": "ListItem", "position": 2, "name": parent["name"],
+                   "item": parent["item"]},
                   {"@type": "ListItem", "position": 3, "name": fm["title"], "item": url}]
     blocks.append({"@context": "https://schema.org", "@type": "BreadcrumbList",
                    "itemListElement": crumbs})
@@ -450,11 +456,16 @@ def cta_block(fm, tid):
             '<p class="mb-2"><a href="' + href + '" target="_blank" '
             'rel="noopener noreferrer nofollow" class="alert-link">'
             'See the generator plans</a></p>'
-            f'<p class="mb-0 small text-muted">{DISCLOSURE}</p></div>')
+            f'<p class="mb-0 small text-muted">'
+            f'{fm.get("disclosure", DISCLOSURE)}</p></div>')
 
 
 def sources_block(fm):
-    lis = [f"<li>{BOOK_CITE_HTML}</li>"]
+    # `book_cite:` replaces the first Sources line; an empty book_cite: omits it.
+    # A page about a different source than the 1894 volume must not open its Sources
+    # block with the 1894 volume.
+    head = BOOK_CITE_HTML if "book_cite" not in fm else str(fm.get("book_cite") or "")
+    lis = ([f"<li>{head}</li>"] if head else [])
     for s in fm.get("sources", []) or []:
         if isinstance(s, dict):
             t = s.get("text", "")
@@ -466,7 +477,9 @@ def sources_block(fm):
             lis.append(f"<li>{s}</li>")
     pages = fm.get("pages_used") or []
     if pages:
-        lis.append("<li>Pages of the 1894 edition used here: "
+        lis.append("<li>"
+                   + str(fm.get("pages_label",
+                                "Pages of the 1894 edition used here")) + ": "
                    + ", ".join(f"p. {p}" for p in pages) + "</li>")
     return ('<h2 class="fw-bolder mb-1 pt-5">Sources</h2>\n<ul class="mb-4 fs-5">'
             + "".join(lis) + "</ul>")
