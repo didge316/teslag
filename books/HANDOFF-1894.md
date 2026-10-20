@@ -103,6 +103,10 @@ website/  ?? js/email-capture-widget.html             not ours, leave it
 books/tmp/                                           throwaway, safe to delete
 ```
 
+**One exception, found and fixed by the next session - see §9.** The parent repo showed
+`M website`: its gitlink still named site `4fd0b8c` while the site repo's tip was
+`76fc747`. That is ours, and it is not in the list above.
+
 ### 3a. Tool changes, now committed
 
 `books/tools/count_terms.py`, rewritten:
@@ -345,7 +349,9 @@ T0-T5 and T7-T8 are done. What is left in `books/PLAN-1894.md` is T6 and the own
 
 1. **The push, when the owner says so.** Nothing in either repo has been pushed and pushing
    deploys (D6). The site repo is ahead of its remote by every commit of this series; the
-   deploy is a separate named action, not a side effect of finishing work.
+   deploy is a separate named action, not a side effect of finishing work. Before a push,
+   check the parent's gitlink names the site tip you mean to deploy: it was two commits
+   stale when §9 found it, and it is current as of that fix.
 2. **The two shell findings in §6, if the owner wants them fixed.** Both are one-rule
    changes in shared files (`website/css/styles-custom.css` for the dropdown, the embed
    provider for the image) and both are outside PLAN §10, which is why they are recorded
@@ -393,3 +399,54 @@ session's `shot_all.sh`, `crops_all.sh`, `review_sheet.py`, `grid_bands.py`, `bo
 `nav_open.py`, `og-preview/`, `review/`, `shotqa-*.log`, `og-build-2026-10-20.txt`,
 `gates-final-2026-10-20.txt`. The review images under `books/tmp/review/` are what the
 `index.json` `visual_gates` rows name; delete them and those rows point at nothing.
+
+---
+
+## 9. Re-measured by the following session (2026-10-20, later) - the record holds
+
+Every claim above was re-checked with commands, not read. Results:
+
+| what was checked | command | result |
+|---|---|---|
+| quick gates | `run_gates.py --quick` | `GATE PASS - 5/5 gates clean`, 18/18 numeric, no unbuilt-page line |
+| full gates | `run_gates.py --final` | `GATE PASS - 6/6 gates clean`; quote pass clean in 41s; whole run 41s |
+| section 5.2 map | `link_map.py` | exits 1 with **exactly the 14 edges §4 names**, same reasons, no new ones |
+| §6 item 4 numbers | script over `index.json` `visual_gates` | **confirmed**: the 15 rows name 18 `books/tmp/` artifacts; 8 exist (2.0 MB), 10 are gone. `website/_qa/` is 222 MB and gitignored; `books/tmp/` is gitignored |
+| OG cards | `git -C website ls-files assets/og` | 15 tracked |
+| repo state | `git status` in both | matches §1 and §3, except the gitlink below |
+
+**The one thing that was wrong: the parent repo's pointer to the site was stale.**
+
+```
+$ git ls-tree HEAD website            # before
+160000 commit 4fd0b8c...  website
+$ git -C website rev-parse HEAD
+76fc747...
+```
+
+The parent recorded the site at `4fd0b8c`, two commits behind the site tip. So a fresh clone
+of the parent at its own HEAD, read as the record of this series, checked out site bytes
+that contradict this file: no `assets/og/` at all (every share card 404), the hub's
+twelve-article list still one run-on paragraph, the word-search page missing the hub entry
+from its nav. §2 of `PLAN-1894.md` says the parent "only records a pointer" - it is a
+pointer that has to be moved, and `--wire` and the site commits never move it. Fixed by
+committing the gitlink in the parent alongside this section. Nothing was pushed.
+
+**The rule this leaves:** after any commit in `website/`, the parent needs a pointer commit
+naming the site commit. `git status` in the parent shows it as `M website`; that line is not
+noise, it is the series record going stale. Check both repos means check the pointer too.
+
+**One precision, because `M website` has two causes and only one is the pointer.** After the
+fix the parent still prints `M website`, and it now means only that `website/` has untracked
+content - the 9.7 MB plates ZIP and `js/email-capture-widget.html`, both §6 items. The
+command that tells them apart:
+
+```
+$ git diff HEAD --submodule=short -- website     # empty = pointer is current, dirt is untracked
+Submodule website 4fd0b8c..76fc747:              # non-empty = the pointer is stale
+```
+
+Nothing else in this file was contradicted. §4, §5 and §6 items 1-3 and 5-8 all still read
+true as written.
+
+---
