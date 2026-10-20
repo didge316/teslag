@@ -49,10 +49,18 @@ def page_key(href):
     /x, x.html and x all address the page file x.html, so all three key to "x".
     Both spellings are accepted on purpose: this tool has to run against pages
     written before the URL migration as well as after it (SEO-URL-FIX-PLAN.md G2).
-    External URLs, bare anchors, assets and directories are not page links.
+    A same-origin absolute href (SITE + "/x") is an internal link too and keys to
+    "x": 50 of the 51 pages in website/ carry such hrefs (the articles.html cards
+    and every canonical), and keying them None made inbound_map() blind to every
+    link that arrives that way. External URLs, bare anchors, assets and
+    directories are not page links.
     """
     t = href.split("#")[0].split("?")[0].strip()
-    if not t or t.startswith("#") or re.match(r"^[A-Za-z][A-Za-z0-9+.-]*:", t):
+    if not t or t.startswith("#"):
+        return None
+    if t.lower().startswith(SITE.lower() + "/"):
+        t = t[len(SITE) + 1:]
+    elif re.match(r"^[A-Za-z][A-Za-z0-9+.-]*:", t):
         return None
     t = t.lstrip("/")
     if not t or "/" in t or t.startswith("."):
@@ -187,8 +195,15 @@ def check(path: Path):
     hrefs = re.findall(r'href="([^"]+)"', html)
     out = {k for k in (page_key(h) for h in hrefs) if k and k != stem}
     gate(len(out) >= 4, ">= 4 internal links", f"{len(out)}: {sorted(out)[:8]}")
+    # §5.2: at least three of the pages this page links to have to link back.
+    # ib[p] is the set of pages that link TO p, so "p links back to me" is
+    # `p in ib[stem]`, not `stem in ib[p]`. The old predicate was the latter, and
+    # since `out` is built from this page's own hrefs, `stem in ib[p]` is true for
+    # every p in `out` by construction: the gate could not fail, and reported ok on
+    # a page with zero inbound links anywhere on the site (measured 2026-10-20 on
+    # tesla-1894-word-search.html: 0 inbound, gate ok). The fixture pass covers it.
     ib = inbound_map()
-    recip = sorted(p for p in out if stem in ib.get(p, set()))
+    recip = sorted(p for p in out if p in ib.get(stem, set()))
     gate(len(recip) >= 3, ">= 3 links to pages that link back (§5.2)",
          f"reciprocal: {recip}")
 
@@ -316,8 +331,9 @@ def self_test():
     import shutil
     import tempfile
 
-    global WEB
-    real_web, tmp = WEB, Path(tempfile.mkdtemp(prefix="qa-selftest-"))
+    global WEB, INBOUND
+    real_web, real_inbound, tmp = WEB, INBOUND, Path(tempfile.mkdtemp(prefix="qa-selftest-"))
+    INBOUND = {}      # inbound_map() caches over WEB; it has to be built over the fixtures
     CAN_OK = f'{SITE}/canon_ok'
     try:
         (tmp / "target.html").write_text("<html><body>ok</body></html>")
@@ -374,6 +390,21 @@ def self_test():
         (tmp / "case_quote_partial_bad.html").write_text(
             '<h1>The Machine Was Hard</h1>'
             '<h2>"a tale of woe": why the machine was hard</h2>' + FAQ_OK)
+        # §5.2 reciprocal links. Three partners that all link back, in the three
+        # href spellings page_key accepts (same-origin absolute, root-absolute,
+        # relative-with-extension), and three strangers that never link back. The
+        # old predicate (`stem in ib[p]`) reported ok for recip_none, because that
+        # predicate is true for every page in `out` by construction.
+        for n in ("recip_a", "recip_b", "recip_c"):
+            (tmp / f"{n}.html").write_text(f'<a href="{SITE}/recip_ok">back</a>')
+        for n in ("recip_stranger1", "recip_stranger2", "recip_stranger3"):
+            (tmp / f"{n}.html").write_text("<p>nothing links out of here</p>")
+        (tmp / "recip_ok.html").write_text(
+            f'<a href="{SITE}/recip_a">a</a> <a href="/recip_b">b</a> '
+            '<a href="recip_c.html">c</a> <a href="/recip_stranger1">d</a>')
+        (tmp / "recip_none.html").write_text(
+            '<a href="/recip_stranger1">a</a> <a href="/recip_stranger2">b</a> '
+            '<a href="recip_stranger3.html">c</a>')
         cases = (
             ("live", DEAD_LINK_GATE, True, ""),
             ("broken", DEAD_LINK_GATE, False, "/rotating-magnetic-field-1888"),
@@ -392,6 +423,8 @@ def self_test():
             ("case_faq_bad", HEADING_CASE_GATE, False, "What did the coil do?"),
             ("case_quote_partial_bad", HEADING_CASE_GATE, False,
              "why the machine was hard"),
+            ("recip_ok", ">= 3 links to pages that link back (\u00a75.2)", True, ""),
+            ("recip_none", ">= 3 links to pages that link back (\u00a75.2)", False, ""),
         )
         results = []
         for name, label, want_ok, want_named in cases:
@@ -410,6 +443,7 @@ def self_test():
         return results
     finally:
         WEB = real_web
+        INBOUND = real_inbound
         shutil.rmtree(tmp, ignore_errors=True)
 
 
