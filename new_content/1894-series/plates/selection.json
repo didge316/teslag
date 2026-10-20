@@ -1,0 +1,2800 @@
+{
+  "generated": "2026-10-19",
+  "source_manifest": "website/assets/tesla1894/manifest_qc.csv",
+  "chapter_map": "books/extracted/chapters-1894.json",
+  "rules": {
+    "verdict": "keep",
+    "quality": [
+      "A",
+      "B"
+    ],
+    "caption_ok": "yes",
+    "figure_number": "read from the caption the page prints under the plate: the extractor's own ink band re-derived at 300 ppi, the text lines in the strip under it, the figure numbers those lines set; plates whose caption line the text layer cannot read are settled by eye against the page render and recorded in overrides.json under verify, and plates that were neither read nor seen are left out",
+    "one_plate_per_printed_figure": true,
+    "per_chapter_cap": 6,
+    "target": 72
+  },
+  "counts": {
+    "manifest_rows": 223,
+    "passed_rules": 90,
+    "duplicate_crops_dropped": 5,
+    "unique_printed_figures": 85,
+    "selected": 72,
+    "quality_A": 66,
+    "quality_B": 6,
+    "hand_cropped": 19,
+    "chapters_covered": 30,
+    "caption_from_text_layer": 53,
+    "caption_by_eye": 0,
+    "caption_from_qc_row": 19,
+    "figure_number_corrected": 17,
+    "caption_names_more_than_one_figure": 21
+  },
+  "plates": [
+    {
+      "file": "p029-fig1-fig1.webp",
+      "printed_page": 11,
+      "figs": [
+        "1",
+        "1a"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "III",
+      "chapter_title": "The Tesla Rotating Magnetic Field",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Two diagrams side by side: an armature drum with coils C between two field-magnet pole pieces, and a circular development diagram of four coil segments C/C1 on an N-S axis",
+      "qc_note": "Clean line art; pair of the same machine at two angular positions",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "Fie. l.",
+          "FIG. la."
+        ],
+        "claim": [
+          "1"
+        ],
+        "widened": [
+          "1a"
+        ]
+      },
+      "caption": "Figs. 1 and 1a - printed p. 11 - Ch. III - Two diagrams side by side: an armature drum with coils C between two field-magnet pole pieces, and a circular development diagram of four coil segments C/C1 on an N-S axis",
+      "alt": "1894 engraving, figs. 1 and 1a, printed p. 11: Two diagrams side by side: an armature drum with coils C between two field-magnet pole pieces, and a circular development diagram of four coil segments C/C1 on an N-S axis"
+    },
+    {
+      "file": "p029-fig2-fig1.webp",
+      "printed_page": 11,
+      "figs": [
+        "2a"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "III",
+      "chapter_title": "The Tesla Rotating Magnetic Field",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Same two-diagram pair with the armature turned about 45 degrees; coil segments shown skewed in the circular diagram",
+      "qc_note": "Second state of Fig.1; usable as a sequence with p029-fig1",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled from the print",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 2a."
+        ],
+        "claim": [
+          "1"
+        ],
+        "corrected_from": [
+          "1"
+        ]
+      },
+      "caption": "Fig. 2a - printed p. 11 - Ch. III - Same two-diagram pair with the armature turned about 45 degrees; coil segments shown skewed in the circular diagram",
+      "alt": "1894 engraving, fig. 2a, printed p. 11: Same two-diagram pair with the armature turned about 45 degrees; coil segments shown skewed in the circular diagram"
+    },
+    {
+      "file": "p030-fig1-fig4.webp",
+      "printed_page": 12,
+      "figs": [
+        "3",
+        "3a"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "III",
+      "chapter_title": "The Tesla Rotating Magnetic Field",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Armature drum between pole pieces plus circular coil-segment diagram, armature advanced three-eighths of a turn",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled from the print",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 3.",
+          "FIG. 3a."
+        ],
+        "claim": [
+          "4"
+        ],
+        "corrected_from": [
+          "4"
+        ]
+      },
+      "caption": "Figs. 3 and 3a - printed p. 12 - Ch. III - Armature drum between pole pieces plus circular coil-segment diagram, armature advanced three-eighths of a turn",
+      "alt": "1894 engraving, figs. 3 and 3a, printed p. 12: Armature drum between pole pieces plus circular coil-segment diagram, armature advanced three-eighths of a turn"
+    },
+    {
+      "file": "p030-fig2-fig4.webp",
+      "printed_page": 12,
+      "figs": [
+        "4",
+        "4a"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "III",
+      "chapter_title": "The Tesla Rotating Magnetic Field",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Same Fig.4 pair at a further rotation",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 4.",
+          "FIG. 4a."
+        ],
+        "claim": [
+          "4"
+        ],
+        "widened": [
+          "4a"
+        ]
+      },
+      "caption": "Figs. 4 and 4a - printed p. 12 - Ch. III - Same Fig.4 pair at a further rotation",
+      "alt": "1894 engraving, figs. 4 and 4a, printed p. 12: Same Fig.4 pair at a further rotation"
+    },
+    {
+      "file": "p032-fig1-fig9.webp",
+      "printed_page": 14,
+      "figs": [
+        "7",
+        "7a"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "III",
+      "chapter_title": "The Tesla Rotating Magnetic Field",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Armature-drum and circular coil diagrams, another angular position",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled from the print",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 7. FIG. Ta."
+        ],
+        "claim": [
+          "9"
+        ],
+        "corrected_from": [
+          "9"
+        ]
+      },
+      "caption": "Figs. 7 and 7a - printed p. 14 - Ch. III - Armature-drum and circular coil diagrams, another angular position",
+      "alt": "1894 engraving, figs. 7 and 7a, printed p. 14: Armature-drum and circular coil diagrams, another angular position"
+    },
+    {
+      "file": "p033-fig1-fig8.webp",
+      "printed_page": 15,
+      "figs": [
+        "8a"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "III",
+      "chapter_title": "The Tesla Rotating Magnetic Field",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Armature-drum and circular coil diagrams, another angular position",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled from the print",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG.",
+          "FIG. 8a."
+        ],
+        "claim": [
+          "8"
+        ],
+        "corrected_from": [
+          "8"
+        ]
+      },
+      "caption": "Fig. 8a - printed p. 15 - Ch. III - Armature-drum and circular coil diagrams, another angular position",
+      "alt": "1894 engraving, fig. 8a, printed p. 15: Armature-drum and circular coil diagrams, another angular position"
+    },
+    {
+      "file": "p045-fig1-fig24.webp",
+      "printed_page": 27,
+      "figs": [
+        "24"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "IV",
+      "chapter_title": "Modifications and Expansions of the Tesla Polyphase Systems",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Polyphase generator and motor linked through transformers to three lamp/meter sets - full wiring diagram",
+      "qc_note": "Large, clean, good for a transmission diagram",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 24."
+        ],
+        "claim": [
+          "24"
+        ]
+      },
+      "caption": "Fig. 24 - printed p. 27 - Ch. IV - Polyphase generator and motor linked through transformers to three lamp/meter sets - full wiring diagram",
+      "alt": "1894 engraving, fig. 24, printed p. 27: Polyphase generator and motor linked through transformers to three lamp/meter sets - full wiring diagram"
+    },
+    {
+      "file": "p046-fig1-fig23.webp",
+      "printed_page": 28,
+      "figs": [
+        "23"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "IV",
+      "chapter_title": "Modifications and Expansions of the Tesla Polyphase Systems",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Alternator with transformer and three meter/lamp branches in a wiring diagram",
+      "qc_note": "Clean, tall format",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 23."
+        ],
+        "claim": [
+          "23"
+        ]
+      },
+      "caption": "Fig. 23 - printed p. 28 - Ch. IV - Alternator with transformer and three meter/lamp branches in a wiring diagram",
+      "alt": "1894 engraving, fig. 23, printed p. 28: Alternator with transformer and three meter/lamp branches in a wiring diagram"
+    },
+    {
+      "file": "p050-fig1-fig25.webp",
+      "printed_page": 32,
+      "figs": [
+        "25"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "V",
+      "chapter_title": "Utilizing Familiar Types of Generators of the Continuous Current Type",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Disc-type alternator with radial conductors feeding a switchboard and a second machine",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 25."
+        ],
+        "claim": [
+          "25"
+        ]
+      },
+      "caption": "Fig. 25 - printed p. 32 - Ch. V - Disc-type alternator with radial conductors feeding a switchboard and a second machine",
+      "alt": "1894 engraving, fig. 25, printed p. 32: Disc-type alternator with radial conductors feeding a switchboard and a second machine"
+    },
+    {
+      "file": "p052-fig1-fig27.webp",
+      "printed_page": 34,
+      "figs": [
+        "27",
+        "26"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "V",
+      "chapter_title": "Utilizing Familiar Types of Generators of the Continuous Current Type",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Segmented ring armature with switch/commutator blocks and connecting leads",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 26.",
+          "FIG. 27."
+        ],
+        "claim": [
+          "27"
+        ],
+        "widened": [
+          "26"
+        ]
+      },
+      "caption": "Figs. 27 and 26 - printed p. 34 - Ch. V - Segmented ring armature with switch/commutator blocks and connecting leads",
+      "alt": "1894 engraving, figs. 27 and 26, printed p. 34: Segmented ring armature with switch/commutator blocks and connecting leads"
+    },
+    {
+      "file": "p055-fig1-fig31.webp",
+      "printed_page": 37,
+      "figs": [
+        "28",
+        "29"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "VI",
+      "chapter_title": "Method of Obtaining Desired Speed of Motor or Generator",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Two polyphase machines coupled by line leads, one with a segmented ring",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled from the print",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 28, FIG. 29."
+        ],
+        "claim": [
+          "31"
+        ],
+        "corrected_from": [
+          "31"
+        ]
+      },
+      "caption": "Figs. 28 and 29 - printed p. 37 - Ch. VI - Two polyphase machines coupled by line leads, one with a segmented ring",
+      "alt": "1894 engraving, figs. 28 and 29, printed p. 37: Two polyphase machines coupled by line leads, one with a segmented ring"
+    },
+    {
+      "file": "p056-fig1-fig30.webp",
+      "printed_page": 38,
+      "figs": [
+        "30"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "VI",
+      "chapter_title": "Method of Obtaining Desired Speed of Motor or Generator",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Two segmented-ring machines (a generator and a motor) coupled through a small transformer/switch block",
+      "qc_note": "Clean; matches the Figs.30-31 generator-and-motor text",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 30.",
+          "FIG. 81."
+        ],
+        "claim": [
+          "30"
+        ]
+      },
+      "caption": "Fig. 30 - printed p. 38 - Ch. VI - Two segmented-ring machines (a generator and a motor) coupled through a small transformer/switch block",
+      "alt": "1894 engraving, fig. 30, printed p. 38: Two segmented-ring machines (a generator and a motor) coupled through a small transformer/switch block"
+    },
+    {
+      "file": "p060-fig1-fig33.webp",
+      "printed_page": 42,
+      "figs": [
+        "33"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "VI",
+      "chapter_title": "Method of Obtaining Desired Speed of Motor or Generator",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Wiring diagram: battery at top, small alternator at left, large segmented-ring machine at bottom, with meters",
+      "qc_note": "Clean, tall format",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 33."
+        ],
+        "claim": [
+          "33"
+        ]
+      },
+      "caption": "Fig. 33 - printed p. 42 - Ch. VI - Wiring diagram: battery at top, small alternator at left, large segmented-ring machine at bottom, with meters",
+      "alt": "1894 engraving, fig. 33, printed p. 42: Wiring diagram: battery at top, small alternator at left, large segmented-ring machine at bottom, with meters"
+    },
+    {
+      "file": "p065-fig1-fig36.webp",
+      "printed_page": 47,
+      "figs": [
+        "36"
+      ],
+      "crop": "extractor",
+      "quality": "B",
+      "medium": "engraving",
+      "chapter": "VII",
+      "chapter_title": "Regulator for Rotary Current Motors",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Three apparatus blocks in a row: induction coil, switch panel, and a small machine with leads",
+      "qc_note": "Small lettering; usable at full column width only",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 36."
+        ],
+        "claim": [
+          "36"
+        ]
+      },
+      "caption": "Fig. 36 - printed p. 47 - Ch. VII - Three apparatus blocks in a row: induction coil, switch panel, and a small machine with leads",
+      "alt": "1894 engraving, fig. 36, printed p. 47: Three apparatus blocks in a row: induction coil, switch panel, and a small machine with leads"
+    },
+    {
+      "file": "p078-fig3-fig45.webp",
+      "printed_page": 60,
+      "figs": [
+        "45",
+        "46",
+        "47"
+      ],
+      "crop": "extractor",
+      "quality": "B",
+      "medium": "engraving",
+      "chapter": "X",
+      "chapter_title": "Motor with Current Lag Artificially Secured",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Circuit diagram, two parallel coil branches into a coil pair, Line terminals",
+      "qc_note": "Right-hand Line label close to crop edge; re-crop with --pad 4 if used",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "Fms. 45, 46 and 47."
+        ],
+        "claim": [
+          "45"
+        ],
+        "widened": [
+          "46",
+          "47"
+        ]
+      },
+      "caption": "Figs. 45, 46 and 47 - printed p. 60 - Ch. X - Circuit diagram, two parallel coil branches into a coil pair, Line terminals",
+      "alt": "1894 engraving, figs. 45, 46 and 47, printed p. 60: Circuit diagram, two parallel coil branches into a coil pair, Line terminals"
+    },
+    {
+      "file": "p079-fig1-fig48.webp",
+      "printed_page": 61,
+      "figs": [
+        "48"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "X",
+      "chapter_title": "Motor with Current Lag Artificially Secured",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Large machine on a base: circular segmented ring with windings and terminal posts",
+      "qc_note": "Good general illustration of a Tesla alternating-current machine",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 48."
+        ],
+        "claim": [
+          "48"
+        ]
+      },
+      "caption": "Fig. 48 - printed p. 61 - Ch. X - Large machine on a base: circular segmented ring with windings and terminal posts",
+      "alt": "1894 engraving, fig. 48, printed p. 61: Large machine on a base: circular segmented ring with windings and terminal posts"
+    },
+    {
+      "file": "p082-fig1-fig51.webp",
+      "printed_page": 64,
+      "figs": [
+        "52"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XI",
+      "chapter_title": "Another Method of Transformation from a Torque to a Synchronizing Motor",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Ring with eight segment coils at left and a six-pointed star-shaped rotor/armature at right",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled from the print",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 52."
+        ],
+        "claim": [
+          "51"
+        ],
+        "corrected_from": [
+          "51"
+        ]
+      },
+      "caption": "Fig. 52 - printed p. 64 - Ch. XI - Ring with eight segment coils at left and a six-pointed star-shaped rotor/armature at right",
+      "alt": "1894 engraving, fig. 52, printed p. 64: Ring with eight segment coils at left and a six-pointed star-shaped rotor/armature at right"
+    },
+    {
+      "file": "p083-fig1-fig52.webp",
+      "printed_page": 65,
+      "figs": [
+        "53"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XI",
+      "chapter_title": "Another Method of Transformation from a Torque to a Synchronizing Motor",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Circuit diagram with coil pairs at left connected to a six-pointed star rotor at right",
+      "qc_note": "Matches the Fig.52 motor text",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled from the print",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "Fm. 53."
+        ],
+        "claim": [
+          "52"
+        ],
+        "corrected_from": [
+          "52"
+        ]
+      },
+      "caption": "Fig. 53 - printed p. 65 - Ch. XI - Circuit diagram with coil pairs at left connected to a six-pointed star rotor at right",
+      "alt": "1894 engraving, fig. 53, printed p. 65: Circuit diagram with coil pairs at left connected to a six-pointed star rotor at right"
+    },
+    {
+      "file": "p099-fig1-fig67.webp",
+      "printed_page": 81,
+      "figs": [
+        "67"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XVI",
+      "chapter_title": "Motor with Equal Magnetic Energies in Field and Armature",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Machine on a base: ring frame with four coil groups and a shaded disc armature",
+      "qc_note": "Clean, good standalone figure",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 67."
+        ],
+        "claim": [
+          "67"
+        ]
+      },
+      "caption": "Fig. 67 - printed p. 81 - Ch. XVI - Machine on a base: ring frame with four coil groups and a shaded disc armature",
+      "alt": "1894 engraving, fig. 67, printed p. 81: Machine on a base: ring frame with four coil groups and a shaded disc armature"
+    },
+    {
+      "file": "p104-fig1-fig71.webp",
+      "printed_page": 86,
+      "figs": [
+        "71"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XVII",
+      "chapter_title": "Motors with Coinciding Maxima of Magnetic Effect in Armature and Field",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Ring machine with segment coils at left, and a four-block collector/commutator section on a shaft at right",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 71."
+        ],
+        "claim": [
+          "71"
+        ]
+      },
+      "caption": "Fig. 71 - printed p. 86 - Ch. XVII - Ring machine with segment coils at left, and a four-block collector/commutator section on a shaft at right",
+      "alt": "1894 engraving, fig. 71, printed p. 86: Ring machine with segment coils at left, and a four-block collector/commutator section on a shaft at right"
+    },
+    {
+      "file": "p108-fig1-fig74.webp",
+      "printed_page": 90,
+      "figs": [
+        "74"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XVIII",
+      "chapter_title": "Motor Based on the Difference of Phase in the Magnetization of the Inner and Outer Parts of an Iron Core",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Vertical machine in section: drum armature on a shaft between two bearing/brush blocks",
+      "qc_note": "Clean, tall",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 74."
+        ],
+        "claim": [
+          "74"
+        ]
+      },
+      "caption": "Fig. 74 - printed p. 90 - Ch. XVIII - Vertical machine in section: drum armature on a shaft between two bearing/brush blocks",
+      "alt": "1894 engraving, fig. 74, printed p. 90: Vertical machine in section: drum armature on a shaft between two bearing/brush blocks"
+    },
+    {
+      "file": "p115-fig1-fig80.webp",
+      "printed_page": 97,
+      "figs": [
+        "78",
+        "79"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XX",
+      "chapter_title": "Combinations of Synchronizing Motor and Torque Motor",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Two segmented-ring machines side by side on bases, with connecting leads",
+      "qc_note": "Matches Fig.80 synchronous-motor text",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled from the print",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 78.",
+          "FIG. 79."
+        ],
+        "claim": [
+          "80"
+        ],
+        "corrected_from": [
+          "80"
+        ]
+      },
+      "caption": "Figs. 78 and 79 - printed p. 97 - Ch. XX - Two segmented-ring machines side by side on bases, with connecting leads",
+      "alt": "1894 engraving, figs. 78 and 79, printed p. 97: Two segmented-ring machines side by side on bases, with connecting leads"
+    },
+    {
+      "file": "p125-fig1-fig91.webp",
+      "printed_page": 107,
+      "figs": [
+        "91"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXII",
+      "chapter_title": "Motor with Condenser in One of the Field Circuits",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Large machine on a base: ring frame with segment coils and shaded poles, small instrument mounted above",
+      "qc_note": "Strong figure for the alternating-current chapter",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 91."
+        ],
+        "claim": [
+          "91"
+        ]
+      },
+      "caption": "Fig. 91 - printed p. 107 - Ch. XXII - Large machine on a base: ring frame with segment coils and shaded poles, small instrument mounted above",
+      "alt": "1894 engraving, fig. 91, printed p. 107: Large machine on a base: ring frame with segment coils and shaded poles, small instrument mounted above"
+    },
+    {
+      "file": "p132-fig1-fig96.webp",
+      "printed_page": 114,
+      "figs": [
+        "95"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXIV",
+      "chapter_title": "A Constant Current Transformer with Magnetic Shield Between Coils of Primary and Secondary",
+      "part": "I",
+      "part_title": "Polyphase Currents",
+      "subject": "Two long mesh-screened rectangles with taps and leads - a modified transformer form",
+      "qc_note": "Matches the Fig.96 transformer text",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled from the print",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 95."
+        ],
+        "claim": [
+          "96"
+        ],
+        "corrected_from": [
+          "96"
+        ]
+      },
+      "caption": "Fig. 95 - printed p. 114 - Ch. XXIV - Two long mesh-screened rectangles with taps and leads - a modified transformer form",
+      "alt": "1894 engraving, fig. 95, printed p. 114: Two long mesh-screened rectangles with taps and leads - a modified transformer form"
+    },
+    {
+      "file": "p171-fig1-fig97.webp",
+      "printed_page": 153,
+      "figs": [
+        "97"
+      ],
+      "crop": "extractor",
+      "quality": "B",
+      "medium": "photograph",
+      "chapter": "XXVI",
+      "chapter_title": "The New York Lecture",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "Of a large disc machine on an X-frame stand, bolted to a plank base",
+      "qc_note": "Halftone plate, slightly dark; run magick -level 15%,85% -sharpen 0x1 before use",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 97."
+        ],
+        "claim": [
+          "97"
+        ]
+      },
+      "caption": "Fig. 97 - printed p. 153 - Ch. XXVI - Of a large disc machine on an X-frame stand, bolted to a plank base",
+      "alt": "1894 photograph, fig. 97, printed p. 153: Of a large disc machine on an X-frame stand, bolted to a plank base"
+    },
+    {
+      "file": "p179-figs116-117.webp",
+      "printed_page": 179,
+      "figs": [
+        "116",
+        "117"
+      ],
+      "crop": "hand",
+      "quality": "A",
+      "medium": "photograph",
+      "chapter": "XXVI",
+      "chapter_title": "The New York Lecture",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "Two photographs of exhausted glass lamps with their printed captions FIG. 116. and FIG. 117.: left a globe with a refractory filament body, right a larger globe showing a refractory block clamped between two leads",
+      "qc_note": "Re-cropped 2026-10-10 from scan file 197 (printed p.179) at 400 ppi, captions inside the crop, body text below excluded. Verified against books/tmp/scan-p197-150ppi.png: printed page 179 and both captions in place. Used in article 01. Supersedes p197-fig1-fig117.webp (no captions).",
+      "flag": false,
+      "verified": true,
+      "caption_state": "settled by row",
+      "caption_evidence": {
+        "how": "hand crop: the QC row records the page being opened at 400-500 ppi and the printed caption read off it",
+        "lines": [],
+        "claim": [
+          "116",
+          "117"
+        ]
+      },
+      "caption": "Figs. 116 and 117 - printed p. 179 - Ch. XXVI - Two photographs of exhausted glass lamps with their printed captions FIG. 116. and FIG. 117.: left a globe with a refractory filament body, right a larger globe showing a refractory block clamped between two leads",
+      "alt": "1894 photograph, figs. 116 and 117, printed p. 179: Two photographs of exhausted glass lamps with their printed captions FIG. 116. and FIG. 117.: left a globe with a refractory filament body, right a larger globe showing a refractory block clamped between two leads"
+    },
+    {
+      "file": "p185-fig124.webp",
+      "printed_page": 185,
+      "figs": [
+        "124"
+      ],
+      "crop": "hand",
+      "quality": "A",
+      "medium": "photograph",
+      "chapter": "XXVI",
+      "chapter_title": "The New York Lecture",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "A sheet-wound induction coil on two posts at left with a hand near one terminal, an exhausted lamp at centre surrounded by a dark outside condenser coating, a square insulated metal plate at right, with the printed FIG. 124. caption",
+      "qc_note": "Re-cropped 2026-10-10 from scan file 203 (printed p.185) at 400 ppi. Verified against books/tmp/scan-p203-150ppi.png; the book text on p.183 says 'Fig. 124 shows the plan of connection'. Used in article 01. Supersedes p203-fig1-fig124.webp.",
+      "flag": false,
+      "verified": true,
+      "caption_state": "settled by row",
+      "caption_evidence": {
+        "how": "hand crop: the QC row records the page being opened at 400-500 ppi and the printed caption read off it",
+        "lines": [],
+        "claim": [
+          "124"
+        ]
+      },
+      "caption": "Fig. 124 - printed p. 185 - Ch. XXVI - A sheet-wound induction coil on two posts at left with a hand near one terminal, an exhausted lamp at centre surrounded by a dark outside condenser coating, a square insulated metal plate at right, with the printed FIG. 124. caption",
+      "alt": "1894 photograph, fig. 124, printed p. 185: A sheet-wound induction coil on two posts at left with a hand near one terminal, an exhausted lamp at centre surrounded by a dark outside condenser coating, a square insulated metal plate at right, with the printed FIG. 124. caption"
+    },
+    {
+      "file": "p188-fig125.webp",
+      "printed_page": 188,
+      "figs": [
+        "125"
+      ],
+      "crop": "hand",
+      "quality": "B",
+      "medium": "photograph",
+      "chapter": "XXVI",
+      "chapter_title": "The New York Lecture",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "Two metal sheets drawn in perspective one above the other, dark discharge about the edges of both and a dark column between them, two exhausted tubes glowing in that space, and at the left the connections drawn schematically (source symbol at the bottom, a small rectangular device, two coupled coils as spirals, one lead from each terminal to a sheet); printed FIG. 125. caption at the right",
+      "qc_note": "Re-cropped 2026-10-11 from scan file 206 (printed p.188) at 400 ppi, 905x1715, whole plate plus printed caption. Verified against books/tmp/scan-p206-150ppi.png: printed page 188 in the corner, caption set sideways at the right. The p.189 text 'Or else I suspend two sheets as illustrated in Fig. 125, each sheet being connected with one of the terminals of the coil, and their size being carefully determined. An exhausted tube may then be carried in the hand anywhere between the sheets ... it remains always luminous' matches the drawing. Circuit read from an enlarged crop (books/tmp/v-fig125-left.png). Used in article 04. Supersedes p206-fig1-fig125.webp (upper half only, no caption) and p206-fig2-fig125.webp (lower half plus caption); neither shows the whole plate. Dark halftone: the discharge areas are near black on the original, left as printed rather than level-corrected.",
+      "flag": false,
+      "verified": true,
+      "caption_state": "settled by row",
+      "caption_evidence": {
+        "how": "hand crop: the QC row records the page being opened at 400-500 ppi and the printed caption read off it",
+        "lines": [],
+        "claim": [
+          "125"
+        ]
+      },
+      "caption": "Fig. 125 - printed p. 188 - Ch. XXVI - Two metal sheets drawn in perspective one above the other, dark discharge about the edges of both and a dark column between them, two exhausted tubes glowing in that space, and at the left the connections drawn schematically (source symbol at the bottom, a small rectangular device, two coupled coils as spirals, one lead from each terminal to a sheet); printed FIG. 125. caption at the right",
+      "alt": "1894 photograph, fig. 125, printed p. 188: Two metal sheets drawn in perspective one above the other, dark discharge about the edges of both and a dark column between them, two exhausted tubes glowing in that space, and at the left the connections drawn schematically (source symbol at the bottom, a small rectangular device, two coupled coils as spirals, one lead from each terminal to a sheet); printed FIG. 125. caption at the right"
+    },
+    {
+      "file": "p192-fig126.webp",
+      "printed_page": 192,
+      "figs": [
+        "126"
+      ],
+      "crop": "hand",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXVI",
+      "chapter_title": "The New York Lecture",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "An induction coil at left driving a condenser across a spark gap, the discharge circuit running to five incandescent lamps in parallel between two conductors, with the printed FIG. 126. caption",
+      "qc_note": "Re-cropped 2026-10-10 from scan file 210 (printed p.192) at 400 ppi. Verified against books/tmp/scan-p210-150ppi.png; p.193 text 'In Fig. 126 a plan of connections is shown for converting currents of high, into currents of low, tension'. Used in article 01. Supersedes p210-fig1-fig126.webp.",
+      "flag": false,
+      "verified": true,
+      "caption_state": "settled by row",
+      "caption_evidence": {
+        "how": "hand crop: the QC row records the page being opened at 400-500 ppi and the printed caption read off it",
+        "lines": [],
+        "claim": [
+          "126"
+        ]
+      },
+      "caption": "Fig. 126 - printed p. 192 - Ch. XXVI - An induction coil at left driving a condenser across a spark gap, the discharge circuit running to five incandescent lamps in parallel between two conductors, with the printed FIG. 126. caption",
+      "alt": "1894 engraving, fig. 126, printed p. 192: An induction coil at left driving a condenser across a spark gap, the discharge circuit running to five incandescent lamps in parallel between two conductors, with the printed FIG. 126. caption"
+    },
+    {
+      "file": "p211-fig1-fig127.webp",
+      "printed_page": 193,
+      "figs": [
+        "127"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXVI",
+      "chapter_title": "The New York Lecture",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "A coil connected to a tube and a receiving coil",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 127."
+        ],
+        "claim": [
+          "127"
+        ]
+      },
+      "caption": "Fig. 127 - printed p. 193 - Ch. XXVI - A coil connected to a tube and a receiving coil",
+      "alt": "1894 engraving, fig. 127, printed p. 193: A coil connected to a tube and a receiving coil"
+    },
+    {
+      "file": "p228-figs144-145.webp",
+      "printed_page": 228,
+      "figs": [
+        "144",
+        "145"
+      ],
+      "crop": "hand",
+      "quality": "B",
+      "medium": "photograph",
+      "chapter": "XXVII",
+      "chapter_title": "The London Lecture",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "Two photographs, Figs. 144 and 145: exhausted lamp globes above their screw bases on dark grounds, left with luminous rays radiating across the whole globe from its centre, right with the rays gathered into a fan at one side",
+      "qc_note": "Re-cropped 2026-10-10 from scan file 246 (printed p.228) at 400 ppi. Verified against books/tmp/scan-p246-150ppi.png: printed page 228, both captions in place. p.227 text 'Figs. 143, 144 and 145 indicate different forms, or stages, of the brush'; p.228 'the bulb appears as in Fig. 144 ... gradually pass to that indicated in Fig. 145'. Used in article 02 as one crop (the two plates are one band on the page and the passage reads across both). Supersedes p246-fig1-fig144.webp. Note: these are whole lamps, not 'sections'.",
+      "flag": false,
+      "verified": true,
+      "caption_state": "settled by row",
+      "caption_evidence": {
+        "how": "hand crop: the QC row records the page being opened at 400-500 ppi and the printed caption read off it",
+        "lines": [],
+        "claim": [
+          "144",
+          "145"
+        ]
+      },
+      "caption": "Figs. 144 and 145 - printed p. 228 - Ch. XXVII - Two photographs, Figs. 144 and 145: exhausted lamp globes above their screw bases on dark grounds, left with luminous rays radiating across the whole globe from its centre, right with the rays gathered into a fan at one side",
+      "alt": "1894 photograph, figs. 144 and 145, printed p. 228: Two photographs, Figs. 144 and 145: exhausted lamp globes above their screw bases on dark grounds, left with luminous rays radiating across the whole globe from its centre, right with the rays gathered into a fan at one side"
+    },
+    {
+      "file": "p234-fig146.webp",
+      "printed_page": 234,
+      "figs": [
+        "146"
+      ],
+      "crop": "hand",
+      "quality": "B",
+      "medium": "photograph",
+      "chapter": "XXVII",
+      "chapter_title": "The London Lecture",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "A coil wound on a long horizontal iron core on two stands, a disc on a pillar at the left end, a transformer in a case at upper left, a square metal plate suspended at the right, with the printed FIG. 146. caption and the plate labels TRANSFORMER / ROTATING DISC / IRON CORE / PLATE SUSPENDED",
+      "qc_note": "Re-cropped 2026-10-10 from scan file 252 (printed p.234) at 400 ppi, printed caption inside the crop. Verified against books/tmp/scan-p252-150ppi.png: printed page 234 in the corner, caption in place. Label regions cropped from the 400 ppi render and upscaled 2026-10-10 (books/tmp/probe-lbl-*.png): 'ROTATING DISC', 'PLATE SUSPENDED' and 'IRON CORE' are legible in the halftone; the label under the case at upper left is degraded, consistent with 'TRANSFORMER' but not readable letter by letter. The book text on p.233 says 'Here, then, is a motor (diagrammatically illustrated in Fig. 146)'. Used in article 02. Supersedes p252-fig1.webp (extractor name carries no figure number; crop cut the baseboard and caption off). negate/autocontrast tested and dropped: it is a photograph on a dark ground, negating would invert the subject.",
+      "flag": false,
+      "verified": true,
+      "caption_state": "settled by row",
+      "caption_evidence": {
+        "how": "hand crop: the QC row records the page being opened at 400-500 ppi and the printed caption read off it",
+        "lines": [],
+        "claim": [
+          "146"
+        ]
+      },
+      "caption": "Fig. 146 - printed p. 234 - Ch. XXVII - A coil wound on a long horizontal iron core on two stands, a disc on a pillar at the left end, a transformer in a case at upper left, a square metal plate suspended at the right, with the printed FIG. 146. caption and the plate labels TRANSFORMER / ROTATING DISC / IRON CORE / PLATE SUSPENDED",
+      "alt": "1894 photograph, fig. 146, printed p. 234: A coil wound on a long horizontal iron core on two stands, a disc on a pillar at the left end, a transformer in a case at upper left, a square metal plate suspended at the right, with the printed FIG. 146. caption and the plate labels TRANSFORMER / ROTATING DISC / IRON CORE / PLATE SUSPENDED"
+    },
+    {
+      "file": "p288-figs163-164.webp",
+      "printed_page": 288,
+      "figs": [
+        "163",
+        "164"
+      ],
+      "crop": "hand",
+      "quality": "A",
+      "medium": "photograph",
+      "chapter": "XXVII",
+      "chapter_title": "The London Lecture",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "Fig. 163 (left) and Fig. 164 (right), each a tall sealed tube with a stem and coatings at its lower end",
+      "qc_note": "Used in article 12 (new_content/1894-series/12-tesla-glowing-tubes-vacuum/article.md) as figure 1. Cut 2026-10-18 at feature-006/t6 from a pdftoppm -r 500 render of books/pdf-pages-tesla-1894/page-306.pdf (1856x3226 px, the native resolution of the image embedded in that page PDF) at box x515,y980 to x1395,y2430 with levels stretched (fig_crop.py --autocontrast), because the plates are dark halftones and unshifted they read as two black bars; that box reproduces the committed file byte for byte. The boxes, pixel sizes and sha256s of all three published crops and all eleven evidence crops cut at this task are recorded in new_content/1894-series/12-tesla-glowing-tubes-vacuum/figures/README.md. Figure number read off the printed caption in the scan per 6.6, never from an extractor filename or a QC note. 880x1450, 84,776 bytes, sha256 5312aff240f8cbf9341a7ba358cf7e4da3b52d0a41d21cee61230e2b68350595. Supersedes p306-fig1-fig163.webp, which is a 300 ppi band with neither printed caption inside it.",
+      "flag": false,
+      "verified": true,
+      "caption_state": "settled by row",
+      "caption_evidence": {
+        "how": "hand crop: the QC row records the page being opened at 400-500 ppi and the printed caption read off it",
+        "lines": [],
+        "claim": [
+          "163",
+          "164"
+        ]
+      },
+      "caption": "Figs. 163 and 164 - printed p. 288 - Ch. XXVII - Fig. 163 (left) and Fig. 164 (right), each a tall sealed tube with a stem and coatings at its lower end",
+      "alt": "1894 photograph, figs. 163 and 164, printed p. 288: Fig. 163 (left) and Fig. 164 (right), each a tall sealed tube with a stem and coatings at its lower end"
+    },
+    {
+      "file": "p331-fig1-fig168.webp",
+      "printed_page": 313,
+      "figs": [
+        "168a",
+        "168b"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXVIII",
+      "chapter_title": "The Philadelphia and St. Louis Lecture",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "Two views of a small device, plan and section (labelled 168a/168b in the book)",
+      "qc_note": "Two sub-figures in one band; fine as a pair",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled from the print",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 168a.",
+          "FIG. 168b."
+        ],
+        "claim": [
+          "168"
+        ],
+        "corrected_from": [
+          "168"
+        ]
+      },
+      "caption": "Figs. 168a and 168b - printed p. 313 - Ch. XXVIII - Two views of a small device, plan and section (labelled 168a/168b in the book)",
+      "alt": "1894 engraving, figs. 168a and 168b, printed p. 313: Two views of a small device, plan and section (labelled 168a/168b in the book)"
+    },
+    {
+      "file": "p339-fig1-fig170.webp",
+      "printed_page": 321,
+      "figs": [
+        "170a",
+        "170b"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXVIII",
+      "chapter_title": "The Philadelphia and St. Louis Lecture",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "Two cylindrical coils with spark streams between them",
+      "qc_note": "Clean line art for the high-frequency discharge passage",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled from the print",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 170a. FIG. 170b."
+        ],
+        "claim": [
+          "170"
+        ],
+        "corrected_from": [
+          "170"
+        ]
+      },
+      "caption": "Figs. 170a and 170b - printed p. 321 - Ch. XXVIII - Two cylindrical coils with spark streams between them",
+      "alt": "1894 engraving, figs. 170a and 170b, printed p. 321: Two cylindrical coils with spark streams between them"
+    },
+    {
+      "file": "p346-fig1-fig175.webp",
+      "printed_page": 328,
+      "figs": [
+        "175"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXVIII",
+      "chapter_title": "The Philadelphia and St. Louis Lecture",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "Two vertical plates with a coil and a break device between them",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 175."
+        ],
+        "claim": [
+          "175"
+        ]
+      },
+      "caption": "Fig. 175 - printed p. 328 - Ch. XXVIII - Two vertical plates with a coil and a break device between them",
+      "alt": "1894 engraving, fig. 175, printed p. 328: Two vertical plates with a coil and a break device between them"
+    },
+    {
+      "file": "p347-fig1-fig176.webp",
+      "printed_page": 329,
+      "figs": [
+        "176"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXVIII",
+      "chapter_title": "The Philadelphia and St. Louis Lecture",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "A plate, a glowing coil and a second plate in circuit",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 176."
+        ],
+        "claim": [
+          "176"
+        ]
+      },
+      "caption": "Fig. 176 - printed p. 329 - Ch. XXVIII - A plate, a glowing coil and a second plate in circuit",
+      "alt": "1894 engraving, fig. 176, printed p. 329: A plate, a glowing coil and a second plate in circuit"
+    },
+    {
+      "file": "p335-fig180.webp",
+      "printed_page": 335,
+      "figs": [
+        "180"
+      ],
+      "crop": "hand",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXVIII",
+      "chapter_title": "The Philadelphia and St. Louis Lecture",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "Four line diagrams, Fig. 180 I. to IV.: each hangs from one line L drawn across the top, with primaries, secondaries, a condenser C, motors M1 to M4, and in plan II an iron core with coil c and a disc d marked with a turning arrow",
+      "qc_note": "Full-page plate printed sideways in scan file 353 (printed p.335); rotated to landscape and cropped 2026-10-10 at 400 ppi, caption inside. Verified against books/tmp/scan-p353-150ppi.png; the plans match the descriptions on printed p.334 and the sentence 'clearly I can also drive a motor by the aid of only one wire' on p.333. The extractor produced no crop for this plate. Used in article 02.",
+      "flag": false,
+      "verified": true,
+      "caption_state": "settled by row",
+      "caption_evidence": {
+        "how": "hand crop: the QC row records the page being opened at 400-500 ppi and the printed caption read off it",
+        "lines": [],
+        "claim": [
+          "180"
+        ]
+      },
+      "caption": "Fig. 180 - printed p. 335 - Ch. XXVIII - Four line diagrams, Fig. 180 I. to IV.: each hangs from one line L drawn across the top, with primaries, secondaries, a condenser C, motors M1 to M4, and in plan II an iron core with coil c and a disc d marked with a turning arrow",
+      "alt": "1894 engraving, fig. 180, printed p. 335: Four line diagrams, Fig. 180 I. to IV.: each hangs from one line L drawn across the top, with primaries, secondaries, a condenser C, motors M1 to M4, and in plan II an iron core with coil c and a disc d marked with a turning arrow"
+    },
+    {
+      "file": "p344-fig184.webp",
+      "printed_page": 344,
+      "figs": [
+        "184"
+      ],
+      "crop": "hand",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXVIII",
+      "chapter_title": "The Philadelphia and St. Louis Lecture",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "Line diagram, Fig. 184: an alternator marked G feeding two line wires L and L1 across the plate; plan II, a coil in many sections tapped at an intermediate point with a phosphorescence lamp B at its free end; plan I, a coil C1 with a brush of discharge at one end, led through condenser plates c and c1 to a large rectangular plate P1",
+      "qc_note": "Re-cropped 2026-10-11 from scan file 362 (printed p.344) at 400 ppi, 1005x368, printed caption inside. Verified against books/tmp/scan-p362-150ppi.png: printed page 344 in the corner, caption in place, and the p.344 text 'In Fig. 184 I. is shown a plan which has been followed in the study of the resonance effects by means of a high frequency alternator' plus the p.345 description of C1, plates c/c1 and the larger plate P1 match the drawing. Labels read from three enlarged crops of the re-crop (books/tmp/v-fig184-left/-mid/-right.png). Used in article 04. Supersedes p362-fig1-fig184.webp (768x240, 150 ppi, no printed caption; its figure number came from a body-text line).",
+      "flag": false,
+      "verified": true,
+      "caption_state": "settled by row",
+      "caption_evidence": {
+        "how": "hand crop: the QC row records the page being opened at 400-500 ppi and the printed caption read off it",
+        "lines": [],
+        "claim": [
+          "184"
+        ]
+      },
+      "caption": "Fig. 184 - printed p. 344 - Ch. XXVIII - Line diagram, Fig. 184: an alternator marked G feeding two line wires L and L1 across the plate; plan II, a coil in many sections tapped at an intermediate point with a phosphorescence lamp B at its free end; plan I, a coil C1 with a brush of discharge at one end, led through condenser plates c and c1 to a large rectangular plate P1",
+      "alt": "1894 engraving, fig. 184, printed p. 344: Line diagram, Fig. 184: an alternator marked G feeding two line wires L and L1 across the plate; plan II, a coil in many sections tapped at an intermediate point with a phosphorescence lamp B at its free end; plan I, a coil C1 with a brush of discharge at one end, led through condenser plates c and c1 to a large rectangular plate P1"
+    },
+    {
+      "file": "p396-fig1-fig205.webp",
+      "printed_page": 378,
+      "figs": [
+        "205"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXIX",
+      "chapter_title": "Tesla Alternating Current Generators for High Frequency",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "Plan view of a machine: two square coil groups on a frame with a shaft and a flywheel",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 205."
+        ],
+        "claim": [
+          "205"
+        ]
+      },
+      "caption": "Fig. 205 - printed p. 378 - Ch. XXIX - Plan view of a machine: two square coil groups on a frame with a shaft and a flywheel",
+      "alt": "1894 engraving, fig. 205, printed p. 378: Plan view of a machine: two square coil groups on a frame with a shaft and a flywheel"
+    },
+    {
+      "file": "p397-fig1-fig207.webp",
+      "printed_page": 379,
+      "figs": [
+        "206"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXIX",
+      "chapter_title": "Tesla Alternating Current Generators for High Frequency",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "Section through a machine: hatched pole pieces, shaft, and terminal posts",
+      "qc_note": "Clean, high detail",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled from the print",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 206."
+        ],
+        "claim": [
+          "207"
+        ],
+        "corrected_from": [
+          "207"
+        ]
+      },
+      "caption": "Fig. 206 - printed p. 379 - Ch. XXIX - Section through a machine: hatched pole pieces, shaft, and terminal posts",
+      "alt": "1894 engraving, fig. 206, printed p. 379: Section through a machine: hatched pole pieces, shaft, and terminal posts"
+    },
+    {
+      "file": "p392-fig208.webp",
+      "printed_page": 392,
+      "figs": [
+        "208"
+      ],
+      "crop": "hand",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXX",
+      "chapter_title": "Alternate Current Electrostatic Induction Apparatus",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "A ring marked A lined on the inside with two sets of tin-foil coatings marked a and b, and inside it a cylinder marked B carrying coatings marked a1 and b1, the two sets led out to two ring terminals marked T with + and - signs; dashed field lines drawn through both",
+      "qc_note": "Re-cropped 2026-10-11 (task feature-005/t2) from scan file 410 (printed p.392) at 400 ppi, 900x950, printed caption inside. Viewed against books/tmp/f05t2/p410-400.png: chapter XXX heading, printed page 392, caption in place. Labels read from the crop itself: A, B, a, b, a1, b1, T, + and -. The p.392 prose matches the drawing ('a ring of dry, shellacked hard wood... two sets of coatings of tin foil... a cylinder... arranged so that it can rotate'). Number taken from the printed caption, not the extractor name. Supersedes p410-fig1-fig208.webp (680x665, 150 ppi, no printed caption). Used in article 05, which carries it because chapter XXXI (printed pp.394-395) has no illustration; manifest_qc.csv row 139 called this a 'Circular phase diagram', which it is not.",
+      "flag": false,
+      "verified": true,
+      "caption_state": "settled by row",
+      "caption_evidence": {
+        "how": "hand crop: the QC row records the page being opened at 400-500 ppi and the printed caption read off it",
+        "lines": [],
+        "claim": [
+          "208"
+        ]
+      },
+      "caption": "Fig. 208 - printed p. 392 - Ch. XXX - A ring marked A lined on the inside with two sets of tin-foil coatings marked a and b, and inside it a cylinder marked B carrying coatings marked a1 and b1, the two sets led out to two ring terminals marked T with + and - signs; dashed field lines drawn through both",
+      "alt": "1894 engraving, fig. 208, printed p. 392: A ring marked A lined on the inside with two sets of tin-foil coatings marked a and b, and inside it a cylinder marked B carrying coatings marked a1 and b1, the two sets led out to two ring terminals marked T with + and - signs; dashed field lines drawn through both"
+    },
+    {
+      "file": "p393-fig209.webp",
+      "printed_page": 393,
+      "figs": [
+        "209"
+      ],
+      "crop": "hand",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXX",
+      "chapter_title": "Alternate Current Electrostatic Induction Apparatus",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "A circular plate carrying two sets of coatings marked a and b cut as six lobed sectors, a shaft cross-section at the centre, and two leads run out to two ring terminals at the lower right",
+      "qc_note": "Re-cropped 2026-10-11 (task feature-005/t2) from scan file 411 (printed p.393) at 400 ppi, 860x910, printed caption inside. Viewed against books/tmp/f05t2/p411-400.png: printed page 393, caption 'FIG. 209.' legible in the crop. The p.393 prose names this plate Fig. 209 ('Another form of apparatus is illustrated in Fig. 209... the coatings a and b are glued on a plate of ebonite, and a similar plate which is rotated... is provided'). The extractor file was named fig208 and row 140 of this manifest already records that number as wrong; the number here is read off the printed caption. Supersedes p411-fig1-fig208.webp (645x639, 150 ppi, wrong number, no caption). Used in article 05.",
+      "flag": false,
+      "verified": true,
+      "caption_state": "settled by row",
+      "caption_evidence": {
+        "how": "hand crop: the QC row records the page being opened at 400-500 ppi and the printed caption read off it",
+        "lines": [],
+        "claim": [
+          "209"
+        ]
+      },
+      "caption": "Fig. 209 - printed p. 393 - Ch. XXX - A circular plate carrying two sets of coatings marked a and b cut as six lobed sectors, a shaft cross-section at the centre, and two leads run out to two ring terminals at the lower right",
+      "alt": "1894 engraving, fig. 209, printed p. 393: A circular plate carrying two sets of coatings marked a and b cut as six lobed sectors, a shaft cross-section at the centre, and two leads run out to two ring terminals at the lower right"
+    },
+    {
+      "file": "p397-fig210.webp",
+      "printed_page": 397,
+      "figs": [
+        "210"
+      ],
+      "crop": "hand",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXXII",
+      "chapter_title": "Electric Discharge in Vacuum Tubes",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "An incandescent lamp bulb drawn in section with a glass tube sealed at one end standing inside it and a heavy shaded cylinder inside that tube, two leads bent at right angles at the foot, fine curved lines in the space between tube and bulb, a small separate hatched detail at the lower right",
+      "qc_note": "Used in article 12 (new_content/1894-series/12-tesla-glowing-tubes-vacuum/article.md) as figure 2. Cut 2026-10-18 at feature-006/t6 from a pdftoppm -r 500 render of books/pdf-pages-tesla-1894/page-415.pdf (1856x3226 px, the native resolution of the image embedded in that page PDF) at box x608,y1187 to x1393,y2126; that box reproduces the committed file byte for byte. The boxes, pixel sizes and sha256s of all three published crops and all eleven evidence crops cut at this task are recorded in new_content/1894-series/12-tesla-glowing-tubes-vacuum/figures/README.md. Figure number read off the printed caption in the scan per 6.6, never from an extractor filename or a QC note. 785x939, 54,204 bytes, sha256 0aaa8e1d9fea89a618b90b8f572e48ffb862ecccfee444229a5883cbe18932c7. Supersedes p415-fig1-fig210.webp, which is a 300 ppi crop with the printed caption outside it.",
+      "flag": false,
+      "verified": true,
+      "caption_state": "settled by row",
+      "caption_evidence": {
+        "how": "hand crop: the QC row records the page being opened at 400-500 ppi and the printed caption read off it",
+        "lines": [],
+        "claim": [
+          "210"
+        ]
+      },
+      "caption": "Fig. 210 - printed p. 397 - Ch. XXXII - An incandescent lamp bulb drawn in section with a glass tube sealed at one end standing inside it and a heavy shaded cylinder inside that tube, two leads bent at right angles at the foot, fine curved lines in the space between tube and bulb, a small separate hatched detail at the lower right",
+      "alt": "1894 engraving, fig. 210, printed p. 397: An incandescent lamp bulb drawn in section with a glass tube sealed at one end standing inside it and a heavy shaded cylinder inside that tube, two leads bent at right angles at the foot, fine curved lines in the space between tube and bulb, a small separate hatched detail at the lower right"
+    },
+    {
+      "file": "p418-fig2-fig215.webp",
+      "printed_page": 400,
+      "figs": [
+        "215"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXXII",
+      "chapter_title": "Electric Discharge in Vacuum Tubes",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "A spiral coil wound round a cylinder with a vacuum lamp suspended inside, leads P and P1",
+      "qc_note": "NUMBER RIGHT by luck, SUBJECT LINE WRONG in three of its words. Settled visually at 500 ppi: this is the lower plate on a pdftoppm -r 500 render of books/pdf-pages-tesla-1894/page-418.pdf (1856x3226 px, the native resolution of the image embedded in that page PDF), x493-1483 y1898-2645, with the print's 'FIG. 215.' under it. Opened at 500 ppi with the caption inside: a cylindrical coil of many turns, an exhausted bulb standing inside it marked B, a band drawn between the coil and the bulb marked T at the top right, and two leads marked P out at the left and right. There is no 'P1' on the plate; the letters are B, T and P, and all three are named in the prose on printed p.401 ('luminosity was excited in an exhausted tube or bulb B and a glass tube T slipped between the primary and the bulb'). NOT PUBLISHED by article 12: three figures is 6.6's ceiling and the page fills it with the tube pair, Fig. 210 and Fig. 218. The sentence this plate belongs to is quoted on the page without a figure. Earlier note said: Clean; good 'lamp inside a coil' illustration",
+      "flag": true,
+      "verified": true,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 215.",
+          "for an electrostatic effect."
+        ],
+        "claim": [
+          "215"
+        ]
+      },
+      "caption": "Fig. 215 - printed p. 400 - Ch. XXXII - A spiral coil wound round a cylinder with a vacuum lamp suspended inside, leads P and P1",
+      "alt": "1894 engraving, fig. 215, printed p. 400: A spiral coil wound round a cylinder with a vacuum lamp suspended inside, leads P and P1"
+    },
+    {
+      "file": "p403-fig218.webp",
+      "printed_page": 403,
+      "figs": [
+        "218"
+      ],
+      "crop": "hand",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXXII",
+      "chapter_title": "Electric Discharge in Vacuum Tubes",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "A bell-jar on a flat base, an exhausted bulb inside it with its long neck through a stopper at the top and three leads led down into it, a spiral of four turns of wire around the body of the bulb with both ends led up out of the jar",
+      "qc_note": "Used in article 12 (new_content/1894-series/12-tesla-glowing-tubes-vacuum/article.md) as figure 3. Cut 2026-10-18 at feature-006/t6 from a pdftoppm -r 500 render of books/pdf-pages-tesla-1894/page-421.pdf (1856x3226 px, the native resolution of the image embedded in that page PDF) at box x235,y1120 to x765,y2230; that box reproduces the committed file byte for byte. The boxes, pixel sizes and sha256s of all three published crops and all eleven evidence crops cut at this task are recorded in new_content/1894-series/12-tesla-glowing-tubes-vacuum/figures/README.md. Figure number read off the printed caption in the scan per 6.6, never from an extractor filename or a QC note. 530x1110, 55,856 bytes, sha256 7f411a57a6f4a09c844851d7ad17dc2990ce58b4023eb206be490b4d8cc4f57d. Supersedes nothing that was usable: p421-fig1-fig218.webp is a 300 ppi band holding Fig. 218 and Fig. 219 side by side and named from body type. Turn count corrected from five to four at feature-006/t7 (2026-10-18), re-measured on this published 530x1110 file rather than restated: along the bulb's vertical centre line x=265 the dark runs below y=500 start at 579, 583, 628, 641, 665, 679, 686, 699, 725, 738, 756, 783, 796, 833, 840, 853, 866, 873, which group from 628 to 876 into eight double-stroke wire arcs, i.e. four turns; the same grouping at x=255 and x=275 gives eight arcs as well. The plate was also opened and read as an image: four loops around the bulb. Measurement method and the same count are in new_content/1894-series/12-tesla-glowing-tubes-vacuum/figures/README.md, where the correction was first made at feature-006/a12-figrec and left for the row that next commits website/.",
+      "flag": false,
+      "verified": true,
+      "caption_state": "settled by row",
+      "caption_evidence": {
+        "how": "hand crop: the QC row records the page being opened at 400-500 ppi and the printed caption read off it",
+        "lines": [],
+        "claim": [
+          "218"
+        ]
+      },
+      "caption": "Fig. 218 - printed p. 403 - Ch. XXXII - A bell-jar on a flat base, an exhausted bulb inside it with its long neck through a stopper at the top and three leads led down into it, a spiral of four turns of wire around the body of the bulb with both ends led up out of the jar",
+      "alt": "1894 engraving, fig. 218, printed p. 403: A bell-jar on a flat base, an exhausted bulb inside it with its long neck through a stopper at the top and three leads led down into it, a spiral of four turns of wire around the body of the bulb with both ends led up out of the jar"
+    },
+    {
+      "file": "p421-fig1-fig218.webp",
+      "printed_page": 403,
+      "figs": [
+        "218",
+        "219"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXXII",
+      "chapter_title": "Electric Discharge in Vacuum Tubes",
+      "part": "II",
+      "part_title": "The Tesla Effects with High Frequency and High Potential Currents",
+      "subject": "A glass flask containing a spiral coil with multiple leads, beside a small two-bulb device",
+      "qc_note": "TWO BOOK FIGURES IN ONE BAND, and the name came from body type, not from a caption. On a pdftoppm -r 500 render of books/pdf-pages-tesla-1894/page-421.pdf (1856x3226 px, the native resolution of the image embedded in that page PDF) the left plate runs x240-760 y1140-2158 with the printed caption 'FIG. 218.' at x403-588 y2173-2222, and the right plate runs x910-1480 y1560-2135 with the printed caption 'FIG. 219.' at x1103-1287 y2178-2226. Fig. 218 was opened at 500 ppi with its caption inside and matches the abstract's sentence on the same printed page: 'Another exhausted bulb, Fig. 218, surrounded by a primary spiral, was contained in a bell-jar' - a bell-jar on a flat base, an exhausted bulb inside it with its neck through a stopper at the top, three leads down into it, and a spiral of four turns around its body with both ends led up out of the jar (the count in this row was corrected from five at feature-006/t7, re-measured on the published crop p403-fig218.webp; the five-turn count in the row above, p420-fig1-fig216.webp, belongs to Fig. 217, a different plate that has not been re-measured, and is left as it stands). Fig. 219 was not opened. Used in article 12 as figure 3, as the left-hand plate alone, in p403-fig218.webp. Earlier note said: Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 218.",
+          "FIG. 219."
+        ],
+        "claim": [
+          "218"
+        ],
+        "widened": [
+          "219"
+        ]
+      },
+      "caption": "Figs. 218 and 219 - printed p. 403 - Ch. XXXII - A glass flask containing a spiral coil with multiple leads, beside a small two-bulb device",
+      "alt": "1894 engraving, figs. 218 and 219, printed p. 403: A glass flask containing a spiral coil with multiple leads, beside a small two-bulb device"
+    },
+    {
+      "file": "p410-fig220.webp",
+      "printed_page": 410,
+      "figs": [
+        "220"
+      ],
+      "crop": "hand",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXXIII",
+      "chapter_title": "Method of Obtaining Direct from Alternating Currents",
+      "part": "III",
+      "part_title": "Miscellaneous Inventions and Writings",
+      "subject": "One circuit diagram - a rectangular box marked A low in the centre, two conductors marked B leading out of it and turning up at the sides of the plate, dividing at a point marked Y at the left and rejoining at a point marked X at the right, an upper branch marked C carrying a round cell symbol with one long and one short bar marked E, a lower branch marked D carrying the same symbol marked F, and three small dark diamond symbols set at intervals along each branch",
+      "qc_note": "Used in article 08 (tesla-weird-inventions-1894.html) as figure 1, at the end of entry 1. Cut 2026-10-17 at feature-006/t2 from a pdftoppm -r 500 render of books/pdf-pages-tesla-1894/page-428.pdf (1856x3227 px, the native resolution of the image embedded in that page PDF), at box x396,y1291 to x1511,y1920; that box reproduces the committed file byte for byte, and the boxes and sha256s of all eleven crops made at this task are recorded in new_content/1894-series/08-tesla-weird-inventions-1894/figures/README.md. Figure number read off the printed caption in the scan per 6.6, never from an extractor filename or a QC note. 1115x629, 21,236 bytes, sha256 30a0d64a1841cf4357ae59381ea502fa2cd46e73e65c4a1c38f01e4b8db1a419. Two independent reads of the number on printed p.410: the printed caption new_content/1894-series/08-tesla-weird-inventions-1894/figures/p410-printed-caption-fig220.png, and the body type on the same page in the same directory, p410-bodyref-fig220-line.png, which begins 'In Fig. 220, A designates a generator of alternating currents'. The prose on that page matches the drawing - the circuit 'is divided into two paths or branches', with 'the generators E F are connected up in series therein, one generator in each part or half of the circuit'. SUPERSEDES p428-fig1-fig220.webp (row 149): 300 ppi, no printed caption, subject line wrong about the parts. The three dark symbols are not described anywhere in ch. XXXIII, so the alt text names their shape only and the caption says plainly that they are not named.",
+      "flag": true,
+      "verified": true,
+      "caption_state": "settled by row",
+      "caption_evidence": {
+        "how": "hand crop: the QC row records the page being opened at 400-500 ppi and the printed caption read off it",
+        "lines": [],
+        "claim": [
+          "220"
+        ]
+      },
+      "caption": "Fig. 220 - printed p. 410 - Ch. XXXIII - One circuit diagram - a rectangular box marked A low in the centre, two conductors marked B leading out of it and turning up at the sides of the plate, dividing at a point marked Y at the left and rejoining at a point marked X at the right, an upper branch marked C carrying a round cell symbol with one long and one short bar marked E, a lower branch marked D carrying the same symbol marked F, and three small dark diamond symbols set at intervals along each branch",
+      "alt": "1894 engraving, fig. 220, printed p. 410: One circuit diagram - a rectangular box marked A low in the centre, two conductors marked B leading out of it and turning up at the sides of the plate, dividing at a point marked Y at the left and rejoining at a point marked X at the right, an upper branch marked C carrying a round cell symbol with one long and one short bar marked E, a lower branch marked D carrying the same symbol marked F, and three small dark diamond symbols set at intervals along each branch"
+    },
+    {
+      "file": "p429-fig1-fig221.webp",
+      "printed_page": 411,
+      "figs": [
+        "221"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXXIII",
+      "chapter_title": "Method of Obtaining Direct from Alternating Currents",
+      "part": "III",
+      "part_title": "Miscellaneous Inventions and Writings",
+      "subject": "Two machine sections with meters in a circuit",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 221."
+        ],
+        "claim": [
+          "221"
+        ]
+      },
+      "caption": "Fig. 221 - printed p. 411 - Ch. XXXIII - Two machine sections with meters in a circuit",
+      "alt": "1894 engraving, fig. 221, printed p. 411: Two machine sections with meters in a circuit"
+    },
+    {
+      "file": "p430-fig1-fig222.webp",
+      "printed_page": 412,
+      "figs": [
+        "222"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXXIII",
+      "chapter_title": "Method of Obtaining Direct from Alternating Currents",
+      "part": "III",
+      "part_title": "Miscellaneous Inventions and Writings",
+      "subject": "Four machine units arranged around a central disc - a diagrammatic polyphase arrangement",
+      "qc_note": "Clean; good for the rotating-field explanation",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 222."
+        ],
+        "claim": [
+          "222"
+        ]
+      },
+      "caption": "Fig. 222 - printed p. 412 - Ch. XXXIII - Four machine units arranged around a central disc - a diagrammatic polyphase arrangement",
+      "alt": "1894 engraving, fig. 222, printed p. 412: Four machine units arranged around a central disc - a diagrammatic polyphase arrangement"
+    },
+    {
+      "file": "p431-fig1-fig223.webp",
+      "printed_page": 413,
+      "figs": [
+        "223"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXXIII",
+      "chapter_title": "Method of Obtaining Direct from Alternating Currents",
+      "part": "III",
+      "part_title": "Miscellaneous Inventions and Writings",
+      "subject": "Four field coils with two armatures in a circuit",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 223."
+        ],
+        "claim": [
+          "223"
+        ]
+      },
+      "caption": "Fig. 223 - printed p. 413 - Ch. XXXIII - Four field coils with two armatures in a circuit",
+      "alt": "1894 engraving, fig. 223, printed p. 413: Four field coils with two armatures in a circuit"
+    },
+    {
+      "file": "p432-fig1-fig225.webp",
+      "printed_page": 414,
+      "figs": [
+        "224"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXXIII",
+      "chapter_title": "Method of Obtaining Direct from Alternating Currents",
+      "part": "III",
+      "part_title": "Miscellaneous Inventions and Writings",
+      "subject": "Circuit with four magnet units and two armatures, labelled as a distinct type of connection",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled from the print",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 224."
+        ],
+        "claim": [
+          "225"
+        ],
+        "corrected_from": [
+          "225"
+        ]
+      },
+      "caption": "Fig. 224 - printed p. 414 - Ch. XXXIII - Circuit with four magnet units and two armatures, labelled as a distinct type of connection",
+      "alt": "1894 engraving, fig. 224, printed p. 414: Circuit with four magnet units and two armatures, labelled as a distinct type of connection"
+    },
+    {
+      "file": "p418-fig227.webp",
+      "printed_page": 418,
+      "figs": [
+        "227"
+      ],
+      "crop": "hand",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXXIV",
+      "chapter_title": "Condensers with Plates in Oil",
+      "part": "III",
+      "part_title": "Miscellaneous Inventions and Writings",
+      "subject": "A rectangular can shown in section with its walls hatched, a stack of horizontal plates standing inside near each end marked B and c, three dark vertical strips between the two stacks marked F, the whole interior filled with a stippled space marked G, a terminal led out through the middle of each short wall marked D and E, the case marked A",
+      "qc_note": "Used in article 08 as figure 2, at the end of entry 2. Cut 2026-10-17 at feature-006/t2 from a pdftoppm -r 500 render of books/pdf-pages-tesla-1894/page-436.pdf (1856x3227 px, the native resolution of the image embedded in that page PDF), at box x220,y1538 to x1153,y2034; that box reproduces the committed file byte for byte, and the boxes and sha256s of all eleven crops made at this task are recorded in new_content/1894-series/08-tesla-weird-inventions-1894/figures/README.md. Figure number read off the printed caption in the scan per 6.6, never from an extractor filename or a QC note. 933x496, 40,390 bytes, sha256 adf89bbad4ce82ea53aef1b845cb7562d0e87c485c1585c247c802862546c65d. THE FIRST CROP OF PRINTED p.418 ANY PASS HAS MADE, and this is why there is no extractor row for that page: extract_figures.py run over scan 436 at both 300 and 500 dpi returns 0 figures for it, because the tool masks every row the text layer claims and these two plates sit inside the claimed text block. The ink is there - in the 500 ppi render the plates run y1474 to y1941, x230 to x1143 for the left (Fig. 227) and x1233 to x1730 for the right (Fig. 228), and both printed captions sit under them at y1945 to y2024; see new_content/1894-series/08-tesla-weird-inventions-1894/figures/p418-printed-caption-band-fig227-fig228.png, which shows 'FIG. 227.' and 'FIG. 228.' side by side. Every letter in this subject line is legible in the crop and is the letter the prose on printed p.419 uses: 'Fig. 227 is a section of a condenser constructed in accordance with this principle and having stationary plates', box or receptacle A, plates B and c, terminals D and E led out through the sides, strips of porous insulating material F 'used merely for the purpose of maintaining them in position', and 'The space within the can is filled with oil G'. Nothing on this plate is a solid dielectric - the insulating thing between the plates is the oil, and the strips are spacers. Supersedes nothing: there was nothing to supersede.",
+      "flag": false,
+      "verified": true,
+      "caption_state": "settled by row",
+      "caption_evidence": {
+        "how": "hand crop: the QC row records the page being opened at 400-500 ppi and the printed caption read off it",
+        "lines": [],
+        "claim": [
+          "227"
+        ]
+      },
+      "caption": "Fig. 227 - printed p. 418 - Ch. XXXIV - A rectangular can shown in section with its walls hatched, a stack of horizontal plates standing inside near each end marked B and c, three dark vertical strips between the two stacks marked F, the whole interior filled with a stippled space marked G, a terminal led out through the middle of each short wall marked D and E, the case marked A",
+      "alt": "1894 engraving, fig. 227, printed p. 418: A rectangular can shown in section with its walls hatched, a stack of horizontal plates standing inside near each end marked B and c, three dark vertical strips between the two stacks marked F, the whole interior filled with a stippled space marked G, a terminal led out through the middle of each short wall marked D and E, the case marked A"
+    },
+    {
+      "file": "p439-fig1-fig229.webp",
+      "printed_page": 421,
+      "figs": [
+        "229"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXXV",
+      "chapter_title": "Electrolytic Registering Meter",
+      "part": "III",
+      "part_title": "Miscellaneous Inventions and Writings",
+      "subject": "A long spiral-wound tube with tapped terminals down one side and a galvanometer",
+      "qc_note": "Clean; good coherer/retcoherer illustration. WRONG COMPARISON, corrected 2026-10-17 (feature-006/t2): this is a meter figure, not a coherer. Printed p.421, the page this crop is on, says 'Figs. 229 and 230 illustrate two forms of such a meter' and then 'In Fig. 229 G designates a direct-current generator. L L are the conductors of the circuit extending therefrom.' The tube-and-terminals part of the subject line is right; the coherer comparison is not. Settled from the volume's own text layer at printed p.421, not from a render: no figure from that page is published on article 08, so per 6.6 the plate was not re-opened.",
+      "flag": true,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 229."
+        ],
+        "claim": [
+          "229"
+        ]
+      },
+      "caption": "Fig. 229 - printed p. 421 - Ch. XXXV - A long spiral-wound tube with tapped terminals down one side and a galvanometer",
+      "alt": "1894 engraving, fig. 229, printed p. 421: A long spiral-wound tube with tapped terminals down one side and a galvanometer"
+    },
+    {
+      "file": "p440-fig1-fig230.webp",
+      "printed_page": 422,
+      "figs": [
+        "280"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXXV",
+      "chapter_title": "Electrolytic Registering Meter",
+      "part": "III",
+      "part_title": "Miscellaneous Inventions and Writings",
+      "subject": "A long tube with two coil ends and a row of tapped contacts",
+      "qc_note": "Clean, wide. FIGURE NUMBER SETTLED AGAINST THE PRINT at 500 ppi, 2026-10-17 (feature-006/t2): the printed caption on this page is 'FIG. 230.', not the 'FIG. 280.' the text layer returns - new_content/1894-series/08-tesla-weird-inventions-1894/figures/p422-printed-caption-fig230.png - and the body type on the same printed p.422 reads \"In Fig. 230 the conductors c c' are connected in parallel\", new_content/1894-series/08-tesla-weird-inventions-1894/figures/p422-bodyref-fig230-line.png. SUBJECT LINE INCOMPLETE: the plate is the meter circuit and not only a tube - it also carries the coiled resistances marked R' and R'' at either side, the round instrument marked G in the line conductors L L, and the vertical ladder of seven contact points marked T, which belongs to the circuit and is not part of the tube. The printed caption happens to fall inside this extractor crop's box, which is the only part of it that meets 6.6. NOT PUBLISHED on article 08 - placement, not evidence; the crop is cuttable at the box recorded in that article's frontmatter whenever a page wants it.",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled from the print",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 280."
+        ],
+        "claim": [
+          "230"
+        ],
+        "corrected_from": [
+          "230"
+        ]
+      },
+      "caption": "Fig. 280 - printed p. 422 - Ch. XXXV - A long tube with two coil ends and a row of tapped contacts",
+      "alt": "1894 engraving, fig. 280, printed p. 422: A long tube with two coil ends and a row of tapped contacts"
+    },
+    {
+      "file": "p444-fig1-fig235.webp",
+      "printed_page": 426,
+      "figs": [
+        "235",
+        "234"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXXVI",
+      "chapter_title": "Thermo-Magnetic Motors and Pyro-Magnetic Generators",
+      "part": "III",
+      "part_title": "Miscellaneous Inventions and Writings",
+      "subject": "Three views of a frame machine with a helix and armature, plus a small motor at centre",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "Fie. 234.",
+          "FIG. 235."
+        ],
+        "claim": [
+          "235"
+        ],
+        "widened": [
+          "234"
+        ]
+      },
+      "caption": "Figs. 235 and 234 - printed p. 426 - Ch. XXXVI - Three views of a frame machine with a helix and armature, plus a small motor at centre",
+      "alt": "1894 engraving, figs. 235 and 234, printed p. 426: Three views of a frame machine with a helix and armature, plus a small motor at centre"
+    },
+    {
+      "file": "p430-fig242.webp",
+      "printed_page": 430,
+      "figs": [
+        "242"
+      ],
+      "crop": "hand",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXXVI",
+      "chapter_title": "Thermo-Magnetic Motors and Pyro-Magnetic Generators",
+      "part": "III",
+      "part_title": "Miscellaneous Inventions and Writings",
+      "subject": "A long horizontal bundle of parallel tubes in section spanning the width of the plate, wound at two places with coils of many turns marked F and E', those two coils led up to two small round instruments marked r and r'; the middle of the bundle passes up through a column standing in a rectangular firebox marked D with a fire drawn under it and a door with a handle at its foot, and above the firebox the column branches into two vertical vessels partly filled with liquid with a wide flue rising between them; pipes marked H and G run from near the ends of the tube bundle up and over to those vessels, one of them with a valve in it; a spring loaded fitting marked V S J at the left end of the bundle, and the whole machine standing on a flat base marked A",
+      "qc_note": "Used in article 08 as figure 3, inside the closing beat, which names this machine - the only thing in this volume the phrase 'magnetic generator' is attached to, and it is a heat engine. Cut 2026-10-17 at feature-006/t2 from a pdftoppm -r 500 render of books/pdf-pages-tesla-1894/page-448.pdf (1856x3227 px, the native resolution of the image embedded in that page PDF), at box x196,y1189 to x1365,y1957; that box reproduces the committed file byte for byte, and the boxes and sha256s of all eleven crops made at this task are recorded in new_content/1894-series/08-tesla-weird-inventions-1894/figures/README.md. Figure number read off the printed caption in the scan per 6.6, never from an extractor filename or a QC note. 1169x768, 73,692 bytes, sha256 40e6a706c34dfaa4384dd5bf3c789a1dcfabe6b1ea64189d5d73d08d02a04072. Which plate is which was read off the body type of the same printed p.430 and not off the file name: new_content/1894-series/08-tesla-weird-inventions-1894/figures/p430-bodyref-fig242-line.png reads 'Fig. 242 is a central vertical longitudinal section of the com-' and p430-bodyref-fig243-line.png continues 'plete apparatus and Fig. 243 is a cross-section of the magnetic', with the printed captions 'FIG. 242.' and 'FIG. 243.' in p430-printed-caption-band-fig242-fig243.png. The prose on the page matches the drawing part for part - a casing or shell enclosing a number of hollow iron tubes, conductors wound around it forming the coils in which the currents are developed, current consuming devices in the circuits of those coils, a furnace or closed firebox surrounding the middle of the core, a boiler holding water above the fire, and the steam from the boiler passing through the tubes, which is the artificial cooling the page calls the first of its two features of novelty. NOTE FOR ANYONE WRITING A CAPTION FROM THIS PLATE: the letters on the plate do not all match the letters in that prose - the firebox the text calls n is marked D here - so article 08's caption names the parts in words and not by letter. SUPERSEDES p448-fig1-fig243.webp (row 161), a 300 ppi two-figure band named for the smaller of the two plates and carrying neither printed caption. ALSO USED IN ARTICLE 10 (feature-007/t2, 2026-10-18) as its figure 2, borrowed unchanged and re-captioned for a different point, the fire under the machine and the boiler above it, which is the condition 6.6 puts on running the same engraving on two articles; the two captions are not interchangeable and the alt texts necessarily resemble each other because it is the same plate. Re-hashed at that task and unchanged: sha256 40e6a706c34dfaa4384dd5bf3c789a1dcfabe6b1ea64189d5d73d08d02a04072.",
+      "flag": false,
+      "verified": true,
+      "caption_state": "settled by row",
+      "caption_evidence": {
+        "how": "hand crop: the QC row records the page being opened at 400-500 ppi and the printed caption read off it",
+        "lines": [],
+        "claim": [
+          "242"
+        ]
+      },
+      "caption": "Fig. 242 - printed p. 430 - Ch. XXXVI - A long horizontal bundle of parallel tubes in section spanning the width of the plate, wound at two places with coils of many turns marked F and E', those two coils led up to two small round instruments marked r and r'; the middle of the bundle passes up through a column standing in a rectangular firebox marked D with a fire drawn under it and a door with a handle at its foot, and above the firebox the column branches into two vertical vessels partly filled with liquid with a wide flue rising between them; pipes marked H and G run from near the ends of the tube bundle up and over to those vessels, one of them with a valve in it; a spring loaded fitting marked V S J at the left end of the bundle, and the whole machine standing on a flat base marked A",
+      "alt": "1894 engraving, fig. 242, printed p. 430: A long horizontal bundle of parallel tubes in section spanning the width of the plate, wound at two places with coils of many turns marked F and E', those two coils led up to two small round instruments marked r and r'; the middle of the bundle passes up through a column standing in a rectangular firebox marked D with a fire drawn under it and a door with a handle at its foot, and above the firebox the column branches into two vertical vessels partly filled with liquid with a wide flue rising between them; pipes marked H and G run from near the ends of the tube bundle up and over to those vessels, one of them with a valve in it; a spring loaded fitting marked V S J at the left end of the bundle, and the whole machine standing on a flat base marked A"
+    },
+    {
+      "file": "p452-fig1-fig247.webp",
+      "printed_page": 434,
+      "figs": [
+        "247",
+        "246"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXXVII",
+      "chapter_title": "Anti-Sparking Dynamo Brush and Commutator",
+      "part": "III",
+      "part_title": "Miscellaneous Inventions and Writings",
+      "subject": "A machine section with a commutator, beside a circular diagram of four quadrant segments",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 246.",
+          "FIG. 247."
+        ],
+        "claim": [
+          "247"
+        ],
+        "widened": [
+          "246"
+        ]
+      },
+      "caption": "Figs. 247 and 246 - printed p. 434 - Ch. XXXVII - A machine section with a commutator, beside a circular diagram of four quadrant segments",
+      "alt": "1894 engraving, figs. 247 and 246, printed p. 434: A machine section with a commutator, beside a circular diagram of four quadrant segments"
+    },
+    {
+      "file": "p453-fig1-fig248.webp",
+      "printed_page": 435,
+      "figs": [
+        "248",
+        "249",
+        "250"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXXVII",
+      "chapter_title": "Anti-Sparking Dynamo Brush and Commutator",
+      "part": "III",
+      "part_title": "Miscellaneous Inventions and Writings",
+      "subject": "A segmented commutator disc in quadrant shading, with two small detail blocks",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 248 FIG. 249. FIG. 250."
+        ],
+        "claim": [
+          "248"
+        ],
+        "widened": [
+          "249",
+          "250"
+        ]
+      },
+      "caption": "Figs. 248, 249 and 250 - printed p. 435 - Ch. XXXVII - A segmented commutator disc in quadrant shading, with two small detail blocks",
+      "alt": "1894 engraving, figs. 248, 249 and 250, printed p. 435: A segmented commutator disc in quadrant shading, with two small detail blocks"
+    },
+    {
+      "file": "p457-fig1-fig253.webp",
+      "printed_page": 439,
+      "figs": [
+        "253"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXXVIII",
+      "chapter_title": "Auxiliary Brush Regulation of Direct Current Dynamos",
+      "part": "III",
+      "part_title": "Miscellaneous Inventions and Writings",
+      "subject": "A coil above a rotating disc with contact points, feeding a row of lamps",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 253."
+        ],
+        "claim": [
+          "253"
+        ]
+      },
+      "caption": "Fig. 253 - printed p. 439 - Ch. XXXVIII - A coil above a rotating disc with contact points, feeding a row of lamps",
+      "alt": "1894 engraving, fig. 253, printed p. 439: A coil above a rotating disc with contact points, feeding a row of lamps"
+    },
+    {
+      "file": "p459-fig1-fig255.webp",
+      "printed_page": 441,
+      "figs": [
+        "255"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXXVIII",
+      "chapter_title": "Auxiliary Brush Regulation of Direct Current Dynamos",
+      "part": "III",
+      "part_title": "Miscellaneous Inventions and Writings",
+      "subject": "Coil-and-disc interrupter with a row of lamps",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 255."
+        ],
+        "claim": [
+          "255"
+        ]
+      },
+      "caption": "Fig. 255 - printed p. 441 - Ch. XXXVIII - Coil-and-disc interrupter with a row of lamps",
+      "alt": "1894 engraving, fig. 255, printed p. 441: Coil-and-disc interrupter with a row of lamps"
+    },
+    {
+      "file": "p460-fig1-fig259.webp",
+      "printed_page": 442,
+      "figs": [
+        "256"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXXVIII",
+      "chapter_title": "Auxiliary Brush Regulation of Direct Current Dynamos",
+      "part": "III",
+      "part_title": "Miscellaneous Inventions and Writings",
+      "subject": "Two views of a mechanical brush/linkage mechanism with a battery",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled from the print",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 256."
+        ],
+        "claim": [
+          "259"
+        ],
+        "corrected_from": [
+          "259"
+        ]
+      },
+      "caption": "Fig. 256 - printed p. 442 - Ch. XXXVIII - Two views of a mechanical brush/linkage mechanism with a battery",
+      "alt": "1894 engraving, fig. 256, printed p. 442: Two views of a mechanical brush/linkage mechanism with a battery"
+    },
+    {
+      "file": "p464-fig1-fig266.webp",
+      "printed_page": 446,
+      "figs": [
+        "266"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXXVIII",
+      "chapter_title": "Auxiliary Brush Regulation of Direct Current Dynamos",
+      "part": "III",
+      "part_title": "Miscellaneous Inventions and Writings",
+      "subject": "Two views of a vertical machine with a star-shaped rotor and a base",
+      "qc_note": "Clean, tall",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 266"
+        ],
+        "claim": [
+          "266"
+        ]
+      },
+      "caption": "Fig. 266 - printed p. 446 - Ch. XXXVIII - Two views of a vertical machine with a star-shaped rotor and a base",
+      "alt": "1894 engraving, fig. 266, printed p. 446: Two views of a vertical machine with a star-shaped rotor and a base"
+    },
+    {
+      "file": "p467-fig1-fig270.webp",
+      "printed_page": 449,
+      "figs": [
+        "268"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XXXIX",
+      "chapter_title": "Improvement in Dynamo and Motor Construction",
+      "part": "III",
+      "part_title": "Miscellaneous Inventions and Writings",
+      "subject": "Machine frame with two large curved pole pieces and a central armature on a plank base",
+      "qc_note": "Clean; good hero image for the high-frequency alternator article",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled from the print",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 268."
+        ],
+        "claim": [
+          "270"
+        ],
+        "corrected_from": [
+          "270"
+        ]
+      },
+      "caption": "Fig. 268 - printed p. 449 - Ch. XXXIX - Machine frame with two large curved pole pieces and a central armature on a plank base",
+      "alt": "1894 engraving, fig. 268, printed p. 449: Machine frame with two large curved pole pieces and a central armature on a plank base"
+    },
+    {
+      "file": "p470-fig1-fig271.webp",
+      "printed_page": 452,
+      "figs": [
+        "271"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XL",
+      "chapter_title": "Tesla Direct Current Arc Lighting System",
+      "part": "III",
+      "part_title": "Miscellaneous Inventions and Writings",
+      "subject": "A machine with a row of pointed contacts along a shaft and a flywheel",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 271."
+        ],
+        "claim": [
+          "271"
+        ]
+      },
+      "caption": "Fig. 271 - printed p. 452 - Ch. XL - A machine with a row of pointed contacts along a shaft and a flywheel",
+      "alt": "1894 engraving, fig. 271, printed p. 452: A machine with a row of pointed contacts along a shaft and a flywheel"
+    },
+    {
+      "file": "p473-fig1-fig277.webp",
+      "printed_page": 455,
+      "figs": [
+        "275",
+        "276"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XL",
+      "chapter_title": "Tesla Direct Current Arc Lighting System",
+      "part": "III",
+      "part_title": "Miscellaneous Inventions and Writings",
+      "subject": "A segmented ring diagram beside a machine section with a piston-like element",
+      "qc_note": "Clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled from the print",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 275.",
+          "FIG. 276."
+        ],
+        "claim": [
+          "277"
+        ],
+        "corrected_from": [
+          "277"
+        ]
+      },
+      "caption": "Figs. 275 and 276 - printed p. 455 - Ch. XL - A segmented ring diagram beside a machine section with a piston-like element",
+      "alt": "1894 engraving, figs. 275 and 276, printed p. 455: A segmented ring diagram beside a machine section with a piston-like element"
+    },
+    {
+      "file": "p484-fig1-fig290.webp",
+      "printed_page": 466,
+      "figs": [
+        "290",
+        "291"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XLI",
+      "chapter_title": "Improvement in Unipolar Generators",
+      "part": "III",
+      "part_title": "Miscellaneous Inventions and Writings",
+      "subject": "Side view, partly in section, of a machine with two flywheels on a base",
+      "qc_note": "Matches the Fig.290 description; clean",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "Fro. 290.",
+          "FIG. 291."
+        ],
+        "claim": [
+          "290"
+        ],
+        "widened": [
+          "291"
+        ]
+      },
+      "caption": "Figs. 290 and 291 - printed p. 466 - Ch. XLI - Side view, partly in section, of a machine with two flywheels on a base",
+      "alt": "1894 engraving, figs. 290 and 291, printed p. 466: Side view, partly in section, of a machine with two flywheels on a base"
+    },
+    {
+      "file": "p491-fig1-fig295.webp",
+      "printed_page": 473,
+      "figs": [
+        "295",
+        "296"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XLI",
+      "chapter_title": "Improvement in Unipolar Generators",
+      "part": "III",
+      "part_title": "Miscellaneous Inventions and Writings",
+      "subject": "Two ring diagrams with spirals and a radial conductor",
+      "qc_note": "Clean; matches the spiral-disc text",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 295.",
+          "FIG. 296."
+        ],
+        "claim": [
+          "295"
+        ],
+        "widened": [
+          "296"
+        ]
+      },
+      "caption": "Figs. 295 and 296 - printed p. 473 - Ch. XLI - Two ring diagrams with spirals and a radial conductor",
+      "alt": "1894 engraving, figs. 295 and 296, printed p. 473: Two ring diagrams with spirals and a radial conductor"
+    },
+    {
+      "file": "plate-p478-fig297.webp",
+      "printed_page": 478,
+      "figs": [
+        "297"
+      ],
+      "crop": "hand",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XLII",
+      "chapter_title": "Mr. Tesla's Personal Exhibit at the World's Fair",
+      "part": "IV",
+      "part_title": "Appendix: Early Phase Motors and the Tesla Oscillators",
+      "subject": "Long table of motors, rings and coils at the World's Fair exhibit, railing in front, 'Electrical Engineer' credit lower right",
+      "qc_note": "Verified visually 2026-10-10. Replaces p496-fig1.webp (960x1707, wrong orientation). Used in hub + article 09.",
+      "flag": false,
+      "verified": true,
+      "caption_state": "settled by row",
+      "caption_evidence": {
+        "how": "hand crop: the QC row records the page being opened at 400-500 ppi and the printed caption read off it",
+        "lines": [],
+        "claim": [
+          "297"
+        ]
+      },
+      "caption": "Fig. 297 - printed p. 478 - Ch. XLII - Long table of motors, rings and coils at the World's Fair exhibit, railing in front, 'Electrical Engineer' credit lower right",
+      "alt": "1894 engraving, fig. 297, printed p. 478: Long table of motors, rings and coils at the World's Fair exhibit, railing in front, 'Electrical Engineer' credit lower right"
+    },
+    {
+      "file": "p480-fig298.webp",
+      "printed_page": 480,
+      "figs": [
+        "298"
+      ],
+      "crop": "hand",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XLII",
+      "chapter_title": "Mr. Tesla's Personal Exhibit at the World's Fair",
+      "part": "IV",
+      "part_title": "Appendix: Early Phase Motors and the Tesla Oscillators",
+      "subject": "Laminated-iron ring field with an armature on cross bolts, on a plank base",
+      "qc_note": "Verified visually 2026-10-10. Matches p.481 text: 'magnetic frame of laminated iron with four polar projections between which an armature is supported on brass bolts'. Fixes the dark p498-fig1-fig298.webp.",
+      "flag": false,
+      "verified": true,
+      "caption_state": "settled by row",
+      "caption_evidence": {
+        "how": "hand crop: the QC row records the page being opened at 400-500 ppi and the printed caption read off it",
+        "lines": [],
+        "claim": [
+          "298"
+        ]
+      },
+      "caption": "Fig. 298 - printed p. 480 - Ch. XLII - Laminated-iron ring field with an armature on cross bolts, on a plank base",
+      "alt": "1894 engraving, fig. 298, printed p. 480: Laminated-iron ring field with an armature on cross bolts, on a plank base"
+    },
+    {
+      "file": "p482-figs300-308.webp",
+      "printed_page": 482,
+      "figs": [
+        "300",
+        "308"
+      ],
+      "crop": "hand",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XLII",
+      "chapter_title": "Mr. Tesla's Personal Exhibit at the World's Fair",
+      "part": "IV",
+      "part_title": "Appendix: Early Phase Motors and the Tesla Oscillators",
+      "subject": "Nine armature engravings with their printed captions, Fig. 300 to Fig. 308",
+      "qc_note": "Verified visually 2026-10-10. Printed figure numbers are legible, so the OCR mis-numbering in p500-fig*-fig302.webp is bypassed.",
+      "flag": false,
+      "verified": true,
+      "caption_state": "settled by row",
+      "caption_evidence": {
+        "how": "hand crop: the QC row records the page being opened at 400-500 ppi and the printed caption read off it",
+        "lines": [],
+        "claim": [
+          "300",
+          "308"
+        ]
+      },
+      "caption": "Figs. 300 to 308 - printed p. 482 - Ch. XLII - Nine armature engravings with their printed captions, Fig. 300 to Fig. 308",
+      "alt": "1894 engraving, figs. 300 to 308, printed p. 482: Nine armature engravings with their printed captions, Fig. 300 to Fig. 308"
+    },
+    {
+      "file": "p509-fig1-fig313.webp",
+      "printed_page": 491,
+      "figs": [
+        "313"
+      ],
+      "crop": "extractor",
+      "quality": "A",
+      "medium": "engraving",
+      "chapter": "XLIII",
+      "chapter_title": "The Tesla Mechanical and Electrical Oscillators",
+      "part": "IV",
+      "part_title": "Appendix: Early Phase Motors and the Tesla Oscillators",
+      "subject": "Of Tesla's mechanical oscillator: a piston on a shaft in a cylinder, inside a magnetic frame with energising coils",
+      "qc_note": "Fig.313, printed p.491 - the ONLY engraving in the oscillator chapter; used in article 03",
+      "flag": false,
+      "verified": false,
+      "caption_state": "settled",
+      "caption_evidence": {
+        "how": "the caption line under the plate, read from the scan's text layer at the band's own position",
+        "lines": [
+          "FIG. 313."
+        ],
+        "claim": [
+          "313"
+        ]
+      },
+      "caption": "Fig. 313 - printed p. 491 - Ch. XLIII - Of Tesla's mechanical oscillator: a piston on a shaft in a cylinder, inside a magnetic frame with energising coils",
+      "alt": "1894 engraving, fig. 313, printed p. 491: Of Tesla's mechanical oscillator: a piston on a shaft in a cylinder, inside a magnetic frame with energising coils"
+    }
+  ],
+  "rejected": [
+    [
+      "p031-fig1-fig6.webp",
+      "the QC row itself leaves the figure number unsettled"
+    ],
+    [
+      "p031-fig2-fig6.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p036-fig1-fig13.webp",
+      "verdict=keep-tight"
+    ],
+    [
+      "p066-fig1-fig37.webp",
+      "no caption line in the strip of print under this plate, and the plate was not read by eye at this task"
+    ],
+    [
+      "p070-fig1-fig38.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p070-fig2-fig38.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p070-fig3-fig38.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p075-fig1.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p077-fig1.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p077-fig2.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p077-fig3.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p078-fig1-fig45.webp",
+      "no caption line in the strip of print under this plate, and the plate was not read by eye at this task"
+    ],
+    [
+      "p078-fig2-fig45.webp",
+      "no caption line in the strip of print under this plate, and the plate was not read by eye at this task"
+    ],
+    [
+      "p081-fig1-fig49.webp",
+      "no caption line in the strip of print under this plate, and the plate was not read by eye at this task"
+    ],
+    [
+      "p081-fig2-fig49.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p087-fig1-fig56.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p090-fig1-fig58.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p092-fig1-fig60.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p095-fig1-fig62.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p098-fig1-fig65.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p102-fig1-fig68.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p107-fig1-fig72.webp",
+      "no caption line in the strip of print under this plate, and the plate was not read by eye at this task"
+    ],
+    [
+      "p114-fig1-fig77.webp",
+      "no caption line in the strip of print under this plate, and the plate was not read by eye at this task"
+    ],
+    [
+      "p116-fig1-fig82.webp",
+      "the caption line under this plate is in the scan, but its number is not legible in the text layer ('FIG.')"
+    ],
+    [
+      "p117-fig1.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p117-fig2.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p117-fig3.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p117-fig4.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p117-fig5.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p120-fig1-fig90.webp",
+      "no caption line in the strip of print under this plate, and the plate was not read by eye at this task"
+    ],
+    [
+      "p120-fig2-fig90.webp",
+      "verdict=keep-tight"
+    ],
+    [
+      "p128-fig1-fig94.webp",
+      "no caption line in the strip of print under this plate, and the plate was not read by eye at this task"
+    ],
+    [
+      "p128-fig2-fig94.webp",
+      "verdict=keep-tight"
+    ],
+    [
+      "p133-fig1-fig90.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p172-fig1-fig99.webp",
+      "no caption line in the strip of print under this plate, and the plate was not read by eye at this task"
+    ],
+    [
+      "p173-fig1-fig99.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p173-fig2-fig99.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p174-fig1-fig100.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p176-fig1-fig102.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p180-fig1-fig10.webp",
+      "quality=C"
+    ],
+    [
+      "p181-fig1-fig106.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p183-fig1-fig109.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p186-fig1.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p187-fig1-fig112.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p195-fig1-fig114.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p200-fig1-fig121.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p202-fig1-fig122.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p206-fig1-fig125.webp",
+      "quality=C"
+    ],
+    [
+      "p206-fig2-fig125.webp",
+      "no caption line in the strip of print under this plate, and the plate was not read by eye at this task"
+    ],
+    [
+      "p212-fig1-fig12.webp",
+      "quality=C"
+    ],
+    [
+      "p213-fig1-fig129.webp",
+      "verdict=drop"
+    ],
+    [
+      "p225-fig1-fig13.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p227-fig1-fig133.webp",
+      "quality=C"
+    ],
+    [
+      "p228-fig1-fig135.webp",
+      "quality=C"
+    ],
+    [
+      "p229-fig1-fig136.webp",
+      "quality=C"
+    ],
+    [
+      "p229-fig2-fig136.webp",
+      "quality=C"
+    ],
+    [
+      "p232-fig1-fig137.webp",
+      "quality=C"
+    ],
+    [
+      "p233-fig1-fig138.webp",
+      "quality=C"
+    ],
+    [
+      "p234-fig1-fig139.webp",
+      "quality=C"
+    ],
+    [
+      "p237-fig1-fig140.webp",
+      "quality=C"
+    ],
+    [
+      "p244-fig1-fig141.webp",
+      "quality=C"
+    ],
+    [
+      "p245-fig1-fig141.webp",
+      "quality=C"
+    ],
+    [
+      "p246-fig1-fig144.webp",
+      "quality=C"
+    ],
+    [
+      "p252-fig1.webp",
+      "quality=C"
+    ],
+    [
+      "p261-fig1-fig147.webp",
+      "quality=C"
+    ],
+    [
+      "p263-fig1-fig149.webp",
+      "quality=C"
+    ],
+    [
+      "p265-fig1-fig151.webp",
+      "quality=C"
+    ],
+    [
+      "p281-fig1-fig153.webp",
+      "quality=C"
+    ],
+    [
+      "p283-fig1-fig155.webp",
+      "quality=C"
+    ],
+    [
+      "p284-fig1-fig156.webp",
+      "quality=C"
+    ],
+    [
+      "p288-fig1-fig147.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p294-fig1-fig159.webp",
+      "quality=C"
+    ],
+    [
+      "p301-fig1-fig160.webp",
+      "quality=C"
+    ],
+    [
+      "p302-fig1-fig161.webp",
+      "quality=C"
+    ],
+    [
+      "p306-fig1-fig163.webp",
+      "quality=C"
+    ],
+    [
+      "p321-fig1.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p324-fig1.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p325-fig1-fig107.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p341-fig1-fig171.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p343-fig1-fig178.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p350-fig1-fig179.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p357-fig1-fig183.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p376-fig1-fig189.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p379-fig1-fig193.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p388-fig1-fig196.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p390-fig1-fig198.webp",
+      "no caption line in the strip of print under this plate, and the plate was not read by eye at this task"
+    ],
+    [
+      "p390-fig2-fig198.webp",
+      "quality=C"
+    ],
+    [
+      "p393-fig1-fig203.webp",
+      "no caption line in the strip of print under this plate, and the plate was not read by eye at this task"
+    ],
+    [
+      "p394-fig1-fig200.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p411-fig1-fig208.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p415-fig1-fig210.webp",
+      "the QC row itself leaves the figure number unsettled"
+    ],
+    [
+      "p416-fig1-fig212.webp",
+      "the QC row itself leaves the figure number unsettled"
+    ],
+    [
+      "p416-fig2-fig212.webp",
+      "quality=C"
+    ],
+    [
+      "p417-fig1-fig214.webp",
+      "the QC row itself leaves the figure number unsettled"
+    ],
+    [
+      "p418-fig1-fig215.webp",
+      "quality=C"
+    ],
+    [
+      "p420-fig1-fig216.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p428-fig1-fig220.webp",
+      "the QC row itself leaves the figure number unsettled"
+    ],
+    [
+      "p433-fig1-fig225.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p434-fig1.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p443-fig1-fig281.webp",
+      "the QC row itself leaves the figure number unsettled"
+    ],
+    [
+      "p445-fig1-fig287.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p448-fig1-fig243.webp",
+      "the QC row itself leaves the figure number unsettled"
+    ],
+    [
+      "p451-fig1-fig244.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p454-fig1-fig251.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p458-fig1-fig257.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p460-fig2-fig258.webp",
+      "quality=C"
+    ],
+    [
+      "p462-fig1-fig262.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p462-fig2-fig263.webp",
+      "no caption line in the strip of print under this plate, and the plate was not read by eye at this task"
+    ],
+    [
+      "p462-fig3-fig263.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p462-fig4-fig263.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p463-fig1-fig264.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p467-fig2-fig270.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p467-fig3-fig270.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p471-fig1.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p472-fig1.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p473-fig2-fig277.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p475-fig1-fig281.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p475-fig2-fig281.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p478-fig1-fig283.webp",
+      "no caption line in the strip of print under this plate, and the plate was not read by eye at this task"
+    ],
+    [
+      "p478-fig2-fig283.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p480-fig1.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p490-fig1-fig293.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p496-fig1.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p499-fig1-fig297.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p500-fig1-fig302.webp",
+      "no caption line in the strip of print under this plate, and the plate was not read by eye at this task"
+    ],
+    [
+      "p500-fig2-fig302.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p500-fig3-fig302.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p500-fig4-fig302.webp",
+      "printed figure number not read correctly (caption_ok=no)"
+    ],
+    [
+      "p502-fig1-fig811.webp",
+      "verdict=drop"
+    ]
+  ]
+}

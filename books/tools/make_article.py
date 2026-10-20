@@ -458,8 +458,14 @@ def build(fm, body_md, shell, tid, base_dir):
 
 # --------------------------------------------------------------------- wire
 
-def wire_updates(fm, slug):
-    """§7: articles.html card, nav dropdown, sitemap.xml, _redirects, llms.txt."""
+def wire_updates(fm, slug, include_card=True):
+    """§7: articles.html card, nav dropdown, sitemap.xml, _redirects, llms.txt.
+
+    include_card=False is for the asset pages (plates, word search, Part I text):
+    the draft for the plates page says so itself - "the asset pages are not in
+    the articles.html grid" - so they get the sitemap, the alias and llms.txt,
+    and not a card in the article list.
+    """
     changed, notes = [], []
     url = page_url(slug)
     href = page_href(slug)
@@ -493,8 +499,10 @@ def wire_updates(fm, slug):
         notes.append("sitemap.xml: already listed")
 
     art = WEB / "articles.html"
-    html = art.read_text()
-    if f'href="{href}"' not in html:
+    if not include_card:
+        notes.append("articles.html: skipped - not an article page, so no card "
+                     "(the plates draft states this rule itself)")
+    elif f'href="{href}"' not in (html := art.read_text()):
         k = _card_anchor(html)
         if k:
             art.write_text(html[:k] + _article_card(fm, slug) + html[k:])

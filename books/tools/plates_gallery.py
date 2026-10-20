@@ -9,7 +9,16 @@ chapter, plus a downloadable ZIP and a one-line licence statement.
     plates_gallery.py --thumbs     # write the grid thumbnails into website/assets
     plates_gallery.py --zip        # write the 1200 px download ZIP
     plates_gallery.py --build      # render website/tesla-1894-plates.html
+    plates_gallery.py --wire       # sitemap.xml, _redirects, llms.txt (no card)
     plates_gallery.py --all        # select, thumbs, zip, build
+
+--wire is separate from --build on purpose, and it does NOT re-render: the page
+is built by build_page() from the selection record, not by make_article.py, so
+running make_article.py on this draft would drop the grid. What --wire reuses is
+make_article.wire_updates, with the articles.html card switched off, because the
+plates draft states its own rule: "the asset pages are not in the articles.html
+grid". Gate after wiring, as always - a gate result describes bytes, not a file
+name.
 
 How a plate gets in (the rules are printed on the page itself, because that is
 what makes the page citable):
@@ -900,6 +909,9 @@ def main():
     ap.add_argument("--thumbs", action="store_true")
     ap.add_argument("--zip", action="store_true")
     ap.add_argument("--build", action="store_true")
+    ap.add_argument("--wire", action="store_true",
+                    help="sitemap.xml, _redirects, llms.txt for this slug; no "
+                         "articles.html card, and no re-render")
     ap.add_argument("--all", action="store_true")
     ap.add_argument("--show", type=int, default=0,
                     help="print the first N selected plates and stop")
@@ -954,8 +966,15 @@ def main():
                   f"Ch{it['chapter']:<6} {it['crop']:<9} {it['file']}")
         print(json.dumps(rec["counts"], indent=1))
         return 0
+    if args.wire:
+        fm, _body = MA.split_front_matter(DRAFT.read_text())
+        changed, notes = MA.wire_updates(fm, fm["slug"], include_card=False)
+        print("wired: " + (", ".join(changed) if changed else "nothing to change"))
+        for n in notes:
+            print("  note:", n)
+        return 0
     if not (args.select or args.thumbs or args.zip or args.build or args.all):
-        ap.error("choose --select / --thumbs / --zip / --build / --all")
+        ap.error("choose --select / --thumbs / --zip / --build / --wire / --all")
 
     rec = select()
 
