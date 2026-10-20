@@ -318,7 +318,8 @@ each carried a sliver of the next line and were thrown away.
    crops are the ones the rows cite.
 5. **T6, Part I as readable text.** In scope or not; if it is, split across 2-3 pages or
    add a documented exemption in `qa_page.py`.
-6. **`electrical-experimenter.html`.** The spec's hub row asks for a link to it; no such
+6. **`electrical-experimenter.html`.** *Status changed this session - see section 10.4.*
+   The spec's hub row asks for a link to it; no such
    page exists and no task in `books/PLAN-1894.md` would create one. Either write it, drop
    the row from the spec, or accept the gap permanently. It is the only section 5.2 edge
    that cannot be closed by editing.
@@ -329,7 +330,7 @@ each carried a sliver of the next line and were thrown away.
    no longer prints a number; the word-search page prints counts only with the command and
    the furniture rule attached. If any page ever wants a total, that is the decision.
 8. **Whether `qa_page.py` should keep keying the series-furniture gates on the string "The
-   1894 File".** Since the hub entered the nav, that string is on every page, so the kicker
+   1894 File".** *Closed this session - see section 10.3.* Since the hub entered the nav, that string is on every page, so the kicker
    and disclosure gates now fire on 50 legacy pages that were never built to satisfy them.
    See section 4.
 
@@ -450,3 +451,187 @@ Nothing else in this file was contradicted. §4, §5 and §6 items 1-3 and 5-8 a
 true as written.
 
 ---
+
+---
+
+## 10. The "fix everything" pass, 2026-10-20 (later). What landed, and where it stopped
+
+Owner instruction: *"forget 12. this is just about content publication. fix everything."*
+Item 12 (the outreach emails) is out of scope; everything in section 6 that is a defect
+rather than a judgement call is in scope. Section 7's suggested order is superseded by
+10.6 below.
+
+Two commits, both in the parent, neither pushed: `cf39644` (the stale gitlink, section 9)
+and `0d5f0ad` (the three tool changes, 10.3). The `website/` repo has **no new commits**
+this pass: its tip is still `76fc747`.
+
+### 10.1 Gate state as re-measured, twice, this pass
+
+`run_gates.py --final` → `GATE PASS — 6/6 gates clean`, quote pass clean in 39s, whole run
+39-41s, `15/15 pages pass the numeric gates`, zero NOT BUILT YET lines. Measured at the
+start of the pass and again immediately before committing the tool changes.
+
+**A number this file has been reporting wrong: it is 15/15, not 18/18.** `index.json` has
+15 rows and the `tesla-1894*.html` glob adds three files that are already among those rows.
+The old summary line printed `len(targets)` before the `dict.fromkeys()` dedup, so it
+counted 18 while the loop checked 15. There are 15 series pages and 15 were checked. The
+"18/18" in section 2 of this file and in `PLAN-1894.md` section 6 describes a miscount, not
+a larger page set. Everything else those runs asserted still holds.
+
+The section 6 item 4 claim about visual evidence was re-derived and **is** right: the 15
+`visual_gates` rows name 18 `books/tmp/` artifacts, 8 exist (2.0 MB), 10 are gone.
+
+### 10.2 Two facts about the repos that are not in either plan
+
+Both repos name the **same remote**, `https://github.com/didge316/teslag.git`, and are
+unrelated histories inside it:
+
+| repo | local branch | remote branch | state |
+|---|---|---|---|
+| `website/` | `main` | `origin/main` = `249733b` | local `main` is **29 ahead, 0 behind**; fast-forward push possible |
+| parent | `feature/1894-series-flagship` | `origin/master` | the parent's own history lives on `master`; the feature branch has no upstream |
+
+So "pushing deploys" means specifically `git -C website push origin main`. Pushing the
+parent publishes nothing; it would create a `feature/1894-series-flagship` branch in the
+same GitHub repo. `gh` is installed but its token is invalid (`gh auth status`: "The token
+in default is invalid"), which is why the public `tesla1894` repo (spec 16.3 item 4) could
+not be created this pass.
+
+### 10.3 What the tools do now, and what that proved
+
+**`qa_page.py` decides what a series page by reading `index.json`, not by reading the
+page.** The old trigger was the string "The 1894 File" appearing in the HTML; the hub's
+entry in the shared nav puts that string on all 52 pages, so 50 legacy pages were being
+held to a kicker gate and a disclosure gate they were never built to satisfy. Thirteen
+section 12 rules are now reported `skip - not a series page (no index.json row)` on a page
+the series does not own, and pass or fail exactly as before on the 15 it does. Three new
+fixtures: a page that only mentions the series in its nav gets the gate skipped; a series
+page with no kicker element still fails it; a real kicker element passes it. The hub is
+exempt from the kicker gate by name (`no == "hub"` in its row) and says so in the detail
+line, because `make_article.py` emits no kicker for the hub and its furniture is the
+ItemList.
+
+Running the checker on a legacy page now reports one true thing instead of two questions
+that were never asked: `magnetic-generator-scam.html` passes 15 of the 16 gates that apply
+to it and fails one real one, a meta description of **160 characters** against the 120-155
+range. That is a legacy-page defect outside this series. It is recorded, not fixed, and it
+is worth knowing how many of the other 36 legacy pages share it before anyone says "fix the
+descriptions site-wide".
+
+**`link_map.py` measures the shell instead of assuming it, and stops failing on edges it
+has a reason for.** The hub row of section 5.2 names nav, `articles.html` and the footer as
+sources for the hub's in-links. Measured: nav carries the hub on **52 pages**,
+`articles.html` links it, and the **footer links nothing but Contact, Privacy and Home** -
+the "footer" source the spec names does not exist in this shell. With two of three named
+sources live and 52 pages linking the hub, the row is satisfied and the twelve
+article-to-hub body links stay unadded, now with the measurement in the tool: the twelve
+articles carry **4-7 body out-links each** (01=6, 02=5, 03=6, 04=6, 05=5, 06=6, 07=5,
+08=4, 09=6, 10=**7**, 11=6, 12=5) and seven of them are already at the ceiling of the 4-6
+band that the heading of the same section sets. Article 10 is already past it. Edges left
+open on purpose live in `DOCUMENTED` with a reason; the exit code is 1 only for an edge
+that is asked for, absent **and** unexplained. Measured before this change: 14 "missing"
+edges. After: **one**, `hub -> electrical-experimenter`.
+
+**`make_article.py` can now describe a source that is not the 1894 book.** Five
+front-matter overrides: `citation:`, `breadcrumb_parent:`, `book_cite:`, `pages_label:`,
+`disclosure:`. Every default is the old hard-coded value, and the no-op was proved, not
+assumed: re-rendering article 10 with these changes in produces a 4-line diff against the
+committed page, all four lines the known FAQ heading case that `titlecase_headings.py`
+fixes after every render.
+
+### 10.4 The one open section 5.2 edge: `electrical-experimenter.html`. Research done, page not written
+
+The history, found in the site repo: the page **existed** and was deleted in website commit
+`c3232e0` (2026-10-12, "Deploy 2 (W2)"), whose message records it as "owner-confirmed
+unused ... live at 200 with zero internal links, zero impressions and zero clicks", replaced
+by 301s `/electrical-experimenter` → `/assets/electrical-experimenter.pdf`
+(`website/_redirects` lines 109-110). The spec, written the same day at 12:03, still asks
+the hub to link the page. That is the contradiction, and it is why this edge could not be
+closed by editing.
+
+The decision taken, and the reason: **write the page.** A real page closes the edge without
+touching a gate, and it returns the landing page the email sequence references
+(`list_building/EMAIL_OCTOPUS_SETUP.md` lines 257-293 records `/electrical-experimenter`
+and the PDF as "not deployed"). The PDF is in fact tracked - 16,039,670 bytes, sha256
+`a6740f877b0a93aa` - so pushing fixes the PDF link; the landing page only comes back if it
+is written. Linking the PDF from the hub instead was rejected: the hub's own
+`no book-PDF link (D4)` gate is a blunt `.pdf` string check, and re-creating a bare
+download button would re-create the page the owner deleted.
+
+Everything the page needs is measured and recorded, so the next session writes prose rather
+than research:
+
+- **The file.** `website/assets/electrical-experimenter-cover.webp` already exists,
+  343x424, and no page references it. The text layer is now tracked at
+  `books/extracted/ee1919-plain.txt` (1.4 MB, 95,418 words), produced by
+  `pdftotext -layout "Electrical Experimenter Magazine 1919.pdf"`.
+- **The issue.** *The Electrical Experimenter*, Vol. VI, Whole No. 70, No. 10, **February
+  1919**. Experimenter Publishing Company, Inc., 233 Fulton Street, New York; H. Gernsback,
+  president. Source scan: archive.org item `n10electricalexperi06gern`. 84 scans.
+- **What Tesla is in it**, read off the issue's own contents page: front cover "Nikola
+  Tesla and His Wireless Light", from a painting by George Wall; **"Famous Scientific
+  Illusions", by Nikola Tesla, printed p. 692**, under the magazine's own line "Written
+  specially for the Electrical Experimenter"; **"My Inventions - No. 1 of a Series", by
+  Nikola Tesla, marked "Exclusive Feature", printed p. 696**, subheaded "My Early Life".
+  The cover's own line reads "Beginning 'My Inventions,' by Nikola Tesla". This issue is
+  where Tesla's only autobiography begins.
+- **The page-number rule, verified not assumed.** printed page = scan page + 678. 39 of the
+  84 scans carry a printed folio; every one equals scan+678, **zero exceptions**; range
+  681-729 on scans 3-51. Scans 52-84 carry no folio - that end of the issue is the
+  unnumbered advertising and patent section.
+- **The same counts the series' data page makes, run against this issue**: `free energy` 0,
+  `free-energy` 0, `magnetic generator` 0, `over unity` 0, `pyro-magnetic` 0,
+  `pyromagnetic` 0, `perpetual` **1** (inside the first instalment of "My Inventions",
+  printed p. 696, in a line the text layer interleaves with the facing column, so it cannot
+  be quoted from the OCR), `tesla` 52. Reproduce with
+  `grep -o -i -w -- "free energy" books/extracted/ee1919-plain.txt | wc -l`. Method differs
+  from the 1894 counts: whole-word, case-insensitive, over the whole issue including
+  advertising, **no furniture stripping**. Say which method each page used.
+- **An accuracy note worth carrying to the marketing copy**: the email sequence describes
+  this magazine as "packed with Nikola Tesla's articles" (`list_building/email_1_welcome.txt`).
+  Measured in this issue: two Tesla articles, pp. 692 and 696, plus a cover feature. The
+  page must state what is actually in it.
+- **How to build it**: a draft at `new_content/electrical-experimenter/article.md`, rendered
+  by `make_article.py` with `--tid 1894_hub`, a `kicker:` that is not series furniture, and
+  the 10.3 overrides (`citation:` for the magazine, `book_cite:` empty, `pages_label:`).
+  It is **not** a series page: keep it out of `index.json`, or it inherits the 30 series
+  gates including three `(1894, p. N)` citations it cannot honestly have. Render **without**
+  `--wire`, then by hand: add to `sitemap.xml` and `llms.txt`, **delete `_redirects` lines
+  109-110** (section 5.1: a rule whose source is an existing page never fires and blocks
+  the platform's own trailing-slash normalisation), do **not** add it to `articles.html`
+  (asset pages are not in the grid) and do **not** add it to the nav dropdown (the nav is
+  already 32 items and too wide on a phone, 10.5 item 2). It needs an OG card at
+  `assets/og/electrical-experimenter.webp` - `make_og.py` currently sources only from the
+  1894 `manifest_qc.csv`, so that needs either a source-crop argument or a hand-built card.
+  Then `qa_page.py <page>` (it will run the 16 non-series gates), then `shot_qa.py`.
+
+### 10.5 What is left, in the order that costs least to do badly
+
+1. **The push.** `git -C website push origin main` is the deploy: 29 commits, fast-forward,
+   nothing behind it. The parent's feature branch is a separate, non-deploying action.
+2. **The Pages dropdown at 375 px** (section 6 item 2). Still unfixed: one rule in
+   `website/css/styles-custom.css`. Re-measure with `books/tmp/nav_open.py` before and
+   after; `shot_qa.py` cannot see it.
+3. **The email-capture embed image with no `width`/`height`** (section 6 item 3). Still
+   unfixed. It is third-party markup, so the fix available to us is a CSS rule in
+   `styles-custom.css` sizing `gallery.eocampaign1.com` images, which stops the layout
+   shift without touching the provider.
+4. **The 9.7 MB plates ZIP** (section 6 item 1). Still untracked. For a deployed site the
+   choice is commit-the-blob or LFS or generate-on-demand; a link to an untracked file is a
+   dead link in production.
+5. **The `electrical-experimenter.html` page** - 10.4, research complete, prose and wiring
+   to do.
+6. **T6, Part I as readable text** (section 6 item 5). Not started. It forces the
+   HTML < 200 KB decision before it can be built.
+7. **Word-count audit across the series pages** (section 6 item 7). Not started: no page
+   was found printing a bare total, but the audit was not run to completion.
+8. **The 8 surviving review images** (section 6 item 4). Not started: move them out of
+   gitignored `books/tmp/review/` into a tracked directory and repoint the `index.json`
+   rows, or accept that the record says what was measured, not what can be re-opened.
+9. **Two things that are not mine to invent.** A **licence** - the spec's own 16.3 item 4
+   says MIT for the data and code, and the plates page already states "public domain (1894
+   imprint), reuse freely" for the images, but a `LICENSE` file covering the whole repo is a
+   legal act on a commercial site. And the **public `tesla1894` GitHub repo**, blocked by
+   the invalid `gh` token.
+
+Nothing in either repo was pushed. Site tip `76fc747`; parent tip `0d5f0ad`.
