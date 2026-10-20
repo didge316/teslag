@@ -4,7 +4,7 @@
     "no": "hub",
     "draft": "new_content/1894-series/00-hub/article.md",
     "rendered_preview": null,
-    "deployed": false,
+    "deployed": true,
     "date": "2026-10-12",
     "words_draft": 1928,
     "tid": "1894_hub",
@@ -99,14 +99,15 @@
         "electrical-experimenter"
       ]
     },
-    "section_5_2_note": "link_map.py, written at this task, checks both columns of SERIES-PLAN-1894.md section 5.2 using links inside <article> only, because qa_page.py counts every href on the page including the nav dropdown and so can be satisfied by the shell. Read as a whole, the map now has 14 edges open, all of them deliberate: the twelve article-to-hub body links (the hub is in the nav of every page, which is one of the four sources that same row names, and a twelfth body link would put all twelve articles outside the 4-6 band the section heading sets), 01 -> 02 (asked by column 2 only, in no column-1 list, and it would take 01 to seven out-links), and hub -> electrical-experimenter (that page does not exist and is not a task in books/PLAN-1894.md)."
+    "section_5_2_note": "link_map.py, written at this task, checks both columns of SERIES-PLAN-1894.md section 5.2 using links inside <article> only, because qa_page.py counts every href on the page including the nav dropdown and so can be satisfied by the shell. Read as a whole, the map now has 14 edges open, all of them deliberate: the twelve article-to-hub body links (the hub is in the nav of every page, which is one of the four sources that same row names, and a twelfth body link would put all twelve articles outside the 4-6 band the section heading sets), 01 -> 02 (asked by column 2 only, in no column-1 list, and it would take 01 to seven out-links), and hub -> electrical-experimenter (that page does not exist and is not a task in books/PLAN-1894.md).",
+    "deployed_note": "deployed 2026-10-20 by `git -C website push origin main` (249733b..ad559e9). Verified against production, not assumed: the bytes served at https://teslamagneticgenerator.com/tesla-1894 are sha256 3281133338001c656d40f70fd9106129c7c5590f7150379fa81197d9dc87685c, identical to the committed file. The parent's gitlink names ad559e9."
   },
   {
     "slug": "tesla-earthquake-machine.html",
     "no": 3,
     "draft": "new_content/1894-series/03-tesla-earthquake-machine/article.md",
     "rendered_preview": "new_content/1894-series/03-tesla-earthquake-machine/tesla-earthquake-machine.html",
-    "deployed": false,
+    "deployed": true,
     "date": "2026-10-14",
     "words_draft": 1619,
     "tid": "1894_03",
@@ -162,14 +163,15 @@
       "body_out_links": 6,
       "missing_named_targets": []
     },
-    "committed_note": "Site repo (website/, main) 76fc747 2026-10-20 carries this page's OG card assets/og/tesla-earthquake-machine.webp and, for the two pages whose bytes changed this task, the page itself. Nothing pushed in either repo."
+    "committed_note": "Site repo (website/, main) 76fc747 2026-10-20 carries this page's OG card assets/og/tesla-earthquake-machine.webp and, for the two pages whose bytes changed this task, the page itself. Nothing pushed in either repo.",
+    "deployed_note": "deployed 2026-10-20 by `git -C website push origin main` (249733b..ad559e9). Verified against production, not assumed: the bytes served at https://teslamagneticgenerator.com/tesla-earthquake-machine are sha256 3343eb27bb8d85c4636f34aa6e00db570842833c50fe3110dae4056b2018af06, identical to the committed file. The parent's gitlink names ad559e9."
   },
   {
     "slug": "tesla-worlds-fair-1893.html",
     "no": 9,
     "draft": "new_content/1894-series/09-tesla-worlds-fair-1893/article.md",
     "rendered_site": "website/tesla-worlds-fair-1893.html",
-    "deployed": false,
+    "deployed": true,
     "date": "2026-10-16",
     "words_draft": 1675,
     "tid": "1894_09",
@@ -229,14 +231,15 @@
       "body_out_links": 6,
       "missing_named_targets": []
     },
-    "committed_note": "Site repo (website/, main) 76fc747 2026-10-20 carries this page's OG card assets/og/tesla-worlds-fair-1893.webp and, for the two pages whose bytes changed this task, the page itself. Nothing pushed in either repo."
+    "committed_note": "Site repo (website/, main) 76fc747 2026-10-20 carries this page's OG card assets/og/tesla-worlds-fair-1893.webp and, for the two pages whose bytes changed this task, the page itself. Nothing pushed in either repo.",
+    "deployed_note": "deployed 2026-10-20 by `git -C website push origin main` (249733b..ad559e9). Verified against production, not assumed: the bytes served at https://teslamagneticgenerator.com/tesla-worlds-fair-1893 are sha256 c542727e05f25119a7c9de1fe8a0a8a46fbcd19a8930b452df64249593972acb, identical to the committed file. The parent's gitlink names ad559e9."
   },
   {
     "slug": "tesla-high-frequency-alternator.html",
     "no": 11,
     "draft": "new_content/1894-series/11-tesla-high-frequency-alternator/article.md",
     "rendered_site": "website/tesla-high-frequency-alternator.html",
-    "deployed": false,
+    "deployed": true,
     "date": "2026-10-17",
     "words_draft": 1739,
     "tid": "1894_11",
@@ -296,14 +299,15 @@
       "body_out_links": 6,
       "missing_named_targets": []
     },
-    "committed_note": "Site repo (website/, main) 76fc747 2026-10-20 carries this page's OG card assets/og/tesla-high-frequency-alternator.webp and, for the two pages whose bytes changed this task, the page itself. Nothing pushed in either repo."
+    "committed_note": "Site repo (website/, main) 76fc747 2026-10-20 carries this page's OG card assets/og/tesla-high-frequency-alternator.webp and, for the two pages whose bytes changed this task, the page itself. Nothing pushed in either repo.",
+    "deployed_note": "deployed 2026-10-20 by `git -C website push origin main` (249733b..ad559e9). Verified against production, not assumed: the bytes served at https://teslamagneticgenerator.com/tesla-high-frequency-alternator are sha256 404b035daf393d273d38317fc4cf9a87cf038fd0bbadbf184e9b0f847c1868e6, identical to the committed file. The parent's gitlink names ad559e9."
   },
   {
     "slug": "rotating-magnetic-field-1888.html",
     "no": 7,
     "draft": "new_content/1894-series/07-rotating-magnetic-field-1888/article.md",
     "rendered_site": "website/rotating-magnetic-field-1888.html",
-    "deployed": false,
+    "deployed": true,
     "date": "2026-10-18",
     "words_draft": 2349,
     "tid": "1894_07",
@@ -374,13 +378,14 @@
       "body_out_links": 5,
       "missing_named_targets": []
     },
-    "committed_note": "Site repo (website/, main) 76fc747 2026-10-20 carries this page's OG card assets/og/rotating-magnetic-field-1888.webp and, for the two pages whose bytes changed this task, the page itself. Nothing pushed in either repo."
+    "committed_note": "Site repo (website/, main) 76fc747 2026-10-20 carries this page's OG card assets/og/rotating-magnetic-field-1888.webp and, for the two pages whose bytes changed this task, the page itself. Nothing pushed in either repo.",
+    "deployed_note": "deployed 2026-10-20 by `git -C website push origin main` (249733b..ad559e9). Verified against production, not assumed: the bytes served at https://teslamagneticgenerator.com/rotating-magnetic-field-1888 are sha256 75df76097b9927dd12f8263fff180403417803835ffc4f7d6c7841f59fec515f, identical to the committed file. The parent's gitlink names ad559e9."
   },
   {
     "slug": "tesla-lit-lamps-without-wires.html",
     "no": 1,
     "draft": "new_content/1894-series/01-tesla-lit-lamps-without-wires/article.md",
-    "deployed": false,
+    "deployed": true,
     "date": "2026-10-19",
     "tid": "1894_01",
     "figures": [
@@ -467,13 +472,14 @@
       "body_out_links": 6,
       "missing_named_targets": []
     },
-    "committed_note": "Site repo (website/, main) 76fc747 2026-10-20 carries this page's OG card assets/og/tesla-lit-lamps-without-wires.webp and, for the two pages whose bytes changed this task, the page itself. Nothing pushed in either repo."
+    "committed_note": "Site repo (website/, main) 76fc747 2026-10-20 carries this page's OG card assets/og/tesla-lit-lamps-without-wires.webp and, for the two pages whose bytes changed this task, the page itself. Nothing pushed in either repo.",
+    "deployed_note": "deployed 2026-10-20 by `git -C website push origin main` (249733b..ad559e9). Verified against production, not assumed: the bytes served at https://teslamagneticgenerator.com/tesla-lit-lamps-without-wires are sha256 bdb888fcfc495546e37fca634f08f3ba13ce22be0aa7c87ff5bb8c8bbb48c9d0, identical to the committed file. The parent's gitlink names ad559e9."
   },
   {
     "slug": "tesla-one-wire-power.html",
     "no": 2,
     "draft": "new_content/1894-series/02-tesla-one-wire-power/article.md",
-    "deployed": false,
+    "deployed": true,
     "date": "2026-10-20",
     "tid": "1894_02",
     "figures": [
@@ -559,14 +565,15 @@
       "body_out_links": 5,
       "missing_named_targets": []
     },
-    "committed_note": "Site repo (website/, main) 76fc747 2026-10-20 carries this page's OG card assets/og/tesla-one-wire-power.webp and, for the two pages whose bytes changed this task, the page itself. Nothing pushed in either repo."
+    "committed_note": "Site repo (website/, main) 76fc747 2026-10-20 carries this page's OG card assets/og/tesla-one-wire-power.webp and, for the two pages whose bytes changed this task, the page itself. Nothing pushed in either repo.",
+    "deployed_note": "deployed 2026-10-20 by `git -C website push origin main` (249733b..ad559e9). Verified against production, not assumed: the bytes served at https://teslamagneticgenerator.com/tesla-one-wire-power are sha256 4a4a98c00f7a6267d23e84d1affd037e5257c9776ba723f9f8a4adff99b23417, identical to the committed file. The parent's gitlink names ad559e9."
   },
   {
     "slug": "tesla-wireless-power-1893.html",
     "no": 4,
     "draft": "new_content/1894-series/04-tesla-wireless-power-1893/article.md",
     "rendered_preview": "new_content/1894-series/04-tesla-wireless-power-1893/tesla-wireless-power-1893.html",
-    "deployed": false,
+    "deployed": true,
     "date": "2026-10-21",
     "words_draft": 3349,
     "tid": "1894_04",
@@ -651,14 +658,15 @@
     "section_5_2_out_links": {
       "body_out_links": 6,
       "missing_named_targets": []
-    }
+    },
+    "deployed_note": "deployed 2026-10-20 by `git -C website push origin main` (249733b..ad559e9). Verified against production, not assumed: the bytes served at https://teslamagneticgenerator.com/tesla-wireless-power-1893 are sha256 0396ff43ecfa7e40977238e4c9d87c52a842cb837d5589cbd8e57ecb8d48e6f8, identical to the committed file. The parent's gitlink names ad559e9."
   },
   {
     "slug": "tesla-high-frequency-massage.html",
     "no": 5,
     "draft": "new_content/1894-series/05-tesla-high-frequency-massage/article.md",
     "rendered_preview": "new_content/1894-series/05-tesla-high-frequency-massage/tesla-high-frequency-massage.html",
-    "deployed": false,
+    "deployed": true,
     "date": "2026-10-22",
     "words_draft": 3111,
     "tid": "1894_05",
@@ -737,14 +745,15 @@
     "section_5_2_out_links": {
       "body_out_links": 5,
       "missing_named_targets": []
-    }
+    },
+    "deployed_note": "deployed 2026-10-20 by `git -C website push origin main` (249733b..ad559e9). Verified against production, not assumed: the bytes served at https://teslamagneticgenerator.com/tesla-high-frequency-massage are sha256 3cbc0837be638d64040225fc02f3c1bf569389c32675552b31f6550e2a6213aa, identical to the committed file. The parent's gitlink names ad559e9."
   },
   {
     "slug": "tesla-cold-flame.html",
     "no": 6,
     "draft": "new_content/1894-series/06-tesla-cold-flame/article.md",
     "rendered_preview": "new_content/1894-series/06-tesla-cold-flame/tesla-cold-flame.html",
-    "deployed": false,
+    "deployed": true,
     "date": "2026-10-23",
     "words_draft": 5471,
     "words_note": "Counted at this task (2026-10-12) as everything after the closing front-matter delimiter, whitespace-split, headings and figure alt/caption text included: 5471. The same measure on the drafts as they stand today gives 3,131 for article 05 and 3,304 for article 04, against the 3,111 and 3,349 recorded at their own commits, so the recorded numbers are this measure snapshotted at earlier revisions. The variants, all reproducible from the file as it stands: 4722 with the three figure lines removed (alt and caption copy), 4669 with the six headings also removed, 5192 with only the alt strings removed and the caption text kept in the title attribute, 5418 with only the headings removed. The numbers this note carried at the previous pass - 4,930 excluding figure copy and 4,877 without headings - do not reproduce by any of these four methods and are superseded by them. The draft's own front matter says 5,113 and the a06-wipcommit row says 9,280 (that one is the whole file, front matter and comments included); 5,113 could not be reproduced by any count tried. The method travels with the number because several different figures are in circulation for the same file and a count without its method is a claim, not evidence (feature-005/t1 lesson).",
@@ -839,14 +848,15 @@
     "section_5_2_out_links": {
       "body_out_links": 6,
       "missing_named_targets": []
-    }
+    },
+    "deployed_note": "deployed 2026-10-20 by `git -C website push origin main` (249733b..ad559e9). Verified against production, not assumed: the bytes served at https://teslamagneticgenerator.com/tesla-cold-flame are sha256 aad8ae5d44c94e7c669c2e385adccd0381f0e5e8fc0c0e3aff4aab039bd99665, identical to the committed file. The parent's gitlink names ad559e9."
   },
   {
     "slug": "tesla-weird-inventions-1894.html",
     "no": 8,
     "draft": "new_content/1894-series/08-tesla-weird-inventions-1894/article.md",
     "rendered_preview": null,
-    "deployed": false,
+    "deployed": true,
     "date": "2026-10-24",
     "words_draft": 2109,
     "words_note": "Counted at this task (2026-10-17) by the same measure article 06's entry names: everything after the closing front-matter delimiter, whitespace-split, headings included. On this page the figure alt and caption copy is NOT in that count, because the three body image lines are bare (![]() with no title attribute) and make_article.py takes alt and caption from the front-matter figures: block; the three lines add 3 tokens. Variants, all reproducible from the file as it stands: 2,106 with the three image lines removed; 2,006 with the 14 heading lines also removed; 13,220 for the whole file including front matter and comments. The split the brief cares about was measured by heading: the nine H3 entries total 1,412 words, 148 to 171 each, mean 157; the provenance H2 'Before the Entries: Whose Words These Are' is 287; the closing H2 'The Only Magnetic Generator in This Book' is 227; the 83 words before the first heading are the standfirst-to-body seam. Against section 9 brief 08 (1,500 words, nine entries at ~130 each) the body is 40 percent over and each entry is 14 to 31 percent over its band. qa_page.py has no word-count check, so a passing numeric gate will not mean the length is right; the same overrun is already recorded for articles 04, 05 and 06, and cutting to band means removing verified quote chains, which is an owner call at VERIFY. UNCHANGED BY feature-006/a08-cta, and the reason is worth stating because the page got longer: the CTA sentence is front matter, injected by cta_block(), so the measure above (everything after the closing front-matter delimiter) still returns 2,109 for the draft. What the reader sees is 50 words more than at feature-006/a08-wirecommit, and the page height grew 192 px at 375 accordingly. The overrun against section 9 brief 08 is therefore 50 words worse on the page and identical in the draft, and it is still flagged for the owner at VERIFY rather than settled here.",
@@ -962,7 +972,8 @@
     "section_5_2_out_links": {
       "body_out_links": 4,
       "missing_named_targets": []
-    }
+    },
+    "deployed_note": "deployed 2026-10-20 by `git -C website push origin main` (249733b..ad559e9). Verified against production, not assumed: the bytes served at https://teslamagneticgenerator.com/tesla-weird-inventions-1894 are sha256 1609900d2f33fda4d3ba05adc5e9ee90fa7515548e53bca34fd1b2ee417ad488, identical to the committed file. The parent's gitlink names ad559e9."
   },
   {
     "slug": "tesla-free-energy-what-he-said.html",
@@ -970,7 +981,7 @@
     "draft": "new_content/1894-series/10-tesla-free-energy-what-he-said/article.md",
     "rendered_preview": false,
     "rendered_site": "website/tesla-free-energy-what-he-said.html",
-    "deployed": false,
+    "deployed": true,
     "wired": [
       "sitemap.xml: one <url> for https://teslamagneticgenerator.com/tesla-free-energy-what-he-said, lastmod 2026-10-25 (taken from date_modified by wire_updates()), changefreq monthly, priority 0.8, the same shape as the ten existing series entries. Written by make_article.py --wire. Checked after writing by books/tmp/f07wire/wiring_check.py: the file parses with ElementTree, 47 <url> entries, 47 unique locs, this slug present exactly once, this entry's lastmod equal to the page's own article:published_time, and all eleven rendered series pages listed.",
       "llms.txt: one entry under '## The 1894 File', written out in full from the front-matter standfirst (368 characters, ends on a period), matching the 01 to 06 and 08 entries rather than the truncated 07/09/11 ones. --wire wrote it cut at 150 characters, the feature-004/t4 defect still unfixed, and the line was rewritten by hand before --wire ran so the tool reported 'already listed' instead of appending a truncated one. Checked after writing: this slug appears once, and the eleven entries in that section are in wiring order (03, 09, 11, 07, 01, 02, 04, 05, 06, 08, 10). Measured at this task, not carried: 3 lines in that section are still cut at exactly 150 characters (09, 11, 07) and 8 are not, this one included.",
@@ -1064,14 +1075,15 @@
     "section_5_2_out_links": {
       "body_out_links": 7,
       "missing_named_targets": []
-    }
+    },
+    "deployed_note": "deployed 2026-10-20 by `git -C website push origin main` (249733b..ad559e9). Verified against production, not assumed: the bytes served at https://teslamagneticgenerator.com/tesla-free-energy-what-he-said are sha256 92417c3472b265e270fb20a4fcf69c99f09e44d4ba4834f3dfaaeb8e343ffb45, identical to the committed file. The parent's gitlink names ad559e9."
   },
   {
     "slug": "tesla-glowing-tubes-vacuum.html",
     "no": 12,
     "draft": "new_content/1894-series/12-tesla-glowing-tubes-vacuum/article.md",
     "rendered_preview": null,
-    "deployed": false,
+    "deployed": true,
     "date": "2026-10-26",
     "date_note": "The draft carries date_published and date_modified 2026-10-18, the day it was drafted, and this entry repeats that. It is a drafting date and not a publish date, and it is not settled here: feature-006/a08-wirecommit established that the publish date is fixed at the wiring task, one page per date in wiring order, and this page is last in section 11's order. The date is therefore settled at feature-006/a12-wirecommit against the state of articles.html at that moment, exactly as article 08's was moved from 10-17 to 10-24 at its own wiring task. Named now rather than at t7 so the render is not made against a date that the next task changes: the date reaches the page in five places (two article:published_time/modified_time metas, two JSON-LD fields, one visible Published/Updated line), which is the diff article 08's date change produced.\n\nSETTLED AT feature-006/a12-wirecommit (2026-10-19): the publish date is 2026-10-26, written into the front matter as date_published and date_modified and reaching the page in the five places this row predicted (two article:published_time/modified_time metas, two JSON-LD fields, one visible Published/Updated line). The drafting day 2026-10-18 could not stand: it is already the published date rotating-magnetic-field-1888.html carries. The invariant was measured before choosing, as feature-006/a08-wirecommit and feature-007/a10-wirecommit each did, by card_order.py over the state of articles.html at this moment: the eleven wired pages run 10-14 (03), 10-16 (09), 10-17 (11), 10-18 (07), 10-19 (01), 10-20 (02), 10-21 (04), 10-22 (05), 10-23 (06), 10-24 (08), 10-25 (10), and the cards sit in that same order. The grid holds two properties at once, dates ascending and card order equal to wiring order, and only the next date in the sequence keeps both. The alternative was measured before it was rejected: keep 10-18 and place the card between the 07 and 01 cards, which is inside section 11's cadence rule but puts two pages on one date and breaks the second invariant. This page is last in section 11's order, so 10-26 is also the last date in the series' own sequence; the hub (feature-012) will take the next one when it is wired. Checked after: twelve series card dates 10-14 through 10-26 ascending, no two pages sharing a date, this card index 11 of 33, sitemap lastmod equal to the page's own published date.",
     "words_draft": 7127,
@@ -1180,7 +1192,8 @@
     "section_5_2_out_links": {
       "body_out_links": 5,
       "missing_named_targets": []
-    }
+    },
+    "deployed_note": "deployed 2026-10-20 by `git -C website push origin main` (249733b..ad559e9). Verified against production, not assumed: the bytes served at https://teslamagneticgenerator.com/tesla-glowing-tubes-vacuum are sha256 5a8a18a889b1f07f728024df01651eb73b4fc191c68433fea306b1a02539748a, identical to the committed file. The parent's gitlink names ad559e9."
   },
   {
     "slug": "tesla-1894-plates.html",
@@ -1188,7 +1201,7 @@
     "draft": "new_content/1894-series/plates/article.md",
     "rendered_preview": null,
     "rendered_site": "website/tesla-1894-plates.html",
-    "deployed": false,
+    "deployed": true,
     "date": "2026-10-27",
     "date_note": "Read off the draft's date_published/date_modified. The draft says what this date is: not one of the twelve article dates, because the asset pages are not in the articles.html grid, but the next free date after the last wired article (12 takes 2026-10-26), which keeps every page on the series on a distinct date. It is a sequence position, not a publish decision: nothing here is deployed.",
     "words_draft": 1847,
@@ -1248,7 +1261,8 @@
     "committed": true,
     "committed_note": "Site repo (website/, main) 76fc747 2026-10-20 carries this page's OG card assets/og/tesla-1894-plates.webp and, for the two pages whose bytes changed this task, the page itself. Nothing pushed in either repo. | Earlier note kept: website repo (main, the site's own repo): commit 2980d9a carries tesla-1894-plates.html and assets/tesla1894/thumbs/ (72 files, 1.2 MB), which were untracked before and one bad checkout from being lost. The sitemap.xml and llms.txt rows from this wiring step are a second commit in the same repo. Parent repo (feature/1894-series-flagship): this index.json row, new_content/1894-series/plates/ (the draft, notes.md and the 127 KB selection.json audit trail, untracked before), and books/tools/plates_gallery.py --wire plus make_article.wire_updates(include_card=...).",
     "publish_hold": "Owner review before any push; nothing in either repo has been pushed, and pushing deploys (D6). Two things would still be missing if it were pushed: the OG image file does not exist (T4), and assets/tesla1894/tesla-1894-plates.zip is NOT committed, so the download link the page states would be a 404 in git. That is an owner decision, named in PLAN-1894.md T0 and §8: commit the 9.7 MB blob, git-lfs it, generate it on demand, or drop the link. It was not decided here, and the link was left in the page rather than removed, because removing it would make the page claim less than it does once the file is placed.",
-    "voice": "The de-dash/curly-quote gate passes on the rendered page: no em dash, en dash, curly quote or ellipsis inside the article body (qa_page.py, measured). The draft has not been through the humanize pass any article in this series went through; it is a page of captions and rules rather than argument, and the gate that binds it is the one that runs."
+    "voice": "The de-dash/curly-quote gate passes on the rendered page: no em dash, en dash, curly quote or ellipsis inside the article body (qa_page.py, measured). The draft has not been through the humanize pass any article in this series went through; it is a page of captions and rules rather than argument, and the gate that binds it is the one that runs.",
+    "deployed_note": "deployed 2026-10-20 by `git -C website push origin main` (249733b..ad559e9). Verified against production, not assumed: the bytes served at https://teslamagneticgenerator.com/tesla-1894-plates are sha256 952675d78c5a0447cdfb24c8266cd440666676e29b9dc13f7524eb4f98e6824c, identical to the committed file. The parent's gitlink names ad559e9."
   },
   {
     "slug": "tesla-1894-word-search.html",
@@ -1256,7 +1270,7 @@
     "draft": "new_content/1894-series/word-search/article.md",
     "rendered_preview": null,
     "rendered_site": "website/tesla-1894-word-search.html",
-    "deployed": false,
+    "deployed": true,
     "date": "2026-10-28",
     "date_note": "Read off the draft's date_published/date_modified. The draft says what this date is: not one of the twelve article dates, because the asset pages are not in the articles.html grid, but the next free date after the plates page (27th), which keeps every page in the series on a distinct date. It is a sequence position, not a publish decision: nothing here is deployed.",
     "words_draft": 3498,
@@ -1315,6 +1329,7 @@
     "committed": true,
     "committed_note": "Site repo (website/, main) 76fc747 2026-10-20 carries the one-line nav fix (the dropdown now carries the hub entry, 32 items, as on every other page) and assets/og/tesla-1894-word-search.webp. Nothing pushed in either repo. | Earlier note kept: Site repo (website/, main): c2e253d carries the page, its sitemap.xml <url> and its llms.txt line; the two print crops were already committed at ab37502. Work repo (tesla-generator, feature/1894-series-flagship): 1169860 carries the two draft corrections, 7bb62c9 carries the gate fix this page's gating exposed, 47122c0 carries this row. Nothing pushed in either repo (D6: pushing deploys).",
     "publish_hold": "Owner review before any push; nothing in either repo has been pushed, and pushing deploys (D6). The OG image file does not exist (T4).",
-    "voice": "The de-dash/curly-quote gate passes on the rendered page: no em dash, en dash, curly quote or ellipsis inside the article body (qa_page.py, measured). The draft follows the series' quote convention exactly: single quotes for search terms and for strings from the book, double quotes only for actual quotations carrying (1894, p. N), backticks only for paths, item ids and flags. That convention is load-bearing: check_quotes.py treats a backtick span whose content is verbatim in the book as a quotation needing a citation, and a first draft that ignored it produced 25 false NOT CITED findings."
+    "voice": "The de-dash/curly-quote gate passes on the rendered page: no em dash, en dash, curly quote or ellipsis inside the article body (qa_page.py, measured). The draft follows the series' quote convention exactly: single quotes for search terms and for strings from the book, double quotes only for actual quotations carrying (1894, p. N), backticks only for paths, item ids and flags. That convention is load-bearing: check_quotes.py treats a backtick span whose content is verbatim in the book as a quotation needing a citation, and a first draft that ignored it produced 25 false NOT CITED findings.",
+    "deployed_note": "deployed 2026-10-20 by `git -C website push origin main` (249733b..ad559e9). Verified against production, not assumed: the bytes served at https://teslamagneticgenerator.com/tesla-1894-word-search are sha256 1a2768a60bb88d4620a002ba847d4d363c11d1464249394b0654e48b463624f4, identical to the committed file. The parent's gitlink names ad559e9."
   }
 ]

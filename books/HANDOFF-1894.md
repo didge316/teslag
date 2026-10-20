@@ -639,4 +639,54 @@ than research:
    legal act on a commercial site. And the **public `tesla1894` GitHub repo**, blocked by
    the invalid `gh` token.
 
-Nothing in either repo was pushed. Site tip `76fc747`; parent tip `0d5f0ad`.
+Nothing in either repo had been pushed at the point this section was written: site tip
+`76fc747`, parent tip `0d5f0ad`. Both were pushed minutes later on the owner's
+instruction - see section 11.
+
+---
+
+## 11. The push, 2026-10-20. What went, and what production serves
+
+Owner instruction: *"commit and push."*
+
+**What that meant concretely.** Everything of ours was already committed except one file: the
+9.7 MB `assets/tesla1894/tesla-1894-plates.zip`. So the instruction resolved the last open
+section 6 owner decision by taking the commit-the-blob option. Checked before committing, not
+assumed: `unzip -t` passes; 73 entries, 72 PNG plates plus a `README.txt` that carries the
+source scan, the page rule (`printed page = scan file page - 18`), the licence line and the
+exact credit form the plates page states, the URL of the page of origin, and a contents list
+for all 72; 10,072,373 bytes unpacked, 10,068,193 bytes in the file. Cost stated plainly: a
+9.7 MB blob is in this repo's history from now on; if that ever matters the fix is git-lfs at
+the same path, not a deletion.
+
+| repo | ref moved | by |
+|---|---|---|
+| `website/` | `main` `76fc747` → `ad559e9` (the ZIP), then pushed `249733b..ad559e9` - **30 commits, fast-forward, nothing behind** | this pass |
+| parent | `feature/1894-series-flagship` → new remote branch, `-u` set. `b2b6d1b` moves the gitlink to `ad559e9` | this pass |
+
+**The remote's `master` was not touched.** Measured: `master...feature/1894-series-flagship`
+is `0 / 108` - the feature branch contains every commit master has and 108 more, so merging it
+into master would be a fast-forward. That is a separate decision, not mine to take; local
+`master` (`f1ac068`) is itself ahead of `origin/master` (`ee2ad0c`) and unpushed.
+
+**What production serves, verified rather than assumed.** All 15 series pages were fetched from
+`https://teslamagneticgenerator.com/` and hashed: **15/15 byte-identical to the committed
+files** (`books/tmp/live-sha-2026-10-20.txt`). The hub's live sha256 begins `328113333800`,
+which is the value `index.json` has recorded for it since T5 - the record and the deployed
+bytes agree. Also 200: `assets/og/tesla-1894.webp` (36,118 B, `image/webp`) and
+`assets/tesla1894/tesla-1894-plates.zip` served as `application/zip` at exactly 10,068,193
+bytes, so the download link that has been dead in production since T0 works. A legacy page
+carrying the backlink block (`magnetic-generator-scam.html`) is byte-identical too.
+
+**The record was updated to match, not left to rot.** All 15 `index.json` rows now say
+`deployed: true` with a `deployed_note` naming the push and the byte-exact check; PLAN §9's
+"never push / deployed:false is the state of every record" rule is amended to keep the half
+that matters (pushing is the owner's action) and drop the half that stopped being true; PLAN §6
+and §8 and this file's sections 3, 6, 7, 9, 10 are corrected in place rather than rewritten.
+
+**What is still open after the push**, unchanged from section 10.5 minus the ZIP: the 375 px
+dropdown rule, the embed-image CSS, the `electrical-experimenter.html` page (research
+complete), T6 Part I, the word-count audit, the 8 review images, the licence, and the public
+`tesla1894` repo (still blocked on the invalid `gh` token). Two of those are now more urgent
+than they were before the push, because they are live: **the dropdown is cut off on every
+phone on the site**, and **the email-capture image shifts the layout on every page**.
