@@ -126,12 +126,15 @@
 #     URL, as section 5.1 row 12 prefers, and /tesla-glowing-tubes-before-tubes is
 #     the alias that row names, added at feature-006/a12-wirecommit because the task
 #     names it. No file answers that path either, so the rule fires.
-#   H tesla-1894.html: the /1894 promo alias is still not written. The hub page does
-#     not exist yet, and a rule pointing at a 404 is a different kind of dead. It
-#     goes in with the hub (feature-012).
+#   H tesla-1894.html: the /1894 promo alias is written now that the hub page
+#     exists. D1 and section 5.1 row H name /1894 and /1894/ as the hand-out URLs
+#     for the series; no file answers either path, so both rules fire. Added with
+#     the hub render, which is the point at which they stopped pointing at a 404.
 /tesla-rotating-magnetic-field                  /rotating-magnetic-field-1888    301
 /tesla-rotating-magnetic-field/                 /rotating-magnetic-field-1888    301
 /tesla-weird-inventions                         /tesla-weird-inventions-1894     301
 /tesla-weird-inventions/                        /tesla-weird-inventions-1894     301
 /tesla-glowing-tubes-before-tubes               /tesla-glowing-tubes-vacuum      301
 /tesla-glowing-tubes-before-tubes/              /tesla-glowing-tubes-vacuum      301
+/1894                                           /tesla-1894                      301
+/1894/                                          /tesla-1894                      301
