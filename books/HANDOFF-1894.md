@@ -98,10 +98,12 @@ committed in the repo that owns it. The only untracked files in either repo are 
 decide:
 
 ```
-website/  ?? assets/tesla1894/tesla-1894-plates.zip   9.7 MB - owner decision, §6
 website/  ?? js/email-capture-widget.html             not ours, leave it
 books/tmp/                                           throwaway, safe to delete
 ```
+
+The 9.7 MB `assets/tesla1894/tesla-1894-plates.zip` that used to be in that list is
+committed now - site `ad559e9`, section 11.
 
 **One exception, found and fixed by the next session - see §9.** The parent repo showed
 `M website`: its gitlink still named site `4fd0b8c` while the site repo's tip was
@@ -287,8 +289,10 @@ each carried a sliver of the next line and were thrown away.
 
 ## 6. Open owner decisions - do not invent these
 
-1. **The 9.7 MB `assets/tesla1894/tesla-1894-plates.zip`.** Not committed, so the download
-   link the plates page states is live locally and dead in git. Options: commit the blob,
+1. **The 9.7 MB `assets/tesla1894/tesla-1894-plates.zip`.** *Closed 2026-10-20: the owner
+   said "commit and push", which is the commit-the-blob option. Site `ad559e9`, section 11.*
+   It was not committed, so the download
+   link the plates page states was live locally and dead in git. Options: commit the blob,
    git-lfs, generate on demand, or drop the link. Unchanged since T0.
 2. **The Pages dropdown is wider than a phone.** Opened at a 375 px viewport the menu is
    **674 px** wide, its right edge lands at **686 px**, `document.scrollWidth` becomes
@@ -359,8 +363,8 @@ T0-T5 and T7-T8 are done. What is left in `books/PLAN-1894.md` is T6 and the own
    rather than fixed. Fixing the dropdown is a site-wide change and should be shot at 375 px
    before and after, the way §6 item 2 measured it.
 3. **T6 only if the owner asks for it.** It is a day of work and it forces §6 item 5.
-4. **The 9.7 MB ZIP (§6 item 1)** is the last thing standing between the plates page and a
-   working download link.
+4. **The 9.7 MB ZIP (§6 item 1)** was the last thing standing between the plates page and a
+   working download link. Done 2026-10-20: site `ad559e9`, section 11.
 
 Three things not to re-do: the numeric gates are green as of the last full run today
 (`books/tmp/gates-final-2026-10-20.txt`, 6/6), the section 5.2 map is closed except for the
@@ -439,7 +443,8 @@ noise, it is the series record going stale. Check both repos means check the poi
 
 **One precision, because `M website` has two causes and only one is the pointer.** After the
 fix the parent still prints `M website`, and it now means only that `website/` has untracked
-content - the 9.7 MB plates ZIP and `js/email-capture-widget.html`, both §6 items. The
+content - the 9.7 MB plates ZIP (now committed, site `ad559e9`) and
+`js/email-capture-widget.html`, which is not ours. The
 command that tells them apart:
 
 ```
@@ -616,9 +621,9 @@ than research:
    unfixed. It is third-party markup, so the fix available to us is a CSS rule in
    `styles-custom.css` sizing `gallery.eocampaign1.com` images, which stops the layout
    shift without touching the provider.
-4. **The 9.7 MB plates ZIP** (section 6 item 1). Still untracked. For a deployed site the
-   choice is commit-the-blob or LFS or generate-on-demand; a link to an untracked file is a
-   dead link in production.
+4. **The 9.7 MB plates ZIP** (section 6 item 1). *Done - site `ad559e9`, section 11.* It was
+   the last thing standing between the plates page and a
+   working download link.
 5. **The `electrical-experimenter.html` page** - 10.4, research complete, prose and wiring
    to do.
 6. **T6, Part I as readable text** (section 6 item 5). Not started. It forces the
