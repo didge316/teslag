@@ -176,13 +176,16 @@ and repeats the page rule and the licence:
 
 If you want to link to something rather than download it, this page is the thing
 to link to: it is the set, the method and the citations in one place, and the
-credit line above is the one we would like back. The pages this series writes
+credit line above is the one we would like back. The hub of this series is
+[The 1894 File](/tesla-1894), and it links here. The pages this series writes
 about the same volume are on [the articles index](/articles.html), including
 [the World's Fair exhibit this gallery's Appendix plates came from](/tesla-worlds-fair-1893),
 [the 1891 lecture that explains the diagrams in Part II](/rotating-magnetic-field-1888),
 [the glowing tubes chapter, which reads the four different texts inside one chapter](/tesla-glowing-tubes-vacuum),
 and [what Tesla actually wrote about free energy](/tesla-free-energy-what-he-said).
-The hub of this series is being written last, so its twelve cards can be real.
+The counting method behind the claims in those pages, the two indexes a count can be
+taken over, and the printed page of every hit are on
+[Tesla 1894 Word Search](/tesla-1894-word-search).
 
 {{CTA}}
 

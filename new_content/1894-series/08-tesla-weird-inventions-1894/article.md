@@ -752,7 +752,7 @@ Entry 4 is the one that concerns this site. Search the text layer of our copy of
 
 ![](/assets/tesla1894/p430-fig242.webp)
 
-The pages here about magnet motors and perpetual motion are [the Tesla magnet motor](magnet-motor.html) and [perpetual motion machines](perpetual-motion-generator.html). Neither cites this book, and nothing on this page is evidence for what they sell. What this page can say is narrower: the only magnetic generator in the 1894 volume is a heat engine, and none of the nine machines here is one either.
+The pages here about magnet motors and perpetual motion are [the Tesla magnet motor](magnet-motor.html) and [perpetual motion machines](perpetual-motion-generator.html). Neither cites this book, and nothing on this page is evidence for what they sell. What this page can say is narrower: the only magnetic generator in the 1894 volume is a heat engine, and none of the nine machines here is one either. What the same volume does say about energy, and the phrase it never prints, is worked through at [What Tesla Actually Wrote About Free Energy](tesla-free-energy-what-he-said.html).
 
 The book never says these nine failed. For seven of them it records no trial, no output and no result. For two it records something else: entry 2's principle is still how high-voltage paper insulation is made, and entry 9's machines "worked satisfactorily" until their inventor ran out of time (1894, p. 474).
 

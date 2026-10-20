@@ -168,7 +168,10 @@ electrostatic field until it has been excited by a disruptive discharge coil, an
 keeps the habit: "I may put it away for a few weeks or months, still it retains the
 faculty of being excited. What change have I produced in the tube in the act of exciting
 it?" (1894, p. 288) He weighs two explanations, motion imparted to atoms and strain in
-the dielectric, and says neither accounts for it.
+the dielectric, and says neither accounts for it. An exhausted tube that lights with
+nothing attached to it, and keeps the habit of lighting, is a subject the same book
+returns to, and that material is worked through on its own page at
+[Glowing Glass in Tesla's Bare Hand](tesla-glowing-tubes-vacuum.html).
 
 One caution for anyone retelling these evenings. The book names the society, the venue
 and the date, and it does not give an audience size. Any headcount you find online was

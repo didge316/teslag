@@ -295,7 +295,10 @@ on the generator: what the device is claimed to deliver, what has been measured,
 seller is willing to warrant. The second question usually ends in a number, and
 [How much noise does a free-energy device make?](How-Much-Noise-Does-a-Free-Energy-Device-Make.html)
 is the same two questions pointed at an ordinary claim: a loudness figure in decibels, and the
-comparison it is supposed to win.
+comparison it is supposed to win. The third place this site points the same two questions is at
+a text rather than a machine:
+[What Tesla Actually Wrote About Free Energy](tesla-free-energy-what-he-said.html) is about a
+sentence quoted from an 1894 book, and about the two-word phrase that book never uses.
 
 The 1891 paper is useful exactly because it is so small. Two pages, one effect, one hedge, and
 a closing line that says the rest is unproven. Everything sold on top of that is a later

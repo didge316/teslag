@@ -188,6 +188,10 @@ industrial work to climb. If you want the honest version of the home version, st
 [building a magnetic generator](build-a-magnetic-generator.html) or
 [what the plans actually cost](magnetic-generator-plans-review.html).
 
+The exhibit itself was photographed for the book, and those photographs are on the page that
+catalogues the volume's illustrations one at a time, each cited to the printed page it sits on:
+[Tesla 1894 Plates](tesla-1894-plates.html).
+
 {{CTA}}
 
 {{SOURCES}}

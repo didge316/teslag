@@ -283,6 +283,10 @@ see [Tesla's lamps lit without wires](tesla-lit-lamps-without-wires.html). For t
 answer on what magnets can and cannot do in a generator you build, see
 [can we use magnets to generate electricity](can-we-use-magnets-to-generate-electricity-a-magnetic-marvel.html).
 
+For the version of the same idea that gives up the return path altogether, Tesla's 1893 plan
+for working power and signals through the earth itself, see
+[Tesla's Wireless Power Plan, In His Own Words (1893)](tesla-wireless-power-1893.html).
+
 {{FAQ}}
 
 {{CTA}}
