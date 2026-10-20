@@ -290,24 +290,28 @@ each carried a sliver of the next line and were thrown away.
    **674 px** wide, its right edge lands at **686 px**, `document.scrollWidth` becomes
    **686 px**, and all 32 items are cut off mid-word - the screenshot is
    `website/_qa/tesla-1894-nav-open-mobile.png`. Measured at 375 / 768 / 991 / 992 px: bad
-   below about 700 px, fine at 768 px and above, and at 992 px the menu is the desktop
-   hover menu. The markup is the shared nav every page carries (`website/tesla-1894.html:243`
-   is one instance; 52 pages carry the hub entry). The cause is Bootstrap's
+   below about 700 px, fine at 768 px and above; at 992 px the navbar is the desktop hover
+   menu. The markup is the shared nav every page carries (`website/tesla-1894.html:243` is
+   one instance; 52 pages carry the hub entry). The cause is Bootstrap's
    `.dropdown-item { white-space: nowrap }`; the one-rule fix goes in
-   `website/css/styles-custom.css`, which PLAN §10 puts outside this series. Found by
+   `website/css/styles-custom.css`, which PLAN section 10 puts outside this series. Found by
    `books/tmp/nav_open.py`, which opens the menu and shoots the first screen -
-   `shot_qa.py` cannot see this because it measures overflow with the menu closed.
+   `shot_qa.py` cannot see this, because it measures overflow with the menu closed.
 3. **The email-capture embed paints an image with no `width`/`height`.**
    `eocampaign1.com/form/ca475970-c34a-11f1-9696-9df3578f190e.js` paints
-   `gallery.eocampaign1.com/338485c0-…jpg` on every page of the site, including all 15
-   series pages. It shifts layout and it is not our markup. `shot_qa.py` now reports it as a
+   `gallery.eocampaign1.com/338485c0-...jpg` on every page of the site, all 15 series pages
+   included. It shifts layout and it is not our markup. `shot_qa.py` now reports it as a
    note instead of failing a series gate on it; fixing it means changing the embed provider
-   or the shell, both owner calls.
-4. **Closed, recorded so it is not re-opened: the OG images.** `website/assets/og/` now has
-   15 cards, all under the 120 KB limit, all viewed at exactly 300 px
-   (`books/tmp/og-preview/montage-300.png`), smallest title set 14 px at that width. The
-   gate that checks the files exist is in `qa_page.py`, so a card cannot silently vanish
-   again.
+   or the shell, and both are owner calls.
+4. **The visual evidence the `index.json` rows name is throwaway.** Every `visual_gates`
+   row names the review image it was read from, and those images live in `books/tmp/`, which
+   is gitignored. Measured: of the 18 artifact paths the rows name, **10 no longer exist** -
+   they were an earlier session's scratch files and a clean removed them. The rows still
+   carry the numbers, so the record is not empty, but the picture behind it is gone. Keeping
+   the 8 that survive costs about 2 MB of PNGs in the parent repo; the alternative is
+   accepting that a visual record says what was measured, not what can be re-opened. The
+   full-page shots under `website/_qa/` are 222 MB and are not worth keeping; the review
+   crops are the ones the rows cite.
 5. **T6, Part I as readable text.** In scope or not; if it is, split across 2-3 pages or
    add a documented exemption in `qa_page.py`.
 6. **`electrical-experimenter.html`.** The spec's hub row asks for a link to it; no such
@@ -323,23 +327,14 @@ each carried a sliver of the next line and were thrown away.
 8. **Whether `qa_page.py` should keep keying the series-furniture gates on the string "The
    1894 File".** Since the hub entered the nav, that string is on every page, so the kicker
    and disclosure gates now fire on 50 legacy pages that were never built to satisfy them.
-   See §4.
-3. **T6, Part I as readable text.** In scope or not; if it is, split across 2-3 pages or
-   add a documented exemption in `qa_page.py`.
-4. **`electrical-experimenter.html`.** The spec's hub row asks for a link to it; no such
-   page exists and no task in `books/PLAN-1894.md` would create one. Either write it, drop
-   the row from the spec, or accept the gap permanently. It is the only section 5.2 edge
-   that cannot be closed by editing.
-5. **Which word count, if any, the series may print.** Four defensible counts of the same
-   text layer disagree: 174,169 words in the raw extracted file, 172,651 across the 506 page
-   bodies, 168,438 in the furniture-stripped index, 167,998 in the count article 10 prints.
-   The spec's own hub brief says "177,000 words", which matches none of them. The hub page
-   no longer prints a number; the word-search page prints counts only with the command and
-   the furniture rule attached. If any page ever wants a total, that is the decision.
-6. **Whether `qa_page.py` should keep keying the series-furniture gates on the string "The
-   1894 File".** Since the hub entered the nav, that string is on every page, so the kicker
-   and disclosure gates now fire on 50 legacy pages that were never built to satisfy them.
-   See §4.
+   See section 4.
+
+Closed this session, recorded so it is not re-opened: **the OG images.** `website/assets/og/`
+now has 15 cards, every one 1200x630 and under the 120 KB limit, every one viewed at exactly
+300 px (`books/tmp/og-preview/montage-300.png`), smallest title set 14 px at that width
+against an 11 px floor. `qa_page.py` now fails a page whose `og:image` points at a file that
+does not exist, so a card cannot silently vanish again.
+
 
 ---
 
