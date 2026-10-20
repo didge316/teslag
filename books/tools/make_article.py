@@ -255,10 +255,27 @@ def md_to_html(md, fm, base_dir):
                 i += 1
             items = "".join(f"<li>{inline(b, figmap, base_dir)}</li>" for b in buf)
             out.append(f'<ul class="mb-4 fs-5">{items}</ul>')
+        elif re.match(r"^1[.)]\s+\S", s):
+            # Ordered lists, added 2026-10-20 because the hub's twelve-article
+            # index was being rendered as one run-on paragraph: the tool had no
+            # ordered-list branch, so "1. ... 2. ..." fell into the paragraph
+            # branch and swallowed the whole list (found by looking at the page,
+            # books/tmp/review/tesla-1894-desktop-boxes-3of7.png).
+            # The first marker must be 1, as in CommonMark: that is what keeps a
+            # paragraph that opens "1892. Three of the four passages..." a
+            # paragraph. Later markers may be any number.
+            buf = [s[2:].strip()]
+            while (i + 1 < len(lines) and
+                   re.match(r"^\s*\d+[.)]\s+\S", lines[i + 1].strip())):
+                i += 1
+                buf.append(re.sub(r"^\s*\d+[.)]\s+", "", lines[i].strip()))
+            items = "".join(f"<li>{inline(b, figmap, base_dir)}</li>" for b in buf)
+            out.append(f'<ol class="mb-4 fs-5">{items}</ol>')
+            i += 1        # the look-ahead loop above stops *on* the last item
         else:
             buf = [s]
             while i + 1 < len(lines) and lines[i + 1].strip() and \
-                    not re.match(r"^\s*(#|>|[-*]\s|!\[|\{|\||`)", lines[i + 1]):
+                    not re.match(r"^\s*(#|>|[-*]\s|1[.)]\s|!\[|\{|\||`)", lines[i + 1]):
                 i += 1
                 buf.append(lines[i].strip())
             out.append(f'<p class="fs-5 mb-4">{inline(" ".join(buf), figmap, base_dir)}</p>')
@@ -640,6 +657,15 @@ and [the hub](tesla-1894.html).
 - one point
 - another point
 
+## The three things, in order
+
+1. the first thing, cited (1894, p. 486).
+2. the second thing.
+3. the third zebra thing.
+
+1892. A paragraph that opens with a year must stay a paragraph. CommonMark's own
+rule is what decides this: a list only starts at 1.
+
 ## What the internet gets wrong
 
 Third paragraph, citing (1894, p. 486) again so the citation gate is exercised.
@@ -745,6 +771,21 @@ def self_test(donor):
         fails.append("comments block / comments.css present — forbidden (D3)")
     if "?tid=1894_03" not in out:
         fails.append("affiliate tid missing")
+    # Ordered lists. Added 2026-10-20: the tool had no ordered-list branch, so the
+    # hub's twelve-article index came out as one run-on paragraph, and the first
+    # version of the fix duplicated the last item (the look-ahead loop stopped on
+    # it instead of past it). Both halves are checked here.
+    ol = re.search(r'<ol class="mb-4 fs-5">(.*?)</ol>', out, re.S)
+    if not ol:
+        fails.append('ordered list did not become <ol class="mb-4 fs-5">')
+    else:
+        n = len(re.findall(r"<li>", ol.group(1)))
+        if n != 3:
+            fails.append(f"ordered list has {n} items, expected 3")
+        if "third zebra thing" in out[ol.end():]:
+            fails.append("the last ordered-list item was emitted twice")
+    if '<p class="fs-5 mb-4">1892.' not in out:
+        fails.append("a paragraph opening with a year became a list item")
     if 'rel="noopener noreferrer nofollow"' not in out:
         fails.append("affiliate rel missing")
     if len(out.encode()) > 200_000:

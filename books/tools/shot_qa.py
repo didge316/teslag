@@ -9,10 +9,13 @@ SERIES-PLAN-1894.md §6.5 / §8 step 7 / §12 visual gates.
 Writes website/_qa/<slug>-{mobile,tablet,desktop}.png (full page) and
 <slug>-mobile-fold.png (first screen, for the CTA-above-the-fold check).
 
-The screenshots are for a *viewer*. What this script can decide on its own:
-console errors, 404s, horizontal overflow, images without intrinsic size, figures
-that never decode, figures wider than their column, a missing nav dropdown, and a
-CTA that is not in the mobile first screen. Hard gate before deploy.
+What this script can decide on its own: console errors, 404s, horizontal
+overflow, images without intrinsic size, figures that never decode, figures wider
+than their column, a blank band in the rendered pixels (nothing painted in a
+600 px run of background), a missing nav dropdown, and a CTA that is not in the
+mobile first screen. The image checks run over every image in the page content,
+not only inside <article> - see the scope comment in shoot(). Hard gate before
+deploy.
 """
 
 import argparse
@@ -96,6 +99,35 @@ def preload_lazy(page):
         print(f"  note    images still undecoded after preload: {stuck[:5]}")
 
 
+def blank_bands(shot_path, limit=600):
+    """Longest run of rows that are nothing but the page background.
+
+    A collapsed column, a figure that never painted, or an empty section all look
+    like this in a full-page shot, and none of the DOM checks in shoot() see it,
+    because the DOM says the element is there and sized. Measured across the 15
+    series pages at three widths on 2026-10-20: the longest legitimate band is
+    110 px (section spacing on the plates page); every other page is 80-91 px.
+    The donor legacy page nikola-tesla-inventor-extraordinaire has a 622 px band,
+    which is why the limit is 600 and not lower: this gate is for the series, and
+    it is not here to re-litigate the old pages. Returns (longest, y, bg).
+    """
+    try:
+        import numpy as np
+    except ImportError:
+        return None
+    from PIL import Image
+    a = np.asarray(Image.open(shot_path).convert("L"), dtype=np.uint8)
+    counts = np.bincount(a.ravel(), minlength=256)
+    bg = int(counts.argmax())
+    blank = (np.abs(a.astype(np.int16) - bg) <= 3).all(axis=1)
+    d = np.diff(np.concatenate(([0], blank.astype(np.int8), [0])))
+    starts, ends = np.flatnonzero(d == 1), np.flatnonzero(d == -1)
+    if not len(starts):
+        return (0, 0, bg)
+    i = int((ends - starts).argmax())
+    return (int(ends[i] - starts[i]), int(starts[i]), bg)
+
+
 def shoot(page, base, slug, vp_name, width, height, outdir):
     problems = []
     page.set_viewport_size({"width": width, "height": height})
@@ -121,19 +153,55 @@ def shoot(page, base, slug, vp_name, width, height, outdir):
         page.screenshot(path=str(outdir / f"{slug}-mobile-fold.png"),
                         full_page=False)
 
+    # the pixels, not the DOM: a blank band is what a failed render looks like
+    bands = blank_bands(shot)
+    if bands and bands[0] > 600:
+        problems.append(f"blank band {bands[0]}px tall at y={bands[1]} "
+                        f"(background {bands[2]}) - something in this range "
+                        f"painted nothing")
+    elif bands:
+        print(f"  note    {vp_name}: longest blank band {bands[0]}px at "
+              f"y={bands[1]} (limit 600)")
     # measurable layout gates
     metrics = page.evaluate("""() => {
       const doc = document.documentElement;
-      const art = document.querySelector('article') || doc;
-      const over = [...document.querySelectorAll('article img, article figure')]
+      // Content scope, not article scope. The plates page keeps its 72-tile grid
+      // after </article> on purpose (books/tools/plates_gallery.py says why), and
+      // every image on that grid was invisible to this check while the check read
+      // `article img`: 83 images on the page, 3 of them measured. The shell's own
+      // nav, header and footer are still excluded, so a page's avatar in the
+      // footer is not this series' layout problem.
+      const inShell = (el) => !!el.closest('nav, header, footer, .navbar');
+      const contentImgs = [...document.querySelectorAll('img')]
+        .filter(el => !inShell(el));
+      const contentFigs = [...document.querySelectorAll('figure')]
+        .filter(el => !inShell(el));
+      // Our bytes or somebody else's. The sidebar email-capture embed
+      // (eocampaign1.com, one script tag in every page) paints an image with no
+      // width/height, and that is a real layout shift on our pages that we can
+      // only fix by changing a third party's markup. It is reported, not failed,
+      // and it is named in the record; a series gate must not go red on a file
+      // this repo does not contain.
+      const sameOrigin = (el) => {
+        try {
+          return new URL(el.currentSrc || el.src, location.href).origin ===
+                 location.origin;
+        } catch (e) { return false; }
+      };
+      const ownImgs = contentImgs.filter(sameOrigin);
+      const extImgs = contentImgs.filter(el => !sameOrigin(el));
+      const over = [...contentImgs, ...contentFigs]
         .filter(el => el.getBoundingClientRect().width >
                       (el.closest('.col-lg-8')?.clientWidth || doc.clientWidth) + 2)
         .map(el => el.tagName + ':' + (el.src || el.className));
-      const noDims = [...document.querySelectorAll('article img')]
+      const noDims = ownImgs
         .filter(i => !i.getAttribute('width') || !i.getAttribute('height'))
         .map(i => i.getAttribute('src'));
-      const notLoaded = [...document.querySelectorAll('article img')]
+      const notLoaded = ownImgs
         .filter(i => !i.complete || !i.naturalWidth)
+        .map(i => i.getAttribute('src'));
+      const extNoDims = extImgs
+        .filter(i => !i.getAttribute('width') || !i.getAttribute('height'))
         .map(i => i.getAttribute('src'));
       const cta = document.querySelector('.alert-info');
       const ctaTop = cta ? Math.round(cta.getBoundingClientRect().top) : null;
@@ -143,6 +211,8 @@ def shoot(page, base, slug, vp_name, width, height, outdir):
       return {
         scrollW: doc.scrollWidth, clientW: doc.clientWidth,
         overflow: over, noDims: noDims, notLoaded: notLoaded,
+        extNoDims: extNoDims,
+        nImgs: ownImgs.length, nFigs: contentFigs.length, nExt: extImgs.length,
         nav: !!document.querySelector('.navbar .dropdown-menu'),
         navItems: document.querySelectorAll('.navbar .dropdown-item').length,
         h1: document.querySelectorAll('h1').length,
@@ -156,6 +226,10 @@ def shoot(page, base, slug, vp_name, width, height, outdir):
                         f"clientWidth {metrics['clientW']}")
     if metrics["overflow"]:
         problems.append(f"element wider than its column: {metrics['overflow'][:3]}")
+    if metrics["extNoDims"]:
+        print(f"  note    {vp_name}: {len(metrics['extNoDims'])} third-party "
+              f"embed image(s) without width/height (layout shift, not ours to "
+              f"fix): {metrics['extNoDims'][:1]}")
     if metrics["noDims"]:
         problems.append(f"img without width/height (layout shift): {metrics['noDims'][:3]}")
     if metrics["notLoaded"]:
@@ -177,6 +251,7 @@ def shoot(page, base, slug, vp_name, width, height, outdir):
 
     print(f"  {vp_name:<8} {shot.name}  "
           f"nav={metrics['nav']} navitems={metrics['navItems']} "
+          f"imgs={metrics['nImgs']}+{metrics['nExt']}ext/{metrics['nFigs']}figs "
           f"overflow={metrics['scrollW']}px")
     return problems, metrics
 

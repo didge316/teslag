@@ -14,9 +14,12 @@ What it runs, in the order that fails cheapest first:
   1. qa_page.py --self-test          the fixture tests for the page gates
   2. check_quotes.py --self-test     the fixture tests for the quote checker:
                                      one case per defect class it once got wrong
-  3. titlecase_headings.py --check   the house rule for series headings
-  4. check_quotes.py --all-series    every quote verbatim + page-cited (SERIES-PLAN §8 step 2, §12)
-  5. qa_page.py --all-series         the numeric page gates: links, canonicals, figures, schema
+  3. make_article.py --self-test     the renderer's own fixture: lists, tables,
+                                     code, links, schema. A render is the one step
+                                     that can silently change every page at once.
+  4. titlecase_headings.py --check   the house rule for series headings
+  5. check_quotes.py --all-series    every quote verbatim + page-cited (SERIES-PLAN §8 step 2, §12)
+  6. qa_page.py --all-series         the numeric page gates: links, canonicals, figures, schema
 
 Paths are resolved from this file, not from the caller's cwd, because the
 harness runs commands with cwd = books/ while the pages live in ../website.
@@ -70,6 +73,8 @@ def main() -> int:
         ("gate self-test", [py, str(TOOLS / "qa_page.py"), "--self-test"]),
         ("quote checker self-test",
          [py, str(TOOLS / "check_quotes.py"), "--self-test"]),
+        ("renderer self-test",
+         [py, str(TOOLS / "make_article.py"), "--self-test"]),
         ("heading title case", [py, str(TOOLS / "titlecase_headings.py"), "--check"]),
     ]
     if not args.quick:

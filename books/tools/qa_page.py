@@ -97,6 +97,7 @@ def inbound_map():
 
 DEAD_LINK_GATE = "no dead links (\u00a712)"
 HEADING_CASE_GATE = "h2/h3 and FAQ names are title case"
+OG_IMAGE_GATE = "og:image and twitter:image point at files that exist"
 
 
 def heading_case(path):
@@ -135,6 +136,20 @@ def redirecting_links(html):
         if t.endswith(".html") or (t.endswith("/") and t != "/"):
             bad.add(href)
     return sorted(bad)
+
+
+def asset_path(url):
+    """Local file a meta content URL addresses, or None for anything that is not
+    this site's or a local path. Same-origin absolute, root-absolute and relative
+    spellings all resolve, as they do in dead_links()."""
+    t = url.split("#")[0].split("?")[0].strip()
+    if not t:
+        return None
+    if t.lower().startswith(SITE.lower() + "/"):
+        t = t[len(SITE) + 1:]
+    elif re.match(r"^[A-Za-z][A-Za-z0-9+.-]*:", t):
+        return None
+    return WEB / t.lstrip("/")
 
 
 def dead_links(html):
@@ -223,6 +238,18 @@ def check(path: Path):
     gate(bool(can) and bool(ogu) and ogu.group(1) == can.group(1),
          "og:url equals canonical",
          f"og={ogu.group(1) if ogu else 'none'}")
+    # A share card only exists if the bytes it points at exist. Until 2026-10-20
+    # every page in this series pointed og:image and twitter:image at
+    # assets/og/<slug>.webp and the directory did not exist: 15 pages passed a
+    # gate that had only ever looked at the tag, and every share of every article
+    # in the series went out imageless. This reads the file, not the tag.
+    share = re.findall(
+        r'<meta (?:property|name)="(?:og|twitter):image" content="([^"]+)"',
+        html)
+    missing = sorted({u for u in share if not (asset_path(u) or
+                                               Path("/")).exists()})
+    gate(bool(share) and not missing, OG_IMAGE_GATE,
+         f"{len(share)} tag(s), missing: {missing[:4]}")
     redir = redirecting_links(html)
     gate(not redir, "no internal link points at a redirecting URL",
          f"{len(redir)}: {redir[:6]}")
@@ -339,6 +366,8 @@ def self_test():
         (tmp / "target.html").write_text("<html><body>ok</body></html>")
         (tmp / "assets").mkdir()
         (tmp / "assets/x.css").write_text("body{}")
+        (tmp / "assets/og").mkdir()
+        (tmp / "assets/og/og_ok.webp").write_bytes(b"RIFFxxxxWEBP")
         # liveness: all three spellings resolve, so none of them is dead
         (tmp / "live.html").write_text(
             '<a href="target.html">old relative form</a> '
@@ -405,6 +434,15 @@ def self_test():
         (tmp / "recip_none.html").write_text(
             '<a href="/recip_stranger1">a</a> <a href="/recip_stranger2">b</a> '
             '<a href="recip_stranger3.html">c</a>')
+        # the share-card gate: the tag is not the file. og_bad names a file that
+        # is not there, in both the same-origin absolute and the root-absolute
+        # spelling; og_none has no share image at all.
+        (tmp / "og_ok.html").write_text(
+            f'<meta property="og:image" content="{SITE}/assets/og/og_ok.webp">'
+            '<meta name="twitter:image" content="/assets/og/og_ok.webp">')
+        (tmp / "og_bad.html").write_text(
+            f'<meta property="og:image" content="{SITE}/assets/og/nope.webp">')
+        (tmp / "og_none.html").write_text("<p>no share image</p>")
         cases = (
             ("live", DEAD_LINK_GATE, True, ""),
             ("broken", DEAD_LINK_GATE, False, "/rotating-magnetic-field-1888"),
@@ -425,6 +463,9 @@ def self_test():
              "why the machine was hard"),
             ("recip_ok", ">= 3 links to pages that link back (\u00a75.2)", True, ""),
             ("recip_none", ">= 3 links to pages that link back (\u00a75.2)", False, ""),
+            ("og_ok", OG_IMAGE_GATE, True, ""),
+            ("og_bad", OG_IMAGE_GATE, False, "assets/og/nope.webp"),
+            ("og_none", OG_IMAGE_GATE, False, "0 tag"),
         )
         results = []
         for name, label, want_ok, want_named in cases:
