@@ -227,7 +227,10 @@ perfect impunity, no matter how high the potential at the terminals of the conde
 For the machine that made these effects available, see
 [Tesla's high-frequency alternators](tesla-high-frequency-alternator.html), with the pole
 counts and the thirty thousand alternations a second. For the same effects on a much
-larger stage, see [Tesla at the 1893 World's Fair](tesla-worlds-fair-1893.html). To go
+larger stage, see [Tesla at the 1893 World's Fair](tesla-worlds-fair-1893.html). For the
+brush that forms at a single high-potential terminal, and for Tesla's argument that it is
+a flame even though it does not burn you, see
+[The Flame That Doesn't Burn: Tesla's Cold Fire](tesla-cold-flame.html). To go
 the other way, from the physics back to a machine you can actually build, see
 [how a magnetic dynamo generator puts out current](magnetic-dynamo-generator.html) and
 [whether magnets can be used to generate electricity](electricity-using-magnets.html).

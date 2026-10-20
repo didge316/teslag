@@ -206,7 +206,11 @@ is a beautiful *timing* device and not a free-power device.
 That distinction is the whole reason this site links history to hardware. If you have
 been promised a machine that runs itself, read
 [the truth about perpetual motion](perpetual-motion-generator.html) and
-[the magnet motor claim](magnet-motor.html). For the 1893 setting of the demonstration,
+[the magnet motor claim](magnet-motor.html). For the nine machines this same book describes
+that other people did not go on building, and for the only 'magnetic generator' the 1894
+volume actually prints, which turns out to be a heat engine, see
+[9 Tesla Inventions From 1894 That Never Caught On](tesla-weird-inventions-1894.html). For
+the 1893 setting of the demonstration,
 [Tesla at the World's Fair](tesla-worlds-fair-1893.html) covers the same year from the
 other end, and [the paper Tesla scribbled in pencil](rotating-magnetic-field-1888.html)
 gives the 1888 machine that really does turn alternating current into torque, with the

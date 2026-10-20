@@ -707,7 +707,8 @@ earth" (1894, p. 138). What follows is a chain of conditionals, none of them a b
 Then the sentence that decides what is being claimed: "In this manner, even if it were not possible
 to operate machinery, intelligence might be transmitted quite certainly" (1894, p. 138). He gives up
 the machinery and keeps the signalling. The book's phrase is 'the earth's potential', and it occurs
-once, here.
+once, here. The same proposal, quoted in full and with its conditions left attached, is worked
+through on its own page at [Tesla's Wireless Power Plan, In His Own Words (1893)](tesla-wireless-power-1893.html).
 
 ### A Flame That Consumes No Material, in Someone Else's Words
 

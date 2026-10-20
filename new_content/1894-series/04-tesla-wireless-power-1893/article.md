@@ -262,6 +262,10 @@ achievement. The 1893 text is more interesting than the compressed version, not 
 the measurement that was missing and the machine that would have to be invented to make it, and
 the next section is in his own words about exactly those.
 
+The same compression happens to a different phrase, and this site checked that one word by word
+in this same text layer and printed the counts that came back:
+[What Tesla Actually Wrote About Free Energy](tesla-free-energy-what-he-said).
+
 ![Detail of printed page 346 of the 1894 first edition: the page number and running head at the top, then the paragraph in which Tesla writes of transmitting intelligible signals or perhaps even power to any distance without the use of wires, and in the same paragraph of the great majority of scientific men who will not believe such results can be practically and immediately realized](/assets/tesla1894/scan-p346-detail.webp "The page the claim is on. The paragraph that says he means 'the transmission of intelligible signals or perhaps even power to any distance without the use of wires' is the same paragraph that says the great majority of scientific men will not believe such results can be practically and immediately realized, and it ends on the question Why then not try to avail ourselves of the earth for this purpose? (1894, p. 346). Public domain.")
 
 ## Why it did not happen

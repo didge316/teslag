@@ -126,20 +126,23 @@ figures:
     caption: "Fig. 141, printed p. 226, the whole plate with its printed caption inside the crop; the plate beside it on the same page is Fig. 142. The book describes this bulb on the same printed page: 'In Fig. 141 the bulb comprises an incandescent lamp globe ... in the neck of which is sealed a barometer tube ... the end of which is blown out to form a small sphere' (1894, p. 226). The drawing matches that description part for part: the small sphere is blown at the end of the long tube and set in the middle of the large globe, as the text on that page requires it to be, and it is filled with a stippled mass of conducting powder, which the following page says is led to the generator. No wire enters through the glass, which is also what that page advises. This is the apparatus behind the passage quoted above, a brush 'formed at, or near, a single terminal in high vacuum' (1894, p. 226), and the ancestor of the desk globe. Public domain."
 # §5.2 out-link map for this article: 7-interesting-facts-about-magnets.html (present, below),
 # 01 = tesla-lit-lamps-without-wires.html (present, below) and 12 = tesla-glowing-tubes-vacuum.html.
-# That third target is NOT deferred by choice: article 12 is feature-006 and is not rendered, so
-# website/tesla-glowing-tubes-vacuum.html does not exist and a link to it now would fail
-# qa_page.py's dead-link gate at t7. It goes in when 12 is written, and 12's own §5.2 row already
-# requires it to link back here. Body out-links as drafted: 4 (01, 11, 7-interesting-facts, 05),
-# inside §5.2's 4-6 band; adding 12 later makes 5. The link to 11 is required by §9 brief 06
+# CLOSED 2026-10-20. That third target was deferred, not skipped: article 12 was feature-006 and was
+# not rendered, so website/tesla-glowing-tubes-vacuum.html did not exist and a link to it would have
+# failed qa_page.py's dead-link gate. It goes in when 12 is written, and 12's own §5.2 row already
+# requires it to link back here; both halves of that are now in. Body out-links as drafted: 4
+# (01, 11, 7-interesting-facts, 05), inside §5.2's 4-6 band; with 12 the page is at 6, the top of
+# the band, and it carries no more. The link to 11 is required by §9 brief 06
 # section 4, 'cross-ref Ch. XXIX, article 11', which is the chapter the alternator numbers quoted
 # from printed p. 376 and printed p. 381 come from. The link to 05 is off-map and is here for one
 # reason: the same Columbia College lecture of May 20 1891 supplies both pages, and 05 is where this
 # site carries that lecture's own caution about high-frequency currents used with condensers. It is a
 # safety bridge, not a way of making a number.
-# The reciprocal gate cannot pass on this page for any reason to do with this page. §5.2 requires 06
-# to be linked from 01, from 12 and from the hub, and none of those could link to a page that did
-# not exist when they were written. 01's backlink goes in at feature-009/t1, 12's when 12 is
-# written, the hub's at feature-012. Recorded here and in index.json rather than papered over.
+# The reciprocal gate is now closed on this page, and it was never a thing this page could do by
+# itself: §5.2 requires 06 to be linked from 01, from 12 and from the hub, and none of those could
+# link to a page that did not exist when they were written. All three now do: 01's backlink went in
+# on 2026-10-20 in the same pass that closed this one, 12 links here from its own body, and the hub
+# links here from its twelve-item list. The earlier note that 01's backlink 'goes in at
+# feature-009/t1' did not happen; it is recorded here as done at a different task.
 # LENGTH, flagged not hidden. The body of this draft is 5,113 words. §9 brief 06 targets 1,200 and §3
 # puts flagships at 1,200-1,800 with 'Do not pad' and the thicken*.py habit banned. This is out of
 # band by a factor of nearly three, and it is the largest piece in the series; the six already accepted
@@ -248,7 +251,7 @@ Then the apparatus, which is where the claim actually dies. Off-the-shelf equipm
 
 The frequency he could actually build is in the same book, in the chapter on his high-frequency alternators, and it is not his writing. That chapter describes his machines in the third person, 'In one type of machine of this kind constructed by Mr. Tesla'. The ceiling it gives for the simpler design is the book's sentence, not his: "Up to about 15,000 alternations per second in an experimental machine, the former plan may be followed, but a more efficient machine is obtained on the second plan" (1894, p. 376). The better machine is the book's description as well: "the field had 480 polar projections on each side, and from this machine it was possible to obtain 30,000 alternations per second" (1894, p. 381). Fifteen thousand, thirty thousand, against the many million the flame needs. Those machines, their pole counts, and why building one was 'a tale of woe' in that chapter's own phrase, are the subject of [Tesla's high-frequency alternator](tesla-high-frequency-alternator.html).
 
-The glass bulb is the part a reader is most likely to mistake for the design. It is not the design, it is a substitute for a machine: "Were there means at hand for producing electric impulses of a sufficiently high frequency, and for transmitting them, the bulb could be done away with" (1894, p. 258). Then the admission, on the next printed page: "But as such means are not at disposal, it becomes necessary to place the terminal in the bulb and rarefy the air in the same" (1894, p. 259). Then the plainest sentence in the whole argument: "This is done merely to enable the apparatus to perform the work which it is not capable of performing at ordinary air pressure" (1894, p. 259). The envelope stands in for the alternator. The same substitution runs through the lamps he held up in 1891, and [Tesla lit lamps by holding them](tesla-lit-lamps-without-wires.html) works through that apparatus story in full, including the part about what the glass and the room each have to do for a circuit that looks incomplete.
+The glass bulb is the part a reader is most likely to mistake for the design. It is not the design, it is a substitute for a machine: "Were there means at hand for producing electric impulses of a sufficiently high frequency, and for transmitting them, the bulb could be done away with" (1894, p. 258). Then the admission, on the next printed page: "But as such means are not at disposal, it becomes necessary to place the terminal in the bulb and rarefy the air in the same" (1894, p. 259). Then the plainest sentence in the whole argument: "This is done merely to enable the apparatus to perform the work which it is not capable of performing at ordinary air pressure" (1894, p. 259). The envelope stands in for the alternator. The same substitution runs through the lamps he held up in 1891, and [Tesla lit lamps by holding them](tesla-lit-lamps-without-wires.html) works through that apparatus story in full, including the part about what the glass and the room each have to do for a circuit that looks incomplete. The other half of that story, the exhausted tube that lights in the hand and keeps the habit of lighting after it is put away, is on its own page at [Glowing Glass in Tesla's Bare Hand](tesla-glowing-tubes-vacuum.html), and it is the same book's material, printed p. 288.
 
 One safety note, and its basis is his rather than ours. The voltages in these experiments are 'one or two hundred thousand volts' (1894, p. 168), the air coming off the brush is 'scorching' (1894, p. 167), and the chemistry of a working coil fills a room (1894, p. 171). The caution about taking such currents directly from a machine or from a secondary of low resistance, especially with condensers, is on the massage page linked above. Nobody should read this article as an invitation to repeat any of it at home.
 ## What the internet gets wrong

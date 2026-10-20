@@ -141,6 +141,12 @@ and then adds the caveat that matters, "This number of alternations, however, is
 small for many purposes, though quite sufficient for some practical applications"
 (1894, p. 151).
 
+What he then did with a line like that on one conductor only, and why the return path in those
+demonstrations was the room rather than a second wire, is worked through on its own page at
+[Tesla's One-Wire Power: The Experiment Textbooks Skip](tesla-one-wire-power.html), which quotes the
+same volume's arithmetic for why one wire was the economical choice at high frequency
+(1894, p. 267).
+
 ## "A tale of woe": why the machine was hard
 
 Martin reprints Tesla writing in the *Electrical World* in February 1891 about building
