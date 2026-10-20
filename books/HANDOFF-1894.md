@@ -6,10 +6,11 @@ file only records what changed after that plan was written, and where the work s
 
 Everything below was measured in this session unless a line says otherwise.
 
-Sections 1, 2, 3, 4, 6, 7 and 8 were rewritten at the end of the 2026-10-20 continuation,
-which built the hub and the word-search page, fixed the reciprocal gate, and ran the
-backlink pass. Section 5 is the earlier session's measurements and still holds; nothing in
-it was re-derived.
+Sections 1, 2, 3, 6, 7 and 8 were rewritten at the end of the second 2026-10-20
+continuation, which built the 15 OG cards, ran the visual sign-off over all 15 pages,
+fixed the two real defects that sign-off found, and rewrote every `index.json` row to
+describe what was measured. Section 4 (the link map) and section 5 (measured facts) are
+from the earlier continuations and still hold; nothing in them was re-derived.
 
 ---
 
@@ -17,8 +18,8 @@ it was re-derived.
 
 | | branch | HEAD | pushed |
 |---|---|---|---|
-| parent `~/projects/other/tesla-generator` | `feature/1894-series-flagship` | the commit titled "index.json, the word-search row, the hub row rewritten to describe bytes"; `git log --oneline -1` gives it | no |
-| `website/` (separate repo) | `main` | the commit titled "build-a-magnetic-generator.html gains the section 5.2 backlink block (T5, 8 of 8)" | no |
+| parent `~/projects/other/tesla-generator` | `feature/1894-series-flagship` | the commit titled "the OG renderer, the og-file gate, wider layout checks, the ordered-list branch, and every index.json row rewritten to what was actually measured"; `git log --oneline -1` gives it | no |
+| `website/` (separate repo) | `main` | the commit titled "15 OG cards built, the hub's twelve-article list becomes a real <ol>, word-search nav gains the hub entry" | no |
 
 Hashes are not quoted because amending this file moves the parent hash. `git log --oneline`
 in either repo lists every commit this session made, each named in its subject line.
@@ -75,10 +76,26 @@ after it, in the same field, so the history is readable without being believed.
 
 ---
 
+**The OG cards, the visual sign-off and the close-out - website `76fc747`, parent
+`49d1e9c`.** `books/tools/make_og.py` built 15 cards into `website/assets/og/` (1200x630,
+28-63 KB each against a 120 KB limit, source crops taken only from `verdict=keep,
+quality=A` rows of `assets/tesla1894/manifest_qc.csv`, the page cite printed on the card,
+title sized to stay above an 11 px floor at 300 px). `qa_page.py` gained the gate that the
+files those tags name must exist - the gate whose absence let 15 pages pass 30/30 while
+every share card 404'd. `shot_qa.py` was widened: image checks moved from article scope to
+page-content scope (the plates grid sits after `</article>` on purpose, and article scope
+missed 80 of its 83 images), blank-band detection was added, and third-party embed images
+without `width`/`height` became notes rather than gate failures. `make_article.py` gained
+ordered lists, and `run_gates.py` runs its `--self-test` as a gate; the suite is now 6
+gates and passes (`books/tmp/gates-final-2026-10-20.txt`).
+
+---
+
 ## 3. What is uncommitted now
 
-Nothing of ours. Every draft, tool, index row and page this session touched is committed in
-the repo that owns it. The only untracked files in either repo are not ours to decide:
+Nothing of ours. Every draft, tool, index row, card and page this session touched is
+committed in the repo that owns it. The only untracked files in either repo are not ours to
+decide:
 
 ```
 website/  ?? assets/tesla1894/tesla-1894-plates.zip   9.7 MB - owner decision, §6
@@ -269,11 +286,44 @@ each carried a sliver of the next line and were thrown away.
 1. **The 9.7 MB `assets/tesla1894/tesla-1894-plates.zip`.** Not committed, so the download
    link the plates page states is live locally and dead in git. Options: commit the blob,
    git-lfs, generate on demand, or drop the link. Unchanged since T0.
-2. **OG images.** `website/assets/og/` does not exist at all. **Fifteen** pages now point at
-   `assets/og/*.webp` files that were never made: the twelve articles, the plates page, the
-   hub and the word-search page. `qa_page.py` only checks the tag, so every page passes
-   while every share card is broken. This is T4 and it is bigger than the plan's wording
-   suggests.
+2. **The Pages dropdown is wider than a phone.** Opened at a 375 px viewport the menu is
+   **674 px** wide, its right edge lands at **686 px**, `document.scrollWidth` becomes
+   **686 px**, and all 32 items are cut off mid-word - the screenshot is
+   `website/_qa/tesla-1894-nav-open-mobile.png`. Measured at 375 / 768 / 991 / 992 px: bad
+   below about 700 px, fine at 768 px and above, and at 992 px the menu is the desktop
+   hover menu. The markup is the shared nav every page carries (`website/tesla-1894.html:243`
+   is one instance; 52 pages carry the hub entry). The cause is Bootstrap's
+   `.dropdown-item { white-space: nowrap }`; the one-rule fix goes in
+   `website/css/styles-custom.css`, which PLAN §10 puts outside this series. Found by
+   `books/tmp/nav_open.py`, which opens the menu and shoots the first screen -
+   `shot_qa.py` cannot see this because it measures overflow with the menu closed.
+3. **The email-capture embed paints an image with no `width`/`height`.**
+   `eocampaign1.com/form/ca475970-c34a-11f1-9696-9df3578f190e.js` paints
+   `gallery.eocampaign1.com/338485c0-…jpg` on every page of the site, including all 15
+   series pages. It shifts layout and it is not our markup. `shot_qa.py` now reports it as a
+   note instead of failing a series gate on it; fixing it means changing the embed provider
+   or the shell, both owner calls.
+4. **Closed, recorded so it is not re-opened: the OG images.** `website/assets/og/` now has
+   15 cards, all under the 120 KB limit, all viewed at exactly 300 px
+   (`books/tmp/og-preview/montage-300.png`), smallest title set 14 px at that width. The
+   gate that checks the files exist is in `qa_page.py`, so a card cannot silently vanish
+   again.
+5. **T6, Part I as readable text.** In scope or not; if it is, split across 2-3 pages or
+   add a documented exemption in `qa_page.py`.
+6. **`electrical-experimenter.html`.** The spec's hub row asks for a link to it; no such
+   page exists and no task in `books/PLAN-1894.md` would create one. Either write it, drop
+   the row from the spec, or accept the gap permanently. It is the only section 5.2 edge
+   that cannot be closed by editing.
+7. **Which word count, if any, the series may print.** Four defensible counts of the same
+   text layer disagree: 174,169 words in the raw extracted file, 172,651 across the 506 page
+   bodies, 168,438 in the furniture-stripped index, 167,998 in the count article 10 prints.
+   The spec's own hub brief says "177,000 words", which matches none of them. The hub page
+   no longer prints a number; the word-search page prints counts only with the command and
+   the furniture rule attached. If any page ever wants a total, that is the decision.
+8. **Whether `qa_page.py` should keep keying the series-furniture gates on the string "The
+   1894 File".** Since the hub entered the nav, that string is on every page, so the kicker
+   and disclosure gates now fire on 50 legacy pages that were never built to satisfy them.
+   See §4.
 3. **T6, Part I as readable text.** In scope or not; if it is, split across 2-3 pages or
    add a documented exemption in `qa_page.py`.
 4. **`electrical-experimenter.html`.** The spec's hub row asks for a link to it; no such
@@ -295,47 +345,56 @@ each carried a sliver of the next line and were thrown away.
 
 ## 7. Suggested order for the next session
 
-T0 through T5 are done. What is left in `books/PLAN-1894.md` is T6, T7, T8 and the owner
-items in §6. In the order that costs least to do badly and most to do well:
+T0-T5 and T7-T8 are done. What is left in `books/PLAN-1894.md` is T6 and the owner items in
+§6. In the order that costs least to do badly and most to do well:
 
-1. **T7, visual sign-off.** This is now the only gate class with nothing measured, and it
-   is the one that needs vision. `shot_qa.py <slug>` at 375 / 768 / 1280 for every page
-   this series touched: the hub, the word-search page, the plates page (72-image grid), the
-   twelve articles, and the Pages dropdown open at 375 px on one representative page, which
-   now carries 32 items including the hub. Record each result into that page's
-   `index.json` `visual_gates` row as it is measured, naming the command. Every such row
-   currently says STALE or "not run" and names the sha256 it would describe if it were run.
-2. **T4, the OG images.** Fifteen files, none of them exist, and no page can be shared
-   sanely until they do. Blocked on nothing; it is a rendering job with a legibility check
-   at 300 px.
-3. **T8, close-out**, once the above is measured: the `index.json` rows are already written
-   to the current bytes, so close-out is mostly re-reading them against the visual results.
-4. **The push.** Nothing in either repo has been pushed and pushing deploys (D6). When the
-   owner decides, the deploy commit is a separate named action, and the site repo is ahead
-   of its remote by every commit in this session.
-5. **T6 only if the owner asks for it.** It is a day of work and it forces decision 3 above.
+1. **The push, when the owner says so.** Nothing in either repo has been pushed and pushing
+   deploys (D6). The site repo is ahead of its remote by every commit of this series; the
+   deploy is a separate named action, not a side effect of finishing work.
+2. **The two shell findings in §6, if the owner wants them fixed.** Both are one-rule
+   changes in shared files (`website/css/styles-custom.css` for the dropdown, the embed
+   provider for the image) and both are outside PLAN §10, which is why they are recorded
+   rather than fixed. Fixing the dropdown is a site-wide change and should be shot at 375 px
+   before and after, the way §6 item 2 measured it.
+3. **T6 only if the owner asks for it.** It is a day of work and it forces §6 item 5.
+4. **The 9.7 MB ZIP (§6 item 1)** is the last thing standing between the plates page and a
+   working download link.
 
-Two things not to re-do: the numeric gates are green as of the last run today, and the
-section 5.2 map is closed except for the 14 edges in §4, each with a stated reason. If a
-page is re-rendered, re-run `titlecase_headings.py`, then `qa_page.py`, then
-`link_map.py`, and update that row's sha256 - a gate result describes bytes, not a file
-name.
+Three things not to re-do: the numeric gates are green as of the last full run today
+(`books/tmp/gates-final-2026-10-20.txt`, 6/6), the section 5.2 map is closed except for the
+14 edges in §4 each with a stated reason, and the visual sign-off is recorded per page in
+`index.json` with the commands, the logs and the review images named. If a page is
+re-rendered, re-run `titlecase_headings.py`, then `qa_page.py`, then `link_map.py`, then
+`make_og.py <slug>` if its title changed, then `shot_qa.py <slug>`, and update that row's
+sha256 - a gate result describes bytes, not a file name. `make_article.py` now needs
+`1.` -not `1)-` for ordered lists, and a paragraph that opens with a year must not start
+with `1.`.
 
 ## 8. Files this session touched
 
-Parent, committed: `books/tools/qa_page.py` (the reciprocal predicate, `page_key()` for
-absolute hrefs, two fixtures), `books/tools/link_map.py` (new),
+Parent, committed at `49d1e9c`: `books/tools/make_og.py` (new - the OG renderer),
+`books/tools/qa_page.py` (the og-file gate, `asset_path()`, three fixtures),
+`books/tools/shot_qa.py` (page-content image scope, `blank_bands()`, third-party embed
+notes), `books/tools/make_article.py` (the ordered-list branch and its `--self-test`
+assertions), `books/tools/run_gates.py` (the renderer self-test as a gate),
+`new_content/1894-series/index.json` (all 15 `visual_gates` rows rewritten from STALE/not
+run to what was measured and looked at, `numeric_gates` refreshed to the current sha256 with
+the older record kept below, `committed_note` naming the site commit), `books/PLAN-1894.md`
+(T2-T5, T7, T8 statuses and the two new §8 owner items) and this file. Earlier in the day,
+committed at `aa59a32` and before: `books/tools/qa_page.py` (the reciprocal predicate,
+`page_key()` for absolute hrefs, two fixtures), `books/tools/link_map.py` (new),
 `books/tools/backlink_pass.py` (new), `new_content/1894-series/word-search/article.md`,
 `new_content/1894-series/00-hub/article.md`, the drafts for 01, 02, 03, 04, 05, 06, 08, 09,
-10, 11, `new_content/1894-series/plates/article.md`, `new_content/1894-series/index.json`
-(a row for the word-search page, the hub row rewritten to describe bytes, and every row's
-`numeric_gates` refreshed to the current sha256 with the older record kept below it), and
-this file.
+10, 11, `new_content/1894-series/plates/article.md`, and earlier `index.json` rewrites.
 
-Website, committed: `tesla-1894.html` and `tesla-1894-word-search.html` (new),
-`tesla-1894-plates.html` (rebuilt link paragraph), the twelve articles (re-rendered at some
-point today), the eight legacy pages named by section 5.2, `sitemap.xml`, `llms.txt`,
-`_redirects`, and the nav dropdown line in every other page.
+Website, committed at `76fc747`: `assets/og/` (15 new cards), `tesla-1894.html` (the
+ordered list), `tesla-1894-word-search.html` (the nav entry). Earlier in the day, at
+`4fd0b8c` and before: the twelve articles, the eight legacy pages named by section 5.2,
+`sitemap.xml`, `llms.txt`, `_redirects`, and the nav dropdown line in every other page.
 
 Throwaway, safe to delete: `books/tmp/*` including `PROGRESS-1894.md`, `gatefail.py`, the
-`before-*`/`after-*` gate captures, `tbl-test.*`, `ws-figs/`, `a10-recheck/`.
+`before-*`/`after-*` gate captures, `tbl-test.*`, `ws-figs/`, `a10-recheck/`, and this
+session's `shot_all.sh`, `crops_all.sh`, `review_sheet.py`, `grid_bands.py`, `box_cut.py`,
+`nav_open.py`, `og-preview/`, `review/`, `shotqa-*.log`, `og-build-2026-10-20.txt`,
+`gates-final-2026-10-20.txt`. The review images under `books/tmp/review/` are what the
+`index.json` `visual_gates` rows name; delete them and those rows point at nothing.
