@@ -42,14 +42,22 @@ cta:
 pages_used: [236, 484, 496]
 sources:
   - text: "World's Fair / Electrical Congress reporting, and the chapter map in Appendix B of our working notes"
-faq: []
+faq:
+  - q: "What Book Is This Series Built On?"
+    a: "The Inventions, Researches and Writings of Nikola Tesla, with Special Reference to His Work in Polyphase Currents and High Potential Lighting, edited by Thomas Commerford Martin and published in New York by D. Van Nostrand in 1894. Its copyright page says the work was entered in 1893, which is why library records disagree about the date. The volume is in the public domain and a full scan of it sits on archive.org under the item name inventionsresear00martiala. Every page in this series works from that scan."
+  - q: "How Do You Get a Page Number Out of a Scan?"
+    a: "The scan files are numbered from the first page of the file, and the book's own numbering starts later than that, so in this volume the printed page is always the scan file number minus eighteen. A citation of (1894, p. 429) means page 429 of the physical book, not the 429th image. Front matter carries no printed numbers, so those pages are cited by scan file instead. The offset is measured rather than assumed: 402 body pages carry a readable folio in the text layer, 367 of them agree with the rule, and the other 35 are misread folios rather than a different pagination."
+  - q: "Do You Correct the OCR?"
+    a: "Two mechanical artefacts, silently: the long-s that an 1894 page sets where a modern reader expects s, and the capital S that a text layer sometimes reads as the digit 8. Anything else the text layer gets wrong is either quoted as it is with [sic], or settled against the page image at high resolution, and the page says which one was read. Every quotation on this site is re-grepped from the text layer and pinned to a printed page before the page that quotes it ships."
+  - q: "Can I Read the Book Itself Here?"
+    a: "Not on this site. There is no PDF to download and no scan hosted here: the full volume is already on archive.org, and it is better there than copied here. What this site adds is the reading work. The engravings from that scan are shown one at a time and cited to the printed page each one sits on, the text is searchable and counted with the counting rule stated, and every claim on every page carries the page number it came from."
 ---
 
 **Standfirst.** This site is about building things. So we did the unglamorous part: we
-obtained a full scan of the 1894 first edition of Nikola Tesla's biggest book, ran
-optical character recognition over all 518 scanned pages, and read it. Twelve articles
-come out of that work. Each one cites the page it came from, and each one shows an
-engraving from that page at a size you can actually read.
+obtained a full scan of the 1894 first edition of Nikola Tesla's biggest book, took the
+text layer that comes with it, checked that layer against the page images, and read it.
+Twelve articles come out of that work. Each one cites the page it came from, and each one
+shows an engraving from that page at a size you can actually read.
 
 ## What this book is
 
@@ -77,8 +85,8 @@ this series exists.
 
 Most English-language writing about Tesla's high-frequency work paraphrases his lectures.
 The paraphrase is fine; it is just three handoffs away from the man. We hold the scan,
-the text layer (about 177,000 words) and the page numbers, and we can put the original
-engraving next to the paragraph it belongs to.
+the text layer and the page numbers, and we can put the original engraving next to the
+paragraph it belongs to.
 
 The promise is narrow and checkable: every claim carries a page number from an 1894 book,
 and every article shows an engraving nobody else is showing.
@@ -101,6 +109,14 @@ Go there if you want the whole thing; we link it from every article.
 10. [Tesla on free energy](tesla-free-energy-what-he-said.html): the quote everyone cuts off.
 11. [30,000 alternations per second](tesla-high-frequency-alternator.html): the machine behind the demos.
 12. [Glowing tubes](tesla-glowing-tubes-vacuum.html): vacuum tubes, before tubes.
+
+### Two more pages from the same scan
+
+The book's illustrations are catalogued on their own page, [Tesla 1894 Plates](tesla-1894-plates.html):
+72 engravings and photographs from this scan, each cited to the printed page it sits on and
+numbered as the book numbers it. The word search behind the next two sections is a page of
+its own too, [Tesla 1894 Word Search](tesla-1894-word-search.html), which prints the command,
+the counts and the printed page of every hit.
 
 ## How we cite, and how we could be wrong
 
@@ -134,13 +150,28 @@ whose illustrations stop in the 300s. We look at every crop before we use it, an
 picture does not match the paragraph, we replace the picture rather than rewrite the
 caption.
 
+### The word search
+
+A count is a rule before it is a number, so every count in this series says which text it
+was taken from and how the phrase was matched: whole word or substring, and whether running
+heads, bare page numbers and short display lines were kept or dropped. In this volume that
+distinction is not pedantry. The string 'magnetic generator' occurs five times over the page
+text as it sits in the file, and four times once the running heads and display lines are
+dropped, because one of the five is the title of a chapter. Both numbers are correct of the
+text each was taken from, which is why neither is printed without saying which index it came
+from. The method, the counts for every term this series has searched, and the printed page of
+every hit are on [Tesla 1894 Word Search](tesla-1894-word-search.html).
+
 ## What the book does not say
 
-We ran a word search across the whole volume, the same way you would with a printed book
-and a pencil. The phrases "free energy", "free-energy", "perpetual" and
-"over unity" appear **zero times**. The phrase "magnetic generator" appears five
-times, and every one of those is a *pyro*-magnetic generator, a device driven by heat
-changes in magnetised steel, discussed at (1894, p. 429) and indexed at (1894, p. 496).
+We searched the whole volume the way you would with a printed book and a pencil. The phrases
+"free energy", "free-energy", "perpetual" and "over unity" appear **zero times**, whole word
+and as a substring, in both indexes. The string 'magnetic generator' occurs five times and
+never once as a phrase standing on its own: every occurrence sits inside 'pyro-magnetic
+generator' or 'pyromagnetic generator', a device driven by heat changes in magnetised steel,
+discussed at (1894, p. 429) and indexed at (1894, p. 496). Two of the five are running text,
+one is the title of chapter XXXVI, one is the editors' preface listing what the volume
+contains, and one is the book's own index entry.
 
 That is a fact about an 1894 book, not a verdict on anyone's buying decision. But it is
 the fact we started from, and the full word-search method is written up at
@@ -154,9 +185,10 @@ describing machines he had built: motors at 94 and 95 per cent efficiency, an al
 at 30,000 alternations a second, an oscillator that tore a steel shaft in half.
 
 If you want the practical end of this, start with
-[what a magnetic generator actually costs](magnetic-generator-plans-review.html) or
-[the electrical-experimenter material](electrical-experimenter.html). Read the history
-first, because it makes the sales talk much easier to place.
+[what a magnetic generator actually costs](magnetic-generator-plans-review.html). Read the
+history first, because it makes the sales talk much easier to place.
+
+{{FAQ}}
 
 {{CTA}}
 
