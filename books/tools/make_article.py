@@ -13,6 +13,13 @@ metadata, JSON-LD and the <article> body are generated.
 
 Markdown dialect (deliberately tiny, §7): ##/###, **bold**, *em*, > quote,
 - list, ![alt](src "caption"), [text](page.html), {{CTA}}, {{SOURCES}}, {{FAQ}}.
+A data page also needs two things the argument pages did not: a fenced code
+block (``` ... ```, emitted verbatim and escaped, for the command a reader is
+meant to run), a pipe table (| ... | with a |---| row, emitted as the same
+Bootstrap table the older pages on this site use) and code spans (`term`, for
+the strings a reader is being asked to search for). All three are here because
+the word-search page needs them and the alternative was hand-written HTML in a
+draft, which is the thing §7's tiny dialect exists to prevent.
 
 Series rules enforced here rather than left to the writer: no comments block, no
 css/comments.css, affiliate links carry ?tid= and nofollow, every <img> gets
@@ -21,6 +28,7 @@ alt/width/height/loading="lazy", figures wrapped in <figure class="mb-4 pt-5">.
 
 import argparse
 import datetime
+import html
 import json
 import re
 import sys
@@ -123,6 +131,10 @@ def is_hub(fm):
     return str(fm.get("series_no", "")).lower() in ("0", "00", "h", "hub")
 
 
+# a pipe table's second line: |---|:---:| (the renderer has no other table form)
+_SEP_ROW = re.compile(r"^\|[:\- ]+\|[|:\- ]*$")
+
+
 # ----------------------------------------------------------------- markdown
 
 def img_tag(src, alt, caption, figmap, base_dir):
@@ -152,6 +164,10 @@ def real_dims(src, base_dir):
 
 
 def inline(s, figmap, base_dir):
+    # code spans first, so a * or ** inside a term name is not eaten by the
+    # emphasis rules below. check_quotes.py blanks the same spans when it reads a
+    # draft, so a term written in backticks is never mistaken for a quote.
+    s = re.sub(r"`([^`\n]+)`", r"<code>\1</code>", s)
     s = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", s)
     s = re.sub(r"(?<!\*)\*([^*\n]+?)\*(?!\*)", r"<em>\1</em>", s)
 
@@ -184,6 +200,31 @@ def md_to_html(md, fm, base_dir):
             out.append(f'<h2 class="fw-bolder mb-1 pt-5">'
                        f'{inline(s[3:], figmap, base_dir)}</h2>')
             i += 1
+        elif s.startswith("```"):
+            i += 1
+            buf = []
+            while i < len(lines) and not lines[i].strip().startswith("```"):
+                buf.append(lines[i].rstrip())
+                i += 1
+            i += 1                                   # the closing fence
+            out.append('<pre class="bg-light p-3 mb-4 fs-6"><code>'
+                       + html.escape("\n".join(buf)) + "</code></pre>")
+        elif s.startswith("|") and i + 1 < len(lines) and _SEP_ROW.match(lines[i + 1].strip()):
+            rows = []
+            while i < len(lines) and lines[i].strip().startswith("|"):
+                row = lines[i].strip().strip("|")
+                rows.append([c.strip() for c in row.split("|")])
+                i += 1
+            head, body = rows[0], rows[2:]     # rows[1] is the --- separator
+            thead = "".join(f"<th scope=\"col\">{inline(c, figmap, base_dir)}</th>"
+                            for c in head)
+            tbody = "".join(
+                "<tr>" + "".join(f"<td>{inline(c, figmap, base_dir)}</td>" for c in r)
+                + "</tr>" for r in body)
+            out.append('<div class="table-responsive mb-4">'
+                       '<table class="table table-striped table-bordered">'
+                       f'<thead><tr>{thead}</tr></thead><tbody>{tbody}</tbody>'
+                       "</table></div>")
         elif s.startswith("{{") and s.endswith("}}"):
             out.append(s)                       # resolved after, keeps order
             i += 1
@@ -217,7 +258,7 @@ def md_to_html(md, fm, base_dir):
         else:
             buf = [s]
             while i + 1 < len(lines) and lines[i + 1].strip() and \
-                    not re.match(r"^\s*(#|>|[-*]\s|!\[|\{\{)", lines[i + 1]):
+                    not re.match(r"^\s*(#|>|[-*]\s|!\[|\{|\||`)", lines[i + 1]):
                 i += 1
                 buf.append(lines[i].strip())
             out.append(f'<p class="fs-5 mb-4">{inline(" ".join(buf), figmap, base_dir)}</p>')
@@ -426,7 +467,8 @@ def faq_block(fm):
 
 def build(fm, body_md, shell, tid, base_dir):
     slug = fm["slug"]
-    kicker = "" if is_hub(fm) else KICKER.format(no=fm.get("series_no"))
+    kicker = str(fm.get("kicker", "")).strip() or \
+        ("" if is_hub(fm) else KICKER.format(no=fm.get("series_no")))
     header = [f'<h1 class="fw-bolder mb-1">{fm["title"]}</h1>']
     if kicker:
         header.append(f'<p class="text-muted small mb-2">{kicker}</p>')
