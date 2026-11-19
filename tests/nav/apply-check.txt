@@ -1,0 +1,8 @@
+pages: 52 tracked by git; NOT touching 1 untracked (somebody else's work in progress): electrical-experimenter.html
+       pass --include-untracked if you meant it
+whitespace-normalised nav groups: 2 ([51, 1])
+pages already canonical (each idempotent against its own active state): 52 of 52
+nav coverage: 36 destinations in HEAD's nav, 34 in the new nav
+  dropped: ['/renewable-energy-using-magnets-a-magnetic-revolution', '/unleashing-the-magnet-magic-is-free-energy-possible']
+  added:   none
+  every dropped destination is a named hub demotion (HUB_ONLY): yes

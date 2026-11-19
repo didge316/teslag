@@ -1,0 +1,166 @@
+===== DRAWER_W=390 (measured against the shipped tree at http://127.0.0.1:8200) =====
+== structure ==
+  PASS  every dropdown <=10 items  [[10, 10, 10]]
+  PASS  no duplicate href in the nav (brand->/ excepted)  [[]]
+== desktop row width, root font 16px (992 is the collapse breakpoint) ==
+  PASS  nav fits at 992px: one row, no sideways scroll, toggler hidden  [{'scrollW': 960, 'clientW': 960, 'rowRight': 964, 'brandW': 218, 'rowW': 686, 'wrapped': False, 'toggler': 'none'}]
+  PASS  nav fits at 1024px: one row, no sideways scroll, toggler hidden  [{'scrollW': 960, 'clientW': 960, 'rowRight': 980, 'brandW': 218, 'rowW': 686, 'wrapped': False, 'toggler': 'none'}]
+  PASS  nav fits at 1280px: one row, no sideways scroll, toggler hidden  [{'scrollW': 1140, 'clientW': 1140, 'rowRight': 1198, 'brandW': 218, 'rowW': 686, 'wrapped': False, 'toggler': 'none'}]
+== desktop row width, root font 32px (992 is the collapse breakpoint) ==
+  PASS  nav fits at 992px root 32px: no sideways scroll, toggler hidden  [wrapped=True rowW=681 brandW=216]
+  PASS  nav fits at 1024px root 32px: no sideways scroll, toggler hidden  [wrapped=True rowW=681 brandW=216]
+  PASS  nav fits at 1280px root 32px: no sideways scroll, toggler hidden  [wrapped=True rowW=817 brandW=259]
+== desktop row width, root font 48px (992 is the collapse breakpoint) ==
+  PASS  nav fits at 992px root 48px: no sideways scroll, toggler hidden  [wrapped=True rowW=663 brandW=209]
+  PASS  nav fits at 1024px root 48px: no sideways scroll, toggler hidden  [wrapped=True rowW=663 brandW=209]
+  PASS  nav fits at 1280px root 48px: no sideways scroll, toggler hidden  [wrapped=True rowW=799 brandW=253]
+  PASS  open desktop menus inside the viewport, root 16px  [[]]
+  PASS-EXTRA  open desktop menus inside the viewport, root 32px
+  PASS-EXTRA  open desktop menus inside the viewport, root 48px
+== touch drawer at 390px, root font 16px ==
+  PASS  drawer starts closed  [none]
+  PASS  toggler opens the drawer  [block]
+  PASS  every drawer link >=44px tall  [[]]
+  PASS  no drawer link past the layout viewport  [[]]
+  PASS  no horizontal scroll with the drawer open  [scrollW=390 clientW=390]
+  PASS  dropdown 'Build & plans' opens on tap in the drawer  [pos=static]
+  PASS  dropdown 'Build & plans': all 10 items >=44px tall  [0]
+  PASS  dropdown 'Build & plans': nothing past the viewport  [[]]
+  PASS  dropdown 'Power your home' opens on tap in the drawer  [pos=static]
+  PASS  dropdown 'Power your home': all 10 items >=44px tall  [0]
+  PASS  dropdown 'Power your home': nothing past the viewport  [[]]
+  PASS  dropdown 'Free energy & Tesla' opens on tap in the drawer  [pos=static]
+  PASS  dropdown 'Free energy & Tesla': all 10 items >=44px tall  [0]
+  PASS  dropdown 'Free energy & Tesla': nothing past the viewport  [[]]
+== touch drawer at 390px, root font 32px ==
+  PASS  drawer starts closed  [none]
+  PASS  toggler opens the drawer  [block]
+  PASS  every drawer link >=44px tall  [[]]
+  PASS  no drawer link past the layout viewport  [[]]
+  PASS  no horizontal scroll with the drawer open  [scrollW=390 clientW=390]
+  PASS  dropdown 'Build & plans' opens on tap in the drawer  [pos=static]
+  PASS  dropdown 'Build & plans': all 10 items >=44px tall  [0]
+  PASS  dropdown 'Build & plans': nothing past the viewport  [[]]
+  PASS  dropdown 'Power your home' opens on tap in the drawer  [pos=static]
+  PASS  dropdown 'Power your home': all 10 items >=44px tall  [0]
+  PASS  dropdown 'Power your home': nothing past the viewport  [[]]
+  PASS  dropdown 'Free energy & Tesla' opens on tap in the drawer  [pos=static]
+  PASS  dropdown 'Free energy & Tesla': all 10 items >=44px tall  [0]
+  PASS  dropdown 'Free energy & Tesla': nothing past the viewport  [[]]
+== touch drawer at 390px, root font 48px ==
+  PASS  drawer starts closed  [none]
+  PASS  toggler opens the drawer  [block]
+  PASS  every drawer link >=44px tall  [[]]
+  PASS  no drawer link past the layout viewport  [[]]
+  PASS  no horizontal scroll with the drawer open  [scrollW=390 clientW=390]
+  PASS  dropdown 'Build & plans' opens on tap in the drawer  [pos=static]
+  PASS  dropdown 'Build & plans': all 10 items >=44px tall  [0]
+  PASS  dropdown 'Build & plans': nothing past the viewport  [[]]
+  PASS  dropdown 'Power your home' opens on tap in the drawer  [pos=static]
+  PASS  dropdown 'Power your home': all 10 items >=44px tall  [0]
+  PASS  dropdown 'Power your home': nothing past the viewport  [[]]
+  PASS  dropdown 'Free energy & Tesla' opens on tap in the drawer  [pos=static]
+  PASS  dropdown 'Free energy & Tesla': all 10 items >=44px tall  [0]
+  PASS  dropdown 'Free energy & Tesla': nothing past the viewport  [[]]
+== keyboard at 1280px (Bootstrap 5.2.3 dropdown plugin) ==
+  PASS  'Build & plans': announces aria-expanded=false, aria-haspopup=true while closed  [expanded=false haspopup=true]
+  PASS  'Build & plans': aria-expanded flips to true while open (the state a screen reader announces, not the state a screenshot shows)  [expanded=true]
+  PASS  'Build & plans': Enter on the focused toggle opens it
+  PASS  'Build & plans': ArrowDown moves focus to the first item  [A:Magnetic Generator for]
+  PASS  'Build & plans': Enter follows the focused item  [/magnetic-generator-for-beginners-step-by-step -> http://127.0.0.1:8200/magnetic-generator-for-beginners-step-by-step]
+  PASS  'Power your home': announces aria-expanded=false, aria-haspopup=true while closed  [expanded=false haspopup=true]
+  PASS  'Power your home': aria-expanded flips to true while open (the state a screen reader announces, not the state a screenshot shows)  [expanded=true]
+  PASS  'Power your home': Enter on the focused toggle opens it
+  PASS  'Power your home': ArrowDown moves focus to the first item  [A:Can You Really Build a]
+  PASS  'Power your home': Enter follows the focused item  [/whole-house -> http://127.0.0.1:8200/whole-house]
+  PASS  'Free energy & Tesla': announces aria-expanded=false, aria-haspopup=true while closed  [expanded=false haspopup=true]
+  PASS  'Free energy & Tesla': aria-expanded flips to true while open (the state a screen reader announces, not the state a screenshot shows)  [expanded=true]
+  PASS  'Free energy & Tesla': Enter on the focused toggle opens it
+  PASS  'Free energy & Tesla': ArrowDown moves focus to the first item  [A:The 1894 File: Tesla's]
+  PASS  'Free energy & Tesla': Enter follows the focused item  [/tesla-1894 -> http://127.0.0.1:8200/tesla-1894]
+
+all nav interaction checks green
+exit=0
+===== DRAWER_W=320 (measured against the shipped tree at http://127.0.0.1:8200) =====
+== structure ==
+  PASS  every dropdown <=10 items  [[10, 10, 10]]
+  PASS  no duplicate href in the nav (brand->/ excepted)  [[]]
+== desktop row width, root font 16px (992 is the collapse breakpoint) ==
+  PASS  nav fits at 992px: one row, no sideways scroll, toggler hidden  [{'scrollW': 960, 'clientW': 960, 'rowRight': 964, 'brandW': 218, 'rowW': 686, 'wrapped': False, 'toggler': 'none'}]
+  PASS  nav fits at 1024px: one row, no sideways scroll, toggler hidden  [{'scrollW': 960, 'clientW': 960, 'rowRight': 980, 'brandW': 218, 'rowW': 686, 'wrapped': False, 'toggler': 'none'}]
+  PASS  nav fits at 1280px: one row, no sideways scroll, toggler hidden  [{'scrollW': 1140, 'clientW': 1140, 'rowRight': 1198, 'brandW': 218, 'rowW': 686, 'wrapped': False, 'toggler': 'none'}]
+== desktop row width, root font 32px (992 is the collapse breakpoint) ==
+  PASS  nav fits at 992px root 32px: no sideways scroll, toggler hidden  [wrapped=True rowW=681 brandW=216]
+  PASS  nav fits at 1024px root 32px: no sideways scroll, toggler hidden  [wrapped=True rowW=681 brandW=216]
+  PASS  nav fits at 1280px root 32px: no sideways scroll, toggler hidden  [wrapped=True rowW=817 brandW=259]
+== desktop row width, root font 48px (992 is the collapse breakpoint) ==
+  PASS  nav fits at 992px root 48px: no sideways scroll, toggler hidden  [wrapped=True rowW=663 brandW=209]
+  PASS  nav fits at 1024px root 48px: no sideways scroll, toggler hidden  [wrapped=True rowW=663 brandW=209]
+  PASS  nav fits at 1280px root 48px: no sideways scroll, toggler hidden  [wrapped=True rowW=799 brandW=253]
+  PASS  open desktop menus inside the viewport, root 16px  [[]]
+  PASS-EXTRA  open desktop menus inside the viewport, root 32px
+  PASS-EXTRA  open desktop menus inside the viewport, root 48px
+== touch drawer at 320px, root font 16px ==
+  PASS  drawer starts closed  [none]
+  PASS  toggler opens the drawer  [block]
+  PASS  every drawer link >=44px tall  [[]]
+  PASS  no drawer link past the layout viewport  [[]]
+  PASS  no horizontal scroll with the drawer open  [scrollW=320 clientW=320]
+  PASS  dropdown 'Build & plans' opens on tap in the drawer  [pos=static]
+  PASS  dropdown 'Build & plans': all 10 items >=44px tall  [0]
+  PASS  dropdown 'Build & plans': nothing past the viewport  [[]]
+  PASS  dropdown 'Power your home' opens on tap in the drawer  [pos=static]
+  PASS  dropdown 'Power your home': all 10 items >=44px tall  [0]
+  PASS  dropdown 'Power your home': nothing past the viewport  [[]]
+  PASS  dropdown 'Free energy & Tesla' opens on tap in the drawer  [pos=static]
+  PASS  dropdown 'Free energy & Tesla': all 10 items >=44px tall  [0]
+  PASS  dropdown 'Free energy & Tesla': nothing past the viewport  [[]]
+== touch drawer at 320px, root font 32px ==
+  PASS  drawer starts closed  [none]
+  PASS  toggler opens the drawer  [block]
+  PASS  every drawer link >=44px tall  [[]]
+  PASS  no drawer link past the layout viewport  [[]]
+  PASS  no horizontal scroll with the drawer open  [scrollW=320 clientW=320]
+  PASS  dropdown 'Build & plans' opens on tap in the drawer  [pos=static]
+  PASS  dropdown 'Build & plans': all 10 items >=44px tall  [0]
+  PASS  dropdown 'Build & plans': nothing past the viewport  [[]]
+  PASS  dropdown 'Power your home' opens on tap in the drawer  [pos=static]
+  PASS  dropdown 'Power your home': all 10 items >=44px tall  [0]
+  PASS  dropdown 'Power your home': nothing past the viewport  [[]]
+  PASS  dropdown 'Free energy & Tesla' opens on tap in the drawer  [pos=static]
+  PASS  dropdown 'Free energy & Tesla': all 10 items >=44px tall  [0]
+  PASS  dropdown 'Free energy & Tesla': nothing past the viewport  [[]]
+== touch drawer at 320px, root font 48px ==
+  PASS  drawer starts closed  [none]
+  PASS  toggler opens the drawer  [block]
+  PASS  every drawer link >=44px tall  [[]]
+  PASS  no drawer link past the layout viewport  [[]]
+  PASS  no horizontal scroll with the drawer open  [scrollW=320 clientW=320]
+  PASS  dropdown 'Build & plans' opens on tap in the drawer  [pos=static]
+  PASS  dropdown 'Build & plans': all 10 items >=44px tall  [0]
+  PASS  dropdown 'Build & plans': nothing past the viewport  [[]]
+  PASS  dropdown 'Power your home' opens on tap in the drawer  [pos=static]
+  PASS  dropdown 'Power your home': all 10 items >=44px tall  [0]
+  PASS  dropdown 'Power your home': nothing past the viewport  [[]]
+  PASS  dropdown 'Free energy & Tesla' opens on tap in the drawer  [pos=static]
+  PASS  dropdown 'Free energy & Tesla': all 10 items >=44px tall  [0]
+  PASS  dropdown 'Free energy & Tesla': nothing past the viewport  [[]]
+== keyboard at 1280px (Bootstrap 5.2.3 dropdown plugin) ==
+  PASS  'Build & plans': announces aria-expanded=false, aria-haspopup=true while closed  [expanded=false haspopup=true]
+  PASS  'Build & plans': aria-expanded flips to true while open (the state a screen reader announces, not the state a screenshot shows)  [expanded=true]
+  PASS  'Build & plans': Enter on the focused toggle opens it
+  PASS  'Build & plans': ArrowDown moves focus to the first item  [A:Magnetic Generator for]
+  PASS  'Build & plans': Enter follows the focused item  [/magnetic-generator-for-beginners-step-by-step -> http://127.0.0.1:8200/magnetic-generator-for-beginners-step-by-step]
+  PASS  'Power your home': announces aria-expanded=false, aria-haspopup=true while closed  [expanded=false haspopup=true]
+  PASS  'Power your home': aria-expanded flips to true while open (the state a screen reader announces, not the state a screenshot shows)  [expanded=true]
+  PASS  'Power your home': Enter on the focused toggle opens it
+  PASS  'Power your home': ArrowDown moves focus to the first item  [A:Can You Really Build a]
+  PASS  'Power your home': Enter follows the focused item  [/whole-house -> http://127.0.0.1:8200/whole-house]
+  PASS  'Free energy & Tesla': announces aria-expanded=false, aria-haspopup=true while closed  [expanded=false haspopup=true]
+  PASS  'Free energy & Tesla': aria-expanded flips to true while open (the state a screen reader announces, not the state a screenshot shows)  [expanded=true]
+  PASS  'Free energy & Tesla': Enter on the focused toggle opens it
+  PASS  'Free energy & Tesla': ArrowDown moves focus to the first item  [A:The 1894 File: Tesla's]
+  PASS  'Free energy & Tesla': Enter follows the focused item  [/tesla-1894 -> http://127.0.0.1:8200/tesla-1894]
+
+all nav interaction checks green
+exit=0

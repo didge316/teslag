@@ -842,6 +842,168 @@ a.d-flex > span {
     min-width: 0;
 }
 
+/* Below the lg breakpoint the whole menu lives in the toggler's drawer, and the
+   two rules below are the difference between a drawer you can use and one this
+   change shipped with broken - found by tests/nav/verify.py, not by the overflow
+   gate, because they are not overflow problems: a 40px target and a truncated
+   label both fit inside the viewport just fine.
+
+   * Target size. Bootstrap's .nav-link is 40px tall and .dropdown-item 29px,
+     measured in the open drawer at 390px (`Articles:40`, and all 10 items of all
+     three groups under 44). WCAG 2.5.8 wants 24px so the site is not in
+     violation, but 2.5.5 wants 44 and a phone menu is exactly where finger
+     accuracy is not optional, so the drawer gets 0.75rem of vertical padding on
+     both kinds of entry: 24px line + 2x12px = 48px.
+   * Truncation. Bootstrap sets .dropdown-item to white-space: nowrap. In a
+     floating desktop menu that is fine; inside a 390px drawer the labels are up
+     to 62 characters ("Learning How to Build a Magnetic Generator is The Best
+     Thing You Will Ever Do!") and the item box ran past the layout viewport -
+     three of the ten per group, verify.py's `nothing past the viewport`. The
+     page did not scroll sideways, because the drawer clips, which is precisely
+     why a scroll-based gate cannot see this: the words were simply not there.
+     `white-space: normal` lets them wrap.
+
+   The media query is Bootstrap's own collapse boundary (navbar-expand-lg
+   collapses below 992px), so desktop rendering is untouched by construction -
+   and the numbers above were measured at 390px, which is inside it. */
+@media (max-width: 991.98px) {
+    .navbar-nav .nav-link {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        /* Bootstrap 5.2.3 declares `.dropdown-toggle { white-space: nowrap }` -
+           sourced from the CDN stylesheet and confirmed at runtime by walking
+           document.styleSheets for the rules that actually match the element,
+           not remembered from a framework doc - and the three group toggles are
+           the only items in the drawer it applies to. Measured at 390px / 48px
+           root, with the menu width and the flex floors already fixed above: the
+           four plain links had `white-space: normal` and reported scrollWidth ==
+           clientWidth, while the toggles kept 413px and 448px of unwrappable
+           label inside 318px boxes, and that is what put the document at
+           scrollWidth 484 in a 390px viewport. No menu, no flex item, no
+           descendant involved: the label of the button you press to open a menu
+           was the thing overflowing, which is why three rounds of menu-sized
+           fixes changed nothing. Inert at 16px, where the longest toggle label
+           measures 190px inside 318px and wrapping is never asked for. */
+        white-space: normal;
+    }
+
+    .navbar-nav .dropdown-item {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        white-space: normal;
+    }
+
+    /* Bootstrap 5.2.3 gives .dropdown-menu `min-width: 10rem`, which is what
+       carried the drawer off the screen at large text once the items themselves
+       could wrap: measured at 390px viewport with a 48px root font, the open menu
+       (and every item inside it, all 478px of them) was 480px wide - exactly
+       10rem x 48px - in a drawer that is 390px. min-width is the constraint, the
+       items are not: their own min-width is 0 and their white-space is normal
+       because of the two rules above.
+
+       min-width: 0 lets the menu shrink to what the drawer can hold; max-width
+       stops the browser's own min-content floor pushing it back out. This is safe
+       below the breakpoint specifically because a collapsed navbar's menu is
+       `position: static` in the drawer (measured), so 100% means 100% of the
+       drawer and not of some positioned containing block. On desktop the menu is
+       positioned and 10rem of floor is wanted, so it stays - capped in the block
+       below the same way every other rem in this file is. */
+    .navbar-nav .dropdown-menu {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    /* ...and `max-width: 100%` alone was not enough, because 100% of what is the
+       question the browser answers before it reads this rule: a flex item does
+       not go below its max-content, and here the flex item (`li.nav-item`, then
+       `.navbar-nav` itself in the column) is sized by the very menu being capped.
+       Measured at 390px viewport / 48px root after the rule above: menu 448px wide
+       at left 0, i.e. 58px of it and the document under it (scrollWidth 484)
+       off screen, with the labels already set to wrap. The label is 448px of
+       max-content and nothing in the chain was allowed to be narrower than it.
+
+       `min-width: 0` on the two levels above the menu breaks that loop and is the
+       same lever used on the desktop row and the scarcity widget; the menu's own
+       min-width: 0 above is then what lets it go under 10rem. Inert at 16px, where
+       the longest label is ~190px inside a 358px drawer and no cap or floor is
+       ever reached. */
+    .navbar-nav > .nav-item,
+    .navbar-collapse > .navbar-nav,
+    .navbar-expand-lg > .container .navbar-collapse {
+        min-width: 0;
+    }
+}
+
+/* ...and the same menu at the other side of the breakpoint, where it is a row
+   instead of a drawer. The nav restructure (three themed groups where there was
+   one 32-item "Pages" dropdown) put the site back into the failure item 7 had
+   just closed: at 1280px with a 32px root font every one of the 53 pages
+   scrolled sideways again, and at 48px by +942px - measured, and specifically
+   not present before the nav changed, which is the only reason it was findable
+   (gate.py --before-css vs after, same 636-cell matrix).
+   The offender is the row itself: `div.collapse.navbar-collapse` 2068px wide
+   inside a 1140px container. A flex row does not wrap by default and a flex item
+   does not go below its max-content unless allowed to, so four top links plus
+   three multi-word toggles at 48px type simply grew past the viewport instead of
+   flowing to a second line.
+
+   `flex-wrap: wrap` on the row and `min-width: 0` on the links are the same two
+   levers as the rest of this block; nothing else in it applies here, which is
+   why nothing here was already true. Inert at 100% by measurement, not by hope:
+   at 16px the brand takes 218px and the row 686px against a 960px container at
+   the 992px breakpoint and 1140px at 1280px, so no line is ever full and wrap
+   cannot trigger - tests/nav/verify.py re-measures exactly that at 992, 1024 and
+   1280 after this rule.
+   Scoped to `min-width: 992px` deliberately. Below that the same markup is a
+   vertical drawer and `.navbar-nav` is a column, where wrapping would go
+   sideways; the drawer gets its own rules above. */
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav {
+        flex-wrap: wrap;
+    }
+
+    .navbar-expand-lg .navbar-nav .nav-link {
+        min-width: 0;
+    }
+
+    /* An open desktop dropdown could not be brought inside the viewport by the
+       rules above, and the overflow gate cannot see it: a closed menu is what the
+       matrix measures, and an absolutely positioned menu that hangs off the right
+       edge does not move documentElement.scrollWidth either (measured: menu right
+       edge 1335/1403/1512px against a 1280px viewport, with scrollWidth reporting
+       1280 - the same blindness the gate docstring records for fixed subtrees).
+       At a 32px root font the menus are 574/521/478px wide and the third one
+       starts at x=825, so their last ~200px - including part of every label -
+       sat off screen with no scrollbar to reach it.
+
+       The width comes from `.dropdown-item { white-space: nowrap }`: a menu is as
+       wide as its longest unwrappable label, at the reader's font size. Letting
+       the label wrap and capping the box is the same pair of levers as everywhere
+       else in this file. Inert at 100%, and measured rather than asserted: at a
+       16px root the menus are ~190px against a cap of min(28rem=448px, 40vw), so
+       nothing binds until the zoom that was already broken.
+
+       This does not make the class of problem impossible, it makes the cases that can
+       be measured here pass: with both rules applied, verify.py opens all three
+       menus at 992px and 1280px at root fonts 32 and 48 and reports every one
+       inside the viewport - 24 configurations, asserted on every run, and red on
+       the same check before these two rules existed. What is deliberately not
+       claimed is any width or anchor position that has not been measured, because
+       nothing in CSS here can know where the toggle sits. The fix that would make
+       it structural rather than empirical is Popper's viewport boundary -
+       Bootstrap's dropdown positioning already ships inside bootstrap.bundle - and
+       that is a JS change to the nav, so it stays an owner decision. verify.py
+       prints this section as PASS-EXTRA (or FAIL-KNOWN if it regresses) rather
+       than letting the residue live only in prose. */
+    .navbar-nav .dropdown-menu {
+        max-width: min(28rem, 40vw);
+    }
+
+    .navbar-nav .dropdown-menu .dropdown-item {
+        white-space: normal;
+    }
+}
+
 /* Bootstrap 5.2 sets .btn sizes through these custom properties, so overriding
    the properties beats .btn-lg without !important (.btn.btn-lg is 0,2,0 against
    .btn-lg's 0,1,0). Padding, not font size: at 300% root font the button's own

@@ -1,0 +1,20 @@
+measuring: /tmp/nav-before
+pages scanned: 52
+distinct navbar blocks: 5  (counts: [23, 16, 11, 1, 1])
+  one representative each - expect to hand-check one replacement per variant:
+    38de7d47  pages using it: 23  first: 404.html                                    flags: ['navbar-dark', 'navbar-expand-lg']  len=6788
+    f3ed9d2f  pages using it:  1  first: about.html                                  flags: ['navbar-dark', 'navbar-expand-lg']  len=6530
+    3e11664f  pages using it:  1  first: articles.html                               flags: ['navbar-dark', 'navbar-expand-lg']  len=2188
+    3d6dec1f  pages using it: 11  first: magnetic-generator-for-beginners-step-by-step.html  flags: ['navbar-dark', 'navbar-expand-lg']  len=6794
+    169a125a  pages using it: 16  first: nikola-tesla-inventor-extraordinaire.html   flags: ['navbar-dark', 'navbar-expand-lg']  len=6728
+  NB: if the flags and lengths match across variants, the difference may be
+      whitespace or attribute order only - diff two representatives before
+      assuming you need one hand-authored replacement per variant.
+dropdown item counts -> pages: {32: 51, 7: 1}
+top-level nav hrefs seen: {'/articles': 52, '/': 104, '/contact': 52, '/about': 52}
+dropdown hrefs with no local page: none
+
+pages reachable ONLY through the nav: 0
+
+After the nav change, re-run: this number must not grow, and every
+dropdown href must still resolve. Both are gates, not observations.

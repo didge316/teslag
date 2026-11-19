@@ -1,0 +1,17 @@
+measuring: /tmp/site-shipped
+pages scanned: 52
+distinct navbar blocks: 2  (counts: [51, 1])
+  one representative each - expect to hand-check one replacement per variant:
+    0d4e5456  pages using it: 51  first: 404.html                                    flags: ['navbar-dark', 'navbar-expand-lg']  len=7156
+    1508be5c  pages using it:  1  first: about.html                                  flags: ['navbar-dark', 'navbar-expand-lg']  len=7163
+  NB: if the flags and lengths match across variants, the difference may be
+      whitespace or attribute order only - diff two representatives before
+      assuming you need one hand-authored replacement per variant.
+dropdown item counts -> pages: {10: 52}
+top-level nav hrefs seen: {'/articles': 52, '/': 208, '/contact': 52, '/about': 52}
+dropdown hrefs with no local page: none
+
+pages reachable ONLY through the nav: 0
+
+After the nav change, re-run: this number must not grow, and every
+dropdown href must still resolve. Both are gates, not observations.
