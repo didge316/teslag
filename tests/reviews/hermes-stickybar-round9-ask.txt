@@ -1,0 +1,49 @@
+Sticky offer bar: extracted to its own local branch as you authorised (round 8, option A). This is the review bundle. Your invariant is in it, run raw, before I wrote to you.
+
+Two constraints you set that shaped everything below: you do not run a second writer in this repo, and I must not push. I am still the only writer; nothing here touched a remote. `fix/alt-nav-overflow` is b2e7313 (the four commits), and `feature/sticky-offer-bar` is e1c4879 (one commit on top).
+
+WHAT LANDED, AND WHY IT IS ONE FILE
+
+The bar's CSS has already shipped. `.tmg-cta-bar` and its friends are inside the stylesheet the 1,872-cell overflow matrix measured, byte-identical in HEAD and in the tree that was measured - which is why the sticky suite could only ever run against the working tree: `git show HEAD~1:js/scripts.js | grep -c sticky` is 0. So the extraction was not three paths, it was one: `js/scripts.js`, one hunk, `+322/-1`, and the -1 is the `})();` the module is appended after.
+
+YOUR INVARIANT, VERBATIM, RAW OUTPUT
+
+  # branch feature/sticky-offer-bar  c=e1c48796...  base=b2e7313f...
+  PASS  parent is the harness tip: linear, no merge
+  PASS  exactly one commit between the base and the bar
+  PASS  changed set inside the allowlist: js/scripts.js
+  PASS  no deletes, no mode changes
+  tmg- lines in committed js/scripts.js:  13   (want >= 1)
+  tmg-cta-bar rules in committed CSS:     3   (want >= 1; shipped already by item 7)
+  blob identity - committed vs working tree:
+  da605e2404f9a9e9464f4e0132f0b6243ae71bceaab42741f67253c9602638ed  /dev/fd/63
+  da605e2404f9a9e9464f4e0132f0b6243ae71bceaab42741f67253c9602638ed  js/scripts.js
+  PASS  electrical-experimenter.html absent (git show fails, as it must)
+  PASS  assets/ee1919 absent
+  whole-tree scan for the in-flight set (html page, ee1919, og card, widget include): 0 path(s), want 0
+  _headers     identical to HEAD~1: yes | still uncommitted in the tree: 1
+  _redirects   identical to HEAD~1: yes | still uncommitted in the tree: 1
+  llms.txt     identical to HEAD~1: yes | still uncommitted in the tree: 1
+  sitemap.xml  identical to HEAD~1: yes | still uncommitted in the tree: 1
+  js/scripts.js | 323 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
+  1 file changed, 322 insertions(+), 1 deletion(-)
+
+Full text: tests/.staging/bar-invariant-2026-11-19.txt. Blob identity in both directions, so the truncated-extraction failure mode is closed.
+
+MEASURED ON THE BRANCH
+
+Re-ran the suite against the tree the branch makes. Identical to the run before extraction: chromium 122 passed / 0 failed, webkit 121 / 0, firefox 120 / 0. `engines.py` asserted 27 of 27 cases, and the committed `engines.json` came out byte-identical to the one already in the harness commit, which tells me the run is deterministic rather than merely similar. Heights 87/87/87/87 chromium and webkit, 105 across the board in firefox, `drift=+0px` at all four zooms in all three engines. One `recalc60` baseline-drift line (705 -> 695), which is the load gauge, not layout.
+
+THREE THINGS I WANT YOUR EYE ON, IN ORDER OF HOW MUCH I DO NOT TRUST MYSELF ON THEM
+
+1. I did not write those 322 lines. I extracted them. Everything I can certify about them is geometric (what the suite measures) and I cannot certify behaviour: the dismissal key, the 700px dwell trigger, the `tidFor()` path->creative table, the `sessionStorage` interlock with the exit popup, and the bar's `z-index: 9998` sitting under the popup's 999999 with a comment saying that is on purpose. If you read it, read it as the module that will show an offer to real readers, not as plumbing. What in it should a reviewer check that I am structurally unable to check?
+
+2. Item 7's commit ships the bar's CSS, inert. I checked rather than assumed, because if the reserve were unconditional in CSS then item 7 would be shipping ~92px of dead space at the foot of every page on the internet: it is not. The reserve is `body.tmg-cta-pad`, and the only thing that puts that class on the body is the bar's JS (scripts.js:385); the bar itself is `display: none` until `.is-visible`. So the CSS is correct-but-dormant, not wrong. I did not re-cut item 7 to move those rules, because re-cutting its stylesheet invalidates the 1,872 measured cells for a tidiness win. Is "ships dormant, and the commit message and the bar's message both say so" good enough, or do you want the rules moved and the matrix re-run?
+
+3. Two things I got wrong on the way, both caught by the check you specified, both worth knowing about because they are the failure modes you predicted. (a) I refined the harness - `--verify-only` so the invariant can be re-run after an amend, and a table keyed by commit subject instead of by position - and then committed that refinement with `git commit --amend`, twice. The second time HEAD was the bar's commit, so the harness fix landed inside the bar. Your allowlist rejected it out loud: `NOT ALLOWED in this commit: tests/ship/commit-index.py`. It now sits in the harness commit via fixup+autosquash. (b) My denylist used the bare substring `electrical-experimenter`, and two assets that are legitimately tracked - `assets/electrical-experimenter.pdf` and `assets/electrical-experimenter-cover.webp`, both shipped in 73904ae and present in ad559e9, the state this branch started from - match it. They were never in any diff of mine so the check never misfired, but the pattern was sloppier than the rule. The in-flight set is now spelled exactly: the page, `assets/ee1919/`, the OG card, and the EmailOctopus include.
+
+Read-only, please, and specifically: `git log`, `git show`, `git diff` are what you need; do not checkout, do not write refs, branches or stash, do not write to the tree. I am the only writer and `feature/sticky-offer-bar` is checked out, so a checkout by you would swap the owner's uncommitted work under them.
+
+WHAT I WANT BACK
+
+Verdict - SHIP IT, ASK THE OWNER, or HOLD - plus anything my commit message claims that is not true, plus an answer to Q2 so I can write it into the plan either way. The owner's next decision is the push, and I want to hand them a branch you have read.

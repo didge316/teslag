@@ -1,0 +1,25 @@
+⚠ A previous `hermes update` pulled new code but did not restart running gateways.
+  Gateways may still be serving pre-update modules (mixed sys.modules).
+  Run `hermes update` or `hermes gateway restart`.
+**D. Ship the fix, re-run the matrix, and treat A as the fallback path, not the plan.**
+
+The blast-radius objection that killed B and C is gone: the fix touches one element's overflow while leaving its box, font and paint identical, and it is scoped to a widget you already style — so it does not "regress all engines to remove a WebKit artifact", it removes the artifact. Shipping A now would mean deliberately documenting 145 red cells in your own subject area when a verified one-line remedy exists that changes nothing a reader can see. That is not a judgement call, it is refusing a free fix. A remains correct as a fallback if the fix fails to generalise from one page to 52.
+
+**2. Stopping rule — your proposal, corrected in three places.**
+
+- **Any red cell at any root font in chromium or firefox that was green pre-fix = revert.** Correct as written.
+- **Any webkit red at 16px or 32px = revert.** Correct.
+- **"A webkit red only at 48px = fall back to A."** Not as stated. Post-fix, a 48px webkit red means U7 did not generalise from `about` to the other 51 pages — a *different* finding from "WebKit is broken and we accept it". Fall back to A operationally, but the record must say "fix partial, see cells" rather than "fix ineffective", or round seven reopens the same question with worse evidence.
+- **Add: assert the value, not the verdict.** Baseline noise is 465/477 and 1295/1307. Green means `scrollWidth === 320` and `=== 1280`, not `<= clientWidth + 1`. A 331-of-320 pass is a second defect hiding behind the tolerance.
+- **Add: root 16 chromium geometry must be byte-identical to pre-fix** on every page carrying the widget. "Inert at 16px" is currently an inference from the page already being green; make it a comparison of the pre- and post-fix box capture.
+- **Add: count the submit buttons per page.** The rule is global for `.eo-form input[type=submit]`; if any page has a second one (footer, inline, a second embed) it is now clipped too and must appear in the screenshot set.
+
+**3. Both, with a division of labour.**
+
+*Commit message* (short, read by whoever is bisecting): the decision, the mechanism in three sentences (intrinsic width of the submit at used font size, 85+380=465, one element), the fix, the three rejected remedies with their one-line reasons, and a pointer to the doc. Someone bisecting in a year reads this and nothing else.
+
+*tests/overflow/KNOWN-WEBKIT-300.md* (long, read by whoever owns this next): the full failed-fixes table with the measured numbers (U1–U6, including the two that worked and why `contain:content` lost), the noise range so nobody chases 465→477, the exact re-run command and the fact that webkit must run last and alone, and the retained pre-fix red artifact with its path. The artifact is the evidence — without it the document is an anecdote. Do not put the table in both; duplicated tables diverge.
+
+**4.** Not applicable — D.
+
+**5. The one measurement that would flip me back to A: the focus ring.** `overflow: clip` on a submit control can clip its own outline in WebKit, and your screenshot hash would not show it because nothing was focused. Before the matrix run, at root 48 and root 16, in webkit: focus the submit with `:focus-visible`, capture the screenshot, and read back `getComputedStyle(el).outlineOffset`. If the ring is clipped or pushed inside the 150px box, U7 trades a scroll onto empty space for an accessibility regression on the only interactive control in the widget — and A becomes the better trade again. If the ring survives, run the matrix and ship.

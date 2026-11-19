@@ -1,0 +1,282 @@
+ROUND 3 — everything, before it ships. Attack the measurements, not the taste.
+
+READ THIS FIRST: I have just invalidated my own headline numbers, twice, in the
+same hour, and section 2 is what I want you on. Everything in section 1 is
+re-measuring right now; the three 636/636 results I had fifteen minutes ago were
+worthless and I am not quoting them.
+
+Site: static, 53 pages, /home/matt/projects/other/tesla-generator/website. Branch
+fix/alt-nav-overflow off ad559e9. Stage server :8199, plain desktop viewports, no
+device emulation. Three items from PLAN-ALT-NAV-OVERFLOW.md: 7 (large-text
+overflow), 6 (nav restructure), 5 (glued alt/width attributes). You reviewed item
+7 twice already; your round-2 points are listed below with what I did.
+
+======================================================================
+1. ITEM 7 — the CSS (css/styles-custom.css, one block, 11 rules)
+
+Before (53 pages, 390px viewport, no emulation):
+  root 16px   0/53 overflow      root 32px  53/53 (+70 worst)   root 48px  53/53 (+519 worst /tesla-1894-plates)
+
+Gate = tests/overflow/gate.py, 53 pages x 12 cells (widths 320/390/768/1280 x
+root fonts 16/32/48) = 636 cells per engine. Pass = documentElement.scrollWidth
+<= clientWidth, plus an unfiltered offender sweep (ink via scrollWidth vs
+clientWidth, zero-size/clipped boxes, elements outside body) so an h2 whose box
+stays put while its ink runs past the viewport cannot hide.
+
+After, on the final tree: three engines x 636 cells are running now. I had green
+636/636 on chromium, webkit and firefox and I have withdrawn all three: the gate
+was applying the root font in a way that does not survive navigation, so every
+non-16px cell was actually measuring 16px, where the site was already clean. See
+section 2. The before half is being re-measured on the same corrected instrument;
+317/636 was the old-settle number and will not be quoted either.
+What is already re-proven, one page x 3 cells at 390px / root 48px, with the
+canaries below asserting the page really is rendering at 48px:
+  shipped CSS: 3 of 3 green.
+  this CSS cut out: 0 of 3 green, `a.navbar-brand` reported 654px wide, +300px,
+  exactly the defect that started item 7. So the pair can now tell fixed from
+  not-measured, which is the thing it could not tell before.
+
+Levers used, in order of preference everywhere:
+  a. min-width: 0 on flex items, min-width: 0 + max-width: 100% on the one grid
+     item (the site's single .btn-lg inside its single .d-grid; min wins over
+     max there, so max alone left it 261px in a 152px column).
+  b. min(rem, px-at-16px) caps on rem chrome: .p-5/.px-5, .gx-5/.g-4 gutters,
+     .btn.btn-lg padding, .navbar-brand margin-right, .d-flex > .ms-3
+     margin-left. Bootstrap emits its spacing utilities with !important, so the
+     caps that override one carry !important too and win on specificity
+     (measured: without it the gap stayed 32px at root 32px).
+  c. body { overflow-wrap: break-word } + a table carve-out back to normal, and
+     white-space: normal on the brand.
+No overflow-x: hidden anywhere. No font-size caps: your round-2 point, adopted,
+and removing the caps cost zero gate cells. Prose rule `article p, article li,
+article code { overflow-wrap: anywhere }` predates this work and is untouched;
+`anywhere` stayed exactly where min-content shrinking is the mechanism.
+
+Corrections I made to the plan's premises (all in PLAN §8):
+  * There is no wp-textsize A+/A- control. Nothing in 53 pages or 4 scripts sets
+    the root font; the string survives only in a comment in js/scripts.js from
+    the WordPress template. So 200% is the conformance number, 300% is grace.
+  * The matrix had to become 12 cells: 320x48 alone put 49/53 pages into a
+    scroll (+58px) through the "Popular Pages" sidebar card (a 100px column, a
+    209px span at 48px) while all 8 cells of the narrower matrix were green.
+  * Comments exist in two templates: 48 pages with Bootstrap utility rows, and
+    perpetual-motion-generator.html with hand-written .comment-block/
+    .comment-header/.comment-actions styled by css/comments.css (loaded on 32
+    pages), whose chrome is in px (does not scale) and type in rem (triples).
+
+Limits I am shipping with, documented in the CSS and the commit message:
+  * 300% at 390px: comment column 154px wide, ~6 characters a line. No scroll,
+    nothing hidden, not comfortable. Your scoped flex-wrap idea for that row is
+    NOT in, because applying it means re-running all three engines (~35 min) and
+    300% is not a conformance requirement. Measured variant effect at 16px:
+    column 266 -> 316px. Tell me if you think that reasoning is wrong; I have
+    the measurement harness for it (tests/overflow/comment-row.py) and can do
+    the 48px cell in two minutes.
+  * 320px / 48px: the site name still breaks one word mid-word beside the
+    toggler. Documented, not hidden.
+  * 1280 / 32px and 1280 / 48px needed flex-wrap on .navbar-nav + min-width:0 on
+    .nav-link, scoped to >=992px. Without them the nav change re-broke all 53
+    pages (+942px at 48px) — item 6 regressing item 7.
+
+======================================================================
+2. TWO INSTRUMENT BUGS, IN A ROW, IN MY OWN GATE. ATTACK THIS HARDEST.
+
+2a. The silent one, and the worst thing I nearly shipped.
+gate.py applied the root-font override as `add_style_tag()` after `goto()`. I
+"fixed" a double-layout problem by moving it before the navigation, and
+`add_style_tag()` before `goto()` does not survive navigation at all: measured,
+`getComputedStyle(documentElement).fontSize` stays 16px. Every 32px and 48px cell
+became a 16px cell. Result: chromium 636/636 green, webkit 636/636 green, firefox
+636/636 green, and the BEFORE run — the one that is supposed to show the defect —
+also 636/636 green. Nothing in the output changed: no error, no unusual line, no
+count that looked wrong. I only noticed because a before run coming back clean is
+implausible enough that I went and looked at what the page was actually rendering
+instead of reading the summary. My `add_init_script()` attempt at a fix was the
+same failure in a different costume: at document-start `document.documentElement`
+is null, the script throws, and Playwright does not surface it.
+What the gate does now: (i) the root font is injected into the navigation
+response itself (`route.fetch()`, one inline `html{font-size:Npx !important}`
+before `</head>`), so it is in the document before first paint and there is
+exactly one layout pass; (ii) a canary after the settle reads the computed root
+font back off the page and exits 2 if it is not the size the cell asked for; (iii)
+a styled canary (`.navbar-brand` display, `--bs-body-font-family` present) so an
+unstyled page, which never overflows and would pass every cell, cannot be read as
+a green matrix; (iv) a flavour canary for the before/after pair, asserting
+`.navbar-brand` computed `white-space` is `nowrap` in the before run and `normal`
+in the shipped run, because the pair's whole claim is "one instrument run twice"
+and the run that was served the wrong payload must refuse rather than produce a
+number. Measured working: the run above caught the bug three times before I fixed
+it, and the fixed instrument produced the 3/3-versus-0/3 pair quoted in section 1.
+
+Questions on this, and I want the general shape, not just this instance:
+  * Have I made the failure class impossible, or have I covered the three ways I
+    happened to find it? What would you assert that I have not thought of? I am
+    specifically unsure about the flavour canary: it checks one property of one
+    element. What else does the before/after pair need to be honest?
+  * Is "exit 2 with INSTRUMENT FAILED" the right shape, or should a canary failure
+    make the run print nothing at all (I currently print the failure and exit, but
+    a human reading a log could still find the last summary line above it)?
+  * Where else in this work am I relying on a Playwright/CSS mechanism I have not
+    measured? I have been wrong twice about exactly that, both times in the
+    direction of a clean green.
+
+2b. The loud one, which was still my fault.
+The first three-engine run reported webkit red at 148/636, all in 48px cells,
+e.g. "scrollWidth 465 > clientWidth 390 (+75)" on many pages. A direct probe of
+the same page, same viewport, same root font, showed documentElement.scrollWidth
+exactly 390 — no overflow — in webkit as shipped, in webkit with my CSS cut out,
+and in chromium. The 75px element was EmailOctopus's opt-in widget mid-reveal;
+its honeypot is position:absolute; left:-5000px and was never the cause. The
+fault: I measured 120ms after load, while the widget's entrance transform still
+had it offset from the right edge, and applying the root font after load laid
+every page out twice, which is what restarts that animation. Chromium did not
+report it because it resolves the reveal earlier: the same one-engine-is-not-the-
+whole-matrix lesson as the Firefox font-metrics row, arriving from the opposite
+direction — an instrument can also invent a failure that only one engine shows.
+The fix here was a settle (one jump to the bottom and back, then ~1300ms) and,
+as above, getting the font into the document before first paint so there is no
+second pass to restart anything. Measured one page x 3 cells at 48px: 2/3 red
+with the old settle, 3/3 green now.
+
+Questions on 2b, and I want you to try to break the fix, not agree with it:
+  a. Did I fix the measurement or hide a defect? The state I now gate is "after
+     the reveal has finished". The state the old gate caught is a widget sitting
+     75px past a 390px viewport during its entrance. If a real reader can be in
+     a state where that widget overflows the layout viewport for longer than an
+     animation, my settle hides it. What would prove it either way from the
+     markup and CSS alone, without trusting my wait times?
+  b. My settle is now timing-dependent (~1300ms + a jump). What page would be
+     green only because the wait is long enough? Is there a condition to wait on
+     instead that you would actually trust here — `document.getAnimations().length
+     === 0` is not it, because the sidebar card has an infinite `grow` scale
+     cycle, so that is never true. getBoundingClientRect stability over N frames?
+     An IntersectionObserver count? Something else?
+  c. The scroll jump. I stopped crawling a viewport at a time because these pages
+     run to 123,000px tall (5s a page) and started jumping straight to the bottom
+     and back. IntersectionObserver reveals for elements in the middle of a
+     123,000px page may not fire on a jump; if any of them reveals into an
+     overflowing position, I now miss it. Cheap way to force-reveal everything
+     that does not cost 5s a page?
+
+======================================================================
+3. INERT AT 100% — NOT YET GREEN, AND I WILL NOT CLAIM IT UNTIL IT IS
+
+tests/overflow/inert-at-100.py: serves both stylesheet versions through a route
+interception (same tree, two CSS payloads), captures every box's geometry AND
+ink ([tag, classes, x, y, w, h, scrollWidth, clientWidth, scrollHeight,
+clientHeight]) twice per flavour per page, 14 pages x widths 390/320/1280, and
+requires (i) each flavour to reproduce itself twice, (ii) before and after to be
+identical box-for-box. Any move = exit 2. It also waits for #tmg-sticky-cta to be
+attached and does a lazy-load settle pass, because two earlier failures were
+instrument races (the sticky bar captured at zero height; a spinner's 1px
+animation drift).
+Status: the last run died with TargetClosedError from a route handler fulfilling
+after the page closed. Guarded (try/except) and the goto timeout went 30s -> 60s.
+It has NOT produced a green run yet; it is queued after the gates. If it lands
+green the CSS header and the commit message will quote it; if it does not, the
+claim comes out. Is there a way this instrument says "identical" while the CSS
+nonetheless changed what a reader sees? (I know of one: it samples 14 pages, not
+53.) Pixel diffing is off the table here: the widget is third-party, the spinner
+animates forever, so I went geometry+ink and double-capture instead.
+Given section 2a, the analogous silent failure here is "both flavours were served
+the same payload", which makes identity trivially true. There is a guard in
+`cssregions.py` that refuses when a region marker vanishes, and the startup line
+prints both lengths (13213 vs 35206 now), but the run itself never proves the two
+loads differed. Should the hash of the bytes each flavour actually received be
+captured per page and asserted to differ, the way the gate now asserts the brand's
+computed `white-space` matches the flavour it claims to be measuring?
+
+======================================================================
+4. ITEM 6 — NAV
+
+53 pages. Old: one 32-item "Pages" dropdown, in 5 byte-distinct copies. New: 4
+top-level links (Articles, Home, Contact, About) + 3 groups of 10 (Build & plans,
+Power your home, Free energy & Tesla). Generated by tests/nav/apply_nav.py:
+anchor text copied byte-for-byte out of the old dropdown, `nav-link active`
+carried by href, aborts if any file matches no known nav or matches twice,
+refuses unless the 2 dropped pages are linked from another page's body. 53/53
+written; 2 distinct navs after (52 + about.html's active link).
+
+tests/nav/inventory.py, before measured in a clean worktree of ad559e9:
+  distinct navbar blocks 5 -> 2; dropdown sizes {32:51, 7:1} -> {10:53}; dropdown
+  hrefs that 404 none -> none; pages reachable only via nav 0 -> 0.
+The plan says "keep 6 orphans reachable". That number was my inventory bug:
+slug() ignored same-domain absolute hrefs and /articles writes all 33 cards as
+https://teslamagneticgenerator.com/<slug>. Also /index 308-redirects to / on
+Cloudflare Pages (curl -sSI on the live site) and index.html's canonical is /, so
+the two were one page. Commit message says "orphans unchanged at 0" and §8 says
+why the plan was wrong.
+
+tests/nav/verify.py green at 390, 320 (DRAWER_W env), 992, 1024, 1280: structure
+(no duplicate hrefs, dropdowns <=10, toggles excluded), desktop fit at the three
+widths (brand 218px + row 686px against 960 at 992px), drawer open: all 30 items
+>=44px tall, nothing clipped, no sideways scroll, and Tab -> Enter -> ArrowDown
+-> Enter follows a real item through Bootstrap 5.2.3.
+Two defects the change created and I fixed in this branch: the 1280x32/48
+overflow regression (above), and inside the drawer .dropdown-item's
+white-space:nowrap ran 62-character labels past the viewport WITHOUT producing a
+page scroll (the drawer clips them — a scroll-based gate cannot see this class of
+defect at all) and entries measured 40px/29px against 44px. Fixed with
+white-space:normal + 0.75rem block padding below 992px, which is Bootstrap's own
+collapse boundary.
+
+======================================================================
+5. ITEM 5 — 191 glued width= attributes
+
+Ticket claimed "191 malformed alt attributes, screen readers get nothing". False:
+parsers recover, and inventory says missing alt 0, alt="" 0 across 721 <img> tags
+before and after. What is true: `alt="..."width="754"` is invalid HTML, browsers
+tolerate it, a strict XML toolchain does not. tests/img-alt/space-fix.py adds the
+space and refuses the file unless its non-whitespace byte sequence is unchanged
+and <img>/alt= counts are unchanged (its first proof was wrong — collapsing
+whitespace cannot make two strings equal when the change ADDS a space — and it
+aborted before writing anything). 191 in 48 files. Framed as source hygiene, not
+accessibility; the real gap (nothing marked decorative, so 155 "Avatar of X" and
+96 ad thumbnails are announced) stays a copy decision.
+
+======================================================================
+6. THE COMMIT SPLIT — A GIT CLAIM I WANT CHECKED
+
+The plan asks for 3 commits, each carrying its keeper check. The tree holds all
+three items and items 5 and 6 touch the same 48 files, so `git add` by whole
+files cannot split them. My plan: commit A = item 7's CSS (the two navbar rule
+blocks temporarily cut out) + tests/overflow + tests/shots.py; commit B = every
+tracked *.html with its nav region put back to the ad559e9 block read out of a
+detached worktree (space fix kept, nav rewrite undone) + tests/img-alt; commit C
+= re-run apply_nav.py + restore the navbar CSS blocks + tests/nav. Order 7 -> 5
+-> 6 instead of the plan's 7 -> 6 -> 5, because the tree that item 6 produces IS
+the measured final tree and must be last. Dry-run checked: 52 tracked pages match
+the nav regex exactly once, 1 untracked page skipped. After the split, `git diff`
+against a hash snapshot of the measured tree must be empty.
+Two claims to attack: (i) "intermediate commits are structural, not separately
+measured" — is that honest or is it a commit that cannot run? (ii) the numbers I
+quote are from 53 pages, but the branch carries 52: the 53rd page
+(electrical-experimenter.html, plus assets/ee1919/ and
+js/email-capture-widget.html) is someone else's uncommitted in-flight work I was
+told not to touch, so it is measured but not committed. Is my treatment of that
+(the commit message says so) adequate, or does the mismatch invalidate the
+numbers?
+
+======================================================================
+7. UNBROKEN — THE STICKY BAR
+
+tests/sticky-cta (the suite a previous session left, never committed, being added
+in a 4th commit): chromium 122/122, webkit 121/121, firefox 120/120, engines.py
+"all 27 cases across 3 engines: reservation >= bar, no clipping, gap >= 24px, CTA
+44px tall, no wrapping", bar height 87px chromium/webkit and 105px firefox, flat
+across 100-400% root font. Only movement: chromium recalc60 705 -> 698, a
+style-recalc count collected while four browsers were on four cores. A quiet-box
+re-run is queued. Is quoting recalc60 at all defensible, or should that number be
+dropped from SHIP.md and the commit message because it is a load gauge wearing a
+layout assertion's clothes?
+
+======================================================================
+8. WHAT I OWE THE OWNER AND AM NOT DOING UNASKED
+  * pushing the preview branch (branch exists, nothing pushed) and main;
+  * Cloudflare Web Analytics zone toggle (plan item 1);
+  * backlog items 2-4: invented authors/avatars on many articles, affiliate
+    disclosure present on 36 of 53 pages, and the "nothing is marked decorative"
+    alt copy pass above;
+  * the 300% comment-column readability pass (item in section 1's limits).
+Ask me nothing about taste. Tell me what is still unverified, what measurement is
+worthless, and what you would refuse to merge.

@@ -1,0 +1,50 @@
+⚠ A previous `hermes update` pulled new code but did not restart running gateways.
+  Gateways may still be serving pre-update modules (mixed sys.modules).
+  Run `hermes update` or `hermes gateway restart`.
+**1. Neither A nor B. A third reading your two options don't cover.**
+
+`465` at both 320 and 390 is a **fixed absolute right edge** (left 315 + width 150), not a viewport-relative one. Something has an intrinsic width of ~465px that neither the root font nor the viewport moves. That is one cause across 49 pages, as you say — but "one cause" does not mean "not a defect", and it does not mean "instrument bug" either. It fits a third story: the injected EmailOctopus DOM has a fixed intrinsic width in WebKit at 48px root, genuinely overflows the layout viewport, and your own CAP never reaches it because your selector is `.eo-form, .eo-form *` while the culprit's class is `emailoctopus-form-row-hp` — there is no evidence `.eo-form` is an ancestor of it. In Chromium the same input computes a smaller intrinsic width and stays under 390, which is why 16/32 and the other engines are clean. Also note your own line contradicts your suspects: both entries print `over=0`, so gate.py already says they are not the cause.
+
+Cheapest decisive run, in order:
+
+```js
+const settle = () => page.evaluate(() => new Promise(r =>
+  requestAnimationFrame(() => requestAnimationFrame(r))));
+
+await page.evaluate(() => scrollTo(0,0)); await settle();
+await page.evaluate(() => scrollTo(1000,0)); await settle();
+const sx = await page.evaluate(() => scrollX);   // 0 => nothing a user can scroll to
+```
+If `sx === 0`, no reader can reach that region and the verdict line is measuring a phantom. If `sx > 0`, it is real and scrollable and it is your bug.
+
+Then, in one evaluate:
+
+```js
+({ de: document.documentElement.scrollWidth,
+   body: document.body.scrollWidth,
+   deW: document.documentElement.getBoundingClientRect().width,
+   cw: document.documentElement.clientWidth, iw: innerWidth,
+   se: document.scrollingElement === document.documentElement })
+```
+
+`body.scrollWidth` vs `documentElement.scrollWidth` diverging, or `deW !== iw`, tells you which box is lying. Then bisect instead of sweeping — `document.body.children.length` is a handful:
+
+```js
+const out = [];
+for (const el of document.body.children) {
+  const d = el.style.display; el.style.display = 'none';
+  const w = document.documentElement.scrollWidth;
+  el.style.display = d;
+  if (w < 465) out.push([el.tagName, el.className, w]);
+}
+```
+
+That finds the subtree in one pass. Then recurse into it, and separately hide the injected form root entirely: if `scrollWidth` drops to 320/390, the widget owns it and your CAP selector is the bug, not WebKit.
+
+**2. What I actually know, and where I'm guessing.** CSS Overflow 3 defines the scrollable overflow region as the union of border boxes of descendants *for which the scroll container is the containing block*, and explicitly excludes boxes positioned relative to an ancestor outside the scroll container. A `position:absolute` element with no positioned ancestor has the initial containing block — i.e. the viewport — as its containing block, so per spec its 315+150 right edge **is** in the document's scrollable overflow. On that text WebKit looks correct and Chromium looks like the deviation, not the reverse. I do **not** know a WebKit bug number for this and I am not going to invent one; I also cannot confirm the usual folklore that WebKit includes `position:fixed` overflow where Blink does not. Treat my engine-specific claims as guesses and the spec claim as solid.
+
+**3.** 1.4.4 is 200% text without loss of content or functionality — you are green at 32px. 1.4.10 is 320 CSS px at default zoom, i.e. 1280 at 400% — also green. 320×48 and 390×48 are **beyond both bars**, so this cannot be a conformance failure whatever it is. On the empty-scroll question: 1.4.10's requirement is directional (no horizontal scrolling to read content), but the operative test in every audit I would defend is *content loss*, and a scroll region containing only an invisible honeypot loses nothing. If `sx > 0` I would fix it in twenty minutes and not call it a blocker.
+
+**4. Yes — OOM, and 0.8GB free is the tell, not the algorithm.** One `getBoundingClientRect` plus one `getComputedStyle` per element, plus up to eight ancestor `getComputedStyle` calls per survivor, on 15,000px pages at 48px root, is potentially ~10⁵ live `CSSStyleDeclaration` resolutions in a renderer that WebKit does not hand back cheaply. `TargetClosedError` is renderer death, i.e. resources, not logic. Your wrong docstring matters more than you think: the next person sizes that sweep from a false cost model, concludes it is cheap, and reintroduces the crash. Bounded replacement: bisect the body children first (O(children)), never call `getComputedStyle` in the hot loop, use `el.checkVisibility({ checkOpacity: true })` instead of walking ancestors, and chunk any residual walk into 500-element evaluates. And a crashed diagnosis must be **exit 2**, not "the cell's verdict stands" — 80 of your 81 reds are currently undiagnosed crashes counted as defects.
+
+**5.** I cannot see whether a scrollbar is actually presented, whether the honeypot is painted, or your WebKit version — and you did not report whether WebKit's **negative control came back red**, which is the one engine where that evidence is mandatory. Without it, exit 2 is honestly the state of the WebKit matrix. The single measurement that flips me to your reading (A) is `scrollX` after `scrollTo(1000,0)`: if it moves, a reader can scroll to a place they cannot use, and you fix the CAP selector.

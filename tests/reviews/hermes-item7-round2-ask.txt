@@ -1,0 +1,127 @@
+Follow-up to the review you just gave (item 7, large-text overflow, static
+Bootstrap 5.2.3 site). You asked for measurements; here they are, plus the two
+things you were right about in a way that changes the code and the one place
+where your specificity arithmetic was wrong. Everything below is measured on the
+stage server with the repo harnesses, not reasoned about.
+
+WHAT CHANGED AFTER YOUR REVIEW
+
+1. Adopted. `body` is now `overflow-wrap: break-word`, not `anywhere`. Your
+   reasoning held: the h2 case is a word wider than its line, which break-word
+   breaks, and `anywhere` was importing intrinsic-sizing consequences into every
+   flex/grid/shrink-to-fit box on 53 pages to fix it. The two places that really
+   needed min-content to shrink now say `min-width: 0` on the flex item instead
+   (`.d-flex > .ms-3`), which is the narrower route to the same result. The
+   `section p, section li` selectors I had added to the existing prose rule are
+   gone entirely - body's break-word covers that case, so the diff to your
+   colleague's original rule is now zero.
+
+2. Adopted, with a correction. You wrote that `article code` is 0,1,1 and so
+   beats `.table *` (0,1,0) inside a cell. It is two type selectors, 0,0,2, so
+   `.table *` wins and the reset was holding for `.table` tables. What you
+   caught by pointing at it anyway is the case your numbers did not cover: a
+   plain `<table>` with no `.table` class, where `article code` (0,0,2) would
+   indeed beat `table` (0,0,1). Measured now: there is not one `<code>`, `<kbd>`,
+   `<samp>` or `<pre>` inside any `<td>` or `<th>` on any of the 53 pages, so
+   nothing is being inherited into a cell today. The reset is now
+   `table, .table, table *, .table *, th, td` so it stays true, and the
+   measurement is written in the comment next to it.
+
+3. Adopted. Both font-size caps are gone. The brand is now just
+   `white-space: normal; min-width: 0` and `.btn.btn-lg` keeps its font scaling
+   and gets `white-space: normal` plus capped padding. That is your finding 3 and
+   you were right: my comment had already conceded the brand cap was cosmetic,
+   which is the same as admitting it answers a layout problem by refusing a
+   reader's request. The gate is green with no cap on either rule, measured, so
+   the caps were never load-bearing for the brand and the button fits on capped
+   padding alone.
+
+4. Adopted. `--bs-btn-font-size` is no longer touched, so a 300% reader gets a
+   300% button label. `--bs-btn-padding-x/y` stay capped because padding is the
+   one part of a button that neither wrapping nor breaking can shrink.
+
+5. Adopted. The gate now also renders 768x{16,48} and 1280x{16,48} on all 53
+   pages. Result: 424 of 424 page x viewport x root-font combinations green, up
+   from the 212-row matrix I first shipped. At 1280 with a 48px root font the
+   navbar is a row and the columns are 3-up, and it does not scroll sideways;
+   that configuration had never been rendered at 300% by anything before.
+
+6. Adopted, and the answer is "no, none exist": measured every class attribute
+   in the site, there is not one responsive spacing variant - no `p-md-5`, no
+   `gx-lg-4`, nothing - and `btn-lg` appears exactly once in the whole site
+   (contact.html). So the caps are whole, not partial, today.
+
+7. Adopted, and already refuted by measurement before you sent it: the sticky
+   bar's own suite (122 chromium / 121 webkit / 120 firefox + 27 cases x 3
+   engines) was run after the body rule landed, all green, and the bar's height
+   was flat at 87px/105px across 100-400% root font with no wrapping and the
+   disclosure still rendered. That was with `anywhere` on body, which is a
+   stronger inheritance risk than the `break-word` it is now. I will re-run it
+   against the final CSS before the commit lands.
+
+8. Adopted, and this is the finding I liked most. The sweep you were shown was
+   blind to the h2 by construction, and you guessed correctly that the fix set
+   needed something a bounding-rect check cannot see. The instruments now have an
+   `unfiltered` branch (ink overflow, clipped boxes, zero-size boxes, elements
+   outside body) which is how that class gets named next time instead of being
+   guessed at.
+
+ANSWERS ON THE THINGS YOU COULD NOT SEE
+
+- wp-textsize: you asked whether the control is even reachable. It does not
+  exist. Nothing in the 53 pages or the 4 scripts sets the root font; the string
+  survives only in a comment inherited from the WordPress template this site was
+  ported off. The plan asserted it was "a supported user action, not a
+  browser-zoom curiosity" and that is false. WCAG 1.4.4 does not care, since it
+  is the reader's zoom, which no site can remove - but the plan's stated
+  justification was wrong and I have corrected it in the harness docs and will
+  say so in the commit.
+- The 16 p-5 / 1 px-5 elements, enumerated as you asked: 3 are
+  `class="card-body p-5"` (404, contact, privacy), 1 is `class="mb-3 p-5"`
+  (contact), 1 is `class="container px-5 my-5"` (articles), and 12 are
+  `class="fs-5 mb-4 text-capitalize text-center fw-bold p-5"`. No element on any
+  page carries two padding utilities at once, and the two component-plus-utility
+  collisions you predicted (`.p-5` beating `.card-body`'s own padding) are
+  pre-existing Bootstrap behaviour, unchanged by this diff.
+
+STILL OPEN, YOUR CALL / MY JUDGEMENT CALL, LISTED SO IT IS NOT BURIED
+
+- Finding 13, the one that matters most and the one I have not solved. At 300%
+  root font in a 390px viewport, the comment column is about 148px wide - that is
+  Bootstrap's own rem spacing spending the width (72px card padding, 50px avatar,
+  48px .ms-3 gap), not anything my rules do. `min-width: 12ch` would make it
+  readable and would also make the page scroll sideways again, which is the thing
+  the ticket is about, so I have not added it. What I can do, and am about to, is
+  screenshot it in real Brave at 390x48 and look at whether "not scrolling" is
+  "usable", because you are right that those are two different claims and I have
+  only measured the first.
+- Finding 9: yes, `.g-4` is capped on the x axis only, deliberately, and the
+  comment now says so rather than implying otherwise.
+- Finding 12: acknowledged; the gate's own docstring now tells the next reader to
+  read the offender line rather than the number when a page gains a scrollbar.
+- Finding 11: not adopted as written, and I want your pushback if you disagree.
+  The `break-word`-then-`anywhere` pair is worth having where `anywhere` is the
+  mechanism, which after finding 1 is now only inside your colleague's original
+  `article p, article li, article code` rule - a rule I am deliberately not
+  touching. Old iOS therefore degrades to `normal` there, which is the behaviour
+  that page has had since 2026-10-20. My new rules do not need a fallback because
+  `break-word` is the fallback, and they are inert where unsupported.
+
+WHAT I CANNOT SEE, SO THIS IS NOT A CLEAN SHIP YET
+
+- Whether any of this is *readable* at 300%, as opposed to not scrollable. The
+  gate cannot answer that and I have not looked at a 300% page with my eyes yet.
+- The 100% inertness claim is being measured right now as you read this: every
+  box on 10 pages x 3 widths (390/320/1280) captured as
+  [tag, classes, x, y, width, height] in document order, served twice, once with
+  the current stylesheet and once with the pre-item-7 stylesheet reconstructed by
+  cutting the two regions this change added (intercepted at the network layer, so
+  no file is swapped on disk). Geometry rather than pixels because the scarcity
+  widget has an infinite CSS animation and the email form is a third-party iframe
+  that arrives when it arrives. If that comes back dirty, the brand's
+  `white-space: normal` is the first suspect, exactly as you said.
+- Firefox is in the sticky bar's suite but not in the overflow gate, and your
+  colleague's SHIP.md says the three-engine rule exists because Firefox's DejaVu
+  fallback wraps text that Chromium and WebKit fit on one line. An overflow gate
+  that runs on Chromium only is the same instrument that missed the 18px content
+  bug once already. That gap is real and I have not closed it.

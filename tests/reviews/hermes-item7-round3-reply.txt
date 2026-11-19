@@ -1,0 +1,155 @@
+⚠ A previous `hermes update` pulled new code but did not restart running gateways.
+  Gateways may still be serving pre-update modules (mixed sys.modules).
+  Run `hermes update` or `hermes gateway restart`.
+Section 2 is where I'll spend the depth; the rest gets shorter because most of it is sound.
+
+---
+
+## 2a — the silent instrument bug
+
+**You covered three instances. The class is broader, and the piece that actually bit you is the one still missing.**
+
+The failure class is "the harness measured a state other than the one it claims". Four sub-classes:
+
+- *(i) the input never applied* — font, CSS payload, stylesheet. Your canaries cover this now, well.
+- *(ii) the page was not in the shape you assumed* — unstyled, wrong template. Covered.
+- *(iii) **the assertion has no dynamic range** — the measurement cannot distinguish a good page from a bad one.* Not covered. A canary proves the input arrived; it does not prove `scrollWidth > clientWidth` is *capable* of being true. This is the sub-class that produced three simultaneous greens, and the only reason you caught it was a human noticing a clean before run was implausible.
+- *(iv) the summary outlives the instrument* — a human reads a number the run did not earn.
+
+For (iii) the answer is not another canary, it is a **permanent negative control inside every run**: pin one page × one cell, serve it with the item-7 CSS cut out, and assert it is RED with a named offender (`a.navbar-brand`, ≥600px at 390×48). If that control ever comes back green, exit 2 — no summary. You built exactly this control once, by hand, in section 1. Make it a cell in the matrix that runs every time. That is the difference between "I have covered the three ways I happened to find it" and "the harness cannot report green while measuring nothing", and it is the only structural answer to your question. It costs one extra page render per engine.
+
+**What I would assert that you have not:**
+
+1. **A dimension probe, not just a font-size read.** Inject `<div data-probe style="width:10rem;height:1px;position:absolute;left:-9999px">` into the same response as the font rule, and assert `offsetWidth === 10 * rootPx ± 1`. Reading back `getComputedStyle(html).fontSize` proves the cascade accepted your declaration; it does not prove layout re-ran at that size, and it does not prove nothing overrode it *after* your read. The probe proves the root font reached the layout engine.
+2. **Read the canaries in the same `evaluate()` as the assertion.** If the font is read at t=0 and `scrollWidth` at t=+800ms, a late style mutation or a second layout pass can invalidate the pairing. One round trip, one layout state, canaries and verdict computed together.
+3. **Payload hash per page per flavour**, served by the route handler and recorded in the output. You already propose this for section 3; it is the same hazard here and it belongs in both.
+4. **A structural assertion on the flavour diff**, not just "the bytes differ". Parse both payloads and assert the after-flavour selector set minus the before-flavour selector set is exactly your 11 rules — no more, no less. Cutting regions out of a stylesheet can leave an orphaned brace or a swallowed rule and produce a "before" that differs for the wrong reason. Right now "before is red" could be red because the file is malformed.
+5. **Assert the before run's offender identity and magnitude**, not just its redness. "0 of 3 green" is satisfiable by a 404. `a.navbar-brand` at 654 ± 2% at 390/48 is not.
+6. **Assert the row count**: `rows.length === 3 × 636`. A skipped page shrinks the denominator and the summary still reads like a full matrix.
+7. **Assert the injection landed**: a `</head>` that is absent, or a redirect chain that bypasses your route matcher, both silently skip the injection. Your font canary catches it only if the canary runs — assert the route handler incremented a counter per navigation, and that counter equals the page count.
+
+**On the flavour canary being "one property of one element":** it is checking the right *kind* of thing, just not enough of it. It proves the served cascade produced the marker. It does not prove the two payloads differ in the region under test — only that `.navbar-brand { white-space }` differs. Payload hash plus the selector-set diff (4) is what closes that.
+
+**On exit-2 shape:** your worry is right and the fix is print ordering, not exit codes. Two-phase: accumulate rows silently → verify canaries and counts → only then print. A canary failure prints `INSTRUMENT FAILED: <which> — no results` and nothing else, and the summary line is constructed from the verified structure, never streamed. Also keep 0 / 1 / 2 distinct (pass / defect / instrument), because a defect and a broken harness need different humans and CI should page them differently.
+
+**Where else you are relying on unmeasured mechanisms** (the list matters more than any single item, since you have been wrong twice in the direction of green):
+
+- `route.fetch()` + fulfil with a modified body: **Content-Length and any CSP**. An inline `<style>` is blocked if the page ever ships `style-src 'self'` with no `'unsafe-inline'`; the canary catches it *if* the canary exists, which is an argument for the probe being mandatory rather than nice-to-have.
+- **Redirects bypassing the route matcher.** You already know `/index` 308s to `/`. If a route is keyed on the pre-redirect URL and the fulfilment happens on the final URL, the injection is lost — and the font canary is your only detector.
+- `add_init_script` at document-start: you hit `document.documentElement === null` and Playwright swallowed the throw. Anything you inject that way must be wrapped and must set a `window.__probe` flag the page can be questioned about afterwards. An init script that throws is invisible; an init script that sets a flag is not.
+- `document.fonts.ready` — if you are not awaiting it, a webfont swap after your read changes metrics. If you are awaiting it, note it resolves even when a font fails to load.
+- `images`: an image with no `width`/`height` attributes that loads after your read shifts everything. Assert `[...document.images].every(i => i.complete)` before asserting geometry.
+
+---
+
+## 2b — did you fix it or hide it
+
+**(a) The single measurement that settles it, without trusting any wait time: run the cell with `page.emulateMedia({ reducedMotion: 'reduce' })`.** If the site honours the media query (and the widget's entrance is a CSS transition or animation, which the 75px transform suggests), then a reduced-motion reader never enters the intermediate state — and if that state is clean, the overflow is animation-state by definition, not layout-state. If reduced-motion *still* shows +75px, the offset is layout, your settle is hiding a real defect, and it is a genuine 1.4.10 problem at 390px. One extra render, no timing assumptions.
+
+Then the framing change: **don't pick the settled state and discard the transient — measure both and classify.** Two reads per cell, one at first paint before you finish animations, one after. If early overflows and settled does not, label the cell `TRANSIENT` and print the list. That way the state the old gate caught is still visible in the output and nobody has to trust that your settle is legitimate, because the thing it suppresses is named. A settle that silently removes a signal is the same instrument failure as 2a with the sign flipped, and you now have a mechanism to report both.
+
+**(b) Replace the wait with conditions, and make the timeout fail closed.** Two changes:
+
+- **Freeze the animations instead of waiting for them.** `for (const a of document.getAnimations()) { try { a.finish(); } catch { a.pause(); a.currentTime = 0; } }` — `finish()` throws on infinite iterations, which is exactly the sidebar `grow` cycle, and `pause()` at a fixed time makes those deterministic too. After that there is no "1300ms is long enough": the page is in its terminal state by construction, at every point, on every engine. This is strictly better than a settle and it also removes the 1px spinner drift you fought.
+- **Then quiesce**: `await document.fonts.ready`, images complete, and a `MutationObserver` that requires zero mutations for three consecutive frames. That is a condition.
+- **A timeout must produce exit 2, not a pass.** If quiescence is not reached in N ms the page is unmeasured; the current design lets a slow page fall through and be scored anyway, which is a false-green class of exactly the kind you are hunting.
+
+**(c) The 123,000px jump, cheaply.** Do not crawl. **Stub `IntersectionObserver` in an init script** so every observed element is reported intersecting on `observe()`:
+
+```js
+window.IntersectionObserver = class {
+  constructor(cb){ this.cb = cb; (window.__ioObserved = window.__ioObserved || []).push(this); }
+  observe(el){ (window.__ioCount = (window.__ioCount||0)+1);
+    this.cb([{ isIntersecting: true, intersectionRatio: 1, target: el }], this); }
+  unobserve(){} disconnect(){}
+};
+```
+
+Every reveal-on-scroll element enters its revealed state with zero scrolling and zero waiting, including the middle 100,000px. It is *conservative* — it reveals more than a reader at one position would see, which is the right direction for an overflow gate. Then assert `window.__ioCount > 0`, because an init script that silently did not apply is the exact failure mode you just spent a day on.
+
+Caveat to state in the harness docs: the stub changes behaviour, so this gate measures "worst revealed state", not "state at the reader's current scroll position". That is a legitimate and documented choice; a scroll-position-dependent gate would be a different instrument.
+
+---
+
+## 3 — inert-at-100
+
+**Yes, it can say "identical" while a reader sees something different.** Concretely: `body { overflow-wrap: break-word }` and `white-space: normal` on the brand both act on *where lines break*. A paragraph whose word now breaks but whose line count is unchanged has an identical box (same `x,y,w,h`, same `scrollWidth/clientWidth`, same `scrollHeight`) and different glyph placement. Your ink capture is per-box `scrollWidth`, not per-line glyph rects, so that case is invisible. That is not hypothetical — it is the precise mechanism you added.
+
+Two ways to close it, in order of cost:
+
+1. **Per-line rects via `Range.getClientRects()`** on every text node, recorded as `[lineIndex, x, y, width]` alongside the box. This is the ink-level equivalent of your geometry capture and it catches reflow within an unchanged box.
+2. **Masked pixel diff.** You ruled it out for the third-party iframe and the infinite spinner. Both obstacles dissolve with the tools from 2b: `finish()`/`pause()` makes the spinner deterministic, and the widget's iframe can be **route-aborted entirely** so it is absent in both flavours (it is not part of item 7's blast radius; the sticky bar's reservation was verified separately). Once those two are gone, a threshold-0 diff over the text layer is the only instrument that catches everything. I would not accept geometry+ink as sufficient for a claim worded "nothing moves at 100%" unless the word is scoped to "no box changes".
+
+**On "both flavours served the same payload": yes, hash it.** Capture `sha256(response body)` in the route handler per page per flavour, assert the two differ, and print both hashes in the startup line. Length alone (13213 vs 35206) is not a proof and it is the kind of number that reads like one. This is the identical fix to 2a's flavour canary and it belongs in both instruments — which is itself the lesson: you have now hit the same sub-class in two harnesses written a week apart, so it wants to be a shared helper, not two implementations.
+
+Two more things about this instrument:
+
+- **Key matching.** "Box-for-box" implies an order/path key. If you are matching by document index, a flavour that adds or removes any node shifts every subsequent comparison and you get either a false red or — worse, if you match by tag+class and drop mismatches — a silently shortened comparison. Assert element count equality first, then match by stable path, and exit 2 if any element is unmatched rather than skipping it.
+- **The sticky bar is a liability here.** Two of your three previous failures were races with it. Its height depends on a runtime measurement and on scroll position, so it is nondeterministic by design. Either exclude its subtree from the box comparison and assert the exclusion explicitly, or keep it and accept that this instrument will keep flaking. The bar's own suite already covers whether the CSS changes its height; this instrument doesn't need to.
+
+---
+
+## 4 — nav
+
+**The gap that matters: `verify.py` is green at four widths and root 16 only.** Item 6 and item 7 interact — you found that once already, at 1280×32/48, where the nav change re-broke 53 pages (+942px). The reverse case is untested: at root 32 and 48, does the 30-item drawer still give every item ≥44px, wrap 62-character labels without clipping, and stay inside 320px? Your fixes (`white-space: normal`, 0.75rem block padding) were tuned at root 16, and at 48px root those rem paddings triple. The drawer is `position: fixed` — which brings me to the structural point below.
+
+Add the drawer-open checks at 320×32, 320×48, 390×48 to `verify.py`. It is the same defect class you just fixed in `apply_nav`'s output and it costs three cells.
+
+**Structural blind spot worth writing into the harness docs: `documentElement.scrollWidth` cannot see anything inside a `position: fixed` subtree.** Fixed elements do not contribute to the root's scrollable overflow, so the mobile drawer, the sticky bar and the exit popup are all invisible to the overflow gate by construction. You found the drawer's `nowrap` clipping *without* a page scroll by eye. That is the same class as the h2 ink case and it will recur; the unfiltered sweep should include `position: fixed` subtrees measured against their own containing block, not just document-level scrollWidth.
+
+**And a contradiction to resolve before the commit.** Section 4 says `apply_nav.py` wrote "53/53". Section 6 says the dry-run matched "52 tracked pages … 1 untracked page skipped". Those cannot both be true. If 53 were written, **you have rewritten the nav inside `electrical-experimenter.html`, which is someone else's uncommitted in-flight work you were told not to touch** — and that file's owner will get a conflict they did not ask for. If 52 were written, the "53/53" line in section 4 is wrong and the nav is not applied to the tree you measured. Either way it is one command to check (`git status --porcelain` on that path) and it changes what the commit message may claim. This is the one item on the list I would resolve before writing any commit.
+
+---
+
+## 5 — item 5
+
+Sound, and the self-catch on the whitespace proof is the right instinct. One gap, and it is the same "instance vs class" critique you are asking me to apply to your gate: you have fixed the `alt="…"width=` pattern. **Add an assertion that no glued-attribute pattern remains anywhere**, not just that instance — parse every `<img>` with an HTML5 tree builder and assert every attribute in the serialised tag is preceded by whitespace. Otherwise you have fixed one member of a class and the ticket will come back for `src=…height=` on some other template.
+
+---
+
+## 6 — the commit split
+
+**(i) Honest, if you word it as what it is.** "Intermediate commits are structural, not separately measured" is a legitimate and standard claim — bisectability with a stated caveat. What would make it dishonest is implying the plan's "each commit carries its keeper check" was honoured. Two ways to be clean:
+
+- **Cheapest:** word it as "the gate was run on the measured tree only; A and B are structural and unmeasured", and put that sentence in the commit *bodies*, not just the message of C.
+- **Better, and affordable:** run a reduced matrix (the 48px row × 390 plus 320×16, one engine) on each of the three commits. That is ~3 × 53 × 3 cells, minutes not hours, and it converts "structural" into "each commit is known not to be catastrophically broken". A commit that has never been rendered is one that can fail to render.
+
+Also: **A and B must at least serve**. If cutting the two navbar rule blocks out of A leaves a stylesheet that parses and renders, say so and prove it with one page shot at 390/16. A commit whose CSS does not parse is not structural, it is broken.
+
+**(ii) The 52/53 mismatch does not invalidate the numbers, but it invalidates the sentence "53/53 pages green".** Three options, in order of preference:
+
+1. Run the gate on the **committed** tree (52 pages) and quote 624 cells, with the 53rd listed separately as "measured, not in this branch".
+2. Quote 53 with the exclusion stated in the same sentence, every time, including the commit message.
+3. Quote 53 and note it once — which is what I read you planning, and which is how a reader six months from now concludes the branch was measured at 53.
+
+Option 1 is the only one where the number and the tree are the same object. And it interacts with the section 4 contradiction: if the untracked page *was* nav-rewritten, then the measured tree contains a change that will not exist in the branch, and the numbers describe something nobody will ever deploy.
+
+---
+
+## 7 — recalc60
+
+**Drop it.** A style-recalc count collected while four browsers share four cores is measuring contention, not layout; it has no reference value, no pass/fail threshold, and it moved 705 → 698 for reasons that have nothing to do with correctness. A number that moves for noise, quoted next to numbers that moved for fixes, teaches the reader that all of them are noise. If you want a layout-cost assertion for the bar, the shape is: N forced layouts per scroll frame at a fixed scroll script, measured on a quiet box, asserted against a band — and you already established in the previous round that the cached `shape()` produces zero class mutations and zero layout reads per frame. Quote that zero, which is a threshold, and drop the absolute recalc count from SHIP.md and the commit message entirely.
+
+---
+
+## What I would refuse to merge
+
+1. **The section 4 / section 6 contradiction.** Resolve `git status` on the third-party page first; if it was written, restore it and re-run the cells that included it.
+2. **Any number from a run whose summary does not carry the canary verdict inline.** The three engines must complete on the corrected instrument, the summary must include `(canaries: font ok, styled ok, flavour ok, probe ok)` or not print at all, and the permanent negative control must be in the run.
+3. **The inert-at-100 claim** until that instrument is green — which you have already committed to — and, importantly, **until it captures line-level reflow**, because the two declarations most likely to have changed 100% rendering are both line-breaking rules that leave boxes identical.
+4. **`verify.py` green as evidence for item 6** while the drawer and the desktop nav are unverified at root 32/48.
+5. **recalc60** anywhere in SHIP.md or the commit message.
+6. **The 53/53 sentence** in any form other than "52 committed, 1 measured and excluded".
+
+## Unverified, by your own account
+
+- Three-engine 636 matrix on the corrected instrument (in flight).
+- Before-half re-measurement on the corrected instrument.
+- inert-at-100, never yet green.
+- Nav drawer and desktop nav at root 32/48.
+- The 320×48 mid-word brand break (known, documented, acceptable — but it is the only known-red cell and it should be named in the commit message, not just the CSS).
+- Whether the 300% comment column is readable, which is a copy/layout decision you have deferred and I agree is not a merge blocker.
+
+## One thing worth flagging that is not in your list
+
+Your measurement of the flex-wrap variant — "column 266 → 316px at 16px" — means **applying the scoped flex-wrap would break the inert-at-100 claim.** So "300% isn't a conformance requirement" is not actually the binding reason to leave it out; the binding reason is that it is a change which legitimately moves 100% geometry, and it therefore cannot live inside a commit whose header claims nothing moves at 100%. If you ever do it, it needs its own commit and the inertness claim needs the scope "excluding the comment row". Worth putting in the ticket now, because whoever picks it up will otherwise re-run that instrument, watch it go red, and conclude they broke something.

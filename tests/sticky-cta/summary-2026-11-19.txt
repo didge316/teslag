@@ -1,0 +1,58 @@
+### chromium 13:04:16
+== 11. no console errors, no page errors ==
+  PASS  clean console on a money page  [none]
+==================================================================
+122 passed, 0 failed, 122 total
+BASELINE DRIFT (numbers changed - decide whether that is intended):
+   recalc60: 705 -> 701
+### webkit 13:07:38
+  SKIP  Performance.getMetrics is CDP; chromium-only section.
+== 11. no console errors, no page errors ==
+  PASS  clean console on a money page  [none]
+==================================================================
+121 passed, 0 failed, 121 total
+baseline unchanged
+### firefox 13:10:27
+  SKIP  Performance.getMetrics is CDP; chromium-only section.
+== 11. no console errors, no page errors ==
+  PASS  clean console on a money page  [none]
+==================================================================
+120 passed, 0 failed, 120 total
+baseline unchanged
+### engines.py cross-engine re-check 13:13:34
+chromium  390x844 phone, 100% font     h=87 wrap=nowrap cta=130x44 gap=24 label=164px pad=92px inline=- reserveOK=True fits=True (bar 390/390px, btn.right=318) clip=False
+chromium  390x844 phone, 200% font     h=87 wrap=nowrap cta=130x44 gap=24 label=164px pad=92px inline=- reserveOK=True fits=True (bar 390/390px, btn.right=318) clip=False
+chromium  390x844 phone, 300% font     h=87 wrap=nowrap cta=130x44 gap=24 label=164px pad=92px inline=- reserveOK=True fits=True (bar 390/390px, btn.right=318) clip=False
+chromium  390x844 phone, 400% font     h=87 wrap=nowrap cta=130x44 gap=24 label=164px pad=92px inline=- reserveOK=True fits=True (bar 390/390px, btn.right=318) clip=False
+chromium  320x640 small phone, 100%    h=78 wrap=nowrap cta=115x44 gap=24 label=117px pad=86px inline=- reserveOK=True fits=True (bar 320/320px, btn.right=250) clip=False
+chromium  320x640 phone, 300% (no emu) h=78 wrap=nowrap cta=115x44 gap=24 label=117px pad=86px inline=- reserveOK=True fits=True (bar 320/320px, btn.right=250) clip=False
+chromium  360x780 android, 100%        h=65 wrap=nowrap cta=115x44 gap=24 label=157px pad=86px inline=- reserveOK=True fits=True (bar 360/360px, btn.right=290) clip=False
+chromium  844x390 landscape, 100%      h=65 wrap=nowrap cta=123x44 gap=24 label=625px pad=92px inline=- reserveOK=True fits=True (bar 844/844px, btn.right=772) clip=False
+chromium  320x480 tiny portrait, 100%  h=75 wrap=nowrap cta=107x44 gap=24 label=125px pad=86px inline=- reserveOK=True fits=True (bar 320/320px, btn.right=250) clip=False
+webkit    390x844 phone, 100% font     h=87 wrap=nowrap cta=125x44 gap=24 label=169px pad=92px inline=- reserveOK=True fits=True (bar 390/390px, btn.right=318) clip=False
+webkit    390x844 phone, 200% font     h=87 wrap=nowrap cta=125x44 gap=24 label=169px pad=92px inline=- reserveOK=True fits=True (bar 390/390px, btn.right=318) clip=False
+webkit    390x844 phone, 300% font     h=87 wrap=nowrap cta=125x44 gap=24 label=169px pad=92px inline=- reserveOK=True fits=True (bar 390/390px, btn.right=318) clip=False
+webkit    390x844 phone, 400% font     h=87 wrap=nowrap cta=125x44 gap=24 label=169px pad=92px inline=- reserveOK=True fits=True (bar 390/390px, btn.right=318) clip=False
+webkit    320x640 small phone, 100%    h=78 wrap=nowrap cta=110x44 gap=24 label=122px pad=86px inline=- reserveOK=True fits=True (bar 320/320px, btn.right=250) clip=False
+webkit    320x640 phone, 300% (no emu) h=78 wrap=nowrap cta=110x44 gap=24 label=122px pad=86px inline=- reserveOK=True fits=True (bar 320/320px, btn.right=250) clip=False
+webkit    360x780 android, 100%        h=65 wrap=nowrap cta=110x44 gap=24 label=162px pad=86px inline=- reserveOK=True fits=True (bar 360/360px, btn.right=290) clip=False
+webkit    844x390 landscape, 100%      h=65 wrap=nowrap cta=118x44 gap=24 label=630px pad=92px inline=- reserveOK=True fits=True (bar 844/844px, btn.right=772) clip=False
+webkit    320x480 tiny portrait, 100%  h=75 wrap=nowrap cta=103x44 gap=24 label=129px pad=86px inline=- reserveOK=True fits=True (bar 320/320px, btn.right=250) clip=False
+firefox   390x844 phone, 100% font     h=105 wrap=nowrap cta=138x44 gap=24 label=156px pad=105px inline=105px reserveOK=True fits=True (bar 390/390px, btn.right=318) clip=False
+firefox   390x844 phone, 200% font     h=105 wrap=nowrap cta=138x44 gap=24 label=156px pad=105px inline=105px reserveOK=True fits=True (bar 390/390px, btn.right=318) clip=False
+firefox   390x844 phone, 300% font     h=105 wrap=nowrap cta=138x44 gap=24 label=156px pad=105px inline=105px reserveOK=True fits=True (bar 390/390px, btn.right=318) clip=False
+firefox   390x844 phone, 400% font     h=105 wrap=nowrap cta=138x44 gap=24 label=156px pad=105px inline=105px reserveOK=True fits=True (bar 390/390px, btn.right=318) clip=False
+firefox   320x640 small phone, 100%    h=93 wrap=nowrap cta=122x44 gap=24 label=110px pad=93px inline=93px reserveOK=True fits=True (bar 320/320px, btn.right=250) clip=False
+firefox   320x640 phone, 300% (no emu) h=93 wrap=nowrap cta=122x44 gap=24 label=110px pad=93px inline=93px reserveOK=True fits=True (bar 320/320px, btn.right=250) clip=False
+firefox   360x780 android, 100%        h=81 wrap=nowrap cta=122x44 gap=24 label=150px pad=86px inline=- reserveOK=True fits=True (bar 360/360px, btn.right=290) clip=False
+firefox   844x390 landscape, 100%      h=65 wrap=nowrap cta=130x44 gap=24 label=618px pad=92px inline=- reserveOK=True fits=True (bar 844/844px, btn.right=772) clip=False
+firefox   320x480 tiny portrait, 100%  h=75 wrap=nowrap cta=114x44 gap=24 label=118px pad=86px inline=- reserveOK=True fits=True (bar 320/320px, btn.right=250) clip=False
+
+=== height vs root font (the iOS failure mode) ===
+  chromium  100%=87px  worst-of-400%=87px  drift=+0px
+  webkit    100%=87px  worst-of-400%=87px  drift=+0px
+  firefox   100%=105px  worst-of-400%=105px  drift=+0px
+
+=== verdict ===
+  asserted 27 cases (27 collected) across 3 engines: reservation >= bar, no clipping, gap >= 24px, CTA 44px tall, no wrapping
+wrote engines.json next to this file

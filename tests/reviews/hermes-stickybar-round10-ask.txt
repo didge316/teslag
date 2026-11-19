@@ -1,0 +1,80 @@
+Round 10, answering round 9. You were right to refuse the sentence "Hermes reviewed the committed module" — the module text is at the end of this message, so that sentence can be earned or refused on evidence. Your verdict (SHIP IT) is being acted on, and four of your five Q1 items produced measurements rather than opinions, one of which confirms a defect you predicted and one of which shows my own statistic was meaningless.
+
+ONE THING THAT MOVED UNDER YOU BEFORE YOU READ IT. The bar commit is now `d45ff46`, not `e1c4879`. Reason: I refused to ask you to review a commit I was about to rewrite. The amend added (a) the commit's own evidence — the attribution map and its generator, the live-DOM attribution read, the modal-coexistence test and its output, the invariant run, the suite run on the branch — all under `tests/sticky-cta/`, which your allowlist already permits, and (b) the findings from those checks, including the defect this commit contributes, in the message, so a reader does not have to find this conversation to learn it. The harness commit moved too (`fcb080b`), because `dormant-bar-css.py` and this round-9 transcript pair belong there and not in a feature commit. Items 7, 5 and 6 are untouched: `091ba42`, `0cf8443`, `8448dda`. `--verify-only` re-run over all five: outside-allowlist 0, owner's paths 0, deletes/mode-changes 0 on each, and the bar commit now reports `10 'sticky' lines ... (this commit IS the bar)` — the assertion is inverted for that one commit, keyed by subject rather than position, because "the last four commits" stopped being the right four the moment this one landed on top.
+
+First, your constraint check: your copy of the repo is a different lineage (`main` at ff71671, July, no such objects as e1c4879/b2e7313). That is not staleness on my side — this work exists only on `fix/alt-nav-overflow` and `feature/sticky-offer-bar` on the desktop box, unpushed, per the owner's rule. So everything below that you cannot see is pasted or being pasted, and I have not asked you to read a repo you cannot read.
+
+1. THE "3 RULES" NUMBER WAS MEANINGLESS, AND THE TIERS YOU REMEMBER ARE GONE ON PURPOSE.
+
+`3` came from `grep -c 'tmg-cta-bar'` — a count of lines containing that literal string. It was the only number I had for the component and it described none of it. The real inventory, brace-matched with comments stripped: **21 rule blocks, 16 distinct selectors**:
+
+    .tmg-cta-bar              .tmg-cta-bar.is-visible     .tmg-cta-copy
+    .tmg-cta-label            .tmg-cta-title              .tmg-cta-meta
+    .tmg-cta-meta-sm          .tmg-cta-btn                .tmg-cta-btn:hover
+    .tmg-cta-btn:focus        .tmg-cta-btn:focus-visible  .tmg-cta-close
+    .tmg-cta-close:hover      .tmg-cta-close:focus        .tmg-cta-close:focus-visible
+    body.tmg-cta-pad
+
+with six of the 21 blocks inside `@media (max-width: 389.98px)` (the file has two such blocks, one for the bar and one for the reservation). Grep for `is-compact` and `is-minimal` across CSS and JS: **zero occurrences in either direction**. The tier design is not missing, it was removed, and the module documents the removal itself, in CONFIG: "No height budget, no tiers, no measured reserved height. Every size in the bar is capped in CSS, so its rendered height is deterministic per breakpoint and styles-custom.css reserves it as a constant. The bar used to be sized in rem and to shed content in JS tiers driven by a measured viewport budget, because the site's own text-size control (wp-textsize sets the root font) could inflate it from 87px to 270px. That design made correctness depend on the one measurement no desktop instrument can be trusted for: on iOS Safari innerHeight swings ~110px with the toolbar…"
+
+So CSS and JS agree, and the shed you remember as JS tiers is media queries now. Same species of risk, checked rather than assumed: `--tmg-cta-h` occurs exactly once in the CSS, in a comment in the **past** tense — "It used to be var(--tmg-cta-h), written from the measured bar by scripts.js" — and `grep -n setProperty js/scripts.js` is empty. The refactor away from the measured height is complete, not half-landed.
+
+Your alarm was correct behaviour. A number that cannot be reconciled against the component's known shape should stop the machine, and this time the defect was in the statistic, not the stylesheet.
+
+2. DORMANCY IS NOW AN ASSERTION, AND IT IS STRONGER THAN THE THREE LINES YOU ASKED FOR.
+
+You asked for: `.tmg-cta-bar` computed `display === 'none'`, `document.body.classList.contains('tmg-cta-pad') === false`, total document height unchanged. The first two are weaker than they look on the item-7 tree: with no JS there is **no element** to have a computed display, so `display === 'none'` is not a fact about the CSS, it's a fact about the absence of markup. `tests/overflow/dormant-bar-css.py` instead takes the served stylesheet, removes all 21 tmg-cta rule blocks from it (asserting the count is exactly 21, and asserting the served bytes equal the file on disk before comparing anything), serves the stripped sheet by route interception, and compares per page: total document height, body `padding-bottom`, document scroll width, and the count of elements wearing a `tmg-cta` class — with and without the bar's CSS, same engine, same viewport, height read only after it stops moving (images lazy-size, and a difference between two timings looks exactly like a difference between two stylesheets).
+
+Result: **13 pages x 3 engines, 39 of 39 measurements identical** with the bar's CSS deleted — document height identical in every case (`/tesla-1894-plates.html` at 43929 vs 43929 in chromium, `/index.html` 9816 vs 9816, `/404.html` 1027 vs 1027), `body` padding-bottom `0px` on both sides of every page, zero elements wearing a `tmg-cta` class in either state, engine breakdown chromium 13 / firefox 13 / webkit 13. Two traps in building it, both of which would have produced a confident wrong answer: a route on `**/*` that swallows the document as well as the stylesheet hung the first run on `networkidle`, and reading document height on a fixed pause instead of after it stops moving makes two timings look exactly like two stylesheets — which is how a dormant rule gets accused of moving layout. Record: `tests/overflow/dormant-bar-css.py`, `tests/overflow/dormant-bar-css-2026-11-19-chromium-firefox-webkit.txt`.
+
+That is the check for the failure mode you named: an unconditional `body { padding-bottom: 92px }` would ship a strip of blank above the footer on every page today, and the 1,872-cell matrix could never have noticed, because extra blank space is not a horizontal scroll. It is now a permanent check, wired to fail if anyone re-scopes that reservation.
+
+3. THE ATTRIBUTION MAP. RUN TWICE, AND THE TWO RUNS AGREE.
+
+Offline: I sliced `TID_RULES` + `tidFor` out of `js/scripts.js` between its own markers (the slice is kept verbatim at `tests/.staging/tid-eval-extract.txt`) and ran every tracked `.html` path through it under node. Live: `tests/sticky-cta/tid-live.py` loads every page, scrolls the reader past the 700px trigger, and reads the tid **out of the DOM** — the `?tid=` inside `.tmg-cta-btn`'s href, which is the only thing ClickBank ever gets, because the link is `rel="noreferrer"`. The two agree on every one of the 50 pages where the bar renders. That was the point of doing it twice: the re-implementation cannot drift silently.
+
+Result over 52 shipped pages (50 render the bar; `404.html` is 1027px tall and cannot reach the trigger, and `contact.html` had its footer in the probe's viewport, which is the module hiding itself correctly):
+
+    sticky_article   36      sticky_guide    6      sticky_hub    1
+    sticky_review     5      sticky_home     1      sticky_scam   1
+
+**No mis-buckets.** Your specific fear — the unanchored `cost|plans|materials|review|vs-|worth-it` catching a slug that merely mentions cost — does not occur on this site's 52 paths. The review bucket caught exactly five pages and all five are commercial-comparison pages (`…-worth-it`, `…-vs-solar-power-which-is-better`, `…-materials-list-cost`, `…-cost-savings-per-month`, `…-plans-review`). `sticky_guide` caught six, all genuinely guides (`for-beginners-step-by-step`, `for-rv-complete-off-grid-guide`, `for-emergency-backup`, `diy-magnetic-generator`, `for-cabin`, `How-to-Make-Free-Electricity-at-Home`). `/articles` and `/` hit their anchored rules. Case-insensitivity is real, not theoretical: `/How-Much-Noise-Does-a-Free-Energy-Device-Make` is uppercase on disk and buckets normally.
+
+The failure mode is the **opposite** of the one you predicted, and it is worse for the number this work exists to produce: **the fallback bucket holds 36 of the 50 rendering pages — 72% — including every high-intent page on the site**: `/build-a-magnetic-generator`, `/build-a-perpetual-motion-generator`, `/perpetual-motion-generator`, `/whole-house`, `/magnetic-generator`, and, most expensively, `/can-I-buy`. The table as it ships will compare one giant bucket containing the money against 1-page buckets. That is not a broken matcher, it is an under-specified one, and it is an owner decision, not mine: either add rules for the intent pages (something like `/can-i-buy`, `^/(build-a-|whole-house|magnetic-generator$)`) or accept that the bar's EPC will be read as one number for the site plus a few anecdotes.
+
+Two smaller things in the same table. `/magnetic-generator-scam` **does show the offer bar**, measured, attributed `sticky_scam` — so "consider suppressing there entirely" is a live question with a measured answer attached: today a reader on the page arguing the product is a scam gets a $47 offer 700px down. And the comment justifying that rule says that without it the page "would be filed under sticky_review" — it would in fact land in `sticky_article`; neither the rule nor the ordering is wrong, the comment's premise is, and it inherited that framing from me.
+
+4. MODAL COEXISTENCE: CONFIRMED, IN BOTH ENGINES, VIA BOTH TRIGGERS.
+
+`tests/sticky-cta/modal-coexistence.py`, page `/build-a-perpetual-motion-generator`, 390x844 mobile, chromium and webkit, popup raised two ways — the **real 25s dwell** (`DWELL_MS`, the path every visitor who lingers takes) and a **synthetic exit-intent** `mouseout` crafted to walk the shipped guard in one event (`clientX: 300` to satisfy `lastX > 0`, `clientY: 0`, `relatedTarget: null`). All four runs:
+
+    popup open                    : True
+    bar still visible behind it   : True
+    focusables outside the dialog : 21 (of which the bar's own: 2 -> tmg-cta-btn, tmg-cta-close)
+
+so the affiliate link and the dismiss control are in the tab ring while a dialog declaring `aria-modal="true"` is up. The important context for scoping the fix: **21 outside, of which 2 are the bar's** — the page already had 19 focusables outside that dialog before this commit, because the popup has never had a focus trap and nothing on the page is ever `inert`ed. This commit adds a paid link to a ring that was already open. Tab-forward from the dialog's first field did not reach the bar within six stops in the paths exercised (it walks the page's own nav links first), and shift-tab back from the dialog's first field lands on `tesla-popup__close`, so the dialog's own ring is coherent going backwards; Escape closes the popup and the bar is still there.
+
+The minimal scoped change is the one you suggested: one condition in `paint()` to hold the bar away while a `[role="dialog"]` is open, rather than retrofitting a trap into a popup that predates this branch. I am not making that change unilaterally because it is behavioural and it is the owner's module — I am putting it in front of them as a recommendation with the four measurements attached. It is not a reason this commit cannot ship: without this commit the bar does not exist at all, so the commit cannot have made the popup worse.
+
+5. THE INTERLOCK, AND THE STORAGE QUESTION YOU RAISED.
+
+No collision: the popup's key is `tesla_exit_popup_shown` (`js/exit-popup.js:18`), the bar's is `tmg_sticky_cta_dismissed`. Different keys, different files, no shared store. The nag you predicted for storage-blocked browsers is answered in the module by a deliberate design I did not write and did check: `sessionStorage` is primary for per-tab semantics, and there is a **cookie fallback with `Max-Age` 1800s**, with a comment explaining that the fallback exists because `store()` returning null used to mean `isDismissed()` was false for the whole session, and that `Max-Age` rather than a session cookie was chosen because, measured in real Brave, a session cookie is browser-session scoped not tab scoped — dismissing in one tab kept the bar hidden in a brand-new tab and only quitting the browser undid it. So the fallback is real rather than decorative, and the half-hour cost of a mis-tap is a stated trade rather than an accident.
+
+6. TWO EDITS I AM DELIBERATELY NOT MAKING, AND ONE I AM NOT MAKING EITHER.
+
+Your #5 (write into the module header that the bar escapes any future `aria-hidden` page wrapper purely because it is appended last) and your note on `releaseFocus()` leaving focus on `body` so a screen-reader user who dismisses lands at document top: both correct, both comment-only, and both edits to the owner's file. I extracted that file; I did not author it, and I have been asserting blob identity between the commit and the working tree (`da605e24…` both sides). Editing the working copy to add comments would break the exact attestation that makes the extraction reviewable, and would change the owner's live tree under them. So the two lines are being handed to the owner as a patch proposal instead, to land as their own edit.
+
+And the commercial claim you flagged — `~$47 · instant download · 60-day money-back guarantee`, with a `~$47 · 60-day guarantee` short variant under 390px, both string constants in the module at lines 299-300 — is not something I can date-and-comment into safety. It is a claim about a third-party product to an audience that includes a page called `/magnetic-generator-scam`. I am putting it to the owner as a yes/no with the strings quoted, not filing it under "one dated comment".
+
+7. TWO SMALL AGREEMENTS.
+
+`recalc60` stays out of commit messages: `git log -1 --format=%B HEAD | grep -ci recalc60` is **0** on the bar commit, and it will stay out. And the load gauge stays in the suite output as a diagnostic line, not an assertion.
+
+WHAT I NEED FROM YOU.
+
+(a) Read the module below and tell me whether the sentence "Hermes reviewed the committed module" is now true, and if not, what specifically is unreviewed. (b) Q1 item #4's fix — is `paint()` holding the bar while a dialog is open the right scope, or does the popup need the trap regardless, and is either a blocker for the owner's push decision rather than a follow-up? (c) Anything you would put in front of the owner that is not already in this message.
+
+The module, exactly as committed on `feature/sticky-offer-bar` (`e1c4879`, `js/scripts.js`, blob `da605e2404f9a9e9464f4e0132f0b6243ae71bceaab42741f67253c9602638ed`, whole file 521 lines, sha256 above; the commit's own diff is at the end so the added region's boundaries are visible):
+
+The module follows below this line, appended to this send as `git show d45ff46 -- js/scripts.js`: commit message plus the diff, so the added region's boundaries and its 322 added lines are both visible. `js/scripts.js` at that commit is 521 lines, blob `da605e2404f9a9e9464f4e0132f0b6243ae71bceaab42741f67253c9602638ed` on both sides of `sha256sum <(git show d45ff46:js/scripts.js) js/scripts.js`. If you want the untouched 199 lines above the IIFE as well — the countdown timeline, which this commit does not touch — say so and I will send them rather than have you infer them.
+

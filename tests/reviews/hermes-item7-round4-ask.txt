@@ -1,0 +1,39 @@
+WebKit finding on the tesla-generator site. Attack it, do not agree with me.
+
+You cannot see my box (64GB RAM, ~0.8GB free, Playwright, static site served from a copy of the tree that will be committed). Reply under ~700 words, numbered by question. Do not run anything (you cannot reach the box) and do not edit files.
+
+CONTEXT. 52-page static Bootstrap 4 site, no build step. The branch adds CSS so a reader's browser zoom (root font 32px = 200%, 48px = 300%) cannot put pages into horizontal scroll. The instrument (tests/overflow/gate.py) loads each of the 52 pages in a fresh context at viewport widths 320/390/768/1280 with the root font injected inline into the navigation response (the only mechanism I measured that survives navigation - a pre-navigation style tag does not, an init script hits a null documentElement, a post-load tag lays the page out twice and restarts the widget animation). It waits for fonts, images, finished animations and a quiet DOM, re-reads after 150ms and voids cells that do not repeat, then verdicts on documentElement.scrollWidth > clientWidth (+1px tolerance). It runs a negative control inside every single run (a payload built to be red: navbar brand held at nowrap -> +300px, brand 654px) and reads canaries in the same evaluate as the verdict (computed root font, a 10rem dimension probe, "is Bootstrap applied at all"). Exit 0 green / 1 defect / 2 the instrument could not decide.
+
+RESULTS - same tree, same instrument, one engine per pass:
+  chromium: 624 of 624 green, control red as required (brand 654px, +300px)
+  firefox:  624 of 624 green, control red at different numbers (brand 736px, +382px - font metrics, same failure, so the control is not tuned to one engine)
+  webkit:   81 of 624 RED. WebKit has never completed a matrix on this box before today.
+
+Every webkit red, without exception:
+  49 cells at 320px root 48px, 32 cells at 390px root 48px, 49 distinct pages.
+  ZERO reds at 16px or 32px root. Zero at 768px or 1280px. Zero in the other two engines.
+The lines are all the same shape:
+
+  FAIL  webk about @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+          +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+          +   0 w= 150 input                                          ''
+          unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+  FAIL  webk build-a-perpetual-motion-generator @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+    (same two offenders, both reported with over=0, i.e. neither of them overflows)
+
+So scrollWidth is 465 at BOTH the 320px and the 390px viewport: an absolute right edge that does not move when the viewport moves. The offender scan names nothing that sticks out (both entries over=0), so gate.py falls back to an unfiltered sweep (probe.WORST) - and that sweep kills the WebKit page process (TargetClosedError) in 80 of the 81 reds, so the diagnosis is lost.
+
+ALREADY RULED OUT: page list comes from git ls-files (52 tracked; the 53rd file in the working tree is somebody else's untracked page and is absent from the measured copy); the sticky CTA bar is NOT in the measured tree (git show HEAD:js/scripts.js | grep -c sticky = 0); root font is read back per cell and Bootstrap-application is a canary; 16px/32px cells are green in all three engines; the same 49 pages are green in chromium and firefox at 320/390 x 48px; non-repeating cells are voided, so this is not a flake.
+
+ONE MORE FACT: no page's HTML contains the string "emailoctopus" - the form is injected at runtime by a third-party email-capture script. My CSS only carries layout for it: `.eo-form, .eo-form * { max-width: 100% !important; box-sizing: border-box; }`. The `-hp` class is emailoctopus's honeypot row.
+
+TWO READINGS and I do not know which is true:
+(A) Safari/WebKit users at 300% really do get a horizontal scrollbar on 49 of 52 pages, item 7 is incomplete, and it is a WCAG 1.4.4 failure I must fix before shipping.
+(B) My verdict line is wrong for WebKit: documentElement.scrollWidth is being grown by something no user can scroll to and no ink is on (an out-of-flow honeypot), i.e. the instrument is measuring a difference in how WebKit computes the scrollable overflow area, not a defect a person can perceive. Chromium and firefox agree on 0 reds, and one identical constant (465) across 49 pages is the shape of one cause, not 49 defects.
+
+QUESTIONS - be adversarial:
+1. Which is it, and what is the cheapest decisive measurement on my box? Give exact JS/Playwright snippets. I especially want: whether the document actually scrolls (window.scrollTo(1000,0) then read scrollX back), document.body.scrollWidth vs documentElement.scrollWidth vs documentElement.getBoundingClientRect().width, whether neutralising position:absolute/fixed on the suspects changes scrollWidth, and whether an element at left:-9999px - or a honeypot that is "hidden" by positioning rather than display:none - can contribute to scrollWidth in WebKit.
+2. What do you actually know about WebKit including fixed / absolutely positioned / off-screen content in the document's scrollable overflow area where Chromium does not? Cite spec text or a bug if you can, and say plainly when you are guessing.
+3. Under WCAG 1.4.4 (and 1.4.10 reflow), what is the pass/fail test in practice? If a page reports a wider scrollable area but every visible pixel is already inside the viewport and the scrollbar reveals nothing but empty space, is that a failure? Does it matter that this is 300% and not 200%?
+4. probe.WORST walks document.querySelectorAll('body *') with one getBoundingClientRect and one getComputedStyle per element, plus up to 8 ancestor getComputedStyle calls per surviving element. Is that really what kills WebKit at 48px root on ~15,000px pages? (No Ranges and no getClientRects arrays - which means a comment I just wrote in gate.py describing it as "every element, its client rects, every Range rect" is wrong about my own code, and I want to know if that changes your diagnosis.) What bounded variant would you run in WebKit instead: a chunked walk across several evaluates? asking the ancestor chain instead of the whole tree? something else?
+5. What can your method NOT see here, and what single measurement would most change your mind toward the other hypothesis?

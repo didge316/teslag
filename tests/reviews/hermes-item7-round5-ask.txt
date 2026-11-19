@@ -1,0 +1,59 @@
+Round five on tesla-generator item 7. You were right about method and wrong about the mechanism, and now I have to make a ship decision. Attack the decision, not the diagnosis - the diagnosis is nailed down. Reply under ~700 words, numbered. Do not run anything (you cannot reach the box); no files.
+
+WHAT I RAN SINCE ROUND FOUR. Two purpose-built harnesses in tests/overflow, both reusing gate.py's own instrument (route_font root-font injection in the navigation response, IO_STUB, QUIESCE, measure_cell), so the cells reproduce the matrix numbers exactly: why465.py (rect sweep at depth 40 + ink sweep + bisect-by-contribution + candidate fixes applied and reverted) and fix465.py (one page load per candidate rule, because WebKit's document scrollable overflow area goes stale once its cause is hidden - a node hidden and restored in the same page does not always bring the number back, which I measured and now print a RESTORE WARNING for).
+
+THE MEASUREMENTS. Same tree (the committed 52 pages), same CSS, root font read back at 48px in every engine, 10rem probe 480.0px everywhere, Bootstrap applied everywhere:
+
+                                  about @ 320px root 48px
+  chromium   doc.scrollWidth 320 of 320   scrollX after scrollTo(1000,0) = 0
+  firefox    doc.scrollWidth 320 of 320   scrollX = 0
+  webkit     doc.scrollWidth 465 of 320   scrollX = 49   <-- a reader really can scroll right
+  whole-house @ 1280px root 48px, webkit: 1295 of 1280, scrollX = 15. So it is not a narrow-viewport thing.
+
+  The .eo-form box is 150px wide at left=85 in all three engines. Its own content
+  scrollWidth: webkit 380, chromium 175, firefox 175. And 85 + 380 = 465, exactly.
+  A depth-40 rect sweep finds NO element box reaching past the viewport in webkit
+  except the EmailOctopus honeypot at left=-4915 (so that is not it either).
+
+WHAT YOUR ROUND FOUR ADVICE KILLED, all measured, all mine to own:
+  * Your reading (C) - the popup. Dead: .tesla-popup is `absent` at measure time in
+    every cell I probed, sessionStorage flag None, dwell never fires. My own
+    dwell theory (the 25s fallback firing in slow cells) is dead for the same reason.
+  * The honeypot: left=-4915 in webkit, identical in all engines. Not it.
+  * min-width beats max-width, your flex-floor instinct: I tested it. `.emailoctopus-form-row`
+    computes min-width:200px in a 150px column, but min-width:0 on the rows, on the
+    fields, or on `.eo-form *` leaves doc.scrollWidth at 465/467 while the boxes shrink
+    to 146px. The number does not care about the boxes.
+  * `size` attribute: no input has one; setting size=1 on all four does nothing (477 -> 477);
+    removing it does nothing.
+  * `field-sizing: fixed` (the CSS designed for this): no effect in this WebKit build, 465 -> 465, and 1307 -> 1307 at 1280.
+  * Your decisive test - scrollX after scrollTo(1000,0): 49. By your own rule that makes it
+    "real: a reader can scroll to a place they cannot use". But it scrolls onto empty space:
+    no box, no ink, nothing is there.
+
+WHAT ACTUALLY MOVES IT:
+  * `.eo-form input,select,textarea { font-size: 12px }` -> .eo-form content 380 -> **175**, which
+    is exactly what chromium reports at the same 48px root, and doc goes green without clipping.
+    175 = 20 characters at ~8.75px, i.e. Blink appears to size an input's intrinsic width from
+    default font metrics while WebKit uses the used 48px ones. That is the engine difference.
+  * Therefore the only two working fixes are: cap the fields' font (clamp(16px,1rem,24px) -> green
+    at 320 and 1280, chromium unaffected) or make .eo-form a scroll container (overflow-x:auto or
+    clip -> green, chromium unaffected).
+  * Clipping at .eo-form is NOT free: the form's rows legitimately stick 25px out of each side of
+    .eo-form in every engine (row L60 R260 vs form L85 R235), so clip would visibly cut the form.
+  * Baseline noise: the webkit number for the same cell is 465 in some runs and 477 in others
+    (and 1295/1307 at 1280) - the EmailOctopus embed is fetched at runtime, so the exact number
+    is not stable, only its presence is.
+
+THE DECISION. WebKit reds: 145 of 624. All of them at root 48px: 49 pages at 320, 49 at 390, 47 at 1280. Zero reds at root 16px or 32px in webkit. Chromium 624/624 green, firefox 624/624 green, both with the negative control red as required, and webkit's own control red too (brand 686px, +332) so the instrument is live on webkit. Cause: a third-party email-capture widget's intrinsic sizing, not our layout; our CSS cannot reach it without either shrinking third-party form text or clipping it.
+
+  Option A - ship now, document webkit-at-300% as a measured exception (mechanism, evidence, a re-test hook), commit items 5/6/7 + tests as they stand.
+  Option B - cap the fields' font (clamp(16px,1rem,24px)) in styles-custom.css, then re-run the full matrix on all three engines because all three artefacts were produced against the pre-fix CSS: ~1.5h of box time, and every Safari/WebKit reader at >=250% gets form text capped at 24px instead of scaling.
+  Option C - clip/auto at .eo-form: green everywhere, no font compromise, but it visibly cuts the form rows that stick out in all engines today, and I'd be fixing a scroll-of-nothing by making the widget clip content that is currently painted.
+
+QUESTIONS:
+1. A, B or C, and defend it against the other two. If A, what exactly has to be written down, and where, for the next reader to be able to re-decide this without repeating my three hours?
+2. WCAG 1.4.4 says 200%; we are green at 32px in all three engines. Is "webkit is red only at 48px root, on 49 of 52 pages, onto empty space, from a third-party widget" a conformance failure you would report, or an exception you would document? Say which, and what would make you flip.
+3. If you were me, would you trust the font-cap fix (B) not to make things *worse* for real Safari users - i.e. is a capped form text at 300% the smaller harm than a horizontal scrollbar that reveals nothing?
+4. I keep seeing a third-party widget's intrinsic width leak into the document's scrollable overflow area in WebKit while its used box fits. What is the name of this thing if it has one, and is there any CSS that kills the *intrinsic contribution* specifically - not the box, not the font, not a clip - that I have not tried? (contain? inline-size? content-visibility? appearance:none? `input{min-inline-size:0}`? something in ::-webkit-appearance land?) Be concrete about what you are guessing.
+5. What in my evidence would you want measured again before you'd sign A?

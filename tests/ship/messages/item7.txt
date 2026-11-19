@@ -1,0 +1,172 @@
+Item 7: a reader's own zoom must not put the page into a horizontal scroll
+
+At a 390px viewport with the root font at 32px (200%, what WCAG 1.4.4 actually
+requires) every page scrolled sideways; at 48px (300%) the worst was +519px on
+/tesla-1894-plates (probe.py; its report is a diagnostic snapshot from before the
+gate rewrite below, so it is deliberately not in this commit - the gate's own
+before half is the number that carries this claim). At 16px, none of them did.
+The before half says how wide the failure was, and wider than this paragraph
+first claimed: with item 7's two CSS regions cut out, 52 pages were red at
+320px/root-32, 320px/root-48, 390px/root-32, 390px/root-48, 1280px/root-32 and
+1280px/root-48, plus one page (tesla-1894-plates) at 768px/root-48 - 313 of the
+624 cells. The desktop width was failing at 200% too, which the original plan
+framed as a phone problem and is not one. (An earlier count here said 53 pages:
+the working tree held an untracked page. What this branch ships is 52.) The ticket said the site's own
+A+/A- control sets the root font, which would have made this "a supported user
+action rather than a browser-zoom curiosity"; measured, there is no such control -
+nothing in 53 pages or 4 scripts touches the root font, and the string survives
+only in a comment inherited from the WordPress template this site was ported off.
+WCAG is indifferent to that (1.4.4 is the reader's browser zoom, which no site can
+switch off), but it moves the bar: 200% is conformance, 300% is grace.
+
+The fix is three levers, in this order, and `overflow-x: hidden` nowhere: it hides
+the symptom, leaves the offender, breaks the fixed sticky bar and can trap focus
+off screen. (A fourth rule is in this commit too; it is not one of these levers and
+it is described on its own below, because a matrix found it rather than the plan.)
+
+  1. min-width: 0 on the flex and grid items that could not get narrower than
+     their longest word. The contact button is the instructive one: `<div
+     class="d-grid">` makes the button a grid item, a grid item floors at
+     min-content exactly like a flex item, min-content is the single word
+     "Message" at 227px plus padding, and min wins over max - so `max-width:
+     100%` alone left it 261px inside a 152px column. It was the last cell in the
+     matrix to go green and the only one where "not in a flex row" was true and
+     irrelevant.
+  2. min(rem, the px that rem already is at 16px) on the rem chrome that has no
+     business scaling with a reader's font: gutters, padding, margins. Bootstrap's
+     spacing utilities are generated with `!important`, so a cap that has to beat
+     one matches the weapon and wins on specificity - `.d-flex > .ms-3 {
+     margin-left: min(1rem, 16px) !important }`. Measured, not assumed: the comment
+     gap goes 32px -> 16px at root 32px and stays 16px, where a non-`!important`
+     cap did nothing at all.
+  3. body { overflow-wrap: break-word } for what no prose selector reaches, plus
+     white-space: normal / flex-wrap / min-width: 0 where wrapping is the answer.
+     `anywhere` is used nowhere outside one hyphenated-URL rule, because it breaks
+     words that have no business being broken.
+
+No font-size cap anywhere. A capped navbar brand or button label is the
+accessibility control being fixed saying no to the person who asked for it; the
+type scales and the box gives.
+
+While wiring the gate, a second real defect surfaced that had never been measured
+by anything: the scarcity widget (`.scarcity-widget`, 45 of 53 pages) is written
+into the DOM *after* load, so every instrument up to and including my first gate
+measured a page without it. Its status line ("...back online for the last 2 days")
+floors its flex item at 94px wider than the screen at 320px/300%. Fixed as rule 8
+with flex-wrap + min-width: 0 - a status line deserves to wrap, it does not
+deserve a cap. It is on 44 of the 52 pages this branch ships (45 of the 53 HTML
+files in the working tree, which is the count an earlier draft of this message
+used), and every one of them is green at 320/390/768/1280 x root 48 inside the
+624-cell matrix below - that matrix is the widget's coverage, not a separate run.
+
+One rule here exists because a matrix run surfaced it and not because the plan asked:
+`.eo-form input[type="submit"] { overflow: hidden; overflow: clip }`, and it is worth 145
+of the 624 WebKit cells. Safari was green at 16px and at 32px on every page and red at
+48px on 49 pages at 320px, 49 at 390px and 47 at 1280px; chromium and firefox were green
+in all twelve cells everywhere, and WebKit's negative control came back red, so the
+instrument was live there. In none of those cells does an element box reach past the
+viewport: the scrollable area is contributed by the submit control's *intrinsic* width.
+EmailOctopus's button is `value="Download Now"` at a 48px font inside a 150px box; Blink
+measures such a control in default font metrics and clamps its contribution to the page,
+WebKit measures it in the used font - twenty characters at 48px is ~380px - and lets that
+contribution reach the document, so scrollWidth reads 465 at 320px where the form sits at
+left 85, and 1295 at 1280px where it sits at 915. The area it scrolls to is real and
+empty: scrollTo(1000,0) returns scrollX 33-49 and what it reveals holds nothing. Eleven
+remedies were measured and moved the number not at all - min-width:0 at three different
+scopes, width and max-width caps, the size attribute, field-sizing:fixed, appearance:none,
+display:block with inline-size:100%, fit-content, contain-free variants, and capping the
+font of every field except the submit - and that last one is what localised it, because
+capping the submit alone turned the page green. Two remedies worked and were rejected on
+purpose: capping the widget's field fonts would pin third-party form text at 24px in
+every engine from 250% up, which is this branch's own defect reintroduced as a fix, and
+clipping at .eo-form visibly cuts form rows that already stick out of the form in all
+three engines. What ships clips at the control that contributes the width. Its box, font
+and label, the pixels of the whole widget, and the pixels of its keyboard focus ring
+(reached by Tab, `:focus-visible` true, a 9.6px `box-shadow` spread) all hash identical
+with and without the rule, at 320/390/768/1280 x root 16 and 48 in both engines tested,
+and the same sweep at root 16 across 51 pages left every pixel and every box where it was
+(49 of them carry the submit control; the 2 that do not were not touched by it either).
+The mechanism, the table of what did not work, the noise range and the re-run commands
+are in tests/overflow/KNOWN-WEBKIT-300.md; the run this fixed is kept verbatim as
+tests/overflow/gate-BEFORE-cssfix-webkit-RED.txt (479 of 624, negative control red as it
+must be) because a fix without a before picture is an assertion, and the argument for
+shipping the rule rather than documenting the exception is in tests/reviews/. After it:
+chromium, firefox and webkit all 624 of 624 - 145 red cells to zero, one stylesheet across
+the three runs (md5 e6676122ba01, stamped at the top of each artefact so an artefact can
+never be read against the wrong CSS), every run reporting zero cells green only thanks to
+the gate's 1px tolerance. And the claim is the number rather than the verdict: about at
+320px/root-48, the cell that read scrollWidth 465 and let a reader scroll to scrollX 33-49
+of empty space, now reads 320 of 320 with scrollX 0 at every re-read - after two frames,
+after 200ms, after scrollTo(1000,0) and after forcing scrollLeft=50 - and the same holds
+at 390px (390 of 390) and at 1280px (1280 of 1280, previously 1295). The widget's own
+content scrollWidth is back from 380 to 175.
+
+THE CHECKS THAT SHIP WITH IT (tests/overflow/, run by tests/validate.sh)
+
+gate.py - 52 committed pages x 4 widths x 3 root fonts = 624 cells per engine, and
+the numbers below are the pair that settles item 7:
+
+  shipped 624 of 624 green in every engine - chromium 11:16-11:44, firefox 11:44-12:22,
+  webkit 12:22-12:53, all three against the same measured stylesheet (md5 e6676122ba01,
+  stamped at the top of each artefact), all three with the negative control red by the
+  required margin and `cells green only because of the 1px tolerance: 0`
+  the same gate with item 7's two CSS regions cut out: 311 of 624, 313 red
+
+One instrument run twice, not two instruments: cssregions.py derives the "before"
+stylesheet from the shipped file, asserts the derivation is not a no-op, and the
+gate prints a sha256 and a rule-set diff of both payloads on every run. That is
+not decoration. The gate before this rewrite reported 636 of 636 green on three
+engines, and 317 of 636 in its before half, and every one of those numbers was a
+lie: it set the root font in a way that does not survive navigation, so the
+16px page was measured for all twelve cells and before/agreed-with-after was the
+expected result. Three engines agreeing is what a matrix of lies looks like from
+the summary line. Those numbers are withdrawn, and the gate now refuses to produce
+another one: it injects the root font into the navigation response itself (the only
+mechanism measured to work - a pre-navigation style tag does not survive goto(), a
+pre-init script hits a null documentElement, and a post-load tag lays the page out
+twice and restarts the widget's entrance animation), reads the applied root font,
+a 10rem probe and Bootstrap's applied font-family in the same evaluate as the
+verdict, forces the reveal state through an IntersectionObserver stub with the
+forced count printed, quiesces before measuring and says which cells needed it,
+re-reads after 150ms and voids the run when a page will not repeat, and runs a
+negative control inside every single run (a payload that is red-by-construction:
+index at 390x48 with the brand held at nowrap, which must report ~654px and
++300px, or nothing else in the run means anything), and prints how many cells passed only
+because of its own 1px tolerance - a 331-of-320 pass is a second defect hiding behind the
+tolerance, which is allowed to exist only because it can no longer be silent, and a
+run-after-a-fix must show zero there. Exit 0 green, 1 defect, 2 the
+instrument could not decide; no verdicts print before the control and canary lines.
+
+inert-at-100.py - "every cap resolves to its own current value at 100%" is a claim
+about CSS as executed, not as written, so it is measured: each page is loaded twice
+per flavour through the same route handler, and every box, every scroll/ink metric
+and every laid-out text line (Range.getClientRects per text node, because
+break-word and white-space:normal move glyphs while every box keeps its size, which
+is the one thing a box diff is blind to) must be identical with and without the
+item-7 CSS. Sticky-bar subtree excluded, exclusion count asserted, payload hashes
+printed and required to differ. The verdict, as the instrument prints it: 156
+page x width combinations at root font 16px (52 pages x 320/390/1280) - 68
+identical, 88 moved, 0 not reproducible - and the 88 are exactly the 44 pages
+that carry `.scarcity-widget`, at 320px and 390px only. Nothing moved at 1280px,
+and no page without the widget moved at any width. So the caps, the `min()`
+expressions and `overflow-wrap: break-word` are inert everywhere measured, and
+the widget's two rules are a visible change at 100% on 44 of 52 pages at
+320/390px: the status line rewraps from three lines to two and everything under
+it shifts down about 17px, which is the fix working, not the caps leaking. That
+is why this file does not contain the sentence "the change is inert at 100%":
+inert-at-100.py exits 1 on this result by design - "either scope the rule tighter
+or state plainly that it is a visible improvement at 100% and say which pages
+change" - and the paragraph above is that answer.
+
+comment-row.py - the `.d-flex > .ms-3` comment row at 200%/300% on the 31 pages
+that use that template; diagnose.py / probe.py - the offender reports this
+measurement was derived from, including the one page the original plan got wrong
+(the +122px heading whose box never moved: ink, not geometry); shots.py - the
+screenshots those claims were checked against, 32 and 48px, no mobile emulation
+anywhere because is_mobile distorts position: fixed and innerWidth.
+
+Not in this commit: the navbar CSS blocks are cut from this file and land with
+item 6, so this commit is item 7's stylesheet alone (the cut is asserted to keep
+the button cap and every other item-7 rule - it used to run to end of file, which
+would have shipped item 7 without item 7's button rule, and the gate cannot see
+that because the gate's before half is *supposed* to cut everything).

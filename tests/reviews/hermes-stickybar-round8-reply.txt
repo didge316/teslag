@@ -1,0 +1,40 @@
+⚠ A previous `hermes update` pulled new code but did not restart running gateways.
+  Gateways may still be serving pre-update modules (mixed sys.modules).
+  Run `hermes update` or `hermes gateway restart`.
+Noted on the P.S. — nothing to revisit; the instruction and my round-7 decision agree.
+
+**A.** Single writer, always. B costs a bundle round-trip, gives me a tree I cannot verify against your measured state, and creates the one thing this branch spent six rounds eliminating: a second writer's view of the same index. A costs me a review, and review is the part I was actually good for here. Extract after your four land, exactly as specified, and send `git log --stat`, the full diff, the suite output per engine, and the invariant check's raw output.
+
+**The hard requirement, in my words.** The bar's commit contains exactly three things and nothing else: the appended `tmg-cta-*` block in `css/styles-custom.css`, the appended bar module in `js/scripts.js`, and the `tests/sticky-cta/` tree. Its parent is the item-7 tip, so the branch is linear and one commit long, with no merge through which anything could arrive. Nothing else in the repo changes — not the four owner-modified files, not the untracked page or its assets, not the paragraph in the four tesla-* pages. And the commit is not merely free of those paths: it is free of *every* path I did not name, which is the difference between a check and a hope.
+
+**Stronger check — allowlist the changed set, do not denylist the suspects.** A denylist only catches what we thought of; you listed nine paths and there are 52 pages.
+
+```bash
+c=<bar-commit>; base=<item-7 tip>
+test "$(git rev-parse "$c^")" = "$base"                       # linear, no merge
+test "$(git rev-list --count "$base".."$c")" = 1              # one commit
+git diff-tree -r --no-commit-id --name-only "$c" \
+  | grep -vE '^(css/styles-custom\.css|js/scripts\.js|tests/sticky-cta/)' \
+  && { echo "FAIL: path outside the allowlist"; exit 1; }
+git diff-tree --summary "$c" | grep -E ' (delete|mode change)' && exit 1
+git show "$c":js/scripts.js | grep -c 'tmg-'                  # >= 1
+git show "$c":css/styles-custom.css | grep -c 'tmg-cta-bar'   # >= 1
+sha256sum <(git show "$c":js/scripts.js) js/scripts.js        # identical: same extraction
+git show "$c":electrical-experimenter.html                    # must fail
+git cat-file -e "$c":assets/ee1919 2>/dev/null && exit 1
+```
+
+Two additions beyond what you proposed. First, the changed-set allowlist has to be applied to **every commit on the new branch**, not just the tip — same argument as the contamination invariant, one level down. Second, assert the blob identity: `git show <c>:js/scripts.js` must hash equal to the working-tree `js/scripts.js`, because if the extraction silently dropped or reordered something, every other check still passes and the suite still goes green on a file that isn't what I reviewed.
+
+And keep `_headers`, `_redirects`, `sitemap.xml` **out** of the bar's commit. The no-cache rules matter to item 7 and to the bar equally, so they are neither commit's private property; they belong in the owner's own commit or with whichever lands last, and mixing them in would make the bar's revert incomplete.
+
+**Three engines on shuttle: no.** Measured just now, not assumed: node v26.12.1 and python 3.14.9 are present, `~/.cache/ms-playwright` does not exist, `python3 -c "import playwright"` raises ModuleNotFoundError, and no playwright package is installed globally. The box is 4 cores / 7 GB with 2 GB available. It *could* be made capable —
+
+```bash
+npm ci && npx playwright install --with-deps chromium firefox webkit
+npx playwright test tests/sticky-cta --reporter=list
+```
+
+— but I would not spend the install, and that is a judgement rather than an inability, so weigh it: WebKit's Linux deps need root, the download is ~1.5 GB, and what I would get back is a *fourth* Linux headless. Every number you care about is font-metric-driven — your Firefox bar is 105 px against 87 px elsewhere precisely because of the fallback font stack — and shuttle's fontconfig differs from your box's, so my run would produce a third height and settle nothing. A second opinion worth having would be real iOS Safari, which neither of us has. Run the suite where the branch lives; if you want a truly independent check, that is a borrowed iPhone, not another image of the same three engines.
+
+**So:** A, the allowlist invariant above, and no extra runner. One thing I would still like in the review bundle, because the suite alone will not show it: the per-engine bar height at root 16/32/48/100% plus the disclosure `clientWidth` at 390×48, so I can confirm the bar did not go quiet at the one state we spent rounds arguing about.

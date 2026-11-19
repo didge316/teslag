@@ -1,0 +1,48 @@
+⚠ A previous `hermes update` pulled new code but did not restart running gateways.
+  Gateways may still be serving pre-update modules (mixed sys.modules).
+  Run `hermes update` or `hermes gateway restart`.
+Verdict on the claim you most want attacked: **the `min()` inertness argument is correct and is the strongest part of this change — and it is also the wrong claim to lean on, because four of the declarations you shipped are not size declarations and the gate cannot see any of them.**
+
+Every capped size does resolve to its rem counterpart at root 16px: `min(1.25rem,20px)`, `min(3rem,48px)`, `min(1.5rem,24px)`, `min(0.5rem,8px)`, `min(1rem,16px)`, `min(1.25rem,20px)` — all identity at 100%. The bootstrap overrides are also correctly targeted: custom properties beat `.btn-lg` without `!important` (your 0,2,0 vs 0,1,0 reasoning holds), `.gx-5` and `.g-4` are later in the cascade than `.row`'s own `--bs-gutter-x` re-declaration, and `.p-5` genuinely needs `!important` to fight Bootstrap's `!important`. None of that is what I would block on.
+
+**HIGH**
+
+**1. `body { overflow-wrap: anywhere }` should be `break-word`, and the difference is not cosmetic.** `anywhere` is the one value that feeds min-content intrinsic sizing. You used that distinction deliberately in rule 2 — "only `anywhere` feeds min-content width, which is the number flex is using against us here" — and then applied `anywhere` to the whole body, importing that effect into every flex, grid, table and shrink-to-fit box on all 53 pages. The h2 case you wrote the rule for does not need it: that is a word wider than its line, which `break-word` breaks. `break-word` has zero intrinsic-sizing blast radius. The correct decomposition is `body { overflow-wrap: break-word }` as the safety net, plus `anywhere` only on the two places where the min-content floor is the actual mechanism (`.d-flex > .ms-3`, and arguably the brand, though `min-width:0` already handles that). As written you have taken the more invasive value globally to fix the narrower problem.
+
+**2. The table exclusion is defeated by the rule it is meant to guard.** `.table *` is 0,1,0; `article code` in the earlier rule is 0,1,1. A `<code>` inside a `<td>` therefore still gets `anywhere`, the cell's min-content collapses, and the table re-lays-out — precisely the failure your comment says must not happen. Same for `article p` / `section p` (0,0,1 vs `.table *` 0,1,0, so those lose and are fine) — but `code` loses in the wrong direction. You verified "no table cell on this site contains a p or an li"; you did not say that about `code`, and `/electrical-experimenter` is documented as carrying both the longest code spans and three data tables. Needs an explicit `.table p, .table li, .table code, td code { overflow-wrap: normal }` placed after the inclusions, or the inclusions scoped so they cannot reach into a table.
+
+**3. You fixed 1.4.4 by freezing the text size of the chrome, which regresses the accessibility control itself.** `.navbar-brand` and `.btn.btn-lg` no longer scale with `wp-textsize`: a reader who sets 300% gets 48px prose next to a 20px site name and 20px buttons. For the brand your own comment concedes the cap is unnecessary — "the ceiling is cosmetic, the wrap is what guarantees no truncation" — so `white-space: normal` + `min-width: 0` + `overflow-wrap` alone fixes the overflow at 60px by wrapping it into three lines. For the button, the overflow came from `.p-5`, and Bootstrap's `.btn` carries `white-space: nowrap`; `white-space: normal; max-width: 100%` lets a 60px "Send Message" wrap instead of being shrunk back to 20px. Both caps solve a layout problem by silently refusing to enlarge text for the users who asked for enlargement. I would drop both font-size caps and keep the wrapping.
+
+**MEDIUM**
+
+**4. The `!important` is required but your justification measures the wrong co-occurrence.** You counted utility collisions ("zero combinations") and concluded the shorthand cannot step on `.ps-*`/`.py-*`. But the element that motivated the rule, `.card-body.p-5` on /contact, is a *component* class plus a utility: `.p-5 !important` beats `.card-body`'s padding whether or not any other utility is present. That is pre-existing (Bootstrap's own `.p-5` is `!important` too, so nothing new breaks), but the property you are actually relying on is the one you did not measure. Enumerate the 15 `p-5` and 1 `px-5` elements with their full class attributes before shipping — that list is 16 lines and settles it.
+
+**5. The brand is a 100% rendering change and the gate cannot see it.** `white-space: normal` on a flex item that every page carries is a wrapping decision at every width, not just at 390. It changes navbar height if the brand wraps at 1280 with a crowded nav, and a horizontal-overflow gate is structurally blind to vertical consequences. This is the one place your "nothing moves at 100%" claim is most likely to be quietly false.
+
+**6. The gate never exercises a desktop layout at large root font.** 390×48 and 320×16 cover the tightest width-to-rem ratio, which is a good argument — but the ratio is not the only variable: at 1280×48 you get the *three-column* layout with 48px text, a different arrangement of boxes, not a wider version of the same one. Every cap in this block was tuned from 390px measurements. Add 768×48 and 1280×48 to the matrix; that is two rows and it tests the layout configuration you have never rendered at 300%.
+
+**7. Responsive utility variants defeat every cap.** Your overrides are unqualified rules at 0,1,0. Bootstrap's `.gx-md-5`, `.g-md-4`, `.p-md-5`, `.btn-sm` live inside media queries, come later in the compiled cascade, and win at their breakpoints. Your class census found `gx-5` once and `p-5` 15 times but did not say whether any are responsive forms. One grep over class attributes for `[a-z]{2}-5\b` settles whether the caps are whole or partial.
+
+**8. This change collides with the sticky bar you just shipped.** `body { overflow-wrap: anywhere }` inherits into `.tmg-cta-bar`, whose CTA is `white-space: normal` — the button label can now break mid-word at large text, changing the bar's height, which changes `--tmg-cta-h`, which changes the tier decision your 219 assertions pinned to the pixel. Re-run the bar's baseline at 200% and 300% after this CSS lands, before you trust the round-4 numbers again.
+
+**LOW**
+
+**9.** `.g-4` sets both `--bs-gutter-x` and `--bs-gutter-y`; you cap only x, so vertical gutters stay at 72px at 300%. Not a 1.4.4 issue, but the utility is capped asymmetrically and the comment reads as though it is not.
+
+**10.** `--bs-btn-border-radius` on `.btn-lg` is uncapped (0.5rem = 24px at 300%). Cosmetic only.
+
+**11.** `overflow-wrap: anywhere` is Safari 15.4+. Older iOS drops the declaration to `normal` and your entire body safety net evaporates silently — in the browser family you have no test coverage for. The standard two-line fallback (`break-word` then `anywhere`) costs nothing and degrades to the right thing.
+
+**12.** The gate compares `documentElement.scrollWidth <= clientWidth + 1`, and `clientWidth` excludes the scrollbar. A page that gains a vertical scrollbar as a result of these changes can flip from pass to fail for harness reasons, which will read as a CSS regression and send someone hunting.
+
+**13.** At 300% these rules win by crushing rather than by fitting: `.d-flex > .ms-3` with `min-width: 0` and `anywhere` will happily render a comment body three characters wide, one fragment per line. The gate goes green because nothing overflows. "Not horizontally scrollable" is not the same claim as "readable at 300%", and only the first is what you have measured. Worth deciding whether the comment column should get a `min-width: 12ch` floor so the failure mode becomes benign overflow rather than unreadable compliance.
+
+**What my method cannot see**
+
+I am reading CSS text with no rendered DOM. I cannot measure anything, cannot confirm the 212/212, cannot see which elements carry which classes beyond what you typed, cannot tell whether a `code` sits inside a `td`, whether any responsive utility variant exists, or what the navbar looks like at 1280px once the brand may wrap. I cannot see whether `wp-textsize` is even reachable on desktop, whether it persists across pages, or how `.tmg-cta-bar` re-measures after inheriting from `body`. And I cannot see the distinction that matters most: whether your 300% pages are *usable*, or merely *not horizontally scrollable*. The gate answers the second question; nobody has asked the first.
+
+**The one check I would run**
+
+A pixel diff at 100%. All 53 pages, 390×844 and 1280×800, root 16px, before-CSS versus after-CSS, image diff at a threshold of 0 (masking the sticky bar).
+
+Your central claim is that nothing moves at 100%. That is the only claim in this change that a diff can settle without me having to trust any of the reasoning above, and it is the only instrument that covers the four non-size declarations — the brand's `white-space`, the flex `min-width`, the inherited `overflow-wrap`, and the `!important` cascade — that the `min()` argument does not touch. If the diff is empty, findings 3, 5 and 8 shrink to noise and this is a clean ship. If it is not empty, the diff is where the regression is, and it is in a place a horizontal-overflow gate was never built to look.

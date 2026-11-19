@@ -1,0 +1,29 @@
+From: the desktop Pi working /home/matt/projects/other/tesla-generator/website (branch fix/alt-nav-overflow, HEAD ad559e9, four commits pending locally).
+
+You have been the reviewer on this branch for six rounds (tests/reviews/hermes-item7-round*). The operator has just said "get Hermes to decide", and PLAN-ALT-NAV-OVERFLOW.md lists four items under "Open decisions the owner still owes (do not decide these yourself)". You are now asked to decide them - or to say precisely which one you cannot decide and exactly what the owner has to do instead. Do NOT re-open the EmailOctopus WebKit decision: your round-6 decision (ship the clip, documented exception as fallback) stands and its verification matrix is running right now.
+
+STATE YOU NEED (all measured, this repo):
+- 52 committed pages. Item 7 (a reader's own zoom must not put the page into a horizontal scroll) is green post-fix: chromium 624 of 624 cells (52 pages x 320/390/768/1280px x root 16/32/48px), zero cells passing only via the gate's 1px tolerance, negative control red as required. Firefox and webkit are re-running now. Webkit's PRE-fix run was 479 of 624, all 145 reds at root 48px only, caused by the EmailOctopus submit control's intrinsic width leaking into WebKit's scrollable overflow area; one rule on that control fixes it and is pixel-identical (tests/overflow/KNOWN-WEBKIT-300.md).
+- Items 5 (glued attributes / quote hygiene) and 6 (the 32-item "Pages" nav dropdown split into two menus) are measured and green: tests/nav/verify-final.txt, tests/img-alt/inventory-AFTER.txt.
+- The sticky offer bar is in NO commit on this branch: `git show HEAD:js/scripts.js | grep -c sticky` is 0. It is complete but uncommitted in the working tree (plan: 363 assertions green across three engines, not deployed).
+- Nothing has been pushed. wrangler is unauthenticated on this box. HANDOFF.md makes pushes an owner call.
+- The working tree also carries somebody else's in-flight work that must never enter these commits: untracked electrical-experimenter.html + assets/ee1919/, js/scripts.js's sticky bar, _headers, _redirects, llms.txt, sitemap.xml, and an uncommitted paragraph inside four tesla-* pages linking to that page. The commits are built through the git index from `git show HEAD:<path>` + generated states, never `git add`.
+
+DECIDE THESE FOUR, one short decision each with its reason:
+
+1. Push the sticky-bar preview branch, or not. Nothing in the plan depends on it. If "push": who pushes, from where, and how - given the only copy of that bar is uncommitted in a working tree that also holds the in-flight work above, and wrangler here is unauthenticated.
+
+2. The Cloudflare Web Analytics zone toggle. Without it there is no dismissal rate and no EPC by `tid`, so nobody can ever say whether the sticky bar helped, and the bar's whole premise stays unmeasured. If you decide it should be on: name the zone and the setting, and say whether YOU will do it in the dashboard (you have the browser session; I am not logging into Cloudflare from this box) or what precisely the owner must click.
+
+3. Backlog items 1-4, in the order you would run them, naming which one is the next branch and why:
+   (a) invented authors - 155 avatar images, ~40 invented names, zero author pages;
+   (b) affiliate disclosure missing on the 36 of 53 pages that contain hop links and no disclosure;
+   (c) `rel="sponsored"` on all 201 affiliate hop anchors (today: all nofollow, none sponsored, 14 without noopener);
+   (d) CTR work on the 4,174 monthly impressions before any new page gets written.
+   Weigh (b)+(c) as compliance/trust exposure against (d) as the cheapest traffic, and say what you would not do at all.
+
+4. Who owns the push of the four commits after I make them: my plan is to create them locally through the index, run commit-index.py's preflight (which refuses to commit unless every artefact the messages quote carries its own verdict line), verify HEAD equals the measured tree file-for-file, and stop there. Confirm that, or change it.
+
+CONSTRAINTS WHILE YOU ANSWER: I am the only writer in that repo and I am mid-edit - do not touch any file under /home/matt/projects/other/tesla-generator or its website/ subdirectory. Push nothing, anywhere. Start no browser-based job on this desktop: a 624-cell matrix is running here and webkit must run last and alone on this box.
+
+REPLY FORMAT: four numbered decisions, then a line "OWNER MUST:" (may be empty), then one paragraph on what you would have done differently on this branch if you had been called in earlier.

@@ -1,0 +1,150 @@
+Item 6: the 32-item "Pages" dropdown becomes four top links and three themed groups
+
+The nav was, in DOM order: brand, Articles, Home, Contact, About, and one dropdown
+called "Pages" holding **32 links** - the whole site behind a click, on every page,
+with the hub, the tool and the commercial pages buried inside it. It is now:
+
+  brand · Articles · Home · Contact · About · **Build & plans**▾ · **Power your home**▾ · **Free energy & Tesla**▾
+
+Four top links, unchanged in text, order and position; three groups of exactly **10,
+10, 10** sitting exactly where "Pages" sat. That leaves the row's reading order
+identical to what regulars have, and changes only what was buried.
+
+**Where the 32 went: 30 into the groups, 2 out of the nav, by name.**
+`apply_nav.py --check` prints the accounting and fails on anything unexplained,
+because the check the plan describes ("every destination in the nav resolves to a
+page") cannot catch a destination that was *dropped* - a deleted href is not in the
+nav to be wrong about. So coverage is computed against `HEAD`: 36 destinations in the
+old nav, 34 in the new one, and the two that left are
+
+  /renewable-energy-using-magnets-a-magnetic-revolution
+  /unleashing-the-magnet-magic-is-free-energy-possible
+
+named in the source as `HUB_ONLY`, and `check_hub_links()` refuses to let the rewrite
+run unless each of them has a card on articles.html - which they do. They are not
+orphans: nav/inventory.py reports "pages reachable ONLY through the nav: 0" both
+before and after, and every dropdown href resolves. (That check is also where I
+fooled myself today, from the other side: a grep for `href="/<slug>"` said those two
+articles had *no* inbound body link at all. articles.html links them as
+`https://teslamagneticgenerator.com/<slug>`, the absolute form the hub was written
+with - the same trap inventory.py's own docstring warns about, approached backwards.
+The check that ships counts same-domain absolute hrefs; my grep did not, and the
+grep's answer would have been acted on if the tool had not already been right.)
+
+Both demotions are also what keeps every dropdown at or under 10: the two articles
+would otherwise be the 11th and 12th member of the only group they fit, and the
+group's own rule is the definition of done here.
+
+Two things about a 52-page nav rewrite are easy to get wrong and both were measured
+rather than asserted.
+
+**The tool, and what it is not allowed to touch.** apply_nav.py rebuilds the nav
+region from one template, and its page set is **the pages git knows about**: it
+prints `pages: 52 tracked by git; NOT touching 1 untracked (somebody else's work in
+progress): electrical-experimenter.html` on every run. That page is an untracked
+restore of a page deleted in c3232e0, part of work in flight. The discipline was
+learned at 19:37 today, when a *different* tool of mine - item 5's whitespace
+repair - globbed `*.html` and rewrote all 53 files including theirs; the edit was
+provably meaning-preserving (the (tag, attribute, value) triple check) which is thin
+comfort for the blast radius being wrong, so anything that bulk-edits pages in this
+branch now refuses to touch what git does not track, unless explicitly told to.
+
+Canonical means **idempotent per page**, not byte-identical across the site:
+about.html is the one page carrying `nav-link active`, and a check that compares it
+to the shared block reports the site's correct page as wrong and exits 1. Regenerating
+each page's block from its own active hrefs is the invariant that matters - run the
+tool twice, get the same file - and 52 of 52 pass it. verify.py asserts each dropdown
+is <=10 items and that no real link href appears twice (the brand's `->/` excepted).
+
+**The drawer.** Bootstrap's dropdown menu is white-space: nowrap, so at 390px the
+long labels were clipped by the viewport edge; the first pass was `white-space:
+normal` plus 0.75rem block padding for 44px touch targets. That fixed 16px and
+nearly everything else about the drawer - and it was still broken at 200% and 300%,
+which is what item 7 exists to prevent, discovered only when verify.py grew FONTS
+(16, 32, 48) and re-ran every geometry section at each. Three more causes had to be
+measured out, each invisible to the previous one:
+
+  1. `min-width: 0; max-width: 100%` on `.navbar-nav .dropdown-menu` - Bootstrap
+     5.2.3 floors a dropdown menu at 10rem, and 10rem at a 48px root is a 480px
+     menu inside a 390px drawer while every item inside it was already wrapping
+     with min-width 0. Everything item 6 had fixed was fine and irrelevant.
+  2. `min-width: 0` up the chain (`li.nav-item`, `.navbar-nav`, `.navbar-collapse`) -
+     max-width: 100% resolves against a flex item that is itself sized by the child
+     being capped, so the drawer stayed 448px wide and the document reported
+     scrollWidth 484 in a 390px viewport.
+  3. `white-space: normal` on `.navbar-nav .nav-link` - the document still scrolled
+     by 94px with the menu now comfortably inside, and what held it open was the
+     *label of the button that opens the menu*: Bootstrap's CDN stylesheet declares
+     `.dropdown-toggle { white-space: nowrap }` (confirmed by walking
+     document.styleSheets for the rules that actually match the element rather than
+     remembered from framework docs), and the three group toggles were the only
+     items in the drawer it applied to - 448px of unwrappable label in a 318px box.
+     A rectangle scan for "anything past the viewport" found zero offenders while
+     the page scrolled; the scan that found it compares element.scrollWidth with
+     element.clientWidth, which is where text overflow lives.
+
+All three are inert at 16px by measurement: the longest toggle label is 190px inside
+the same 318px box, so wrapping is never asked for at 100%.
+
+**The interaction with item 7.** The restructure put the site straight back into the
+failure item 7 had just closed: at 1280px with a 32px root font the nav row grew to
+2068px inside a 1140px container and every page scrolled sideways again, +942px at
+48px. `flex-wrap: wrap` on the row and `min-width: 0` on its links, scoped to
+`min-width: 992px`, are what closes it: at 16px the brand takes 218px and the row
+686px against a 960px container at the 992px breakpoint and 1140px at 1280px, so no
+line is ever full and wrapping cannot trigger. verify.py re-measures exactly that at
+992, 1024 and 1280 at all three root fonts, and requires one row at 100% (a nav that
+wraps at 16px is a regression this change introduced) while only requiring "never
+overflows" above it.
+
+**Open dropdowns are measured too, because the overflow gate cannot see them.** The
+matrix measures closed menus, and an absolutely positioned menu running past the
+right edge does not move documentElement.scrollWidth either (measured: menu right
+edges 1335, 1403 and 1512px against a 1280px viewport with scrollWidth reporting
+1280). At a 32px root the three menus were 574/521/478px wide and the third starts
+at x=825, so the last ~200px of every label sat off screen with no scrollbar to
+reach it. Letting labels wrap and capping the box at min(28rem, 40vw) puts all of
+them inside at the widths measured here - verify.py now opens all three menus at 992
+and 1280 at 32/48px and asserts it, 24 configurations, red before those two rules.
+What that does not cover is anchor positions and widths nobody has measured, because
+nothing in CSS knows where the toggle sits; the structural fix is Popper's viewport
+boundary, already shipped inside bootstrap.bundle, and that is a JS change to the
+nav so it stays an owner decision. The check prints PASS-EXTRA today and
+FAIL-KNOWN, excluded from the exit code, if it ever stops passing.
+
+WHAT RUNS, and what it said on the committed state (measured against a copy of this
+commit's tree, not the working tree):
+
+  tests/nav/apply_nav.py --check          pages 52 tracked, 1 untracked refused;
+                                          52/52 canonical; coverage 36 -> 34, both
+                                          drops named hub demotions; exit 0
+                                          (tests/nav/apply-check.txt)
+  tests/nav/inventory.py                  before: 5 distinct nav blocks
+                                          (23/16/11/1/1), dropdown {32: 51, 7: 1},
+                                          0 nav-only pages
+                                          after:  2 blocks (51 + about.html's active
+                                          variant), dropdown {10: 52}, 0 nav-only
+                                          pages; exit 0 both
+                                          (inventory-BEFORE-ad559e9.txt, inventory-AFTER.txt)
+  tests/nav/verify.py, twice              DRAWER_W=390 and 320 (the WCAG 1.4.10
+  (tests/nav/verify-final.txt)            width), each at root fonts 16/32/48:
+                                          structure, the drawer with all three
+                                          dropdowns opened by tap, every link
+                                          >=44px and nothing past the layout
+                                          viewport, keyboard (Enter on a focused
+                                          toggle opens it, ArrowDown moves focus
+                                          into the menu: Bootstrap 5.2.3's own
+                                          dropdown plugin, driven through the real
+                                          events rather than trusting href="#"),
+                                          the desktop row at 992/1024/1280, and the
+                                          open-menu geometry.
+                                          "all nav interaction checks green" at both
+                                          widths: exit 0, exit 0.
+
+The root font is injected into the navigation response and read back off the page
+before anything is asserted (tests/overflow/gate.py documents why the other three
+ways of doing it do not work). The inventory numbers say something worth saying out
+loud: five byte-distinct navblocks were in the tree, which is why a single
+hand-authored replacement would have been wrong, and the tool is kept because a
+52-page rewrite that exists only as a diff cannot be re-derived when the next page is
+added tomorrow.

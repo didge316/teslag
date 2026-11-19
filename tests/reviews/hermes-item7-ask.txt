@@ -1,0 +1,212 @@
+Code review request (no repo access needed: the code is inline below, and your
+copy of this repo is stale, so review the text, not a checkout).
+
+Repo: /home/matt/projects/other/tesla-generator, static HTML site in website/,
+Bootstrap 5.2.3 from CDN, no build step. Item 7 of PLAN-ALT-NAV-OVERFLOW.md:
+the site's own A+/A- text-size control (wp-textsize, which sets the root font)
+put every page into a horizontal scroll at 200% and 300%, which fails WCAG
+1.4.4 on all 52 content pages. Measurements from the repo harnesses
+(tests/overflow/probe.py, gate.py, diagnose.py - all narrow desktop windows, no
+mobile emulation):
+
+  root 16px (100%)   0 of 53 pages overflow
+  root 32px (200%)  53 of 53 overflow, worst +70px
+  root 48px (300%)  53 of 53 overflow, worst +519px (/tesla-1894-plates)
+
+Offenders named by the sweep: a.navbar-brand 52 pages (white-space:nowrap from
+Bootstrap, a flex item with min-width:auto, measured 436px at 200% and 654px at
+300%); div.d-flex > .ms-3 the comment rows, 31 pages (+176px worst); one
+unbreakable Internet Archive item id in a <section> outside <article> on
+/tesla-1894-plates (702px at 300%); /contact, where a .card-body.p-5 wraps a
+div.mb-3.p-5 inside .row gutters that are all rem, so the form's content box
+measured 30px wide at root 48px; and an h2 on /tesla-worlds-fair-1893 whose box
+is a normal 318px but which puts 122px of TEXT ink past its own right edge -
+the page's scrollWidth grew and a bounding-rect sweep named nothing, which is
+why the fix set includes the body rule below.
+
+Gate: tests/overflow/gate.py asserts documentElement.scrollWidth <=
+clientWidth + 1 on all 53 pages at 390px x {16,32,48}px root and 320px x 16px.
+Before this CSS: 106 of 212 combinations failing. After: 212 of 212 green.
+Every min() below has the px value that the same rem computes to at root 16px,
+so the claim is that nothing moves at 100% and only the pathological case
+changes; that claim is what I most want attacked, along with the !important
+overreach and the blast radius of the body rule.
+
+Reviewer requirement: after your findings, state plainly what your method
+cannot see about this change, and name the one check you would run if you could
+run one.
+
+================ css/styles-custom.css, hunk 1 (prose overflow-wrap) ================
+/* Long unbreakable tokens in article prose: a sha256 digest, a file name with
+   underscores in it, a command line. A 64-character hex digest is one word, and
+   so is EMAIL_OCTOPUS_SETUP.md; at the 20px body size the first is about 700px
+   and the second about 400px. Both sit on /electrical-experimenter, which put
+   that page into a horizontal scroll at 375px and at 768px (shot_qa.py,
+   2026-10-20: scrollWidth 870 against clientWidth 375). `overflow-wrap:
+   anywhere` is the narrow fix: it only does anything when a word is already
+   wider than the line it sits on, and no other page on this site has such a
+   word, so nothing else re-renders. Checked after adding it: shot_qa.py
+   tesla-1894-word-search still reports scrollWidth == clientWidth at
+   375/768/1280, and that page carries the series' longest code spans and three
+   data tables. Tables are deliberately not in this selector: overflow-wrap
+   feeds min-content width, so applying it to table cells could change how wide
+   a table wants to be, and the tables here are inside .table-responsive, which
+   is already the right answer for a wide table. */
+/* `section p, section li` is the same rule one level out: the 1894 series puts
+   its Sources list in a <section> AFTER </article>, and /tesla-1894-plates is
+   the one page where that list carries the Internet Archive item id
+   `inventionsresear00martiala` as link text - one word, 702px at 300% root
+   font, +444px past a 390px viewport (diagnose.py). The four other 1894 pages
+   have the identical anchor inside <article> and therefore never overflowed,
+   which is the whole difference between those pages and this one. Tables are
+   still not in this selector (see the note above), and no table cell on this
+   site contains a p or an li, so nothing inside .table-responsive inherits it. */
+article p,
+article li,
+article code,
+section p,
+section li {
+    overflow-wrap: anywhere;
+}
+
+/* The narrow rule above cannot catch everything, and what it misses is the
+   part of item 7 the first pass never named: a heading whose box is a normal
+   width but whose text leaves that box. /tesla-worlds-fair-1893 at 300% root
+   font has `The Armatures Were Photographed...` in an h2 - the h2 measures
+   318px wide, comfortably inside a 390px viewport, and puts 122px of ink past
+   its own right edge, which is what grew documentElement.scrollWidth to 476
+   (diagnose.py <page> --ink). A sweep that only looks at bounding rects -
+   probe.py's first pass, and every overflow check written like it - reports
+   nothing there, because the box really is inside the viewport.
+
+   So the safety net goes on `body`, which is the only place that covers bare
+   text in a div, a heading, a figcaption or a footer paragraph without having
+   to enumerate them first. It is inert at 100% by construction: overflow-wrap
+   only ever does something when a word is already wider than the line it is
+   sitting on, and at root 16px no page on this site overflows at all (0 of 53,
+   probe.py), so no word on this site is wider than its line today.
+
+   Tables keep the normal value, exactly as the comment above asks: overflow-
+   wrap feeds min-content width, so letting it apply inside a cell would change
+   how wide a table wants to be, and a wide table already has .table-responsive
+   to scroll it. */
+body {
+    overflow-wrap: anywhere;
+}
+
+table, .table, .table *, th, td {
+    overflow-wrap: normal;
+}
+
+
+================ css/styles-custom.css, hunk 2 (appended at end of file) ============
+
+/* ==========================================================================
+   Large text: the site's own A+/A- control must not put the page into a
+   horizontal scroll (WCAG 1.4.4 at 200%, 1.4.10 reflow at 320px).
+
+   wp-textsize sets the ROOT font, so everything measured in rem inflates with
+   it - including Bootstrap's navbar, spacing scale and buttons, which are
+   chrome rather than prose. Measured before this block, at a 390px viewport
+   with no mobile emulation (probe.py, gate.py, tests/overflow/):
+
+     root 16px (100%)  0 of 53 pages overflow
+     root 32px (200%)  53 of 53 pages overflow   worst +70px
+     root 48px (300%)  53 of 53 pages overflow   worst +519px
+
+   The gate went from 106 of 212 page x viewport x root-font combinations
+   failing to all of them passing (gate-BEFORE.txt / gate-AFTER.txt). None of
+   the rules below can move 100% rendering: every size is `min(<rem>, <the px
+   that rem already computes to at 16px>)`, so at 100% the min() takes the rem
+   side and the declaration is inert; it only bites above 16px, which is the
+   case that was already broken. `overflow-x: hidden` on html/body was not
+   used: it hides the symptom, leaves the offender, breaks the fixed sticky bar
+   and can trap focus off screen (PLAN §4).
+   ========================================================================== */
+
+/* 1. The navbar brand: the one offender on all 53 pages. Bootstrap 5.2.3
+   gives .navbar-brand white-space:nowrap, and as a flex item its min-width:auto
+   floors it at that single unwrappable line - measured 436px wide at 200% and
+   654px at 300%, in a 390px viewport (+70px / +300px). Cap it at today's 20px
+   (that is what 1.25rem computes to at 100%) and let it wrap anyway: the
+   ceiling is cosmetic, the wrap is what guarantees no truncation, because
+   "Generator" on its own is still 261px at 300% and `overflow: hidden` would
+   have thrown part of the site name away. */
+.navbar-brand {
+    font-size: 20px;                       /* fallback: no min() support */
+    font-size: min(1.25rem, 20px);
+    white-space: normal;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+/* 2. The 155 comment rows (31 pages). Bootstrap makes the avatar+comment row a
+   flex container and the comment body its second item; that item inherits
+   min-width:auto, so it cannot shrink below the longest word inside it. At 300%
+   root font a word like "electromagnetically" is wider than the 180px left for
+   the column once the 50px avatar, the .ms-3 1rem gap and the card padding are
+   paid for, and the whole page gains a horizontal scroll (+176px on
+   /tesla-magnetic-generator-worth-it, the worst of the 31; +4px on
+   /tesla-magnetic-generator-worth-it at 200%, so this class of failure starts
+   below 300% and is not an extreme-zoom curiosity). `overflow-wrap: anywhere`
+   rather than `break-word` deliberately: only `anywhere` feeds min-content
+   width, which is the number flex is using against us here. */
+.d-flex > .ms-3 {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+/* 3. Bootstrap's 3rem spacer utility is rem, so at 300% root font `p-5` is
+   144px a side. /contact nests two of them (card-body p-5 around a div.mb-3
+   .p-5) inside .row gutters that are themselves rem: measured content box
+   30px wide at root 48px (diagnose.py), i.e. the form had paid 288px of its
+   318px for padding and had nothing left for the field. A submit button can
+   then never fit, whatever else is done, because padding is not shrinkable.
+   Capping the 5-step at its own 100% value leaves 222px of real content box.
+   Safe to override with !important on a bare class selector: no element on any
+   of the 53 pages carries two padding utilities at once (measured over every
+   class="..." in the site: pt-2 350, pt-5 323, p-4 144, py-5 57 ... p-5 15,
+   px-5 1, and zero combinations), so the `padding` shorthand here cannot step
+   on a .ps-* / .py-* refinement. */
+.p-5 {
+    padding: 48px !important;              /* fallback: no min() support */
+    padding: min(3rem, 48px) !important;
+}
+
+.px-5 {
+    padding-right: 48px !important;
+    padding-left: 48px !important;
+    padding-right: min(3rem, 48px) !important;
+    padding-left: min(3rem, 48px) !important;
+}
+
+/* Bootstrap 5.2 drives .row gutters through --bs-gutter-x, so a row with
+   gx-5 takes margin-left/right of -1.5rem and its columns take padding of the
+   same size: at 300% root font that is -72px of negative margin on each side
+   of a column box that is already inside a capped .px-5 container. /articles
+   is the only page in the site that uses gx-5 and it was the last failure left
+   in the gate (row measured 438px wide in a 390px viewport, +24px, because the
+   row grew 144px wider than the container it sits in). g-4 is the same scale
+   on 30 rows that still fit at 300%; it gets the same cap so a deeper nest
+   cannot re-create the failure for free. Both caps are inert at 100%: 1.5rem
+   and 3rem ARE 24px and 48px at root 16px, which is the value min() takes. */
+.gx-5 {
+    --bs-gutter-x: 48px;                  /* fallback */
+    --bs-gutter-x: min(3rem, 48px);
+}
+
+.g-4 {
+    --bs-gutter-x: 24px;                  /* fallback */
+    --bs-gutter-x: min(1.5rem, 24px);
+}
+
+/* Bootstrap 5.2 sets .btn sizes through these custom properties, so overriding
+   the properties beats .btn-lg without needing !important (.btn.btn-lg is 0,2,0
+   against .btn-lg's 0,1,0). .btn-lg's label is chrome like the navbar brand:
+   "Send Message" set in 60px needs 323px of box, and a button cannot break its
+   own padding away to fit into less. */
+.btn.btn-lg {
+    --bs-btn-padding-y: min(0.5rem, 8px);
+    --bs-btn-padding-x: min(1rem, 16px);
+    --bs-btn-font-size: min(1.25rem, 20px);
+}

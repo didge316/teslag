@@ -1,0 +1,50 @@
+# item 7's shipped stylesheet, with and without the offer bar's CSS, same pages
+# same engine same viewport. `same` is the claim: identical document height, identical
+# body padding, identical scroll width, and no element in the page wearing a tmg-cta
+# class in either state. If dead space had shipped, docH would differ. Generated 2026-11-19.
+# strip removed 22 rule blocks / the stylesheet's full tmg-cta inventory.
+
+chromium  /index.html                                  docH    9076 vs    9076 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+chromium  /whole-house.html                            docH    6900 vs    6900 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+chromium  /articles.html                               docH    9723 vs    9723 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+chromium  /magnetic-generator-scam.html                docH    8353 vs    8353 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+chromium  /build-a-perpetual-motion-generator.html     docH    8394 vs    8394 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+chromium  /can-I-buy.html                              docH    6864 vs    6864 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+chromium  /tesla-1894.html                             docH   12461 vs   12461 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+chromium  /tesla-1894-plates.html                      docH   41977 vs   41977 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+chromium  /tesla-1894-word-search.html                 docH   21205 vs   21205 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+chromium  /about.html                                  docH    3957 vs    3957 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+chromium  /contact.html                                docH    1951 vs    1951 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+chromium  /privacy.html                                docH    6160 vs    6160 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+chromium  /404.html                                    docH    1027 vs    1027 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+firefox   /index.html                                  docH    9816 vs    9816 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+firefox   /whole-house.html                            docH    7376 vs    7376 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+firefox   /articles.html                               docH    9964 vs    9964 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+firefox   /magnetic-generator-scam.html                docH    9072 vs    9072 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+firefox   /build-a-perpetual-motion-generator.html     docH    8961 vs    8961 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+firefox   /can-I-buy.html                              docH    7658 vs    7658 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+firefox   /tesla-1894.html                             docH   13525 vs   13525 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+firefox   /tesla-1894-plates.html                      docH   43929 vs   43929 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+firefox   /tesla-1894-word-search.html                 docH   22912 vs   22912 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+firefox   /about.html                                  docH    4200 vs    4200 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+firefox   /contact.html                                docH    1951 vs    1951 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+firefox   /privacy.html                                docH    6698 vs    6698 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+firefox   /404.html                                    docH    1075 vs    1075 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+webkit    /index.html                                  docH    9274 vs    9274 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+webkit    /whole-house.html                            docH    6924 vs    6924 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+webkit    /articles.html                               docH    9716 vs    9716 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+webkit    /magnetic-generator-scam.html                docH    8671 vs    8671 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+webkit    /build-a-perpetual-motion-generator.html     docH    8508 vs    8508 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+webkit    /can-I-buy.html                              docH    7110 vs    7110 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+webkit    /tesla-1894.html                             docH   12749 vs   12749 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+webkit    /tesla-1894-plates.html                      docH   42435 vs   42435 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+webkit    /tesla-1894-word-search.html                 docH   21668 vs   21668 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+webkit    /about.html                                  docH    3987 vs    3987 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+webkit    /contact.html                                docH    1951 vs    1951 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+webkit    /privacy.html                                docH    6280 vs    6280 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+webkit    /404.html                                    docH    1027 vs    1027 (same), bodyPad 0px vs 0px, tmg-class elements 0/0, bar in DOM False/False
+
+engine breakdown (pages identical with the bar CSS deleted): chromium 13, firefox 13, webkit 13
+
+measurements: 39   identical with the bar CSS deleted: 39   moved: 0
+verdict: the offer bar's CSS provably contributes nothing to any page measured - it is dormant in this commit, as both commit messages say

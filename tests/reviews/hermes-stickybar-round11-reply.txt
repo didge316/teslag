@@ -1,0 +1,229 @@
+```
+D1: tests/sticky-cta/bar-module-followups.md
+```
+
+# Sticky bar — what the module review produced
+
+Owner-facing. Everything below cites evidence that exists on the branch or in `tests/`; anything I could not verify first-hand is marked UNVERIFIED rather than softened. Nine items, none of which is a push blocker unless the last line says so. They cost roughly ten lines of code between them plus three decisions only the owner can make.
+
+**Component footprint.** 22 rule blocks over 17 distinct selectors: 16 `tmg-cta-*` plus `.tmg-sr-only` (`css/styles-custom.css:431`). An earlier count of "21 blocks, 16 selectors" in the commit message was produced by a `tmg-cta`-scoped inventory describing a `tmg-` footprint, and could not see `.tmg-sr-only`, which `buildBar()` depends on for the CTA's text alternative. Recount and the commit message are corrected; `dormant-bar-css.py` now strips `tmg-` and asserts 22.
+
+## 1. Dismissal is browser-wide for 30 minutes, not per-tab
+- Where: `js/scripts.js` `rememberDismissal()` (line UNVERIFIED), CONFIG `DISMISS_COOKIE_TTL`.
+- Evidence: dismissed on `/whole-house.html`; a second tab in the same browser context showed `barShown False`, its own `sessionStorage` flag `None`, cookie present. Only the cookie suppresses it.
+- Fix: none required — this is a decision, not a defect.
+- Cost: none to leave; ~3 lines to change.
+- Blocker: no.
+- Open question, deliberately not answered here: browser-wide 30 minutes (fewer repeat impressions, no nag) versus per-tab semantics (what CONFIG claims as the reason `sessionStorage` is primary). To get per-tab, write the cookie only inside the `setItem` catch. The comment currently claims the second and the code does the first.
+
+## 2. Comment contradicts the code: "remembered permanently"
+- Where: `js/scripts.js:158`.
+- Evidence: 322 lines above an 1800-second cookie.
+- Fix: replace with "remembered for the visit, or half an hour where storage is unavailable".
+- Cost: one line. Blocker: no.
+
+## 3. `wp-textsize` attribution is fiction, and it is pre-existing
+- Where: `js/scripts.js:184`, `css/styles-custom.css:312`, `css/styles-custom.css:528`, plus `tests/overflow/payload-measured-322b32b3533a.css:276`.
+- Evidence: zero HTML files on the branch mention `wp-textsize`; all four occurrences are comments. The string appears in the pre-fix payload snapshot, so item 7 shipped a stylesheet already claiming it and the module inherits the claim. The behaviour the design guards against is real — root font grows under zoom and user font settings, which is what the 1,872-cell matrix drove — only the attribution is wrong.
+- Fix: rewrite the three comments to attribute the behaviour to reader zoom and user font settings, and strike the control. A comment-only CSS edit is provably rule-text-neutral: `tests/overflow/css-comment-only.py` exists for exactly that check and must pass before the edit lands.
+- Cost: three comments, one check run. Blocker: no.
+
+## 4. Dismissal cookie has no `Secure`
+- Where: `js/scripts.js` `rememberDismissal()`, cookie write (line UNVERIFIED).
+- Evidence: `KEY + '=1; path=/; SameSite=Lax; Max-Age=' + TTL`; the site is HTTPS-only.
+- Fix: append `; Secure`.
+- Cost: five characters. Blocker: no.
+
+## 5. Dismiss removes three listeners and leaves a fourth
+- Where: `js/scripts.js:440-442` removes `scroll`, `resize`, bar `focusout`; `js/scripts.js:457` adds `resize → growPad`, which survives.
+- Evidence: `growPad`'s first line returns unless `is-visible`, so it is inert after dismissal.
+- Fix: remove it in the same handler, or comment why it stays.
+- Cost: one line. Blocker: no.
+
+## 6. The bar is tabbable behind an `aria-modal="true"` dialog
+- Where: `buildBar()` appends to `<body>`; `js/exit-popup.js` declares `role="dialog" aria-modal="true"` and never makes the page inert.
+- Evidence: `/build-a-perpetual-motion-generator`, 390x844, chromium and webkit, popup raised by the real 25s dwell and by a synthetic exit-intent `mouseout`: bar visible behind it, its two controls — one of them the paid link — in the tab ring. 21 focusables sit outside that dialog, 19 of them the page's own, so the popup predates this and has never had a trap.
+- Fix, in order: (a) one condition in `paint()` to hold the bar away while `[role="dialog"]` is open, ~3 lines, ships with or reverts with the bar; (b) `inert` on the page wrapper while the dialog is up — one attribute, universally supported, fixes all 21 and makes `aria-modal` stop being a lie. Do not hand-roll a focus trap; `inert` is less code and strictly more correct.
+- Cost: ~10 lines across two commits. Blocker: no — the bar cannot have made the popup worse, since before this commit it did not exist.
+
+## 7. Attribution: split `/can-I-buy` out of the fallback bucket
+- Where: `TID_RULES` in `js/scripts.js` (lines UNVERIFIED).
+- Evidence: 50 of 52 pages render the bar; `sticky_article` holds 36 of them — 72% — including `/can-I-buy`, `/build-a-*`, `/whole-house`, `/magnetic-generator`. Offline and live tid reads agree on every rendering page, so this is not a matcher bug, it is an under-specified rule set.
+- Fix: minimum viable is one anchored rule for `/can-I-buy`, because bottom-of-funnel EPC is the whole thesis. Either split the intent pages properly or collapse to two tids and stop presenting a breakdown.
+- Cost: one regex. Blocker: no, but it decides whether the bar's numbers can ever say anything.
+
+## 8. `/magnetic-generator-scam` still shows the offer
+- Where: `buildBar()`/`init()`, no suppression path; attributed `sticky_scam`, measured.
+- Evidence: the page that argues the product is a scam gets a $47 offer 700px down it.
+- Fix: suppress the bar on that path. One condition.
+- Cost: two lines. Blocker: no — owner's call, and I would make it.
+
+## 9. Price and guarantee are assertions no test can falsify
+- Where: `js/scripts.js:299-300`, both string constants.
+- Evidence: `~$47 · instant download · 60-day money-back guarantee`, and the sub-390px short variant. Both are claims about a third-party product, shown to an audience that includes `/magnetic-generator-scam`.
+- Fix: owner gives a dated yes, and a date for the next check.
+- Cost: a decision. Blocker: no, but it is the only item here that can be true today and false next quarter with nothing on the site changing.
+
+```
+D2: corrected commit message for the bar commit
+```
+
+    Sticky offer bar: the JS that makes the shipped CSS do something
+
+    The bar's CSS has been in the shipped stylesheet for a while, and item 7 measured
+    it: `.tmg-cta-bar` and its friends are in the same file the 1,872-cell overflow
+    matrix ran against, identical in HEAD and in the tree that was measured. What was
+    missing is the module that puts the bar in the DOM, which is the whole feature:
+    without it, 22 rule blocks over 17 selectors match nothing and the site is a site
+    with no offer bar. It is also the only reason the sticky suite could ever run
+    against the working tree rather than a commit - see the harness commit's message,
+    and `git show HEAD~1:js/scripts.js | grep -c sticky`, which is 0.
+
+    This commit is `js/scripts.js` plus the evidence, and nothing else that ships. The
+    JS is one hunk, one appended IIFE, `+322/-1`, and the -1 is the `})();` the module
+    is appended after. No CSS, because it shipped already; no `_headers`, `_redirects`
+    or `sitemap.xml`, which carry no-cache rules the bar wants and item 7 wants
+    equally - those belong to neither commit's private property, and reverting this
+    one has to leave them intact.
+
+    THE FOOTPRINT NUMBER, CORRECTED. An earlier draft of this message said "21 rule
+    blocks over 16 distinct selectors". That was a `tmg-cta`-scoped inventory of a
+    `tmg-` footprint, and it could not see `.tmg-sr-only` at
+    `css/styles-custom.css:431` - a class this module's `buildBar()` depends on for
+    the CTA's text alternative. The count is **22 rule blocks over 17 distinct
+    selectors: 16 `tmg-cta-*` plus `.tmg-sr-only`**. `dormant-bar-css.py` now strips
+    the `tmg-` namespace and asserts 22, so the dormancy proof covers the `sr-only`
+    rule as well. The number was accurate about the pattern it ran and wrong about the
+    thing it described; the statistic is what failed, not the stylesheet.
+
+    WHY THE CSS ALREADY BEING HERE IS NOT A PROBLEM, MEASURED RATHER THAN ASSERTED.
+
+    `tests/overflow/dormant-bar-css.py` takes the served stylesheet, removes all 22
+    `tmg-` rule blocks from it, serves the stripped sheet by route interception and
+    compares document height, `body` padding, scroll width and `tmg-` class counts per
+    page, height read only once it stops moving. 13 pages x 3 engines: **39 of 39
+    measurements identical with the bar's CSS deleted**, `body` padding `0px` both
+    sides, no element wearing a `tmg-` class in either state. That is the check for
+    the failure mode that mattered: had the reservation been unconditional in CSS
+    rather than scoped to `body.tmg-cta-pad`, item 7 would have shipped a ~92px strip
+    of blank above the footer on every page, and the overflow matrix could never have
+    caught it, because extra blank space is not a horizontal scroll.
+    Raw: tests/overflow/dormant-bar-css-2026-11-19-chromium-firefox-webkit.txt.
+
+    MEASURED ON THIS COMMIT
+
+      Sticky suite, against the tree this commit makes - the only tree where the bar
+      exists: chromium 122 passed / 0 failed, webkit 121 / 0, firefox 120 / 0, 363
+      assertions, none failing. Cross-engine `engines.py`: 27 of 27 collected cases,
+      reservation >= bar height, no clipping, gap >= 24px, CTA >= 44px tall, no
+      wrapping, `drift=+0px` between 100% and 400% root font in every engine; 87px at
+      all four sizes in chromium and webkit, 105px in firefox, which is a fallback-
+      font difference, not a regression (engines.py's note says why the 105 is right).
+      The regenerated `engines.json` came out byte-identical to the committed one.
+      Raw: tests/sticky-cta/sticky-suite-on-bar-branch-2026-11-19.txt,
+      invariant: tests/sticky-cta/bar-invariant-2026-11-19.txt.
+
+      Attribution, twice. `tid-map.py` runs the shipped `tidFor()` over every tracked
+      path; `tid-live.py` reads the tid back out of the rendered CTA href - `?tid=`
+      is all ClickBank ever receives, because the link is `rel=noreferrer`. They agree
+      on every page where the bar renders. 52 paths: sticky_article 36, sticky_guide
+      6, sticky_review 5, sticky_hub 1, sticky_home 1, sticky_scam 1. **Zero
+      mis-buckets** - the unanchored `worth-it|review|plans|vs-|cost|materials` rule
+      catches exactly the five pages that are commercial comparisons, and `for-|guide|
+      how-to|diy|beginner|step` catches six that are all genuinely guides. Two things
+      it raises for the owner, recorded rather than fixed here: the fallback bucket
+      holds 36 of the 50 rendering pages - 72% - *including every high-intent page*
+      (`/can-I-buy`, `/build-a-*`, `/whole-house`, `/magnetic-generator`), so the EPC
+      table will mostly compare one giant bucket against 1-page buckets; and
+      `/magnetic-generator-scam` gets its own bucket and **still shows the offer**
+      700px down the page that argues the product is a scam.
+
+      The bar behaves at the footer: 50 of 52 pages render it mid-page, **0 of 52
+      still hold it at a settled bottom**. `404.html` (1027px) cannot reach the 700px
+      trigger at all, and on `/contact` the footer was already in the probe viewport,
+      which is `footerInView()` hiding the bar correctly. Getting this number right
+      took an instrument fix: hiding the bar removes its own 92px reservation, which
+      shortens the document while the scroll is being applied, so a single
+      `scrollTo(scrollHeight)` lands a couple of hundred px short on a long page and
+      reads as "the bar never hides".
+
+    WHAT THIS COMMIT CONTRIBUTES THAT IS NOT GOOD, STATED HERE BECAUSE IT IS NEW
+
+      `js/exit-popup.js` renders `role="dialog" aria-modal="true"` and never makes the
+      rest of the page inert; the bar is appended to `<body>`; and `aria-modal` is a
+      declaration to an assistive technology, not a focus wall. Measured on
+      `/build-a-perpetual-motion-generator` at 390x844 in chromium and webkit, with
+      the popup raised both by the real 25s dwell (`DWELL_MS` - the path every visitor
+      who lingers takes) and by a synthetic exit-intent `mouseout`: the bar stays
+      visible, and its two controls - `.tmg-cta-btn`, the affiliate link, and
+      `.tmg-cta-close` - are in the tab ring behind the dialog. Context for scoping a
+      fix: 21 focusables sit outside that dialog, of which 19 are the page's own, so
+      the popup has never had a trap and this commit adds 2, one of them paid. The
+      minimal scoped change is one condition in `paint()` holding the bar away while a
+      `[role=dialog]` is open, and `inert` on the page wrapper is the better fix for
+      the 21. Neither is done here: both are behavioural, and the module is the
+      owner's. Evidence: tests/sticky-cta/modal-coexistence.py and its -2026-11-19.txt.
+
+      The bar's copy asserts `~$47 · instant download · 60-day money-back guarantee`
+      (short variant `~$47 · 60-day guarantee` under 390px) as string constants at
+      js/scripts.js:299-300, about a third-party product, to an audience that includes
+      `/magnetic-generator-scam`. No test can see whether those claims still stand;
+      they need the owner's yes, not a dated comment.
+
+    REVIEW STATE, STATED EXACTLY
+
+      The module has been reviewed by the reviewer (Hermes) at blob
+      `da605e2404f9a9e9464f4e0132f0b6243ae71bceaab42741f67253c9602638ed`, with the
+      text pasted to them because their checkout of this repo is a different lineage
+      (`main` at ff71671, July) containing no object from this branch. The review
+      produced nine findings; they are itemised with evidence, fix, cost and
+      blocker status in `tests/sticky-cta/bar-module-followups.md`. The three that a
+      reader should know before reading the code: **dismissal is browser-wide for 30
+      minutes, not per-tab** - `rememberDismissal()` writes both stores, so the cookie
+      always suppresses the bar, including in a tab that never dismissed anything; the
+      module header at line 158 still says "remembered permanently", which predates
+      the cookie; and the deterministic-height design is justified in CONFIG against
+      a `wp-textsize` text-size control that appears in zero HTML files on this site,
+      a WordPress-template artefact inherited from the pre-fix stylesheet. The
+      remaining findings - a missing `Secure` on the cookie, one listener not removed
+      on dismiss, the dialog guard, the `/can-I-buy` tid rule, scam-page suppression,
+      and the price claims - are recorded there and none is done in this commit.
+
+      The blob is `da605e24…` either way, so the extraction is closed against
+      truncation: `sha256sum <(git show HEAD:js/scripts.js) js/scripts.js` agree.
+
+    NOT DEPLOYED, NOT PUSHED. Pushing `main` is a live deploy and it is the owner's
+    call (HANDOFF.md); `wrangler` is unauthenticated on this box anyway. Nothing here
+    changes the four commits on `fix/alt-nav-overflow`, and nothing in them carries
+    the sticky bar - those four are what the overflow, nav and alt-text gates
+    certify, and the bar is deliberately outside their scope.
+
+```
+D3: PLAN-ALT-NAV-OVERFLOW.md §12
+```
+
+## §12 — Review rounds 9-11: two statistics that were not facts, and one measurement that only the code could settle
+
+**The reviewer could not read the branch, and that is a property of the branches rather than of the reviewer.** This work exists only on `fix/alt-nav-overflow` and `feature/sticky-offer-bar` on the desktop box, unpushed by the owner's rule; the reviewer's checkout is a July `main` on a different lineage with no object from either branch. Everything they reviewed from round 9 onward was pasted text, and the review state in the bar commit says so rather than pretending the branch was read. The consequence is worth recording as a method: a review of pasted text can certify a blob only if the paste is identified — which is why the commit message carries `da605e24…` and why "reviewed" there means "reviewed at that hash", not "reviewed the branch".
+
+**Two of the findings in this stretch turned out to be defects in the statistics rather than in the tree.** The first: a "21 rule blocks over 16 selectors" footprint, generated by a brace-matched inventory filtered on the substring `tmg-cta`, describing a component whose real namespace is `tmg-` — it could not see `.tmg-sr-only`, which `buildBar()` depends on for the CTA's text alternative, and the resulting alarm ("the sr-only class is missing, the CTA will render the new-tab notice as visible text") was produced entirely by the instrument. Recounted: **22 blocks, 17 selectors**. The second, one round earlier: "3 rules" for the bar's CSS, from `grep -c 'tmg-cta-bar'`, a line count that described none of the component and could have meant the tier rules were missing. Both were caught by asking whether a number could be reconciled against the component's known shape — the discipline that found the WebKit instrument bug in §11, applied to arithmetic instead of browsers.
+
+**Dismissal is browser-wide for thirty minutes, and no comment in the repository said so.** Measured rather than read: dismiss on `/whole-house.html`, open a second tab in the same browser context — fresh `sessionStorage`, shared cookies, which is what a second tab is — and the bar is gone, its own session flag `None`, the cookie present. `rememberDismissal()` writes both stores unconditionally, so the fallback is never a fallback and the per-tab semantics that CONFIG gives as the reason `sessionStorage` is primary never occur. The choice between browser-wide-half-an-hour and true per-tab is a product question and is left open in `bar-module-followups.md`; what is not open is that the code and the comment currently describe different products.
+
+**`wp-textsize` appears in zero HTML files, and the string has been justifying a design since before this branch.** Four occurrences exist in the whole tree, all of them comments: `css/styles-custom.css:312`, `:528`, `js/scripts.js:184`, and the pre-fix payload snapshot at `tests/overflow/payload-measured-322b32b3533a.css:276`. The string is a WordPress-template artefact. The behaviour the deterministic-height design guards against is entirely real — root font grows under reader zoom and user font settings, which is what the 1,872-cell matrix drove — but the attribution is fiction, and it is pre-existing: item 7 shipped a stylesheet already claiming a control that does not exist. Correcting three comments is provably rule-text-neutral, and `tests/overflow/css-comment-only.py` is the check that exists for exactly that claim.
+
+**The modal finding is measured, in both engines, through both triggers.** `js/exit-popup.js` declares `aria-modal="true"` and makes nothing inert; the bar appends to `<body>` and stays tabbable behind the dialog, with the paid link among the controls reachable. On `/build-a-perpetual-motion-generator` at 390x844 in chromium and webkit, with the popup raised by the real 25-second dwell and by a synthetic exit-intent `mouseout`, the bar remained visible and both its controls sat in the tab ring. The scoping number that decides the fix: **21 focusables outside the dialog, 19 of them the page's own** — this is a pre-existing defect that the bar joins, with one paid link. Hence the recommendation is a three-line `paint()` guard for the bar plus `inert` on the page wrapper for the rest, and the honest statement that the guard belongs with the bar's revert and `inert` belongs to the owner.
+
+**What is owner-blocked, and why it is the owner's.** Three decisions cannot be made from this branch: whether dismissal is browser-wide for half an hour or per-tab; whether the $47 and the 60-day guarantee still stand, which no test can see and which the site's own `/magnetic-generator-scam` page makes expensive to get wrong; and whether the offer should appear on that page at all. Two smaller ones are cheap enough to bundle with a deployment — splitting `/can-I-buy` out of the 72% fallback bucket so the EPC table can say something, and the `Secure` flag. None of these blocks the push; all of them are the difference between a bar that can be judged and a bar that cannot.
+
+```
+D4: note to the owner
+```
+
+The sticky offer bar is committed on `feature/sticky-offer-bar`, one commit on top of the four on `fix/alt-nav-overflow`. Nothing is pushed and pushing is yours — `main` is a live deploy, and wrangler is unauthenticated on that box. The bar's CSS shipped earlier inside the item-7 stylesheet, where it is dormant: an independent check deletes it and finds the page byte-identical, so it is doing nothing today.
+
+Six things are waiting on you, ranked by what they cost to leave alone. First, the price and the refund window — "~$47" and "60-day money-back guarantee" are hard-coded strings shown to readers, no test can tell whether they are still true, and your own scam page is in the audience. Second, whether dismissal stays browser-wide for half an hour or becomes per-tab; the code does the first and the comment claims the second, and either is defensible. Third, whether the offer should appear on `/magnetic-generator-scam` — I would suppress it. Fourth, whether to split `/can-I-buy` out of the attribution bucket that currently holds 72% of the pages, without which the bar's numbers will never say anything. Fifth and sixth, two five-minute items: a `Secure` flag on the dismissal cookie and a corrected comment.
+
+Two changes are worth landing before a push, about ten lines between them. The bar is currently tabbable behind your exit popup, because that popup declares itself modal and makes nothing inert — 21 elements sit outside it, 19 of them yours from before this branch. A three-line guard in the bar's `paint()`, plus `inert` on the page wrapper, fixes all of it and costs less than a hand-written focus trap.
+
+One sentence on behaviour: a visitor who dismisses the bar does not see it again for thirty minutes anywhere on the site, in any tab, and then it returns.

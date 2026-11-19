@@ -3,3 +3,16 @@ assets/tesla1894/_qc/
 
 # raw patent downloads from patents.google.com (keep the derived .webp only)
 assets/tesla1894/patents/*.png
+
+# Measured runs are kept in git as evidence; the caches that generate them are not.
+__pycache__/
+
+# Generated intermediate trees and the checkout of the pre-change state the
+# commit machinery verifies against: rebuildable, not evidence, not shipped.
+tests/.staging/
+
+# probe.py rewrites this 50 KB JSON every time it runs, and the item-7 message says
+# plainly that probe's report is a pre-gate diagnostic deliberately NOT shipped. Kept
+# out of git so `git status` keeps meaning "these are the owner's files and only the
+# owner's", which is the claim the sticky-bar and nav checks lean on.
+tests/overflow/overflow-report.json

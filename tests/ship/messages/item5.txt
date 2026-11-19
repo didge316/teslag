@@ -1,0 +1,78 @@
+Item 5: 198 glued attributes, 2 malformed quotes, and a check that was aimed at an
+instance instead of a class
+
+`alt="Close-up of a permanent magnet"width="754"` - a quoted attribute value with
+no space before the next attribute. Browsers recover, so visitors never saw it; a
+strict XML toolchain (a minifier, a static generator, an EPUB build) does not. The
+ticket counted 191 of them, all of that one shape, and asked for the separators to
+be put back.
+
+Measured on a clean checkout of ad559e9 with one instrument: **198** missing
+separators, of which **188** are the shape the ticket named (`alt"..."width=`) and
+**10** are shapes nobody had looked for - 7 of them `style="max-width: 30%;"alt=`,
+which is the same mistake between a `style` value and an `alt`, on index.html and
+perpetual-motion-generator.html. (The ticket's 191 against the instrument's 188 is
+a difference about which attribute pairs were being counted, and it is stated here
+rather than smoothed over.) Generalising over *every* start tag rather than
+`<img>` is what made the 10 visible; a check named after one pair of attributes
+cannot see a different pair making the same mistake.
+
+Then: 2 more tags, a different and worse defect, and the one part of this that
+reaches visitors.
+
+  <meta property="og:title" content="Tesla's High-Frequency "Massage" Cure of 1891" />
+
+An unescaped `"` inside a quoted value ends the value where the browser thinks it
+ends, so the tag parses as `content="Tesla's High-Frequency "` followed by a
+valueless attribute called `Massage` and then a floating fragment. Same family as
+the glued attributes - malformed markup, browsers cope, nothing downstream can -
+but the consequence is not cosmetic. Read in a browser before this commit: that
+page's `og:title` **and** `twitter:title** come through as `Tesla's High-Frequency `
+- every Facebook/X/LinkedIn/Slack card for the article was truncated mid-phrase -
+while the `<title>` element was intact, because element text is not an attribute.
+After: both carry the full string. Two tags on one page; this is the strongest
+user-facing case for item 5 in the branch, and the ticket had it filed as
+formatting.
+
+THE CHECKS THAT SHIP WITH IT (tests/img-alt/, run by tests/validate.sh)
+
+`glued.py` holds the one definition of both defect classes and the (tag, attribute,
+value) triple extractor; `inventory.py` is the keeper (exits 1 while either class
+remains, and while `alt` is missing from any image) and `space-fix.py` is the repair.
+The artefacts are the same instrument over both trees:
+
+  inventory --site <clean checkout of ad559e9>   glued 202 flagged (198 + 4 phantoms
+                                                  from the 2 malformed-quote tags),
+                                                  malformed quotes 2, missing alt 0  -> exit 1
+  inventory (this tree)                          glued 0, malformed quotes 0,
+                                                  missing alt 0                        -> exit 0
+
+Why the definition is a tokenizer and not a regex, told honestly. The first shared
+definition *was* a regex - `("[^"]*"|'[^']*')(?=[a-zA-Z_:][-…]*=)`, "a quoted value
+immediately followed by attribute-name=" - and it counted 250, and the repair
+inserted 250 spaces, and 52 of those matches were inventions: a bare `"[^"]*"` will
+happily start a "value" at the *closing* quote of one attribute and run to the
+*opening* quote of the next, so in every page's viewport meta it matched `" content="`
+and the repair pushed a space **inside the value** - `content="width=device-width…"`
+became `content=" width=device-width…"` on 53 files. The proof this repo was written
+to trust passed on every one of them: "the non-whitespace bytes are unchanged" cannot
+see a space inside a value, because a space inside a value *is* a whitespace byte.
+The proof is not wrong, it is answering a different question. What caught it was
+diffing the two trees as (tag, attribute, value) triples, which asks the question
+that matters: did the meaning of any attribute change. So `fix()` is a walk that can
+only land between two attributes it has parsed, `space-fix.py` now asserts both
+proofs (non-whitespace bytes identical **and** triples identical), and both are kept
+because neither catches the other's failure. It also refuses to touch a tag whose
+quotes are already broken - inserting spaces into a tag you cannot parse is guessing
+at content, which is why the 2 quote tags are escaped by a narrow, asserted function
+(`&quot;`, round-trip checked) rather than by the general repair.
+
+Also in this commit, because a check that only tests the instance is how item 5 came
+to be filed wrongly in the first place: `inventory.py` reports what is *not* being
+fixed here. `missing alt` is 0 on all 721 images - the ticket's "screen readers get
+nothing" is false, the HTML parser recovers, every `alt` already arrives - and
+`alt=""` is 0 too: **nothing on this site is marked decorative**, and 155 author
+avatars carry `alt="Avatar of X"`. Emptying those 155 is the change a screen-reader
+user would actually thank this site for; it is a content decision about 155 elements
+and it is not in this commit. It is recorded in PLAN-ALT-NAV-OVERFLOW.md as the
+follow-up with the strongest user case of anything found in this branch.

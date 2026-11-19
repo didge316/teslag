@@ -1,0 +1,31 @@
+Round six. The owner has delegated the ship decision to you and told me to go with whatever you decide, so decide - commit to A or D, do not hand me a framework. I will run your answer without arguing with it. Reply under ~600 words, numbered, and put the decision on its own first line.
+
+Round five you chose A, and your reasoning was sound: B and C were unscoped, both land in CSS every engine loads, so "regress all engines and all readers to remove a WebKit-only artifact at 300%" was the wrong trade. That argument assumed those were the only two fixes. They were not. Since round five I found a third, and it is cheap, so the trade has changed shape and you should re-decide rather than restate.
+
+WHAT CHANGED. Round three localised the leak by capping the font of ONLY input[type=submit] (green at 320 and 1280) versus every field EXCEPT the submit (still red). It is one element: the EmailOctopus submit button, value="Download Now", computed font 48px, box capped at 150px, its intrinsic width reaching 380 inside that box. Round four found rules that kill the intrinsic contribution while touching nothing else, and I measured them in fix465.py - fresh page per rule, one page load each, so no in-page staleness can manufacture a false green:
+
+  U3  .eo-form input[type=submit]{overflow:clip}          465 -> 320  widget screenshot IDENTICAL
+  U6  ...{overflow:hidden}                                465 -> 320  widget screenshot IDENTICAL
+  U7  ...{overflow:hidden; overflow:clip}  (cascade, so Safari <16 keeps the fix)
+                                                          477 -> 320  widget screenshot IDENTICAL
+                                                        1295 -> 1280  whole-house @1280 root 48, GREEN
+                                                        root 16: rule is inert (page already green)
+                                                        chromium: rule inert (page already green)
+  U1  appearance:none                                     465 -> 465  no effect
+  U4  display:block + inline-size:100%                    465 -> 465  no effect
+  U5  width:fit-content + max-width:100%                  465 -> 465  no effect
+  U2  contain:content                                     477 -> 320  works too, but it also creates a
+                                                                        stacking context and a paint clip
+
+The button's box (150px), font (48px) and label are byte-for-byte unchanged: the screenshot of `.eo-form` hashes the same with and without the rule, in webkit and in chromium. Nothing is clipped that is painted - the button's own scrollWidth 149 vs clientWidth 148 says its content already fits. So the blast radius you were protecting - "every reader, every engine, every zoom level" - is empty for D. That is the whole difference from B and C, and it is why I am back.
+
+THE COST OF D. Every green artifact on this branch was produced against the pre-fix CSS, so honesty requires re-running the full matrix on all three engines: chromium + firefox + webkit sequentially, webkit last and alone because it dies under load. ~75-90 minutes of box time, unattended, and I keep the current red webkit artifact as the evidence of what was wrong. If a single cell comes back red I stop and do not commit item 7.
+
+THE CASE FOR A, still on the table. WebKit reds are 145 of 624, ALL at root 48px; zero at 16px and 32px, in webkit too. 1.4.4's bar is 200% (green, all three engines), 1.4.10's is 320 CSS px at default zoom (green). It scrolls onto empty space from a third-party widget. Your round-five line: "the exception is not a compromise, it is a state no user can enter" - though I have not verified the macOS/iOS minimum-font-size ceilings you named, and I will not claim them unchecked.
+
+WHAT I NEED FROM YOU:
+1. The decision, first line: A or D. Then defend it against the other in two or three sentences, given that the fix is now pixel-identical and scoped to one element inside a widget we already style.
+2. If D: the stopping rule. What counts as a regression I must not ship? (I propose: any red cell at any root font in chromium or firefox that was green pre-fix = revert; any webkit red at 16/32px = revert; a webkit red only at 48px = fall back to A with the evidence I already have. Correct me.)
+3. If D: what the commit for item 7 must record so this is never re-litigated - do you want the failed-fixes table in the commit message, in tests/overflow/KNOWN-WEBKIT-300.md, or in both, and what exactly goes in each?
+4. If A: same question inverted - what has to be written, where, for the next reader to re-decide without my three hours.
+5. One thing I have not measured that would make you prefer the other answer. Name it and I will measure it before I run anything.

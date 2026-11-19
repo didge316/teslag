@@ -1,0 +1,126 @@
+Tests, the review transcripts, and the runner that sequences them
+
+The three item commits ship their own instruments; this commit is the parts that are
+not specific to one item - the sticky-CTA regression guard, the transcripts of the
+review the item 7 measurement was argued through, the screenshot tool, and the runner
+that runs everything in the order that survives this box.
+
+**tests/sticky-cta/** existed before this branch and is the reason item 7's caps are
+allowed to exist at all: a fixed bar whose reservation moves when a gutter is capped
+is a page whose content slides under the CTA. It measures the reservation against the
+bar, clipping, the 24px gap and the 44px target on one page across three engines at
+100/150/200/250/300/400% root font, against per-engine baselines kept in git, and
+`engines.py` re-checks the same geometry across all three engines. Measured on the tree
+the bar actually lives in - which is the working tree, not any commit on this branch:
+`git show HEAD:js/scripts.js | grep -c sticky` is **0**, and the copy in the tree has 10
+matches including `tmg-sticky-cta`. On that tree: **122 assertions passed, 0 failed in
+chromium; 121 and 0 in webkit; 120 and 0 in firefox - 363 assertions, not one failing**
+(run 13:04-13:13; the per-engine counts
+below are captured in `tests/sticky-cta/summary-2026-11-19.txt`, in this commit) and
+**the cross-engine re-check asserted 27 of 27 collected cases** (`engines.json`, in this commit): the bar is 87px tall at 100%, 200%, 300%
+and 400% root font in chromium and in webkit, 105px at all four in firefox, `reserveOK`
+true and `clipped` false in all 27 rows, with `drift=+0px` between 100% and 400% in every
+engine - the failure mode this guard exists for is a bar that grows when a reader's font
+grows, and across 27 cases it never did. So this is a statement about a feature that is
+about to land, not about a tree this branch contains - none of these commits carry the
+bar, and the suite ships as the forward-compatibility guard for it. Which tree a green
+suite was measured on is worth asking of every green suite: read as "the sticky suite is
+green on this branch", the sentence would be the quietest kind of claim there is, a
+passing suite measuring a feature that is not in the thing being shipped. What it does
+license is the narrower thing item 7 needs: across every root font in all three engines
+the bar's height did not move by a pixel under item 7's caps, which is what makes "we
+capped some gutters" a safe sentence for the day the bar lands.
+
+The suite's own `recalc60` drift number is in here too, and demoted: it measures how
+long a forced re-layout takes under load, and it was being read as a correctness
+signal it does not carry. It stays, labelled as a load gauge, with the note in place;
+`layouts=+0` is the claim, `recalc60` is not. The 2026-11-19 run is the case for that
+demotion: the only line the suite flagged as drift was `recalc60: 705 -> 701`, in chromium,
+on a box that had finished a 1,872-cell matrix twelve minutes earlier - a number moving
+because the machine was busy, which is a load gauge behaving exactly as it should and
+would have read as a regression if it were still being treated as evidence.
+
+**tests/reviews/** - six rounds of the review this branch's measurement methodology
+came out of, question and reply kept whole. Hermes' three findings that changed code
+rather than prose: every gate needs a negative control run in the same process as the
+measurement, because an assertion with no dynamic range is not an assertion; a
+fixed-subtree scan has to exist because `position: fixed` content clipping itself is
+invisible to `documentElement.scrollWidth`; and inertness at 100% has to be captured
+at line level, because `break-word` and `white-space: normal` move glyphs while every
+box keeps its size - a box diff is blind to the exact class of change item 7's
+`white-space` rules introduce. Round three also settled a page count I had been
+quoting two ways (53 files in the tree, 52 committed, and only 52 belong to this
+branch), and told me to stop using `recalc60` as evidence, which I had been doing.
+Rounds four to six are the WebKit investigation, and they changed code too: a
+candidate CSS rule has to be tested on a freshly loaded page, because WebKit's
+scrollable overflow area can go stale once its cause is hidden and an in-page mutation
+test will report a working fix as ineffective; a focus-ring check that screenshots the
+widget proves nothing, because this control's ring is a `box-shadow` painted outside
+its own border box, so the screenshot has to cover the ring region with the scroll
+position normalised; "green before and green after" is not inertness, inertness is the
+geometry and the pixels unchanged; and a gate whose tolerance is 1px must print how
+many cells passed *only* because of it, because a 331-of-320 pass is a second defect
+hiding behind the number. Rounds five and six disagree with each other on purpose:
+round five chose to document the WebKit exception rather than ship a rule, round six
+reversed that once a pixel-identical fix existed, and both replies are in here so the
+reversal is auditable rather than edited out.
+
+**tests/shots.py** takes the before/after screenshots at 32 and 48px root font with
+**no mobile emulation anywhere**: `is_mobile` changes how `position: fixed` and
+`innerWidth` behave, so a mobile-emulated screenshot of a fixed bar is a screenshot of
+a different page. **tests/validate.sh** is the runner: the page list comes from `git
+ls-files '*.html'`, not from a file in /tmp, so the measurement describes the commit;
+the steps run sequentially; and webkit runs last and alone, because twice under
+parallel load it died mid-matrix with `TargetClosedError` and reported nothing, which
+looks identical to a green run if you only read the summary line. Its own cleanup
+`pkill` of mine killed two definitive runs earlier the same day, so nothing in this
+directory pattern-kills anything any more. Artefacts are results only when a verdict
+line has been read out of them after the process ended - a file whose tail is a
+traceback is not a measurement, and both times that happened here the false number was
+already in my notes.
+
+`tests/overflow/gate-WEBKIT-00..03.txt` are kept as the counter-evidence, and they are
+not a measurement of anything: four solo 13-page chunks of the webkit matrix, each of
+them ending in `TargetClosedError` on the first red cell, from the instrument before the
+diagnostic sweep was wrapped in a guard. They ship because a success story with no record
+of the failure that produced it teaches the next reader nothing about what the 31-minute
+run was worth, or about why the gate's `probe.WORST` call must never be able to end one.
+
+**tests/ship/** is the machinery that made these four commits, and it is in git because
+the first version of it lived in `/tmp`, and a reboot on 2026-11-19 deleted it along
+with the measured tree it had served on `:8200` — for the second time in this project's
+history, which is exactly what PLAN-ALT-NAV-OVERFLOW.md §1 means by "harnesses live in
+the repo, never `/tmp`". `stage.py` regenerates every intermediate state from
+`git show HEAD:<path>` plus this branch's own transformations, and stops on any
+difference between the generated tree and the working tree that does not mention the
+owner's in-flight Electrical Experimenter work. `commit-index.py` writes the **index**
+(`hash-object -w` + `update-index --cacheinfo`) and never the filesystem, then verifies a
+worktree of `HEAD` against the measured tree file for file; it refuses to commit unless
+every artefact its messages quote still contains its own verdict line - and the rule for a
+BEFORE artefact is the opposite of the rule for a FINAL one, because a before half that
+came back green would mean the gate cannot tell a fixed page from an unmeasured one, and
+every green number above it would be hollow. It also asserts the scope **per commit as it
+lands**: an allowlist of the paths that commit may touch, none of the owner's paths, no
+deletes or mode changes, and no `sticky` line in `js/scripts.js` in any of the four -
+because checking only the tip is the same mistake as checking only `git status`, and a
+commit that carried somebody's file with a later commit that removed it would leave HEAD
+clean and history dirty. It fails fast, naming the `git reset --hard` that undoes it, and
+`--verify-only` re-runs all four checks over commits that already exist: an invariant you
+can only exercise while committing is an invariant you cannot re-run after an amend, a
+rebase, or a second pair of hands on the branch. `split.py` is the
+item-7/item-6 CSS cut, whose three tree-writing modes now refuse to run without
+`--write-tree`, because they exist for a rehearsal in a scratch clone and the commit
+path only ever calls the dry one; its `css7` mode regenerates the cut stylesheet that
+every BEFORE-flavour cell is served, which `stage.py shipped` now calls on every build -
+before that it was only ever written by a tree-mutating mode, and it had quietly gone
+stale against a stylesheet nobody was shipping. That is the second of two silent staleness
+traps found here: `stage.py` with no argument means `build`, which regenerates the page
+states and leaves `tests/.staging/site-shipped` pointing at the last build, while printing
+"generated 52 pages" and looking exactly like a rebuild. `shipped` is the mode that rebuilds
+the tree the gates measure, and `validate.sh` step 0/9 calls it. `messages/` holds these four
+messages for the same reason the gate artefacts are committed: a claim and the measurement
+behind it should age together, or the drift is visible.
+
+**.gitignore**: `__pycache__/` and `tests/.staging/` added. The measured runs stay in
+git as evidence; the caches and the regenerated intermediate trees that produce them do
+not count as evidence.
