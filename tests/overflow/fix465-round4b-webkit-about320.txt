@@ -1,0 +1,58 @@
+
+=== about @ 320px root 48px, webkit ===
+      pixels inside .eo-form: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U1 appearance:none on the submit (UA intrinsic sizing off)
+      doc.scrollWidth 465 -> 465 of 320 | the document does not scroll | still 145px over
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 320): (1,200)=div.col-lg-8div.rowdiv.container; (1,600)=div.col-lg-8div.rowdiv.container; (1,1200)=; (10,200)=div.col-lg-8div.rowdiv.container; (10,600)=div.col-lg-8div.rowdiv.container; (10,1200)=; (25,200)=div.col-lg-8div.rowdiv.container; (25,600)=div.col-lg-8div.rowdiv.container; (25,1200)=; (45,200)=p.fs-5section.mb-5article; (45,600)=p.fs-5section.mb-5article; (45,1200)=; (70,200)=p.fs-5section.mb-5article; (70,600)=p.fs-5section.mb-5article; (70,1200)=
+      .eo-form: box w=150 left=85 content scrollWidth 380 -> 380 of 150
+      submit <input value='Download Now'> w=150 R235 font=48px Noto sans width=150px minW=auto maxW=100% scroll/client 149/148
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+      pixels inside .eo-form: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U2 contain:content on the submit
+      doc.scrollWidth 465 -> 320 of 320 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 320): (1,200)=div.col-lg-8div.rowdiv.container; (1,600)=div.col-lg-8div.rowdiv.container; (1,1200)=; (10,200)=div.col-lg-8div.rowdiv.container; (10,600)=div.col-lg-8div.rowdiv.container; (10,1200)=; (25,200)=div.col-lg-8div.rowdiv.container; (25,600)=div.col-lg-8div.rowdiv.container; (25,1200)=; (45,200)=p.fs-5section.mb-5article; (45,600)=p.fs-5section.mb-5article; (45,1200)=; (70,200)=p.fs-5section.mb-5article; (70,600)=p.fs-5section.mb-5article; (70,1200)=
+      .eo-form: box w=150 left=85 content scrollWidth 380 -> 175 of 150
+      submit <input value='Download Now'> w=150 R235 font=48px Noto sans width=150px minW=auto maxW=100% scroll/client 148/148
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+      pixels inside .eo-form: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U3 overflow:clip on the submit itself
+      doc.scrollWidth 465 -> 320 of 320 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 320): (1,200)=div.col-lg-8div.rowdiv.container; (1,600)=div.col-lg-8div.rowdiv.container; (1,1200)=; (10,200)=div.col-lg-8div.rowdiv.container; (10,600)=div.col-lg-8div.rowdiv.container; (10,1200)=; (25,200)=div.col-lg-8div.rowdiv.container; (25,600)=div.col-lg-8div.rowdiv.container; (25,1200)=; (45,200)=p.fs-5section.mb-5article; (45,600)=p.fs-5section.mb-5article; (45,1200)=; (70,200)=p.fs-5section.mb-5article; (70,600)=p.fs-5section.mb-5article; (70,1200)=
+      .eo-form: box w=150 left=85 content scrollWidth 380 -> 175 of 150
+      submit <input value='Download Now'> w=150 R235 font=48px Noto sans width=150px minW=auto maxW=100% scroll/client 149/148
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+      pixels inside .eo-form: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U4 display:block + inline-size:100% on the submit
+      doc.scrollWidth 477 -> 465 of 320 | the document does not scroll | still 145px over
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 320): (1,200)=div.col-lg-8div.rowdiv.container; (1,600)=div.col-lg-8div.rowdiv.container; (1,1200)=; (10,200)=div.col-lg-8div.rowdiv.container; (10,600)=div.col-lg-8div.rowdiv.container; (10,1200)=; (25,200)=div.col-lg-8div.rowdiv.container; (25,600)=div.col-lg-8div.rowdiv.container; (25,1200)=; (45,200)=p.fs-5section.mb-5article; (45,600)=p.fs-5section.mb-5article; (45,1200)=; (70,200)=p.fs-5section.mb-5article; (70,600)=p.fs-5section.mb-5article; (70,1200)=
+      .eo-form: box w=150 left=85 content scrollWidth 392 -> 380 of 150
+      submit <input value='Download Now'> w=150 R235 font=48px Noto sans width=150px minW=auto maxW=100% scroll/client 149/148
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+      pixels inside .eo-form: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U5 width:fit-content + max-width:100% on the submit
+      doc.scrollWidth 465 -> 465 of 320 | the document does not scroll | still 145px over
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 320): (1,200)=div.col-lg-8div.rowdiv.container; (1,600)=div.col-lg-8div.rowdiv.container; (1,1200)=; (10,200)=div.col-lg-8div.rowdiv.container; (10,600)=div.col-lg-8div.rowdiv.container; (10,1200)=; (25,200)=div.col-lg-8div.rowdiv.container; (25,600)=div.col-lg-8div.rowdiv.container; (25,1200)=; (45,200)=p.fs-5section.mb-5article; (45,600)=p.fs-5section.mb-5article; (45,1200)=; (70,200)=p.fs-5section.mb-5article; (70,600)=p.fs-5section.mb-5article; (70,1200)=
+      .eo-form: box w=150 left=85 content scrollWidth 380 -> 380 of 150
+      submit <input value='Download Now'> w=150 R235 font=48px Noto sans width=150px minW=auto maxW=100% scroll/client 149/148
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+      pixels inside .eo-form: DIFFERS (02cbce6f -> ed09a99d)
+  U6 overflow:hidden on the submit (works everywhere, 2005-era)
+      doc.scrollWidth 465 -> 320 of 320 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 320): (1,200)=div.col-lg-8div.rowdiv.container; (1,600)=div.col-lg-8div.rowdiv.container; (1,1200)=; (10,200)=div.col-lg-8div.rowdiv.container; (10,600)=div.col-lg-8div.rowdiv.container; (10,1200)=; (25,200)=div.col-lg-8div.rowdiv.container; (25,600)=div.col-lg-8div.rowdiv.container; (25,1200)=; (45,200)=p.fs-5section.mb-5article; (45,600)=p.fs-5section.mb-5article; (45,1200)=; (70,200)=p.fs-5section.mb-5article; (70,600)=p.fs-5section.mb-5article; (70,1200)=
+      .eo-form: box w=150 left=85 content scrollWidth 380 -> 175 of 150
+      submit <input value='Download Now'> w=146 R233 font=48px Noto sans width=146px minW=auto maxW=100% scroll/client 144/144
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+      pixels inside .eo-form: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 477 -> 320 of 320 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 320): (1,200)=div.col-lg-8div.rowdiv.container; (1,600)=div.col-lg-8div.rowdiv.container; (1,1200)=; (10,200)=div.col-lg-8div.rowdiv.container; (10,600)=div.col-lg-8div.rowdiv.container; (10,1200)=; (25,200)=div.col-lg-8div.rowdiv.container; (25,600)=div.col-lg-8div.rowdiv.container; (25,1200)=; (45,200)=p.fs-5section.mb-5article; (45,600)=p.fs-5section.mb-5article; (45,1200)=; (70,200)=p.fs-5section.mb-5article; (70,600)=p.fs-5section.mb-5article; (70,1200)=
+      .eo-form: box w=150 left=85 content scrollWidth 392 -> 175 of 150
+      submit <input value='Download Now'> w=150 R235 font=48px Noto sans width=150px minW=auto maxW=100% scroll/client 149/148
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198

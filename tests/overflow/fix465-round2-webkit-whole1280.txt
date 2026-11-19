@@ -1,0 +1,33 @@
+
+=== whole-house @ 1280px root 48px, webkit ===
+  S1 DOM: size="1" on every field (is it really 20 characters?)
+      doc.scrollWidth 1295 -> 1295 of 1280 | the document DOES scroll to x=15 | still 15px over
+      (stripped size= from 4 fields)
+      .eo-form: box w=210 left=915 content scrollWidth 380 -> 380 of 210
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=1 minW=0px width=206px font=48px scroll/client 204/204
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=1 minW=0px width=206px font=48px scroll/client 204/204
+  S2 field-sizing: fixed (the CSS built for exactly this)
+      doc.scrollWidth 1307 -> 1307 of 1280 | the document DOES scroll to x=15 | still 27px over
+      .eo-form: box w=210 left=915 content scrollWidth 392 -> 392 of 210
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=48px scroll/client 204/204
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=48px scroll/client 204/204
+  S3 fields font 16px (works, but stops the form scaling with zoom)
+      doc.scrollWidth 1307 -> 1280 of 1280 | the document does not scroll | GREEN
+      .eo-form: box w=210 left=915 content scrollWidth 392 -> 210 of 210
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=16px scroll/client 204/204
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=16px scroll/client 204/204
+  S4 fields font capped with clamp(16px, 1rem, 24px)
+      doc.scrollWidth 1295 -> 1280 of 1280 | the document does not scroll | GREEN
+      .eo-form: box w=210 left=915 content scrollWidth 380 -> 210 of 210
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=24px scroll/client 204/204
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=24px scroll/client 204/204
+  S5 the honest container: .eo-form{overflow-x:auto}
+      doc.scrollWidth 1295 -> 1280 of 1280 | the document does not scroll | GREEN  <-- a scroll container: the overflow is still there and now reachable inside the form, so the page stops scrolling but the form starts
+      .eo-form: box w=210 left=915 content scrollWidth 380 -> 380 of 210
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=48px scroll/client 204/204
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=48px scroll/client 204/204
+  S6 the honest container, hidden variant, for comparison with S5
+      doc.scrollWidth 1295 -> 1280 of 1280 | the document does not scroll | GREEN  <-- clipping, not fixing: the number went down because the page stopped reporting its own overflow
+      .eo-form: box w=210 left=915 content scrollWidth 380 -> 380 of 210
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=48px scroll/client 204/204
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=48px scroll/client 204/204

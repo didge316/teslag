@@ -1,0 +1,8 @@
+flavour: shipped-run | served CSS per cell: the on-disk CSS, unrouted
+
+negative control: chromium: cut-CSS index@390x48px over by 300px, navbar-brand 654px (red as it must be)
+canaries (read in the same evaluate as the verdict, all 624 cells): root font read back, 10rem dimension probe, Bootstrap applied, navbar-brand white-space per flavour | payload hashes 322b32b3533a/n/a
+reveals forced by the IntersectionObserver stub: on | cells quiesced: 624 of 624 | fixed subtrees clipping their own content: 0 (invisible to documentElement.scrollWidth; see the module docstring)
+
+624 of 624 engine x page x viewport x root-font combinations green  (52 pages x 12 cells [320px x 16px, 320px x 32px, 320px x 48px, 390px x 16px, 390px x 32px, 390px x 48px, 768px x 16px, 768px x 32px, 768px x 48px, 1280px x 16px, 1280px x 32px, 1280px x 48px] x engines ['chromium'])
+OK: no horizontal scroll at 200% or 300% root font, and none at 320px (WCAG 1.4.4 / 1.4.10).

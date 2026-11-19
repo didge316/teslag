@@ -1,0 +1,22 @@
+
+=== whole-house @ 1280px root 48px, webkit ===
+  T1 only input[type=submit] at 16px (is it the button's value text?)
+      doc.scrollWidth 1295 -> 1280 of 1280 | the document does not scroll | GREEN
+      .eo-form: box w=210 left=915 content scrollWidth 380 -> 210 of 210
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=48px scroll/client 204/204
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=48px scroll/client 204/204
+  T2 only text/email inputs at 16px (is it a field's character area?)
+      doc.scrollWidth 1295 -> 1295 of 1280 | the document DOES scroll to x=15 | still 15px over
+      .eo-form: box w=210 left=915 content scrollWidth 380 -> 380 of 210
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=16px scroll/client 204/204
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=16px scroll/client 204/204
+  T3 submit at 24px - the narrowest honest-looking cap
+      doc.scrollWidth 1295 -> 1280 of 1280 | the document does not scroll | GREEN
+      .eo-form: box w=210 left=915 content scrollWidth 380 -> 210 of 210
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=48px scroll/client 204/204
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=48px scroll/client 204/204
+  T4 everything but the submit capped, to see what S4 really needed
+      doc.scrollWidth 1295 -> 1295 of 1280 | the document DOES scroll to x=15 | still 15px over
+      .eo-form: box w=210 left=915 content scrollWidth 380 -> 380 of 210
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=24px scroll/client 204/204
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=24px scroll/client 204/204

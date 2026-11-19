@@ -1,0 +1,32 @@
+
+=== whole-house @ 1280px root 48px, webkit ===
+  U1 appearance:none on the submit (UA intrinsic sizing off)
+      doc.scrollWidth 1295 -> 1295 of 1280 | the document DOES scroll to x=15 | still 15px over
+      .eo-form: box w=210 left=915 content scrollWidth 380 -> 380 of 210
+      submit <input value='Download Now'> w=210 R1125 font=48px Noto sans width=210px minW=auto maxW=100% scroll/client 209/208
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=48px scroll/client 204/204
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=48px scroll/client 204/204
+  U2 contain:content on the submit
+      doc.scrollWidth 1295 -> 1280 of 1280 | the document does not scroll | GREEN
+      .eo-form: box w=210 left=915 content scrollWidth 380 -> 210 of 210
+      submit <input value='Download Now'> w=210 R1125 font=48px Noto sans width=210px minW=auto maxW=100% scroll/client 208/208
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=48px scroll/client 204/204
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=48px scroll/client 204/204
+  U3 overflow:clip on the submit itself
+      doc.scrollWidth 1307 -> 1280 of 1280 | the document does not scroll | GREEN
+      .eo-form: box w=210 left=915 content scrollWidth 392 -> 210 of 210
+      submit <input value='Download Now'> w=210 R1125 font=48px Noto sans width=210px minW=auto maxW=100% scroll/client 209/208
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=48px scroll/client 204/204
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=48px scroll/client 204/204
+  U4 display:block + inline-size:100% on the submit
+      doc.scrollWidth 1295 -> 1295 of 1280 | the document DOES scroll to x=15 | still 15px over
+      .eo-form: box w=210 left=915 content scrollWidth 380 -> 380 of 210
+      submit <input value='Download Now'> w=210 R1125 font=48px Noto sans width=210px minW=auto maxW=100% scroll/client 209/208
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=48px scroll/client 204/204
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=48px scroll/client 204/204
+  U5 width:fit-content + max-width:100% on the submit
+      doc.scrollWidth 1295 -> 1295 of 1280 | the document DOES scroll to x=15 | still 15px over
+      .eo-form: box w=210 left=915 content scrollWidth 380 -> 380 of 210
+      submit <input value='Download Now'> w=210 R1125 font=48px Noto sans width=210px minW=auto maxW=100% scroll/client 209/208
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=48px scroll/client 204/204
+      row w=206 L917 R1123 minW=200px maxW=100% scroll/client 206/206 | input w=206 R1123 size=None minW=0px width=206px font=48px scroll/client 204/204

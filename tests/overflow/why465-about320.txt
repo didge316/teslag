@@ -1,0 +1,48 @@
+
+=== about @ 320px root 48px, webkit, popup live (dwell 25s can reveal it) ===
+  reproduced: scrollWidth 465 clientWidth 320 (+145) | quiesced=True | root read back 48px (probe says 480.0px per 10rem, want 480) | bootstrap True | injection fired 1x
+  boxes: de.scrollWidth 465 | body.scrollWidth 465 | de rect width 320 | clientWidth 320 | innerWidth 320 | scrollingElement is de: True
+  sessionStorage[tesla_exit_popup_shown] at measure time = None
+  popup: absent
+  panel: absent
+  honeypot: w=150 left=-4915 right=-4765 pos=absolute in .eo-form=True in popup=False parent='emailoctopus-form'
+  body children: ['NAV.navbar', 'DIV.container', 'FOOTER.py-5', 'SCRIPT.', 'SCRIPT.', 'SCRIPT.', 'SCRIPT.']
+  CAN A READER SCROLL RIGHT? scrollTo(1000,0) -> scrollX 49 (was 0, reached 49)
+    => real: a reader can scroll to a place they cannot use; this is a defect
+  bisect <body> children (base scrollWidth 465): DIV.container.mt-5 -> 320
+  descent by contribution (each step is the child whose absence lowers documentElement.scrollWidth):
+    hop 0: hiding div.container.mt-5                       ->   320 (with it 465)
+    hop 1: hiding div.row.justify-content-center           ->   320 (with it 465)
+    hop 2: hiding div.col-lg-8                             ->   320 (with it 465)
+    hop 3: hiding article                                  ->   320 (with it 465)
+    hop 4: hiding div.card.mb-4.mt-4                       ->   320 (with it 465)
+    hop 5: hiding div.card-body.text-center                ->   320 (with it 465)
+    hop 6: hiding div.eo-form                              ->   320 (with it 465)
+    hop 7: hiding div.inline-container                     ->   320 (with it 465)
+    hop 8: hiding div                                      ->   320 (with it 465)
+    hop 9: hiding div.form-container                       ->   320 (with it 465)
+    hop 10: hiding div.emailoctopus-form-wrapper.emailoctop ->   320 (with it 465)
+    hop 11: hiding form.emailoctopus-form                   ->   320 (with it 465)
+  LEAF form.emailoctopus-form  box left=85 right=235 w=150 | its own scrollWidth 380 vs clientWidth 150
+       position=static display=block white-space=normal overflow-x=visible overflow-wrap=break-word word-break=normal
+       width=150px max-width=100% min-width=0px margins=0px/0px float=none font=48px 'Noto sans, sans-serif'
+       html: <form class="emailoctopus-form" action="https://eocampaign1.com/form/ca475970-c34a-11f1-9696-9df3578f190e" data-theme="eo-form" style="">
+                <div class="main-form">
+                    <div eo-form-fields-container="">
+        
+       child div.main-form                          left=    85 right=   235 w=  150 scrollW/clientW 380/150  <-- self-overflowing
+       child div.emailoctopus-form-row-hp           left= -4915 right= -4765 w=  150 scrollW/clientW 150/150
+  candidate fixes applied to the leaf and reverted (scrollWidth before 465):
+    overflow-wrap:anywhere     465 ->   465   no change
+    word-break:break-all       465 ->   465   no change
+    white-space:normal         465 ->   465   no change
+    width:100%;max-width:100%  465 ->   465   no change
+    min-width:0                465 ->   465   no change
+    position:static            465 ->   465   no change
+    float:none                 465 ->   465   no change
+  inside body.children[1] (DIV), widest right edges against a 320px viewport (scrollWidth 465):
+  hide-and-see (base 465, restored base 465):
+    hide .tesla-popup                          hit= 0 -> scrollWidth 465
+    hide .tesla-popup__panel                   hit= 0 -> scrollWidth 465
+    hide div.emailoctopus-form-row-hp          hit= 1 -> scrollWidth 465
+    hide .tesla-popup + .emailoctopus-form-row-hp hit= 1 -> scrollWidth 465

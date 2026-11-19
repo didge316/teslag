@@ -1,0 +1,38 @@
+
+=== about @ 320px root 48px, chromium ===
+  R1 row min-width:0
+      doc.scrollWidth 320 -> 320 of 320 | the document does not scroll | GREEN
+      .eo-form: box w=150 left=85 content scrollWidth 175 -> 150 of 150
+      row w=146 L87 R233 minW=0px maxW=100% scroll/client 146/146 | input w=146 R233 size=None minW=0px width=146px font=48px scroll/client 144/144
+      row w=146 L87 R233 minW=0px maxW=100% scroll/client 146/146 | input w=146 R233 size=None minW=0px width=146px font=48px scroll/client 144/144
+  R2 fields min-width:0 + width:100%
+      doc.scrollWidth 320 -> 320 of 320 | the document does not scroll | GREEN
+      .eo-form: box w=150 left=85 content scrollWidth 175 -> 175 of 150
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+  R3 the missing half: R1+R2 together
+      doc.scrollWidth 320 -> 320 of 320 | the document does not scroll | GREEN
+      .eo-form: box w=150 left=85 content scrollWidth 175 -> 150 of 150
+      row w=146 L87 R233 minW=0px maxW=100% scroll/client 146/146 | input w=146 R233 size=None minW=0px width=146px font=48px scroll/client 144/144
+      row w=146 L87 R233 minW=0px maxW=100% scroll/client 146/146 | input w=146 R233 size=None minW=0px width=146px font=48px scroll/client 144/144
+  R4 MECHANISM PROBE: fields font 12px (not a fix)
+      doc.scrollWidth 320 -> 320 of 320 | the document does not scroll | GREEN
+      .eo-form: box w=150 left=85 content scrollWidth 175 -> 175 of 150
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=12px scroll/client 198/198
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=12px scroll/client 198/198
+  R5 DOM: strip the size attribute from fields
+      doc.scrollWidth 320 -> 320 of 320 | the document does not scroll | GREEN
+      (stripped size= from 4 fields)
+      .eo-form: box w=150 left=85 content scrollWidth 175 -> 175 of 150
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+  R6 broadest: every field and row and wrapper min-width:0
+      doc.scrollWidth 320 -> 320 of 320 | the document does not scroll | GREEN
+      .eo-form: box w=150 left=85 content scrollWidth 175 -> 150 of 150
+      row w=146 L87 R233 minW=0px maxW=100% scroll/client 146/146 | input w=146 R233 size=None minW=0px width=146px font=48px scroll/client 144/144
+      row w=146 L87 R233 minW=0px maxW=100% scroll/client 146/146 | input w=146 R233 size=None minW=0px width=146px font=48px scroll/client 144/144
+  R7 CANDIDATE THAT LIES: clip at the form
+      doc.scrollWidth 320 -> 320 of 320 | the document does not scroll | GREEN  <-- clipping, not fixing: the number went down because the page stopped reporting its own overflow
+      .eo-form: box w=150 left=85 content scrollWidth 175 -> 175 of 150
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198

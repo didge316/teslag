@@ -168,6 +168,42 @@
     padding: 0.4rem 0.75rem;
     border-radius: 0.25rem;
     font-weight: 600;
+    /* The button's own intrinsic width, not its box, is what put 49 of the 52
+       pages into a horizontal scroll in Safari/WebKit at a 48px root font (300%),
+       and at 1280px too - and into no other engine at any size. EmailOctopus's
+       control is value="Download Now" at a 48px font inside a 150px box: Blink
+       sizes a form control's preferred width from default font metrics and clamps
+       its contribution to the page, WebKit uses the used font (20 characters at
+       48px is 380px) and lets that contribution reach the document's scrollable
+       overflow area. So documentElement.scrollWidth reads 465 on a 320px viewport
+       (the form sits at left 85, and 85 + 380 = 465) while no element box reaches
+       past the viewport - and the reader still gets a scrollbar onto empty space:
+       scrollTo(1000,0) returns scrollX 33-49 and the strip it reveals holds
+       nothing. Every webkit red on the branch was at root 48px; webkit at 16px and
+       32px is clean, as are chromium and firefox at all twelve cells.
+
+       Clipping at the control stops the contribution at the only place it can be
+       stopped from. Measured and rejected instead: min-width:0 (on rows, on fields,
+       on .eo-form * - the boxes shrink to 146px and the number stays 465),
+       width/max-width caps, the size attribute (none is present; setting size=1
+       does nothing), field-sizing:fixed (unsupported in the build tested),
+       appearance:none, display:block + inline-size:100%, width:fit-content, and
+       contain:content (works, but it also creates a stacking context and a paint
+       clip for a problem that needs neither). Capping the fields' font-size fixes
+       it too and was rejected on purpose: it would pin third-party form text at
+       24px for every engine at >=250% zoom, which is the exact failure this branch
+       was opened to fix.
+
+       The control's box (150px), font (48px), label, and the pixels of its focus
+       ring (a 9.6px box-shadow spread reached by keyboard, in both engines, at
+       root 16 and 48) hash identically with and without these two lines.
+       `hidden` comes first so Safari below 16 keeps the fix, `clip` replaces it
+       where supported because a button has no use for a scroll container. The
+       numbers, the noise range and the re-run command are in
+       tests/overflow/KNOWN-WEBKIT-300.md; the evidence is the retained pre-fix
+       artefact tests/overflow/gate-BEFORE-cssfix-webkit-RED.txt. */
+    overflow: hidden;
+    overflow: clip;
 }
 .eo-form iframe {
     width: 100% !important;
@@ -180,4 +216,662 @@
 .eo-form input,
 .eo-form input[type="submit"] {
     font-family: "Noto sans", sans-serif !important;
+}
+
+/* Long unbreakable tokens in article prose: a sha256 digest, a file name with
+   underscores in it, a command line. A 64-character hex digest is one word, and
+   so is EMAIL_OCTOPUS_SETUP.md; at the 20px body size the first is about 700px
+   and the second about 400px. Both sit on /electrical-experimenter, which put
+   that page into a horizontal scroll at 375px and at 768px (shot_qa.py,
+   2026-10-20: scrollWidth 870 against clientWidth 375). `overflow-wrap:
+   anywhere` is the narrow fix: it only does anything when a word is already
+   wider than the line it sits on, and no other page on this site has such a
+   word, so nothing else re-renders. Checked after adding it: shot_qa.py
+   tesla-1894-word-search still reports scrollWidth == clientWidth at
+   375/768/1280, and that page carries the series' longest code spans and three
+   data tables. Tables are deliberately not in this selector: overflow-wrap
+   feeds min-content width, so applying it to table cells could change how wide
+   a table wants to be, and the tables here are inside .table-responsive, which
+   is already the right answer for a wide table. */
+article p,
+article li,
+article code {
+    overflow-wrap: anywhere;
+}
+
+/* Item 7's safety net, on body, for the case the selector above cannot reach:
+   text that leaves a box which is itself a perfectly ordinary width.
+   /tesla-worlds-fair-1893 at 300% root font puts `The Armatures Were
+   Photographed and the Exciters Made Ready` in an h2 that measures 318px wide
+   inside a 390px viewport - no bounding rect in the document has left the
+   viewport, so probe.py's first pass names nothing - and yet 122px of ink
+   stands past the h2's own right edge, which is what grew
+   documentElement.scrollWidth to 476 (diagnose.py <page> --ink, and
+   gate.py's `unfiltered` branch, which exists because a rect-only sweep is
+   blind here by construction). Headings, figcaptions, footer paragraphs and
+   bare text in a div are all outside every prose selector this file has, so
+   the net goes on body rather than on an enumeration that will be out of date
+   the first time a new page type is added.
+
+   It is `break-word`, deliberately NOT the `anywhere` used above: `anywhere`
+   is the one value that feeds min-content intrinsic sizing, which is exactly
+   what makes it the right tool inside a flex row - and exactly what would make
+   it a change to every flex, grid and shrink-to-fit box on 53 pages in order
+   to fix a wrapped word. `break-word` has no intrinsic-sizing effect at all,
+   so it cannot reflow anything that is not already overflowing. The two places
+   that DO need min-content to shrink state `min-width: 0` on the flex item
+   instead, which is the narrower way of getting the same thing.
+
+   Inert at 100% by construction, like the rule above it: overflow-wrap only
+   does anything when a word is already wider than the line it sits on, and at
+   root 16px no page on this site overflows at all (0 of 53, probe.py).
+
+   Tables are held back to `normal`, for the reason the comment above gives.
+   Measured, so the carve-out can be checked rather than trusted: no <code>,
+   <kbd>, <samp> or <pre> appears inside a <td> or <th> anywhere in the 53
+   pages, so nothing inside a cell is being inherited into today; the reset is
+   here so that stays true for whatever gets written later. Within that list it
+   is `table *` and `.table *` doing the work: a <code> in a cell gets its own
+   declaration from the prose rule, and a declaration on an element always beats
+   an inherited one whatever the specificity, so the bare `table`, `th` and `td`
+   selectors only reach text that has no element of its own. Trimming the list
+   back to those three would reopen the hole silently.
+
+   Not just a safety net any more, and this is the part a future cleanup would
+   break: two rules below depend on this declaration being inherited. The comment
+   rows (`min-width: 0`, no overflow-wrap of their own) and the navbar brand
+   (`white-space: normal; min-width: 0`, no overflow-wrap either) both get their
+   wrapping from here - the brand's longest word is 261px at 300% inside a 320px
+   viewport. Remove this rule as "too broad" and those two start putting ink
+   outside their boxes at the same time; the gate covers them, but the gate names
+   the symptom, not this line.
+
+   A word on the two dynamic regions this file also styles, because they are the
+   reason a 100%-inertness proof is hard to run: the rotating scarcity spinner has
+   an infinite animation and the email form is a third-party iframe that arrives
+   when it arrives. Both make any pixel diff across a page noisy by construction;
+   see tests/overflow/inert-at-100.py for how the check gets made deterministic.
+   */
+body {
+    overflow-wrap: break-word;
+}
+
+table, .table, table *, .table *, th, td {
+    overflow-wrap: normal;
+}
+
+/* ---------------------------------------------------------------------------
+   Mobile sticky offer bar
+   Mobile-only: on lg+ the sidebar (square/tower ad + email form) already
+   carries the offer, so a fixed bar there would just eat viewport.
+   Editorial chrome: dark neutral matching the navbar/footer, one calm green
+   button. Deliberately not red, not full-bleed, not uppercase.
+
+   The bar's own type is capped in px and bounded by viewport units, NOT left
+   in rem. Every size here used to be rem, so the site's own text-size control
+   (wp-textsize sets the root font) inflated the bar from 87px to 270px, and
+   keeping it inside the screen needed a tier ladder driven by a JS measurement
+   of the viewport. That measurement is the one number in this feature no
+   desktop instrument can be trusted for, and there is no iPhone or Mac here to
+   take it, so the dependency is deleted rather than verified: the bar is now a
+   deterministic height on every engine, which is why the reserved space below
+   can be a constant. Page text still scales with the control; this strip of
+   chrome deliberately does not.
+   --------------------------------------------------------------------------- */
+.tmg-cta-bar {
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9998;              /* below the exit popup (999999) on purpose */
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+    background: #212529;
+    color: #fff;
+    box-shadow: 0 -2px 12px rgba(0, 0, 0, .25);
+}
+.tmg-cta-bar.is-visible {
+    display: flex;
+}
+.tmg-cta-copy {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;           /* clips a clipped-nowrap child instead of letting
+                                   it push the button off the right edge */
+}
+.tmg-cta-label {
+    /* Clamped to one line rather than nowrap: a nowrap child inside the
+       overflow:hidden copy column can be clipped away entirely at large text
+       zoom, and the disclosure is the one string that must survive. Clamping
+       still leaves "AD" readable even when it truncates. */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    overflow: hidden;
+    font-size: 11px;                      /* fallback: no clamp/svh support */
+    font-size: clamp(9px, 1.4svh, 11px);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: #adb5bd;
+    margin-bottom: 2px;
+}
+.tmg-cta-title {
+    /* Two allowed lines rather than one ellipsised line: "The plans we
+       recommend" must never render as "The plans we recom…". Clamping to 2
+       keeps the bar height bounded either way. */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+    font-weight: 700;
+    font-size: 14px;                      /* fallback */
+    font-size: clamp(12px, 2.6svh, 14px);
+    line-height: 1.25;
+}
+.tmg-cta-meta {
+    display: -webkit-box;              /* clamped, not nowrap: the guarantee text */
+    -webkit-box-orient: vertical;      /* is worth two lines but never five, which */
+    -webkit-line-clamp: 2;             /* is what blew the bar to 135px at 320px   */
+    line-clamp: 2;
+    overflow: hidden;
+    font-size: 12px;                      /* fallback */
+    font-size: clamp(11px, 2.2svh, 12px);
+    line-height: 1.3;
+    color: #ced4da;
+}
+.tmg-cta-meta-sm {
+    display: none;
+}
+.tmg-cta-btn {
+    /* Never shrinks under flex - and is capped instead. Squeezing it with
+       flex:0 1 auto was tried first and regressed normal text: the copy column
+       has a huge max-content width (the guarantee line), so it absorbed almost
+       none of the overflow and the CTA took it, arriving at 93px wide with
+       "See the plans ->" wrapped onto two lines on every phone. A cap keeps the
+       label on one line at real sizes (intrinsic ~145px against a 198px cap at
+       320px) while still guaranteeing the disclosure column can never be pushed
+       to zero width, which is what happened with the old flex:0 0 auto and no
+       cap: measured label width 0px at 390px x 300% root font. */
+    flex: 0 0 auto;
+    max-width: min(200px, 62%);
+    white-space: normal;        /* only ever reached when the cap bites */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;           /* touch target */
+    padding: 10px 14px;
+    border-radius: 6px;
+    background: #438424;
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;            /* fallback */
+    font-size: clamp(13px, 2.4svh, 14px);
+    line-height: 1.1;
+    text-align: center;
+    text-decoration: none;
+}
+.tmg-cta-btn:hover,
+.tmg-cta-btn:focus {
+    background: #376e1e;
+    color: #fff;
+    text-decoration: none;
+}
+.tmg-cta-btn:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}
+/* Announced to assistive tech, invisible on screen. Defined here rather than
+   borrowing Bootstrap's utility so the bar does not depend on which version of
+   the framework the page happens to load. */
+.tmg-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+.tmg-cta-close {
+    flex: 0 0 auto;
+    width: 44px;                /* touch target */
+    height: 44px;
+    /* 12px of flex gap + 12px here = 24px clear space between the CTA and the
+       dismiss control. WCAG 2.5.8 target spacing wants >=24px; the old 10px gap
+       put a fat-fingered "See the plans" straight onto the dismiss button. */
+    margin: -8px -8px -8px 12px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #adb5bd;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+}
+.tmg-cta-close:hover,
+.tmg-cta-close:focus {
+    color: #fff;
+}
+.tmg-cta-close:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: -2px;
+}
+/* Small phones (up to 389px): the copy column collapses to ~130-150px once the
+   button and dismiss control are placed, so show the short guarantee line and
+   tighten the bar to keep it under ~15% of the viewport. */
+@media (max-width: 389.98px) {
+    .tmg-cta-bar {
+        gap: 8px;
+        padding: 8px 10px;
+        padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+    }
+    .tmg-cta-close {
+        margin-left: 16px;      /* 8px gap + 16px = still 24px clear of the CTA */
+    }
+    .tmg-cta-title {
+        font-size: 13px;                  /* fallback */
+        font-size: clamp(12px, 2.4svh, 13px);
+    }
+    .tmg-cta-meta {
+        display: none;
+    }
+    .tmg-cta-meta-sm {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+        overflow: hidden;
+        font-size: 11px;                  /* fallback */
+        font-size: clamp(10px, 2svh, 11px);
+        line-height: 1.3;
+        color: #ced4da;
+    }
+    .tmg-cta-btn {
+        padding: 10px 10px;
+        font-size: 13px;                  /* fallback */
+        font-size: clamp(12px, 2.2svh, 13px);
+    }
+}
+/* Reserve space so the bar never sits on top of real content.
+   A constant per breakpoint, and it can be a constant only because the bar's
+   height is now deterministic (see the note at the top of this block). It used
+   to be var(--tmg-cta-h), written from the measured bar by scripts.js, and the
+   measurement was the reason the bar needed an iPhone to be trusted.
+   Values are the measured bar height + a little headroom; env() is added here
+   as well as inside the bar's own padding, because the reservation has to
+   cover the bar's full rendered height the moment the site opts into
+   viewport-fit=cover. A few px of over-reserve is invisible (it only shows as
+   scrollable blank below the footer while the bar is up); under-reserve puts
+   the bar on top of real content, so the constant errs long. */
+body.tmg-cta-pad {
+    padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px));
+}
+@media (max-width: 389.98px) {
+    body.tmg-cta-pad {
+        padding-bottom: calc(86px + env(safe-area-inset-bottom, 0px));
+    }
+}
+
+/* ==========================================================================
+   Large text: a reader's own zoom must not put the page into a horizontal
+   scroll (WCAG 1.4.4 at 200%, WCAG 1.4.10 reflow at 320 CSS pixels).
+
+   Correcting the premise this was scoped on. The ticket said the site's own
+   A+/A- control (wp-textsize) sets the root font, which would make this "a
+   supported user action, not a browser-zoom curiosity". Measured, there is no
+   such control: nothing in the 53 pages or the 4 scripts sets the root font, and
+   the string survives only in a comment inherited from the WordPress template
+   this site was ported off. WCAG is indifferent to that - 1.4.4 is the reader's
+   browser zoom, which no site can switch off - but the numbers move: 200% is the
+   conformance requirement and 300% is grace. Nothing below is scoped to either,
+   because the rules are inert at 100% where they are inert - which is measured, not
+   assumed, and the one exception is named at the end of this block rather than left
+   out of the claim.
+
+   Measured before this block existed, 390px viewport, no mobile emulation
+   (probe.py, gate.py - emulation is not a substitute, tests/sticky-cta/SHIP.md):
+
+     root 16px (100%)  0 of 53 pages overflow
+     root 32px (200%)  53 of 53 pages overflow   worst  +70px
+     root 48px (300%)  53 of 53 pages overflow   worst +519px  /tesla-1894-plates
+
+   Measured with it, tests/overflow/gate.py, the committed 52 pages x 12 cells
+   (widths 320/390/768/1280 x root fonts 16/32/48) = 624 cells per engine:
+
+     chromium:  624 of 624 green; its negative control red as required (index at
+                390x48 with the cut payload: +300px, navbar-brand 654px)
+     firefox:   624 of 624 green; control red at different numbers (+382px, brand
+                736px - font metrics, same failure), so the control was not tuned
+     webkit:    tests/overflow/gate-FINAL-webkit.txt
+     the same gate over the same tree with this block's two regions cut out by
+     cssregions.py (one instrument run twice, not two instruments):
+     311 of 624 green - 313 red, every one of them closed by a rule below.
+
+   Both halves were run against a copy of the tree the branch will contain - 52
+   committed pages, the navbar rules item 6 adds not yet in this file, and the gate
+   prints the sha256 of both payloads every run, so a "before" that is secretly the
+   same stylesheet is visible instead of implied: 322b32b3533a shipped against
+   ad16a3df8e4f cut. Read the verdict line out of the artefact before quoting it;
+   twice on this branch a file ending in a traceback was almost quoted as a result.
+   This file does not hash to 322b32b3533a, because comments were improved after
+   those runs (and the hash of the file making that statement cannot be written
+   inside it, so the checker prints it rather than this comment doing so);
+   tests/overflow/css-comment-only.py keeps the measured (payload-measured-322b32b3533a.css, the one the browser parsed) next to it
+   and proves the pair is identical once comments are stripped - 90 rule blocks,
+   7735 chars of rule text, the same rule-text hash both ways. Commentary cannot
+   reach the CSSOM, but a provenance chain that relies on that fact out loud should
+   say so in a file that fails if it turns out not to be true.
+
+   Those numbers are worth more than the ones they replaced, because the gate that
+   produced the earlier "636 of 636 green" on three engines was measuring 16px
+   rendering at the 32px and 48px cells: it applied the root font in a way that
+   does not survive navigation. The run before the fix, the run after, and all
+   three engines agreed - which is what a matrix of lies looks like from the
+   summary line. gate.py now refuses to report a verdict it cannot substantiate
+   (a negative control inside every run, canaries read in the same evaluate as the
+   verdict, payload hashes, a stability re-read, exit 2 for the instrument and 1
+   for a defect); read its module docstring before changing anything here.
+
+   Three levers, in this order, and `overflow-x: hidden` nowhere: it hides the
+   symptom, leaves the offender, breaks the fixed sticky bar and can trap focus
+   off screen (PLAN §4).
+     1. `min-width: 0` on the flex and grid items that could not get narrower than
+        their longest word.
+     2. `min(rem, px-at-16px)` caps on the rem chrome that has no business scaling
+        with the reader's font - gutters, padding, margins. Every one of these
+        resolves to its own current value at 100%, so it cannot bite below the zoom
+        that was broken, and Bootstrap's spacing utilities are themselves
+        `!important`, so a cap that overrides one has to match that weapon and win
+        on specificity (measured, not assumed).
+     3. `body { overflow-wrap: break-word }` for the case no prose selector can
+        reach, and `white-space: normal` / `flex-wrap` where wrapping is the
+        answer - which is never a font-size cap, because a capped label or heading
+        is the accessibility control being fixed saying no to the person who asked
+        for it.
+   "Inert at 100%" is a claim about CSS as executed rather than as written, so it is
+   measured (tests/overflow/inert-at-100.py) and not argued: the things that would
+   make it false - a `!important` utility winning, a shorthand re-declaring a
+   longhand, a rule that changes where lines break with no box changing size - are
+   not arithmetic anyone can check by reading. The fallback line before each min()
+   is for engines without min(); same value, so it cannot bite either.
+
+   Measured: 156 page x width combinations at root 16px (52 pages x 390/320/1280px),
+   68 identical, 88 moved, 0 not reproducible. The 88 are exactly the 44 pages that
+   carry `.scarcity-widget`, at 320 and 390 only - the widget's `.v1-status-bar`
+   status line rewraps (3 lines to 2) under the two rules in the paragraph above it
+   and the page grows ~17px below that widget. Nothing moved at 1280px, and no page
+   without the widget moved at any width, so the exception is those two rules and not
+   the caps: the min() expressions and `overflow-wrap: break-word` are inert
+   everywhere measured. At 100% on phones the status line was already not fitting
+   inside its flex item - squeezed inside the bar, which documentElement.scrollWidth
+   cannot see, which is why the overflow gate never saw it either - and it wraps now.
+   If you read a claim in this file saying this block is inert at 100% with no
+   qualification, the claim is out of date: run the check.
+   ========================================================================== */
+
+/* 1. The navbar brand: the one offender on all 53 pages. Bootstrap 5.2.3 gives
+   .navbar-brand white-space:nowrap, and as a flex item its min-width:auto then
+   floors it at that single unwrappable line - measured 436px wide at 200% and
+   654px at 300%, in a 390px viewport (+70px / +300px).
+   The fix is the two properties that undo Bootstrap's own pair: unwrap the
+   text, and let the flex item shrink. NO font-size cap here, and that is a
+   deliberate change from the first cut of this block, which had
+   `font-size: min(1.25rem, 20px)` on the theory that the brand is chrome and
+   chrome does not grow. That theory is the accessibility control being fixed
+   saying no to the person who asked for it: a reader at 300% would have got
+   48px prose next to a 20px site name. Wrapping costs nothing they need to give
+   up, and it is enough - measured, not argued: the gate is green with no cap
+   on this rule. `overflow: hidden` (the other common recipe) is not here
+   because it truncates the site name, and at 300% "Generator" alone is 261px
+   wide, so a capped-and-clipped brand would have silently lost words.
+
+   The margin cap on the third line is what actually decides whether the reader
+   sees words or fragments, and the screenshot said so before the numbers did:
+   at 390px / 48px the brand rendered `Tesla / Magnetic / Generato / r` - no
+   content lost, no scroll, one word in pieces. "Generator" is 261px at 300% and
+   Bootstrap's `.navbar-brand { margin-right: 1rem }` is itself rem, so it cost
+   another 48px of a 358px container next to a 48px toggler: 358 - 48 - 48 = 262
+   against a 261px word. Capping that margin at its own 100% value (16px) buys
+   back 32px and the word stops being broken at this viewport. It cannot be saved
+   at 320px / 48px, where the brand gets 224px for a 261px word: nothing in this
+   rule set can fix that without shrinking the type, which is the one thing this
+   block refuses to do. So at 320x48 the site name still wraps mid-word, on one
+   line out of a many-line heading, and that is stated rather than hidden. */
+.navbar-brand {
+    white-space: normal;
+    min-width: 0;
+    margin-right: 16px;              /* fallback: no min() support */
+    margin-right: min(1rem, 16px);
+}
+
+/* 2. The 155 comment rows (31 pages). Bootstrap makes the avatar+comment row a
+   flex container and the comment body its second item; that item inherits
+   min-width:auto, so it cannot shrink below the longest word inside it. At 300%
+   root font a word like "electromagnetically" is wider than the 180px left for
+   the column once the 50px avatar, the .ms-3 1rem gap and the card padding are
+   paid for, and the whole page gains a horizontal scroll (+176px on
+   /tesla-magnetic-generator-worth-it, the worst of the 31, and +4px there at
+   200%, so this class of failure starts below 300% and is not an extreme-zoom
+   curiosity).
+   `min-width: 0` is the whole fix, and it is stated here rather than achieved
+   with `overflow-wrap: anywhere` on the text: `anywhere` would also shrink the
+   column by redefining min-content, which is the same visible result arrived at
+   by a route with intrinsic-sizing consequences for every descendant. Saying
+   "this flex item is allowed to be narrower than its content" on the one item
+   that is too wide is the narrow version. The word inside then breaks at the
+   box edge via body's break-word - which is the second half of the mechanism
+   and the reason both halves have to be read together: `break-word` alone is
+   inert here, because breaking a word at the line edge needs a line edge, and
+   `min-width: auto` refuses to make one.
+
+   The same mechanism, second offender, found only when the gate grew the
+   320x48 cell (49 of 53 pages failing it, +58px, and every one of the eight
+   cells the first matrix had was green over the top of it): the "Popular Pages"
+   sidebar card, 240 anchors over 48 pages, each one
+
+       <a class="d-flex align-items-center ..."><img class="rounded me-2
+       flex-shrink-0" ...><span class="text-dark">Can You Really Build a
+       Magnetic Generator to Power Your Home?</span></a>
+
+   At root 48px inside a 320px viewport the column left to the span is about
+   100px and the longest word in it, "Generator", is 209px (diagnose.py
+   whole-house span.text-dark 48 320). The image is already safe - it carries
+   Bootstrap's own flex-shrink-0 - and the span is the item that cannot go below
+   its min-content, so the anchor overflows and the document grows with it.
+   `break-word` is inherited into this span and does nothing, which is the
+   clearest demonstration in this change of why the two halves are needed:
+   breaking is only possible once the box is allowed to be narrower than the
+   word. min-width: 0 gives it the box; body's break-word gives it the break.
+   Exactly two element types match this - `a.d-flex > span` - measured, not
+   assumed: all 240 anchors in the site have the identical shape, an
+   img.rounded and one span.text-dark and nothing else. */
+.d-flex > .ms-3,
+a.d-flex > span {
+    min-width: 0;
+}
+
+/* The same rows, second lever: their gap. `.ms-3` is 1rem, so at 300% the space
+   between avatar and comment body costs 48px of a 390px viewport - rem chrome
+   again, the pattern this whole block keeps meeting. Measured on
+   /tesla-magnetic-generator-worth-it (comment-row.py, 390px viewport):
+
+       root 16px   column 266px   ~35 chars/line   0 words too wide
+       root 32px   column 194px   ~11 chars/line   1 word too wide
+       root 48px   column 122px    ~5 chars/line   21-29 words too wide
+
+   Capping the gap at its own 100% value buys back 32px at 200% and 320px: 194 ->
+   226 at root 32px. It does not rescue 300% and the block says so below. Scope
+   matters here twice over: this is written as `.d-flex > .ms-3` and not as
+   `.ms-3`, because `.ms-3` is a generic Bootstrap margin utility and capping it
+   globally would change every other use of it; the comment row is the one place
+   measured to need it (31 pages, 155 rows). And it needs `!important` for the
+   same reason `.p-5` above does - Bootstrap's spacing utilities are themselves
+   generated with `!important` (measured: with the cap written without it, the
+   gap stayed 32px at root 32px), and two !important declarations are settled by
+   specificity, where `.d-flex > .ms-3` beats `.ms-3`. The `min-width: 0` rule
+   above is shared with `a.d-flex > span`, which must NOT get a margin: those 240
+   spans have none today and adding 16px of left margin at every font size would
+   not be inert. */
+.d-flex > .ms-3 {
+    margin-left: 16px !important;                /* fallback: no min() support */
+    margin-left: min(1rem, 16px) !important;
+}
+
+
+/* 3. Bootstrap's 3rem spacer utility is rem, so at 300% root font `p-5` is
+   144px a side. /contact nests two of them (card-body p-5 around a div.mb-3
+   .p-5) inside .row gutters that are themselves rem: measured content box
+   30px wide at root 48px (diagnose.py), i.e. the form had paid 288px of its
+   318px for padding and had nothing left for the field. A submit button can
+   then never fit, whatever else is done, because padding is not shrinkable.
+   Capping the 5-step at its own 100% value leaves 222px of real content box.
+   Safe to override with !important on a bare class selector: no element on any
+   of the 53 pages carries two padding utilities at once (measured over every
+   class="..." in the site: pt-2 350, pt-5 323, p-4 144, py-5 57 ... p-5 15,
+   px-5 1, and zero combinations), so the `padding` shorthand here cannot step
+   on a .ps-* / .py-* refinement. */
+.p-5 {
+    padding: 48px !important;              /* fallback: no min() support */
+    padding: min(3rem, 48px) !important;
+}
+
+.px-5 {
+    padding-right: 48px !important;
+    padding-left: 48px !important;
+    padding-right: min(3rem, 48px) !important;
+    padding-left: min(3rem, 48px) !important;
+}
+
+/* Bootstrap 5.2 drives .row gutters through --bs-gutter-x, so a row with
+   gx-5 takes margin-left/right of -1.5rem and its columns take padding of the
+   same size: at 300% root font that is -72px of negative margin on each side
+   of a column box that is already inside a capped .px-5 container. /articles
+   is the only page in the site that uses gx-5 and it was the last failure left
+   in the gate (row measured 438px wide in a 390px viewport, +24px, because the
+   row grew 144px wider than the container it sits in). g-4 is the same scale
+   on 30 rows that still fit at 300%; it gets the same cap so a deeper nest
+   cannot re-create the failure for free. Both caps are horizontal on purpose:
+   the vertical gutter (--bs-gutter-y) cannot produce a horizontal scroll, so
+   it is left scaling with the reader's setting rather than capped for a reason
+   that would be decorative. Both caps are inert at 100%: 1.5rem and 3rem ARE
+   24px and 48px at root 16px, which is the value min() takes. */
+.gx-5 {
+    --bs-gutter-x: 48px;                  /* fallback */
+    --bs-gutter-x: min(3rem, 48px);
+}
+
+.g-4 {
+    --bs-gutter-x: 24px;                  /* fallback */
+    --bs-gutter-x: min(1.5rem, 24px);
+}
+
+/* Comments exist in two templates on this site, not one, and only the
+   Bootstrap-utility one was visible from the gate's first 8 cells. Measured
+   across the 53 pages: 48 pages carry the shared `.d-flex` + `.avatar` +
+   `.ms-3` rows handled above, and one page (perpetual-motion-generator) carries
+   a hand-written template - .comment-block / .comment-header / .comment-actions
+   - styled by its own stylesheet, css/comments.css, which is loaded on 32
+   pages. That template scales the opposite way to everything else in this
+   block: its chrome is in px (36px avatar, 46px indents, 10-12px gaps, so it
+   does not grow with the reader's font at all) and its type is in rem (0.9rem
+   author, 0.8rem date and buttons, so it triples). The consequence is that at
+   300% the text outruns fixed chrome that was never designed to hold it.
+   diagnose.py perpetual-motion-generator span.comment-author 48 320 reads it:
+   a 200px column, a 36px avatar plus a 10px gap that stays put, and
+   "Caldwell" as one word 178px wide.
+
+   Same two levers as everywhere else in this block, chosen the same way:
+   `min-width: 0` for a flex item that is too wide (the header's text block, so
+   body's break-word finally gets a line edge to break "Caldwell" against), and
+   `flex-wrap: wrap` for a row of small independent chips, where wrapping them
+   onto a second line is better than breaking anything (Reply / Like at 300% are
+   about 240px into a 200px row). Wrap is safe on that row and would not have
+   been safe on the comment body: a row of text sizes to its max-content before
+   anything shrinks it, so `flex-wrap: wrap` there would break the row apart at
+   100% too. Reply and Like are short labels, so their max-content is small and
+   wrap only triggers when they genuinely do not fit - which at 100% they do,
+   on every page, so both rules are inert below the zoom that needs them. */
+.comment-header > div {
+    min-width: 0;
+}
+
+.comment-actions {
+    flex-wrap: wrap;
+}
+
+/* 8. The scarcity "status checker" widget (`.scarcity-widget` / the v1-* set,
+   present on 45 of 53 pages, written into the DOM by script after load). Its
+   status bar is a flex row of a badge containing a whole sentence - "The Tesla
+   generator website has been back online for the last 2 days" - and a date
+   pushed to the far end with margin-left:auto. The badge is a flex item, so its
+   min-width:auto floors it at the length of that sentence on one line, and at
+   300% root font that is wider than a phone: measured +94px at 390px / root
+   48px on /7-interesting-facts-about-magnets.
+
+   It had never been seen because the gate that reported this site green used to
+   measure 400ms after `load`, and at that point the widget was not in the DOM
+   yet. That is worth sitting with: not a subtle layout interaction, just content
+   that arrives late and an instrument that stopped looking early. gate.py now
+   finishes animations, waits on fonts and images, and requires the DOM to go
+   quiet before it reads anything, and this is one of the things it found.
+
+   Wrap, not cap, and not min-width: 0 alone. The bar is a status line; a reader
+   at 300% deserves the sentence on as many lines as it needs and the date under
+   it, and neither of those is a compromise - whereas capping the type would be
+   the accessibility control saying no again. `min-width: 0` on the children is
+   what lets the badge stop pretending it is one unbreakable line. At 100%
+   everything fits on one line at every width the gate measures, so `flex-wrap`
+   never triggers and both rules are inert - the same claim as the caps above,
+   and measured the same way (tests/overflow/inert-at-100.py) rather than argued.
+   It is a `flex-wrap` rather than a `min()` cap because there is no pixel value
+   here that could be restored at 100%: the bar is too narrow for the sentence at
+   300% no matter what the padding says. */
+.v1-status-bar {
+    flex-wrap: wrap;
+}
+
+.v1-status-bar > * {
+    min-width: 0;
+}
+
+/* Bootstrap 5.2 sets .btn sizes through these custom properties, so overriding
+   the properties beats .btn-lg without !important (.btn.btn-lg is 0,2,0 against
+   .btn-lg's 0,1,0). Padding, not font size: at 300% root font the button's own
+   1rem/0.5rem padding is 48px/24px, and padding is the one part of a button
+   that cannot be shrunk by wrapping or breaking, so it is what has to give. The
+   label keeps scaling with the reader's setting (a font cap here was tried and
+   removed, same reasoning as the navbar brand above), and Bootstrap's
+   `.btn { white-space: nowrap }` is undone so the label can take more than one
+   line inside the box. One element in the site uses btn-lg (contact.html), and
+   the only `d-grid` in the whole site wraps exactly that button, so the blast
+   radius of this rule is measured at one element rather than assumed.
+
+   The button is not in a flex row, which is why `min-width: 0` looks wrong on it
+   at first glance - but it is not in an ordinary block either: the markup is
+   `<div class="d-grid">` around it, and a grid item behaves like a flex item in
+   exactly the way that matters here. `min-width: auto` floors it at min-content,
+   min-content is the single word "Message" at 227px plus padding at 300% root
+   font, and min wins over max, so `max-width: 100%` on its own was not enough -
+   measured, it left the button 261px wide in a 152px column, +25px on /contact
+   at 320px root 48px, the last cell in the matrix to go green. min-width: 0
+   removes the floor, max-width: 100% keeps the box inside the column, and body's
+   inherited break-word supplies the break. Same lever as everywhere else in this
+   block; the reason it needs stating twice is that a button normally takes its
+   width from its label, and here that label is 60px tall. */
+.btn.btn-lg {
+    --bs-btn-padding-y: 8px;               /* fallback: no min() support */
+    --bs-btn-padding-y: min(0.5rem, 8px);
+    --bs-btn-padding-x: 16px;              /* fallback */
+    --bs-btn-padding-x: min(1rem, 16px);
+    white-space: normal;
+    min-width: 0;
+    max-width: 100%;
 }

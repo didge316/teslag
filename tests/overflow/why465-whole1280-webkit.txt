@@ -1,0 +1,83 @@
+
+=== whole-house @ 1280px root 48px, webkit, popup live (dwell 25s can reveal it) ===
+  reproduced: scrollWidth 1295 clientWidth 1280 (+15) | quiesced=True | root read back 48px (probe says 480.0px per 10rem, want 480) | bootstrap True | injection fired 1x
+  boxes: de.scrollWidth 1295 | body.scrollWidth 1295 | de rect width 1280 | clientWidth 1280 | innerWidth 1280 | scrollingElement is de: True
+  sessionStorage[tesla_exit_popup_shown] at measure time = None
+  popup: absent
+  panel: absent
+  honeypot: w=210 left=-4085 right=-3875 pos=absolute in .eo-form=True in popup=False parent='emailoctopus-form'
+  body children: ['NAV.navbar', 'DIV.container', 'FOOTER.py-5', 'SCRIPT.', 'SCRIPT.', 'SCRIPT.', 'SCRIPT.']
+  rect sweep over 309 elements, scrollWidth 1295, viewport 1280px:
+    d12 right=-3875 +-5155 w= 210 left= -4085 div.emailoctopus-form-row-hp
+    d13 right=-3875 +-5155 w= 210 left= -4085 input
+    boxes whose own content overflows them while overflow-x is visible (that overflow escapes upwards, which is how a box inside the viewport grows the document's scrollable area):
+    d13 a                                        scrollWidth   472 vs clientWidth 160
+    d 6 div.eo-form                              scrollWidth   380 vs clientWidth 210
+    d 7 div.inline-container                     scrollWidth   380 vs clientWidth 210
+    d 8 div                                      scrollWidth   380 vs clientWidth 210
+    d 9 div.form-container                       scrollWidth   380 vs clientWidth 210
+    d10 div.emailoctopus-form-wrapper.emailoctop scrollWidth   380 vs clientWidth 210
+    d11 form.emailoctopus-form                   scrollWidth   380 vs clientWidth 210
+    d12 div.main-form                            scrollWidth   380 vs clientWidth 210
+  ink sweep over 308 elements:
+    furthest-reaching ink: a  box left=940 right=1100 w=160 | its own content scrollWidth 472 vs clientWidth 160 -> spills 312px, reaching x=1412 against a 1280px viewport and a document scrollWidth of 1295
+      href='https://emailoctopus.com/?utm_source=powered_by_form&utm_med'
+      text='EmailOctopus'
+      html=<a href="https://emailoctopus.com/?utm_source=powered_by_form&amp;utm_medium=user_referral" target="_blank" style="">EmailOctopus</a>
+    chain letting it escape (nearest first):
+      a                                        L   940 R  1100 w=  160 scroll/client 472/160 ox=visible  ws=nowrap   ow=break-word w=160px    min=0px      max=100%     absolute/block flex=1/auto
+      p                                        L   939 R  1101 w=  162 scroll/client 472/160 ox=hidden   ws=nowrap   ow=break-word w=162px    min=0px      max=100%     relative/block flex=1/auto
+      div.inner                                L   939 R  1101 w=  162 scroll/client 162/162 ox=visible  ws=normal   ow=break-word w=162px    min=0px      max=100%     static/block flex=1/auto
+      div.mastfoot.text-center.no-bg           L   939 R  1101 w=  162 scroll/client 162/162 ox=visible  ws=normal   ow=break-word w=162px    min=0px      max=100%     static/inline-block flex=1/auto
+      div.text-center                          L   915 R  1125 w=  210 scroll/client 210/210 ox=visible  ws=normal   ow=break-word w=210px    min=0px      max=100%     static/block flex=1/auto
+      div                                      L   915 R  1125 w=  210 scroll/client 380/210 ox=visible  ws=normal   ow=break-word w=210px    min=0px      max=100%     static/block flex=1/auto
+      div.inline-container                     L   915 R  1125 w=  210 scroll/client 380/210 ox=visible  ws=normal   ow=break-word w=210px    min=0px      max=600px    relative/block flex=1/auto
+      div.eo-form                              L   915 R  1125 w=  210 scroll/client 380/210 ox=visible  ws=normal   ow=break-word w=210px    min=0px      max=100%     static/block flex=1/auto
+      div.card-body                            L   867 R  1173 w=  306 scroll/client 428/306 ox=visible  ws=normal   ow=break-word w=306px    min=auto     max=none     static/block flex=1/auto
+      div.card.mb-4.mt-4                       L   866 R  1174 w=  308 scroll/client 428/306 ox=visible  ws=normal   ow=break-word w=308px    min=0px      max=none     relative/flex flex=1/auto
+    candidate fixes applied to that element and reverted:
+      overflow-wrap:anywhere 1295 ->  1295   no effect
+      word-break:break-all   1295 ->  1295   no effect
+      white-space:normal     1295 ->  1295   no effect
+      max-width:100%         1295 ->  1295   no effect
+      width:100%             1295 ->  1295   no effect
+      min-width:0            1295 ->  1295   no effect
+      overflow-x:hidden      1295 ->  1295   no effect
+  CAN A READER SCROLL RIGHT? scrollTo(1000,0) -> scrollX 15 (was 0, reached 15)
+    => real: a reader can scroll to a place they cannot use; this is a defect
+    RESTORE WARNING SCRIPT: restored display=none scrollWidth 1295 -> 1295 -> 1295  (WebKit's document scrollable overflow area can go stale once its cause is hidden; this is why the read-only sweeps above run before anything mutates the page)
+    RESTORE WARNING SCRIPT: restored display=none scrollWidth 1295 -> 1295 -> 1295  (WebKit's document scrollable overflow area can go stale once its cause is hidden; this is why the read-only sweeps above run before anything mutates the page)
+    RESTORE WARNING SCRIPT: restored display=none scrollWidth 1295 -> 1295 -> 1295  (WebKit's document scrollable overflow area can go stale once its cause is hidden; this is why the read-only sweeps above run before anything mutates the page)
+    RESTORE WARNING SCRIPT: restored display=none scrollWidth 1295 -> 1295 -> 1295  (WebKit's document scrollable overflow area can go stale once its cause is hidden; this is why the read-only sweeps above run before anything mutates the page)
+  bisect <body> children (base scrollWidth 1295): DIV.container.mt-5 -> 1280
+  descent by contribution (each step is the child whose absence lowers documentElement.scrollWidth):
+    hop 0: hiding div.container.mt-5                       ->  1280 (with it 1295)
+    hop 1: hiding div.row                                  ->  1280 (with it 1295)
+    hop 2: hiding div.col-lg-8                             ->  1280 (with it 1295)
+    no single child lowered it; each child's own effect: article->1295, section.mb-5->1295, div.scarcity-widget->1295
+  LEAF div.col-lg-8  box left=70 right=830 w=760 | its own scrollWidth 760 vs clientWidth 760
+       position=static display=block white-space=normal overflow-x=visible overflow-wrap=break-word word-break=normal
+       width=760px max-width=100% min-width=auto margins=0px/0px float=none font=48px 'system-ui, -apple-system, Sego'
+       html: <div class="col-lg-8" style="">
+                    <!-- Post content-->
+                    <article style="">
+                        <!-- Post header-->
+                        <header class="mb-4">
+                            <!-- Post 
+       child article                                left=   106 right=   794 w=  688 scrollW/clientW 688/688
+       child section.mb-5                           left=   106 right=   794 w=  688 scrollW/clientW 688/688
+       child div.scarcity-widget                    left=   106 right=   794 w=  688 scrollW/clientW 688/688
+  candidate fixes applied to the leaf and reverted (scrollWidth before 1295):
+    overflow-wrap:anywhere     1295 ->  1295   no change
+    word-break:break-all       1295 ->  1295   no change
+    white-space:normal         1295 ->  1295   no change
+    width:100%;max-width:100%  1295 ->  1280   FIXED
+    min-width:0                1295 ->  1295   no change
+    position:static            1295 ->  1295   no change
+    float:none                 1295 ->  1295   no change
+  (hiding body.children[1] alone changes the number; see the rect sweep and descent above for what is inside it)
+  hide-and-see (base 1295, re-read after all restores 1295):
+    hide .eo-form                              hit= 1 -> scrollWidth 1280
+    hide form.emailoctopus-form                hit= 1 -> scrollWidth 1280
+    hide .emailoctopus-form-wrapper            hit= 1 -> scrollWidth 1280
+    hide .scarcity-widget                      hit= 1 -> scrollWidth 1295

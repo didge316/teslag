@@ -1,0 +1,104 @@
+### ring: webkit about@320 root 48
+
+=== about @ 320px root 48px, webkit ===
+      after 6 Tab presses: focused=True :focus-visible=True outline=none 0px offset=0px shadow=rgba(38, 143, 255, 0.5) 0px 0px 0px 9.6px
+      control box, no rule {'left': 85, 'right': 235, 'w': 150, 'h': 112} | with the rule {'left': 85, 'right': 235, 'w': 150, 'h': 112}
+      ring as measured: unchanged (focus-visible, outline, shadow and geometry all identical)
+      ring region pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 465 -> 320 of 320 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 320): (1,200)=div.col-lg-8div.rowdiv.container; (1,600)=div.col-lg-8div.rowdiv.container; (1,1200)=; (10,200)=div.col-lg-8div.rowdiv.container; (10,600)=div.col-lg-8div.rowdiv.container; (10,1200)=; (25,200)=div.col-lg-8div.rowdiv.container; (25,600)=div.col-lg-8div.rowdiv.container; (25,1200)=; (45,200)=p.fs-5section.mb-5article; (45,600)=h2.fw-boldersection.mb-5article; (45,1200)=; (70,200)=p.fs-5section.mb-5article; (70,600)=h2.fw-boldersection.mb-5article; (70,1200)=
+      .eo-form: box w=150 left=85 content scrollWidth 380 -> 175 of 150
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=150 R235 font=48px Noto sans width=150px minW=auto maxW=100% scroll/client 149/148
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+Traceback (most recent call last):
+  File "/home/matt/projects/other/tesla-generator/website/tests/overflow/fix465.py", line 408, in <module>
+    main()
+    ~~~~^^
+  File "/home/matt/projects/other/tesla-generator/website/tests/overflow/fix465.py", line 404, in main
+    run(pw, engine, base, page, width, font, only, rules)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/matt/projects/other/tesla-generator/website/tests/overflow/fix465.py", line 377, in run
+    b.close()
+    ^^^^^^^
+AttributeError: 'dict' object has no attribute 'close'
+### ring: chromium about@320 root 48
+
+=== about @ 320px root 48px, chromium ===
+      (no before screenshot: Page.screenshot: Clipped area is either empty or outside the)
+      after 6 Tab presses: focused=True :focus-visible=True outline=none 0px offset=0px shadow=rgba(38, 143, 255, 0.5) 0px 0px 0px 9.6px
+      control box, no rule {'left': 85, 'right': 235, 'w': 150, 'h': 112} | with the rule {'left': 85, 'right': 235, 'w': 150, 'h': 112}
+      ring as measured: unchanged (focus-visible, outline, shadow and geometry all identical)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 320 -> 320 of 320 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 320): (1,200)=div.col-lg-8div.rowdiv.container; (1,600)=div.col-lg-8div.rowdiv.container; (1,1200)=; (10,200)=div.col-lg-8div.rowdiv.container; (10,600)=div.col-lg-8div.rowdiv.container; (10,1200)=; (25,200)=div.col-lg-8div.rowdiv.container; (25,600)=div.col-lg-8div.rowdiv.container; (25,1200)=; (45,200)=ul.fs-5section.mb-5article; (45,600)=ul.fs-5section.mb-5article; (45,1200)=; (70,200)=ul.fs-5section.mb-5article; (70,600)=ul.fs-5section.mb-5article; (70,1200)=
+      .eo-form: box w=150 left=85 content scrollWidth 175 -> 175 of 150
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=150 R235 font=48px "Noto sans" width=150px minW=auto maxW=100% scroll/client 379/148
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+Traceback (most recent call last):
+  File "/home/matt/projects/other/tesla-generator/website/tests/overflow/fix465.py", line 408, in <module>
+    main()
+    ~~~~^^
+  File "/home/matt/projects/other/tesla-generator/website/tests/overflow/fix465.py", line 404, in main
+    run(pw, engine, base, page, width, font, only, rules)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/matt/projects/other/tesla-generator/website/tests/overflow/fix465.py", line 377, in run
+    b.close()
+    ^^^^^^^
+AttributeError: 'dict' object has no attribute 'close'
+### ring: webkit about@320 root 16
+
+=== about @ 320px root 16px, webkit ===
+      after 6 Tab presses: focused=True :focus-visible=True outline=none 0px offset=0px shadow=rgba(38, 143, 255, 0.5) 0px 0px 0px 3.2px
+      control box, no rule {'left': 31, 'right': 289, 'w': 258, 'h': 39} | with the rule {'left': 31, 'right': 289, 'w': 258, 'h': 39}
+      ring as measured: unchanged (focus-visible, outline, shadow and geometry all identical)
+      ring region pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 320 -> 320 of 320 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 320): (1,200)=div.col-lg-8div.rowdiv.container; (1,600)=div.col-lg-8div.rowdiv.container; (1,1200)=; (10,200)=div.col-lg-8div.rowdiv.container; (10,600)=div.col-lg-8div.rowdiv.container; (10,1200)=; (25,200)=section.mb-5articlediv.col-lg-8; (25,600)=p.fs-5section.mb-5article; (25,1200)=; (45,200)=section.mb-5articlediv.col-lg-8; (45,600)=p.fs-5section.mb-5article; (45,1200)=; (70,200)=section.mb-5articlediv.col-lg-8; (70,600)=p.fs-5section.mb-5article; (70,1200)=
+      .eo-form: box w=262 left=29 content scrollWidth 262 -> 262 of 262
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=258 R289 font=16px Noto sans width=258px minW=auto maxW=100% scroll/client 257/256
+      row w=258 L31 R289 minW=200px maxW=100% scroll/client 258/258 | input w=258 R289 size=None minW=0px width=258px font=16px scroll/client 256/256
+      row w=258 L31 R289 minW=200px maxW=100% scroll/client 258/258 | input w=258 R289 size=None minW=0px width=258px font=16px scroll/client 256/256
+Traceback (most recent call last):
+  File "/home/matt/projects/other/tesla-generator/website/tests/overflow/fix465.py", line 408, in <module>
+    main()
+    ~~~~^^
+  File "/home/matt/projects/other/tesla-generator/website/tests/overflow/fix465.py", line 404, in main
+    run(pw, engine, base, page, width, font, only, rules)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/matt/projects/other/tesla-generator/website/tests/overflow/fix465.py", line 377, in run
+    b.close()
+    ^^^^^^^
+AttributeError: 'dict' object has no attribute 'close'
+### ring: chromium about@320 root 16
+
+=== about @ 320px root 16px, chromium ===
+      after 6 Tab presses: focused=True :focus-visible=True outline=none 0px offset=0px shadow=rgba(38, 143, 255, 0.5) 0px 0px 0px 3.2px
+      control box, no rule {'left': 31, 'right': 289, 'w': 258, 'h': 39} | with the rule {'left': 31, 'right': 289, 'w': 258, 'h': 39}
+      ring as measured: unchanged (focus-visible, outline, shadow and geometry all identical)
+      ring region pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 320 -> 320 of 320 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 320): (1,200)=div.col-lg-8div.rowdiv.container; (1,600)=div.col-lg-8div.rowdiv.container; (1,1200)=; (10,200)=div.col-lg-8div.rowdiv.container; (10,600)=div.col-lg-8div.rowdiv.container; (10,1200)=; (25,200)=div.card-bodydiv.cardarticle; (25,600)=div.card-bodydiv.cardarticle; (25,1200)=; (45,200)=imgdiv.eo-imagediv.block-container; (45,600)=input.form-controldiv.emailoctopus-form-rowdiv; (45,1200)=; (70,200)=imgdiv.eo-imagediv.block-container; (70,600)=input.form-controldiv.emailoctopus-form-rowdiv; (70,1200)=
+      .eo-form: box w=262 left=29 content scrollWidth 262 -> 262 of 262
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=258 R289 font=16px "Noto sans" width=258px minW=auto maxW=100% scroll/client 256/256
+      row w=258 L31 R289 minW=200px maxW=100% scroll/client 258/258 | input w=258 R289 size=None minW=0px width=258px font=16px scroll/client 256/256
+      row w=258 L31 R289 minW=200px maxW=100% scroll/client 258/258 | input w=258 R289 size=None minW=0px width=258px font=16px scroll/client 256/256
+Traceback (most recent call last):
+  File "/home/matt/projects/other/tesla-generator/website/tests/overflow/fix465.py", line 408, in <module>
+    main()
+    ~~~~^^
+  File "/home/matt/projects/other/tesla-generator/website/tests/overflow/fix465.py", line 404, in main
+    run(pw, engine, base, page, width, font, only, rules)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/matt/projects/other/tesla-generator/website/tests/overflow/fix465.py", line 377, in run
+    b.close()
+    ^^^^^^^
+AttributeError: 'dict' object has no attribute 'close'

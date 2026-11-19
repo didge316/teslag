@@ -1,0 +1,591 @@
+flavour: shipped-run | served CSS per cell: the on-disk CSS, unrouted
+FAIL  webk 7-interesting-facts-about-magnets @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk How-Much-Noise-Does-a-Free-Energy-Device-Make @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk How-to-Make-Free-Electricity-at-Home @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk about @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk build-a-magnetic-generator @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk build-a-perpetual-motion-generator @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk can-I-buy @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk can-we-use-magnets-to-generate-electricity-a-magnetic-marvel @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk contact @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk diy-magnetic-generator @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk electricity-using-magnets @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk free-electricity-from-magnets @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk index @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk is-magnetic-energy-renewable-or-nonrenewable @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnet-motor @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnetic-dynamo-generator @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnetic-generator @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnetic-generator-for-beginners-step-by-step @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnetic-generator-for-emergency-backup @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnetic-generator-for-rv-complete-off-grid-guide @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnetic-generator-plans-review @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnetic-generator-scam @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk nikola-tesla-inventor-extraordinaire @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk perpetual-motion-generator @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk renewable-energy-using-magnets-a-magnetic-revolution @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk rotating-magnetic-field-1888 @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk solar @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-1894 @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-1894-plates @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-1894-word-search @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-cold-flame @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-earthquake-machine @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-free-energy-what-he-said @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-glowing-tubes-vacuum @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-high-frequency-alternator @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-high-frequency-massage @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-lit-lamps-without-wires @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-magnetic-generator-cost-savings-per-month @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-magnetic-generator-for-cabin @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-magnetic-generator-materials-list-cost @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-magnetic-generator-vs-solar-power-which-is-better @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-magnetic-generator-worth-it @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-one-wire-power @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-weird-inventions-1894 @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-wireless-power-1893 @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-worlds-fair-1893 @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk unleashing-the-magnet-magic-is-free-energy-possible @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk unleashing-the-power-of-free-energy @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk whole-house @ 320px root 48px: scrollWidth 465 > clientWidth 320 (+145); innerWidth=320
+        +   0 w= 150 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 150 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk 7-interesting-facts-about-magnets @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk How-Much-Noise-Does-a-Free-Energy-Device-Make @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk How-to-Make-Free-Electricity-at-Home @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk about @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk build-a-magnetic-generator @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk build-a-perpetual-motion-generator @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk can-I-buy @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk can-we-use-magnets-to-generate-electricity-a-magnetic-marvel @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk contact @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk diy-magnetic-generator @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk electricity-using-magnets @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk free-electricity-from-magnets @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk index @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk is-magnetic-energy-renewable-or-nonrenewable @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnet-motor @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnetic-dynamo-generator @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnetic-generator @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnetic-generator-for-beginners-step-by-step @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnetic-generator-for-emergency-backup @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnetic-generator-for-rv-complete-off-grid-guide @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnetic-generator-plans-review @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnetic-generator-scam @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk nikola-tesla-inventor-extraordinaire @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk perpetual-motion-generator @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk renewable-energy-using-magnets-a-magnetic-revolution @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk rotating-magnetic-field-1888 @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk solar @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-1894 @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-1894-plates @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-1894-word-search @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-cold-flame @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-earthquake-machine @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-free-energy-what-he-said @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-glowing-tubes-vacuum @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-high-frequency-alternator @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-high-frequency-massage @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-lit-lamps-without-wires @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-magnetic-generator-cost-savings-per-month @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-magnetic-generator-for-cabin @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-magnetic-generator-materials-list-cost @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-magnetic-generator-vs-solar-power-which-is-better @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-magnetic-generator-worth-it @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-one-wire-power @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-weird-inventions-1894 @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-wireless-power-1893 @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-worlds-fair-1893 @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk unleashing-the-magnet-magic-is-free-energy-possible @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk unleashing-the-power-of-free-energy @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk whole-house @ 390px root 48px: scrollWidth 465 > clientWidth 390 (+75); innerWidth=390
+        +   0 w= 220 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 220 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk 7-interesting-facts-about-magnets @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk How-Much-Noise-Does-a-Free-Energy-Device-Make @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk How-to-Make-Free-Electricity-at-Home @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk build-a-magnetic-generator @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk build-a-perpetual-motion-generator @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk can-I-buy @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk can-we-use-magnets-to-generate-electricity-a-magnetic-marvel @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk diy-magnetic-generator @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk electricity-using-magnets @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk free-electricity-from-magnets @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk index @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk is-magnetic-energy-renewable-or-nonrenewable @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnet-motor @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnetic-dynamo-generator @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnetic-generator @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnetic-generator-for-beginners-step-by-step @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnetic-generator-for-emergency-backup @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnetic-generator-for-rv-complete-off-grid-guide @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnetic-generator-plans-review @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk magnetic-generator-scam @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk nikola-tesla-inventor-extraordinaire @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk perpetual-motion-generator @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk renewable-energy-using-magnets-a-magnetic-revolution @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk rotating-magnetic-field-1888 @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk solar @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-1894 @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-1894-plates @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-1894-word-search @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-cold-flame @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-earthquake-machine @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-free-energy-what-he-said @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-glowing-tubes-vacuum @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-high-frequency-alternator @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-high-frequency-massage @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-lit-lamps-without-wires @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-magnetic-generator-cost-savings-per-month @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-magnetic-generator-for-cabin @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-magnetic-generator-materials-list-cost @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-magnetic-generator-vs-solar-power-which-is-better @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-magnetic-generator-worth-it @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-one-wire-power @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-weird-inventions-1894 @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-wireless-power-1893 @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk tesla-worlds-fair-1893 @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk unleashing-the-magnet-magic-is-free-energy-possible @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk unleashing-the-power-of-free-energy @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+FAIL  webk whole-house @ 1280px root 48px: scrollWidth 1295 > clientWidth 1280 (+15); innerWidth=1280
+        +   0 w= 210 div.emailoctopus-form-row-hp                   ''
+        +   0 w= 210 input                                          ''
+        unfiltered sweep unavailable: Page.evaluate: Target page, context or browser has been closed - the cell's verdict stands, the diagnosis is lost
+
+negative control: webkit: cut-CSS index@390x48px over by 332px, navbar-brand 686px (red as it must be)
+canaries (read in the same evaluate as the verdict, all 624 cells): root font read back, 10rem dimension probe, Bootstrap applied, navbar-brand white-space per flavour | payload hashes f15f4c429556/n/a
+reveals forced by the IntersectionObserver stub: on | cells quiesced: 624 of 624 | fixed subtrees clipping their own content: 0 (invisible to documentElement.scrollWidth; see the module docstring)
+
+479 of 624 engine x page x viewport x root-font combinations green  (52 pages x 12 cells [320px x 16px, 320px x 32px, 320px x 48px, 390px x 16px, 390px x 32px, 390px x 48px, 768px x 16px, 768px x 32px, 768px x 48px, 1280px x 16px, 1280px x 32px, 1280px x 48px] x engines ['webkit'])
+   webkit @ 320px root 48px: 49 pages, e.g. 7-interesting-facts-about-magnets, How-Much-Noise-Does-a-Free-Energy-Device-Make, How-to-Make-Free-Electricity-at-Home, about
+   webkit @ 390px root 48px: 49 pages, e.g. 7-interesting-facts-about-magnets, How-Much-Noise-Does-a-Free-Energy-Device-Make, How-to-Make-Free-Electricity-at-Home, about
+   webkit @ 1280px root 48px: 47 pages, e.g. 7-interesting-facts-about-magnets, How-Much-Noise-Does-a-Free-Energy-Device-Make, How-to-Make-Free-Electricity-at-Home, build-a-magnetic-generator
+FAIL: 145 combinations still scroll sideways. Fix the elements above; do NOT put overflow-x:hidden on html/body (PLAN §4).

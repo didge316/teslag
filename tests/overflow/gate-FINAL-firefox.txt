@@ -1,0 +1,12 @@
+# POST-FIX matrix, run 2026-11-19 11:44 against the measured tree :8200
+# css/styles-custom.css md5 e6676122ba01 (with the EmailOctopus submit overflow rule; pre-fix artefacts kept as gate-BEFORE-cssfix-*)
+flavour: shipped-run | served CSS per cell: the on-disk CSS, unrouted
+
+negative control: firefox: cut-CSS index@390x48px over by 382px, navbar-brand 736px (red as it must be)
+canaries (read in the same evaluate as the verdict, all 624 cells): root font read back, 10rem dimension probe, Bootstrap applied, navbar-brand white-space per flavour | payload hashes e3f64b5ab044/n/a
+reveals forced by the IntersectionObserver stub: on | cells quiesced: 624 of 624 | fixed subtrees clipping their own content: 0 (invisible to documentElement.scrollWidth; see the module docstring)
+cells green only because of the 1px tolerance: 0 | 0 means every green cell reads scrollWidth == clientWidth exactly
+
+624 of 624 engine x page x viewport x root-font combinations green  (52 pages x 12 cells [320px x 16px, 320px x 32px, 320px x 48px, 390px x 16px, 390px x 32px, 390px x 48px, 768px x 16px, 768px x 32px, 768px x 48px, 1280px x 16px, 1280px x 32px, 1280px x 48px] x engines ['firefox'])
+OK: no horizontal scroll at 200% or 300% root font, and none at 320px (WCAG 1.4.4 / 1.4.10).
+firefox exit=0 12:22:56

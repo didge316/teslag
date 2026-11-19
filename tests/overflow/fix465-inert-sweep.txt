@@ -1,0 +1,604 @@
+### 7-interesting-facts-about-magnets
+
+=== 7-interesting-facts-about-magnets @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### How-Much-Noise-Does-a-Free-Energy-Device-Make
+
+=== How-Much-Noise-Does-a-Free-Energy-Device-Make @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### How-to-Make-Free-Electricity-at-Home
+
+=== How-to-Make-Free-Electricity-at-Home @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### about
+
+=== about @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.rowdiv.containerbody; (70,600)=div.rowdiv.containerbody; (70,1200)=
+      .eo-form: box w=702 left=289 content scrollWidth 702 -> 702 of 702
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=596 R887 font=16px "Noto sans" width=596px minW=auto maxW=100% scroll/client 594/594
+      row w=296 L291 R587 minW=200px maxW=100% scroll/client 296/296 | input w=296 R587 size=None minW=0px width=296px font=16px scroll/client 294/294
+      row w=296 L591 R887 minW=200px maxW=100% scroll/client 296/296 | input w=296 R887 size=None minW=0px width=296px font=16px scroll/client 294/294
+### articles
+
+=== articles @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.containerbodyhtml; (70,600)=div.containerbodyhtml; (70,1200)=
+      submit buttons in .eo-form on this page: 0
+### build-a-magnetic-generator
+
+=== build-a-magnetic-generator @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### build-a-perpetual-motion-generator
+
+=== build-a-perpetual-motion-generator @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### can-I-buy
+
+=== can-I-buy @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### can-we-use-magnets-to-generate-electricity-a-magnetic-marvel
+
+=== can-we-use-magnets-to-generate-electricity-a-magnetic-marvel @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### contact
+
+=== contact @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.rowdiv.containerdiv.row; (70,600)=div.rowdiv.containerdiv.row; (70,1200)=
+      .eo-form: box w=512 left=384 content scrollWidth 512 -> 512 of 512
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=508 R894 font=16px "Noto sans" width=508px minW=auto maxW=100% scroll/client 506/506
+      row w=252 L386 R638 minW=200px maxW=100% scroll/client 252/252 | input w=252 R638 size=None minW=0px width=252px font=16px scroll/client 250/250
+      row w=252 L642 R894 minW=200px maxW=100% scroll/client 252/252 | input w=252 R894 size=None minW=0px width=252px font=16px scroll/client 250/250
+### diy-magnetic-generator
+
+=== diy-magnetic-generator @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### electricity-using-magnets
+
+=== electricity-using-magnets @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### free-electricity-from-magnets
+
+=== free-electricity-from-magnets @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### index
+
+=== index @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### is-magnetic-energy-renewable-or-nonrenewable
+
+=== is-magnetic-energy-renewable-or-nonrenewable @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### magnet-motor
+
+=== magnet-motor @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### magnetic-dynamo-generator
+
+=== magnetic-dynamo-generator @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### magnetic-generator-for-beginners-step-by-step
+
+=== magnetic-generator-for-beginners-step-by-step @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### magnetic-generator-for-emergency-backup
+
+=== magnetic-generator-for-emergency-backup @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### magnetic-generator-for-rv-complete-off-grid-guide
+
+=== magnetic-generator-for-rv-complete-off-grid-guide @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### magnetic-generator-plans-review
+
+=== magnetic-generator-plans-review @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### magnetic-generator-scam
+
+=== magnetic-generator-scam @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### magnetic-generator
+
+=== magnetic-generator @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### nikola-tesla-inventor-extraordinaire
+
+=== nikola-tesla-inventor-extraordinaire @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### perpetual-motion-generator
+
+=== perpetual-motion-generator @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### privacy
+
+=== privacy @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.rowdiv.containerdiv.row; (70,600)=div.rowdiv.containerdiv.row; (70,1200)=
+      submit buttons in .eo-form on this page: 0
+### renewable-energy-using-magnets-a-magnetic-revolution
+
+=== renewable-energy-using-magnets-a-magnetic-revolution @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### rotating-magnetic-field-1888
+
+=== rotating-magnetic-field-1888 @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### solar
+
+=== solar @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### tesla-1894-plates
+
+=== tesla-1894-plates @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### tesla-1894-word-search
+
+=== tesla-1894-word-search @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### tesla-1894
+
+=== tesla-1894 @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### tesla-cold-flame
+
+=== tesla-cold-flame @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### tesla-earthquake-machine
+
+=== tesla-earthquake-machine @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### tesla-free-energy-what-he-said
+
+=== tesla-free-energy-what-he-said @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### tesla-glowing-tubes-vacuum
+
+=== tesla-glowing-tubes-vacuum @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### tesla-high-frequency-alternator
+
+=== tesla-high-frequency-alternator @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### tesla-high-frequency-massage
+
+=== tesla-high-frequency-massage @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### tesla-lit-lamps-without-wires
+
+=== tesla-lit-lamps-without-wires @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### tesla-magnetic-generator-cost-savings-per-month
+
+=== tesla-magnetic-generator-cost-savings-per-month @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### tesla-magnetic-generator-for-cabin
+
+=== tesla-magnetic-generator-for-cabin @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### tesla-magnetic-generator-materials-list-cost
+
+=== tesla-magnetic-generator-materials-list-cost @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### tesla-magnetic-generator-vs-solar-power-which-is-better
+
+=== tesla-magnetic-generator-vs-solar-power-which-is-better @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### tesla-magnetic-generator-worth-it
+
+=== tesla-magnetic-generator-worth-it @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### tesla-one-wire-power
+
+=== tesla-one-wire-power @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### tesla-weird-inventions-1894
+
+=== tesla-weird-inventions-1894 @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### tesla-wireless-power-1893
+
+=== tesla-wireless-power-1893 @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### tesla-worlds-fair-1893
+
+=== tesla-worlds-fair-1893 @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### unleashing-the-magnet-magic-is-free-energy-possible
+
+=== unleashing-the-magnet-magic-is-free-energy-possible @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### unleashing-the-power-of-free-energy
+
+=== unleashing-the-power-of-free-energy @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+### whole-house
+
+=== whole-house @ 1280px root 16px, chromium ===
+      widget pixels: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.col-lg-8div.rowdiv.container; (70,600)=div.col-lg-8div.rowdiv.container; (70,1200)=
+      .eo-form: box w=322 left=859 content scrollWidth 322 -> 322 of 322
+      submit buttons in .eo-form on this page: 1
+      submit <input value='Download Now'> w=318 R1179 font=16px "Noto sans" width=318px minW=auto maxW=100% scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316
+      row w=318 L861 R1179 minW=200px maxW=100% scroll/client 318/318 | input w=318 R1179 size=None minW=0px width=318px font=16px scroll/client 316/316

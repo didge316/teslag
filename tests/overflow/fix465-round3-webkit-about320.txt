@@ -1,0 +1,22 @@
+
+=== about @ 320px root 48px, webkit ===
+  T1 only input[type=submit] at 16px (is it the button's value text?)
+      doc.scrollWidth 465 -> 320 of 320 | the document does not scroll | GREEN
+      .eo-form: box w=150 left=85 content scrollWidth 380 -> 175 of 150
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+  T2 only text/email inputs at 16px (is it a field's character area?)
+      doc.scrollWidth 465 -> 465 of 320 | the document DOES scroll to x=49 | still 145px over
+      .eo-form: box w=150 left=85 content scrollWidth 380 -> 380 of 150
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=16px scroll/client 198/198
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=16px scroll/client 198/198
+  T3 submit at 24px - the narrowest honest-looking cap
+      doc.scrollWidth 465 -> 320 of 320 | the document does not scroll | GREEN
+      .eo-form: box w=150 left=85 content scrollWidth 380 -> 209 of 150
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=48px scroll/client 198/198
+  T4 everything but the submit capped, to see what S4 really needed
+      doc.scrollWidth 477 -> 320 of 320 | the document DOES scroll to x=45 | GREEN
+      .eo-form: box w=150 left=85 content scrollWidth 392 -> 175 of 150
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=24px scroll/client 198/198
+      row w=200 L60 R260 minW=200px maxW=100% scroll/client 200/200 | input w=200 R260 size=None minW=0px width=200px font=24px scroll/client 198/198

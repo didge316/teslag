@@ -1,0 +1,80 @@
+
+=== about @ 320px root 16px, webkit ===
+      pixels inside .eo-form: DIFFERS (ab502f85 -> 63a1b30c)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 320 -> 320 of 320 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 320): (1,200)=div.col-lg-8div.rowdiv.container; (1,600)=div.col-lg-8div.rowdiv.container; (1,1200)=; (10,200)=div.col-lg-8div.rowdiv.container; (10,600)=div.col-lg-8div.rowdiv.container; (10,1200)=; (25,200)=p.fs-5section.mb-5article; (25,600)=section.mb-5articlediv.col-lg-8; (25,1200)=; (45,200)=p.fs-5section.mb-5article; (45,600)=section.mb-5articlediv.col-lg-8; (45,1200)=; (70,200)=p.fs-5section.mb-5article; (70,600)=section.mb-5articlediv.col-lg-8; (70,1200)=
+      .eo-form: box w=262 left=29 content scrollWidth 262 -> 262 of 262
+      submit <input value='Download Now'> w=258 R289 font=16px Noto sans width=258px minW=auto maxW=100% scroll/client 256/256
+      row w=258 L31 R289 minW=200px maxW=100% scroll/client 258/258 | input w=258 R289 size=None minW=0px width=258px font=16px scroll/client 256/256
+      row w=258 L31 R289 minW=200px maxW=100% scroll/client 258/258 | input w=258 R289 size=None minW=0px width=258px font=16px scroll/client 256/256
+
+=== about @ 320px root 16px, chromium ===
+      pixels inside .eo-form: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 320 -> 320 of 320 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 320): (1,200)=div.col-lg-8div.rowdiv.container; (1,600)=div.col-lg-8div.rowdiv.container; (1,1200)=; (10,200)=div.col-lg-8div.rowdiv.container; (10,600)=div.col-lg-8div.rowdiv.container; (10,1200)=; (25,200)=div.card-bodydiv.cardarticle; (25,600)=div.card-bodydiv.cardarticle; (25,1200)=; (45,200)=imgdiv.eo-imagediv.block-container; (45,600)=input.form-controldiv.emailoctopus-form-rowdiv; (45,1200)=; (70,200)=imgdiv.eo-imagediv.block-container; (70,600)=input.form-controldiv.emailoctopus-form-rowdiv; (70,1200)=
+      .eo-form: box w=262 left=29 content scrollWidth 262 -> 262 of 262
+      submit <input value='Download Now'> w=258 R289 font=16px "Noto sans" width=258px minW=auto maxW=100% scroll/client 256/256
+      row w=258 L31 R289 minW=200px maxW=100% scroll/client 258/258 | input w=258 R289 size=None minW=0px width=258px font=16px scroll/client 256/256
+      row w=258 L31 R289 minW=200px maxW=100% scroll/client 258/258 | input w=258 R289 size=None minW=0px width=258px font=16px scroll/client 256/256
+
+=== about @ 390px root 16px, webkit ===
+      pixels inside .eo-form: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 390 -> 390 of 390 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 390): (1,200)=div.col-lg-8div.rowdiv.container; (1,600)=div.col-lg-8div.rowdiv.container; (1,1200)=; (10,200)=div.col-lg-8div.rowdiv.container; (10,600)=div.col-lg-8div.rowdiv.container; (10,1200)=; (25,200)=p.fs-5section.mb-5article; (25,600)=p.fs-5section.mb-5article; (25,1200)=; (45,200)=p.fs-5section.mb-5article; (45,600)=p.fs-5section.mb-5article; (45,1200)=; (70,200)=p.fs-5section.mb-5article; (70,600)=p.fs-5section.mb-5article; (70,1200)=
+      .eo-form: box w=332 left=29 content scrollWidth 332 -> 332 of 332
+      submit <input value='Download Now'> w=328 R359 font=16px Noto sans width=328px minW=auto maxW=100% scroll/client 326/326
+      row w=328 L31 R359 minW=200px maxW=100% scroll/client 328/328 | input w=328 R359 size=None minW=0px width=328px font=16px scroll/client 326/326
+      row w=328 L31 R359 minW=200px maxW=100% scroll/client 328/328 | input w=328 R359 size=None minW=0px width=328px font=16px scroll/client 326/326
+
+=== about @ 390px root 16px, chromium ===
+      pixels inside .eo-form: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 390 -> 390 of 390 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 390): (1,200)=div.col-lg-8div.rowdiv.container; (1,600)=div.col-lg-8div.rowdiv.container; (1,1200)=; (10,200)=div.col-lg-8div.rowdiv.container; (10,600)=div.col-lg-8div.rowdiv.container; (10,1200)=; (25,200)=div.card-bodydiv.cardarticle; (25,600)=div.card-bodydiv.cardarticle; (25,1200)=; (45,200)=imgdiv.eo-imagediv.block-container; (45,600)=divdiv.text-blockdiv.block-container; (45,1200)=; (70,200)=imgdiv.eo-imagediv.block-container; (70,600)=divdiv.text-blockdiv.block-container; (70,1200)=
+      .eo-form: box w=332 left=29 content scrollWidth 332 -> 332 of 332
+      submit <input value='Download Now'> w=328 R359 font=16px "Noto sans" width=328px minW=auto maxW=100% scroll/client 326/326
+      row w=328 L31 R359 minW=200px maxW=100% scroll/client 328/328 | input w=328 R359 size=None minW=0px width=328px font=16px scroll/client 326/326
+      row w=328 L31 R359 minW=200px maxW=100% scroll/client 328/328 | input w=328 R359 size=None minW=0px width=328px font=16px scroll/client 326/326
+
+=== about @ 768px root 16px, webkit ===
+      pixels inside .eo-form: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 768 -> 768 of 768 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 768): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=div.col-lg-8div.rowdiv.container; (25,600)=div.col-lg-8div.rowdiv.container; (25,1200)=; (45,200)=section.mb-5articlediv.col-lg-8; (45,600)=p.fs-5section.mb-5article; (45,1200)=; (70,200)=section.mb-5articlediv.col-lg-8; (70,600)=p.fs-5section.mb-5article; (70,1200)=
+      .eo-form: box w=662 left=53 content scrollWidth 662 -> 662 of 662
+      submit <input value='Download Now'> w=596 R651 font=16px Noto sans width=596px minW=auto maxW=100% scroll/client 594/594
+      row w=296 L55 R351 minW=200px maxW=100% scroll/client 296/296 | input w=296 R351 size=None minW=0px width=296px font=16px scroll/client 294/294
+      row w=296 L355 R651 minW=200px maxW=100% scroll/client 296/296 | input w=296 R651 size=None minW=0px width=296px font=16px scroll/client 294/294
+
+=== about @ 768px root 16px, chromium ===
+      pixels inside .eo-form: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 768 -> 768 of 768 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 768): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=div.col-lg-8div.rowdiv.container; (25,600)=div.col-lg-8div.rowdiv.container; (25,1200)=; (45,200)=div.card-bodydiv.cardarticle; (45,600)=div.card-bodydiv.cardarticle; (45,1200)=; (70,200)=imgdiv.eo-imagediv.block-container; (70,600)=imgdiv.eo-imagediv.block-container; (70,1200)=
+      .eo-form: box w=662 left=53 content scrollWidth 662 -> 662 of 662
+      submit <input value='Download Now'> w=596 R651 font=16px "Noto sans" width=596px minW=auto maxW=100% scroll/client 594/594
+      row w=296 L55 R351 minW=200px maxW=100% scroll/client 296/296 | input w=296 R351 size=None minW=0px width=296px font=16px scroll/client 294/294
+      row w=296 L355 R651 minW=200px maxW=100% scroll/client 296/296 | input w=296 R651 size=None minW=0px width=296px font=16px scroll/client 294/294
+
+=== about @ 1280px root 16px, webkit ===
+      pixels inside .eo-form: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.rowdiv.containerbody; (70,600)=div.rowdiv.containerbody; (70,1200)=
+      .eo-form: box w=702 left=289 content scrollWidth 702 -> 702 of 702
+      submit <input value='Download Now'> w=596 R887 font=16px Noto sans width=596px minW=auto maxW=100% scroll/client 594/594
+      row w=296 L291 R587 minW=200px maxW=100% scroll/client 296/296 | input w=296 R587 size=None minW=0px width=296px font=16px scroll/client 294/294
+      row w=296 L591 R887 minW=200px maxW=100% scroll/client 296/296 | input w=296 R887 size=None minW=0px width=296px font=16px scroll/client 294/294
+
+=== about @ 1280px root 16px, chromium ===
+      pixels inside .eo-form: IDENTICAL before/after (the rule changes nothing a reader can see)
+  U7 THE CANDIDATE: hidden then clip, so old Safari keeps the fix
+      doc.scrollWidth 1280 -> 1280 of 1280 | the document does not scroll | GREEN
+      scrolled to x=0 and hit-tested the revealed strip (scrollWidth 1280): (1,200)=bodyhtml; (1,600)=bodyhtml; (1,1200)=; (10,200)=bodyhtml; (10,600)=bodyhtml; (10,1200)=; (25,200)=bodyhtml; (25,600)=bodyhtml; (25,1200)=; (45,200)=bodyhtml; (45,600)=bodyhtml; (45,1200)=; (70,200)=div.rowdiv.containerbody; (70,600)=div.rowdiv.containerbody; (70,1200)=
+      .eo-form: box w=702 left=289 content scrollWidth 702 -> 702 of 702
+      submit <input value='Download Now'> w=596 R887 font=16px "Noto sans" width=596px minW=auto maxW=100% scroll/client 594/594
+      row w=296 L291 R587 minW=200px maxW=100% scroll/client 296/296 | input w=296 R587 size=None minW=0px width=296px font=16px scroll/client 294/294
+      row w=296 L591 R887 minW=200px maxW=100% scroll/client 296/296 | input w=296 R887 size=None minW=0px width=296px font=16px scroll/client 294/294
