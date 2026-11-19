@@ -1,0 +1,22 @@
+### tests/img-alt/inventory.py --site /tmp/site-shipped   (the tree this branch will contain: 52 committed pages, items 5+6+7 applied)
+measuring: /tmp/site-shipped
+<img> tags                : 711
+missing alt attribute     : 0    <-- this must be 0, before and after
+alt="" (marked decorative): 0    <-- the real a11y gap: nothing is marked decorative
+glued width= (no space)   : 0    <-- source hygiene only, invisible to visitors
+"Avatar of X" descriptions : 155
+glued attributes, all tags : 0    <-- the class, site-wide
+malformed quotes in tags   : 0    <-- truncates og:title: visitors see it
+duplicate attributes       : 0    <-- the parser keeps the first and discards the rest
+duplicate ids in a page    : 0    <-- label for= / aria-labelledby resolve to the first
+unknown or loose entities  : 0    <-- counted, not assumed absent
+
+distinct alt strings: 198; most repeated:
+     94  'advertisement'
+     47  'diy magnetic generator setup in a home workshop with tools and compone'
+     47  'magnetic generator build plans displayed on a desk with tools nearby'
+     47  'diy setup showing how to make electricity using magnets and basic comp'
+     47  'sound proofed tesla magnetic generator enclosure with insulation mater'
+     47  'graphic showing question marks over a magnetic generator to represent '
+images whose alt string is used more than once on the site: 551 of 711
+exit=0
