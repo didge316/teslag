@@ -1,0 +1,39 @@
+bar commit    : feature/sticky-offer-bar
+parent (harness tip): 928f1d62d092cedd99dbe9d8bc84bab1f0e8efb5
+
+1. exactly one commit between the harness tip and the branch tip
+  PASS  git log --oneline <harness-tip>..feature/sticky-offer-bar  commit count: 1
+
+2. allowlist, not denylist - only these may appear in the diff
+  PASS  every path in js/scripts.js or tests/...  10 path(s), outside the allowlist: 0
+  PASS  no line starts with D, no mode change  statuses seen: A,M
+
+3. the blob, both ways of naming it
+  PASS  `git rev-parse <bar-commit>:js/scripts.js` == `git hash-object js/scripts.js`  blob id: ec37ac5d59c2e94c476c10d30e26a33abc46439c
+  PASS  content sha256 of the committed blob == the worktree file  content sha256: da605e2404f9a9e9464f4e0132f0b6243ae71bceaab42741f67253c9602638ed
+  PASS  the file in the bar commit is not the harness one  parent blob: a5a4df71d233f7e2cd0cdc849053c828210aa88e
+
+4. the hunk - the only deletion is the `})();` the module is appended after
+  PASS  +N/-1 and the single removed line is `})();`  removed line(s): ['})();']
+        +322/-1
+  PASS  bytes before the hunk are byte-identical  identical over the first 5693 bytes, the hunk starts after the parent's final `})();`
+
+5. the in-flight set must never reach the branch
+  PASS  none of 8 in-flight paths in the bar diff  leaked: 0
+  PASS  the working tree still carries them uncommitted  9 path(s) uncommitted
+
+6. parent-owned files identical between parent and bar, while dirty in the tree
+        parent:  100644 blob 9c679a8e4cc1c6505f9c8c1511a540ab19d95df4	_headers
+        parent:  100644 blob c0454c0b350fb7e7860e5d1fe31d179250e671b7	_redirects
+        parent:  100644 blob ed174f0ad122237dddc0a85a372ee328d34d310e	llms.txt
+        parent:  100644 blob de2ea3a3ae7dc2f9be8ff2fd1a21ce5dae77c86c	sitemap.xml
+        parent:
+        bar:     100644 blob 9c679a8e4cc1c6505f9c8c1511a540ab19d95df4	_headers
+        bar:     100644 blob c0454c0b350fb7e7860e5d1fe31d179250e671b7	_redirects
+        bar:     100644 blob ed174f0ad122237dddc0a85a372ee328d34d310e	llms.txt
+        bar:     100644 blob de2ea3a3ae7dc2f9be8ff2fd1a21ce5dae77c86c	sitemap.xml
+        bar:
+  PASS  byte-identical between the two commits  4 blobs
+  PASS  and still dirty in the working tree (they are the owner's)  4/4
+
+verdict: PASS

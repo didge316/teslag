@@ -1,0 +1,54 @@
+# bar reachability while the exit popup is open - the modal the site declares with
+# role=dialog aria-modal=true and does not make the rest of the page inert.
+# Generated 2026-11-19; page /build-a-perpetual-motion-generator at 390x844 mobile.
+
+== chromium / dwell trigger ==
+   bar visible before the popup : True
+   popup open                   : True
+   bar still visible behind it  : True
+   focusables outside the dialog: 22 (of which the bar's own: 2 -> tmg-cta-btn, tmg-cta-close)
+   first six in the ring        : navbar-brand; navbar-toggler; fw-bold; fw-bold; fw-bold; fw-bold
+   focus parked in the dialog   : True (input.None)
+   shift-tab back from the dialog's first field: tesla-popup__close (inBar=False)
+   tab forward from the dialog's first field, up to 6 stops: fw-bold (inBar=False)
+   after Escape: popup open=False, bar visible=True
+
+== chromium / exit-intent trigger ==
+   bar visible before the popup : True
+   popup open                   : True
+   bar still visible behind it  : True
+   focusables outside the dialog: 22 (of which the bar's own: 2 -> tmg-cta-btn, tmg-cta-close)
+   first six in the ring        : navbar-brand; navbar-toggler; fw-bold; fw-bold; fw-bold; fw-bold
+   focus parked in the dialog   : True (input.None)
+   shift-tab back from the dialog's first field: tesla-popup__close (inBar=False)
+   tab forward from the dialog's first field, up to 6 stops: fw-bold (inBar=False)
+   after Escape: popup open=False, bar visible=True
+
+== webkit / dwell trigger ==
+   bar visible before the popup : True
+   popup open                   : True
+   bar still visible behind it  : True
+   focusables outside the dialog: 22 (of which the bar's own: 2 -> tmg-cta-btn, tmg-cta-close)
+   first six in the ring        : navbar-brand; navbar-toggler; fw-bold; fw-bold; fw-bold; fw-bold
+   focus parked in the dialog   : True (input.None)
+   shift-tab back from the dialog's first field: tesla-popup__close (inBar=False)
+   tab forward from the dialog's first field, up to 6 stops: fw-bold (inBar=False)
+   after Escape: popup open=False, bar visible=True
+
+== webkit / exit-intent trigger ==
+   bar visible before the popup : True
+   popup open                   : True
+   bar still visible behind it  : True
+   focusables outside the dialog: 21 (of which the bar's own: 2 -> tmg-cta-btn, tmg-cta-close)
+   first six in the ring        : navbar-brand; navbar-toggler; fw-bold; fw-bold; fw-bold; fw-bold
+   focus parked in the dialog   : True (input.None)
+   shift-tab back from the dialog's first field: tesla-popup__close (inBar=False)
+   tab forward from the dialog's first field, up to 6 stops: fw-bold (inBar=False)
+   after Escape: popup open=False, bar visible=True
+
+verdict
+  REACHABLE BEHIND THE MODAL: chromium/dwell: 2 bar control(s) tabbable behind an aria-modal dialog; chromium/exit-intent: 2 bar control(s) tabbable behind an aria-modal dialog; webkit/dwell: 2 bar control(s) tabbable behind an aria-modal dialog; webkit/exit-intent: 2 bar control(s) tabbable behind an aria-modal dialog
+  -> aria-modal is not a focus wall, and nothing else on the page is inerted,
+     so the bar's affiliate link is in the tab ring while the dialog claims
+     to be the only thing present. Decide whether paint() hides the bar while
+     a dialog is open, or the dialog gets a real focus trap.

@@ -1,0 +1,79 @@
+# what the shipped bar actually attributed each shipped page, read out of the live DOM
+# (`?tid=` inside .tmg-cta-btn's href - rel=noreferrer means ClickBank sees nothing else),
+# plus whether the bar became visible at all, plus the document height that decides
+# whether a short page can ever reach the 700px trigger. Generated 2026-11-19.
+#
+# 'shown' is read mid-page (past the 700px trigger, clear of the footer). 'bottom' is the
+# same read at a settled bottom, where the module's footerVisible condition is supposed
+# to take the bar away - False there is the feature, not a failure. The bottom read is
+# only trustworthy once the scroll has settled; see the comment in the scroll code.
+
+tid             shown  bottom  docH    path
+ ----------------------------------------------------------------------------------------------
+None            False  False   1027    404.html
+sticky_article  True   False   9022    7-interesting-facts-about-magnets.html
+sticky_article  True   False   7094    How-Much-Noise-Does-a-Free-Energy-Device-Make.html
+sticky_article  True   False   4225    about.html
+sticky_article  True   False   8260    build-a-magnetic-generator.html
+sticky_article  True   False   8662    build-a-perpetual-motion-generator.html
+sticky_article  True   False   6864    can-I-buy.html
+sticky_article  True   False   9617    can-we-use-magnets-to-generate-electricity-a-magnetic-marvel.html
+sticky_article  False  False   1951    contact.html
+sticky_article  True   False   10380   electricity-using-magnets.html
+sticky_article  True   False   7075    free-electricity-from-magnets.html
+sticky_article  True   False   9599    is-magnetic-energy-renewable-or-nonrenewable.html
+sticky_article  True   False   9609    magnet-motor.html
+sticky_article  True   False   10677   magnetic-dynamo-generator.html
+sticky_article  True   False   13731   magnetic-generator.html
+sticky_article  True   False   10422   nikola-tesla-inventor-extraordinaire.html
+sticky_article  True   False   9707    perpetual-motion-generator.html
+sticky_article  True   False   6160    privacy.html
+sticky_article  True   False   8805    renewable-energy-using-magnets-a-magnetic-revolution.html
+sticky_article  True   False   16486   rotating-magnetic-field-1888.html
+sticky_article  True   False   10051   solar.html
+sticky_article  True   False   42245   tesla-1894-plates.html
+sticky_article  True   False   21948   tesla-1894-word-search.html
+sticky_article  True   False   13203   tesla-1894.html
+sticky_article  True   False   33925   tesla-cold-flame.html
+sticky_article  True   False   15219   tesla-earthquake-machine.html
+sticky_article  True   False   26036   tesla-free-energy-what-he-said.html
+sticky_article  True   False   44655   tesla-glowing-tubes-vacuum.html
+sticky_article  True   False   14652   tesla-high-frequency-alternator.html
+sticky_article  True   False   22927   tesla-high-frequency-massage.html
+sticky_article  True   False   15850   tesla-lit-lamps-without-wires.html
+sticky_article  True   False   17985   tesla-one-wire-power.html
+sticky_article  True   False   20005   tesla-weird-inventions-1894.html
+sticky_article  True   False   22905   tesla-wireless-power-1893.html
+sticky_article  True   False   11989   tesla-worlds-fair-1893.html
+sticky_article  True   False   8327    unleashing-the-magnet-magic-is-free-energy-possible.html
+sticky_article  True   False   10401   unleashing-the-power-of-free-energy.html
+sticky_article  True   False   7168    whole-house.html
+sticky_guide    True   False   7024    How-to-Make-Free-Electricity-at-Home.html
+sticky_guide    True   False   8545    diy-magnetic-generator.html
+sticky_guide    True   False   15627   magnetic-generator-for-beginners-step-by-step.html
+sticky_guide    True   False   14067   magnetic-generator-for-emergency-backup.html
+sticky_guide    True   False   15031   magnetic-generator-for-rv-complete-off-grid-guide.html
+sticky_guide    True   False   16733   tesla-magnetic-generator-for-cabin.html
+sticky_home     True   False   9344    index.html
+sticky_hub      True   False   10012   articles.html
+sticky_review   True   False   15138   magnetic-generator-plans-review.html
+sticky_review   True   False   14752   tesla-magnetic-generator-cost-savings-per-month.html
+sticky_review   True   False   15045   tesla-magnetic-generator-materials-list-cost.html
+sticky_review   True   False   15942   tesla-magnetic-generator-vs-solar-power-which-is-better.html
+sticky_review   True   False   13688   tesla-magnetic-generator-worth-it.html
+sticky_scam     True   False   8353    magnetic-generator-scam.html
+
+pages seen: 52   bar visible mid-page: 50   not visible mid-page: 2
+still visible at a settled bottom (must be 0 - the footer rule): 0
+tid distribution (over pages where the bar showed):
+  sticky_article  36
+  sticky_guide    6
+  sticky_review   5
+  sticky_hub      1
+  sticky_home     1
+  sticky_scam     1
+not visible mid-page - each one is explained by the module's own conditions:
+ either the page cannot reach 700px of scroll, or the footer was already in
+ view at the probe position, which is the module hiding itself correctly:
+  404.html                                                   docH=1027 scrollable-room=183px footerInView=True -> cannot reach the 700px trigger, by construction
+  contact.html                                               docH=1951 scrollable-room=1107px footerInView=True -> footer already in view where the probe put the reader - working as designed

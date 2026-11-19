@@ -1,0 +1,82 @@
+# every shipped page's sticky-bar attribution id, produced by running the SHIPPED tidFor()
+# (js/scripts.js, sliced between its own markers - the slice node evaluated is kept verbatim
+# at tests/.staging/tid-eval-extract.txt) against every .html path in the branch's tree.
+# Asked for by the reviewer on the grounds that rel=noreferrer leaves tid as the bar's only
+# attribution channel, so a mis-bucketed page is silent and permanent.
+# Companion to tid-live.py, which reads the tid out of the rendered CTA href; the two agree
+# on all 50 pages where the bar renders. Generated 2026-11-19 by tests/sticky-cta/tid-map.py;
+# regenerate rather than hand-edit.
+
+52 paths. Bucket sizes: sticky_article 38, sticky_guide 6, sticky_review 5, sticky_hub 1, sticky_home 1, sticky_scam 1
+
+--- sticky_article: 38
+      /404                                                       rule[-1] (no rule matched) -> fallback sticky_article
+      /7-interesting-facts-about-magnets                         rule[-1] (no rule matched) -> fallback sticky_article
+      /How-Much-Noise-Does-a-Free-Energy-Device-Make             rule[-1] (no rule matched) -> fallback sticky_article
+      /about                                                     rule[-1] (no rule matched) -> fallback sticky_article
+      /build-a-magnetic-generator                                rule[-1] (no rule matched) -> fallback sticky_article
+      /build-a-perpetual-motion-generator                        rule[-1] (no rule matched) -> fallback sticky_article
+      /can-I-buy                                                 rule[-1] (no rule matched) -> fallback sticky_article
+      /can-we-use-magnets-to-generate-electricity-a-magnetic-marvel rule[-1] (no rule matched) -> fallback sticky_article
+      /contact                                                   rule[-1] (no rule matched) -> fallback sticky_article
+      /electricity-using-magnets                                 rule[-1] (no rule matched) -> fallback sticky_article
+      /free-electricity-from-magnets                             rule[-1] (no rule matched) -> fallback sticky_article
+      /is-magnetic-energy-renewable-or-nonrenewable              rule[-1] (no rule matched) -> fallback sticky_article
+      /magnet-motor                                              rule[-1] (no rule matched) -> fallback sticky_article
+      /magnetic-dynamo-generator                                 rule[-1] (no rule matched) -> fallback sticky_article
+      /magnetic-generator                                        rule[-1] (no rule matched) -> fallback sticky_article
+      /nikola-tesla-inventor-extraordinaire                      rule[-1] (no rule matched) -> fallback sticky_article
+      /perpetual-motion-generator                                rule[-1] (no rule matched) -> fallback sticky_article
+      /privacy                                                   rule[-1] (no rule matched) -> fallback sticky_article
+      /renewable-energy-using-magnets-a-magnetic-revolution      rule[-1] (no rule matched) -> fallback sticky_article
+      /rotating-magnetic-field-1888                              rule[-1] (no rule matched) -> fallback sticky_article
+      /solar                                                     rule[-1] (no rule matched) -> fallback sticky_article
+      /tesla-1894-plates                                         rule[-1] (no rule matched) -> fallback sticky_article
+      /tesla-1894-word-search                                    rule[-1] (no rule matched) -> fallback sticky_article
+      /tesla-1894                                                rule[-1] (no rule matched) -> fallback sticky_article
+      /tesla-cold-flame                                          rule[-1] (no rule matched) -> fallback sticky_article
+      /tesla-earthquake-machine                                  rule[-1] (no rule matched) -> fallback sticky_article
+      /tesla-free-energy-what-he-said                            rule[-1] (no rule matched) -> fallback sticky_article
+      /tesla-glowing-tubes-vacuum                                rule[-1] (no rule matched) -> fallback sticky_article
+      /tesla-high-frequency-alternator                           rule[-1] (no rule matched) -> fallback sticky_article
+      /tesla-high-frequency-massage                              rule[-1] (no rule matched) -> fallback sticky_article
+      /tesla-lit-lamps-without-wires                             rule[-1] (no rule matched) -> fallback sticky_article
+      /tesla-one-wire-power                                      rule[-1] (no rule matched) -> fallback sticky_article
+      /tesla-weird-inventions-1894                               rule[-1] (no rule matched) -> fallback sticky_article
+      /tesla-wireless-power-1893                                 rule[-1] (no rule matched) -> fallback sticky_article
+      /tesla-worlds-fair-1893                                    rule[-1] (no rule matched) -> fallback sticky_article
+      /unleashing-the-magnet-magic-is-free-energy-possible       rule[-1] (no rule matched) -> fallback sticky_article
+      /unleashing-the-power-of-free-energy                       rule[-1] (no rule matched) -> fallback sticky_article
+      /whole-house                                               rule[-1] (no rule matched) -> fallback sticky_article
+--- sticky_guide: 6
+      /How-to-Make-Free-Electricity-at-Home                      rule[4] /(for-|guide|how-to|diy|beginner|step)/
+      /diy-magnetic-generator                                    rule[4] /(for-|guide|how-to|diy|beginner|step)/
+      /magnetic-generator-for-beginners-step-by-step             rule[4] /(for-|guide|how-to|diy|beginner|step)/
+      /magnetic-generator-for-emergency-backup                   rule[4] /(for-|guide|how-to|diy|beginner|step)/
+      /magnetic-generator-for-rv-complete-off-grid-guide         rule[4] /(for-|guide|how-to|diy|beginner|step)/
+      /tesla-magnetic-generator-for-cabin                        rule[4] /(for-|guide|how-to|diy|beginner|step)/
+--- sticky_review: 5
+      /magnetic-generator-plans-review                           rule[3] /(worth-it|review|plans|vs-|cost|materials)/
+      /tesla-magnetic-generator-cost-savings-per-month           rule[3] /(worth-it|review|plans|vs-|cost|materials)/
+      /tesla-magnetic-generator-materials-list-cost              rule[3] /(worth-it|review|plans|vs-|cost|materials)/
+      /tesla-magnetic-generator-vs-solar-power-which-is-better   rule[3] /(worth-it|review|plans|vs-|cost|materials)/
+      /tesla-magnetic-generator-worth-it                         rule[3] /(worth-it|review|plans|vs-|cost|materials)/
+--- sticky_hub: 1
+      /articles                                                  rule[1] /^\/articles(\.html)?\/?$/
+--- sticky_home: 1
+      /                                                          rule[0] /^\/(index\.html)?\/?$/
+--- sticky_scam: 1
+      /magnetic-generator-scam                                   rule[2] /scam/
+
+questions this table raises rather than answers,
+  * the fallback bucket carries 38 of 52 paths, including the site's highest-intent pages
+    (/can-I-buy, /build-a-*, /whole-house, /magnetic-generator): the table will mostly
+    compare one giant bucket against 1-page buckets, which is an under-specified
+    matcher rather than a broken one, and a product decision about intent buckets
+    belongs to the owner;
+  * /magnetic-generator-scam gets its own bucket and the bar still shows there
+    (verified in the live DOM by tid-live.py), so the offer appears on the page that
+    argues the product is a scam - suppression there is also the owner's call;
+  * the rule's own comment says the scam page would otherwise land in sticky_review;
+    run against the table, it would land in sticky_article. Ordering and rule are
+    right, the comment's premise is wrong.

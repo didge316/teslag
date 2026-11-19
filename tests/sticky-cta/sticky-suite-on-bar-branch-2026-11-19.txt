@@ -1,0 +1,26 @@
+# sticky-CTA suite on branch feature/sticky-offer-bar, commit e1c4879 Sticky offer bar: the JS that makes the shipped CSS do something
+# run 2026-11-19 13:38 against :8199 (the only tree where the bar exists); the tree this run sees is the committed one for js/scripts.js
+### chromium 13:38:11
+==================================================================
+122 passed, 0 failed, 122 total
+BASELINE DRIFT (numbers changed - decide whether that is intended):
+   recalc60: 705 -> 695
+### webkit 13:41:31
+  PASS  clean console on a money page  [none]
+==================================================================
+121 passed, 0 failed, 121 total
+baseline unchanged
+### firefox 13:44:14
+  PASS  clean console on a money page  [none]
+==================================================================
+120 passed, 0 failed, 120 total
+baseline unchanged
+### engines.py cross-engine 13:47:26
+=== height vs root font (the iOS failure mode) ===
+  chromium  100%=87px  worst-of-400%=87px  drift=+0px
+  webkit    100%=87px  worst-of-400%=87px  drift=+0px
+  firefox   100%=105px  worst-of-400%=105px  drift=+0px
+
+=== verdict ===
+  asserted 27 cases (27 collected) across 3 engines: reservation >= bar, no clipping, gap >= 24px, CTA 44px tall, no wrapping
+wrote engines.json next to this file
