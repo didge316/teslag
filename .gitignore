@@ -16,3 +16,8 @@ tests/.staging/
 # out of git so `git status` keeps meaning "these are the owner's files and only the
 # owner's", which is the claim the sticky-bar and nav checks lean on.
 tests/overflow/overflow-report.json
+# pi's own per-checkout settings. Untracked today and 103 bytes, so nothing is
+# exposed - but this repo's root IS the webroot, so a single `git add -u` or
+# `git commit -a` would upload it to a public affiliate domain and it would stay
+# there in caches. Ignored so the accident is not available to make.
+.pi/
