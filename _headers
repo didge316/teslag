@@ -6,3 +6,27 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.jsdelivr.net https://eocampaign1.com 'unsafe-inline'; style-src 'self' https://cdn.jsdelivr.net https://eocampaign1.com https://fonts.googleapis.com 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' https://cdn.jsdelivr.net https://fonts.gstatic.com; connect-src 'self' https://eocampaign1.com; frame-ancestors 'none'
+
+# The sticky offer bar ships as JS plus CSS with no HTML change, which means the
+# two files have to arrive together. Live responses carry `public,
+# max-age=14400, must-revalidate` - measured on the edge today, on both paths -
+# so a returning visitor can hold one new file and one stale file for up to four
+# hours, and anything that styles what the other one writes is then out of step.
+# no-cache keeps them revalidating as a pair on every pageview; the two extra
+# conditional requests are 304s from the edge. Drop these lines if you would
+# rather accept the skew window.
+#
+# Two things this is NOT, because an earlier version of this comment said them and
+# both were wrong. It is not the safety net for the sticky bar's own deploy: the
+# bar's CSS already went to production inert days ago with item 7, so at bar-deploy
+# time the only new file is the JS and there is no fresh CSS to be split from it.
+# And it has nothing to do with `is-compact` / `is-minimal`: those tier classes do
+# not exist, zero occurrences in styles-custom.css or js/scripts.js on this branch
+# or on main - the tier system was removed deliberately, and the CONFIG comment in
+# scripts.js says so in as many words. What this protects is any future change that
+# touches both files at once, which is the ordinary case for a widget like this one.
+/js/scripts.js
+  Cache-Control: no-cache
+
+/css/styles-custom.css
+  Cache-Control: no-cache
