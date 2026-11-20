@@ -338,6 +338,20 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- The hub of the 1894 cluster. It was the only live page missing from this
+       file: Bing ranks it at position 2 and Copilot cites it, and the only other
+       page absent from the sitemap is /electrical-experimenter, which is a 301 to
+       its PDF rather than a page. Measured against this commit's parent: 51
+       inlinks from the shared navigation and 2 from article copy
+       (tesla-1894-plates and tesla-1894-word-search), so it is reachable but only
+       thinly, which is one reason to list it here. lastmod is the date the file
+       entered git, because no later edit is recorded anywhere. -->
+  <url>
+    <loc>https://teslamagneticgenerator.com/tesla-1894</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
   <url>
     <loc>https://teslamagneticgenerator.com/tesla-1894-plates</loc>
     <lastmod>2026-10-27</lastmod>
