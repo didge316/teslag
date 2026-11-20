@@ -531,9 +531,11 @@ def main():
                         # it back rather than assuming it landed.
                         injected = route_font(c, font, p)
                         try:
+                            r = None
                             for attempt in (1, 2):
                                 try:
-                                    pg.goto(f"{base}/{p}.html", wait_until="load", timeout=60000)
+                                    r = pg.goto(f"{base}/{p}.html", wait_until="load",
+                                                 timeout=60000)
                                     break
                                 except Exception as exc:                                   # noqa: BLE001
                                     # Firefox on a loaded box takes well over 30s for
@@ -543,6 +545,22 @@ def main():
                                         raise
                                     print(f"  retry {p} @ {width}px root {font} "
                                           f"({str(exc).splitlines()[0][:60]})")
+                            # WHY THIS CHECK EXISTS, and it is not paranoia: the page
+                            # list comes from the working tree (probe.PAGES lists SITE)
+                            # while the tree being served is built separately, so a page
+                            # that exists in one and not the other is a standing
+                            # possibility. http.server answers such a request with a 404
+                            # body of its own, whose width fits any viewport, so every
+                            # cell for a missing page came back green. The injection and
+                            # CSS-route checks below prove a navigation happened; only the
+                            # status proves what was actually measured. Found while
+                            # measuring the February 1919 page, which had never been in a
+                            # served tree at all.
+                            if r is None or r.status != 200:
+                                raise Instrument(
+                                    f"{p} @ {width}px root {font}px: {base}/{p}.html answered "
+                                    f"HTTP {getattr(r, 'status', None)} - this cell would have "
+                                    f"measured a 404 page, not {p}.html")
                             if injected["n"] == 0:
                                 raise Instrument(f"{p} @ {width}px: the injection route never "
                                                  f"fired for this navigation, so the root font "
