@@ -12,7 +12,7 @@ The build plans recommended throughout this site are packaged as the Complete Ul
 
 ## Free Download
 
-- [The Electrical Experimenter (1919 magazine, PDF)](https://teslamagneticgenerator.com/assets/electrical-experimenter.pdf): The free book the site offers to new email subscribers. It is a PDF, not a page; the old /electrical-experimenter landing page was removed and now redirects here.
+- [The Electrical Experimenter (1919 magazine, PDF)](https://teslamagneticgenerator.com/assets/electrical-experimenter.pdf): The free magazine the site offers to new email subscribers: the February 1919 issue, 84 page images, 16 MB. What is actually in it, and how to cite a page from it, is on /electrical-experimenter.
 
 ## Main Pages
 
@@ -68,3 +68,4 @@ The build plans recommended throughout this site are packaged as the Complete Ul
 - [Glowing Glass in Tesla's Bare Hand: 1894's Tubes](https://teslamagneticgenerator.com/tesla-glowing-tubes-vacuum): In February 1892 Nikola Tesla took an exhausted glass tube with no wires in it in his hand, and it lit up. The 1894 first edition prints that demonstration, the nine pages about exciting a tube without wires that are four different texts by four different men, and the lamp Tesla tried to build out of the same glow. Every sentence below is cited to a printed page of that edition, and says whose sentence it is.
 - [Tesla 1894 Plates: 72 Engravings, Cited Page by Page](https://teslamagneticgenerator.com/tesla-1894-plates): Seventy-two engravings and photographs from the 1894 first edition, each one cited to the printed page the book puts it on, with the figure number the
 - [Tesla 1894 Word Search: Free Energy 0, Perpetual 0](https://teslamagneticgenerator.com/tesla-1894-word-search): This series says the 1894 book never uses the phrase 'free energy'. That is a countable claim, so here is the count: the command, the numbers, the pri
+- [Electrical Experimenter, February 1919: Tesla's Own Words](https://teslamagneticgenerator.com/electrical-experimenter): The magazine issue that is this site's free download, described instead of offered. It is where Tesla's only autobiography begins (p. 696) and where he restated his wireless claim (p. 692). What is in it, the page rule for citing it, and the same phrase counts run against it.

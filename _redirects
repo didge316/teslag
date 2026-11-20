@@ -99,15 +99,16 @@
 
 # --- Removed pages (decision D3) ------------------------------------------
 # Both pages were live but linked from nowhere and had zero impressions and zero
-# clicks. They are deleted; these four rules are insurance against an old
+# clicks. They are deleted; these two rules are insurance against an old
 # backlink we cannot see from here. /opt-in has no successor page, so it lands
-# on the home. /electrical-experimenter's only content was a download button, so
-# it lands on the download itself - the free 1919 magazine is the lead magnet in
-# the email sequence, and the PDF is unaffected by deleting the page.
+# on the home.
+# /electrical-experimenter was deleted for the same reason and pointed at its own
+# PDF by two 301 rules. It is a page again (2026-10-20), so those two rules are
+# gone: section 5.1 says a rule whose source is an existing page never fires, and
+# it also blocks the platform's own trailing-slash normalisation. The PDF is
+# unchanged and the page links it.
 /opt-in                    /                                        301
 /opt-in/                   /                                        301
-/electrical-experimenter   /assets/electrical-experimenter.pdf    301
-/electrical-experimenter/  /assets/electrical-experimenter.pdf    301
 
 # --- The 1894 File series --------------------------------------------------
 # The series slugs ARE the canonical URLs (/tesla-earthquake-machine etc.), so

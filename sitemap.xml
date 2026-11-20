@@ -365,4 +365,15 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Not a series page. It is the companion the hub links from "What the book
+       does not say": the February 1919 magazine this site offers as a free
+       download, described rather than offered. Same priority as the series
+       pages because the hub links it and the email sequence points at the file. -->
+  <url>
+    <loc>https://teslamagneticgenerator.com/electrical-experimenter</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
